@@ -9,6 +9,8 @@
 #import "QCKInvocation.h"
 #import "QuickTests-Swift.h"
 
+#pragma mark - Public Interface
+
 extern NSString *qck_className(id object) {
     return NSStringFromClass([object class]);
 }

@@ -14,6 +14,8 @@
 		DA07BFDB193FD39200120C13 /* QuickSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFD5193FD39200120C13 /* QuickSpec.swift */; };
 		DA07BFDD193FD3DB00120C13 /* ExampleGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFDC193FD3DA00120C13 /* ExampleGroupTests.swift */; };
 		DA07BFE0193FD42000120C13 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFDF193FD42000120C13 /* Person.swift */; };
+		DA07BFE2193FD76600120C13 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFE1193FD76600120C13 /* World.swift */; };
+		DA07BFE4193FDD5900120C13 /* QCKInvocationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFE3193FDD5900120C13 /* QCKInvocationSpec.swift */; };
 		DA587A1F193FABE300EFFD5B /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DA587A1E193FABE300EFFD5B /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA587A25193FABE300EFFD5B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA587A19193FABE300EFFD5B /* Quick.framework */; };
 		DA587A2C193FABE300EFFD5B /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587A2B193FABE300EFFD5B /* FunctionalTests.swift */; };
@@ -46,6 +48,8 @@
 		DA07BFD6193FD39200120C13 /* QuickTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuickTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA07BFDC193FD3DA00120C13 /* ExampleGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroupTests.swift; sourceTree = "<group>"; };
 		DA07BFDF193FD42000120C13 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DA07BFE1193FD76600120C13 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		DA07BFE3193FDD5900120C13 /* QCKInvocationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QCKInvocationSpec.swift; sourceTree = "<group>"; };
 		DA587A19193FABE300EFFD5B /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA587A1D193FABE300EFFD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA587A1E193FABE300EFFD5B /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 		DA07BFCF193FD39200120C13 /* Quick */ = {
 			isa = PBXGroup;
 			children = (
+				DA07BFE1193FD76600120C13 /* World.swift */,
 				DA07BFD0193FD39200120C13 /* DSL.swift */,
 				DA07BFD1193FD39200120C13 /* Example.swift */,
 				DA07BFD2193FD39200120C13 /* ExampleGroup.swift */,
@@ -135,6 +140,7 @@
 			children = (
 				DA587A2B193FABE300EFFD5B /* FunctionalTests.swift */,
 				DA07BFDC193FD3DA00120C13 /* ExampleGroupTests.swift */,
+				DA07BFE3193FDD5900120C13 /* QCKInvocationSpec.swift */,
 				DA07BFDE193FD41200120C13 /* Fixtures */,
 				DA07BFCF193FD39200120C13 /* Quick */,
 				DA587A29193FABE300EFFD5B /* Supporting Files */,
@@ -266,11 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA07BFE2193FD76600120C13 /* World.swift in Sources */,
 				DA587A2C193FABE300EFFD5B /* FunctionalTests.swift in Sources */,
 				DA07BFDA193FD39200120C13 /* QCKInvocation.m in Sources */,
 				DA07BFDB193FD39200120C13 /* QuickSpec.swift in Sources */,
 				DA07BFD7193FD39200120C13 /* DSL.swift in Sources */,
 				DA07BFDD193FD3DB00120C13 /* ExampleGroupTests.swift in Sources */,
+				DA07BFE4193FDD5900120C13 /* QCKInvocationSpec.swift in Sources */,
 				DA07BFD9193FD39200120C13 /* ExampleGroup.swift in Sources */,
 				DA07BFE0193FD42000120C13 /* Person.swift in Sources */,
 				DA07BFD8193FD39200120C13 /* Example.swift in Sources */,
