@@ -7,14 +7,14 @@
 //
 
 class Person {
-	var isHappy = true
-	var greeting: String {
-		get {
-			if isHappy {
-				return "Hello!"
-			} else {
-				return "Oh, hi."
-			}
-		}
-	}
+    var isHappy = true
+    var greeting: String {
+        get {
+            if isHappy {
+                return "Hello!"
+            } else {
+                return "Oh, hi."
+            }
+        }
+    }
 }

@@ -9,36 +9,36 @@
 import XCTest
 
 class ExampleGroupTests : XCTestCase {
-	func testExampleGroups() {
-		var root = ExampleGroup("Person")
+    func testExampleGroups() {
+        var root = ExampleGroup("Person")
 
-		var person: Person?
-		root.localBefores.append() {
-			person = Person()
-		}
+        var person: Person?
+        root.localBefores.append() {
+            person = Person()
+        }
 
-		var itIsHappy = Example("is happy") {
-			XCTAssert(person!.isHappy, "expected person to be happy by default")
-		}
-		root.appendExample(itIsHappy)
+        var itIsHappy = Example("is happy") {
+            XCTAssert(person!.isHappy, "expected person to be happy by default")
+        }
+        root.appendExample(itIsHappy)
 
-		var whenUnhappy = ExampleGroup("when the person is unhappy")
-		whenUnhappy.localBefores.append() {
-			person!.isHappy = false
-		}
-		var itGreetsHalfheartedly = Example("greets halfheartedly") {
-			XCTAssertEqualObjects(person!.greeting, "Oh, hi.", "expected a halfhearted greeting")
-		}
-		whenUnhappy.appendExample(itGreetsHalfheartedly)
-		root.appendExampleGroup(whenUnhappy)
+        var whenUnhappy = ExampleGroup("when the person is unhappy")
+        whenUnhappy.localBefores.append() {
+            person!.isHappy = false
+        }
+        var itGreetsHalfheartedly = Example("greets halfheartedly") {
+            XCTAssertEqualObjects(person!.greeting, "Oh, hi.", "expected a halfhearted greeting")
+        }
+        whenUnhappy.appendExample(itGreetsHalfheartedly)
+        root.appendExampleGroup(whenUnhappy)
 
-		var whenHappy = ExampleGroup("when the person is happy")
-		var itGreetsEnthusiastically = Example("greets enthusiastically") {
-			XCTAssertEqualObjects(person!.greeting, "Hello!", "expected an enthusiastic greeting")
-		}
-		whenHappy.appendExample(itGreetsEnthusiastically)
-		root.appendExampleGroup(whenHappy)
+        var whenHappy = ExampleGroup("when the person is happy")
+        var itGreetsEnthusiastically = Example("greets enthusiastically") {
+            XCTAssertEqualObjects(person!.greeting, "Hello!", "expected an enthusiastic greeting")
+        }
+        whenHappy.appendExample(itGreetsEnthusiastically)
+        root.appendExampleGroup(whenHappy)
 
-		root.run()
-	}
+        root.run()
+    }
 }

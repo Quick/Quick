@@ -9,28 +9,28 @@
 import XCTest
 
 class QuickSpec: XCTestCase {
-	override var name: String! { get { return qck_className(self) } }
+    override var name: String! { get { return qck_className(self) } }
 
-	override class func initialize() {
-		exampleGroups()
-	}
+    override class func initialize() {
+        exampleGroups()
+    }
 
-	class func exampleGroups() { }
-	class var isConcreteSpec: Bool { get { return false } }
+    class func exampleGroups() { }
+    class var isConcreteSpec: Bool { get { return false } }
 
-	func runExampleAtIndex(index: Int) {
-		currentExampleGroup.examples[index].run()
-	}
+    func runExampleAtIndex(index: Int) {
+        currentExampleGroup.examples[index].run()
+    }
 
-	override class func testInvocations() -> AnyObject[]! {
-		if !self.isConcreteSpec {
-			return []
-		}
+    override class func testInvocations() -> AnyObject[]! {
+        if !self.isConcreteSpec {
+            return []
+        }
 
-		var invocations: AnyObject[] = []
-		for i in 0..currentExampleGroup.examples.count {
-			invocations.append(qck_invocationForExampleAtIndex(i))
-		}
-		return invocations
-	}
+        var invocations: AnyObject[] = []
+        for i in 0..currentExampleGroup.examples.count {
+            invocations.append(qck_invocationForExampleAtIndex(i))
+        }
+        return invocations
+    }
 }

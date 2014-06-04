@@ -10,17 +10,17 @@
 #import "QuickTests-Swift.h"
 
 extern NSString *qck_className(id object) {
-	return NSStringFromClass([object class]);
+    return NSStringFromClass([object class]);
 }
 
 extern NSInvocation *qck_invocationForExampleAtIndex(NSUInteger index) {
-	SEL selector = @selector(runExampleAtIndex:);
-	NSMethodSignature *signature = [[QuickSpec class] instanceMethodSignatureForSelector:selector];
+    SEL selector = @selector(runExampleAtIndex:);
+    NSMethodSignature *signature = [[QuickSpec class] instanceMethodSignatureForSelector:selector];
 
-	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-	invocation.selector = selector;
-	NSUInteger i = index;
-	[invocation setArgument:&i atIndex:2];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    invocation.selector = selector;
+    NSUInteger i = index;
+    [invocation setArgument:&i atIndex:2];
 
-	return invocation;
+    return invocation;
 }

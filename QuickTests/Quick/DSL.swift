@@ -11,27 +11,27 @@ import UIKit
 var currentExampleGroup = ExampleGroup("root example group")
 
 func describe(description: String, closure: () -> ()) {
-	var group = ExampleGroup(description)
-	currentExampleGroup.appendExampleGroup(group)
+    var group = ExampleGroup(description)
+    currentExampleGroup.appendExampleGroup(group)
 
-	currentExampleGroup = group
-	closure()
-	currentExampleGroup = group.parent!
+    currentExampleGroup = group
+    closure()
+    currentExampleGroup = group.parent!
 }
 
 func context(description: String, closure: () -> ()) {
-	describe(description, closure)
+    describe(description, closure)
 }
 
 func beforeEach(closure: () -> ()) {
-	currentExampleGroup.localBefores.append(closure)
+    currentExampleGroup.localBefores.append(closure)
 }
 
 func afterEach(closure: () -> ()) {
-	currentExampleGroup.localAfters.append(closure)
+    currentExampleGroup.localAfters.append(closure)
 }
 
 func it(description: String, closure: () -> ()) {
-	let example = Example(description, closure)
-	currentExampleGroup.appendExample(example)
+    let example = Example(description, closure)
+    currentExampleGroup.appendExample(example)
 }

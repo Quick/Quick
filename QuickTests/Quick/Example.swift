@@ -7,28 +7,28 @@
 //
 
 class Example {
-	var group: ExampleGroup?
-	var description: String
-	var closure: () -> ()
+    var group: ExampleGroup?
+    var description: String
+    var closure: () -> ()
 
-	init(_ description: String, _ closure: () -> ()) {
-		self.description = description
-		self.closure = closure
-	}
+    init(_ description: String, _ closure: () -> ()) {
+        self.description = description
+        self.closure = closure
+    }
 
-	func run() {
-		if let group = self.group {
-			for before in group.befores {
-				before()
-			}
-		}
+    func run() {
+        if let group = self.group {
+            for before in group.befores {
+                before()
+            }
+        }
 
-		closure()
+        closure()
 
-		if let group = self.group {
-			for after in group.afters {
-				after()
-			}
-		}
-	}
+        if let group = self.group {
+            for after in group.afters {
+                after()
+            }
+        }
+    }
 }
