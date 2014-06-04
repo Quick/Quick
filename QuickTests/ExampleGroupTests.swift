@@ -1,6 +1,6 @@
 //
-//  QuickTests.swift
-//  QuickTests
+//  ExampleGroupTests.swift
+//  Quick
 //
 //  Created by Brian Ivan Gesiak on 6/5/14.
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
@@ -8,50 +8,8 @@
 
 import XCTest
 
-class Person {
-	var isHappy = true
-	var greeting: String {
-		get {
-			if isHappy {
-				return "Hello!"
-			} else {
-				return "Oh, hi."
-			}
-		}
-	}
-}
-
-class QuickTests: XCTestCase {
-	func testDSL() {
-		describe("Person") {
-			var person: Person?
-			beforeEach() { person = Person() }
-			afterEach() { person = nil }
-
-
-			it("is happy") {
-				XCTAssert(person!.isHappy, "expected person to be happy by default")
-			}
-
-			describe("greeting") {
-				context("when the person is unhappy") {
-					beforeEach() { person!.isHappy = false }
-					it("is lukewarm") {
-						XCTAssertEqualObjects(person!.greeting, "Oh, hi.", "expected a lukewarm greeting")
-					}
-				}
-
-				context("when the person is happy") {
-					beforeEach() { person!.isHappy = true }
-					it("is enthusiastic") {
-						XCTAssertEqualObjects(person!.greeting, "Hello!", "expected an enthusiastic greeting")
-					}
-				}
-			}
-		}
-	}
-
-    func testWithoutDSL() {
+class ExampleGroupTests : XCTestCase {
+	func testExampleGroups() {
 		var root = ExampleGroup("Person")
 
 		var person: Person?
@@ -82,5 +40,5 @@ class QuickTests: XCTestCase {
 		root.appendExampleGroup(whenHappy)
 
 		root.run()
-    }
+	}
 }

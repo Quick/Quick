@@ -17,8 +17,6 @@ class Example {
 	}
 
 	func run() {
-		println("Running '\(description)'...")
-
 		if let group = self.group {
 			for before in group.befores {
 				before()
