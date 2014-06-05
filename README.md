@@ -1,6 +1,6 @@
 # Quick
 
-An behavior-driven development framework for Swift. Inspired by
+A behavior-driven development framework for Swift. Inspired by
 [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta),
 and [Ginkgo](https://github.com/onsi/ginkgo).
 
