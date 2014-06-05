@@ -13,7 +13,7 @@ class ExampleGroupTests : XCTestCase {
         var root = ExampleGroup("Person")
 
         var person: Person?
-        root.localBefores.append() {
+        root.appendBefore() {
             person = Person()
         }
 
@@ -23,7 +23,7 @@ class ExampleGroupTests : XCTestCase {
         root.appendExample(itIsHappy)
 
         var whenUnhappy = ExampleGroup("when the person is unhappy")
-        whenUnhappy.localBefores.append() {
+        whenUnhappy.appendBefore() {
             person!.isHappy = false
         }
         var itGreetsHalfheartedly = Example("greets halfheartedly") {

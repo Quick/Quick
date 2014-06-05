@@ -7,22 +7,23 @@
 //
 
 class ExampleGroup {
-    var description: String
     var parent: ExampleGroup?
-    var localBefores: (() -> ())[] = []
-    var localAfters: (() -> ())[] = []
-    var groups: ExampleGroup[] = []
-    var localExamples: Example[] = []
+
+    var _description: String
+    var _localBefores: (() -> ())[] = []
+    var _localAfters: (() -> ())[] = []
+    var _groups: ExampleGroup[] = []
+    var _localExamples: Example[] = []
 
     init(_ description: String) {
-        self.description = description
+        self._description = description
     }
 
     var befores: (() -> ())[] {
         get {
-            var closures = localBefores
+            var closures = _localBefores
             walkUp() { (group: ExampleGroup) -> () in
-                closures.extend(group.localBefores)
+                closures.extend(group._localBefores)
             }
             return closures.reverse()
         }
@@ -30,9 +31,9 @@ class ExampleGroup {
 
     var afters: (() -> ())[] {
         get {
-            var closures = localAfters
+            var closures = _localAfters
             walkUp() { (group: ExampleGroup) -> () in
-                closures.extend(group.localAfters)
+                closures.extend(group._localAfters)
             }
             return closures
         }
@@ -40,8 +41,8 @@ class ExampleGroup {
 
     var examples: Example[] {
         get {
-            var examples = localExamples
-            for group in groups {
+            var examples = _localExamples
+            for group in _groups {
                 examples.extend(group.examples)
             }
             return examples
@@ -49,23 +50,23 @@ class ExampleGroup {
     }
 
     var name: String {
-    get {
-        var name = description
-        walkUp() { (group: ExampleGroup) -> () in
-            if group.parent {
-                name = group.description + ", " + name
+        get {
+            var name = _description
+            walkUp() { (group: ExampleGroup) -> () in
+                if group.parent {
+                    name = group._description + ", " + name
+                }
             }
+            return name
         }
-        return name
-    }
     }
 
     func run() {
-        for example in localExamples {
+        for example in _localExamples {
             example.run()
         }
 
-        for group in groups {
+        for group in _groups {
             group.run()
         }
     }
@@ -80,11 +81,19 @@ class ExampleGroup {
 
     func appendExampleGroup(group: ExampleGroup) {
         group.parent = self
-        groups.append(group)
+        _groups.append(group)
     }
 
     func appendExample(example: Example) {
         example.group = self
-        localExamples.append(example)
+        _localExamples.append(example)
+    }
+
+    func appendBefore(closure: () -> ()) {
+        _localBefores.append(closure)
+    }
+
+    func appendAfter(closure: () -> ()) {
+        _localAfters.append(closure)
     }
 }

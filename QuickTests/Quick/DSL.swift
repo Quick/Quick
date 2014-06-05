@@ -19,11 +19,11 @@ func context(description: String, closure: () -> ()) {
 }
 
 func beforeEach(closure: () -> ()) {
-    currentExampleGroup!.localBefores.append(closure)
+    currentExampleGroup!.appendBefore(closure)
 }
 
 func afterEach(closure: () -> ()) {
-    currentExampleGroup!.localAfters.append(closure)
+    currentExampleGroup!.appendAfter(closure)
 }
 
 func it(description: String, closure: () -> ()) {

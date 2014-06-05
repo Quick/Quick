@@ -8,13 +8,15 @@
 
 class Example {
     var group: ExampleGroup?
-    var description: String
-    var closure: () -> ()
-    var name: String { get { return group!.name + ", " + description } }
+
+    var _description: String
+    var _closure: () -> ()
+
+    var name: String { get { return group!.name + ", " + _description } }
 
     init(_ description: String, _ closure: () -> ()) {
-        self.description = description
-        self.closure = closure
+        self._description = description
+        self._closure = closure
     }
 
     func run() {
@@ -22,7 +24,7 @@ class Example {
             before()
         }
 
-        closure()
+        _closure()
 
         for after in group!.afters {
             after()
