@@ -19,32 +19,44 @@ class ExampleGroup {
     }
 
     var befores: (() -> ())[] {
-    get {
-        var closures = localBefores
-        walkUp() { (group: ExampleGroup) -> () in
-            closures.extend(group.localBefores)
+        get {
+            var closures = localBefores
+            walkUp() { (group: ExampleGroup) -> () in
+                closures.extend(group.localBefores)
+            }
+            return closures.reverse()
         }
-        return closures.reverse()
-    }
     }
 
     var afters: (() -> ())[] {
-    get {
-        var closures = localAfters
-        walkUp() { (group: ExampleGroup) -> () in
-            closures.extend(group.localAfters)
+        get {
+            var closures = localAfters
+            walkUp() { (group: ExampleGroup) -> () in
+                closures.extend(group.localAfters)
+            }
+            return closures
         }
-        return closures
-    }
     }
 
     var examples: Example[] {
-    get {
-        var examples = localExamples
-        for group in groups {
-            examples.extend(group.examples)
+        get {
+            var examples = localExamples
+            for group in groups {
+                examples.extend(group.examples)
+            }
+            return examples
         }
-        return examples
+    }
+
+    var name: String {
+    get {
+        var name = description
+        walkUp() { (group: ExampleGroup) -> () in
+            if group.parent {
+                name = group.description + ", " + name
+            }
+        }
+        return name
     }
     }
 

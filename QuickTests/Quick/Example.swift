@@ -10,6 +10,7 @@ class Example {
     var group: ExampleGroup?
     var description: String
     var closure: () -> ()
+    var name: String { get { return group!.name + ", " + description } }
 
     init(_ description: String, _ closure: () -> ()) {
         self.description = description
@@ -17,18 +18,14 @@ class Example {
     }
 
     func run() {
-        if let group = self.group {
-            for before in group.befores {
-                before()
-            }
+        for before in group!.befores {
+            before()
         }
 
         closure()
 
-        if let group = self.group {
-            for after in group.afters {
-                after()
-            }
+        for after in group!.afters {
+            after()
         }
     }
 }

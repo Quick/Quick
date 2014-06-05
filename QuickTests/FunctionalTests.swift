@@ -9,7 +9,6 @@
 import XCTest
 
 class FunctionalSpec: QuickSpec {
-    override var name: String! { get { return "FunctionalSpec" } }
     override class var isConcreteSpec: Bool { get { return true } }
 
     override class func exampleGroups() {

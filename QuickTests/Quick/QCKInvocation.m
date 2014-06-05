@@ -9,20 +9,23 @@
 #import "QCKInvocation.h"
 #import "QuickTests-Swift.h"
 
+static void const *QCKInvocationKey = &QCKInvocationKey;
+static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
+
 #pragma mark - Public Interface
 
-extern NSString *qck_className(id object) {
+NSString *qck_className(id object) {
     return NSStringFromClass([object class]);
 }
 
-extern NSInvocation *qck_invocationForExampleAtIndex(NSUInteger index) {
+NSInvocation *qck_invocationForExampleAtIndex(NSUInteger index) {
     SEL selector = @selector(runExampleAtIndex:);
     NSMethodSignature *signature = [[QuickSpec class] instanceMethodSignatureForSelector:selector];
 
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     invocation.selector = selector;
     NSUInteger i = index;
-    [invocation setArgument:&i atIndex:2];
+    [invocation setArgument:&i atIndex:QCKIndex];
 
     return invocation;
 }

@@ -9,7 +9,6 @@
 import XCTest
 
 class QCKInvocationSpec: QuickSpec {
-    override var name: String! { get { return "QCKInvocationSpec" } }
     override class var isConcreteSpec: Bool { get { return true } }
 
     override class func exampleGroups() {

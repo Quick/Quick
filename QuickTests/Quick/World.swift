@@ -8,9 +8,9 @@
 
 import Foundation
 
+var specs: Dictionary<String, ExampleGroup> = [:]
 var currentSpec: String?
 var currentExampleGroup: ExampleGroup?
-var specs: Dictionary<String, ExampleGroup> = [:]
 
 func rootExampleGroupForSpec(name: String) -> ExampleGroup {
     if let group = specs[name] {
