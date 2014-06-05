@@ -14,8 +14,8 @@ class FunctionalSpec: QuickSpec {
     override class func exampleGroups() {
         describe("Person") {
             var person: Person?
-            beforeEach() { person = Person() }
-            afterEach() { person = nil }
+            beforeEach { person = Person() }
+            afterEach  { person = nil }
 
             it("is happy") {
                 XCTAssert(person!.isHappy, "expected person to be happy by default")
@@ -23,14 +23,14 @@ class FunctionalSpec: QuickSpec {
 
             describe("greeting") {
                 context("when the person is unhappy") {
-                    beforeEach() { person!.isHappy = false }
+                    beforeEach { person!.isHappy = false }
                     it("is lukewarm") {
                         XCTAssertEqualObjects(person!.greeting, "Oh, hi.", "expected a lukewarm greeting")
                     }
                 }
 
                 context("when the person is happy") {
-                    beforeEach() { person!.isHappy = true }
+                    beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
                         XCTAssertEqualObjects(person!.greeting, "Hello!", "expected an enthusiastic greeting")
                     }
