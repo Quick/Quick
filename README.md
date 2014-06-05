@@ -13,7 +13,7 @@ class PersonSpec: QuickSpec {
     override class func exampleGroups() {
         describe("Person") {
             var person: Person?
-            beforeEach() { person = Person() }
+            beforeEach { person = Person() }
 
             it("is happy") {
                 XCTAssert(person!.isHappy,
@@ -22,7 +22,7 @@ class PersonSpec: QuickSpec {
 
             describe("greeting") {
                 context("when the person is unhappy") {
-                    beforeEach() { person!.isHappy = false }
+                    beforeEach { person!.isHappy = false }
                     it("is lukewarm") {
                         XCTAssertEqualObjects(person!.greeting, "Oh, hi.",
                             "expected a lukewarm greeting")
@@ -30,7 +30,7 @@ class PersonSpec: QuickSpec {
                 }
 
                 context("when the person is happy") {
-                    beforeEach() { person!.isHappy = true }
+                    beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
                         XCTAssertEqualObjects(person!.greeting, "Hello!",
                             "expected an enthusiastic greeting")
