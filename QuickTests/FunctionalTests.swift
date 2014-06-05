@@ -17,7 +17,6 @@ class FunctionalSpec: QuickSpec {
             beforeEach() { person = Person() }
             afterEach() { person = nil }
 
-
             it("is happy") {
                 XCTAssert(person!.isHappy, "expected person to be happy by default")
             }
