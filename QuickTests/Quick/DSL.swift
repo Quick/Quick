@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-import XCTest
-
 func describe(description: String, closure: () -> ()) {
     var group = ExampleGroup(description)
     World.currentExampleGroup()!.appendExampleGroup(group)

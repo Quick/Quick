@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-class Example: NSObject {
+@objc class Example {
     weak var group: ExampleGroup?
 
     var _description: String

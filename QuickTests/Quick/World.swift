@@ -13,7 +13,7 @@ let QCKExampleGroupsKey = "QCKExampleGroupsKey"
 var _specs: Dictionary<String, ExampleGroup> = [:]
 var _currentExampleGroup: ExampleGroup?
 
-class World: NSObject {
+@objc class World {
     class func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
         let name = NSStringFromClass(cls)
         if let group = _specs[name] {
