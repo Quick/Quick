@@ -51,7 +51,7 @@ Still, if you want to test it out:
 1. Clone the repository
 2. Add the files in `QuickTests/Quick` to your test target
 3. Set the `Objective-C Bridging Header` of your test target to
-   `QuickTests/Quick/QuickTests-Bridging-Header.h`
+   `QuickTests/Quick/Quick-Bridging-Header.h`
 4. Start writing specs!
 
 ## License
