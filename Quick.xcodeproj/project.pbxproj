@@ -54,7 +54,7 @@
 		DA07BFD0193FD39200120C13 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		DA07BFD1193FD39200120C13 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		DA07BFD2193FD39200120C13 /* ExampleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
-		DA07BFD6193FD39200120C13 /* QuickTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuickTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		DA07BFD6193FD39200120C13 /* Quick-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Quick-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA07BFDC193FD3DA00120C13 /* ExampleGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroupTests.swift; sourceTree = "<group>"; };
 		DA07BFDF193FD42000120C13 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DA07BFE1193FD76600120C13 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 				DA07BFD0193FD39200120C13 /* DSL.swift */,
 				DA07BFD1193FD39200120C13 /* Example.swift */,
 				DA07BFD2193FD39200120C13 /* ExampleGroup.swift */,
-				DA07BFD6193FD39200120C13 /* QuickTests-Bridging-Header.h */,
+				DA07BFD6193FD39200120C13 /* Quick-Bridging-Header.h */,
 				34A91BC51941951B00B9CDEF /* QuickSpec.h */,
 				34A91BC61941951B00B9CDEF /* QuickSpec.m */,
 			);
@@ -464,7 +464,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QuickTests/Quick/QuickTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuickTests/Quick/Quick-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -481,7 +481,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QuickTests/Quick/QuickTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QuickTests/Quick/Quick-Bridging-Header.h";
 			};
 			name = Release;
 		};
