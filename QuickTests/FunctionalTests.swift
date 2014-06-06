@@ -18,21 +18,21 @@ class PersonSpec: QuickSpec {
             afterEach  { person = nil }
 
             it("is happy") {
-                XCTAssert(person!.isHappy, "expected person to be happy by default")
+                expect(person!.isHappy).to.beTrue()
             }
 
             describe("greeting") {
                 context("when the person is unhappy") {
                     beforeEach { person!.isHappy = false }
                     it("is lukewarm") {
-                        XCTAssertEqualObjects(person!.greeting, "Oh, hi.", "expected a lukewarm greeting")
+                        expect(person!.greeting).to.equal("Oh, hi.")
                     }
                 }
 
                 context("when the person is happy") {
                     beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
-                        XCTAssertEqualObjects(person!.greeting, "Hello!", "expected an enthusiastic greeting")
+                        expect(person!.greeting).to.equal("Hello!")
                     }
                 }
             }
@@ -54,14 +54,14 @@ class PoetSpec: QuickSpec {
                 context("when the poet is unhappy") {
                     beforeEach { poet!.isHappy = false }
                     it("is dramatic") {
-                        XCTAssertEqualObjects(poet!.greeting, "Woe is me!", "expected a dramatic greeting")
+                        expect(poet!.greeting).to.equal("Woe is me!")
                     }
                 }
 
                 context("when the poet is happy") {
                     beforeEach { poet!.isHappy = true }
                     it("is joyous") {
-                        XCTAssertEqualObjects(poet!.greeting, "Oh, joyous day!", "expected a joyous greeting")
+                        expect(poet!.greeting).to.equal("Oh, joyous day!")
                     }
                 }
             }

@@ -16,24 +16,21 @@ class PersonSpec: QuickSpec {
             beforeEach { person = Person() }
 
             it("is happy") {
-                XCTAssert(person!.isHappy,
-                    "expected person to be happy by default")
+                expect(person!.isHappy).to.beTrue()
             }
 
             describe("greeting") {
                 context("when the person is unhappy") {
                     beforeEach { person!.isHappy = false }
                     it("is lukewarm") {
-                        XCTAssertEqualObjects(person!.greeting, "Oh, hi.",
-                            "expected a lukewarm greeting")
+                        expect(person!.greeting).to.equal("Oh, hi.")
                     }
                 }
 
                 context("when the person is happy") {
                     beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
-                        XCTAssertEqualObjects(person!.greeting, "Hello!",
-                            "expected an enthusiastic greeting")
+                        expect(person!.greeting).to.equal("Hello!")
                     }
                 }
             }
