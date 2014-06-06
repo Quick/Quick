@@ -7,7 +7,7 @@
 //
 
 class Example {
-    var group: ExampleGroup?
+    weak var group: ExampleGroup?
 
     var _description: String
     var _closure: () -> ()

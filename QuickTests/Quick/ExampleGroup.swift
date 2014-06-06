@@ -7,7 +7,7 @@
 //
 
 class ExampleGroup {
-    var parent: ExampleGroup?
+    weak var parent: ExampleGroup?
 
     var _description: String
     var _localBefores: (() -> ())[] = []
