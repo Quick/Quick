@@ -19,6 +19,10 @@ class PersonSpec: QuickSpec {
                 expect(person!.isHappy).to.beTrue()
             }
 
+            it("is a dreamer") {
+                expect(person!.hopes).to.contain("winning the lottery")
+            }
+
             describe("greeting") {
                 context("when the person is unhappy") {
                     beforeEach { person!.isHappy = false }

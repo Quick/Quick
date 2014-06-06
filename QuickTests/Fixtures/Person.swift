@@ -8,6 +8,8 @@
 
 class Person {
     var isHappy = true
+    var hopes = ["winning the lottery", "going on a blimp ride"]
+
     var greeting: String {
         get {
             if isHappy {
