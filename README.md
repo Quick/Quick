@@ -5,8 +5,6 @@ A behavior-driven development framework for Swift. Inspired by
 and [Ginkgo](https://github.com/onsi/ginkgo).
 
 ```swift
-import XCTest
-
 class PersonSpec: QuickSpec {
     override class func isConcreteSpec() -> Bool { return true }
 
