@@ -9,7 +9,7 @@
 import XCTest
 
 class PersonSpec: QuickSpec {
-    override class var isConcreteSpec: Bool { get { return true } }
+    override class func isConcreteSpec() -> Bool { return true }
 
     override class func exampleGroups() {
         describe("Person") {
@@ -41,7 +41,7 @@ class PersonSpec: QuickSpec {
 }
 
 class PoetSpec: QuickSpec {
-    override class var isConcreteSpec: Bool { get { return true } }
+    override class func isConcreteSpec() -> Bool { return true }
 
     override class func exampleGroups() {
         describe("Poet") {

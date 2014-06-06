@@ -8,7 +8,7 @@ and [Ginkgo](https://github.com/onsi/ginkgo).
 import XCTest
 
 class PersonSpec: QuickSpec {
-    override class var isConcreteSpec: Bool { get { return true } }
+    override class func isConcreteSpec() -> Bool { return true }
 
     override class func exampleGroups() {
         describe("Person") {

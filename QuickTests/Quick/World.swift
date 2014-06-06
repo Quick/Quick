@@ -8,16 +8,28 @@
 
 import Foundation
 
-var specs: Dictionary<String, ExampleGroup> = [:]
-var currentExampleGroup: ExampleGroup?
+let QCKExampleGroupsKey = "QCKExampleGroupsKey"
 
-func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
-    let name = NSStringFromClass(cls)
-    if let group = specs[name] {
-        return group
-    } else {
-        let group = ExampleGroup("root example group")
-        specs[name] = group
-        return group
+var _specs: Dictionary<String, ExampleGroup> = [:]
+var _currentExampleGroup: ExampleGroup?
+
+class World: NSObject {
+    class func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
+        let name = NSStringFromClass(cls)
+        if let group = _specs[name] {
+            return group
+        } else {
+            let group = ExampleGroup("root example group")
+            _specs[name] = group
+            return group
+        }
+    }
+
+    class func setCurrentExampleGroup(group: ExampleGroup?) {
+        _currentExampleGroup = group
+    }
+
+    class func currentExampleGroup() -> ExampleGroup? {
+        return _currentExampleGroup
     }
 }

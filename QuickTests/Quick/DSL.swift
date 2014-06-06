@@ -8,10 +8,10 @@
 
 func describe(description: String, closure: () -> ()) {
     var group = ExampleGroup(description)
-    currentExampleGroup!.appendExampleGroup(group)
-    currentExampleGroup = group
+    World.currentExampleGroup()!.appendExampleGroup(group)
+    World.setCurrentExampleGroup(group)
     closure()
-    currentExampleGroup = group.parent
+    World.setCurrentExampleGroup(group.parent)
 }
 
 func context(description: String, closure: () -> ()) {
@@ -19,14 +19,14 @@ func context(description: String, closure: () -> ()) {
 }
 
 func beforeEach(closure: () -> ()) {
-    currentExampleGroup!.appendBefore(closure)
+    World.currentExampleGroup()!.appendBefore(closure)
 }
 
 func afterEach(closure: () -> ()) {
-    currentExampleGroup!.appendAfter(closure)
+    World.currentExampleGroup()!.appendAfter(closure)
 }
 
 func it(description: String, closure: () -> ()) {
     let example = Example(description, closure)
-    currentExampleGroup!.appendExample(example)
+    World.currentExampleGroup()!.appendExample(example)
 }
