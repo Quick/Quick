@@ -14,12 +14,7 @@ class Actual {
         self.actual = actual
     }
     
-    var to: Target { get { return Target(actual) } }
-}
-
-class Target {
-    let actual: NSObject
-    init(_ actual: NSObject) {
-        self.actual = actual
-    }
+    var to: Expectation { get { return Expectation(actual) } }
+    var notTo: NegativeExpectation { get { return NegativeExpectation(actual) } }
+    var toNot: NegativeExpectation { get { return notTo } }
 }

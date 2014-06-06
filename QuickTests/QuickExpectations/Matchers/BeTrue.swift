@@ -7,10 +7,23 @@
 //
 
 import Foundation
-import XCTest
 
-extension Target {
+class BeTrue: Matcher {
+    override func failureMessage(actual: NSObject) -> String {
+        return "expected \(actual) to be true"
+    }
+
+    override func negativeFailureMessage(actual: NSObject) -> String {
+        return "expected \(actual) to be false"
+    }
+
+    override func match(actual: NSObject) -> Bool {
+        return actual == true
+    }
+}
+
+extension Expectation {
     func beTrue() {
-        XCTAssert(actual == true, "expected \(actual) to be true")
+        evaluate(BeTrue(true))
     }
 }

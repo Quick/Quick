@@ -7,10 +7,23 @@
 //
 
 import Foundation
-import XCTest
 
-extension Target {
+class Equal: Matcher {
+    override func failureMessage(actual: NSObject) -> String {
+        return "expected \(actual) to be equal to \(expected)"
+    }
+
+    override func negativeFailureMessage(actual: NSObject) -> String {
+        return "expected \(actual) to not be equal to \(expected)"
+    }
+
+    override func match(actual: NSObject) -> Bool {
+        return actual == expected
+    }
+}
+
+extension Expectation {
     func equal(expected: NSObject) {
-        XCTAssertEqualObjects(actual, expected, "expected \(actual) to equal \(expected)")
+        evaluate(Equal(expected))
     }
 }

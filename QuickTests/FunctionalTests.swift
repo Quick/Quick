@@ -26,6 +26,7 @@ class PersonSpec: QuickSpec {
                     beforeEach { person!.isHappy = false }
                     it("is lukewarm") {
                         expect(person!.greeting).to.equal("Oh, hi.")
+                        expect(person!.greeting).toNot.equal("Hello!")
                     }
                 }
 
@@ -33,6 +34,7 @@ class PersonSpec: QuickSpec {
                     beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
                         expect(person!.greeting).to.equal("Hello!")
+                        expect(person!.greeting).toNot.equal("Oh, hi.")
                     }
                 }
             }

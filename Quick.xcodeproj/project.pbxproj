@@ -20,6 +20,7 @@
 		DA07BFDD193FD3DB00120C13 /* ExampleGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFDC193FD3DA00120C13 /* ExampleGroupTests.swift */; };
 		DA07BFE0193FD42000120C13 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFDF193FD42000120C13 /* Person.swift */; };
 		DA07BFE2193FD76600120C13 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA07BFE1193FD76600120C13 /* World.swift */; };
+		DA21735619420BC60019BA98 /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA21735519420BC60019BA98 /* Expectation.swift */; };
 		DA587A1F193FABE300EFFD5B /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DA587A1E193FABE300EFFD5B /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA587A25193FABE300EFFD5B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA587A19193FABE300EFFD5B /* Quick.framework */; };
 		DA587A2C193FABE300EFFD5B /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA587A2B193FABE300EFFD5B /* FunctionalTests.swift */; };
@@ -58,6 +59,7 @@
 		DA07BFDC193FD3DA00120C13 /* ExampleGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroupTests.swift; sourceTree = "<group>"; };
 		DA07BFDF193FD42000120C13 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DA07BFE1193FD76600120C13 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		DA21735519420BC60019BA98 /* Expectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expectation.swift; sourceTree = "<group>"; };
 		DA587A19193FABE300EFFD5B /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA587A1D193FABE300EFFD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA587A1E193FABE300EFFD5B /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -88,9 +90,10 @@
 		34F9201E1941DEBB003DA909 /* QuickExpectations */ = {
 			isa = PBXGroup;
 			children = (
-				34F920211941DF00003DA909 /* Actual.swift */,
-				34F920231941DF16003DA909 /* Matcher.swift */,
 				34F9201F1941DED0003DA909 /* DSL.swift */,
+				34F920211941DF00003DA909 /* Actual.swift */,
+				DA21735519420BC60019BA98 /* Expectation.swift */,
+				34F920231941DF16003DA909 /* Matcher.swift */,
 				34F920251941DFA6003DA909 /* Matchers */,
 			);
 			path = QuickExpectations;
@@ -305,6 +308,7 @@
 				DA587A2C193FABE300EFFD5B /* FunctionalTests.swift in Sources */,
 				34F9202B1941E1D3003DA909 /* BeTrue.swift in Sources */,
 				DA07BFD7193FD39200120C13 /* DSL.swift in Sources */,
+				DA21735619420BC60019BA98 /* Expectation.swift in Sources */,
 				34F920221941DF00003DA909 /* Actual.swift in Sources */,
 				34F920241941DF16003DA909 /* Matcher.swift in Sources */,
 				34A91BC419418CF500B9CDEF /* Poet.swift in Sources */,
