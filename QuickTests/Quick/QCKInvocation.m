@@ -14,10 +14,6 @@ static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 
 #pragma mark - Public Interface
 
-NSString *qck_className(id object) {
-    return NSStringFromClass([object class]);
-}
-
 NSInvocation *qck_invocationForExampleAtIndex(NSUInteger index) {
     SEL selector = @selector(runExampleAtIndex:);
     NSMethodSignature *signature = [[QuickSpec class] instanceMethodSignatureForSelector:selector];

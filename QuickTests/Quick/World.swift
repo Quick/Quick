@@ -9,10 +9,10 @@
 import Foundation
 
 var specs: Dictionary<String, ExampleGroup> = [:]
-var currentSpec: String?
 var currentExampleGroup: ExampleGroup?
 
-func rootExampleGroupForSpec(name: String) -> ExampleGroup {
+func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
+    let name = NSStringFromClass(cls)
     if let group = specs[name] {
         return group
     } else {

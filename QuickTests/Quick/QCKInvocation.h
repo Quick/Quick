@@ -8,5 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *qck_className(id object);
 extern NSInvocation *qck_invocationForExampleAtIndex(NSUInteger index);

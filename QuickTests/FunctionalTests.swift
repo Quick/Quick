@@ -8,7 +8,7 @@
 
 import XCTest
 
-class FunctionalSpec: QuickSpec {
+class PersonSpec: QuickSpec {
     override class var isConcreteSpec: Bool { get { return true } }
 
     override class func exampleGroups() {
@@ -33,6 +33,35 @@ class FunctionalSpec: QuickSpec {
                     beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
                         XCTAssertEqualObjects(person!.greeting, "Hello!", "expected an enthusiastic greeting")
+                    }
+                }
+            }
+        }
+    }
+}
+
+class PoetSpec: QuickSpec {
+    override class var isConcreteSpec: Bool { get { return true } }
+
+    override class func exampleGroups() {
+        describe("Poet") {
+            // FIXME: Radar worthy? `var poet: Poet?` results in build error:
+            //        "Could not find member 'greeting'"
+            var poet: Person?
+            beforeEach { poet = Poet() }
+
+            describe("greeting") {
+                context("when the poet is unhappy") {
+                    beforeEach { poet!.isHappy = false }
+                    it("is dramatic") {
+                        XCTAssertEqualObjects(poet!.greeting, "Woe is me!", "expected a dramatic greeting")
+                    }
+                }
+
+                context("when the poet is happy") {
+                    beforeEach { poet!.isHappy = true }
+                    it("is joyous") {
+                        XCTAssertEqualObjects(poet!.greeting, "Oh, joyous day!", "expected a joyous greeting")
                     }
                 }
             }
