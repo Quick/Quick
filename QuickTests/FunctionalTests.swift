@@ -28,7 +28,7 @@ class PersonSpec: QuickSpec {
                 expect{person!.isHungry}.will.beTrue()
             }
 
-            it("will never love again") {
+            it("will never be satisfied") {
                 expect{person!.isSatisfied}.willNot.beTrue()
             }
 
