@@ -11,8 +11,9 @@ class PersonSpec: QuickSpec {
             var person: Person?
             beforeEach { person = Person() }
 
-            it("is happy") {
+            it("is happy but never satisfied") {
                 expect(person!.isHappy).to.beTrue()
+                expect{person!.isSatisfied}.willNot.beTrue()
             }
 
             describe("greeting") {
