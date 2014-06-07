@@ -76,6 +76,8 @@ of Xcode.
 ### OS X
 
 To use Quick to test your OS X applications, follow these 4 easy steps.
+An example project with this complete setup is available in the
+[`Example`](https://github.com/modocache/Quick/tree/master/Example) directory.
 
 #### 1. Clone this repository
 
