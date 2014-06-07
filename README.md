@@ -6,8 +6,6 @@ and [Ginkgo](https://github.com/onsi/ginkgo).
 
 ```swift
 class PersonSpec: QuickSpec {
-    override class func isConcreteSpec() -> Bool { return true }
-
     override class func exampleGroups() {
         describe("Person") {
             var person: Person?

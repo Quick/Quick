@@ -11,6 +11,5 @@
 @interface QuickSpec : XCTestCase
 
 + (void)exampleGroups;
-+ (BOOL)isConcreteSpec;
 
 @end

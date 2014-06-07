@@ -25,10 +25,6 @@ static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 }
 
 + (NSArray *)testInvocations {
-    if (![self isConcreteSpec]) {
-        return @[];
-    }
-
     NSArray *examples = [World rootExampleGroupForSpecClass:[self class]].examples;
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
     for (NSUInteger index = 0; index < [examples count]; ++index) {

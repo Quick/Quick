@@ -9,8 +9,6 @@
 import Quick
 
 class PersonSpec: QuickSpec {
-    override class func isConcreteSpec() -> Bool { return true }
-
     override class func exampleGroups() {
         describe("Person") {
             var person: Person?
@@ -56,8 +54,6 @@ class PersonSpec: QuickSpec {
 }
 
 class PoetSpec: QuickSpec {
-    override class func isConcreteSpec() -> Bool { return true }
-
     override class func exampleGroups() {
         describe("Poet") {
             // FIXME: Radar worthy? `var poet: Poet?` results in build error:
