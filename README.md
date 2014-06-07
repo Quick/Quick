@@ -45,14 +45,49 @@ class PersonSpec: QuickSpec {
 
 ## Installation
 
-This module is not yet fit for general consumption.
-Still, if you want to test it out:
+> This module is beta software, and can only run using the latest, beta version
+of Xcode.
 
-1. Clone the repository
-2. Add the files in `QuickTests/Quick` to your test target
-3. Set the `Objective-C Bridging Header` of your test target to
-   `QuickTests/Quick/Quick-Bridging-Header.h`
-4. Start writing specs!
+### OS X
+
+To use Quick to test your OS X applications, follow these 4 easy steps.
+
+#### 1. Clone this repository
+
+```
+git clone git@github.com:modocache/Quick.git
+```
+
+#### 2. Add the `Quick.xcodeproj` file to your application's test target
+
+Right-click on the group containing your application's tests and
+select `Add Files To YourApp...`.
+
+![](http://cl.ly/image/3m110l2s0a18/Screen%20Shot%202014-06-08%20at%204.25.59%20AM.png)
+
+Next, select `Quick.xcodeproj`, which you downloaded in step 1.
+
+![](http://cl.ly/image/431F041z3g1P/Screen%20Shot%202014-06-08%20at%204.26.49%20AM.png)
+
+Once you've added the Quick project, you should see it in Xcode's project
+navigator, grouped with your tests.
+
+![](http://cl.ly/image/0p0k2F2u2O3I/Screen%20Shot%202014-06-08%20at%204.27.29%20AM%20copy.png)
+
+#### 3. Link the `Quick.framework`
+
+Finally, link the `Quick.framework` during your test target's
+`Link Binary with Libraries` build phase.
+
+![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
+
+#### 4. Start writing specs!
+
+If you run into any problems, please file an issue.
+
+### iOS
+
+Detailed instructions coming soon. Pull requests welcome.
 
 ## License
 
