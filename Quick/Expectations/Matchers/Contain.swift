@@ -33,3 +33,9 @@ extension Expectation {
         evaluate(Contain(expected))
     }
 }
+
+extension AsynchronousExpectation {
+    func contain(expected: NSObject) {
+        evaluate(Contain(expected))
+    }
+}

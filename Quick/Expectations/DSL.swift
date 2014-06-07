@@ -12,3 +12,7 @@ import XCTest
 func expect(actual: NSObject) -> Actual {
     return Actual(actual)
 }
+
+func expect(closure: () -> (NSObject)) -> ActualClosure {
+    return ActualClosure(closure)
+}

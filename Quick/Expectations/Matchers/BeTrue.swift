@@ -27,3 +27,9 @@ extension Expectation {
         evaluate(BeTrue(true))
     }
 }
+
+extension AsynchronousExpectation {
+    func beTrue() {
+        evaluate(BeTrue(true))
+    }
+}

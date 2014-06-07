@@ -27,3 +27,9 @@ extension Expectation {
         evaluate(Equal(expected))
     }
 }
+
+extension AsynchronousExpectation {
+    func equal(expected: NSObject) {
+        evaluate(Equal(expected))
+    }
+}

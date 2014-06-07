@@ -14,7 +14,21 @@ class Actual {
         self.actual = actual
     }
     
-    var to: Expectation { get { return Expectation(actual) } }
-    var notTo: NegativeExpectation { get { return NegativeExpectation(actual) } }
-    var toNot: NegativeExpectation { get { return notTo } }
+    var to: Expectation { get { return Expectation(actual, negative: false) } }
+    var notTo: Expectation { get { return Expectation(actual, negative: true) } }
+    var toNot: Expectation { get { return notTo } }
+}
+
+class ActualClosure {
+    let actualClosure: () -> (NSObject)
+    init(_ actualClosure: () -> (NSObject)) {
+        self.actualClosure = actualClosure
+    }
+
+    var will: AsynchronousExpectation {
+        get { return AsynchronousExpectation(actualClosure, negative: false) }
+    }
+    var willNot: AsynchronousExpectation {
+        get { return AsynchronousExpectation(actualClosure, negative: true) }
+    }
 }

@@ -11,21 +11,17 @@ import XCTest
 
 class Expectation {
     let actual: NSObject
-    init(_ actual: NSObject) {
+    let negative: Bool
+    init(_ actual: NSObject, negative: Bool) {
         self.actual = actual
+        self.negative = negative
     }
 
     func evaluate(matcher: Matcher) {
-        if (!matcher.match(actual)) {
-            XCTFail(matcher.failureMessage(actual))
-        }
-    }
-}
-
-class NegativeExpectation: Expectation {
-    override func evaluate(matcher: Matcher) {
-        if (matcher.match(actual)) {
+        if (negative && matcher.match(actual)) {
             XCTFail(matcher.negativeFailureMessage(actual))
+        } else if (!negative && !matcher.match(actual)) {
+            XCTFail(matcher.failureMessage(actual))
         }
     }
 }
