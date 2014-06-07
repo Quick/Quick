@@ -7,7 +7,7 @@
 //
 
 #import "QuickSpec.h"
-#import "QuickTests-Swift.h"
+#import <Quick/Quick-Swift.h>
 
 static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 
@@ -31,7 +31,7 @@ static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 
     NSArray *examples = [World rootExampleGroupForSpecClass:[self class]].examples;
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
-    for (NSUInteger index; index < [examples count]; ++index) {
+    for (NSUInteger index = 0; index < [examples count]; ++index) {
         [invocations addObject:[self invocationToRunExampleAtIndex:index]];
     }
     return invocations;

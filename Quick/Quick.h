@@ -2,11 +2,11 @@
 //  Quick.h
 //  Quick
 //
-//  Created by Brian Ivan Gesiak on 6/5/14.
+//  Created by Brian Ivan Gesiak on 6/8/14.
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Cocoa/Cocoa.h>
 
 //! Project version number for Quick.
 FOUNDATION_EXPORT double QuickVersionNumber;
@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char QuickVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Quick/PublicHeader.h>
 
-
+#import <Quick/QuickSpec.h>

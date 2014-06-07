@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
+import Quick
+
 class PersonSpec: QuickSpec {
     override class func isConcreteSpec() -> Bool { return true }
 

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Quick
 
 class ExampleGroupTests : XCTestCase {
     func testExampleGroups() {

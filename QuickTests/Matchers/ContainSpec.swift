@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Quick
 
 class ContainSpec: QuickSpec {
     override class func isConcreteSpec() -> Bool { return true }
