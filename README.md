@@ -17,10 +17,6 @@ class PersonSpec: QuickSpec {
                 expect(person!.isHappy).to.beTrue()
             }
 
-            it("is a dreamer") {
-                expect(person!.hopes).to.contain("winning the lottery")
-            }
-
             describe("greeting") {
                 context("when the person is unhappy") {
                     beforeEach { person!.isHappy = false }
@@ -41,6 +37,35 @@ class PersonSpec: QuickSpec {
         }
     }
 }
+```
+
+## Expectations
+
+Quick expectations use the `expect(...).to` syntax:
+
+```swift
+expect(person!.greeting).to.equal("Oh, hi.")
+expect(person!.greeting).notTo.equal("Hello!")
+```
+
+Quick includes matchers that test whether the subject of an
+expectation is true, or equal to something, or whether it
+contains a specific element:
+
+```swift
+expect(person!.isHappy).to.beTrue()
+expect(person!.greeting).to.equal("Hello!")
+expect(person!.hopes).to.contain("winning the lottery")
+```
+
+Quick also allows for asynchronous matchers, by wrapping the subject
+in braces instead of parentheses. This allows the subject to be
+evaluated as a closure. Below is an example of a subject who knows
+only hunger, and never satisfaction:
+
+```swift
+expect{person!.isHungry}.will.beTrue()
+expect{person!.isSatisfied}.willNot.beTrue()
 ```
 
 ## Installation
