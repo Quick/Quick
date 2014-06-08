@@ -12,6 +12,7 @@ let QCKExampleGroupsKey = "QCKExampleGroupsKey"
 
 var _specs: Dictionary<String, ExampleGroup> = [:]
 var _currentExampleGroup: ExampleGroup?
+var _currentExample: Example?
 
 @objc class World {
     class func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
@@ -31,5 +32,10 @@ var _currentExampleGroup: ExampleGroup?
 
     class func currentExampleGroup() -> ExampleGroup? {
         return _currentExampleGroup
+    }
+
+    class var currentExample: Example? {
+        get { return _currentExample }
+        set { _currentExample = newValue }
     }
 }

@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import XCTest
 
 class AsynchronousExpectation {
     let timeOut: NSTimeInterval = 1.0
     let actualClosure: () -> (NSObject)
+    let callsite: Callsite
     let negative: Bool
-    init(_ actualClosure: () -> NSObject, negative: Bool) {
+
+    init(_ actualClosure: () -> NSObject, callsite: Callsite, negative: Bool) {
         self.actualClosure = actualClosure
+        self.callsite = callsite
         self.negative = negative
     }
 
@@ -43,7 +47,8 @@ class AsynchronousExpectation {
     func _shouldEndPositiveWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if matched || expired {
             if !matched {
-                XCTFail(failureMessage)
+                World.currentExample!.testCase!.recordFailureWithDescription(failureMessage,
+                    inFile: callsite.file, atLine: callsite.line, expected: true)
             }
             return true
         } else {
@@ -54,7 +59,8 @@ class AsynchronousExpectation {
     func _shouldEndNegativeWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if expired {
             if matched {
-                XCTFail(failureMessage)
+                World.currentExample!.testCase!.recordFailureWithDescription(failureMessage,
+                    inFile: callsite.file, atLine: callsite.line, expected: true)
             }
             return true
         } else {

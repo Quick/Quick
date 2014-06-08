@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
+import XCTest
+
 @objc class Example {
     weak var group: ExampleGroup?
+    weak var testCase: XCTestCase?
 
     var _description: String
     var _closure: () -> ()
@@ -20,6 +23,8 @@
     }
 
     func run() {
+        World.currentExample = self
+
         for before in group!.befores {
             before()
         }
@@ -29,5 +34,7 @@
         for after in group!.afters {
             after()
         }
+
+        World.currentExample = nil
     }
 }

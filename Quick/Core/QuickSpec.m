@@ -35,6 +35,8 @@ static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 
 - (void)setInvocation:(NSInvocation *)invocation {
     self.example = [[self class] exampleForInvocation:invocation];
+    self.example.testCase = self;
+
     [super setInvocation:invocation];
 }
 

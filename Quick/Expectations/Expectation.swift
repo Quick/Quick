@@ -11,17 +11,24 @@ import XCTest
 
 class Expectation {
     let actual: NSObject
+    let callsite: Callsite
     let negative: Bool
-    init(_ actual: NSObject, negative: Bool) {
+
+    init(_ actual: NSObject, callsite: Callsite, negative: Bool) {
         self.actual = actual
+        self.callsite = callsite
         self.negative = negative
     }
 
     func evaluate(matcher: Matcher) {
+        let testCase = World.currentExample!.testCase!
+
         if (negative && matcher.match(actual)) {
-            XCTFail(matcher.negativeFailureMessage(actual))
+            testCase.recordFailureWithDescription(matcher.negativeFailureMessage(actual),
+                inFile: callsite.file, atLine: callsite.line, expected: true)
         } else if (!negative && !matcher.match(actual)) {
-            XCTFail(matcher.failureMessage(actual))
+            testCase.recordFailureWithDescription(matcher.failureMessage(actual),
+                inFile: callsite.file, atLine: callsite.line, expected: true)
         }
     }
 }
