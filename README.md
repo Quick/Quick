@@ -4,6 +4,10 @@ A behavior-driven development framework for Swift. Inspired by
 [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta),
 and [Ginkgo](https://github.com/onsi/ginkgo).
 
+![](http://cl.ly/image/441C2l1l422R/Screen%20Shot%202014-06-09%20at%2012.24.56%20AM.png)
+
+## Syntax
+
 ```swift
 class PersonSpec: QuickSpec {
     override class func exampleGroups() {
