@@ -26,6 +26,14 @@ func afterEach(closure: () -> ()) {
     World.currentExampleGroup()!.appendAfter(closure)
 }
 
+func beforeSuite(closure: () -> ()) {
+    // Fill me in
+}
+
+func afterSuite(closure: () -> ()) {
+    // Fill me in
+}
+
 func it(description: String, closure: () -> ()) {
     let example = Example(description, closure)
     World.currentExampleGroup()!.appendExample(example)

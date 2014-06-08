@@ -8,6 +8,8 @@
 
 import Foundation
 
+var _dbConnectionEstablished = false
+
 class Person {
     var isHappy = true
     var isHungry = false
@@ -29,5 +31,27 @@ class Person {
         dispatch_after(after, dispatch_get_main_queue()) {
             self.isHungry = true
         }
+    }
+  
+    class func establishDbConnection() -> Bool {
+        if dbConnectionEstablished() {
+            return false
+        } else {
+            _dbConnectionEstablished = true
+            return true
+        }
+    }
+
+    class func relinquishDbConnection() -> Bool {
+        if dbConnectionEstablished() {
+            _dbConnectionEstablished = true
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    class func dbConnectionEstablished() -> Bool {
+        return _dbConnectionEstablished
     }
 }
