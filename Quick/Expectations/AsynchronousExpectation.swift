@@ -47,8 +47,7 @@ class AsynchronousExpectation {
     func _shouldEndPositiveWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if matched || expired {
             if !matched {
-                World.currentExample!.testCase!.recordFailureWithDescription(failureMessage,
-                    inFile: callsite.file, atLine: callsite.line, expected: true)
+                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
             }
             return true
         } else {
@@ -59,8 +58,7 @@ class AsynchronousExpectation {
     func _shouldEndNegativeWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if expired {
             if matched {
-                World.currentExample!.testCase!.recordFailureWithDescription(failureMessage,
-                    inFile: callsite.file, atLine: callsite.line, expected: true)
+                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
             }
             return true
         } else {

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-import Foundation
 import XCTest
 
 class Expectation {
@@ -21,14 +20,10 @@ class Expectation {
     }
 
     func evaluate(matcher: Matcher) {
-        let testCase = World.currentExample!.testCase!
-
         if (negative && matcher.match(actual)) {
-            testCase.recordFailureWithDescription(matcher.negativeFailureMessage(actual),
-                inFile: callsite.file, atLine: callsite.line, expected: true)
+            XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
         } else if (!negative && !matcher.match(actual)) {
-            testCase.recordFailureWithDescription(matcher.failureMessage(actual),
-                inFile: callsite.file, atLine: callsite.line, expected: true)
+            XCTFail(matcher.failureMessage(actual), file: callsite.file, line: callsite.line)
         }
     }
 }

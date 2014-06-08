@@ -10,7 +10,6 @@ import XCTest
 
 @objc class Example {
     weak var group: ExampleGroup?
-    weak var testCase: XCTestCase?
 
     var _description: String
     var _closure: () -> ()
@@ -23,8 +22,6 @@ import XCTest
     }
 
     func run() {
-        World.currentExample = self
-
         for before in group!.befores {
             before()
         }
@@ -34,7 +31,5 @@ import XCTest
         for after in group!.afters {
             after()
         }
-
-        World.currentExample = nil
     }
 }
