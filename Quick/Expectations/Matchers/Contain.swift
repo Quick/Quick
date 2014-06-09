@@ -10,11 +10,11 @@ import Foundation
 
 class Contain: Matcher {
     override func failureMessage(actual: NSObject) -> String {
-        return "expected \(actual) to contain \(expected)"
+        return "expected '[ \(_flatten(actual)) ]' to contain '\(expected)'"
     }
 
     override func negativeFailureMessage(actual: NSObject) -> String {
-        return "expected \(actual) to contain \(expected)"
+        return "expected '[ \(_flatten(actual)) ]' to not contain '\(expected)'"
     }
 
     override func match(actual: NSObject) -> Bool {
@@ -24,6 +24,17 @@ class Contain: Matcher {
             return set.containsObject(expected)
         } else {
             return false
+        }
+    }
+
+    func _flatten(collection: NSObject) -> String {
+        if let array = collection as? NSArray {
+            return array.componentsJoinedByString(", ")
+        } else if let set = collection as? NSSet {
+            let array = set.allObjects as NSArray
+            return array.componentsJoinedByString(", ")
+        } else {
+            return "\(collection)"
         }
     }
 }
