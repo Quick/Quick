@@ -21,10 +21,10 @@
  The invocation is set on the XCTestCase instance, and the test is run.
 
  Most of the code in QuickSpec is dedicated to hooking into XCTest events.
- First, when the spec is first loaded into the runtime, the +[NSObject initialize]
- method is called. QuickSpec overrides this method to call
- +[QuickSpec exampleGroups]. This build the example group stacks and registers
- them with Quick.World, a global register of examples.
+ First, when the spec is first loaded and before it is sent any messages,
+ the +[NSObject initialize] method is called. QuickSpec overrides this method
+ to call +[QuickSpec exampleGroups]. This builds the example group stacks and
+ registers them with Quick.World, a global register of examples.
 
  Then, XCTest queries QuickSpec for a list of test methods. Normally, XCTest
  automatically finds all methods whose selectors begin with the string "test".
