@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-import XCTest
 import Quick
 
 class ContainSpec: QuickSpec {
