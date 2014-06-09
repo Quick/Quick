@@ -54,10 +54,6 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 + (void)exampleGroups { }
 
-+ (BOOL)isConcreteSpec {
-    return NO;
-}
-
 #pragma mark - Internal Methods
 
 + (SEL)addInstanceMethodForExample:(Example *)example {
