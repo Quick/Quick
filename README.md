@@ -117,8 +117,10 @@ If you run into any problems, please file an issue.
 
 ### iOS
 
-Detailed instructions coming soon. Pull requests welcome.
+I'm working on it. [Issue #5](https://github.com/modocache/Quick/issues/5) keeps track
+of current progress. If you have any suggestions please comment or contribute!
 
 ## License
 
 MIT license. See the `LICENSE` file for details.
+
