@@ -20,7 +20,6 @@
 		DAEB6BBB1943879800289F44 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAB1943879800289F44 /* DSL.swift */; };
 		DAEB6BBC1943879800289F44 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAC1943879800289F44 /* Example.swift */; };
 		DAEB6BBD1943879800289F44 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAD1943879800289F44 /* ExampleGroup.swift */; };
-		DAEB6BBE1943879800289F44 /* Quick-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6BAE1943879800289F44 /* Quick-Bridging-Header.h */; };
 		DAEB6BBF1943879800289F44 /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6BAF1943879800289F44 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6BC01943879800289F44 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB01943879800289F44 /* QuickSpec.m */; };
 		DAEB6BC11943879800289F44 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB11943879800289F44 /* World.swift */; };
@@ -66,7 +65,6 @@
 		DAEB6BAB1943879800289F44 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		DAEB6BAC1943879800289F44 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		DAEB6BAD1943879800289F44 /* ExampleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
-		DAEB6BAE1943879800289F44 /* Quick-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Quick-Bridging-Header.h"; sourceTree = "<group>"; };
 		DAEB6BAF1943879800289F44 /* QuickSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSpec.h; sourceTree = "<group>"; };
 		DAEB6BB01943879800289F44 /* QuickSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSpec.m; sourceTree = "<group>"; };
 		DAEB6BB11943879800289F44 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 				DAEB6BAC1943879800289F44 /* Example.swift */,
 				DAEB6BAD1943879800289F44 /* ExampleGroup.swift */,
 				DAEB6BB11943879800289F44 /* World.swift */,
-				DAEB6BAE1943879800289F44 /* Quick-Bridging-Header.h */,
 				DAEB6BAF1943879800289F44 /* QuickSpec.h */,
 				DAEB6BB01943879800289F44 /* QuickSpec.m */,
 				34400A93194586F30019C41F /* NSString+QCKSelectorName.h */,
@@ -234,7 +231,6 @@
 				34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
 				DAEB6BBF1943879800289F44 /* QuickSpec.h in Headers */,
-				DAEB6BBE1943879800289F44 /* Quick-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
