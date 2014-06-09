@@ -9,12 +9,16 @@
 import Foundation
 
 class BeTrue: Matcher {
+    init() {
+        super.init(true)
+    }
+
     override func failureMessage(actual: NSObject) -> String {
-        return "expected \(actual) to be true"
+        return "expected '\(actual)' to be true"
     }
 
     override func negativeFailureMessage(actual: NSObject) -> String {
-        return "expected \(actual) to be false"
+        return "expected '\(actual)' to be false"
     }
 
     override func match(actual: NSObject) -> Bool {
@@ -24,12 +28,12 @@ class BeTrue: Matcher {
 
 extension Expectation {
     func beTrue() {
-        evaluate(BeTrue(true))
+        evaluate(BeTrue())
     }
 }
 
 extension AsynchronousExpectation {
     func beTrue() {
-        evaluate(BeTrue(true))
+        evaluate(BeTrue())
     }
 }
