@@ -9,12 +9,12 @@
 import XCTest
 
 @objc class Example {
-    weak var group: ExampleGroup?
+    weak var group: ExampleGroup!
 
     var _description: String
     var _closure: () -> ()
 
-    var name: String { get { return group!.name + ", " + _description } }
+    var name: String { get { return group.name + ", " + _description } }
 
     init(_ description: String, _ closure: () -> ()) {
         self._description = description
@@ -22,13 +22,13 @@ import XCTest
     }
 
     func run() {
-        for before in group!.befores {
+        for before in group.befores {
             before()
         }
 
         _closure()
 
-        for after in group!.afters {
+        for after in group.afters {
             after()
         }
     }
