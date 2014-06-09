@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34400A93194586F30019C41F /* NSString+QCKSelectorName.h */; };
+		34400A96194586F30019C41F /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34400A94194586F30019C41F /* NSString+QCKSelectorName.m */; };
 		5AC5BE5F19449F8400E3C531 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5BE5E19449F8400E3C531 /* Callsite.swift */; };
 		DAB406AE1943B23E00942733 /* AsynchronousExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsynchronousExpectation.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34400A93194586F30019C41F /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
+		34400A94194586F30019C41F /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
 		5AC5BE5E19449F8400E3C531 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		DAB406AD1943B23E00942733 /* AsynchronousExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousExpectation.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,10 +161,12 @@
 				DAEB6BAB1943879800289F44 /* DSL.swift */,
 				DAEB6BAC1943879800289F44 /* Example.swift */,
 				DAEB6BAD1943879800289F44 /* ExampleGroup.swift */,
+				DAEB6BB11943879800289F44 /* World.swift */,
 				DAEB6BAE1943879800289F44 /* Quick-Bridging-Header.h */,
 				DAEB6BAF1943879800289F44 /* QuickSpec.h */,
 				DAEB6BB01943879800289F44 /* QuickSpec.m */,
-				DAEB6BB11943879800289F44 /* World.swift */,
+				34400A93194586F30019C41F /* NSString+QCKSelectorName.h */,
+				34400A94194586F30019C41F /* NSString+QCKSelectorName.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
 				DAEB6BBF1943879800289F44 /* QuickSpec.h in Headers */,
 				DAEB6BBE1943879800289F44 /* Quick-Bridging-Header.h in Headers */,
@@ -316,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34400A96194586F30019C41F /* NSString+QCKSelectorName.m in Sources */,
 				DAEB6BC41943879800289F44 /* Expectation.swift in Sources */,
 				DAEB6BBC1943879800289F44 /* Example.swift in Sources */,
 				DAEB6BC61943879800289F44 /* BeTrue.swift in Sources */,

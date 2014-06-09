@@ -7,9 +7,11 @@
 //
 
 #import "QuickSpec.h"
+#import "NSString+QCKSelectorName.h"
 #import <Quick/Quick-Swift.h>
+#import <objc/runtime.h>
 
-static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
+const void * const QCKExampleKey = &QCKExampleKey;
 
 @interface QuickSpec ()
 @property (nonatomic, strong) Example *example;
@@ -27,14 +29,19 @@ static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 + (NSArray *)testInvocations {
     NSArray *examples = [World rootExampleGroupForSpecClass:[self class]].examples;
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
-    for (NSUInteger index = 0; index < [examples count]; ++index) {
-        [invocations addObject:[self invocationToRunExampleAtIndex:index]];
+
+    for (Example *example in examples) {
+        SEL selector = [self addInstanceMethodForExample:example];
+        NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
+                                                                         example:example];
+        [invocations addObject:invocation];
     }
+
     return invocations;
 }
 
 - (void)setInvocation:(NSInvocation *)invocation {
-    self.example = [[self class] exampleForInvocation:invocation];
+    self.example = objc_getAssociatedObject(invocation, QCKExampleKey);
     [super setInvocation:invocation];
 }
 
@@ -53,28 +60,27 @@ static NSUInteger const QCKIndex = 2; // 0 is class, 1 is _cmd
 
 #pragma mark - Internal Methods
 
-+ (NSInvocation *)invocationToRunExampleAtIndex:(NSUInteger)index {
-    SEL selector = @selector(runExampleAtIndex:);
-    NSMethodSignature *signature = [self instanceMethodSignatureForSelector:selector];
++ (SEL)addInstanceMethodForExample:(Example *)example {
+    IMP implementation = imp_implementationWithBlock(^(id self){
+        [example run];
+    });
+    const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
+    SEL selector = NSSelectorFromString(example.name.selectorName);
+    class_addMethod(self, selector, implementation, types);
 
+    return selector;
+}
+
++ (NSInvocation *)invocationForInstanceMethodWithSelector:(SEL)selector
+                                                  example:(Example *)example {
+    NSMethodSignature *signature = [self instanceMethodSignatureForSelector:selector];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     invocation.selector = selector;
-    NSUInteger i = index;
-    [invocation setArgument:&i atIndex:QCKIndex];
-
+    objc_setAssociatedObject(invocation,
+                             QCKExampleKey,
+                             example,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return invocation;
-}
-
-+ (Example *)exampleForInvocation:(NSInvocation *)invocation {
-    NSUInteger exampleIndex;
-    [invocation getArgument:&exampleIndex atIndex:QCKIndex];
-    return [World rootExampleGroupForSpecClass:[self class]].examples[exampleIndex];
-}
-
-- (void)runExampleAtIndex:(NSUInteger)index {
-    ExampleGroup *group = [World rootExampleGroupForSpecClass:[self class]];
-    Example *example = group.examples[index];
-    [example run];
 }
 
 @end
