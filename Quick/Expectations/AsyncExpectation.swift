@@ -1,5 +1,5 @@
 //
-//  AsynchronousExpectation.swift
+//  AsyncExpectation.swift
 //  Quick
 //
 //  Created by Brian Ivan Gesiak on 6/8/14.
@@ -9,19 +9,10 @@
 import Foundation
 import XCTest
 
-class AsynchronousExpectation {
+class AsyncExpectation: ClosureExpectation {
     let timeOut: NSTimeInterval = 1.0
-    let actualClosure: () -> (NSObject)
-    let callsite: Callsite
-    let negative: Bool
 
-    init(_ actualClosure: () -> NSObject, callsite: Callsite, negative: Bool) {
-        self.actualClosure = actualClosure
-        self.callsite = callsite
-        self.negative = negative
-    }
-
-    func evaluate(matcher: Matcher) {
+    override func evaluate(matcher: Matcher) {
         let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
         while (true) {
             let expired = NSDate.date().compare(expirationDate) != NSComparisonResult.OrderedAscending

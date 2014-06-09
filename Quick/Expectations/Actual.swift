@@ -25,24 +25,3 @@ class Actual {
     }
     var toNot: Expectation { get { return notTo } }
 }
-
-class ActualClosure {
-    let actualClosure: () -> (NSObject)
-    let callsite: Callsite
-
-    init(_ actualClosure: () -> (NSObject), callsite: Callsite) {
-        self.actualClosure = actualClosure
-        self.callsite = callsite
-    }
-
-    var will: AsynchronousExpectation {
-        get {
-            return AsynchronousExpectation(actualClosure, callsite: callsite, negative: false)
-        }
-    }
-    var willNot: AsynchronousExpectation {
-        get {
-            return AsynchronousExpectation(actualClosure, callsite: callsite, negative: true)
-        }
-    }
-}

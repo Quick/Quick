@@ -11,8 +11,10 @@
 		34400A96194586F30019C41F /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34400A94194586F30019C41F /* NSString+QCKSelectorName.m */; };
 		34EB41741945BAE70062CC32 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41731945BAE70062CC32 /* EqualSpec.swift */; };
 		34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41751945C49C0062CC32 /* BeTrueSpec.swift */; };
+		34EB41781945C8B70062CC32 /* ActualClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41771945C8B70062CC32 /* ActualClosure.swift */; };
+		34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41791945C91B0062CC32 /* ClosureExpectation.swift */; };
 		5AC5BE5F19449F8400E3C531 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5BE5E19449F8400E3C531 /* Callsite.swift */; };
-		DAB406AE1943B23E00942733 /* AsynchronousExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsynchronousExpectation.swift */; };
+		DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsyncExpectation.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BBB1943879800289F44 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAB1943879800289F44 /* DSL.swift */; };
@@ -52,8 +54,10 @@
 		34400A94194586F30019C41F /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
 		34EB41731945BAE70062CC32 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
 		34EB41751945C49C0062CC32 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
+		34EB41771945C8B70062CC32 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
+		34EB41791945C91B0062CC32 /* ClosureExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExpectation.swift; sourceTree = "<group>"; };
 		5AC5BE5E19449F8400E3C531 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
-		DAB406AD1943B23E00942733 /* AsynchronousExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousExpectation.swift; sourceTree = "<group>"; };
+		DAB406AD1943B23E00942733 /* AsyncExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncExpectation.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -179,10 +183,12 @@
 			isa = PBXGroup;
 			children = (
 				DAEB6BB31943879800289F44 /* Actual.swift */,
+				34EB41771945C8B70062CC32 /* ActualClosure.swift */,
 				5AC5BE5E19449F8400E3C531 /* Callsite.swift */,
 				DAEB6BB41943879800289F44 /* DSL.swift */,
 				DAEB6BB51943879800289F44 /* Expectation.swift */,
-				DAB406AD1943B23E00942733 /* AsynchronousExpectation.swift */,
+				34EB41791945C91B0062CC32 /* ClosureExpectation.swift */,
+				DAB406AD1943B23E00942733 /* AsyncExpectation.swift */,
 				DAEB6BB61943879800289F44 /* Matcher.swift */,
 				DAEB6BB71943879800289F44 /* Matchers */,
 			);
@@ -334,9 +340,11 @@
 				DAEB6BBC1943879800289F44 /* Example.swift in Sources */,
 				DAEB6BC61943879800289F44 /* BeTrue.swift in Sources */,
 				DAEB6BC31943879800289F44 /* DSL.swift in Sources */,
+				34EB41781945C8B70062CC32 /* ActualClosure.swift in Sources */,
 				DAEB6BC21943879800289F44 /* Actual.swift in Sources */,
 				DAEB6BBD1943879800289F44 /* ExampleGroup.swift in Sources */,
-				DAB406AE1943B23E00942733 /* AsynchronousExpectation.swift in Sources */,
+				34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */,
+				DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */,
 				DAEB6BC71943879800289F44 /* Contain.swift in Sources */,
 				DAEB6BC01943879800289F44 /* QuickSpec.m in Sources */,
 				DAEB6BBB1943879800289F44 /* DSL.swift in Sources */,

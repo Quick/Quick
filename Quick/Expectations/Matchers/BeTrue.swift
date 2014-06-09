@@ -26,13 +26,7 @@ class BeTrue: Matcher {
     }
 }
 
-extension Expectation {
-    func beTrue() {
-        evaluate(BeTrue())
-    }
-}
-
-extension AsynchronousExpectation {
+extension Prediction {
     func beTrue() {
         evaluate(BeTrue())
     }

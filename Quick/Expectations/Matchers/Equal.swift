@@ -22,13 +22,7 @@ class Equal: Matcher {
     }
 }
 
-extension Expectation {
-    func equal(expected: NSObject) {
-        evaluate(Equal(expected))
-    }
-}
-
-extension AsynchronousExpectation {
+extension Prediction {
     func equal(expected: NSObject) {
         evaluate(Equal(expected))
     }

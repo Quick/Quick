@@ -39,13 +39,7 @@ class Contain: Matcher {
     }
 }
 
-extension Expectation {
-    func contain(expected: NSObject) {
-        evaluate(Contain(expected))
-    }
-}
-
-extension AsynchronousExpectation {
+extension Prediction {
     func contain(expected: NSObject) {
         evaluate(Contain(expected))
     }
