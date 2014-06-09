@@ -27,11 +27,11 @@ func afterEach(closure: () -> ()) {
 }
 
 func beforeSuite(closure: () -> ()) {
-    // Fill me in
+    World.setBeforeSuite(closure)
 }
 
 func afterSuite(closure: () -> ()) {
-    // Fill me in
+    World.setAfterSuite(closure)
 }
 
 func it(description: String, closure: () -> ()) {

@@ -23,7 +23,9 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 + (void)initialize {
     [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
+    [World runBeforeSuite];
     [self exampleGroups];
+    [World runAfterSuite];
 }
 
 + (NSArray *)testInvocations {
