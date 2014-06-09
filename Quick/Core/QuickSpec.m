@@ -21,11 +21,22 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 #pragma mark - XCTestCase Overrides
 
+/**
+ The runtime sends initialize to each class in a program just before the class, or any class
+ that inherits from it, is sent its first message from within the program. Hook into this
+ event to compile the example groups for this spec subclass.
+ */
 + (void)initialize {
     [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
     [self exampleGroups];
 }
 
+/**
+ Invocations for each test method in the test case. Override this method to define a new
+ method for each example defined in +[QuickSpec exampleGroups].
+
+ @return An array of invocations that execute the newly defined example methods.
+ */
 + (NSArray *)testInvocations {
     NSArray *examples = [World rootExampleGroupForSpecClass:[self class]].examples;
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
@@ -40,11 +51,24 @@ const void * const QCKExampleKey = &QCKExampleKey;
     return invocations;
 }
 
+/**
+ XCTest sets the invocation for the current test case instance using this setter.
+ Hook into this event to give the test case a reference to the current example.
+ It will need this reference to correctly report its name to XCTest.
+ */
 - (void)setInvocation:(NSInvocation *)invocation {
     self.example = objc_getAssociatedObject(invocation, QCKExampleKey);
     [super setInvocation:invocation];
 }
 
+/**
+ The test's name. This be overridden by subclasses. By default, this uses the
+ invocation's selector's name (i.e.: "-[WinterTests testWinterIsComing]").
+ This method provides the name of the test class, along with a string made up
+ of the example group and example descriptions.
+
+ This string is displayed in the log navigator as the test is being run.
+ */
 - (NSString *)name {
     return [NSString stringWithFormat:@"%@: %@",
             NSStringFromClass([self class]), self.example.name];
