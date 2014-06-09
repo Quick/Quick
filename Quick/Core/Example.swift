@@ -14,7 +14,13 @@ import XCTest
     var _description: String
     var _closure: () -> ()
 
-    var name: String { get { return group.name + ", " + _description } }
+    var name: String {
+        var name = _description
+        walkUp { group in
+            name = "\(group.name), \(name)"
+        }
+        return name
+    }
 
     init(_ description: String, _ closure: () -> ()) {
         self._description = description
@@ -31,5 +37,11 @@ import XCTest
         for after in group.afters {
             after()
         }
+    }
+
+    func walkUp(callback: (group: ExampleGroup) -> ()) {
+        var group = self.group
+        callback(group: group)
+        group.walkUp(callback)
     }
 }

@@ -12,10 +12,12 @@ import Quick
 class ExampleTests: XCTestCase {
 
     var group: ExampleGroup! = ExampleGroup("group description")
+    var subgroup: ExampleGroup! = ExampleGroup("subgroup description")
     var example: Example! = Example("example description", {})
 
     override func tearDown() {
         group = nil
+        subgroup = nil
         example = nil
     }
 
@@ -24,6 +26,14 @@ class ExampleTests: XCTestCase {
         XCTAssertEqual(example.name,
             "group description, example description",
             "expected example name to include group description")
+    }
+
+    func testNameInNestedExampleGroup() {
+        group.appendExampleGroup(subgroup)
+        subgroup.appendExample(example)
+        XCTAssertEqual(example.name,
+            "group description, subgroup description, example description",
+            "expected example name to include group and subgroup descriptions")
     }
 
 }
