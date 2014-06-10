@@ -80,6 +80,21 @@ expect{person!.isHungry}.willBefore(3).beTrue()
 expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 ```
 
+#### Optional in Expectations
+
+Swift supports optional values, which are values that may be nil.  When passing an optional to an expectation there is no need to unwrap the variable (trailing !), Quick will do that for you.
+
+```swift
+var optVal : Int?
+
+expect(optVal).to.beNil()
+
+optVal = Int(123)
+
+expect(optVal).toNot.beNil()
+expect(optVal).to.equal(123)
+```
+
 ## Installation
 
 > This module is beta software, and can only run using the latest, beta version
