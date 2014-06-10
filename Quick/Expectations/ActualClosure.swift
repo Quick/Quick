@@ -27,4 +27,16 @@ class ActualClosure {
             return AsyncExpectation(actualClosure, callsite: callsite, negative: true)
         }
     }
+
+    func willBefore(seconds: NSTimeInterval) -> AsyncExpectation {
+        let expectation = will
+        expectation.timeOut = seconds
+        return expectation
+    }
+
+    func willNotBefore(seconds: NSTimeInterval) -> AsyncExpectation {
+        let expectation = willNot
+        expectation.timeOut = seconds
+        return expectation
+    }
 }

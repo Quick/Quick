@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 
 class AsyncExpectation: ClosureExpectation {
-    let timeOut: NSTimeInterval = 1.0
+    var timeOut: NSTimeInterval = 1.0
 
     override func evaluate(matcher: Matcher) {
         let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
