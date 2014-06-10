@@ -61,6 +61,20 @@ expect(person!.greeting).to.equal("Hello!")
 expect(person!.hopes).to.contain("winning the lottery")
 ```
 
+When passing an optional to an expectation there is no need to unwrap the
+variable using a trailing `!`: Quick will do that for you.
+
+```swift
+var optVal: Int?
+
+expect(optVal).to.beNil()
+
+optVal = 123
+
+expect(optVal).toNot.beNil()
+expect(optVal).to.equal(123)
+```
+
 Quick also allows for asynchronous expectations, by wrapping the subject
 in braces instead of parentheses. This allows the subject to be
 evaluated as a closure. Below is an example of a subject who knows

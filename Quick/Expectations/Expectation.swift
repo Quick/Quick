@@ -24,9 +24,9 @@ class Prediction {
 }
 
 class Expectation: Prediction {
-    let actual: NSObject
+    let actual: NSObject?
 
-    init(_ actual: NSObject, callsite: Callsite, negative: Bool) {
+    init(_ actual: NSObject?, callsite: Callsite, negative: Bool) {
         self.actual = actual
         super.init(callsite: callsite, negative: negative)
     }
@@ -35,7 +35,8 @@ class Expectation: Prediction {
         if (negative && matcher.match(actual)) {
             XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
         } else if (!negative && !matcher.match(actual)) {
-            XCTFail(matcher.failureMessage(actual), file: callsite.file, line: callsite.line)
+            var fail = matcher.failureMessage(actual)
+            XCTFail(fail, file: callsite.file, line: callsite.line)
         }
     }
 }
