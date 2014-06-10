@@ -50,16 +50,13 @@ class OptionalSpec : QuickSpec {
 
             var person = Person()
 
-//            expect(person).to.beTrue()
+            it("to not be nil") {
+
+                expect(person).toNot.beNil()
+
+            }
 
         }
-        
-
-        
-
-
-
-
 
     }
 }
