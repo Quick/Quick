@@ -80,14 +80,20 @@ expect{person!.isHungry}.willBefore(3).beTrue()
 expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 ```
 
+---
+
 ## Installation
 
 > This module is beta software, and can only run using the latest, beta version
 of Xcode.
 
-### OS X
+To use Quick to test your iOS or OS X applications, follow these 4 easy steps:
 
-To use Quick to test your OS X applications, follow these 4 easy steps.
+1. [Clone the repository](https://github.com/modocache/Quick#1-clone-this-repository)
+2. [Add `Quick.xcodeproj` to your test target](https://github.com/modocache/Quick#2-add-the-quickxcodeproj-file-to-your-applications-test-target)
+3. [Link `Quick.framework` during your test target's `Link Binary with Libraries` build phase](https://github.com/modocache/Quick#3-link-the-quickframework)
+4. Start writing specs!
+
 An example project with this complete setup is available in the
 [`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
 
@@ -116,18 +122,14 @@ navigator, grouped with your tests.
 #### 3. Link the `Quick.framework`
 
 Finally, link the `Quick.framework` during your test target's
-`Link Binary with Libraries` build phase.
+`Link Binary with Libraries` build phase. You should see two
+`Quick.frameworks`; one is for OS X, and the other is for iOS.
 
 ![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
 
 #### 4. Start writing specs!
 
 If you run into any problems, please file an issue.
-
-### iOS
-
-I'm working on it. [Issue #5](https://github.com/modocache/Quick/issues/5) keeps track
-of current progress. If you have any suggestions please comment or contribute!
 
 ## License
 
