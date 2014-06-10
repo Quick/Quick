@@ -9,20 +9,20 @@
 import Foundation
 
 class Matcher {
-    let expected: NSObject?
-    init(_ expected: NSObject?) {
+    let expected: Any?
+    init(_ expected: Any?) {
         self.expected = expected
     }
 
-    func failureMessage(actual: NSObject?) -> String {
+    func failureMessage(actual: Any?) -> String {
         return "expected \(actual) to match \(expected)"
     }
 
-    func negativeFailureMessage(actual: NSObject?) -> String {
+    func negativeFailureMessage(actual: Any?) -> String {
         return "expected \(actual) to not match \(expected)"
     }
 
-    func match(actual: NSObject?) -> Bool {
+    func match(actual: Any?) -> Bool {
         NSException(name: NSInternalInconsistencyException,
                     reason:"Matchers must override match()",
                     userInfo: nil).raise()

@@ -9,7 +9,7 @@
 import Foundation
 
 class Actual {
-    let actual: NSObject?
+    let actual: Any?
     let callsite: Callsite
 
     init(_ actual: NSObject?, callsite: Callsite) {

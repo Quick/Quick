@@ -13,15 +13,15 @@ class BeNil: Matcher {
         super.init(true)
     }
 
-    override func failureMessage(actual: NSObject?) -> String {
+    override func failureMessage(actual: Any?) -> String {
         return "expected '\(actual)' to be nil"
     }
 
-    override func negativeFailureMessage(actual: NSObject?) -> String {
+    override func negativeFailureMessage(actual: Any?) -> String {
         return "expected '\(actual)' to be non-nil"
     }
 
-    override func match(actual: NSObject?) -> Bool {
+    override func match(actual: Any?) -> Bool {
 
         return actual == nil
     }
