@@ -13,6 +13,35 @@
 		34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41751945C49C0062CC32 /* BeTrueSpec.swift */; };
 		34EB41781945C8B70062CC32 /* ActualClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41771945C8B70062CC32 /* ActualClosure.swift */; };
 		34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41791945C91B0062CC32 /* ClosureExpectation.swift */; };
+		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
+		5A5D11951947401200F6D13D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6BC9194387C300289F44 /* XCTest.framework */; };
+		5A5D1196194740D700F6D13D /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAB1943879800289F44 /* DSL.swift */; };
+		5A5D1197194740D700F6D13D /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAC1943879800289F44 /* Example.swift */; };
+		5A5D1198194740D700F6D13D /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAD1943879800289F44 /* ExampleGroup.swift */; };
+		5A5D1199194740D700F6D13D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB11943879800289F44 /* World.swift */; };
+		5A5D119A194740D700F6D13D /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB01943879800289F44 /* QuickSpec.m */; };
+		5A5D119B194740D700F6D13D /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34400A94194586F30019C41F /* NSString+QCKSelectorName.m */; };
+		5A5D119C194740D700F6D13D /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB31943879800289F44 /* Actual.swift */; };
+		5A5D119D194740D700F6D13D /* ActualClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41771945C8B70062CC32 /* ActualClosure.swift */; };
+		5A5D119E194740D700F6D13D /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5BE5E19449F8400E3C531 /* Callsite.swift */; };
+		5A5D119F194740D700F6D13D /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB41943879800289F44 /* DSL.swift */; };
+		5A5D11A0194740D700F6D13D /* Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB51943879800289F44 /* Expectation.swift */; };
+		5A5D11A1194740D700F6D13D /* ClosureExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41791945C91B0062CC32 /* ClosureExpectation.swift */; };
+		5A5D11A2194740D700F6D13D /* AsyncExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsyncExpectation.swift */; };
+		5A5D11A3194740D700F6D13D /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB61943879800289F44 /* Matcher.swift */; };
+		5A5D11A4194740D700F6D13D /* BeTrue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB81943879800289F44 /* BeTrue.swift */; };
+		5A5D11A5194740D700F6D13D /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BB91943879800289F44 /* Contain.swift */; };
+		5A5D11A6194740D700F6D13D /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BBA1943879800289F44 /* Equal.swift */; };
+		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A5D11A8194740E000F6D13D /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6BAF1943879800289F44 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A5D11A9194740E000F6D13D /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34400A93194586F30019C41F /* NSString+QCKSelectorName.h */; };
+		5A5D11AA1947412800F6D13D /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
+		5A5D11AB1947412800F6D13D /* ExampleGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */; };
+		5A5D11AC1947412800F6D13D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
+		5A5D11AD1947412800F6D13D /* Poet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCF194387D700289F44 /* Poet.swift */; };
+		5A5D11AE1947412800F6D13D /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BD1194387D700289F44 /* ContainSpec.swift */; };
+		5A5D11AF1947412800F6D13D /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41731945BAE70062CC32 /* EqualSpec.swift */; };
+		5A5D11B01947412800F6D13D /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41751945C49C0062CC32 /* BeTrueSpec.swift */; };
 		5AC5BE5F19449F8400E3C531 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5BE5E19449F8400E3C531 /* Callsite.swift */; };
 		DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsyncExpectation.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +68,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A5D118819473F2100F6D13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5D117B19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		5A5D11EF194741B500F6D13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5D117B19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		5A5D11F1194741B500F6D13D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5D117B19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
 		DAEB6B9B1943873100289F44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEB6B851943873100289F44 /* Project object */;
@@ -55,6 +105,8 @@
 		34EB41751945C49C0062CC32 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
 		34EB41771945C8B70062CC32 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
 		34EB41791945C91B0062CC32 /* ClosureExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExpectation.swift; sourceTree = "<group>"; };
+		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AC5BE5E19449F8400E3C531 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		DAB406AD1943B23E00942733 /* AsyncExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncExpectation.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +136,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A5D117819473F2100F6D13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5D11951947401200F6D13D /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A5D118319473F2100F6D13D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAEB6B8A1943873100289F44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +186,8 @@
 			children = (
 				DAEB6B8E1943873100289F44 /* Quick.framework */,
 				DAEB6B991943873100289F44 /* QuickTests.xctest */,
+				5A5D117C19473F2100F6D13D /* Quick.framework */,
+				5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +294,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5A5D117919473F2100F6D13D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
+				5A5D11A8194740E000F6D13D /* QuickSpec.h in Headers */,
+				5A5D11A9194740E000F6D13D /* NSString+QCKSelectorName.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAEB6B8B1943873100289F44 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +317,44 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5A5D117B19473F2100F6D13D /* Quick-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A5D119319473F2100F6D13D /* Build configuration list for PBXNativeTarget "Quick-iOS" */;
+			buildPhases = (
+				5A5D117719473F2100F6D13D /* Sources */,
+				5A5D117819473F2100F6D13D /* Frameworks */,
+				5A5D117919473F2100F6D13D /* Headers */,
+				5A5D117A19473F2100F6D13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Quick-iOS";
+			productName = "Quick-iOS";
+			productReference = 5A5D117C19473F2100F6D13D /* Quick.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5A5D118519473F2100F6D13D /* Quick-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A5D119419473F2100F6D13D /* Build configuration list for PBXNativeTarget "Quick-iOSTests" */;
+			buildPhases = (
+				5A5D118219473F2100F6D13D /* Sources */,
+				5A5D118319473F2100F6D13D /* Frameworks */,
+				5A5D118419473F2100F6D13D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A5D118919473F2100F6D13D /* PBXTargetDependency */,
+				5A5D11F0194741B500F6D13D /* PBXTargetDependency */,
+				5A5D11F2194741B500F6D13D /* PBXTargetDependency */,
+			);
+			name = "Quick-iOSTests";
+			productName = "Quick-iOSTests";
+			productReference = 5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DAEB6B8D1943873100289F44 /* Quick */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DAEB6BA41943873200289F44 /* Build configuration list for PBXNativeTarget "Quick" */;
@@ -282,6 +400,13 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Brian Ivan Gesiak";
 				TargetAttributes = {
+					5A5D117B19473F2100F6D13D = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					5A5D118519473F2100F6D13D = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 5A5D117B19473F2100F6D13D;
+					};
 					DAEB6B8D1943873100289F44 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -305,11 +430,27 @@
 			targets = (
 				DAEB6B8D1943873100289F44 /* Quick */,
 				DAEB6B981943873100289F44 /* QuickTests */,
+				5A5D117B19473F2100F6D13D /* Quick-iOS */,
+				5A5D118519473F2100F6D13D /* Quick-iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5A5D117A19473F2100F6D13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A5D118419473F2100F6D13D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAEB6B8C1943873100289F44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,6 +468,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A5D117719473F2100F6D13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5D1196194740D700F6D13D /* DSL.swift in Sources */,
+				5A5D1197194740D700F6D13D /* Example.swift in Sources */,
+				5A5D1198194740D700F6D13D /* ExampleGroup.swift in Sources */,
+				5A5D1199194740D700F6D13D /* World.swift in Sources */,
+				5A5D119A194740D700F6D13D /* QuickSpec.m in Sources */,
+				5A5D119B194740D700F6D13D /* NSString+QCKSelectorName.m in Sources */,
+				5A5D119C194740D700F6D13D /* Actual.swift in Sources */,
+				5A5D119D194740D700F6D13D /* ActualClosure.swift in Sources */,
+				5A5D119E194740D700F6D13D /* Callsite.swift in Sources */,
+				5A5D119F194740D700F6D13D /* DSL.swift in Sources */,
+				5A5D11A0194740D700F6D13D /* Expectation.swift in Sources */,
+				5A5D11A1194740D700F6D13D /* ClosureExpectation.swift in Sources */,
+				5A5D11A2194740D700F6D13D /* AsyncExpectation.swift in Sources */,
+				5A5D11A3194740D700F6D13D /* Matcher.swift in Sources */,
+				5A5D11A4194740D700F6D13D /* BeTrue.swift in Sources */,
+				5A5D11A5194740D700F6D13D /* Contain.swift in Sources */,
+				5A5D11A6194740D700F6D13D /* Equal.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A5D118219473F2100F6D13D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5D11AA1947412800F6D13D /* FunctionalTests.swift in Sources */,
+				5A5D11AB1947412800F6D13D /* ExampleGroupTests.swift in Sources */,
+				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
+				5A5D11AD1947412800F6D13D /* Poet.swift in Sources */,
+				5A5D11AE1947412800F6D13D /* ContainSpec.swift in Sources */,
+				5A5D11AF1947412800F6D13D /* EqualSpec.swift in Sources */,
+				5A5D11B01947412800F6D13D /* BeTrueSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DAEB6B891943873100289F44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +547,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5A5D118919473F2100F6D13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5D117B19473F2100F6D13D /* Quick-iOS */;
+			targetProxy = 5A5D118819473F2100F6D13D /* PBXContainerItemProxy */;
+		};
+		5A5D11F0194741B500F6D13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5D117B19473F2100F6D13D /* Quick-iOS */;
+			targetProxy = 5A5D11EF194741B500F6D13D /* PBXContainerItemProxy */;
+		};
+		5A5D11F2194741B500F6D13D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5D117B19473F2100F6D13D /* Quick-iOS */;
+			targetProxy = 5A5D11F1194741B500F6D13D /* PBXContainerItemProxy */;
+		};
 		DAEB6B9C1943873100289F44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DAEB6B8D1943873100289F44 /* Quick */;
@@ -376,6 +570,98 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5A5D118F19473F2100F6D13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Quick/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Quick;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A5D119019473F2100F6D13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				INFOPLIST_FILE = Quick/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Quick;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A5D119119473F2100F6D13D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QuickTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5A5D119219473F2100F6D13D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QuickTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		DAEB6BA21943873200289F44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -536,6 +822,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A5D119319473F2100F6D13D /* Build configuration list for PBXNativeTarget "Quick-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5D118F19473F2100F6D13D /* Debug */,
+				5A5D119019473F2100F6D13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A5D119419473F2100F6D13D /* Build configuration list for PBXNativeTarget "Quick-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5D119119473F2100F6D13D /* Debug */,
+				5A5D119219473F2100F6D13D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DAEB6B881943873100289F44 /* Build configuration list for PBXProject "Quick" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
