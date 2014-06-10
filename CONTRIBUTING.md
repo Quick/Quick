@@ -17,8 +17,8 @@ it.
 - See a crash? File an issue.
 - Code isn't compiling, but you don't know why? Sounds like you should
   submit a new issue, bud.
-- Went to the kitchen, only to forget what you came for in the first
-  place? Better submit an issue.
+- Went to the kitchen, only to forget why you went in the first place?
+  Better submit an issue.
 
 ## Pull Requests
 
