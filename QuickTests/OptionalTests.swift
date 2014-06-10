@@ -11,45 +11,6 @@ import Quick
 class OptionalSpec : QuickSpec {
 
     override class func exampleGroups() {
-        context("true") {
-
-            context("nil bool") {
-
-                var optBool : Bool?
-                
-                it("should be false") {
-
-                    expect(optBool).toNot.beTrue()
-
-                }
-
-            }
-
-            context("true bool") {
-
-                var optBool : Bool? = true
-
-                it("should be true") {
-
-                    expect(optBool).to.beTrue()
-
-                }
-                
-            }
-            
-            context("false bool") {
-
-                var optBool : Bool? = false
-
-                it("should be true") {
-
-                    expect(optBool).toNot.beTrue()
-
-                }
-                
-            }
-
-        }
 
         context("equal") {
 

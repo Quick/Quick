@@ -29,16 +29,45 @@ class BeTrueSpec: QuickSpec {
         }
 
         describe("beTrue()") {
-            it("matches 'true'") {
-                expect(true).to.beTrue()
+            context("when the subject is an optional") {
+                var subject: NSObject?
+
+                context("and nil") {
+                    beforeEach { subject = nil }
+                    it("does not match") {
+                        expect(subject).toNot.beTrue()
+                    }
+                }
+
+                context("and non-nil") {
+                    context("and it is true") {
+                        beforeEach { subject = true }
+                        it("matches") {
+                            expect(subject).to.beTrue()
+                        }
+                    }
+
+                    context("and it not true") {
+                        beforeEach { subject = "Daenerys Targaryen" }
+                        it("does not match") {
+                            expect(subject).toNot.beTrue()
+                        }
+                    }
+                }
             }
 
-            it("does not match 'false'") {
-                expect(false).toNot.beTrue()
-            }
+            context("when the subject is not an optional") {
+                it("matches 'true'") {
+                    expect(true).to.beTrue()
+                }
 
-            it("does not match arbitrary objects") {
-                expect("true").toNot.beTrue()
+                it("does not match 'false'") {
+                    expect(false).toNot.beTrue()
+                }
+
+                it("does not match arbitrary objects") {
+                    expect("true").toNot.beTrue()
+                }
             }
         }
     }
