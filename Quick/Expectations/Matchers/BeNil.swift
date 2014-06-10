@@ -8,9 +8,10 @@
 
 import Foundation
 
-class BeNil: Matcher {
+class BeNil: Equal {
     init() {
-        super.init(true)
+        // BeNil is equivalent to Equal(nil)
+        super.init(nil)
     }
 
     override func failureMessage(actual: NSObject?) -> String {
@@ -19,11 +20,6 @@ class BeNil: Matcher {
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
         return "expected '\(actual)' to be non-nil"
-    }
-
-    override func match(actual: NSObject?) -> Bool {
-
-        return actual == nil
     }
 }
 
