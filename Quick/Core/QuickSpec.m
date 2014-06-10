@@ -62,7 +62,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 }
 
 /**
- The test's name. This be overridden by subclasses. By default, this uses the
+ The test's name. This is to be overridden by subclasses. By default, this uses the
  invocation's selector's name (i.e.: "-[WinterTests testWinterIsComing]").
  This method provides the name of the test class, along with a string made up
  of the example group and example descriptions.
