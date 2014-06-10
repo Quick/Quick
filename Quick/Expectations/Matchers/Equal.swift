@@ -9,21 +9,27 @@
 import Foundation
 
 class Equal: Matcher {
-    override func failureMessage(actual: NSObject?) -> String {
+    override func failureMessage(actual: Any?) -> String {
         return "expected '\(actual)' to be equal to '\(expected)'"
     }
 
-    override func negativeFailureMessage(actual: NSObject?) -> String {
+    override func negativeFailureMessage(actual: Any?) -> String {
         return "expected '\(actual)' to not be equal to '\(expected)'"
     }
 
-    override func match(actual: NSObject?) -> Bool {
-        return actual == expected
+    override func match(actual: Any?) -> Bool {
+
+        if actual != nil && expected != nil {
+
+            return true
+
+        }
+        return false
     }
 }
 
 extension Prediction {
-    func equal(expected: NSObject?) {
+    func equal(expected: Any?) {
         evaluate(Equal(expected))
     }
 }

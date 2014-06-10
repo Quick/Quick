@@ -9,10 +9,10 @@
 import Foundation
 
 class Actual {
-    let actual: NSObject?
+    let actual: Any?
     let callsite: Callsite
 
-    init(_ actual_: NSObject?, callsite: Callsite) {
+    init(_ actual_: Any?, callsite: Callsite) {
         self.actual = actual_
         self.callsite = callsite
     }

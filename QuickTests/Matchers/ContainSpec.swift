@@ -20,14 +20,14 @@ class ContainSpec: QuickSpec {
 
             describe("failureMessage") {
                 it("says it expected subject to contain expected") {
-                    let message = matcher!.failureMessage(subject!)
+                    let message = matcher!.failureMessage(subject)
                     expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to contain 'Jon Snow'")
                 }
             }
 
             describe("negativeFailureMessage") {
                 it("says it expected subject to not contain expected") {
-                    let message = matcher!.negativeFailureMessage(subject!)
+                    let message = matcher!.negativeFailureMessage(subject)
                     expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to not contain 'Jon Snow'")
                 }
             }
