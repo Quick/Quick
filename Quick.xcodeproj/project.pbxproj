@@ -14,6 +14,7 @@
 		34EB41781945C8B70062CC32 /* ActualClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41771945C8B70062CC32 /* ActualClosure.swift */; };
 		34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41791945C91B0062CC32 /* ClosureExpectation.swift */; };
 		5AC5BE5F19449F8400E3C531 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5BE5E19449F8400E3C531 /* Callsite.swift */; };
+		A347D7FE194716EA000F0373 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347D7FD194716EA000F0373 /* OptionalTests.swift */; };
 		DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsyncExpectation.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
@@ -56,6 +57,7 @@
 		34EB41771945C8B70062CC32 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
 		34EB41791945C91B0062CC32 /* ClosureExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExpectation.swift; sourceTree = "<group>"; };
 		5AC5BE5E19449F8400E3C531 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
+		A347D7FD194716EA000F0373 /* OptionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
 		DAB406AD1943B23E00942733 /* AsyncExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncExpectation.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		DAEB6B9D1943873100289F44 /* QuickTests */ = {
 			isa = PBXGroup;
 			children = (
+				A347D7FD194716EA000F0373 /* OptionalTests.swift */,
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
@@ -362,6 +365,7 @@
 				DAEB6BD6194387D700289F44 /* ContainSpec.swift in Sources */,
 				DAEB6BD2194387D700289F44 /* FunctionalTests.swift in Sources */,
 				34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */,
+				A347D7FE194716EA000F0373 /* OptionalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

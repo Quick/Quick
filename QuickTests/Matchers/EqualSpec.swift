@@ -36,14 +36,14 @@ class EqualSpec: QuickSpec {
             describe("when actual is equal to expected") {
                 beforeEach { expected = "Arya Stark" }
                 it("matches") {
-                    expect(actual!).to.equal(expected!)
+                    expect(actual).to.equal(expected)
                 }
             }
 
             describe("when actual is not equal to expected") {
                 beforeEach { expected = "Jaqen H'ghar" }
                 it("does not match") {
-                    expect(actual!).toNot.equal(expected!)
+                    expect(actual).toNot.equal(expected)
                 }
             }
         }

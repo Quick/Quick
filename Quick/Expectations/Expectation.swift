@@ -24,9 +24,9 @@ class Prediction {
 }
 
 class Expectation: Prediction {
-    let actual: NSObject
+    let actual: NSObject?
 
-    init(_ actual: NSObject, callsite: Callsite, negative: Bool) {
+    init(_ actual: NSObject?, callsite: Callsite, negative: Bool) {
         self.actual = actual
         super.init(callsite: callsite, negative: negative)
     }

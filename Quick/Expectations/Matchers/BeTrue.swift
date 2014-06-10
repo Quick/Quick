@@ -13,15 +13,15 @@ class BeTrue: Matcher {
         super.init(true)
     }
 
-    override func failureMessage(actual: NSObject) -> String {
+    override func failureMessage(actual: NSObject?) -> String {
         return "expected '\(actual)' to be true"
     }
 
-    override func negativeFailureMessage(actual: NSObject) -> String {
+    override func negativeFailureMessage(actual: NSObject?) -> String {
         return "expected '\(actual)' to be false"
     }
 
-    override func match(actual: NSObject) -> Bool {
+    override func match(actual: NSObject?) -> Bool {
         return actual == true
     }
 }

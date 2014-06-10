@@ -9,10 +9,10 @@
 import Foundation
 
 class ActualClosure {
-    let actualClosure: () -> (NSObject)
+    let actualClosure: () -> (NSObject?)
     let callsite: Callsite
 
-    init(_ actualClosure: () -> (NSObject), callsite: Callsite) {
+    init(_ actualClosure: () -> (NSObject?), callsite: Callsite) {
         self.actualClosure = actualClosure
         self.callsite = callsite
     }
