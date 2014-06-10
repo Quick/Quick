@@ -1,5 +1,5 @@
 //
-//  True.swift
+//  Nil.swift
 //  Quick
 //
 //  Created by Brian Ivan Gesiak on 6/6/14.
@@ -8,26 +8,27 @@
 
 import Foundation
 
-class BeTrue: Matcher {
+class BeNil: Matcher {
     init() {
         super.init(true)
     }
 
     override func failureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to be true"
+        return "expected '\(actual)' to be nil"
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to be false"
+        return "expected '\(actual)' to be non-nil"
     }
 
     override func match(actual: NSObject?) -> Bool {
-        return actual && actual! == true
+
+        return actual == nil
     }
 }
 
 extension Prediction {
-    func beTrue() {
-        evaluate(BeTrue())
+    func beNil() {
+        evaluate(BeNil())
     }
 }

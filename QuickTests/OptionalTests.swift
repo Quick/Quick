@@ -14,12 +14,52 @@ class OptionalSpec : QuickSpec {
 
         var person: Person?
 
-        it("is not set") {
+        context("nil subject") {
 
-            expect(person).toNot.beTrue()
+            beforeEach { person = nil }
+
+            it("to be nil") {
+
+                expect(person).to.beNil()
+                
+            }
+
+        }
+
+        context("non-nil subject") {
+
+            beforeEach { person = Person() }
+
+            afterEach { person = nil }
+
+            it("to not be nil") {
+
+                expect(person).toNot.beNil()
+                
+            }
             
+            it("not to be nil") {
+
+                expect(person).notTo.beNil()
+                
+            }
+
+        }
+
+        context("non-optional") {
+
+            var person = Person()
+
+//            expect(person).to.beTrue()
+
         }
         
+
+        
+
+
+
+
 
     }
 }
