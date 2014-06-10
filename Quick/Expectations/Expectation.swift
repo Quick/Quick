@@ -35,8 +35,7 @@ class Expectation: Prediction {
         if (negative && matcher.match(actual)) {
             XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
         } else if (!negative && !matcher.match(actual)) {
-            var fail = matcher.failureMessage(actual)
-            XCTFail(fail, file: callsite.file, line: callsite.line)
+            XCTFail(matcher.failureMessage(actual), file: callsite.file, line: callsite.line)
         }
     }
 }

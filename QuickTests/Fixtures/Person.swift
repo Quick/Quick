@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Person : NSObject {
+class Person: NSObject {
     var isHappy = true
     var isHungry = false
     var isSatisfied = false
@@ -31,4 +31,3 @@ class Person : NSObject {
         }
     }
 }
-
