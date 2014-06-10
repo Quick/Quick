@@ -34,29 +34,88 @@ class ContainSpec: QuickSpec {
         }
 
         describe("contain()") {
+            context("when the subject is an optional array") {
+                var subject: AnyObject[]?
+
+                context("and nil") {
+                    it("does not match") {
+                        expect(subject).notTo.contain(10)
+                        expect(subject).notTo.contain(nil)
+                    }
+                }
+
+                context("and non-nil") {
+                    beforeEach { subject = [3, 1, 10, 2] }
+                    context("and it contains the element") {
+                        it("matches") {
+                            expect(subject).to.contain(10)
+                        }
+                    }
+
+                    context("but it doesn't contain the element") {
+                        it("doesn't match") {
+                            expect(subject).notTo.contain(20)
+                        }
+                    }
+                }
+            }
+
             context("when the subject is an array") {
-                var subject: AnyObject[] = []
-                beforeEach { subject = [3, 1, 10, 2] }
+                let subject = ["Olenna Tyrell", "Mace Tyrell"]
 
                 context("and it contains the element") {
-                    it("matches") { expect(subject).to.contain(10) }
+                    it("matches") {
+                        expect(subject).to.contain("Olenna Tyrell")
+                    }
                 }
 
                 context("but it doesn't contain the element") {
-                    it("doesn't match") { expect(subject).notTo.contain(20) }
+                    it("doesn't match") {
+                        expect(subject).notTo.contain("Oberyn Martell")
+                    }
+                }
+            }
+
+            context("when the subject is an optional set") {
+                var subject: NSSet?
+
+                context("and nil") {
+                    it("does not match") {
+                        expect(subject).toNot.contain("Selyse Baratheon")
+                        expect(subject).toNot.contain(nil)
+                    }
+                }
+
+                context("and non-nil") {
+                    beforeEach { subject = NSSet(objects: 1, 3, 9) }
+
+                    context("and it contains the element") {
+                        it("matches") {
+                            expect(subject).to.contain(3)
+                        }
+                    }
+
+                    context("but it doesn't contain the element") {
+                        it("doesn't match") {
+                            expect(subject).notTo.contain(11)
+                        }
+                    }
                 }
             }
 
             context("when the subject is a set") {
-                var subject: NSSet = NSSet()
-                beforeEach { subject = NSSet(objects: 1, 3, 9) }
+                let subject = NSSet(objects: "Renly Baratheon", "Shireen Baratheon")
 
                 context("and it contains the element") {
-                    it("matches") { expect(subject).to.contain(3) }
+                    it("matches") {
+                        expect(subject).to.contain("Renly Baratheon")
+                    }
                 }
 
                 context("but it doesn't contain the element") {
-                    it("doesn't match") { expect(subject).notTo.contain(11) }
+                    it("doesn't match") {
+                        expect(subject).notTo.contain("Margaery Tyrell")
+                    }
                 }
             }
 

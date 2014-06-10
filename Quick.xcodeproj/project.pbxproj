@@ -43,11 +43,9 @@
 		5A5D11AF1947412800F6D13D /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41731945BAE70062CC32 /* EqualSpec.swift */; };
 		5A5D11B01947412800F6D13D /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41751945C49C0062CC32 /* BeTrueSpec.swift */; };
 		5A5D12071947527A00F6D13D /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7C5681947245300CACF42 /* BeNil.swift */; };
-		5A5D12081947528000F6D13D /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347D7FD194716EA000F0373 /* OptionalTests.swift */; };
 		5A5D120A194752B500F6D13D /* BeNilSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5D1209194752B500F6D13D /* BeNilSpec.swift */; };
 		5A5D120B194752B500F6D13D /* BeNilSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5D1209194752B500F6D13D /* BeNilSpec.swift */; };
 		5AC5BE5F19449F8400E3C531 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC5BE5E19449F8400E3C531 /* Callsite.swift */; };
-		A347D7FE194716EA000F0373 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347D7FD194716EA000F0373 /* OptionalTests.swift */; };
 		A3D7C5691947245300CACF42 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7C5681947245300CACF42 /* BeNil.swift */; };
 		DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB406AD1943B23E00942733 /* AsyncExpectation.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -115,7 +113,6 @@
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D1209194752B500F6D13D /* BeNilSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeNilSpec.swift; sourceTree = "<group>"; };
 		5AC5BE5E19449F8400E3C531 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
-		A347D7FD194716EA000F0373 /* OptionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
 		A3D7C5681947245300CACF42 /* BeNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeNil.swift; sourceTree = "<group>"; };
 		DAB406AD1943B23E00942733 /* AsyncExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncExpectation.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,7 +220,6 @@
 		DAEB6B9D1943873100289F44 /* QuickTests */ = {
 			isa = PBXGroup;
 			children = (
-				A347D7FD194716EA000F0373 /* OptionalTests.swift */,
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
@@ -515,7 +511,6 @@
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
 				5A5D11AD1947412800F6D13D /* Poet.swift in Sources */,
 				5A5D11AE1947412800F6D13D /* ContainSpec.swift in Sources */,
-				5A5D12081947528000F6D13D /* OptionalTests.swift in Sources */,
 				5A5D11AF1947412800F6D13D /* EqualSpec.swift in Sources */,
 				5A5D11B01947412800F6D13D /* BeTrueSpec.swift in Sources */,
 			);
@@ -558,7 +553,6 @@
 				DAEB6BD6194387D700289F44 /* ContainSpec.swift in Sources */,
 				DAEB6BD2194387D700289F44 /* FunctionalTests.swift in Sources */,
 				34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */,
-				A347D7FE194716EA000F0373 /* OptionalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
