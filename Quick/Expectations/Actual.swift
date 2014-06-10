@@ -12,7 +12,7 @@ class Actual {
     let actual: Any?
     let callsite: Callsite
 
-    init(_ actual: NSObject?, callsite: Callsite) {
+    init(_ actual: Any?, callsite: Callsite) {
         self.actual = actual
         self.callsite = callsite
     }
