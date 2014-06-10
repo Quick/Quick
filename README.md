@@ -61,7 +61,7 @@ expect(person!.greeting).to.equal("Hello!")
 expect(person!.hopes).to.contain("winning the lottery")
 ```
 
-Quick also allows for asynchronous matchers, by wrapping the subject
+Quick also allows for asynchronous expectations, by wrapping the subject
 in braces instead of parentheses. This allows the subject to be
 evaluated as a closure. Below is an example of a subject who knows
 only hunger, and never satisfaction:
@@ -69,6 +69,15 @@ only hunger, and never satisfaction:
 ```swift
 expect{person!.isHungry}.will.beTrue()
 expect{person!.isSatisfied}.willNot.beTrue()
+```
+
+Asynchronous expectations time out after one second by default. You can
+extend this by using `willBefore`. The following times out after 3
+seconds:
+
+```swift
+expect{person!.isHungry}.willBefore(3).beTrue()
+expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 ```
 
 ## Installation
@@ -80,7 +89,7 @@ of Xcode.
 
 To use Quick to test your OS X applications, follow these 4 easy steps.
 An example project with this complete setup is available in the
-[`Example`](https://github.com/modocache/Quick/tree/master/Example) directory.
+[`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
 
 #### 1. Clone this repository
 
