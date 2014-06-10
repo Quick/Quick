@@ -29,21 +29,55 @@ class EqualSpec: QuickSpec {
         }
 
         describe("equal()") {
-            var actual: String?
             var expected: String?
-            beforeEach { actual = "Arya Stark" }
 
-            describe("when actual is equal to expected") {
-                beforeEach { expected = "Arya Stark" }
-                it("matches") {
-                    expect(actual).to.equal(expected)
+            context("when actual is an optional") {
+                var actual: String?
+
+                context("and nil") {
+                    beforeEach { actual = nil }
+                    context("and expected is nil") {
+                        it("matches") {
+                            expect(actual).to.equal(nil)
+                        }
+                    }
+
+                    context("but expected is not nil") {
+                        it("doesn't match") {
+                            expect(actual).notTo.equal("Mycah")
+                        }
+                    }
+                }
+
+                context("and non-nil") {
+                    beforeEach { actual = "Arya Stark" }
+                    context("and equal to expected") {
+                        it("matches") {
+                            expect(actual).to.equal("Arya Stark")
+                        }
+                    }
+
+                    context("but not equal to expected") {
+                        it("does not match") {
+                            expect(actual).toNot.equal("Jaqen H'ghar")
+                        }
+                    }
                 }
             }
 
-            describe("when actual is not equal to expected") {
-                beforeEach { expected = "Jaqen H'ghar" }
-                it("does not match") {
-                    expect(actual).toNot.equal(expected)
+            context("when actual is not an optional") {
+                let actual = "Eddard Stark"
+
+                context("and it is equal to expected") {
+                    it("matches") {
+                        expect(actual).to.equal("Eddard Stark")
+                    }
+                }
+
+                context("and it is not equal to expected") {
+                    it("does not match") {
+                        expect(actual).toNot.equal("Robert Baratheon")
+                    }
                 }
             }
         }

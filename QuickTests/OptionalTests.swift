@@ -12,46 +12,6 @@ class OptionalSpec : QuickSpec {
 
     override class func exampleGroups() {
 
-        context("equal") {
-
-            context("nil value") {
-
-                var optVal : String?
-
-                it("does not equal empty string") {
-
-                    expect(optVal).toNot.equal("")
-                    
-                }
-
-            }
-
-            context("empty string") {
-
-                var optVal : String? = ""
-
-                it("does equal an empty string") {
-
-                    expect(optVal).to.equal("")
-
-                }
-                
-            }
-
-            context("non-empty string") {
-
-                var optVal : String? = "Hello World"
-
-                it("equals Hello Word") {
-
-                    expect(optVal).to.equal("Hello World")
-
-                }
-
-            }
-
-        }
-
         context("contains") {
 
             context("nil array") {
