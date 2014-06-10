@@ -9,6 +9,8 @@ and [Ginkgo](https://github.com/onsi/ginkgo).
 ## Syntax
 
 ```swift
+import Quick
+
 class PersonSpec: QuickSpec {
     override class func exampleGroups() {
         describe("Person") {
