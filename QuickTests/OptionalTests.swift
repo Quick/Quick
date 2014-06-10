@@ -135,8 +135,6 @@ class OptionalSpec : QuickSpec {
                 }
 
             }
-            
-
 
         }
 
