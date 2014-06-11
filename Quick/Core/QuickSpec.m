@@ -44,8 +44,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
     for (Example *example in examples) {
         SEL selector = [self addInstanceMethodForExample:example];
-        NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
-                                                                         example:example];
+        NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector example:example];
         [invocations addObject:invocation];
     }
 
