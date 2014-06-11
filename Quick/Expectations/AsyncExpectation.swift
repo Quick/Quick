@@ -9,51 +9,51 @@
 import Foundation
 import XCTest
 
-class AsyncExpectation: ClosureExpectation {
-    var timeOut: NSTimeInterval = 1.0
-
-    override func evaluate(matcher: Matcher) {
-        let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
-        while (true) {
-            let expired = NSDate.date().compare(expirationDate) != NSComparisonResult.OrderedAscending
-            let actual = actualClosure()
-            let matched = matcher.match(actual)
-
-            // The semantics of "will" and "will not" differ greatly.
-            //
-            // We can stop waiting for "will" as soon as we match, even if we have not
-            // waited until a time out.
-            //
-            // "willNot", on the other hand, implies that we never matched,
-            // even after waiting until the time out.
-            if (negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessage(actual)) ||
-                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessage(actual))) {
-                    break
-            }
-
-            NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow:0.01))
-        }
-    }
-
-    func _shouldEndPositiveWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
-        if matched || expired {
-            if !matched {
-                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
-            }
-            return true
-        } else {
-            return false
-        }
-    }
-
-    func _shouldEndNegativeWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
-        if expired {
-            if matched {
-                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
-            }
-            return true
-        } else {
-            return false
-        }
-    }
-}
+//class AsyncExpectation: ClosureExpectation {
+//    var timeOut: NSTimeInterval = 1.0
+//
+//    override func evaluate(matcher: Matcher) {
+//        let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
+//        while (true) {
+//            let expired = NSDate.date().compare(expirationDate) != NSComparisonResult.OrderedAscending
+//            let actual = actualClosure()
+//            let matched = matcher.match(actual)
+//
+//            // The semantics of "will" and "will not" differ greatly.
+//            //
+//            // We can stop waiting for "will" as soon as we match, even if we have not
+//            // waited until a time out.
+//            //
+//            // "willNot", on the other hand, implies that we never matched,
+//            // even after waiting until the time out.
+//            if (negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessage(actual)) ||
+//                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessage(actual))) {
+//                    break
+//            }
+//
+//            NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow:0.01))
+//        }
+//    }
+//
+//    func _shouldEndPositiveWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
+//        if matched || expired {
+//            if !matched {
+//                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
+//            }
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+//
+//    func _shouldEndNegativeWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
+//        if expired {
+//            if matched {
+//                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
+//            }
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+//}

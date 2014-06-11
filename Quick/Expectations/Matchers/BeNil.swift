@@ -8,27 +8,27 @@
 
 import Foundation
 
-class BeNil<T>: Matcher<T> {
-    init() {
-        super.init(true)
-    }
-
-    override func failureMessage(actual: T) -> String {
-        return "expected '\(actual)' to be nil"
-    }
-
-    override func negativeFailureMessage(actual: T) -> String {
-        return "expected '\(actual)' to be non-nil"
-    }
-
-    override func match(actual: T) -> Bool {
-
-        return actual == nil
-    }
-}
-
-extension Prediction {
-    func beNil() {
-        evaluate(BeNil())
-    }
-}
+//class BeNil<T>: Matcher<T> {
+//    init() {
+//        super.init(true)
+//    }
+//
+//    override func failureMessage(actual: T) -> String {
+//        return "expected '\(actual)' to be nil"
+//    }
+//
+//    override func negativeFailureMessage(actual: T) -> String {
+//        return "expected '\(actual)' to be non-nil"
+//    }
+//
+//    override func match(actual: T) -> Bool {
+//
+//        return actual == nil
+//    }
+//}
+//
+//extension Prediction {
+//    func beNil() {
+//        evaluate(BeNil())
+//    }
+//}

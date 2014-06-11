@@ -8,22 +8,47 @@
 
 import Foundation
 
-class Equal<T>: Matcher<T> {
-    override func failureMessage(actual: T) -> String {
-        return "expected '\(actual)' to be equal to '\(expected)'"
+class EqualMatcher<T:NSObject where T:Equatable> {
+
+    let expected: T
+
+    init(_ expected: T) {
+
+        self.expected = expected
+
     }
 
-    override func negativeFailureMessage(actual: T) -> String {
-        return "expected '\(actual)' to not be equal to '\(expected)'"
+    func equals(actual: T?) -> Bool {
+
+        if let actual = actual {
+
+            return expected == actual
+
+        }
+
+        return false
+
     }
 
-    override func match(actual: T) -> Bool {
-        return actual == expected
-    }
 }
 
-extension Prediction {
-    func equal<T>(expected: T) {
-        evaluate(Equal(expected))
-    }
-}
+
+//class Equal<T>: Matcher<T> {
+//    override func failureMessage(actual: T) -> String {
+//        return "expected '\(actual)' to be equal to '\(expected)'"
+//    }
+//
+//    override func negativeFailureMessage(actual: T) -> String {
+//        return "expected '\(actual)' to not be equal to '\(expected)'"
+//    }
+//
+//    override func match(actual: T) -> Bool {
+//        return actual == expected
+//    }
+//}
+//
+//extension Prediction {
+//    func equal<T>(expected: T) {
+//        evaluate(Equal(expected))
+//    }
+//}
