@@ -8,9 +8,9 @@
 
 import Foundation
 
-class BeNilMatcher {
+class BeNilMatcher<T:NSObject> {
 
-    func equals(actual: AnyObject?) -> Bool {
+    func equals(actual: T?) -> Bool {
         // NB: Do not use Any as the argument type - it does not allow you
         // to determine if the literal 'nil' is used as an argument
         if actual {
