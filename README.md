@@ -15,6 +15,9 @@ import Quick
 
 class PersonSpec: QuickSpec {
     override func exampleGroups() {
+        beforeSuite { Universe.bigBang() }
+        afterSuite { Universe.end() }
+
         describe("a person") {
             var person: Person?
             beforeEach { person = Person() }
