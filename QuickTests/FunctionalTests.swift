@@ -12,10 +12,19 @@ class PersonSpec: QuickSpec {
     override func exampleGroups() {
         describe("Person") {
             var person: Person?
+            var dinosaursExtinct = false
+            var mankindExtinct = false
 
-            beforeSuite { _ = Person.establishDbConnection() }
-            afterSuite { _ = Person.relinquishDbConnection() }
-          
+            beforeSuite {
+                assert(!dinosaursExtinct, "nothing goes extinct twice")
+                dinosaursExtinct = true
+            }
+
+            afterSuite {
+                assert(!mankindExtinct, "tests shouldn't run after the apocalypse")
+                mankindExtinct = true
+            }
+
             beforeEach { person = Person() }
             afterEach  { person = nil }
 
@@ -35,15 +44,10 @@ class PersonSpec: QuickSpec {
             it("will never be satisfied") {
                 expect{person!.isSatisfied}.willNot.beTrue()
             }
-          
-            describe("dbConnection") {
-                it("is connected to the DB") {
-                    expect(Person.dbConnectionEstablished()).to.beTrue()
-                }
 
-                it("cannot connect to the database twice") {
-                    expect(Person.establishDbConnection()).toNot.beTrue()
-                }
+            it("does not live with dinosaurs") {
+                expect(dinosaursExtinct).to.beTrue()
+                expect(mankindExtinct).toNot.beTrue()
             }
 
             describe("greeting") {
