@@ -44,7 +44,6 @@
 		5A5D11A8194740E000F6D13D /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6BAF1943879800289F44 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A5D11A9194740E000F6D13D /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34400A93194586F30019C41F /* NSString+QCKSelectorName.h */; };
 		5A5D11AA1947412800F6D13D /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
-		5A5D11AB1947412800F6D13D /* ExampleGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */; };
 		5A5D11AC1947412800F6D13D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
 		5A5D11AD1947412800F6D13D /* Poet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCF194387D700289F44 /* Poet.swift */; };
 		5A5D11AE1947412800F6D13D /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BD1194387D700289F44 /* ContainSpec.swift */; };
@@ -73,7 +72,6 @@
 		DAEB6BC81943879800289F44 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BBA1943879800289F44 /* Equal.swift */; };
 		DAEB6BCA194387C300289F44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6BC9194387C300289F44 /* XCTest.framework */; };
 		DAEB6BD2194387D700289F44 /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
-		DAEB6BD3194387D700289F44 /* ExampleGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
 		DAEB6BD5194387D700289F44 /* Poet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCF194387D700289F44 /* Poet.swift */; };
 		DAEB6BD6194387D700289F44 /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BD1194387D700289F44 /* ContainSpec.swift */; };
@@ -147,7 +145,6 @@
 		DAEB6BBA1943879800289F44 /* Equal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
 		DAEB6BC9194387C300289F44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DAEB6BCB194387D700289F44 /* FunctionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalTests.swift; sourceTree = "<group>"; };
-		DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroupTests.swift; sourceTree = "<group>"; };
 		DAEB6BCE194387D700289F44 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DAEB6BCF194387D700289F44 /* Poet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poet.swift; sourceTree = "<group>"; };
 		DAEB6BD1194387D700289F44 /* ContainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
@@ -233,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
-				DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */,
 				34512A381948223C007D457A /* FunctionalTests+ObjC.m */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DAEB6BD0194387D700289F44 /* Matchers */,
@@ -528,7 +524,6 @@
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				5A5D11AA1947412800F6D13D /* FunctionalTests.swift in Sources */,
 				5A5D120B194752B500F6D13D /* BeNilSpec.swift in Sources */,
-				5A5D11AB1947412800F6D13D /* ExampleGroupTests.swift in Sources */,
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
 				5A5D11AD1947412800F6D13D /* Poet.swift in Sources */,
 				5A5D11AE1947412800F6D13D /* ContainSpec.swift in Sources */,
@@ -573,7 +568,6 @@
 				5A5D120A194752B500F6D13D /* BeNilSpec.swift in Sources */,
 				34EB41741945BAE70062CC32 /* EqualSpec.swift in Sources */,
 				DAEB6BD5194387D700289F44 /* Poet.swift in Sources */,
-				DAEB6BD3194387D700289F44 /* ExampleGroupTests.swift in Sources */,
 				DAEB6BD6194387D700289F44 /* ContainSpec.swift in Sources */,
 				DAEB6BD2194387D700289F44 /* FunctionalTests.swift in Sources */,
 				34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */,

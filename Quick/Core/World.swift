@@ -12,10 +12,10 @@ var _specs: Dictionary<String, ExampleGroup> = [:]
 var _currentExampleGroup: ExampleGroup?
 
 var _beforeSuite: (() -> ())[] = []
-var _beforeSuiteToken: dispatch_once_t = 0
+var _beforeSuiteNotRunYet = true
 
 var _afterSuite: (() -> ())[] = []
-var _afterSuiteToken: dispatch_once_t = 0
+var _afterSuiteNotRunYet = true
 
 @objc class World {
     class func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
@@ -28,23 +28,23 @@ var _afterSuiteToken: dispatch_once_t = 0
             return group
         }
     }
-    
+
     class func runBeforeSpec() {
-        dispatch_once(&_beforeSuiteToken) {
-            for closure in _beforeSuite {
-                closure()
-            }
+        assert(_beforeSuiteNotRunYet, "runBeforeSuite was called twice")
+        for closure in _beforeSuite {
+            closure()
         }
+        _beforeSuiteNotRunYet = false
     }
 
     class func runAfterSpec() {
-        dispatch_once(&_afterSuiteToken) {
-            for closure in _afterSuite {
-                closure()
-            }
+        assert(_afterSuiteNotRunYet, "runAfterSuite was called twice")
+        for closure in _afterSuite {
+            closure()
         }
+        _afterSuiteNotRunYet = false
     }
-    
+
     class func appendBeforeSuite(closure: () -> ()) {
         _beforeSuite.append(closure)
     }
@@ -59,5 +59,17 @@ var _afterSuiteToken: dispatch_once_t = 0
 
     class func currentExampleGroup() -> ExampleGroup? {
         return _currentExampleGroup
+    }
+
+    class var exampleCount: Int {
+        get {
+            var count = 0
+            for (_, group) in _specs {
+                group.walkDownExamples { (example: Example) -> () in
+                    _ = ++count
+                }
+            }
+            return count
+        }
     }
 }

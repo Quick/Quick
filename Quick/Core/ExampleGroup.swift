@@ -62,12 +62,8 @@
     }
 
     func run() {
-        for example in _localExamples {
+        walkDownExamples { (example: Example) -> () in
             example.run()
-        }
-
-        for group in _groups {
-            group.run()
         }
     }
 
@@ -76,6 +72,15 @@
         while let parent = group.parent {
             callback(group: parent)
             group = parent
+        }
+    }
+
+    func walkDownExamples(callback: (example: Example) -> ()) {
+        for example in _localExamples {
+            callback(example: example)
+        }
+        for group in _groups {
+            group.walkDownExamples(callback)
         }
     }
 

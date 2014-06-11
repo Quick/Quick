@@ -8,6 +8,8 @@
 
 import XCTest
 
+var _numberOfExamplesRan = 0
+
 @objc class Example {
     weak var group: ExampleGroup?
 
@@ -22,6 +24,10 @@ import XCTest
     }
 
     func run() {
+        if _numberOfExamplesRan == 0 {
+            World.runBeforeSpec()
+        }
+
         for before in group!.befores {
             before()
         }
@@ -30,6 +36,11 @@ import XCTest
 
         for after in group!.afters {
             after()
+        }
+
+        ++_numberOfExamplesRan
+        if _numberOfExamplesRan >= World.exampleCount {
+            World.runAfterSpec()
         }
     }
 }

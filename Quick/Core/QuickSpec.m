@@ -28,8 +28,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
  */
 + (void)initialize {
     [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
-    [World runBeforeSpec];
-	QuickSpec *spec = [self new];
+    QuickSpec *spec = [self new];
     [spec exampleGroups];
 }
 
