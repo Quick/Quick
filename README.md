@@ -1,19 +1,21 @@
 # Quick
 
-A behavior-driven development framework for Swift. Inspired by
-[RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta),
-and [Ginkgo](https://github.com/onsi/ginkgo).
+A behavior-driven development framework for Swift and Objective-C. Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
 ![](http://f.cl.ly/items/1V40302G3w03263E2C0q/Screen%20Shot%202014-06-10%20at%2012.21.53%20AM.png)
 
 ## Syntax
 
+Quick supports tests written in Swift:
+
 ```swift
+// PersonSpec.swift
+
 import Quick
 
 class PersonSpec: QuickSpec {
     override func exampleGroups() {
-        describe("Person") {
+        describe("a person") {
             var person: Person?
             beforeEach { person = Person() }
 
@@ -44,7 +46,35 @@ class PersonSpec: QuickSpec {
 }
 ```
 
+...as well as specs written in Objective-C:
+
+```objc
+// PoetSpec.m
+
+#import <Quick/Quick.h>
+
+QuickSpecBegin(PoetSpec)
+
+qck_describe(@"a poet", ^{
+    __block Poet *poet = nil;
+    qck_beforeEach(^{
+        poet = [Poet new];
+    });
+
+    qck_context(@"when he/she is unhappy", ^{
+        qck_it(@"is very dramatic", ^{
+            XCTAssertEqualObjects(poet.greeting, @"Woe is me!",
+                @"expected poet to be melodramatic");
+        });
+    });
+});
+
+QuickSpecEnd
+```
+
 ## Expectations
+
+> Currently Quick expectations are only available in Swift. See https://github.com/modocache/Quick/issues/26 for more details.
 
 Quick expectations use the `expect(...).to` syntax:
 
