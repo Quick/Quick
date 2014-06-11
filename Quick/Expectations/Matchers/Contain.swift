@@ -41,7 +41,7 @@ class Contain<T>: Matcher<T> {
 }
 
 extension Prediction {
-    func contain(expected: NSObject?) {
+    func contain(expected: T) {
         evaluate(Contain(expected))
     }
 }

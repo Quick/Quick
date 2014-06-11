@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BeTrue<T>: Matcher<T> {
+class BeTrue<T: Equatable>: Matcher<T> {
     init() {
         super.init(true)
     }
@@ -22,7 +22,7 @@ class BeTrue<T>: Matcher<T> {
     }
 
     override func match(actual: T) -> Bool {
-        return actual == true
+        return actual == expected
     }
 }
 
