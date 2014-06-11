@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char QuickVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <Quick/PublicHeader.h>
 
 #import <Quick/QuickSpec.h>
+#import <Quick/QCKDSL.h>

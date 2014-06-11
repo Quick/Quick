@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34400A93194586F30019C41F /* NSString+QCKSelectorName.h */; };
 		34400A96194586F30019C41F /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34400A94194586F30019C41F /* NSString+QCKSelectorName.m */; };
+		34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
+		34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
+		34512A3D19482422007D457A /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 34512A3B19482422007D457A /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34512A3E19482422007D457A /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 34512A3B19482422007D457A /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34512A3F19482422007D457A /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A3C19482422007D457A /* QCKDSL.m */; };
+		34512A4019482422007D457A /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A3C19482422007D457A /* QCKDSL.m */; };
+		34D2F8D519482CFD0030FAFC /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D2F8D419482CFD0030FAFC /* Prediction.swift */; };
+		34D2F8D619482CFD0030FAFC /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D2F8D419482CFD0030FAFC /* Prediction.swift */; };
 		34EB41741945BAE70062CC32 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41731945BAE70062CC32 /* EqualSpec.swift */; };
 		34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41751945C49C0062CC32 /* BeTrueSpec.swift */; };
 		34EB41781945C8B70062CC32 /* ActualClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41771945C8B70062CC32 /* ActualClosure.swift */; };
@@ -105,6 +113,10 @@
 /* Begin PBXFileReference section */
 		34400A93194586F30019C41F /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
 		34400A94194586F30019C41F /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
+		34512A381948223C007D457A /* FunctionalTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FunctionalTests+ObjC.m"; sourceTree = "<group>"; };
+		34512A3B19482422007D457A /* QCKDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKDSL.h; sourceTree = "<group>"; };
+		34512A3C19482422007D457A /* QCKDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKDSL.m; sourceTree = "<group>"; };
+		34D2F8D419482CFD0030FAFC /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		34EB41731945BAE70062CC32 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
 		34EB41751945C49C0062CC32 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
 		34EB41771945C8B70062CC32 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
@@ -222,6 +234,7 @@
 			children = (
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				DAEB6BCC194387D700289F44 /* ExampleGroupTests.swift */,
+				34512A381948223C007D457A /* FunctionalTests+ObjC.m */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DAEB6BD0194387D700289F44 /* Matchers */,
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
@@ -246,6 +259,8 @@
 				DAEB6BB11943879800289F44 /* World.swift */,
 				DAEB6BAF1943879800289F44 /* QuickSpec.h */,
 				DAEB6BB01943879800289F44 /* QuickSpec.m */,
+				34512A3B19482422007D457A /* QCKDSL.h */,
+				34512A3C19482422007D457A /* QCKDSL.m */,
 				34400A93194586F30019C41F /* NSString+QCKSelectorName.h */,
 				34400A94194586F30019C41F /* NSString+QCKSelectorName.m */,
 			);
@@ -259,6 +274,7 @@
 				34EB41771945C8B70062CC32 /* ActualClosure.swift */,
 				5AC5BE5E19449F8400E3C531 /* Callsite.swift */,
 				DAEB6BB41943879800289F44 /* DSL.swift */,
+				34D2F8D419482CFD0030FAFC /* Prediction.swift */,
 				DAEB6BB51943879800289F44 /* Expectation.swift */,
 				34EB41791945C91B0062CC32 /* ClosureExpectation.swift */,
 				DAB406AD1943B23E00942733 /* AsyncExpectation.swift */,
@@ -308,6 +324,7 @@
 			files = (
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
 				5A5D11A8194740E000F6D13D /* QuickSpec.h in Headers */,
+				34512A3E19482422007D457A /* QCKDSL.h in Headers */,
 				5A5D11A9194740E000F6D13D /* NSString+QCKSelectorName.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,9 +333,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
 				DAEB6BBF1943879800289F44 /* QuickSpec.h in Headers */,
+				34512A3D19482422007D457A /* QCKDSL.h in Headers */,
+				34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,10 +509,12 @@
 				5A5D119E194740D700F6D13D /* Callsite.swift in Sources */,
 				5A5D119F194740D700F6D13D /* DSL.swift in Sources */,
 				5A5D12071947527A00F6D13D /* BeNil.swift in Sources */,
+				34D2F8D619482CFD0030FAFC /* Prediction.swift in Sources */,
 				5A5D11A0194740D700F6D13D /* Expectation.swift in Sources */,
 				5A5D11A1194740D700F6D13D /* ClosureExpectation.swift in Sources */,
 				5A5D11A2194740D700F6D13D /* AsyncExpectation.swift in Sources */,
 				5A5D11A3194740D700F6D13D /* Matcher.swift in Sources */,
+				34512A4019482422007D457A /* QCKDSL.m in Sources */,
 				5A5D11A4194740D700F6D13D /* BeTrue.swift in Sources */,
 				5A5D11A5194740D700F6D13D /* Contain.swift in Sources */,
 				5A5D11A6194740D700F6D13D /* Equal.swift in Sources */,
@@ -505,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				5A5D11AA1947412800F6D13D /* FunctionalTests.swift in Sources */,
 				5A5D120B194752B500F6D13D /* BeNilSpec.swift in Sources */,
 				5A5D11AB1947412800F6D13D /* ExampleGroupTests.swift in Sources */,
@@ -531,10 +552,12 @@
 				34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */,
 				DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */,
 				A3D7C5691947245300CACF42 /* BeNil.swift in Sources */,
+				34D2F8D519482CFD0030FAFC /* Prediction.swift in Sources */,
 				DAEB6BC71943879800289F44 /* Contain.swift in Sources */,
 				DAEB6BC01943879800289F44 /* QuickSpec.m in Sources */,
 				DAEB6BBB1943879800289F44 /* DSL.swift in Sources */,
 				DAEB6BC51943879800289F44 /* Matcher.swift in Sources */,
+				34512A3F19482422007D457A /* QCKDSL.m in Sources */,
 				DAEB6BC81943879800289F44 /* Equal.swift in Sources */,
 				5AC5BE5F19449F8400E3C531 /* Callsite.swift in Sources */,
 				DAEB6BC11943879800289F44 /* World.swift in Sources */,
@@ -545,6 +568,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAEB6BD4194387D700289F44 /* Person.swift in Sources */,
 				5A5D120A194752B500F6D13D /* BeNilSpec.swift in Sources */,
 				34EB41741945BAE70062CC32 /* EqualSpec.swift in Sources */,
@@ -640,6 +664,7 @@
 		5A5D119119473F2100F6D13D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -654,12 +679,14 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5A5D119219473F2100F6D13D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -771,6 +798,7 @@
 				INFOPLIST_FILE = Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -792,6 +820,7 @@
 				INFOPLIST_FILE = Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -800,6 +829,7 @@
 		DAEB6BA81943873200289F44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -813,12 +843,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		DAEB6BA91943873200289F44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
