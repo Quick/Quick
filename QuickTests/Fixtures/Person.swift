@@ -46,7 +46,7 @@ class Person: NSObject {
     // Pretend to disconnect from the database. Return false on failure
     class func relinquishDbConnection() -> Bool {
         if dbConnectionEstablished() {
-            _dbConnectionEstablished = true
+            _dbConnectionEstablished = false
             return true
         } else {
             return false

@@ -50,11 +50,11 @@ func afterEach(closure: () -> ()) {
 }
 
 func beforeSuite(closure: () -> ()) {
-    World.setBeforeSuite(closure)
+    World.appendBeforeSuite(closure)
 }
 
 func afterSuite(closure: () -> ()) {
-    World.setAfterSuite(closure)
+    World.appendAfterSuite(closure)
 }
 
 func it(description: String, closure: () -> ()) {
