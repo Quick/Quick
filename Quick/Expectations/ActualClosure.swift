@@ -8,35 +8,35 @@
 
 import Foundation
 
-class ActualClosure {
-    let actualClosure: () -> (NSObject?)
-    let callsite: Callsite
-
-    init(_ actualClosure: () -> (NSObject?), callsite: Callsite) {
-        self.actualClosure = actualClosure
-        self.callsite = callsite
-    }
-
-    var will: AsyncExpectation {
-        get {
-            return AsyncExpectation(actualClosure, callsite: callsite, negative: false)
-        }
-    }
-    var willNot: AsyncExpectation {
-        get {
-            return AsyncExpectation(actualClosure, callsite: callsite, negative: true)
-        }
-    }
-
-    func willBefore(seconds: NSTimeInterval) -> AsyncExpectation {
-        let expectation = will
-        expectation.timeOut = seconds
-        return expectation
-    }
-
-    func willNotBefore(seconds: NSTimeInterval) -> AsyncExpectation {
-        let expectation = willNot
-        expectation.timeOut = seconds
-        return expectation
-    }
-}
+//class ActualClosure {
+//    let actualClosure: () -> (NSObject?)
+//    let callsite: Callsite
+//
+//    init(_ actualClosure: () -> (NSObject?), callsite: Callsite) {
+//        self.actualClosure = actualClosure
+//        self.callsite = callsite
+//    }
+//
+//    var will: AsyncExpectation {
+//        get {
+//            return AsyncExpectation(actualClosure, callsite: callsite, negative: false)
+//        }
+//    }
+//    var willNot: AsyncExpectation {
+//        get {
+//            return AsyncExpectation(actualClosure, callsite: callsite, negative: true)
+//        }
+//    }
+//
+//    func willBefore(seconds: NSTimeInterval) -> AsyncExpectation {
+//        let expectation = will
+//        expectation.timeOut = seconds
+//        return expectation
+//    }
+//
+//    func willNotBefore(seconds: NSTimeInterval) -> AsyncExpectation {
+//        let expectation = willNot
+//        expectation.timeOut = seconds
+//        return expectation
+//    }
+//}
