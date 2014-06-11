@@ -9,6 +9,9 @@
 import Foundation
 
 class EqualMatcher<T:NSObject where T:Equatable> {
+    // NB: Swift compiler bug - if T is left unconstrained the compiler will
+    // barf, including crashing Xcode if used in a Playground.
+    // Workaround: Constrain on NSObject
 
     let expected: T
 
