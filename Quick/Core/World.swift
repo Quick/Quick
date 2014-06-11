@@ -13,6 +13,9 @@ let QCKExampleGroupsKey = "QCKExampleGroupsKey"
 var _specs: Dictionary<String, ExampleGroup> = [:]
 var _currentExampleGroup: ExampleGroup?
 
+var _beforeSuite: (() -> ())?
+var _afterSuite: (() -> ())?
+
 @objc class World {
     class func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
         let name = NSStringFromClass(cls)
@@ -23,6 +26,22 @@ var _currentExampleGroup: ExampleGroup?
             _specs[name] = group
             return group
         }
+    }
+    
+    class func runBeforeSuite() {
+        if let closure = _beforeSuite { closure() }
+    }
+
+    class func runAfterSuite() {
+        if let closure = _afterSuite { closure() }
+    }
+    
+    class func setBeforeSuite(closure: () -> ()) {
+        _beforeSuite = closure
+    }
+
+    class func setAfterSuite(closure: () -> ()) {
+        _afterSuite = closure
     }
 
     class func setCurrentExampleGroup(group: ExampleGroup?) {

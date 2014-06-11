@@ -12,6 +12,10 @@ class PersonSpec: QuickSpec {
     override func exampleGroups() {
         describe("Person") {
             var person: Person?
+
+            beforeSuite { _ = Person.establishDbConnection() }
+            afterSuite { _ = Person.relinquishDbConnection() }
+          
             beforeEach { person = Person() }
             afterEach  { person = nil }
 
@@ -30,6 +34,16 @@ class PersonSpec: QuickSpec {
 
             it("will never be satisfied") {
                 expect{person!.isSatisfied}.willNot.beTrue()
+            }
+          
+            describe("dbConnection") {
+                it("is connected to the DB") {
+                    expect(Person.dbConnectionEstablished()).to.beTrue()
+                }
+
+                it("cannot connect to the database twice") {
+                    expect(Person.establishDbConnection()).toNot.beTrue()
+                }
             }
 
             describe("greeting") {

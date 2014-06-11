@@ -8,6 +8,8 @@
 
 import Foundation
 
+var _dbConnectionEstablished = false
+
 class Person: NSObject {
     var isHappy = true
     var isHungry = false
@@ -29,5 +31,29 @@ class Person: NSObject {
         dispatch_after(after, dispatch_get_main_queue()) {
             self.isHungry = true
         }
+    }
+  
+    // Pretend to connect to a database. Return false if the connection is already established
+    class func establishDbConnection() -> Bool {
+        if dbConnectionEstablished() {
+            return false
+        } else {
+            _dbConnectionEstablished = true
+            return true
+        }
+    }
+
+    // Pretend to disconnect from the database. Return false on failure
+    class func relinquishDbConnection() -> Bool {
+        if dbConnectionEstablished() {
+            _dbConnectionEstablished = true
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    class func dbConnectionEstablished() -> Bool {
+        return _dbConnectionEstablished
     }
 }

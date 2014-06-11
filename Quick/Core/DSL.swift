@@ -49,6 +49,14 @@ func afterEach(closure: () -> ()) {
     DSL.afterEach(closure)
 }
 
+func beforeSuite(closure: () -> ()) {
+    World.setBeforeSuite(closure)
+}
+
+func afterSuite(closure: () -> ()) {
+    World.setAfterSuite(closure)
+}
+
 func it(description: String, closure: () -> ()) {
     DSL.it(description, closure: closure)
 }
