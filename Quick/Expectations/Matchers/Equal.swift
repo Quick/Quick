@@ -8,9 +8,9 @@
 
 struct EqualMatcher<T: Equatable> {
 
-    let expected: T
+    let expected: T?
 
-    init(_ expected: T) {
+    init(_ expected: T?) {
 
         self.expected = expected
 
@@ -18,9 +18,16 @@ struct EqualMatcher<T: Equatable> {
 
     func equals(actual: T) -> Bool {
 
-        return expected == actual
+        if let expect = expected {
+
+            return expect == actual
+
+        }
+
+        return false
 
     }
+
 }
 
 

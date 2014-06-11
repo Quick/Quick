@@ -48,7 +48,80 @@ class EqualMatcherTest: XCTestCase {
             "false should not be equal to true")
         
     }
+
+    func testOptionalBoolUnassignedIsNotTrue() {
+
+        var optVal: Bool?
+
+        XCTAssertFalse(EqualMatcher(optVal).equals(true),
+            "unassigned bool should not match")
+        
+    }
     
+    func testOptionalBoolUnassignedTrueIsNotFalse() {
+
+        var optVal: Bool?
+
+        XCTAssertFalse(EqualMatcher(optVal).equals(false),
+            "unassigned bool should not match")
+        
+    }
+    
+    func testOptionalBoolTrueIsTrue() {
+
+        var optVal: Bool? = true
+
+        XCTAssert(EqualMatcher(optVal).equals(true),
+            "optional bool true should equal true")
+        
+    }
+    
+    func testOptionalBoolFalseIsNotTrue() {
+
+        var optVal: Bool? = false
+
+        XCTAssertFalse(EqualMatcher(optVal).equals(true),
+            "optional bool false should not be equal true")
+        
+    }
+    
+    func testOptionalStringUnassignedIsNotEqual() {
+
+        var optVal: String?
+
+        XCTAssertFalse(EqualMatcher(optVal).equals("Hello"),
+            "unassigned optional string is not equal")
+        
+    }
+    
+    func testOptionalStringIsEqual() {
+
+        var optVal: String? = "Hello"
+
+        XCTAssert(EqualMatcher(optVal).equals("Hello"),
+            "optional string is equal")
+
+    }
+    
+    func testOptionalStringIsNotEqual() {
+
+        var optVal: String? = "Hello"
+
+        XCTAssertFalse(EqualMatcher(optVal).equals("World"),
+            "optional inequal string is not equal")
+
+    }
+
+//    func testArrayEmptyIsEqualToArrayEmpty() {
+//
+//        var arr1: Array<Int> = []
+//        var arr2: Array<Int> = []
+//
+//        XCTAssert(EqualMatcher(arr1).equals(arr2),
+//            "empty array should equal empty array")
+//
+//    }
+
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.
 //        self.measureBlock() {
