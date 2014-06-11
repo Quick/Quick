@@ -122,6 +122,26 @@ class EqualMatcherTest: XCTestCase {
 
     }
 
+    func testArrayIsEqualToArray() {
+
+        var arr1: Array<Int> = [ 1, 2, 3 ]
+        var arr2: Array<Int> = [ 1, 2, 3 ]
+
+        XCTAssert(EqualMatcher(arr1).equals(arr2),
+            "identical arrays should be equal")
+        
+    }
+    
+    func testArrayIsNotEqualToInequalArray() {
+
+        var arr1: Array<Int> = [ 1, 2, 3 ]
+        var arr2: Array<Int> = [ 1, 3 ]
+
+        XCTAssertFalse(EqualMatcher(arr1).equals(arr2),
+            "inequal arrays should NOT be equal")
+        
+    }
+    
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.
 //        self.measureBlock() {
