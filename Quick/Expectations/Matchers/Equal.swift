@@ -10,19 +10,19 @@ import Foundation
 
 class EqualMatcher<T:NSObject where T:Equatable> {
 
-    let expected: T?
+    let expected: T
 
-    init(_ expected: T?) {
+    init(_ expected: T) {
 
         self.expected = expected
 
     }
 
-    func equals(actual: T) -> Bool {
+    func equals(actual: T?) -> Bool {
 
-        if let expect = expected {
+        if let actual = actual {
 
-            return expect == actual
+            return expected == actual
 
         }
 

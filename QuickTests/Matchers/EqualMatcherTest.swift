@@ -30,7 +30,7 @@ class EqualMatcherTest: XCTestCase {
 
     func testBoolTrueIsNotFalse() {
 
-        XCTAssertFalse(EqualMatcher(true).equals(false),
+        XCTAssertFalse(EqualMatcher(false).equals(true),
             "true should not be equal to false")
 
     }
@@ -44,7 +44,7 @@ class EqualMatcherTest: XCTestCase {
 
     func testBoolFalseIsNotTrue() {
 
-        XCTAssertFalse(EqualMatcher(false).equals(true),
+        XCTAssertFalse(EqualMatcher(true).equals(false),
             "false should not be equal to true")
         
     }
@@ -53,7 +53,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: Bool?
 
-        XCTAssertFalse(EqualMatcher(optVal).equals(true),
+        XCTAssertFalse(EqualMatcher(true).equals(optVal),
             "unassigned bool should not match")
         
     }
@@ -62,7 +62,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: Bool?
 
-        XCTAssertFalse(EqualMatcher(optVal).equals(false),
+        XCTAssertFalse(EqualMatcher(false).equals(optVal),
             "unassigned bool should not match")
         
     }
@@ -71,7 +71,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: Bool? = true
 
-        XCTAssert(EqualMatcher(optVal).equals(true),
+        XCTAssert(EqualMatcher(true).equals(optVal),
             "optional bool true should equal true")
         
     }
@@ -80,7 +80,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: Bool? = false
 
-        XCTAssertFalse(EqualMatcher(optVal).equals(true),
+        XCTAssertFalse(EqualMatcher(true).equals(optVal),
             "optional bool false should not be equal true")
         
     }
@@ -89,7 +89,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: String?
 
-        XCTAssertFalse(EqualMatcher(optVal).equals("Hello"),
+        XCTAssertFalse(EqualMatcher("Hello").equals(optVal),
             "unassigned optional string is not equal")
         
     }
@@ -98,7 +98,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: String? = "Hello"
 
-        XCTAssert(EqualMatcher(optVal).equals("Hello"),
+        XCTAssert(EqualMatcher("Hello").equals(optVal),
             "optional string is equal")
 
     }
@@ -107,7 +107,7 @@ class EqualMatcherTest: XCTestCase {
 
         var optVal: String? = "Hello"
 
-        XCTAssertFalse(EqualMatcher(optVal).equals("World"),
+        XCTAssertFalse(EqualMatcher("World").equals(optVal),
             "optional inequal string is not equal")
 
     }
@@ -141,6 +141,17 @@ class EqualMatcherTest: XCTestCase {
             "inequal arrays should NOT be equal")
         
     }
+
+    func testOptionalArrayUnassignedIsNotEqual() {
+
+        var arr1: Array<Int> = [ 1, 2, 3 ]
+        var arr2: Array<Int>?
+
+        XCTAssertFalse(EqualMatcher(arr1).equals(arr2),
+            "unassigned optional cannot be equal")
+
+    }
+
     
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.
