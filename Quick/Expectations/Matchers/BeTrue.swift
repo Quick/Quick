@@ -8,6 +8,16 @@
 
 import Foundation
 
+class BeTrueMatcher {
+
+    func equals(actual: Bool) -> Bool {
+
+        return actual == true
+
+    }
+
+}
+
 //class BeTrue<T>: Matcher<T> {
 //    init() {
 //        super.init(true)
