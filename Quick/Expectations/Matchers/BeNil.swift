@@ -8,6 +8,19 @@
 
 import Foundation
 
+class BeNilMatcher {
+
+    func equals(actual: AnyObject?) -> Bool {
+        // NB: Do not use Any as the argument type - it does not allow you
+        // to determine if the literal 'nil' is used as an argument
+        if actual {
+            return false
+        }
+        return true
+    }
+
+}
+
 //class BeNil<T>: Matcher<T> {
 //    init() {
 //        super.init(true)
