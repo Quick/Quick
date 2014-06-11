@@ -9,7 +9,7 @@
 import Quick
 
 class BeTrueSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("BeTrue") {
             var matcher: BeTrue?
             beforeEach { matcher = BeTrue() }

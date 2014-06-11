@@ -12,7 +12,7 @@ and [Ginkgo](https://github.com/onsi/ginkgo).
 import Quick
 
 class PersonSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("Person") {
             var person: Person?
             beforeEach { person = Person() }

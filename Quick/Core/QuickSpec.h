@@ -51,6 +51,6 @@
 
  See DSL.swift for more information on what syntax is available.
  */
-+ (void)exampleGroups;
+- (void)exampleGroups;
 
 @end

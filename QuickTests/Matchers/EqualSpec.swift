@@ -9,7 +9,7 @@
 import Quick
 
 class EqualSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("Equal") {
             var matcher: Equal?
             beforeEach { matcher = Equal("Sandor Clegane") }

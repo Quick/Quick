@@ -10,11 +10,11 @@ import Scenester
 import Quick
 
 class CommitSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("Commit") {
             var commit: Commit!
             beforeEach { commit = Commit(message: "debt repaid", author: "jaime-lannister") }
-            
+
             describe("simpleDescription") {
                 it("returns author: 'commit message'") {
                     expect(commit.simpleDescription).to.equal("jaime-lannister: 'debt repaid'")

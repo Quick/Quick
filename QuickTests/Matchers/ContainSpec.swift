@@ -9,7 +9,7 @@
 import Quick
 
 class ContainSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("Contain") {
             var matcher: Contain?
             var subject: String[]?

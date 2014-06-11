@@ -9,7 +9,7 @@
 import Quick
 
 class BeNilSpec : QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("BeNil") {
             var matcher: BeNil!
             beforeEach { matcher = BeNil() }

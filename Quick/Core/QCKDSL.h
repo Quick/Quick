@@ -11,7 +11,7 @@
 #define QuickSpecBegin(name) \
     @interface name : QuickSpec; @end \
     @implementation name \
-    + (void)exampleGroups { \
+    - (void)exampleGroups { \
 
 
 #define QuickSpecEnd \

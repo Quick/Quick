@@ -10,7 +10,7 @@ import Scenester
 import Quick
 
 class Commit_ErrorSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("commitError") {
             var code: CommitErrorCode!
 
@@ -21,7 +21,7 @@ class Commit_ErrorSpec: QuickSpec {
                     expect(error.localizedDescription).to.equal("The repo does not have any commits.")
                 }
             }
-            
+
             context("for a code of .InvalidCommit") {
                 beforeEach { code = CommitErrorCode.InvalidCommit }
                 it("returns an error") {
@@ -29,7 +29,7 @@ class Commit_ErrorSpec: QuickSpec {
                     expect(error.localizedDescription).to.equal("The commit JSON is invalid.")
                 }
             }
-            
+
             context("for a code of .InvalidResponse") {
                 beforeEach { code = CommitErrorCode.InvalidResponse }
                 it("returns an error") {

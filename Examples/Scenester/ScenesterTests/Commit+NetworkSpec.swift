@@ -10,7 +10,7 @@ import Scenester
 import Quick
 
 class Commit_NetworkSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("latestCommit") {
             context("when the request succeeds") {
                 it("calls the success block with the latest commit") {

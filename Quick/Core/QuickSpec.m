@@ -28,7 +28,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
  */
 + (void)initialize {
     [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
-    [self exampleGroups];
+    QuickSpec *spec = [self new];
+    [spec exampleGroups];
 }
 
 /**
@@ -76,7 +77,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 #pragma mark - Public Interface
 
-+ (void)exampleGroups { }
+- (void)exampleGroups { }
 
 #pragma mark - Internal Methods
 

@@ -9,7 +9,7 @@
 import Quick
 
 class PersonSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("Person") {
             var person: Person?
             beforeEach { person = Person() }
@@ -54,7 +54,7 @@ class PersonSpec: QuickSpec {
 }
 
 class PoetSpec: QuickSpec {
-    override class func exampleGroups() {
+    override func exampleGroups() {
         describe("Poet") {
             // FIXME: Radar worthy? `var poet: Poet?` results in build error:
             //        "Could not find member 'greeting'"

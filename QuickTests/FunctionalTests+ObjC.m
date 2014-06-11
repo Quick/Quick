@@ -12,7 +12,7 @@ QuickSpecBegin(FunctionalTestsObjC)
 
 qck_describe(@"a describe block", ^{
     qck_it(@"contains an it block", ^{
-        // ...
+        XCTAssertTrue(true, @"expected to be true");
     });
 });
 
