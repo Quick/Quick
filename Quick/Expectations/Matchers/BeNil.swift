@@ -8,20 +8,20 @@
 
 import Foundation
 
-class BeNil: Matcher {
+class BeNil<T>: Matcher<T> {
     init() {
         super.init(true)
     }
 
-    override func failureMessage(actual: NSObject?) -> String {
+    override func failureMessage(actual: T) -> String {
         return "expected '\(actual)' to be nil"
     }
 
-    override func negativeFailureMessage(actual: NSObject?) -> String {
+    override func negativeFailureMessage(actual: T) -> String {
         return "expected '\(actual)' to be non-nil"
     }
 
-    override func match(actual: NSObject?) -> Bool {
+    override func match(actual: T) -> Bool {
 
         return actual == nil
     }

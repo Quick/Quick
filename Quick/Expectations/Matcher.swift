@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Matcher {
-    let expected: NSObject?
-    init(_ expected: NSObject?) {
+class Matcher<T> {
+    let expected: T
+    init(_ expected: T) {
         self.expected = expected
     }
 
-    func failureMessage(actual: NSObject?) -> String {
+    func failureMessage(actual: T) -> String {
         return "expected \(actual) to match \(expected)"
     }
 
-    func negativeFailureMessage(actual: NSObject?) -> String {
+    func negativeFailureMessage(actual: T) -> String {
         return "expected \(actual) to not match \(expected)"
     }
 
-    func match(actual: NSObject?) -> Bool {
+    func match(actual: T) -> Bool {
         NSException(name: NSInternalInconsistencyException,
                     reason:"Matchers must override match()",
                     userInfo: nil).raise()

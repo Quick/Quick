@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Prediction {
+class Prediction<T> {
     let callsite: Callsite
     let negative: Bool
 
@@ -17,25 +17,26 @@ class Prediction {
         self.negative = negative
     }
 
-    func evaluate(matcher: Matcher) {
+    func evaluate(matcher: Matcher<T>) {
         NSException(name: NSInternalInconsistencyException,
             reason: "Subclasses must override this method", userInfo: nil).raise()
     }
 }
 
-class Expectation: Prediction {
-    let actual: NSObject?
+class Expectation<T>: Prediction<T> {
+    let actual: () -> T
 
-    init(_ actual: NSObject?, callsite: Callsite, negative: Bool) {
+    init(_ actual: () -> T, callsite: Callsite, negative: Bool) {
         self.actual = actual
         super.init(callsite: callsite, negative: negative)
     }
 
-    override func evaluate(matcher: Matcher) {
-        if (negative && matcher.match(actual)) {
-            XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
-        } else if (!negative && !matcher.match(actual)) {
-            XCTFail(matcher.failureMessage(actual), file: callsite.file, line: callsite.line)
+    override func evaluate(matcher: Matcher<T>) {
+        let result = actual()
+        if (negative && matcher.match(result)) {
+            XCTFail(matcher.negativeFailureMessage(result), file: callsite.file, line: callsite.line)
+        } else if (!negative && !matcher.match(result)) {
+            XCTFail(matcher.failureMessage(result), file: callsite.file, line: callsite.line)
         }
     }
 }

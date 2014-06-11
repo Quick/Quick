@@ -8,20 +8,20 @@
 
 import Foundation
 
-class Actual {
-    let actual: NSObject?
+class Actual<T> {
+    let actual: () -> T
     let callsite: Callsite
 
-    init(_ actual: NSObject?, callsite: Callsite) {
+    init(_ actual: () -> T, callsite: Callsite) {
         self.actual = actual
         self.callsite = callsite
     }
 
-    var to: Expectation {
+    var to: Expectation<T> {
         get { return Expectation(actual, callsite: callsite, negative: false) }
     }
-    var notTo: Expectation {
+    var notTo: Expectation<T> {
         get { return Expectation(actual, callsite: callsite, negative: true) }
     }
-    var toNot: Expectation { get { return notTo } }
+    var toNot: Expectation<T> { get { return notTo } }
 }

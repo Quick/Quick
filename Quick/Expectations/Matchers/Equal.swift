@@ -8,22 +8,22 @@
 
 import Foundation
 
-class Equal: Matcher {
-    override func failureMessage(actual: NSObject?) -> String {
+class Equal<T>: Matcher<T> {
+    override func failureMessage(actual: T) -> String {
         return "expected '\(actual)' to be equal to '\(expected)'"
     }
 
-    override func negativeFailureMessage(actual: NSObject?) -> String {
+    override func negativeFailureMessage(actual: T) -> String {
         return "expected '\(actual)' to not be equal to '\(expected)'"
     }
 
-    override func match(actual: NSObject?) -> Bool {
+    override func match(actual: T) -> Bool {
         return actual == expected
     }
 }
 
 extension Prediction {
-    func equal(expected: NSObject?) {
+    func equal<T>(expected: T) {
         evaluate(Equal(expected))
     }
 }

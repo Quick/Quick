@@ -8,26 +8,26 @@
 
 import Foundation
 
-class BeTrue: Matcher {
+class BeTrue<T>: Matcher<T> {
     init() {
         super.init(true)
     }
 
-    override func failureMessage(actual: NSObject?) -> String {
+    override func failureMessage(actual: T) -> String {
         return "expected '\(actual)' to be true"
     }
 
-    override func negativeFailureMessage(actual: NSObject?) -> String {
+    override func negativeFailureMessage(actual: T) -> String {
         return "expected '\(actual)' to be false"
     }
 
-    override func match(actual: NSObject?) -> Bool {
-        return actual && actual! == true
+    override func match(actual: T) -> Bool {
+        return actual == true
     }
 }
 
 extension Prediction {
     func beTrue() {
-        evaluate(BeTrue())
+        evaluate(BeTrue<Bool>())
     }
 }
