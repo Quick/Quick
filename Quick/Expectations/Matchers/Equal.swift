@@ -6,7 +6,23 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-import Foundation
+struct EqualMatcher<T: Equatable> {
+
+    let expected: T
+
+    init(_ expected: T) {
+
+        self.expected = expected
+
+    }
+
+    func equals(actual: T) -> Bool {
+
+        return expected == actual
+
+    }
+}
+
 
 //class Equal<T>: Matcher<T> {
 //    override func failureMessage(actual: T) -> String {
