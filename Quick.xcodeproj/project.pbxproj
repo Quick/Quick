@@ -119,7 +119,8 @@
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D1209194752B500F6D13D /* BeNilSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeNilSpec.swift; sourceTree = "<group>"; };
 		5AC5BE5E19449F8400E3C531 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
-		A3228C6619488FAC001135E5 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		A31F4ED91948DCD100D1071A /* MyOptionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyOptionals.playground; sourceTree = "<group>"; };
+		A3228C6619488FAC001135E5 /* ApplesOptionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ApplesOptionals.playground; sourceTree = "<group>"; };
 		A32BBC691948888F00070EE5 /* EqualMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualMatcherTest.swift; sourceTree = "<group>"; };
 		A346E3CD1948B66200E05FF1 /* BeTrueMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueMatcherTests.swift; sourceTree = "<group>"; };
 		A346E3D01948B7E800E05FF1 /* BeNilMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeNilMatcherTests.swift; sourceTree = "<group>"; };
@@ -235,7 +236,8 @@
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DAEB6BD0194387D700289F44 /* Matchers */,
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
-				A3228C6619488FAC001135E5 /* MyPlayground.playground */,
+				A3228C6619488FAC001135E5 /* ApplesOptionals.playground */,
+				A31F4ED91948DCD100D1071A /* MyOptionals.playground */,
 			);
 			path = QuickTests;
 			sourceTree = "<group>";
