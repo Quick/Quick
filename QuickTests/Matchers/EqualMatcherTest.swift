@@ -112,15 +112,15 @@ class EqualMatcherTest: XCTestCase {
 
     }
 
-//    func testArrayEmptyIsEqualToArrayEmpty() {
-//
-//        var arr1: Array<Int> = []
-//        var arr2: Array<Int> = []
-//
-//        XCTAssert(EqualMatcher(arr1).equals(arr2),
-//            "empty array should equal empty array")
-//
-//    }
+    func testArrayEmptyIsEqualToArrayEmpty() {
+
+        var arr1: Array<Int> = []
+        var arr2: Array<Int> = []
+
+        XCTAssert(EqualMatcher(arr1).equals(arr2),
+            "empty array should equal empty array")
+
+    }
 
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.

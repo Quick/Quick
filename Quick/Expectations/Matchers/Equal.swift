@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-struct EqualMatcher<T: Equatable> {
+import Foundation
+
+class EqualMatcher<T:NSObject where T:Equatable> {
 
     let expected: T?
 
