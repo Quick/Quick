@@ -27,12 +27,20 @@ it.
 - Not all pull requests will be merged, but all will be acknowledged. If
   no one has provided feedback on your request, ping one of the owners
   by name.
-- If you're submitting code changes, try to follow the conventions in the
-  codebase.
+- Make sure your pull request includes any necessary updates to the
+  README or other documentation.
 - Be sure the unit tests for both the OS X and iOS targets pass before
   submitting your pull request.
 - If you've added a file to the project, make sure it's included in both
   the OS X and iOS targets.
+
+### Style Conventions
+
+- Indent using 4 spaces.
+- Keep lines 100 characters or shorter. Break long statements into
+  shorter ones over multiple lines.
+- In Objective-C, use `#pragma mark -` to mark public, internal,
+  protocol, and superclass methods. See `QuickSpec.m` for an example.
 
 ## Commit Bits
 
