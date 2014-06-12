@@ -22,12 +22,12 @@ class PersonSpec: QuickSpec {
             var person: Person?
             beforeEach { person = Person() }
 
-            it("is happy but never satisfied") {
+            it("is happy 😄 but never satisfied 😔") {
                 expect(person!.isHappy).to.beTrue()
                 expect{person!.isSatisfied}.willNot.beTrue()
             }
 
-            describe("greeting") {
+            describe("greeting, i.e.: 'こんにちは'") {
                 context("when the person is unhappy") {
                     beforeEach { person!.isHappy = false }
                     it("is lukewarm") {
