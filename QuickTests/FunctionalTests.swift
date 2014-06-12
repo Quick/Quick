@@ -45,6 +45,10 @@ class PersonSpec: QuickSpec {
                 expect{person!.isSatisfied}.willNot.beTrue()
             }
 
+            it("🔥🔥それでも俺たちは🔥🔥") {
+                expect{person!.isSatisfied}.willNot.beTrue()
+            }
+
             it("does not live with dinosaurs") {
                 expect(dinosaursExtinct).to.beTrue()
                 expect(mankindExtinct).toNot.beTrue()
