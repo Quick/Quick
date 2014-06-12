@@ -129,7 +129,11 @@ expect{person!.isHungry}.willBefore(3).beTrue()
 expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 ```
 
----
+## Who Uses Quick
+
+- https://github.com/jspahrsummers/RXSwift
+
+> Add an issue or [tweet](https://twitter.com/modocache) if you'd like to be added to this list.
 
 ## Installation
 
