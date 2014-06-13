@@ -31,4 +31,8 @@
     [DSL it:description closure:closure];
 }
 
++ (void)pending:(NSString *)description closure:(void(^)(void))closure {
+    [DSL pending:description closure:closure];
+}
+
 @end

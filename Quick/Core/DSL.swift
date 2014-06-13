@@ -31,6 +31,10 @@
         let example = Example(description, closure)
         World.currentExampleGroup()!.appendExample(example)
     }
+    
+    class func pending(description: String, closure: () -> ()) {
+        NSLog("Pending: %@", description)
+    }
 }
 
 func describe(description: String, closure: () -> ()) {
@@ -59,4 +63,8 @@ func afterSuite(closure: () -> ()) {
 
 func it(description: String, closure: () -> ()) {
     DSL.it(description, closure: closure)
+}
+
+func pending(description: String, closure: () -> ()) {
+    DSL.pending(description, closure: closure)
 }

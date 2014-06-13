@@ -24,6 +24,7 @@
 #define qck_beforeEach(block) [QCKDSL beforeEach:block]
 #define qck_afterEach(block) [QCKDSL afterEach:block]
 #define qck_it(description, block) [QCKDSL it:description closure:block]
+#define qck_pending(description, block) [QCKDSL pending:description closure:block]
 
 @interface QCKDSL : NSObject
 
@@ -32,5 +33,5 @@
 + (void)beforeEach:(void(^)(void))closure;
 + (void)afterEach:(void(^)(void))closure;
 + (void)it:(NSString *)description closure:(void(^)(void))closure;
-
++ (void)pending:(NSString *)description closure:(void(^)(void)) __unused closure;
 @end
