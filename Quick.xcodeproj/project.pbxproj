@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20D99641194AD25100614BC2 /* PrimitiveConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D99640194AD25100614BC2 /* PrimitiveConversions.swift */; };
+		20D99642194AD25100614BC2 /* PrimitiveConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D99640194AD25100614BC2 /* PrimitiveConversions.swift */; };
 		34400A95194586F30019C41F /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34400A93194586F30019C41F /* NSString+QCKSelectorName.h */; };
 		34400A96194586F30019C41F /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34400A94194586F30019C41F /* NSString+QCKSelectorName.m */; };
 		34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
@@ -109,6 +111,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20D99640194AD25100614BC2 /* PrimitiveConversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimitiveConversions.swift; sourceTree = "<group>"; };
 		34400A93194586F30019C41F /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
 		34400A94194586F30019C41F /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
 		34512A381948223C007D457A /* FunctionalTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FunctionalTests+ObjC.m"; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 				34EB41791945C91B0062CC32 /* ClosureExpectation.swift */,
 				DAB406AD1943B23E00942733 /* AsyncExpectation.swift */,
 				DAEB6BB61943879800289F44 /* Matcher.swift */,
+				20D99640194AD25100614BC2 /* PrimitiveConversions.swift */,
 				DAEB6BB71943879800289F44 /* Matchers */,
 			);
 			path = Expectations;
@@ -504,6 +508,7 @@
 				5A5D119D194740D700F6D13D /* ActualClosure.swift in Sources */,
 				5A5D119E194740D700F6D13D /* Callsite.swift in Sources */,
 				5A5D119F194740D700F6D13D /* DSL.swift in Sources */,
+				20D99642194AD25100614BC2 /* PrimitiveConversions.swift in Sources */,
 				5A5D12071947527A00F6D13D /* BeNil.swift in Sources */,
 				34D2F8D619482CFD0030FAFC /* Prediction.swift in Sources */,
 				5A5D11A0194740D700F6D13D /* Expectation.swift in Sources */,
@@ -546,6 +551,7 @@
 				DAEB6BBD1943879800289F44 /* ExampleGroup.swift in Sources */,
 				34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */,
 				DAB406AE1943B23E00942733 /* AsyncExpectation.swift in Sources */,
+				20D99641194AD25100614BC2 /* PrimitiveConversions.swift in Sources */,
 				A3D7C5691947245300CACF42 /* BeNil.swift in Sources */,
 				34D2F8D519482CFD0030FAFC /* Prediction.swift in Sources */,
 				DAEB6BC71943879800289F44 /* Contain.swift in Sources */,
