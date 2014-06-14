@@ -16,4 +16,12 @@ qck_describe(@"a describe block", ^{
     });
 });
 
+qck_describe(@"contains a pending block", ^{
+    qck_pending(@"contains an it block", ^{
+        qck_it(@"fails", ^{
+            XCTAssertTrue(false, @"expected to be true");
+        });
+    });
+});
+
 QuickSpecEnd

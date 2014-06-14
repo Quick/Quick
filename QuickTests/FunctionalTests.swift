@@ -71,6 +71,22 @@ class PersonSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("Pending tests") {
+                beforeEach { person!.isHappy = true }
+                
+                pending("Pending Spec") {
+                    beforeEach { person!.isHappy = false }
+
+                    it ("is not happy") {
+                        expect(person!.isHappy).to.beTrue()
+                    }
+                }
+
+                it ("is happy") {
+                    expect(person!.isHappy).to.beTrue()
+                }
+            }
         }
     }
 }
