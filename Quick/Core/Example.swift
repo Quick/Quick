@@ -16,11 +16,16 @@ var _numberOfExamplesRan = 0
     var _description: String
     var _closure: () -> ()
 
+    var _callsite: Callsite
+    @objc var _file: String { return _callsite.file }
+    @objc var _line: Int { return _callsite.line }
+
     var name: String { get { return group!.name + ", " + _description } }
 
-    init(_ description: String, _ closure: () -> ()) {
+    init(_ description: String, _ callsite: Callsite, _ closure: () -> ()) {
         self._description = description
         self._closure = closure
+        self._callsite = callsite
     }
 
     func run() {

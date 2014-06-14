@@ -27,8 +27,8 @@
     [DSL afterEach:closure];
 }
 
-+ (void)it:(NSString *)description closure:(void(^)(void))closure {
-    [DSL it:description closure:closure];
++ (void)it:(NSString *)description file:(NSString *)file line:(NSUInteger)line closure:(void (^)(void))closure {
+    [DSL it:description file:file line:line closure:closure];
 }
 
 @end

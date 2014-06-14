@@ -23,7 +23,7 @@
 #define qck_context(description, block) [QCKDSL context:description closure:block]
 #define qck_beforeEach(block) [QCKDSL beforeEach:block]
 #define qck_afterEach(block) [QCKDSL afterEach:block]
-#define qck_it(description, block) [QCKDSL it:description closure:block]
+#define qck_it(description, block) [QCKDSL it:description file:@(__FILE__) line:__LINE__ closure:block]
 
 @interface QCKDSL : NSObject
 
@@ -31,6 +31,6 @@
 + (void)context:(NSString *)description closure:(void(^)(void))closure;
 + (void)beforeEach:(void(^)(void))closure;
 + (void)afterEach:(void(^)(void))closure;
-+ (void)it:(NSString *)description closure:(void(^)(void))closure;
++ (void)it:(NSString *)description file:(NSString *)file line:(NSUInteger)line closure:(void(^)(void))closure;
 
 @end

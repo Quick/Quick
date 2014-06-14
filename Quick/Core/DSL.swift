@@ -27,8 +27,9 @@
         World.currentExampleGroup()!.appendAfter(closure)
     }
 
-    class func it(description: String, closure: () -> ()) {
-        let example = Example(description, closure)
+    class func it(description: String, file: String, line: Int, closure: () -> ()) {
+        let callsite = Callsite(file: file, line: line)
+        let example = Example(description, callsite, closure)
         World.currentExampleGroup()!.appendExample(example)
     }
 }
@@ -57,6 +58,6 @@ func afterSuite(closure: () -> ()) {
     World.appendAfterSuite(closure)
 }
 
-func it(description: String, closure: () -> ()) {
-    DSL.it(description, closure: closure)
+func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
+    DSL.it(description, file: file, line: line, closure: closure)
 }

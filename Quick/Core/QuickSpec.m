@@ -83,7 +83,12 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 + (SEL)addInstanceMethodForExample:(Example *)example {
     IMP implementation = imp_implementationWithBlock(^(id self){
-        [example run];
+        @try {
+            [example run];
+        }
+        @catch (NSException *exception) {
+            [self example:example failedWithException:exception];
+        }
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
     SEL selector = NSSelectorFromString(example.name.selectorName);
@@ -102,6 +107,10 @@ const void * const QCKExampleKey = &QCKExampleKey;
                              example,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return invocation;
+}
+
+- (void)example:(Example *)example failedWithException:(NSException *)exception {
+    [self recordFailureWithDescription:exception.description inFile:example._file atLine:example._line expected:NO];
 }
 
 @end
