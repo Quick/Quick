@@ -14,11 +14,9 @@ qck_describe(@"a describe block", ^{
     qck_it(@"contains an it block", ^{
         XCTAssertTrue(true, @"expected to be true");
     });
-});
 
-qck_describe(@"contains a pending block", ^{
-    qck_pending(@"contains an it block", ^{
-        qck_it(@"fails", ^{
+    qck_pending(@"a pending block", ^{
+        qck_it(@"contains a failing it block", ^{
             XCTAssertTrue(false, @"expected to be true");
         });
     });

@@ -49,6 +49,12 @@ class PersonSpec: QuickSpec {
                 expect{person!.isSatisfied}.willNot.beTrue()
             }
 
+            pending("but one day") {
+                it("will never want for anything") {
+                    expect{person!.isSatisfied}.will.beTrue()
+                }
+            }
+
             it("does not live with dinosaurs") {
                 expect(dinosaursExtinct).to.beTrue()
                 expect(mankindExtinct).toNot.beTrue()
@@ -69,22 +75,6 @@ class PersonSpec: QuickSpec {
                         expect(person!.greeting).to.equal("Hello!")
                         expect(person!.greeting).toNot.equal("Oh, hi.")
                     }
-                }
-            }
-
-            describe("Pending tests") {
-                beforeEach { person!.isHappy = true }
-                
-                pending("Pending Spec") {
-                    beforeEach { person!.isHappy = false }
-
-                    it ("is not happy") {
-                        expect(person!.isHappy).to.beTrue()
-                    }
-                }
-
-                it ("is happy") {
-                    expect(person!.isHappy).to.beTrue()
                 }
             }
         }
