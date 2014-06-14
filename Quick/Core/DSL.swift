@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
+import Foundation
+
 @objc class DSL {
     class func describe(description: String, closure: () -> ()) {
         var group = ExampleGroup(description)
