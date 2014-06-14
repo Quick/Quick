@@ -11,7 +11,7 @@ A behavior-driven development framework for Swift and Objective-C. Inspired by [
   - [Examples Using `it`](#examples-using-it)
   - [Example Groups Using `describe` and `context`](#example-groups-using-describe-and-context)
     - [Describing Classes and Methods Using `describe`](#describing-classes-and-methods-using-describe)
-  - [Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`](#sharing-setupteardown-code-using-beforeeach-and-aftereach)
+    - [Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`](#sharing-setupteardown-code-using-beforeeach-and-aftereach)
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
@@ -140,7 +140,7 @@ qck_describe(@"a dolphin", ^{
 QuickSpecEnd
 ```
 
-### Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`
+#### Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`
 
 Besides making the intention of my examples clearer, example groups
 like `describe` allow me to share setup and teardown code among my
