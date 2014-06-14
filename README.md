@@ -75,6 +75,16 @@ qck_describe(@"a poet", ^{
 QuickSpecEnd
 ```
 
+You may also use `pending` in Swift, or `qck_pending` in Objective-C, to
+denote an example that does not pass yet. Pending blocks are not run,
+but are printed out along with the test results.
+
+```swift
+pending("one day he/she will find contentment") {
+    expect(person!.isSatisfied).will.beTrue()
+}
+```
+
 ## Expectations
 
 > Currently Quick expectations are only available in Swift. See https://github.com/modocache/Quick/issues/26 for more details.
