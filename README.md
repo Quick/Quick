@@ -30,7 +30,7 @@ A behavior-driven development framework for Swift and Objective-C. Inspired by [
 
 ## Quick Core: Examples and Example Groups
 
-Quick uses a special syntax that allows you to define **examples** and
+Quick uses a special syntax that allows me to define **examples** and
 **example groups**.
 
 ### Examples Using `it`
@@ -308,7 +308,7 @@ QuickSpecEnd
 
 ### Temporarily Disabling Examples or Groups Using `pending`
 
-You may also use `pending` in Swift, or `qck_pending` in Objective-C, to
+I can also use `pending` in Swift, or `qck_pending` in Objective-C, to
 denote an example that does not pass yet. Pending blocks are not run,
 but are printed out along with the test results.
 
@@ -417,8 +417,8 @@ expect(person!.hopes).to.contain("winning the lottery")
 
 ### Automatic Optional Unwrapping
 
-When passing an optional to an expectation there is no need to unwrap the
-variable using a trailing `!`: Quick will do that for you.
+When passing an optional to an expectation, there's no need to unwrap the
+variable using a trailing `!`: Quick does that for me.
 
 ```swift
 var optVal: Int?
@@ -443,8 +443,8 @@ expect{person!.isHungry}.will.beTrue()
 expect{person!.isSatisfied}.willNot.beTrue()
 ```
 
-Asynchronous expectations time out after one second by default. You can
-extend this by using `willBefore`. The following times out after 3
+Asynchronous expectations time out after one second by default. I can
+extend this default by using `willBefore`. The following times out after 3
 seconds:
 
 ```swift
