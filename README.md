@@ -251,7 +251,7 @@ To execute code *after* each example, use `afterEach`.
 
 Dolphins use clicks for echolocation. When they approach something
 particularly interesting to them, they release a series of clicks in
-order to get a better idea of that it is.
+order to get a better idea of what it is.
 
 I want to show that my `click` method behaves differently in different
 circumstances. Normally, the dolphin just clicks once. But when the dolphin
