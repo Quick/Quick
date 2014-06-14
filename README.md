@@ -64,7 +64,7 @@ class DolphinSpec: QuickSpec {
 
 #import <Quick/Quick.h>
 
-QuickSpecBegin(PoetSpec)
+QuickSpecBegin(DolphinSpec)
 
 qck_it(@"is friendly", ^{
     XCTAssertTrue(dolphin.isFriendly, @"expected dolphin to be friendly");
@@ -120,7 +120,7 @@ class DolphinSpec: QuickSpec {
 
 #import <Quick/Quick.h>
 
-QuickSpecBegin(PoetSpec)
+QuickSpecBegin(DolphinSpec)
 
 qck_describe(@"a dolphin", ^{
     qck_describe(@"its click", ^{
@@ -187,7 +187,7 @@ class DolphinSpec: QuickSpec {
 
 #import <Quick/Quick.h>
 
-QuickSpecBegin(PoetSpec)
+QuickSpecBegin(DolphinSpec)
 
 qck_describe(@"a dolphin", ^{
     __block Dolphin *dolphin = nil;
