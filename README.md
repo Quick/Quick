@@ -2,7 +2,7 @@
 
 A behavior-driven development framework for Swift and Objective-C. Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
-![](http://f.cl.ly/items/1V40302G3w03263E2C0q/Screen%20Shot%202014-06-10%20at%2012.21.53%20AM.png)
+![](http://f.cl.ly/items/2F362k2E3f0u2R0p3q1c/Screen%20Shot%202014-06-14%20at%208.16.22%20PM.png)
 
 ## Syntax
 
