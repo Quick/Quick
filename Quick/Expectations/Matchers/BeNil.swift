@@ -10,9 +10,14 @@ import Foundation
 
 class BeNilMatcher<T:NSObject> {
 
-    func equals(actual: T?) -> Bool {
-        // NB: Do not use Any as the argument type - it does not allow you
-        // to determine if the literal 'nil' is used as an argument
+    func equals(actual: Any?) -> Bool {
+
+        // check for special case of nil or optional Any
+        if actual as? NilType {
+            return true
+        }
+
+        // or check to see if there is a value
         if actual {
             return false
         }

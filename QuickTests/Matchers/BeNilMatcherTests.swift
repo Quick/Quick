@@ -46,13 +46,22 @@ class BeNilMatcherTests: XCTestCase {
 
     }
 
-//    func testOptionalUnassignedAnyIsTrue() {
-//
-//        var optVal: Any?
-//
-//        XCTAssert(BeNilMatcher().equals(optVal),
-//            "unassigned optional Any should be true")
-//
-//    }
+    func testOptionalUnassignedAnyIsTrue() {
+
+        var optVal: Any?
+
+        XCTAssert(BeNilMatcher().equals(optVal),
+            "unassigned optional Any should be true")
+
+    }
+
+    func testOptionalAssignedAnyIsFalse() {
+
+        var optVal: Any? = 1
+
+        XCTAssertFalse(BeNilMatcher().equals(optVal),
+            "assigned optional any should be false")
+
+    }
 
 }
