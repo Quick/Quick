@@ -4,6 +4,25 @@ A behavior-driven development framework for Swift and Objective-C. Inspired by [
 
 ![](http://f.cl.ly/items/2F362k2E3f0u2R0p3q1c/Screen%20Shot%202014-06-14%20at%208.16.22%20PM.png)
 
+```swift
+describe("the table of contents") {
+    it("has everything you need to get started") {
+        let sections = TableOfContents().sections
+        expect(sections).to.contain("Quick Core")
+        expect(sections).to.contain("Quick Expectations")
+        expect(sections).to.contain("How to Install Quick")
+    }
+
+    context("if it doesn't have what you're looking for") {
+        it("needs to be updated") {
+            let you = You(awesome: true)
+            expect(you.submittedAnIssue).will.beTrue()
+            expect(you.submittedAPullRequest).will.beTrue()
+        }
+    }
+}
+```
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
