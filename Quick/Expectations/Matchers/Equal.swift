@@ -8,24 +8,32 @@
 
 import Foundation
 
-class EqualMatcher<T:NSObject where T:Equatable> {
+extension CInt {
+
+    func __conversion() -> NSObject {
+
+        return UInt(self) as NSObject
+    }
+}
+
+class EqualMatcher {
     // NB: Swift compiler bug - if T is left unconstrained the compiler will
     // barf, including crashing Xcode if used in a Playground.
     // Workaround: Constrain on NSObject
 
-    let expected: T
+    let expected: Any
 
-    init(_ expected: T) {
+    init(_ expected: Any) {
 
         self.expected = expected
 
     }
 
-    func equals(actual: T?) -> Bool {
+    func equals<U:Equatable>(actual: U?) -> Bool {
 
         if let actual = actual {
 
-            return expected == actual
+            return expected as? U == actual
 
         }
 

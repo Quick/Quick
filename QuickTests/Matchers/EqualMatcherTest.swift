@@ -117,6 +117,9 @@ class EqualMatcherTest: XCTestCase {
         var arr1: Array<Int> = []
         var arr2: Array<Int> = []
 
+        var e = EqualMatcher(arr1)
+        e.equals(arr2)
+
         XCTAssert(EqualMatcher(arr1).equals(arr2),
             "empty array should equal empty array")
 
@@ -152,7 +155,25 @@ class EqualMatcherTest: XCTestCase {
 
     }
 
+    func testCIntIsEqual() {
+
+        var value: CInt = 1
+
+        XCTAssert(EqualMatcher(value).equals(1),
+            "CInt with equal value is true")
+        
+    }
     
+    func testOptionalUnassignedCIntIsEqual() {
+
+        var value: CInt?
+
+        XCTAssert(EqualMatcher(value).equals(1),
+            "CInt with equal value is true")
+        
+    }
+    
+
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.
 //        self.measureBlock() {
