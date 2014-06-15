@@ -49,6 +49,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
         [invocations addObject:invocation];
     }
 
+    specHasInvocations = (invocations.count > 0);
+    
     return invocations;
 }
 
@@ -78,6 +80,9 @@ const void * const QCKExampleKey = &QCKExampleKey;
 #pragma mark - Public Interface
 
 - (void)exampleGroups { }
+
+static BOOL specHasInvocations = NO;
++(BOOL)hasInvocations {return specHasInvocations;}
 
 #pragma mark - Internal Methods
 
