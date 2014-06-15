@@ -68,6 +68,9 @@ These are like "tests" in XCTest.
 Quick allows me to define examples using `it`. `it` also takes a string,
 which serves as a description of the example.
 
+Below, I specify examples of how my `Dolphin` class should behave.
+When I create a new dolphin, it should be smart and friendly.
+
 ```swift
 // Swift
 
@@ -76,11 +79,11 @@ import Quick
 class DolphinSpec: QuickSpec {
     override func exampleGroups() {
         it("is friendly") {
-            expect(dolphin!.isFriendly).to.beTrue()
+            expect(Dolphin().isFriendly).to.beTrue()
         }
 
         it("is smart") {
-            expect(dolphin!.isSmart).to.beTrue()
+            expect(Dolphin().isSmart).to.beTrue()
         }
     }
 }
@@ -94,11 +97,11 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_it(@"is friendly", ^{
-    XCTAssertTrue(dolphin.isFriendly, @"expected dolphin to be friendly");
+    XCTAssertTrue([[Dolphin new] isFriendly], @"expected dolphin to be friendly");
 });
 
 qck_it(@"is smart", ^{
-    XCTAssertTrue(dolphin.isSmart, @"expected dolphin to be smart");
+    XCTAssertTrue([[Dolphin new] isSmart], @"expected dolphin to be smart");
 });
 
 QuickSpecEnd
@@ -115,8 +118,10 @@ examples together, we can share setup and teardown code between them.
 #### Describing Classes and Methods Using `describe`
 
 Let's say I want to specify the behavior of my `Dolphin` class's `click`
-method (or, in other words, I want to test the method works). I can
-group all of the tests for `click` using `describe`.
+method (or, in other words, I want to test the method works).
+
+I can group all of the tests for `click` using `describe`. Grouping
+similar examples together makes my spec easier to read.
 
 ```swift
 // Swift
