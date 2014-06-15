@@ -1,6 +1,7 @@
-# Quick
+![](http://f.cl.ly/items/2o2r3F1f3h3W1Y2E360J/Introducing-Quick.png)
 
-A behavior-driven development framework for Swift and Objective-C. Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
+Quick is a behavior-driven development framework for Swift and Objective-C.
+Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
 ![](http://f.cl.ly/items/2F362k2E3f0u2R0p3q1c/Screen%20Shot%202014-06-14%20at%208.16.22%20PM.png)
 
