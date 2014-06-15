@@ -17,10 +17,21 @@ class Expectation: Prediction {
     }
 
     override func evaluate(matcher: Matcher) {
-        if (negative && matcher.match(actual)) {
-            XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
-        } else if (!negative && !matcher.match(actual)) {
-            XCTFail(matcher.failureMessage(actual), file: callsite.file, line: callsite.line)
+        if QuickSpec.hasInvocations() {
+            if (negative && matcher.match(actual)) {
+                fail(matcher)
+            } else if (!negative && !matcher.match(actual)) {
+                fail(matcher)
+            }
         }
+        else {
+            it("is wrapping the fail to prevent an exception") {
+                self.fail(matcher)
+            }
+        }
+    }
+    
+    func fail(matcher: Matcher) {
+        XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
     }
 }

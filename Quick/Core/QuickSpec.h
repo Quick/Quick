@@ -53,4 +53,10 @@
  */
 - (void)exampleGroups;
 
+/**
+ Indicates whether or not the spec currently has any invocations.
+ 
+ @return YES if the spec contains invocations; NO otherwise. 
+ */
++(BOOL)hasInvocations;
 @end
