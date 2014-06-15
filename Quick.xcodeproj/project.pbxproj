@@ -23,6 +23,8 @@
 		34EB417A1945C91B0062CC32 /* ClosureExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EB41791945C91B0062CC32 /* ClosureExpectation.swift */; };
 		4A1B0B6B194C6B8E004A9A0D /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B0B6A194C6B8E004A9A0D /* Callsite.swift */; };
 		4A1B0B6C194C6BB4004A9A0D /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1B0B6A194C6B8E004A9A0D /* Callsite.swift */; };
+		4A675F5A194E4CFC00A54AFE /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A675F59194E4CFC00A54AFE /* ExampleTests.swift */; };
+		4A675F5B194E4CFC00A54AFE /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A675F59194E4CFC00A54AFE /* ExampleTests.swift */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11951947401200F6D13D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6BC9194387C300289F44 /* XCTest.framework */; };
 		5A5D1196194740D700F6D13D /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BAB1943879800289F44 /* DSL.swift */; };
@@ -120,6 +122,7 @@
 		34EB41771945C8B70062CC32 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
 		34EB41791945C91B0062CC32 /* ClosureExpectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExpectation.swift; sourceTree = "<group>"; };
 		4A1B0B6A194C6B8E004A9A0D /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
+		4A675F59194E4CFC00A54AFE /* ExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D1209194752B500F6D13D /* BeNilSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeNilSpec.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 		DAEB6B9D1943873100289F44 /* QuickTests */ = {
 			isa = PBXGroup;
 			children = (
+				4A675F59194E4CFC00A54AFE /* ExampleTests.swift */,
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				34512A381948223C007D457A /* FunctionalTests+ObjC.m */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
@@ -529,6 +533,7 @@
 				5A5D11AE1947412800F6D13D /* ContainSpec.swift in Sources */,
 				5A5D11AF1947412800F6D13D /* EqualSpec.swift in Sources */,
 				5A5D11B01947412800F6D13D /* BeTrueSpec.swift in Sources */,
+				4A675F5B194E4CFC00A54AFE /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +576,7 @@
 				DAEB6BD6194387D700289F44 /* ContainSpec.swift in Sources */,
 				DAEB6BD2194387D700289F44 /* FunctionalTests.swift in Sources */,
 				34EB41761945C49C0062CC32 /* BeTrueSpec.swift in Sources */,
+				4A675F5A194E4CFC00A54AFE /* ExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
