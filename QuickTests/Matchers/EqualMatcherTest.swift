@@ -117,9 +117,6 @@ class EqualMatcherTest: XCTestCase {
         var arr1: Array<Int> = []
         var arr2: Array<Int> = []
 
-        var e = EqualMatcher(arr1)
-        e.equals(arr2)
-
         XCTAssert(EqualMatcher(arr1).equals(arr2),
             "empty array should equal empty array")
 
