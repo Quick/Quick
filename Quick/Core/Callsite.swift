@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Callsite {
+@objc class Callsite {
     let file: String
     let line: Int
+
+    init(file: String, line: Int) {
+        self.file = file
+        self.line = line
+    }
 }

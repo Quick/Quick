@@ -80,7 +80,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 - (void)exampleGroups { }
 
 - (void)example:(Example *)example failedWithException:(NSException *)exception {
-    [self recordFailureWithDescription:exception.description inFile:example._file atLine:example._line expected:NO];
+    [self recordFailureWithDescription:exception.description inFile:example.callsite.file atLine:example.callsite.line expected:NO];
 }
 
 #pragma mark - Internal Methods

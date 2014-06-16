@@ -119,7 +119,7 @@ class UnhandledExceptionSpec: QuickSpec {
     }
 
     override func example(example: Example!, failedWithException actualException: NSException!) {
-        let actualCallsite = example._callsite
+        let actualCallsite = example.callsite
         expect(actualCallsite.file).to.equal(exampleCallsite.file)
         expect(actualCallsite.line).to.equal(exampleCallsite.line)
         expect(actualException).to.equal(expected)
