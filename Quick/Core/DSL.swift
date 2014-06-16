@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
+import Foundation
+
 @objc class DSL {
     class func describe(description: String, closure: () -> ()) {
         var group = ExampleGroup(description)
@@ -31,6 +33,10 @@
         let callsite = Callsite(file: file, line: line)
         let example = Example(description, callsite, closure)
         World.currentExampleGroup()!.appendExample(example)
+    }
+    
+    class func pending(description: String, closure: () -> ()) {
+        NSLog("Pending: %@", description)
     }
 }
 
@@ -60,4 +66,8 @@ func afterSuite(closure: () -> ()) {
 
 func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
     DSL.it(description, file: file, line: line, closure: closure)
+}
+
+func pending(description: String, closure: () -> ()) {
+    DSL.pending(description, closure: closure)
 }
