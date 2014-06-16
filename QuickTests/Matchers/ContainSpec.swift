@@ -12,23 +12,60 @@ class ContainSpec: QuickSpec {
     override func exampleGroups() {
         describe("Contain") {
             var matcher: Contain?
-            var subject: String[]?
+            var subject: NSObject?
             beforeEach {
                 matcher = Contain("Jon Snow")
-                subject = [ "Robb Stark", "Sansa Stark" ]
             }
 
             describe("failureMessage") {
-                it("says it expected subject to contain expected") {
-                    let message = matcher!.failureMessage(subject!)
-                    expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to contain 'Jon Snow'")
+                context("when the subject is nil") {
+                    beforeEach { subject = nil }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher!.failureMessage(subject)
+                        expect(message).to.equal("expected 'nil' to contain 'Jon Snow'")
+                    }
+                }
+
+                context("when the subject is an array") {
+                    beforeEach { subject = [ "Robb Stark", "Sansa Stark" ] }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher!.failureMessage(subject)
+                        expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to contain 'Jon Snow'")
+                    }
+                }
+
+                context("when the subject is a set") {
+                    beforeEach { subject = NSSet(objects: "Robb Stark", "Sansa Stark") }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher!.failureMessage(subject)
+                        expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to contain 'Jon Snow'")
+                    }
                 }
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected subject to not contain expected") {
-                    let message = matcher!.negativeFailureMessage(subject!)
-                    expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to not contain 'Jon Snow'")
+                context("when the subject is nil") {
+                    beforeEach { subject = nil }
+                    it("says it expected subject to not contain expected") {
+                        let message = matcher!.negativeFailureMessage(subject)
+                        expect(message).to.equal("expected 'nil' to not contain 'Jon Snow'")
+                    }
+                }
+
+                context("when the subject is an array") {
+                    beforeEach { subject = [ "Robb Stark", "Sansa Stark" ] }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher!.negativeFailureMessage(subject)
+                        expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to not contain 'Jon Snow'")
+                    }
+                }
+
+                context("when the subject is a set") {
+                    beforeEach { subject = NSSet(objects: "Robb Stark", "Sansa Stark") }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher!.negativeFailureMessage(subject)
+                        expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to not contain 'Jon Snow'")
+                    }
                 }
             }
         }
