@@ -7,6 +7,7 @@
 //
 
 import Quick
+import Nimble
 
 class BeTrueSpec: QuickSpec {
     override func exampleGroups() {

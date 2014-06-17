@@ -7,6 +7,7 @@
 //
 
 import Quick
+import Nimble
 
 class PersonSpec: QuickSpec {
     override func exampleGroups() {

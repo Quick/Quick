@@ -7,6 +7,7 @@
 //
 
 import Quick
+import Nimble
 
 class BeNilSpec : QuickSpec {
     override func exampleGroups() {

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Quick
 
 class Expectation: Prediction {
     let actual: NSObject?

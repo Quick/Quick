@@ -7,6 +7,7 @@
 //
 
 import Quick
+import Nimble
 
 class EqualSpec: QuickSpec {
     override func exampleGroups() {

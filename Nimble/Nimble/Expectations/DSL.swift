@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Quick
 
 func expect(actual: NSObject?, file: String = __FILE__, line: Int = __LINE__) -> Actual {
     return Actual(actual, callsite: Callsite(file: file, line: line))

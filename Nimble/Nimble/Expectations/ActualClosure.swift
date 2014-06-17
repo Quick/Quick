@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Quick
 
 class ActualClosure {
     let actualClosure: () -> (NSObject?)

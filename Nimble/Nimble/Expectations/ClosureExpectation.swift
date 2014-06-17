@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Quick
 
 class ClosureExpectation: Prediction {
     let actualClosure: () -> (NSObject?)

@@ -7,6 +7,7 @@
 //
 
 import Quick
+import Nimble
 
 class ContainSpec: QuickSpec {
     override func exampleGroups() {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Quick
 
 class Prediction {
     let callsite: Callsite
