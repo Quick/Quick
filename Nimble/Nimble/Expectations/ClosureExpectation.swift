@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import Quick
+
 
 class ClosureExpectation: Prediction {
     let actualClosure: () -> (NSObject?)
 
-    init(_ actualClosure: () -> NSObject?, callsite: Callsite, negative: Bool) {
+    init(_ actualClosure: () -> NSObject?, callsite: Callsite_, negative: Bool) {
         self.actualClosure = actualClosure
         super.init(callsite: callsite, negative: negative)
     }

@@ -7,12 +7,11 @@
 //
 
 import XCTest
-import Quick
 
 class Expectation: Prediction {
     let actual: NSObject?
 
-    init(_ actual: NSObject?, callsite: Callsite, negative: Bool) {
+    init(_ actual: NSObject?, callsite: Callsite_, negative: Bool) {
         self.actual = actual
         super.init(callsite: callsite, negative: negative)
     }

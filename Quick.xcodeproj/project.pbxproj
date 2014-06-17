@@ -207,13 +207,6 @@
 			remoteGlobalIDString = 2E37F0201950665000DF5316;
 			remoteInfo = "Nimble-iOSTests";
 		};
-		2E37F09F19506E4000DF5316 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2E37F0081950663300DF5316 /* Nimble.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2E37F0151950665000DF5316;
-			remoteInfo = "Nimble-iOS";
-		};
 		5A5D118819473F2100F6D13D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEB6B851943873100289F44 /* Project object */;
@@ -444,7 +437,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2E37F0A019506E4000DF5316 /* PBXTargetDependency */,
 			);
 			name = "Quick-iOS";
 			productName = "Quick-iOS";
@@ -595,7 +587,7 @@
 		2E37F03E195066EC00DF5316 /* Nimble-iOS.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = "Nimble-iOS.framework";
+			path = Nimble.framework;
 			remoteRef = 2E37F03D195066EC00DF5316 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -789,11 +781,6 @@
 			isa = PBXTargetDependency;
 			target = DAEB6B8D1943873100289F44 /* Quick */;
 			targetProxy = 04DC9808194B838B00CE00B6 /* PBXContainerItemProxy */;
-		};
-		2E37F0A019506E4000DF5316 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Nimble-iOS";
-			targetProxy = 2E37F09F19506E4000DF5316 /* PBXContainerItemProxy */;
 		};
 		5A5D118919473F2100F6D13D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

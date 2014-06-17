@@ -7,13 +7,12 @@
 //
 
 import Foundation
-import Quick
 
 class Actual {
     let actual: NSObject?
-    let callsite: Callsite
+    let callsite: Callsite_
 
-    init(_ actual: NSObject?, callsite: Callsite) {
+    init(_ actual: NSObject?, callsite: Callsite_) {
         self.actual = actual
         self.callsite = callsite
     }

@@ -7,13 +7,12 @@
 //
 
 import Foundation
-import Quick
 
 class ActualClosure {
     let actualClosure: () -> (NSObject?)
-    let callsite: Callsite
+    let callsite: Callsite_
 
-    init(_ actualClosure: () -> (NSObject?), callsite: Callsite) {
+    init(_ actualClosure: () -> (NSObject?), callsite: Callsite_) {
         self.actualClosure = actualClosure
         self.callsite = callsite
     }

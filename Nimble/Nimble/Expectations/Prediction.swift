@@ -7,13 +7,12 @@
 //
 
 import Foundation
-import Quick
 
 class Prediction {
-    let callsite: Callsite
+    let callsite: Callsite_
     let negative: Bool
 
-    init(callsite: Callsite, negative: Bool) {
+    init(callsite: Callsite_, negative: Bool) {
         self.callsite = callsite
         self.negative = negative
     }
