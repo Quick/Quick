@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E9E4EE919507DB10082AD30 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5DCEBC1950782E00E24209 /* Nimble.framework */; };
 		5A00E32E1946D8B800276F53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00E32D1946D8B800276F53 /* main.swift */; };
 		5A00E3301946D8B800276F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00E32F1946D8B800276F53 /* AppDelegate.swift */; };
 		5A00E3321946D8B800276F53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A00E3311946D8B800276F53 /* Images.xcassets */; };
@@ -22,6 +23,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2E5DCEC21950782E00E24209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A00E34A1946D8CB00276F53 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D117C19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		2E5DCEC41950782E00E24209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A00E34A1946D8CB00276F53 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D118619473F2100F6D13D;
+			remoteInfo = "Quick-iOSTests";
+		};
+		2E5DCEC61950784000E24209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A00E3201946D8B800276F53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A00E3271946D8B800276F53;
+			remoteInfo = Scenester;
+		};
+		2E5DCEC81950784000E24209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A00E3201946D8B800276F53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A00E3271946D8B800276F53;
+			remoteInfo = Scenester;
+		};
 		5A00E33B1946D8B800276F53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A00E3201946D8B800276F53 /* Project object */;
@@ -74,6 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E5DCEBC1950782E00E24209 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Scenester-dssnwvutierdzfdjdqhsnhcrimse/Build/Products/Debug/Nimble.framework"; sourceTree = "<group>"; };
 		5A00E3281946D8B800276F53 /* Scenester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00E32C1946D8B800276F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A00E32D1946D8B800276F53 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -105,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E9E4EE919507DB10082AD30 /* Nimble.framework in Frameworks */,
 				5A5D11571946F5A400F6D13D /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +211,8 @@
 			children = (
 				5A00E3501946D8CB00276F53 /* Quick.framework */,
 				5A00E3521946D8CB00276F53 /* QuickTests.xctest */,
+				2E5DCEC31950782E00E24209 /* Quick.framework */,
+				2E5DCEC51950782E00E24209 /* Quick-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,6 +220,7 @@
 		618F5CF4499F4D3C9DD28879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E5DCEBC1950782E00E24209 /* Nimble.framework */,
 				FB229FE3806645259E686336 /* libPods-ScenesterTests.a */,
 			);
 			name = Frameworks;
@@ -228,6 +262,8 @@
 				5A5D11561946F59F00F6D13D /* PBXTargetDependency */,
 				5A5D116C1946FC2A00F6D13D /* PBXTargetDependency */,
 				5A5D11731946FCBA00F6D13D /* PBXTargetDependency */,
+				2E5DCEC71950784000E24209 /* PBXTargetDependency */,
+				2E5DCEC91950784000E24209 /* PBXTargetDependency */,
 			);
 			name = ScenesterTests;
 			productName = ScenesterTests;
@@ -278,6 +314,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		2E5DCEC31950782E00E24209 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = 2E5DCEC21950782E00E24209 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2E5DCEC51950782E00E24209 /* Quick-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Quick-iOSTests.xctest";
+			remoteRef = 2E5DCEC41950782E00E24209 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A00E3501946D8CB00276F53 /* Quick.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -340,6 +390,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2E5DCEC71950784000E24209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A00E3271946D8B800276F53 /* Scenester */;
+			targetProxy = 2E5DCEC61950784000E24209 /* PBXContainerItemProxy */;
+		};
+		2E5DCEC91950784000E24209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A00E3271946D8B800276F53 /* Scenester */;
+			targetProxy = 2E5DCEC81950784000E24209 /* PBXContainerItemProxy */;
+		};
 		5A00E33C1946D8B800276F53 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5A00E3271946D8B800276F53 /* Scenester */;
@@ -487,6 +547,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Scenester-dssnwvutierdzfdjdqhsnhcrimse/Build/Products/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -510,6 +571,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Scenester-dssnwvutierdzfdjdqhsnhcrimse/Build/Products/Debug",
 				);
 				INFOPLIST_FILE = ScenesterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";

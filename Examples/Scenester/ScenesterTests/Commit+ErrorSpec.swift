@@ -8,6 +8,7 @@
 
 import Scenester
 import Quick
+import Nimble
 
 class Commit_ErrorSpec: QuickSpec {
     override func exampleGroups() {
