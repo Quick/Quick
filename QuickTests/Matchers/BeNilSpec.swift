@@ -11,7 +11,7 @@ import Quick
 class BeNilSpec : QuickSpec {
     override func exampleGroups() {
         describe("BeNil") {
-            var matcher: BeNil!
+            var matcher: BeNil! = nil
             beforeEach { matcher = BeNil() }
             describe("failureMessage") {
                 it("says it expected the subject to be nil") {
