@@ -16,11 +16,14 @@ var _numberOfExamplesRun = 0
     var _description: String
     var _closure: () -> ()
 
+    var callsite: Callsite
+
     var name: String { get { return group!.name + ", " + _description } }
 
-    init(_ description: String, _ closure: () -> ()) {
+    init(_ description: String, _ callsite: Callsite, _ closure: () -> ()) {
         self._description = description
         self._closure = closure
+        self.callsite = callsite
     }
 
     func run() {
