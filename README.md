@@ -523,12 +523,16 @@ navigator, grouped with your tests.
 
 ### 3. Link the `Quick.framework`
 
-Finally, link the `Quick.framework` during your test target's
+ Link the `Quick.framework` during your test target's
 `Link Binary with Libraries` build phase. You should see two
 `Quick.frameworks`; one is for OS X, and the other is for iOS.
 
 ![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
 
+### 4. Linke the `Nimble.framework`
+
+Repeat Step 3 for `Nimble.framework`
+ 
 ### 4. Start writing specs!
 
 If you run into any problems, please file an issue.
