@@ -11,18 +11,18 @@ import Quick
 class BeTrueSpec: QuickSpec {
     override func exampleGroups() {
         describe("BeTrue") {
-            var matcher: BeTrue?
+            var matcher: BeTrue! = nil
             beforeEach { matcher = BeTrue() }
             describe("failureMessage") {
                 it("says it expected the subject to be true") {
-                    let message = matcher!.failureMessage("Theon Greyjoy")
+                    let message = matcher.failureMessage("Theon Greyjoy")
                     expect(message).to.equal("expected 'Theon Greyjoy' to be true")
                 }
             }
 
             describe("negativeFailureMessage") {
                 it("says it expected the subject to be false") {
-                    let message = matcher!.negativeFailureMessage("Reek")
+                    let message = matcher.negativeFailureMessage("Reek")
                     expect(message).to.equal("expected 'Reek' to be false")
                 }
             }

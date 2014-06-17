@@ -11,18 +11,18 @@ import Quick
 class EqualSpec: QuickSpec {
     override func exampleGroups() {
         describe("Equal") {
-            var matcher: Equal?
+            var matcher: Equal! = nil
             beforeEach { matcher = Equal("Sandor Clegane") }
             describe("failureMessage") {
                 it("says it expected actual to be equal to expected") {
-                    let message = matcher!.failureMessage("The Hound")
+                    let message = matcher.failureMessage("The Hound")
                     expect(message).to.equal("expected 'The Hound' to be equal to 'Sandor Clegane'")
                 }
             }
 
             describe("negativeFailureMessage") {
                 it("says it expected actual to not be equal to expected") {
-                    let message = matcher!.negativeFailureMessage("Kingsguard")
+                    let message = matcher.negativeFailureMessage("Kingsguard")
                     expect(message).to.equal("expected 'Kingsguard' to not be equal to 'Sandor Clegane'")
                 }
             }
