@@ -15,15 +15,15 @@ class BeFalseSpec: QuickSpec {
             beforeEach { matcher = BeFalse() }
             describe("failureMessage") {
                 it("says it expected the subject to be false") {
-                    let message = matcher.failureMessage("Antoine Roquentin")
-                    expect(message).to.equal("expected 'Antoine Roquentin' to be false")
+                    let message = matcher.failureMessage("Bronn")
+                    expect(message).to.equal("expected subject to be false")
                 }
             }
             
             describe("negativeFailureMessage") {
-                it("says it expected the subject to be true") {
-                    let message = matcher.negativeFailureMessage("the Autodidact")
-                    expect(message).to.equal("expected 'the Autodidact' to be true")
+                it("says it expected the subject not to be false") {
+                    let message = matcher.negativeFailureMessage("Cersei Lannister")
+                    expect(message).to.equal("expected subject not to be false")
                 }
             }
         }
@@ -48,7 +48,7 @@ class BeFalseSpec: QuickSpec {
                     }
                     
                     context("and is not false") {
-                        beforeEach { subject = "Anny" }
+                        beforeEach { subject = "Petyr Baelish" }
                         it("does not match") {
                             expect(subject).toNot.beFalse()
                         }

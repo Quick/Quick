@@ -13,11 +13,11 @@ class BeFalse: Matcher {
     }
     
     override func failureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to be false"
+        return "expected subject to be false"
     }
     
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to be true"
+        return "expected subject not to be false"
     }
     
     override func match(actual: NSObject?) -> Bool {
