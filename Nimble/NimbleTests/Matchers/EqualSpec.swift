@@ -15,16 +15,16 @@ class EqualSpec: QuickSpec {
             var matcher: Equal! = nil
             beforeEach { matcher = Equal("Sandor Clegane") }
             describe("failureMessage") {
-                it("says it expected actual to be equal to expected") {
+                it("says it expected one values, but got another") {
                     let message = matcher.failureMessage("The Hound")
-                    expect(message).to.equal("expected 'The Hound' to be equal to 'Sandor Clegane'")
+                    expect(message).to.equal("expected 'Sandor Clegane', got 'The Hound'")
                 }
             }
 
             describe("negativeFailureMessage") {
                 it("says it expected actual to not be equal to expected") {
                     let message = matcher.negativeFailureMessage("Kingsguard")
-                    expect(message).to.equal("expected 'Kingsguard' to not be equal to 'Sandor Clegane'")
+                    expect(message).to.equal("expected subject not to equal 'Sandor Clegane'")
                 }
             }
         }
