@@ -49,6 +49,10 @@
 		34F375E719515CC900CE1B99 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375CE19515CC900CE1B99 /* Prediction.swift */; };
 		34F375E819515CC900CE1B99 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375CE19515CC900CE1B99 /* Prediction.swift */; };
 		34F375E919515DE500CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
+		932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
+		932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
+		932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
+		932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,8 @@
 		34F375CC19515CC900CE1B99 /* Contain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
 		34F375CD19515CC900CE1B99 /* Equal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
 		34F375CE19515CC900CE1B99 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalseSpec.swift; sourceTree = "<group>"; };
+		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +256,7 @@
 			children = (
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
+				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
 				2E37F0831950672E00DF5316 /* ContainSpec.swift */,
 				2E37F0841950672E00DF5316 /* EqualSpec.swift */,
 			);
@@ -272,6 +279,7 @@
 			children = (
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
+				932B52641951C68C0044C7E0 /* BeFalse.swift */,
 				34F375CC19515CC900CE1B99 /* Contain.swift */,
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
 			);
@@ -501,6 +509,7 @@
 				34F375DD19515CC900CE1B99 /* Matcher.swift in Sources */,
 				34F375D519515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D119515CC900CE1B99 /* ActualClosure.swift in Sources */,
+				932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */,
 				34F375E519515CC900CE1B99 /* Equal.swift in Sources */,
 				34F375E719515CC900CE1B99 /* Prediction.swift in Sources */,
 				34F375DB19515CC900CE1B99 /* Expectation.swift in Sources */,
@@ -512,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37F0A81950713000DF5316 /* BeTrueSpec.swift in Sources */,
+				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
 				2E37F08A1950672E00DF5316 /* BeNilSpec.swift in Sources */,
@@ -532,6 +542,7 @@
 				34F375DE19515CC900CE1B99 /* Matcher.swift in Sources */,
 				34F375D619515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D219515CC900CE1B99 /* ActualClosure.swift in Sources */,
+				932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */,
 				34F375E619515CC900CE1B99 /* Equal.swift in Sources */,
 				34F375E819515CC900CE1B99 /* Prediction.swift in Sources */,
 				34F375DC19515CC900CE1B99 /* Expectation.swift in Sources */,
@@ -543,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37F0AE1950722200DF5316 /* BeNilSpec.swift in Sources */,
+				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
 				2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */,
