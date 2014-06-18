@@ -1,5 +1,5 @@
 //
-//  True.swift
+//  BeTrue.swift
 //  Quick
 //
 //  Created by Brian Ivan Gesiak on 6/6/14.
