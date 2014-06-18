@@ -20,6 +20,11 @@ it.
 - Went to the kitchen, only to forget why you went in the first place?
   Better submit an issue.
 
+## Building the Project
+
+- Use `Quick.xcworkspace` to work on Quick, Nimble, and the example
+  apps.
+
 ## Pull Requests
 
 - Nothing is trivial. Submit pull requests for anything: typos,
@@ -29,8 +34,8 @@ it.
   by name.
 - Make sure your pull request includes any necessary updates to the
   README or other documentation.
-- Be sure the unit tests for both the OS X and iOS targets pass before
-  submitting your pull request.
+- Be sure the unit tests for both the OS X and iOS targets of both Quick
+  and Nimble pass before submitting your pull request.
 - If you've added a file to the project, make sure it's included in both
   the OS X and iOS targets.
 
