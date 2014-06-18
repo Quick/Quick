@@ -11,7 +11,7 @@ import Quick
 import Nimble
 
 class CommitSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("Commit") {
             var commit: Commit!
             beforeEach { commit = Commit(message: "debt repaid", author: "jaime-lannister") }

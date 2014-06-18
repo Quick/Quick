@@ -25,7 +25,7 @@
  Most of the code in QuickSpec is dedicated to hooking into XCTest events.
  First, when the spec is first loaded and before it is sent any messages,
  the +[NSObject initialize] method is called. QuickSpec overrides this method
- to call +[QuickSpec exampleGroups]. This builds the example group stacks and
+ to call +[QuickSpec spec]. This builds the example group stacks and
  registers them with Quick.World, a global register of examples.
 
  Then, XCTest queries QuickSpec for a list of test methods. Normally, XCTest
@@ -43,7 +43,7 @@
  Override this method in your spec to define a set of example groups
  and examples.
 
-     override class func exampleGroups() {
+     override class func spec() {
          describe("winter") {
              it("is coming") {
                  // ...
@@ -53,7 +53,7 @@
 
  See DSL.swift for more information on what syntax is available.
  */
-- (void)exampleGroups;
+- (void)spec;
 
 /**
  This method is called when an unhandled exception is raised while an

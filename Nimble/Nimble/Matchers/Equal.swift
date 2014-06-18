@@ -10,11 +10,11 @@ import Foundation
 
 class Equal: Matcher {
     override func failureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to be equal to '\(expected)'"
+        return "expected '\(expected)', got '\(actual)'"
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to not be equal to '\(expected)'"
+        return "expected subject not to equal '\(expected)'"
     }
 
     override func match(actual: NSObject?) -> Bool {

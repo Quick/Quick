@@ -9,7 +9,7 @@ Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com
 import Quick
 
 class TableOfContentsSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("the table of contents below") {
             it("has everything you need to get started") {
                 let sections = TableOfContents().sections
@@ -77,7 +77,7 @@ When I create a new dolphin, it should be smart and friendly.
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         it("is friendly") {
             expect(Dolphin().isFriendly).to.beTrue()
         }
@@ -129,7 +129,7 @@ similar examples together makes my spec easier to read.
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("a dolphin") {
             describe("its click") {
                 it("is loud") {
@@ -188,7 +188,7 @@ click before each one of my examples. This ensures that both are in a
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("a dolphin") {
             var dolphin: Dolphin?
             beforeEach {
@@ -273,7 +273,7 @@ something interesting.
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("a dolphin") {
             var dolphin: Dolphin?
             beforeEach { dolphin = Dolphin() }
@@ -380,7 +380,7 @@ Quick allows me to do this by using `beforeSuite` and `afterSuite`.
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         beforeSuite {
             OceanDatabase.createDatabase(name: "test.db")
             OceanDatabase.connectToDatabase(name: "test.db")

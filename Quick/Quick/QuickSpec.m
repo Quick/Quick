@@ -29,12 +29,12 @@ const void * const QCKExampleKey = &QCKExampleKey;
 + (void)initialize {
     [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
     QuickSpec *spec = [self new];
-    [spec exampleGroups];
+    [spec spec];
 }
 
 /**
  Invocations for each test method in the test case. Override this method to define a new
- method for each example defined in +[QuickSpec exampleGroups].
+ method for each example defined in +[QuickSpec spec].
 
  @return An array of invocations that execute the newly defined example methods.
  */
@@ -77,7 +77,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 #pragma mark - Public Interface
 
-- (void)exampleGroups { }
+- (void)spec { }
 
 - (void)example:(Example *)example failedWithException:(NSException *)exception {
     [self recordFailureWithDescription:exception.description inFile:example.callsite.file atLine:example.callsite.line expected:NO];

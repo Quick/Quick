@@ -11,7 +11,7 @@ import Quick
 import Nimble
 
 class Commit_ErrorSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("commitError") {
             var code: CommitErrorCode!
 

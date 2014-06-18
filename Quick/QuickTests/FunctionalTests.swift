@@ -10,7 +10,7 @@ import Quick
 import Nimble
 
 class PersonSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("Person") {
             var person: Person! = nil
             var dinosaursExtinct = false
@@ -83,7 +83,7 @@ class PersonSpec: QuickSpec {
 }
 
 class PoetSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("Poet") {
             // FIXME: Radar worthy? `var poet: Poet?` results in build error:
             //        "Could not find member 'greeting'"
@@ -114,7 +114,7 @@ class UnhandledExceptionSpec: QuickSpec {
     var expected = NSException(name: "name", reason: "reason", userInfo: nil)
     let exampleCallsite = Callsite(file: "file", line: -1)
 
-    override func exampleGroups() {
+    override func spec() {
 
         describe("unexpected exceptions raised during an example") {
             it("catches unhandled exceptions", {
