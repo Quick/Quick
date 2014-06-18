@@ -15,7 +15,7 @@ class EqualSpec: QuickSpec {
             var matcher: Equal! = nil
             beforeEach { matcher = Equal("Sandor Clegane") }
             describe("failureMessage") {
-                it("says it expected one values, but got another") {
+                it("says it expected one value, but got another") {
                     let message = matcher.failureMessage("The Hound")
                     expect(message).to.equal("expected 'Sandor Clegane', got 'The Hound'")
                 }
