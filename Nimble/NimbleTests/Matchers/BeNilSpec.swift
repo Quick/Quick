@@ -24,7 +24,7 @@ class BeNilSpec : QuickSpec {
             describe("negativeFailureMessage") {
                 it("says it expected the subject to be non-nil") {
                     let message = matcher.negativeFailureMessage("Qotho")
-                    expect(message).to.equal("expected 'Qotho' to be non-nil")
+                    expect(message).to.equal("expected subject to be non-nil")
                 }
             }
         }
