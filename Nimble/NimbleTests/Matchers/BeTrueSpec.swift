@@ -17,14 +17,14 @@ class BeTrueSpec: QuickSpec {
             describe("failureMessage") {
                 it("says it expected the subject to be true") {
                     let message = matcher.failureMessage("Theon Greyjoy")
-                    expect(message).to.equal("expected 'Theon Greyjoy' to be true")
+                    expect(message).to.equal("expected subject to be true")
                 }
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected the subject to be false") {
+                it("says it expected the subject not to be true") {
                     let message = matcher.negativeFailureMessage("Reek")
-                    expect(message).to.equal("expected 'Reek' to be false")
+                    expect(message).to.equal("expected subject not to be true")
                 }
             }
         }
