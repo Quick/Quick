@@ -34,7 +34,7 @@ class TableOfContentsSpec: QuickSpec {
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Quick Core: Examples and Example Groups](#quick-core-examples-and-example-groups)
+- [Quick: Examples and Example Groups](#quick-examples-and-example-groups)
   - [Examples Using `it`](#examples-using-it)
   - [Example Groups Using `describe` and `context`](#example-groups-using-describe-and-context)
     - [Describing Classes and Methods Using `describe`](#describing-classes-and-methods-using-describe)
@@ -42,20 +42,20 @@ class TableOfContentsSpec: QuickSpec {
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
-- [Quick Expectations: Assertions Using `expect(...).to`](#quick-expectations-assertions-using-expectto)
+- [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
   - [Asynchronous Expectations Using `will` and `willNot`](#asynchronous-expectations-using-will-and-willnot)
-- [How to Install Quick and Quick Expectations](#how-to-install-quick-and-quick-expectations)
+- [How to Install Quick](#how-to-install-quick)
   - [1. Clone this repository](#1-clone-this-repository)
-  - [2. Add the `Quick.xcodeproj` file to your application's test target](#2-add-the-quickxcodeproj-file-to-your-applications-test-target)
-  - [3. Link the `Quick.framework`](#3-link-the-quickframework)
+  - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
+  - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
   - [4. Start writing specs!](#4-start-writing-specs!)
 - [Who Uses Quick](#who-uses-quick)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Quick Core: Examples and Example Groups
+## Quick: Examples and Example Groups
 
 Quick uses a special syntax that allows me to define **examples** and
 **example groups**.
@@ -425,32 +425,35 @@ I can specify as many `beforeSuite` and `afterSuite` as I like. All
 will be executed after all tests are finished. There's no guarantee as
 to what order they will be executed in, however.
 
-## Quick Expectations: Assertions Using `expect(...).to`
+## Nimble: Assertions Using `expect(...).to`
 
-> Currently Quick expectations are only available in Swift.
+> Currently Nimble expectations are only available in Swift.
   See https://github.com/modocache/Quick/issues/26 for more details.
 
-Quick expectations use the `expect(...).to` syntax:
+I can use Quick to define examples and example groups. Within those
+examples, I can make expectations using Nimble, Quick's sister project.
+
+Nimble expectations use the `expect(...).to` syntax:
 
 ```swift
-expect(person!.greeting).to.equal("Oh, hi.")
-expect(person!.greeting).notTo.equal("Hello!")
+expect(person.greeting).to.equal("Oh, hi.")
+expect(person.greeting).notTo.equal("Hello!")
 ```
 
-Quick includes matchers that test whether the subject of an
+Nimble includes matchers that test whether the subject of an
 expectation is true, or equal to something, or whether it
 contains a specific element:
 
 ```swift
-expect(person!.isHappy).to.beTrue()
-expect(person!.greeting).to.equal("Hello!")
-expect(person!.hopes).to.contain("winning the lottery")
+expect(person.isHappy).to.beTrue()
+expect(person.greeting).to.equal("Hello!")
+expect(person.hopes).to.contain("winning the lottery")
 ```
 
 ### Automatic Optional Unwrapping
 
 When passing an optional to an expectation, there's no need to unwrap the
-variable using a trailing `!`: Quick does that for me.
+variable using a trailing `!`: Nimble does that for me.
 
 ```swift
 var optVal: Int?
@@ -465,14 +468,14 @@ expect(optVal).to.equal(123)
 
 ### Asynchronous Expectations Using `will` and `willNot`
 
-Quick also allows for asynchronous expectations, by wrapping the subject
+Nimble also allows for asynchronous expectations, by wrapping the subject
 in braces instead of parentheses. This allows the subject to be
 evaluated as a closure. Below is an example of a subject who knows
 only hunger, and never satisfaction:
 
 ```swift
-expect{person!.isHungry}.will.beTrue()
-expect{person!.isSatisfied}.willNot.beTrue()
+expect{person.isHungry}.will.beTrue()
+expect{person.isSatisfied}.willNot.beTrue()
 ```
 
 Asynchronous expectations time out after one second by default. I can
@@ -484,16 +487,20 @@ expect{person!.isHungry}.willBefore(3).beTrue()
 expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 ```
 
-## How to Install Quick and Quick Expectations
+## How to Install Quick
 
 > This module is beta software, and can only run using the latest, beta version
 of Xcode.
 
-To use Quick to test your iOS or OS X applications, follow these 4 easy steps:
+Quick provides the syntax to define examples and example groups. Nimble
+provides the `expect(...).to` assertion syntax. You may either one, or
+both, in your tests.
 
-1. [Clone the repository](https://github.com/modocache/Quick#1-clone-this-repository)
-2. [Add `Quick.xcodeproj` to your test target](https://github.com/modocache/Quick#2-add-the-quickxcodeproj-file-to-your-applications-test-target)
-3. [Link `Quick.framework` during your test target's `Link Binary with Libraries` build phase](https://github.com/modocache/Quick#3-link-the-quickframework)
+To use Quick and Nimble to test your iOS or OS X applications, follow these 4 easy steps:
+
+1. [Clone the repository](#1-clone-this-repository)
+2. [Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
+3. [Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
 4. Start writing specs!
 
 An example project with this complete setup is available in the
@@ -505,7 +512,7 @@ An example project with this complete setup is available in the
 git clone git@github.com:modocache/Quick.git
 ```
 
-### 2. Add the `Quick.xcodeproj` file to your application's test target
+### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
 
 Right-click on the group containing your application's tests and
 select `Add Files To YourApp...`.
@@ -521,7 +528,9 @@ navigator, grouped with your tests.
 
 ![](http://cl.ly/image/0p0k2F2u2O3I/Screen%20Shot%202014-06-08%20at%204.27.29%20AM%20copy.png)
 
-### 3. Link the `Quick.framework`
+Follow the same steps for `Nimble.xcodeproj`.
+
+### 3. Link `Quick.framework` and `Nimble.framework`
 
  Link the `Quick.framework` during your test target's
 `Link Binary with Libraries` build phase. You should see two
@@ -529,10 +538,8 @@ navigator, grouped with your tests.
 
 ![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
 
-### 4. Linke the `Nimble.framework`
+Do the same for the `Nimble.framework`.
 
-Repeat Step 3 for `Nimble.framework`
- 
 ### 4. Start writing specs!
 
 If you run into any problems, please file an issue.
