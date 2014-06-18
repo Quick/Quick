@@ -17,12 +17,12 @@ class BeNilSpec : QuickSpec {
             describe("failureMessage") {
                 it("says it expected the subject to be nil") {
                     let message = matcher.failureMessage("Khal Drogo")
-                    expect(message).to.equal("expected 'Khal Drogo' to be nil")
+                    expect(message).to.equal("expected nil, got 'Khal Drogo'")
                 }
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected the subject to be non-nil") {
+                it("says it expected the subject not to be nil") {
                     let message = matcher.negativeFailureMessage("Qotho")
                     expect(message).to.equal("expected subject to be non-nil")
                 }

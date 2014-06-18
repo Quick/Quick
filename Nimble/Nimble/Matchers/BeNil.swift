@@ -15,7 +15,7 @@ class BeNil: Equal {
     }
 
     override func failureMessage(actual: NSObject?) -> String {
-        return "expected '\(actual)' to be nil"
+        return "expected nil, got '\(actual)'"
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
