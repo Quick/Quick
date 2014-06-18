@@ -230,6 +230,13 @@
 			remoteGlobalIDString = 5A5D117B19473F2100F6D13D;
 			remoteInfo = "Quick-iOS";
 		};
+		93625F381951DDC8006B1FE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DAEB6B8D1943873100289F44;
+			remoteInfo = Quick;
+		};
 		DAEB6B9B1943873100289F44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEB6B851943873100289F44 /* Project object */;
@@ -510,6 +517,7 @@
 				04DC9801194B836100CE00B6 /* PBXTargetDependency */,
 				04DC9805194B838400CE00B6 /* PBXTargetDependency */,
 				04DC9809194B838B00CE00B6 /* PBXTargetDependency */,
+				93625F391951DDC8006B1FE1 /* PBXTargetDependency */,
 			);
 			name = QuickTests;
 			productName = QuickTests;
@@ -794,6 +802,11 @@
 			isa = PBXTargetDependency;
 			target = 5A5D117B19473F2100F6D13D /* Quick-iOS */;
 			targetProxy = 5A5D11F1194741B500F6D13D /* PBXContainerItemProxy */;
+		};
+		93625F391951DDC8006B1FE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DAEB6B8D1943873100289F44 /* Quick */;
+			targetProxy = 93625F381951DDC8006B1FE1 /* PBXContainerItemProxy */;
 		};
 		DAEB6B9C1943873100289F44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

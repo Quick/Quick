@@ -19,8 +19,6 @@
 		2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0821950672E00DF5316 /* BeTrueSpec.swift */; };
 		2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0831950672E00DF5316 /* ContainSpec.swift */; };
 		2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0841950672E00DF5316 /* EqualSpec.swift */; };
-		3480EA4619517EA9003F7B99 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3480EA4519517EA9003F7B99 /* XCTest.framework */; };
-		3480EA4A19518254003F7B99 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3480EA4919518254003F7B99 /* XCTest.framework */; };
 		34F375771951596E00CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
 		34F375CF19515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
 		34F375D019515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
@@ -53,6 +51,8 @@
 		932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
 		932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
 		932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
+		93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F481951DF44006B1FE1 /* XCTest.framework */; };
+		93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F4E1951DF66006B1FE1 /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +126,6 @@
 		2E37F0821950672E00DF5316 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
 		2E37F0831950672E00DF5316 /* ContainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		2E37F0841950672E00DF5316 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
-		3480EA4519517EA9003F7B99 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = "../../../../../../Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework"; sourceTree = "<group>"; };
-		3480EA4919518254003F7B99 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = "../../../../../../Applications/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework"; sourceTree = "<group>"; };
 		34F375631951595D00CE1B99 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 		34F375C119515CC900CE1B99 /* Actual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actual.swift; sourceTree = "<group>"; };
 		34F375C219515CC900CE1B99 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
@@ -144,6 +142,8 @@
 		34F375CE19515CC900CE1B99 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalseSpec.swift; sourceTree = "<group>"; };
 		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
+		93625F481951DF44006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3480EA4619517EA9003F7B99 /* XCTest.framework in Frameworks */,
+				93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3480EA4A19518254003F7B99 /* XCTest.framework in Frameworks */,
+				93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,8 +190,8 @@
 				2E37EFEE1950663300DF5316 /* Nimble */,
 				2E37EFFB1950663300DF5316 /* NimbleTests */,
 				2E37EFED1950663300DF5316 /* Products */,
-				3480EA4519517EA9003F7B99 /* XCTest.framework */,
-				3480EA4919518254003F7B99 /* XCTest.framework */,
+				93625F481951DF44006B1FE1 /* XCTest.framework */,
+				93625F4E1951DF66006B1FE1 /* XCTest.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -679,7 +679,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(SYSTEM_APPS_DIR)/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Nimble/Info.plist;
@@ -702,7 +702,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(SYSTEM_APPS_DIR)/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Nimble/Info.plist;
@@ -757,10 +757,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -788,10 +788,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SYSTEM_APPS_DIR)/Xcode6-Beta.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(DEVELOPER_DIR)/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks",
 				);
 				INFOPLIST_FILE = Nimble/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
