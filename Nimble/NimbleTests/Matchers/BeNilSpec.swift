@@ -31,28 +31,28 @@ class BeNilSpec : QuickSpec {
 
         describe("beNil()") {
             context("when the subject is an optional") {
-                var person: Person?
+                var subject: NSObject?
 
                 context("and nil") {
-                    beforeEach { person = nil }
+                    beforeEach { subject = nil }
                     it("matches") {
-                        expect(person).to.beNil()
+                        expect(subject).to.beNil()
                     }
                 }
 
                 context("and not nil") {
-                    beforeEach { person = Person() }
+                    beforeEach { subject = NSObject() }
                     it("does not match") {
-                        expect(person).notTo.beNil()
+                        expect(subject).notTo.beNil()
                     }
                 }
             }
 
             context("when the subject is not an optional") {
-                let person = Person()
+                let subject = NSObject()
 
                 it("does not match") {
-                    expect(person).notTo.beNil()
+                    expect(subject).notTo.beNil()
                 }
             }
         }

@@ -34,7 +34,7 @@ import Foundation
         let example = Example(description, callsite, closure)
         World.currentExampleGroup()!.appendExample(example)
     }
-    
+
     class func pending(description: String, closure: () -> ()) {
         NSLog("Pending: %@", description)
     }
