@@ -22,6 +22,12 @@ class Contain: Matcher {
             return array.containsObject(expected)
         } else if let set = actual as? NSSet {
             return set.containsObject(expected)
+        } else if let string = actual as? NSString {
+            if let substring = expected as? NSString {
+                return string.rangeOfString(substring).location != NSNotFound
+            } else {
+                return false
+            }
         } else {
             return false
         }

@@ -42,6 +42,14 @@ class ContainSpec: QuickSpec {
                         expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to contain 'Jon Snow'")
                     }
                 }
+                
+                context("when the subject is a string") {
+                    beforeEach { subject = "Ygritte"}
+                    it("says it expected subject to contain expected") {
+                        let message = matcher.failureMessage(subject)
+                        expect(message).to.equal("expected 'Ygritte' to contain 'Jon Snow'")
+                    }
+                }
             }
 
             describe("negativeFailureMessage") {
@@ -66,6 +74,14 @@ class ContainSpec: QuickSpec {
                     it("says it expected subject to contain expected") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to not contain 'Jon Snow'")
+                    }
+                }
+                
+                context("when the subject is a string") {
+                    beforeEach { subject = "Ygritte"}
+                    it("says it expected subject to contain expected") {
+                        let message = matcher.negativeFailureMessage(subject)
+                        expect(message).to.equal("expected 'Ygritte' to not contain 'Jon Snow'")
                     }
                 }
             }
@@ -156,7 +172,23 @@ class ContainSpec: QuickSpec {
                     }
                 }
             }
-
+            
+            context("when subject is a string") {
+                let subject = "Dolorous Edd"
+                
+                context("and it contains the element") {
+                    it("matches") {
+                        expect(subject).to.contain("Edd")
+                    }
+                }
+                
+                context("but it doesn't contain the element") {
+                    it("doesn't match") {
+                        expect(subject).notTo.contain("Hodor")
+                    }
+                }
+            }
+            
             context("when the subject is neither an array nor a set") {
                 it("doesn't match") {
                     expect(10).notTo.contain(1)
