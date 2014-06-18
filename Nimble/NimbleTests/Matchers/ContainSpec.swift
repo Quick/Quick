@@ -10,7 +10,7 @@ import Quick
 import Nimble
 
 class ContainSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("Contain") {
             var matcher: Contain! = nil
             var subject: NSObject?

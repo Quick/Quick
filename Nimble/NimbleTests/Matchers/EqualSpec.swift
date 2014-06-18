@@ -10,7 +10,7 @@ import Quick
 import Nimble
 
 class EqualSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("Equal") {
             var matcher: Equal! = nil
             beforeEach { matcher = Equal("Sandor Clegane") }

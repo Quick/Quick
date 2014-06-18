@@ -10,7 +10,7 @@ import Quick
 import Nimble
 
 class BeTrueSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("BeTrue") {
             var matcher: BeTrue! = nil
             beforeEach { matcher = BeTrue() }

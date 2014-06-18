@@ -10,7 +10,7 @@ import Quick
 import Nimble
 
 class BeNilSpec : QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("BeNil") {
             var matcher: BeNil! = nil
             beforeEach { matcher = BeNil() }

@@ -38,7 +38,7 @@ QuickSpecEnd
     return _expected;
 }
 
-- (void)exampleGroups {
+- (void)spec {
 
     qck_describe(@"unexpected exceptions raised during an example", ^{
         qck_it(@"catches unhandled exceptions", ^{

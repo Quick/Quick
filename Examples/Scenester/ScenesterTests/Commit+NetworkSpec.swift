@@ -11,7 +11,7 @@ import Quick
 import Nimble
 
 class Commit_NetworkSpec: QuickSpec {
-    override func exampleGroups() {
+    override func spec() {
         describe("latestCommit") {
             context("when the request succeeds") {
                 it("calls the success block with the latest commit") {
