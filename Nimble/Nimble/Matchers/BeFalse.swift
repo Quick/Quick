@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BeFalse: Matcher {
+class BeFalse: Equal {
     init() {
         super.init(false)
     }
@@ -18,10 +18,6 @@ class BeFalse: Matcher {
     
     override func negativeFailureMessage(actual: NSObject?) -> String {
         return "expected subject not to be false"
-    }
-    
-    override func match(actual: NSObject?) -> Bool {
-        return actual && actual! == false
     }
 }
 
