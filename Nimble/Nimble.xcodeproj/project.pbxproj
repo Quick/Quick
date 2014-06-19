@@ -19,6 +19,9 @@
 		2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0821950672E00DF5316 /* BeTrueSpec.swift */; };
 		2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0831950672E00DF5316 /* ContainSpec.swift */; };
 		2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0841950672E00DF5316 /* EqualSpec.swift */; };
+		2E600518195226C800515133 /* ReceiveNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E600517195226C800515133 /* ReceiveNotification.swift */; };
+		2E600519195226C800515133 /* ReceiveNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E600517195226C800515133 /* ReceiveNotification.swift */; };
+		2E9FC88F1952FD2F008C99B4 /* ReceiveNotificationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FC88E1952FD2F008C99B4 /* ReceiveNotificationSpec.swift */; };
 		34F375771951596E00CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
 		34F375CF19515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
 		34F375D019515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
@@ -126,6 +129,8 @@
 		2E37F0821950672E00DF5316 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
 		2E37F0831950672E00DF5316 /* ContainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		2E37F0841950672E00DF5316 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
+		2E600517195226C800515133 /* ReceiveNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveNotification.swift; sourceTree = "<group>"; };
+		2E9FC88E1952FD2F008C99B4 /* ReceiveNotificationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveNotificationSpec.swift; sourceTree = "<group>"; };
 		34F375631951595D00CE1B99 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 		34F375C119515CC900CE1B99 /* Actual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actual.swift; sourceTree = "<group>"; };
 		34F375C219515CC900CE1B99 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
@@ -259,6 +264,7 @@
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
 				2E37F0831950672E00DF5316 /* ContainSpec.swift */,
 				2E37F0841950672E00DF5316 /* EqualSpec.swift */,
+				2E9FC88E1952FD2F008C99B4 /* ReceiveNotificationSpec.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				932B52641951C68C0044C7E0 /* BeFalse.swift */,
 				34F375CC19515CC900CE1B99 /* Contain.swift */,
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
+				2E600517195226C800515133 /* ReceiveNotification.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -504,6 +511,7 @@
 				34F375E119515CC900CE1B99 /* BeTrue.swift in Sources */,
 				34F375CF19515CC900CE1B99 /* Actual.swift in Sources */,
 				34F375D719515CC900CE1B99 /* ClosureExpectation.swift in Sources */,
+				2E600518195226C800515133 /* ReceiveNotification.swift in Sources */,
 				34F375D919515CC900CE1B99 /* DSL.swift in Sources */,
 				34F375E319515CC900CE1B99 /* Contain.swift in Sources */,
 				34F375DD19515CC900CE1B99 /* Matcher.swift in Sources */,
@@ -521,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37F0A81950713000DF5316 /* BeTrueSpec.swift in Sources */,
+				2E9FC88F1952FD2F008C99B4 /* ReceiveNotificationSpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
@@ -537,6 +546,7 @@
 				34F375E219515CC900CE1B99 /* BeTrue.swift in Sources */,
 				34F375D019515CC900CE1B99 /* Actual.swift in Sources */,
 				34F375D819515CC900CE1B99 /* ClosureExpectation.swift in Sources */,
+				2E600519195226C800515133 /* ReceiveNotification.swift in Sources */,
 				34F375DA19515CC900CE1B99 /* DSL.swift in Sources */,
 				34F375E419515CC900CE1B99 /* Contain.swift in Sources */,
 				34F375DE19515CC900CE1B99 /* Matcher.swift in Sources */,
