@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp -r $(dirname $0)/Quick\ Spec.xctemplate ~/Library/Developer/Xcode/Templates/File\ Templates/Source
