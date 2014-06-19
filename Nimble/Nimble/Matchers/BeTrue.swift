@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BeTrue: Matcher {
+class BeTrue: Equal {
     init() {
         super.init(true)
     }
@@ -19,10 +19,6 @@ class BeTrue: Matcher {
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
         return "expected subject not to be true"
-    }
-
-    override func match(actual: NSObject?) -> Bool {
-        return actual && actual! == true
     }
 }
 
