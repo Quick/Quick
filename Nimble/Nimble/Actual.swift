@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Actual {
+@objc class Actual {
     let actual: NSObject?
     let callsite: Callsite_
 

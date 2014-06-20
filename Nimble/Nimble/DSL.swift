@@ -9,9 +9,24 @@
 import Foundation
 
 func expect(actual: NSObject?, file: String = __FILE__, line: Int = __LINE__) -> Actual {
-    return Actual(actual, callsite: Callsite_(file: file, line: line))
+    return DSL.expect(actual, file: file, line: line)
+}
+
+//don't want to break any other classes, so a little hack with closure return value
+func expect(closure: () -> (), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
+    return ActualClosure({ closure(); return nil}, callsite: Callsite_(file: file, line: line))
 }
 
 func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
-    return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
+    return DSL.expectClosure(closure, file: file, line: line)
+}
+
+@objc class DSL {
+    class func expect(actual: NSObject?, file: String, line: Int) -> Actual {
+        return Actual(actual, callsite: Callsite_(file: file, line: line))
+    }
+    
+    class func expectClosure(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
+        return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
+    }
 }

@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Expectation: Prediction {
+@objc class Expectation: Prediction {
     let actual: NSObject?
 
     init(_ actual: NSObject?, callsite: Callsite_, negative: Bool) {
