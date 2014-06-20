@@ -20,3 +20,9 @@ func expect(closure: () -> (), file: String = __FILE__, line: Int = __LINE__) ->
 func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
     return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
 }
+
+@objc class DSL {
+    class func expect(actual: NSObject?, file: String, line: Int) -> Actual {
+        return expect(actual, file: file, line: line)
+    }
+}

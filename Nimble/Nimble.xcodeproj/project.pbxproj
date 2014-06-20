@@ -19,6 +19,12 @@
 		2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0821950672E00DF5316 /* BeTrueSpec.swift */; };
 		2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0831950672E00DF5316 /* ContainSpec.swift */; };
 		2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0841950672E00DF5316 /* EqualSpec.swift */; };
+		2E4D92111954277C00C8C035 /* Matchers-ObjcSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D92101954277C00C8C035 /* Matchers-ObjcSpec.m */; };
+		2E4D92161954278100C8C035 /* Matchers-ObjcSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D92101954277C00C8C035 /* Matchers-ObjcSpec.m */; };
+		2E4D92191954287000C8C035 /* NimbleDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E4D92171954287000C8C035 /* NimbleDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E4D921A1954287000C8C035 /* NimbleDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E4D92171954287000C8C035 /* NimbleDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E4D921B1954287000C8C035 /* NimbleDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D92181954287000C8C035 /* NimbleDSL.m */; };
+		2E4D921C1954287000C8C035 /* NimbleDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4D92181954287000C8C035 /* NimbleDSL.m */; };
 		2E600518195226C800515133 /* ReceiveNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E600517195226C800515133 /* ReceiveNotification.swift */; };
 		2E600519195226C800515133 /* ReceiveNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E600517195226C800515133 /* ReceiveNotification.swift */; };
 		2E9FC88F1952FD2F008C99B4 /* ReceiveNotificationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FC88E1952FD2F008C99B4 /* ReceiveNotificationSpec.swift */; };
@@ -129,6 +135,9 @@
 		2E37F0821950672E00DF5316 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
 		2E37F0831950672E00DF5316 /* ContainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		2E37F0841950672E00DF5316 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
+		2E4D92101954277C00C8C035 /* Matchers-ObjcSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Matchers-ObjcSpec.m"; sourceTree = "<group>"; };
+		2E4D92171954287000C8C035 /* NimbleDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbleDSL.h; sourceTree = "<group>"; };
+		2E4D92181954287000C8C035 /* NimbleDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleDSL.m; sourceTree = "<group>"; };
 		2E600517195226C800515133 /* ReceiveNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveNotification.swift; sourceTree = "<group>"; };
 		2E9FC88E1952FD2F008C99B4 /* ReceiveNotificationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveNotificationSpec.swift; sourceTree = "<group>"; };
 		34F375631951595D00CE1B99 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../Quick/Quick.xcodeproj; sourceTree = "<group>"; };
@@ -214,6 +223,8 @@
 		2E37EFEE1950663300DF5316 /* Nimble */ = {
 			isa = PBXGroup;
 			children = (
+				2E4D92171954287000C8C035 /* NimbleDSL.h */,
+				2E4D92181954287000C8C035 /* NimbleDSL.m */,
 				2E37EFF11950663300DF5316 /* Nimble.h */,
 				34F375C619515CC900CE1B99 /* DSL.swift */,
 				34F375C119515CC900CE1B99 /* Actual.swift */,
@@ -259,6 +270,7 @@
 		2E37F07F1950672E00DF5316 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				2E4D92101954277C00C8C035 /* Matchers-ObjcSpec.m */,
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
@@ -301,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37EFF21950663300DF5316 /* Nimble.h in Headers */,
+				2E4D92191954287000C8C035 /* NimbleDSL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37F09E19506DCF00DF5316 /* Nimble.h in Headers */,
+				2E4D921A1954287000C8C035 /* NimbleDSL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E4D921B1954287000C8C035 /* NimbleDSL.m in Sources */,
 				34F375D319515CC900CE1B99 /* AsyncExpectation.swift in Sources */,
 				34F375DF19515CC900CE1B99 /* BeNil.swift in Sources */,
 				34F375E119515CC900CE1B99 /* BeTrue.swift in Sources */,
@@ -533,6 +548,7 @@
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
+				2E4D92111954277C00C8C035 /* Matchers-ObjcSpec.m in Sources */,
 				2E37F08A1950672E00DF5316 /* BeNilSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E4D921C1954287000C8C035 /* NimbleDSL.m in Sources */,
 				34F375D419515CC900CE1B99 /* AsyncExpectation.swift in Sources */,
 				34F375E019515CC900CE1B99 /* BeNil.swift in Sources */,
 				34F375E219515CC900CE1B99 /* BeTrue.swift in Sources */,
@@ -566,6 +583,7 @@
 				2E37F0AE1950722200DF5316 /* BeNilSpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
+				2E4D92161954278100C8C035 /* Matchers-ObjcSpec.m in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
 				2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */,
 			);
@@ -681,6 +699,7 @@
 		2E37F0031950663300DF5316 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -698,12 +717,14 @@
 				PRODUCT_MODULE_NAME = Nimble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2E37F0041950663300DF5316 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -761,6 +782,7 @@
 		2E37F02A1950665000DF5316 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -785,6 +807,7 @@
 				PRODUCT_NAME = Nimble;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -792,6 +815,7 @@
 		2E37F02B1950665000DF5316 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
