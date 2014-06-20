@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Equal: Matcher {
+@objc class Equal: Matcher {
     override func failureMessage(actual: NSObject?) -> String {
         return "expected '\(expected)', got '\(actual)'"
     }
