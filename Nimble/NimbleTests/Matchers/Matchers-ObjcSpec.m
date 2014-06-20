@@ -6,17 +6,22 @@
 //
 //
 
-#import <Quick/Quick.h>
 #import <Nimble/Nimble.h>
 
-QuickSpecBegin(FunctionalTestsObjC)
+@import XCTest;
 
-qck_it(@"contains an it block", ^{
-    //expect(@0);
+@interface Test : XCTestCase
+
+@end
+
+@implementation Test
+
+- (void)setUp {
     
-    [DSL expect:@"" file:@"" line:11];
-    //XCTAssertTrue(true, @"expected to be true");
-});
+}
 
-QuickSpecEnd
+- (void)testSum {
+    [expect(@"1").to equal:@"1"];
+}
 
+@end
