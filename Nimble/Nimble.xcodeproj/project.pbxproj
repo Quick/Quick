@@ -99,10 +99,6 @@
 		93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
 		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
 		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
-		FA8EA89E19568B7900244180 /* BeSameInstanceAsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeSameInstanceAsSpec.swift */; };
-		FA8EA89F19568B7900244180 /* BeSameInstanceAsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeSameInstanceAsSpec.swift */; };
-		FA8EA8A519568BED00244180 /* BeSameInstanceAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */; };
-		FA8EA8A619568BED00244180 /* BeSameInstanceAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */; };
 		FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
 		FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
 		FA8EA8A519568BED00244180 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */; };
@@ -228,8 +224,6 @@
 		93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmptySpec.swift; sourceTree = "<group>"; };
 		93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
 		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
-		FA8EA89D19568B7900244180 /* BeSameInstanceAsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeSameInstanceAsSpec.swift; sourceTree = "<group>"; };
-		FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeSameInstanceAs.swift; sourceTree = "<group>"; };
 		FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeIdenticalToSpec.swift; sourceTree = "<group>"; };
 		FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeIdenticalTo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -410,7 +404,6 @@
 				34F375CC19515CC900CE1B99 /* Contain.swift */,
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
 				3486413F195D74AF0099DF92 /* Numbers */,
-				FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */,
 				FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */,
 			);
 			path = Matchers;
