@@ -17,7 +17,7 @@ class BeFalse: Equal {
     }
     
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected subject not to be false"
+        return "expected subject to not be false"
     }
 }
 

@@ -12,7 +12,7 @@ class BeEmpty: Matcher {
         super.init(0)
     }
     
-    let nilMessage = "expected subject not to be nil"
+    let nilMessage = "expected subject to not be nil"
     
     override func failureMessage(actual: NSObject?) -> String {
         return actual
@@ -22,7 +22,7 @@ class BeEmpty: Matcher {
     
     override func negativeFailureMessage(actual: NSObject?) -> String {
         return actual
-            ? "expected subject not to be empty"
+            ? "expected subject to not be empty"
             : nilMessage
     }
     

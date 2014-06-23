@@ -22,9 +22,9 @@ class BeTrueSpec: QuickSpec {
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected the subject not to be true") {
+                it("says it expected the subject to not be true") {
                     let message = matcher.negativeFailureMessage("Reek")
-                    expect(message).to.equal("expected subject not to be true")
+                    expect(message).to.equal("expected subject to not be true")
                 }
             }
         }

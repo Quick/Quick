@@ -21,9 +21,9 @@ class BeFalseSpec: QuickSpec {
             }
             
             describe("negativeFailureMessage") {
-                it("says it expected the subject not to be false") {
+                it("says it expected the subject to not be false") {
                     let message = matcher.negativeFailureMessage("Cersei Lannister")
-                    expect(message).to.equal("expected subject not to be false")
+                    expect(message).to.equal("expected subject to not be false")
                 }
             }
         }

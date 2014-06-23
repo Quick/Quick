@@ -24,7 +24,7 @@ class EqualSpec: QuickSpec {
             describe("negativeFailureMessage") {
                 it("says it expected actual to not be equal to expected") {
                     let message = matcher.negativeFailureMessage("Kingsguard")
-                    expect(message).to.equal("expected subject not to equal 'Sandor Clegane'")
+                    expect(message).to.equal("expected subject to not equal 'Sandor Clegane'")
                 }
             }
         }
