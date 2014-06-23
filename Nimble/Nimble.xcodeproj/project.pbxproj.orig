@@ -317,9 +317,12 @@
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
+<<<<<<< HEAD
 				5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */,
 				932B52641951C68C0044C7E0 /* BeFalse.swift */,
 				5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */,
+=======
+>>>>>>> Added beEmpty() Nimble matcher
 				34F375CC19515CC900CE1B99 /* Contain.swift */,
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
 			);
@@ -572,8 +575,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37F0A81950713000DF5316 /* BeTrueSpec.swift in Sources */,
+<<<<<<< HEAD
 				5AFCB06D1959D1A30020B13C /* NimbleSpec.m in Sources */,
+=======
 				93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
+>>>>>>> Added beEmpty() Nimble matcher
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
@@ -609,8 +615,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E37F0AE1950722200DF5316 /* BeNilSpec.swift in Sources */,
+<<<<<<< HEAD
 				5AFCB06E1959D1A30020B13C /* NimbleSpec.m in Sources */,
+=======
 				93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
+>>>>>>> Added beEmpty() Nimble matcher
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
