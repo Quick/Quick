@@ -24,7 +24,7 @@ class BeNil: Equal {
 }
 
 extension Prediction {
-    func beNil() {
+    @objc(nmb_beNil) func beNil() {
         evaluate(BeNil())
     }
 }

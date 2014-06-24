@@ -16,4 +16,7 @@ FOUNDATION_EXPORT const unsigned char NimbleVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Nimble/PublicHeader.h>
 
-
+#import <Nimble/NMBDSL.h>
+#import <Nimble/NMBDSL+BeNil.h>
+#import <Nimble/NMBDSL+BeTrue.h>
+#import <Nimble/NMBDSL+BeFalse.h>

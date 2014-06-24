@@ -22,7 +22,7 @@ class BeFalse: Equal {
 }
 
 extension Prediction {
-    func beFalse() {
+    @objc(nmb_beFalse) func beFalse() {
         evaluate(BeFalse())
     }
 }

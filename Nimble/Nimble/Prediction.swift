@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Prediction {
+@objc class Prediction {
     let callsite: Callsite_
     let negative: Bool
 
