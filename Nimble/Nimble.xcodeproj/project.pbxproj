@@ -65,10 +65,22 @@
 		932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
 		9331517F19599D8B00408530 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331517E19599D8B00408530 /* BeLessThan.swift */; };
 		9331518019599D8B00408530 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331517E19599D8B00408530 /* BeLessThan.swift */; };
+		935A025C1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */; };
+		935A025D1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */; };
+		935A02631959BC2500BB0484 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02621959BC2500BB0484 /* BeGreaterThan.swift */; };
+		935A02641959BC2500BB0484 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02621959BC2500BB0484 /* BeGreaterThan.swift */; };
+		935A02661959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */; };
+		935A02671959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */; };
+		935A02691959C03900BB0484 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */; };
+		935A026A1959C03900BB0484 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */; };
 		93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F481951DF44006B1FE1 /* XCTest.framework */; };
 		93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F4E1951DF66006B1FE1 /* XCTest.framework */; };
 		93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
 		93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
+		93E305811959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
+		93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
+		93E305881959B757008804E3 /* BeLessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */; };
+		93E305891959B757008804E3 /* BeLessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,9 +184,15 @@
 		932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalseSpec.swift; sourceTree = "<group>"; };
 		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
 		9331517E19599D8B00408530 /* BeLessThan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThan.swift; sourceTree = "<group>"; };
+		935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanSpec.swift; sourceTree = "<group>"; };
+		935A02621959BC2500BB0484 /* BeGreaterThan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThan.swift; sourceTree = "<group>"; };
+		935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualToSpec.swift; sourceTree = "<group>"; };
+		935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
 		93625F481951DF44006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
+		93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
+		93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualTo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +307,10 @@
 			isa = PBXGroup;
 			children = (
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
+				935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */,
+				935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */,
 				93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */,
+				93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */,
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
@@ -314,7 +335,10 @@
 			isa = PBXGroup;
 			children = (
 				932B52641951C68C0044C7E0 /* BeFalse.swift */,
+				935A02621959BC2500BB0484 /* BeGreaterThan.swift */,
+				935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */,
 				9331517E19599D8B00408530 /* BeLessThan.swift */,
+				93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */,
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
@@ -557,7 +581,10 @@
 				34F375D919515CC900CE1B99 /* DSL.swift in Sources */,
 				34F375E319515CC900CE1B99 /* Contain.swift in Sources */,
 				34F375DD19515CC900CE1B99 /* Matcher.swift in Sources */,
+				935A02631959BC2500BB0484 /* BeGreaterThan.swift in Sources */,
 				9331517F19599D8B00408530 /* BeLessThan.swift in Sources */,
+				93E305881959B757008804E3 /* BeLessThanOrEqualTo.swift in Sources */,
+				935A02691959C03900BB0484 /* BeGreaterThanOrEqualTo.swift in Sources */,
 				34F375D519515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D119515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */,
@@ -572,8 +599,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935A02661959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */,
 				2E37F0A81950713000DF5316 /* BeTrueSpec.swift in Sources */,
 				5AFCB06D1959D1A30020B13C /* NimbleSpec.m in Sources */,
+				935A025C1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */,
+				93E305811959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
@@ -594,7 +624,10 @@
 				34F375DA19515CC900CE1B99 /* DSL.swift in Sources */,
 				34F375E419515CC900CE1B99 /* Contain.swift in Sources */,
 				34F375DE19515CC900CE1B99 /* Matcher.swift in Sources */,
+				935A02641959BC2500BB0484 /* BeGreaterThan.swift in Sources */,
 				9331518019599D8B00408530 /* BeLessThan.swift in Sources */,
+				93E305891959B757008804E3 /* BeLessThanOrEqualTo.swift in Sources */,
+				935A026A1959C03900BB0484 /* BeGreaterThanOrEqualTo.swift in Sources */,
 				34F375D619515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D219515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */,
@@ -609,8 +642,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935A02671959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */,
 				2E37F0AE1950722200DF5316 /* BeNilSpec.swift in Sources */,
 				5AFCB06E1959D1A30020B13C /* NimbleSpec.m in Sources */,
+				935A025D1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */,
+				93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
