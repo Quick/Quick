@@ -24,7 +24,7 @@
 			<key>Identifier</key>
 			<string>productName</string>
 			<key>Name</key>
-			<string>Spec</string>
+			<string>Spec:</string>
 			<key>NotPersisted</key>
 			<true/>
 			<key>Required</key>
