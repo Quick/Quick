@@ -13,7 +13,7 @@ import Foundation
         return Actual(actual, callsite: Callsite_(file: file, line: line))
     }
 
-    class func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
+    @objc(expectBlock:file:line:) class func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
         return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
     }
 }
