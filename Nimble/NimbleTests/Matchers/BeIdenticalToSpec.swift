@@ -1,5 +1,5 @@
 //
-//  BeSameInstanceAsSpec.swift
+//  BeIdenticalToSpec.swift
 //  Nimble
 //
 //  Created by Alex Basson on 6/21/14.
@@ -9,11 +9,11 @@
 import Quick
 import Nimble
 
-class BeSameInstanceAsSpec: QuickSpec {
+class BeIdenticalToSpec: QuickSpec {
     override func spec() {
-        describe("BeSameInstanceAs") {
-            var matcher: BeSameInstanceAs! = nil
-            beforeEach { matcher = BeSameInstanceAs("Sandor Clegane") }
+        describe("BeIdenticalTo") {
+            var matcher: BeIdenticalTo! = nil
+            beforeEach { matcher = BeIdenticalTo("Sandor Clegane") }
             describe("failureMessage") {
                 it("says it expected the instances to be the same") {
                     let message = matcher.failureMessage("Sandor Clegane")
@@ -29,7 +29,7 @@ class BeSameInstanceAsSpec: QuickSpec {
             }
         }
 
-        describe("beSameInstanceAs()") {
+        describe("beIdenticalTo()") {
             var expected: NSString?
 
             context("when actual is an optional") {
@@ -40,14 +40,14 @@ class BeSameInstanceAsSpec: QuickSpec {
                     context("and expected is nil") {
                         it("does not match") {
                             expect(actual).to.equal(nil)
-                            expect(actual).notTo.beSameInstanceAs(nil)
+                            expect(actual).notTo.beIdenticalTo(nil)
                         }
                     }
 
                     context("but expected is not nil") {
                         it("does not match") {
                             expect(actual).notTo.equal("Mycah")
-                            expect(actual).notTo.beSameInstanceAs("Mycah")
+                            expect(actual).notTo.beIdenticalTo("Mycah")
                         }
                     }
                 }
@@ -57,21 +57,21 @@ class BeSameInstanceAsSpec: QuickSpec {
                     context("and is the same instance as") {
                         it("matches") {
                             expect(actual).to.equal(actual)
-                            expect(actual).to.beSameInstanceAs(actual)
+                            expect(actual).to.beIdenticalTo(actual)
                         }
                     }
 
                     context("and equal to, but not the same instance as, expected") {
                         it("does not match") {
                             expect(actual).to.equal("Arya Stark")
-                            expect(actual).notTo.beSameInstanceAs("Arya Stark")
+                            expect(actual).notTo.beIdenticalTo("Arya Stark")
                         }
                     }
 
                     context("but not equal to expected") {
                         it("does not match") {
                             expect(actual).notTo.equal("Jaqen H'ghar")
-                            expect(actual).notTo.beSameInstanceAs("Jaqen H'ghar")
+                            expect(actual).notTo.beIdenticalTo("Jaqen H'ghar")
                         }
                     }
                 }
@@ -83,21 +83,21 @@ class BeSameInstanceAsSpec: QuickSpec {
                 context("and it is the same instance as expected") {
                     it("matches") {
                         expect(actual).to.equal(actual)
-                        expect(actual).to.beSameInstanceAs(actual)
+                        expect(actual).to.beIdenticalTo(actual)
                     }
                 }
 
                 context("and it is equal to, but not the same instance as, expected") {
                     it("does not match") {
                         expect(actual).to.equal("Eddard Stark")
-                        expect(actual).notTo.beSameInstanceAs("Eddard Stark")
+                        expect(actual).notTo.beIdenticalTo("Eddard Stark")
                     }
                 }
 
                 context("and it is not equal to expected") {
                     it("does not match") {
                         expect(actual).notTo.equal("Robert Baratheon")
-                        expect(actual).notTo.beSameInstanceAs("Robert Baratheon")
+                        expect(actual).notTo.beIdenticalTo("Robert Baratheon")
                     }
                 }
             }
