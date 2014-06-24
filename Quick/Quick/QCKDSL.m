@@ -11,6 +11,14 @@
 
 @implementation QCKDSL
 
++ (void)beforeSuite:(void (^)(void))closure {
+    [DSL beforeSuite:closure];
+}
+
++ (void)afterSuite:(void (^)(void))closure {
+    [DSL afterSuite:closure];
+}
+
 + (void)describe:(NSString *)description closure:(void(^)(void))closure {
     [DSL describe:description closure:closure];
 }
