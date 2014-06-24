@@ -63,7 +63,11 @@ class ContainSpec: QuickSpec {
 
                 context("when the subject is an array") {
                     beforeEach { subject = [ "Robb Stark", "Sansa Stark" ] }
+<<<<<<< HEAD
                     it("says it expected subject not to contain expected") {
+=======
+                    it("says it expected subject to not contain expected") {
+>>>>>>> Fixed incorrect it descriptions
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to not contain 'Jon Snow'")
                     }
@@ -71,7 +75,11 @@ class ContainSpec: QuickSpec {
 
                 context("when the subject is a set") {
                     beforeEach { subject = NSSet(objects: "Robb Stark", "Sansa Stark") }
+<<<<<<< HEAD
                     it("says it expected subject not to contain expected") {
+=======
+                    it("says it expected subject to not contain expected") {
+>>>>>>> Fixed incorrect it descriptions
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to not contain 'Jon Snow'")
                     }
@@ -79,7 +87,11 @@ class ContainSpec: QuickSpec {
                 
                 context("when the subject is a string") {
                     beforeEach { subject = "Ygritte"}
+<<<<<<< HEAD
                     it("says it expected subject not to contain expected") {
+=======
+                    it("says it expected subject to not contain expected") {
+>>>>>>> Fixed incorrect it descriptions
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal("expected 'Ygritte' to not contain 'Jon Snow'")
                     }
