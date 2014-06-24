@@ -103,6 +103,10 @@
 		FA8EA89F19568B7900244180 /* BeSameInstanceAsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeSameInstanceAsSpec.swift */; };
 		FA8EA8A519568BED00244180 /* BeSameInstanceAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */; };
 		FA8EA8A619568BED00244180 /* BeSameInstanceAs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */; };
+		FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
+		FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
+		FA8EA8A519568BED00244180 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */; };
+		FA8EA8A619568BED00244180 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +230,8 @@
 		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
 		FA8EA89D19568B7900244180 /* BeSameInstanceAsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeSameInstanceAsSpec.swift; sourceTree = "<group>"; };
 		FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeSameInstanceAs.swift; sourceTree = "<group>"; };
+		FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeIdenticalToSpec.swift; sourceTree = "<group>"; };
+		FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeIdenticalTo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,7 +356,7 @@
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
 				2E37F0831950672E00DF5316 /* ContainSpec.swift */,
 				2E37F0841950672E00DF5316 /* EqualSpec.swift */,
-				FA8EA89D19568B7900244180 /* BeSameInstanceAsSpec.swift */,
+				FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -405,6 +411,7 @@
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
 				3486413F195D74AF0099DF92 /* Numbers */,
 				FA8EA8A419568BED00244180 /* BeSameInstanceAs.swift */,
+				FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -652,7 +659,7 @@
 				3486414D195D74AF0099DF92 /* BeLessThan.swift in Sources */,
 				34F375DD19515CC900CE1B99 /* Matcher.swift in Sources */,
 				34F375D519515CC900CE1B99 /* Callsite.swift in Sources */,
-				FA8EA8A519568BED00244180 /* BeSameInstanceAs.swift in Sources */,
+				FA8EA8A519568BED00244180 /* BeIdenticalTo.swift in Sources */,
 				34F375D119515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */,
 				93ABD53A1958704900F8AE41 /* BeEmpty.swift in Sources */,
@@ -678,7 +685,7 @@
 				935A025C1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */,
 				93E305811959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
-				FA8EA89E19568B7900244180 /* BeSameInstanceAsSpec.swift in Sources */,
+				FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
 				2E37F08A1950672E00DF5316 /* BeNilSpec.swift in Sources */,
@@ -701,7 +708,7 @@
 				3486414E195D74AF0099DF92 /* BeLessThan.swift in Sources */,
 				34F375DE19515CC900CE1B99 /* Matcher.swift in Sources */,
 				34F375D619515CC900CE1B99 /* Callsite.swift in Sources */,
-				FA8EA8A619568BED00244180 /* BeSameInstanceAs.swift in Sources */,
+				FA8EA8A619568BED00244180 /* BeIdenticalTo.swift in Sources */,
 				34F375D219515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */,
 				93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */,
@@ -727,7 +734,7 @@
 				935A025D1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */,
 				93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
-				FA8EA89F19568B7900244180 /* BeSameInstanceAsSpec.swift in Sources */,
+				FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
 				2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */,
