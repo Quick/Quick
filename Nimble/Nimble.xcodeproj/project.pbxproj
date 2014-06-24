@@ -63,8 +63,12 @@
 		932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
 		932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
 		932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
+		9331517F19599D8B00408530 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331517E19599D8B00408530 /* BeLessThan.swift */; };
+		9331518019599D8B00408530 /* BeLessThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9331517E19599D8B00408530 /* BeLessThan.swift */; };
 		93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F481951DF44006B1FE1 /* XCTest.framework */; };
 		93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F4E1951DF66006B1FE1 /* XCTest.framework */; };
+		93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
+		93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,8 +171,10 @@
 		5AFCB0741959D22F0020B13C /* NMBDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMBDSL.m; sourceTree = "<group>"; };
 		932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalseSpec.swift; sourceTree = "<group>"; };
 		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
+		9331517E19599D8B00408530 /* BeLessThan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThan.swift; sourceTree = "<group>"; };
 		93625F481951DF44006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +288,8 @@
 		2E37F07F1950672E00DF5316 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
+				93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */,
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
@@ -305,6 +313,8 @@
 		34F375C919515CC900CE1B99 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				932B52641951C68C0044C7E0 /* BeFalse.swift */,
+				9331517E19599D8B00408530 /* BeLessThan.swift */,
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
@@ -547,6 +557,7 @@
 				34F375D919515CC900CE1B99 /* DSL.swift in Sources */,
 				34F375E319515CC900CE1B99 /* Contain.swift in Sources */,
 				34F375DD19515CC900CE1B99 /* Matcher.swift in Sources */,
+				9331517F19599D8B00408530 /* BeLessThan.swift in Sources */,
 				34F375D519515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D119515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */,
@@ -567,6 +578,7 @@
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
 				2E37F08A1950672E00DF5316 /* BeNilSpec.swift in Sources */,
+				93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +594,7 @@
 				34F375DA19515CC900CE1B99 /* DSL.swift in Sources */,
 				34F375E419515CC900CE1B99 /* Contain.swift in Sources */,
 				34F375DE19515CC900CE1B99 /* Matcher.swift in Sources */,
+				9331518019599D8B00408530 /* BeLessThan.swift in Sources */,
 				34F375D619515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D219515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */,
@@ -602,6 +615,7 @@
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
 				2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */,
+				93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
