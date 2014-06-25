@@ -51,6 +51,7 @@ class TableOfContentsSpec: QuickSpec {
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
   - [4. Start writing specs!](#4-start-writing-specs!)
+- [How to Install Quick File Templates](#how-to-install-quick-file-templates)
 - [Who Uses Quick](#who-uses-quick)
 - [License](#license)
 
@@ -599,6 +600,23 @@ Do the same for the `Nimble.framework`.
 ### 4. Start writing specs!
 
 If you run into any problems, please file an issue.
+
+## How to Install Quick File Templates
+
+The Quick repository includes file templates for both Swift and
+Objective-C. Just clone the repository and run a rake task to install
+the templates:
+
+```sh
+$ git clone git@github.com:modocache/Quick.git
+$ rake templates:install
+```
+
+Uninstalling is easy, too:
+
+```sh
+$ rake templates:uninstall
+```
 
 ## Who Uses Quick
 
