@@ -1,2 +1,0 @@
-#!/bin/bash
-rm -rf ~/Library/Developer/Xcode/Templates/File\ Templates/Source/Quick\ Spec.xctemplate
