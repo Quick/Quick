@@ -33,21 +33,21 @@ class RecieveNotificationSpec: QuickSpec {
         describe("receive()") {
             let expected = "Winter is coming"
             
-//            context("notification is sent") {
-//                it("matches") {
-//                    expect({
-//                        NSNotificationCenter.defaultCenter().postNotificationName("Winter is coming", object: nil)
-//                    }).will.receive(expected)
-//                }
-//            }
-//
-//            context("notification is not sent") {
-//                it("does not match") {
-//                    expect({
-//                        NSNotificationCenter.defaultCenter().postNotificationName("", object: nil)
-//                    }).willNot.receive(expected)
-//                }
-//            }
+            context("notification is sent") {
+                it("matches") {
+                    expect({
+                        NSNotificationCenter.defaultCenter().postNotificationName("Winter is coming", object: nil)
+                    }).will.receive(expected)
+                }
+            }
+
+            context("notification is not sent") {
+                it("does not match") {
+                    expect({
+                        NSNotificationCenter.defaultCenter().postNotificationName("", object: nil)
+                    }).willNot.receive(expected)
+                }
+            }
         }
     }
 }
