@@ -18,35 +18,43 @@ class Contain: Matcher {
     }
 
     override func match(actual: NSObject?) -> Bool {
-        if let array = actual as? NSArray {
-            return array.containsObject(expected)
-        } else if let set = actual as? NSSet {
-            return set.containsObject(expected)
-        } else if let string = actual as? NSString {
-            if let substring = expected as? NSString {
-                return string.rangeOfString(substring).location != NSNotFound
-            } else {
-                return false
+        if let x = actual {
+            switch x {
+            case let array as NSArray:
+                return array.containsObject(expected)
+            case let set as NSSet:
+                return set.containsObject(expected)
+            case let string as NSString:
+                if let substring = expected as? NSString {
+                    return string.rangeOfString(substring).location != NSNotFound
+                }
+            default:
+                break
             }
-        } else {
-            return false
         }
+
+        return false
     }
 
     func _flatten(collection: NSObject?) -> String {
-        if let array = collection as? NSArray {
+        func stringFrom(array: NSArray) -> String {
             return "[ " + array.componentsJoinedByString(", ") + " ]"
-        } else if let set = collection as? NSSet {
-            let array = set.allObjects as NSArray
-            return "[ " + array.componentsJoinedByString(", ") + " ]"
-        } else {
-            return "\(collection)"
         }
+
+        if let x = collection {
+            switch x {
+            case let array as NSArray: return stringFrom(array)
+            case let set as NSSet: return stringFrom(set.allObjects)
+            default: break
+            }
+        }
+
+        return "\(collection)"
     }
 }
 
 extension Prediction {
-    func contain(expected: NSObject?) {
+    @objc(nmb_contain:) func contain(expected: NSObject?) {
         evaluate(Contain(expected))
     }
 }

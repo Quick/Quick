@@ -19,6 +19,8 @@
     @end \
 
 
+#define qck_beforeSuite(block) [QCKDSL beforeSuite:block]
+#define qck_afterSuite(block) [QCKDSL afterSuite:block]
 #define qck_describe(description, block) [QCKDSL describe:description closure:block]
 #define qck_context(description, block) [QCKDSL context:description closure:block]
 #define qck_beforeEach(block) [QCKDSL beforeEach:block]
@@ -28,6 +30,8 @@
 
 @interface QCKDSL : NSObject
 
++ (void)beforeSuite:(void(^)(void))closure;
++ (void)afterSuite:(void(^)(void))closure;
 + (void)describe:(NSString *)description closure:(void(^)(void))closure;
 + (void)context:(NSString *)description closure:(void(^)(void))closure;
 + (void)beforeEach:(void(^)(void))closure;

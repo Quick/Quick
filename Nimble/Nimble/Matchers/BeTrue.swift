@@ -23,7 +23,7 @@ class BeTrue: Equal {
 }
 
 extension Prediction {
-    func beTrue() {
+    @objc(nmb_beTrue) func beTrue() {
         evaluate(BeTrue())
     }
 }
