@@ -40,7 +40,7 @@ class ReceiveNotification : Matcher {
 }
 
 extension AsyncExpectation {
-    func receive(expected: String!) {
+    @objc(nmb_receive:) func receive(expected: String!) {
         evaluate(ReceiveNotification(expected))
     }
 }
