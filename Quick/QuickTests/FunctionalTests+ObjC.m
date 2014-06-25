@@ -7,17 +7,28 @@
 //
 
 #import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+static BOOL beforeSuiteExecuted_afterSuiteNotYetExecuted = NO;
 
 QuickSpecBegin(FunctionalTestsObjC)
 
+qck_beforeSuite(^{
+    beforeSuiteExecuted_afterSuiteNotYetExecuted = YES;
+});
+
+qck_afterSuite(^{
+    beforeSuiteExecuted_afterSuiteNotYetExecuted = NO;
+});
+
 qck_describe(@"a describe block", ^{
     qck_it(@"contains an it block", ^{
-        XCTAssertTrue(true, @"expected to be true");
+        [nmb_expect(@(beforeSuiteExecuted_afterSuiteNotYetExecuted)).to beTrue];
     });
 
     qck_pending(@"a pending block", ^{
         qck_it(@"contains a failing it block", ^{
-            XCTAssertTrue(false, @"expected to be true");
+            [nmb_expect(@NO).to beTrue];
         });
     });
 });

@@ -23,7 +23,7 @@ class Equal: Matcher {
 }
 
 extension Prediction {
-    func equal(expected: NSObject?) {
+    @objc(nmb_equal:) func equal(expected: NSObject?) {
         evaluate(Equal(expected))
     }
 }

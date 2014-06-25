@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ActualClosure {
+@objc class ActualClosure {
     let actualClosure: () -> (NSObject?)
     let callsite: Callsite_
 

@@ -54,7 +54,7 @@ class Contain: Matcher {
 }
 
 extension Prediction {
-    func contain(expected: NSObject?) {
+    @objc(nmb_contain:) func contain(expected: NSObject?) {
         evaluate(Contain(expected))
     }
 }

@@ -8,8 +8,18 @@
 
 import Foundation
 
+@objc class DSL {
+    class func expect(actual: NSObject?, file: String = __FILE__, line: Int = __LINE__) -> Actual {
+        return Actual(actual, callsite: Callsite_(file: file, line: line))
+    }
+
+    @objc(expectBlock:file:line:) class func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
+        return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
+    }
+}
+
 func expect(actual: NSObject?, file: String = __FILE__, line: Int = __LINE__) -> Actual {
-    return Actual(actual, callsite: Callsite_(file: file, line: line))
+    return DSL.expect(actual, file: file, line: line)
 }
 
 //don't want to break any other classes, so a little hack with closure return value
@@ -18,5 +28,5 @@ func expect(closure: () -> (), file: String = __FILE__, line: Int = __LINE__) ->
 }
 
 func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
-    return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
+    return DSL.expect(closure, file: file, line: line)
 }

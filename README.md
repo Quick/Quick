@@ -7,6 +7,7 @@ Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com
 
 ```swift
 import Quick
+import Nimble
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
@@ -50,6 +51,7 @@ class TableOfContentsSpec: QuickSpec {
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
   - [4. Start writing specs!](#4-start-writing-specs!)
+- [How to Install Quick File Templates](#how-to-install-quick-file-templates)
 - [Who Uses Quick](#who-uses-quick)
 - [License](#license)
 
@@ -75,6 +77,7 @@ When I create a new dolphin, it should be smart and friendly.
 // Swift
 
 import Quick
+import Nimble
 
 class DolphinSpec: QuickSpec {
     override func spec() {
@@ -93,15 +96,16 @@ class DolphinSpec: QuickSpec {
 // Objective-C
 
 #import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
 
 QuickSpecBegin(DolphinSpec)
 
 qck_it(@"is friendly", ^{
-    XCTAssertTrue([[Dolphin new] isFriendly], @"expected dolphin to be friendly");
+    [nmb_expect(@([[Dolphin new] isFriendly])).to beTrue];
 });
 
 qck_it(@"is smart", ^{
-    XCTAssertTrue([[Dolphin new] isSmart], @"expected dolphin to be smart");
+    [nmb_expect(@([[Dolphin new] isSmart])).to beTrue];
 });
 
 QuickSpecEnd
@@ -127,6 +131,7 @@ similar examples together makes my spec easier to read.
 // Swift
 
 import Quick
+import Nimble
 
 class DolphinSpec: QuickSpec {
     override func spec() {
@@ -151,6 +156,7 @@ class DolphinSpec: QuickSpec {
 // Objective-C
 
 #import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
 
 QuickSpecBegin(DolphinSpec)
 
@@ -158,13 +164,12 @@ qck_describe(@"a dolphin", ^{
     qck_describe(@"its click", ^{
         qck_it(@"is loud", ^{
             Click *click = [[Dolphin new] click];
-            XCTAssertTrue(click.isLoud, @"expected dolphin click to be loud");
+            [nmb_expect(@(click.isLoud)).to beTrue];
         });
 
         qck_it(@"has a high frequency", ^{
             Click *click = [[Dolphin new] click];
-            XCTAssertTrue(click.hasHighFrequency,
-                @"expected dolphin click to have a high frequency");
+            [nmb_expect(@(click.hasHighFrequency)).to beTrue];
         });
     });
 });
@@ -186,6 +191,7 @@ click before each one of my examples. This ensures that both are in a
 // Swift
 
 import Quick
+import Nimble
 
 class DolphinSpec: QuickSpec {
     override func spec() {
@@ -218,6 +224,7 @@ class DolphinSpec: QuickSpec {
 // Objective-C
 
 #import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
 
 QuickSpecBegin(DolphinSpec)
 
@@ -234,12 +241,11 @@ qck_describe(@"a dolphin", ^{
         });
 
         qck_it(@"is loud", ^{
-            XCTAssertTrue(click.isLoud, @"expected dolphin click to be loud");
+            [nmb_expect(@(click.isLoud)).to beTrue];
         });
 
         qck_it(@"has a high frequency", ^{
-            XCTAssertTrue(click.hasHighFrequency,
-                @"expected dolphin click to have a high frequency");
+            [nmb_expect(@(click.hasHighFrequency)).to beTrue];
         });
     });
 });
@@ -271,6 +277,7 @@ something interesting.
 // Swift
 
 import Quick
+import Nimble
 
 class DolphinSpec: QuickSpec {
     override func spec() {
@@ -306,6 +313,7 @@ class DolphinSpec: QuickSpec {
 // Objective-C
 
 #import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
 
 QuickSpecBegin(DolphinSpec)
 
@@ -316,8 +324,7 @@ qck_describe(@"a dolphin", ^{
     qck_describe(@"its click", ^{
         qck_context(@"when the dolphin is not near anything interesting", ^{
             qck_it(@"is only emitted once", ^{
-                XCTAssertEqual([[dolphin click] count], 1,
-                    @"expected dolphin click to be emitted once");
+                [nmb_expect(@([[dolphin click] count])).to nmb_equal:@1];
             });
         });
 
@@ -328,8 +335,7 @@ qck_describe(@"a dolphin", ^{
             });
 
             qck_it(@"is emitted three times", ^{
-                XCTAssertEqual([[dolphin click] count], 3,
-                    @"expected dolphin click to be emitted three times");
+                [nmb_expect(@([[dolphin click] count])).to nmb_equal:@3];
             });
         });
     });
@@ -427,17 +433,27 @@ to what order they will be executed in, however.
 
 ## Nimble: Assertions Using `expect(...).to`
 
-> Currently Nimble expectations are only available in Swift.
-  See https://github.com/modocache/Quick/issues/26 for more details.
-
 I can use Quick to define examples and example groups. Within those
 examples, I can make expectations using Nimble, Quick's sister project.
 
 Nimble expectations use the `expect(...).to` syntax:
 
 ```swift
+// Swift
+
+import Nimble
+
 expect(person.greeting).to.equal("Oh, hi.")
 expect(person.greeting).notTo.equal("Hello!")
+```
+
+```objc
+// Objective-C
+
+#import <Nimble/Nimble.h>
+
+[nmb_expect(person.greeting).to nmb_equal:@"Oh, hi."];
+[nmb_expect(person.greeting).notTo nmb_equal:@"Hello!"];
 ```
 
 Nimble includes matchers that test whether the subject of an
@@ -445,15 +461,29 @@ expectation is true, or equal to something, or whether it
 contains a specific element:
 
 ```swift
+// Swift
+
+import Nimble
+
 expect(person.isHappy).to.beTrue()
 expect(person.greeting).to.equal("Hello!")
 expect(person.hopes).to.contain("winning the lottery")
 ```
 
+```objc
+// Objective-C
+
+#import <Nimble/Nimble.h>
+
+[nmb_expect(@(person.isHappy)).to beTrue];
+[nmb_expect(person.greeting).to nmb_equal:@"Hello!"];
+[nmb_expect(person.hopes).to nmb_contain:@"winning the lottery"];
+```
+
 ### Automatic Optional Unwrapping
 
-When passing an optional to an expectation, there's no need to unwrap the
-variable using a trailing `!`: Nimble does that for me.
+When passing an optional to an expectation in Swift, there's no need to
+unwrap the variable using a trailing `!`: Nimble does that for me.
 
 ```swift
 var optVal: Int?
@@ -474,8 +504,21 @@ evaluated as a closure. Below is an example of a subject who knows
 only hunger, and never satisfaction:
 
 ```swift
+// Swift
+
+import Nimble
+
 expect{person.isHungry}.will.beTrue()
 expect{person.isSatisfied}.willNot.beTrue()
+```
+
+```objc
+// Objective-C
+
+#import <Nimble/Nimble.h>
+
+[nmb_expectBlock(^{ return @(person.isHungry); }).will beTrue];
+[nmb_expectBlock(^{ return @(person.isSatisfied); }).willNot beTrue];
 ```
 
 Asynchronous expectations time out after one second by default. I can
@@ -483,8 +526,22 @@ extend this default by using `willBefore`. The following times out after 3
 seconds:
 
 ```swift
+// Swift
+
+import Nimble
+
 expect{person!.isHungry}.willBefore(3).beTrue()
 expect{person!.isSatisfied}.willNotBefore(3).beTrue()
+```
+
+```objc
+// Objective-C
+
+#import <Nimble/Nimble.h>
+
+[[nmb_expectBlock(^{ return @(person.isHungry); }) willBefore:3] beTrue];
+[[nmb_expectBlock(^{ return @(person.isSatisfied); }) willNotBefore:3] beTrue];
+
 ```
 
 ## How to Install Quick
@@ -543,6 +600,23 @@ Do the same for the `Nimble.framework`.
 ### 4. Start writing specs!
 
 If you run into any problems, please file an issue.
+
+## How to Install Quick File Templates
+
+The Quick repository includes file templates for both Swift and
+Objective-C. Just clone the repository and run a rake task to install
+the templates:
+
+```sh
+$ git clone git@github.com:modocache/Quick.git
+$ rake templates:install
+```
+
+Uninstalling is easy, too:
+
+```sh
+$ rake templates:uninstall
+```
 
 ## Who Uses Quick
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Matcher {
+@objc class Matcher {
     let expected: NSObject?
     init(_ expected: NSObject?) {
         self.expected = expected
