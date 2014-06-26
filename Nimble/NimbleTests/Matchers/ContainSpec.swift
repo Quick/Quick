@@ -55,9 +55,9 @@ class ContainSpec: QuickSpec {
             describe("negativeFailureMessage") {
                 context("when the subject is nil") {
                     beforeEach { subject = nil }
-                    it("says it expected subject to not contain expected") {
+                    it("says it expected subject not to contain expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected 'nil' to not contain 'Jon Snow'")
+                        expect(message).to.equal("expected 'nil' not to contain 'Jon Snow'")
                     }
                 }
 
@@ -65,7 +65,7 @@ class ContainSpec: QuickSpec {
                     beforeEach { subject = [ "Robb Stark", "Sansa Stark" ] }
                     it("says it expected subject to contain expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to not contain 'Jon Snow'")
+                        expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' not to contain 'Jon Snow'")
                     }
                 }
 
@@ -73,7 +73,7 @@ class ContainSpec: QuickSpec {
                     beforeEach { subject = NSSet(objects: "Robb Stark", "Sansa Stark") }
                     it("says it expected subject to contain expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to not contain 'Jon Snow'")
+                        expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' not to contain 'Jon Snow'")
                     }
                 }
                 
@@ -81,7 +81,7 @@ class ContainSpec: QuickSpec {
                     beforeEach { subject = "Ygritte"}
                     it("says it expected subject to contain expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected 'Ygritte' to not contain 'Jon Snow'")
+                        expect(message).to.equal("expected 'Ygritte' not to contain 'Jon Snow'")
                     }
                 }
             }
@@ -135,8 +135,8 @@ class ContainSpec: QuickSpec {
 
                 context("and nil") {
                     it("does not match") {
-                        expect(subject).toNot.contain("Selyse Baratheon")
-                        expect(subject).toNot.contain(nil)
+                        expect(subject).notTo.contain("Selyse Baratheon")
+                        expect(subject).notTo.contain(nil)
                     }
                 }
 
