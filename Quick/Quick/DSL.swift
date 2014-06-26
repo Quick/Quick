@@ -9,6 +9,14 @@
 import Foundation
 
 @objc class DSL {
+    class func beforeSuite(closure: () -> ()) {
+        World.appendBeforeSuite(closure)
+    }
+
+    class func afterSuite(closure: () -> ()) {
+        World.appendAfterSuite(closure)
+    }
+
     class func describe(description: String, closure: () -> ()) {
         var group = ExampleGroup(description)
         World.currentExampleGroup()!.appendExampleGroup(group)
@@ -40,6 +48,14 @@ import Foundation
     }
 }
 
+func beforeSuite(closure: () -> ()) {
+    DSL.beforeSuite(closure)
+}
+
+func afterSuite(closure: () -> ()) {
+    DSL.afterSuite(closure)
+}
+
 func describe(description: String, closure: () -> ()) {
     DSL.describe(description, closure: closure)
 }
@@ -54,14 +70,6 @@ func beforeEach(closure: () -> ()) {
 
 func afterEach(closure: () -> ()) {
     DSL.afterEach(closure)
-}
-
-func beforeSuite(closure: () -> ()) {
-    World.appendBeforeSuite(closure)
-}
-
-func afterSuite(closure: () -> ()) {
-    World.appendAfterSuite(closure)
 }
 
 func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {

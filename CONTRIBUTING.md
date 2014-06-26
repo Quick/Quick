@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Welcome to Quick!](#welcome-to-quick!)
+  - [Reporting Bugs](#reporting-bugs)
+  - [Building the Project](#building-the-project)
+  - [Pull Requests](#pull-requests)
+    - [Style Conventions](#style-conventions)
+  - [Commit Bits](#commit-bits)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Welcome to Quick!
 
 We're building a BDD framework for a new generation of Swift and
@@ -35,7 +47,9 @@ it.
 - Make sure your pull request includes any necessary updates to the
   README or other documentation.
 - Be sure the unit tests for both the OS X and iOS targets of both Quick
-  and Nimble pass before submitting your pull request.
+  and Nimble pass before submitting your pull request. You can run all
+  the OS X unit tests using `rake test` (hopefully this will support iOS
+  soon, see: https://github.com/modocache/Quick/issues/25).
 - If you've added a file to the project, make sure it's included in both
   the OS X and iOS targets.
 
