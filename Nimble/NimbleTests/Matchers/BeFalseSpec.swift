@@ -50,7 +50,7 @@ class BeFalseSpec: QuickSpec {
                     context("and is not false") {
                         beforeEach { subject = "Petyr Baelish" }
                         it("does not match") {
-                            expect(subject).notTo.beFalse()
+                            expect(subject).toNot.beFalse()
                         }
                     }
                 }
@@ -66,7 +66,7 @@ class BeFalseSpec: QuickSpec {
                 }
                 
                 it("does not match arbitrary objects") {
-                    expect("false").notTo.beFalse()
+                    expect("false").toNot.beFalse()
                 }
             }
         }

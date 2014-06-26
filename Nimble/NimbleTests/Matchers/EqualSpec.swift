@@ -60,7 +60,7 @@ class EqualSpec: QuickSpec {
 
                     context("but not equal to expected") {
                         it("does not match") {
-                            expect(actual).notTo.equal("Jaqen H'ghar")
+                            expect(actual).toNot.equal("Jaqen H'ghar")
                         }
                     }
                 }

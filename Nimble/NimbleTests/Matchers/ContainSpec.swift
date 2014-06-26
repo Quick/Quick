@@ -94,7 +94,7 @@ class ContainSpec: QuickSpec {
                 context("and nil") {
                     it("does not match") {
                         expect(subject).notTo.contain(10)
-                        expect(subject).notTo.contain(nil)
+                        expect(subject).toNot.contain(nil)
                     }
                 }
 
@@ -125,7 +125,7 @@ class ContainSpec: QuickSpec {
 
                 context("but it doesn't contain the element") {
                     it("doesn't match") {
-                        expect(subject).notTo.contain("Oberyn Martell")
+                        expect(subject).toNot.contain("Oberyn Martell")
                     }
                 }
             }
@@ -136,7 +136,7 @@ class ContainSpec: QuickSpec {
                 context("and nil") {
                     it("does not match") {
                         expect(subject).notTo.contain("Selyse Baratheon")
-                        expect(subject).notTo.contain(nil)
+                        expect(subject).toNot.contain(nil)
                     }
                 }
 
@@ -168,7 +168,7 @@ class ContainSpec: QuickSpec {
 
                 context("but it doesn't contain the element") {
                     it("doesn't match") {
-                        expect(subject).notTo.contain("Margaery Tyrell")
+                        expect(subject).toNot.contain("Margaery Tyrell")
                     }
                 }
             }
@@ -191,7 +191,7 @@ class ContainSpec: QuickSpec {
             
             context("when the subject is neither an array nor a set") {
                 it("doesn't match") {
-                    expect(10).notTo.contain(1)
+                    expect(10).toNot.contain(1)
                 }
             }
         }
