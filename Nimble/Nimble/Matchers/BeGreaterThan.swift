@@ -8,7 +8,7 @@
 import Foundation
 
 class BeGreaterThan: Matcher {
-    let _nilMessage = "expected subject to not be nil"
+    let _nilMessage = "expected subject not to be nil"
     
     override func failureMessage(actual: NSObject?) -> String {
         return actual
@@ -18,7 +18,7 @@ class BeGreaterThan: Matcher {
     
     override func negativeFailureMessage(actual: NSObject?) -> String {
         return actual
-            ? "expected subject to not be > '\(expected)', got '\(actual)'"
+            ? "expected subject not to be > '\(expected)', got '\(actual)'"
             : _nilMessage
     }
     

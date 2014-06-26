@@ -18,9 +18,9 @@ class BeGreaterThanSpec: QuickSpec {
             describe("failureMessage") {
                 context("when the subject is nil") {
                     beforeEach { subject = nil }
-                    it("says it expected subject to not be nil") {
+                    it("says it expected subject not to be nil") {
                         let message = matcher.failureMessage(subject)
-                        expect(message).to.equal("expected subject to not be nil")
+                        expect(message).to.equal("expected subject not to be nil")
                     }
                 }
                 
@@ -52,33 +52,33 @@ class BeGreaterThanSpec: QuickSpec {
             describe("negativeFailureMessage") {
                 context("when the subject is nil") {
                     beforeEach { subject = nil }
-                    it("says it expected subject to not be nil") {
+                    it("says it expected subject not to be nil") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject to not be nil")
+                        expect(message).to.equal("expected subject not to be nil")
                     }
                 }
                 
                 context("when the subject is an Int") {
                     beforeEach { subject = 100 }
-                    it("says it expected the subject to not be greater than expected") {
+                    it("says it expected the subject not to be greater than expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject to not be > '55', got '100'")
+                        expect(message).to.equal("expected subject not to be > '55', got '100'")
                     }
                 }
                 
                 context("when the subject is a Double") {
                     beforeEach { subject = 189 }
-                    it("says it expected the subject to not be greater than expected") {
+                    it("says it expected the subject not to be greater than expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject to not be > '55', got '189'")
+                        expect(message).to.equal("expected subject not to be > '55', got '189'")
                     }
                 }
                 
                 context("when the subject is a Number") {
                     beforeEach { subject = NSNumber(double: 55.5) }
-                    it("says it expected the subject to not be greater than expected") {
+                    it("says it expected the subject not to be greater than expected") {
                         let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject to not be > '55', got '55.5'")
+                        expect(message).to.equal("expected subject not to be > '55', got '55.5'")
                     }
                 }
             }
@@ -90,10 +90,10 @@ class BeGreaterThanSpec: QuickSpec {
                 
                 context("and nil") {
                     it("does not match") {
-                        expect(subject).toNot.beGreaterThan(5)
-                        expect(subject).toNot.beGreaterThan(3.14159)
-                        expect(subject).toNot.beGreaterThan(NSNumber(float: 2.5))
-                        expect(subject).toNot.beGreaterThan(nil)
+                        expect(subject).notTo.beGreaterThan(5)
+                        expect(subject).notTo.beGreaterThan(3.14159)
+                        expect(subject).notTo.beGreaterThan(NSNumber(float: 2.5))
+                        expect(subject).notTo.beGreaterThan(nil)
                     }
                 }
                 
@@ -107,13 +107,13 @@ class BeGreaterThanSpec: QuickSpec {
                     
                     context("but it is less than expected") {
                         it("doesn't match") {
-                            expect(subject).toNot.beGreaterThan(101)
+                            expect(subject).notTo.beGreaterThan(101)
                         }
                     }
                     
                     context("but it is equal to expected") {
                         it("doesn't match") {
-                            expect(subject).toNot.beGreaterThan(79)
+                            expect(subject).notTo.beGreaterThan(79)
                         }
                     }
                 }
@@ -130,13 +130,13 @@ class BeGreaterThanSpec: QuickSpec {
                 
                 context("but it is less than expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThan(7)
+                        expect(subject).notTo.beGreaterThan(7)
                     }
                 }
                 
                 context("but it is equal to expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThan(1)
+                        expect(subject).notTo.beGreaterThan(1)
                     }
                 }
             }
@@ -146,10 +146,10 @@ class BeGreaterThanSpec: QuickSpec {
                 
                 context("and nil") {
                     it("does not match") {
-                        expect(subject).toNot.beGreaterThan(5)
-                        expect(subject).toNot.beGreaterThan(3.14159)
-                        expect(subject).toNot.beGreaterThan(NSNumber(float: 2.5))
-                        expect(subject).toNot.beGreaterThan(nil)
+                        expect(subject).notTo.beGreaterThan(5)
+                        expect(subject).notTo.beGreaterThan(3.14159)
+                        expect(subject).notTo.beGreaterThan(NSNumber(float: 2.5))
+                        expect(subject).notTo.beGreaterThan(nil)
                     }
                 }
                 
@@ -163,13 +163,13 @@ class BeGreaterThanSpec: QuickSpec {
                     
                     context("but it is less than expected") {
                         it("doesn't match") {
-                            expect(subject).toNot.beGreaterThan(505.505)
+                            expect(subject).notTo.beGreaterThan(505.505)
                         }
                     }
                     
                     context("but it is equal to expected") {
                         it("doesn't match") {
-                            expect(subject).toNot.beGreaterThan(333.333)
+                            expect(subject).notTo.beGreaterThan(333.333)
                         }
                     }
                 }
@@ -186,13 +186,13 @@ class BeGreaterThanSpec: QuickSpec {
                 
                 context("but it is less than expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThan(100.001)
+                        expect(subject).notTo.beGreaterThan(100.001)
                     }
                 }
                 
                 context("but it is equal to expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThan(90.09)
+                        expect(subject).notTo.beGreaterThan(90.09)
                     }
                 }
             }
@@ -202,10 +202,10 @@ class BeGreaterThanSpec: QuickSpec {
                 
                 context("and nil") {
                     it("does not match") {
-                        expect(subject).toNot.beGreaterThan(5)
-                        expect(subject).toNot.beGreaterThan(3.14159)
-                        expect(subject).toNot.beGreaterThan(NSNumber(float: 2.5))
-                        expect(subject).toNot.beGreaterThan(nil)
+                        expect(subject).notTo.beGreaterThan(5)
+                        expect(subject).notTo.beGreaterThan(3.14159)
+                        expect(subject).notTo.beGreaterThan(NSNumber(float: 2.5))
+                        expect(subject).notTo.beGreaterThan(nil)
                     }
                 }
                 
@@ -220,15 +220,15 @@ class BeGreaterThanSpec: QuickSpec {
                     
                     context("but it is less than expected") {
                         it("doesn't match") {
-                            expect(subject).toNot.beGreaterThan(10.01)
-                            expect(subject).toNot.beGreaterThan(NSNumber(double: 13.31))
+                            expect(subject).notTo.beGreaterThan(10.01)
+                            expect(subject).notTo.beGreaterThan(NSNumber(double: 13.31))
                         }
                     }
                     
                     context("but it is equal to expected") {
                         it("doesn't match") {
-                            expect(subject).toNot.beGreaterThan(8.8)
-                            expect(subject).toNot.beGreaterThan(NSNumber(double: 8.8))
+                            expect(subject).notTo.beGreaterThan(8.8)
+                            expect(subject).notTo.beGreaterThan(NSNumber(double: 8.8))
                         }
                     }
                 }
@@ -246,15 +246,15 @@ class BeGreaterThanSpec: QuickSpec {
                 
                 context("but it is less than expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThan(5)
-                        expect(subject).toNot.beGreaterThan(NSNumber(double: 10))
+                        expect(subject).notTo.beGreaterThan(5)
+                        expect(subject).notTo.beGreaterThan(NSNumber(double: 10))
                     }
                 }
                 
                 context("but it is equal to expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThan(3.14159)
-                        expect(subject).toNot.beGreaterThan(NSNumber(double: 3.14159))
+                        expect(subject).notTo.beGreaterThan(3.14159)
+                        expect(subject).notTo.beGreaterThan(NSNumber(double: 3.14159))
                     }
                 }
             }

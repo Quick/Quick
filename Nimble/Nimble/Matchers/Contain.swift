@@ -14,7 +14,7 @@ class Contain: Matcher {
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected '\(_flatten(actual))' to not contain '\(expected)'"
+        return "expected '\(_flatten(actual))' not to contain '\(expected)'"
     }
 
     override func match(actual: NSObject?) -> Bool {
