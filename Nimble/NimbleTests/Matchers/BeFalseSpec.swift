@@ -1,6 +1,6 @@
 //
 //  BeFalseSpec.swift
-//  Quick
+//  Nimble
 //
 //  Created by Bryan Enders on 6/18/14.
 //
