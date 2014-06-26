@@ -22,9 +22,9 @@ class BeTrueSpec: QuickSpec {
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected the subject to not be true") {
+                it("says it expected the subject not to be true") {
                     let message = matcher.negativeFailureMessage("Reek")
-                    expect(message).to.equal("expected subject to not be true")
+                    expect(message).to.equal("expected subject not to be true")
                 }
             }
         }
@@ -36,7 +36,7 @@ class BeTrueSpec: QuickSpec {
                 context("and nil") {
                     beforeEach { subject = nil }
                     it("does not match") {
-                        expect(subject).toNot.beTrue()
+                        expect(subject).notTo.beTrue()
                     }
                 }
 
@@ -51,7 +51,7 @@ class BeTrueSpec: QuickSpec {
                     context("and is not true") {
                         beforeEach { subject = "Daenerys Targaryen" }
                         it("does not match") {
-                            expect(subject).toNot.beTrue()
+                            expect(subject).notTo.beTrue()
                         }
                     }
                 }
@@ -63,11 +63,11 @@ class BeTrueSpec: QuickSpec {
                 }
 
                 it("does not match 'false'") {
-                    expect(false).toNot.beTrue()
+                    expect(false).notTo.beTrue()
                 }
 
                 it("does not match arbitrary objects") {
-                    expect("true").toNot.beTrue()
+                    expect("true").notTo.beTrue()
                 }
             }
         }

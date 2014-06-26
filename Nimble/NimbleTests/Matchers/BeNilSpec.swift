@@ -22,9 +22,9 @@ class BeNilSpec : QuickSpec {
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected the subject to not be nil") {
+                it("says it expected the subject not to be nil") {
                     let message = matcher.negativeFailureMessage("Qotho")
-                    expect(message).to.equal("expected subject to not be nil")
+                    expect(message).to.equal("expected subject not to be nil")
                 }
             }
         }

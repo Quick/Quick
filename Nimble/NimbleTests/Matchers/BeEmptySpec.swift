@@ -16,12 +16,12 @@ class BeEmptySpec: QuickSpec {
             var subject: NSObject?
             beforeEach { matcher = BeEmpty() }
             
-            let nilMessage = "expected subject to not be nil"
+            let nilMessage = "expected subject not to be nil"
             
             describe("failureMessage") {
                 context("when the subject is nil") {
                     beforeEach { subject = nil }
-                    it("says it expected subject to not be nil") {
+                    it("says it expected subject not to be nil") {
                         let message = matcher.failureMessage(subject)
                         expect(message).to.equal(nilMessage)
                     }
@@ -54,11 +54,11 @@ class BeEmptySpec: QuickSpec {
             
             describe("negativeFailureMessage") {
                 
-                let negativeMessage = "expected subject to not be empty"
+                let negativeMessage = "expected subject not to be empty"
                 
                 context("when the subject is nil") {
                     beforeEach { subject = nil }
-                    it("says it expected subject to not be nil") {
+                    it("says it expected subject not to be nil") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal(nilMessage)
                     }
@@ -66,7 +66,7 @@ class BeEmptySpec: QuickSpec {
                 
                 context("when the subject is an array") {
                     beforeEach { subject = [] }
-                    it("says it expected subject to not be empty") {
+                    it("says it expected subject not to be empty") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal(negativeMessage)
                     }
@@ -74,7 +74,7 @@ class BeEmptySpec: QuickSpec {
                 
                 context("when the subject is a set") {
                     beforeEach { subject = NSSet() }
-                    it("says it expected subject to not be empty") {
+                    it("says it expected subject not to be empty") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal(negativeMessage)
                     }
@@ -82,7 +82,7 @@ class BeEmptySpec: QuickSpec {
                 
                 context("when the subject is a string") {
                     beforeEach { subject = ""}
-                    it("says it expected subject to not be empty") {
+                    it("says it expected subject not to be empty") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal(negativeMessage)
                     }
@@ -140,7 +140,7 @@ class BeEmptySpec: QuickSpec {
                 
                 context("and nil") {
                     it("does not match") {
-                        expect(subject).toNot.beEmpty()
+                        expect(subject).notTo.beEmpty()
                     }
                 }
                 

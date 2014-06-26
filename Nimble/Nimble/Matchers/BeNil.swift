@@ -19,7 +19,7 @@ class BeNil: Equal {
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected subject to not be nil"
+        return "expected subject not to be nil"
     }
 }
 

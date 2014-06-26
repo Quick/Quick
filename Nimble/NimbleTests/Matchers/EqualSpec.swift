@@ -22,9 +22,9 @@ class EqualSpec: QuickSpec {
             }
 
             describe("negativeFailureMessage") {
-                it("says it expected actual to not be equal to expected") {
+                it("says it expected actual not to be equal to expected") {
                     let message = matcher.negativeFailureMessage("Kingsguard")
-                    expect(message).to.equal("expected subject to not equal 'Sandor Clegane'")
+                    expect(message).to.equal("expected subject not to equal 'Sandor Clegane'")
                 }
             }
         }
@@ -60,7 +60,7 @@ class EqualSpec: QuickSpec {
 
                     context("but not equal to expected") {
                         it("does not match") {
-                            expect(actual).toNot.equal("Jaqen H'ghar")
+                            expect(actual).notTo.equal("Jaqen H'ghar")
                         }
                     }
                 }
@@ -77,7 +77,7 @@ class EqualSpec: QuickSpec {
 
                 context("and it is not equal to expected") {
                     it("does not match") {
-                        expect(actual).toNot.equal("Robert Baratheon")
+                        expect(actual).notTo.equal("Robert Baratheon")
                     }
                 }
             }

@@ -14,7 +14,7 @@ class Equal: Matcher {
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected subject to not equal '\(expected)'"
+        return "expected subject not to equal '\(expected)'"
     }
 
     override func match(actual: NSObject?) -> Bool {
