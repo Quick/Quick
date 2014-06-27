@@ -7,28 +7,16 @@
 
 import Foundation
 
-class BeLessThan: Matcher {
-    let _nilMessage = "expected subject not to be nil"
-
-    override func failureMessage(actual: NSObject?) -> String {
-        return actual
-            ? "expected subject to be less than '\(expected)', got '\(actual)'"
-            : _nilMessage
-    }
-
-    override func negativeFailureMessage(actual: NSObject?) -> String {
-        return actual
-            ? "expected subject not to be less than '\(expected)', got '\(actual)'"
-            : _nilMessage
+class BeLessThan: NumberComparisonMatcher {
+    init(_ expected: NSObject?) {
+        super.init(expected: expected, comparisonDescription: "less than")
     }
 
     override func match(actual: NSObject?) -> Bool {
-        if let actualNumber = actual as? NSNumber {
-            if let expectedNumber = expected as? NSNumber {
+        return matchNumber(actual,
+            matches: { (actualNumber: NSNumber, expectedNumber: NSNumber) -> Bool in
                 return actualNumber.compare(expectedNumber) == NSComparisonResult.OrderedAscending
-            }
-        }
-        return false
+            })
     }
 }
 

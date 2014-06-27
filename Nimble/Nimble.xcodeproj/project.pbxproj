@@ -21,6 +21,8 @@
 		2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0841950672E00DF5316 /* EqualSpec.swift */; };
 		3486412D195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */; };
 		3486412E195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */; };
+		34864139195D68010099DF92 /* NumberComparisonMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864138195D68010099DF92 /* NumberComparisonMatcher.swift */; };
+		3486413A195D68010099DF92 /* NumberComparisonMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864138195D68010099DF92 /* NumberComparisonMatcher.swift */; };
 		34F375771951596E00CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
 		34F375CF19515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
 		34F375D019515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
@@ -85,18 +87,18 @@
 		935A026A1959C03900BB0484 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */; };
 		93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F481951DF44006B1FE1 /* XCTest.framework */; };
 		93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F4E1951DF66006B1FE1 /* XCTest.framework */; };
+		93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
+		93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
 		93ABD53A1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
 		93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
 		93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
 		93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
-		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
-		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
-		93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
-		93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
 		93E305811959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
 		93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
 		93E305881959B757008804E3 /* BeLessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */; };
 		93E305891959B757008804E3 /* BeLessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */; };
+		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
+		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +180,7 @@
 		2E37F0831950672E00DF5316 /* ContainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		2E37F0841950672E00DF5316 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
 		3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Flatten.swift"; sourceTree = "<group>"; };
+		34864138195D68010099DF92 /* NumberComparisonMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberComparisonMatcher.swift; sourceTree = "<group>"; };
 		34F375631951595D00CE1B99 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 		34F375C119515CC900CE1B99 /* Actual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actual.swift; sourceTree = "<group>"; };
 		34F375C219515CC900CE1B99 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
@@ -211,12 +214,12 @@
 		935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
 		93625F481951DF44006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
 		93ABD5391958704900F8AE41 /* BeEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
 		93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmptySpec.swift; sourceTree = "<group>"; };
-		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
-		93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
 		93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
 		93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualTo.swift; sourceTree = "<group>"; };
+		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +372,7 @@
 			children = (
 				93ABD5391958704900F8AE41 /* BeEmpty.swift */,
 				93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */,
+				34864138195D68010099DF92 /* NumberComparisonMatcher.swift */,
 				935A02621959BC2500BB0484 /* BeGreaterThan.swift */,
 				93296523195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h */,
 				935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */,
@@ -623,6 +627,7 @@
 			files = (
 				34F375D319515CC900CE1B99 /* AsyncExpectation.swift in Sources */,
 				34F375DF19515CC900CE1B99 /* BeNil.swift in Sources */,
+				34864139195D68010099DF92 /* NumberComparisonMatcher.swift in Sources */,
 				34F375E119515CC900CE1B99 /* BeTrue.swift in Sources */,
 				34F375CF19515CC900CE1B99 /* Actual.swift in Sources */,
 				34F375D719515CC900CE1B99 /* ClosureExpectation.swift in Sources */,
@@ -669,6 +674,7 @@
 			files = (
 				34F375D419515CC900CE1B99 /* AsyncExpectation.swift in Sources */,
 				34F375E019515CC900CE1B99 /* BeNil.swift in Sources */,
+				3486413A195D68010099DF92 /* NumberComparisonMatcher.swift in Sources */,
 				34F375E219515CC900CE1B99 /* BeTrue.swift in Sources */,
 				34F375D019515CC900CE1B99 /* Actual.swift in Sources */,
 				34F375D819515CC900CE1B99 /* ClosureExpectation.swift in Sources */,
