@@ -11,6 +11,24 @@ import Nimble
 
 class BeIdenticalToSpec: QuickSpec {
     override func spec() {
+        describe("BeIdenticalTo") {
+            var matcher: BeIdenticalTo! = nil
+            beforeEach { matcher = BeIdenticalTo("Sandor Clegane") }
+            describe("failureMessage") {
+                it("says it expected the instances to be the same") {
+                    let message = matcher.failureMessage("Sandor Clegane")
+                    expect(message).to.equal("expected 'Sandor Clegane' to be the same instance as 'Sandor Clegane'")
+                }
+            }
+
+            describe("negativeFailureMessage") {
+                it("says it expected actual to not be the same instance as expected") {
+                    let message = matcher.negativeFailureMessage("Kingsguard")
+                    expect(message).to.equal("expected subject not to be the same instance as 'Sandor Clegane'")
+                }
+            }
+        }
+
         describe("beIdenticalTo()") {
             var expected: NSString?
 
