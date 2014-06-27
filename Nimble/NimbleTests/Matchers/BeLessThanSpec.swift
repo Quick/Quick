@@ -91,9 +91,9 @@ class BeLessThanSpec: QuickSpec {
                 context("and nil") {
                     it("does not match") {
                         expect(subject).notTo.beLessThan(5)
-                        expect(subject).notTo.beLessThan(3.14159)
+                        expect(subject).toNot.beLessThan(3.14159)
                         expect(subject).notTo.beLessThan(NSNumber(float: 2.5))
-                        expect(subject).notTo.beLessThan(nil)
+                        expect(subject).toNot.beLessThan(nil)
                     }
                 }
                 
@@ -113,7 +113,7 @@ class BeLessThanSpec: QuickSpec {
                     
                     context("but it is equal to expected") {
                         it("doesn't match") {
-                            expect(subject).notTo.beLessThan(42)
+                            expect(subject).toNot.beLessThan(42)
                         }
                     }
                 }
@@ -136,7 +136,7 @@ class BeLessThanSpec: QuickSpec {
                 
                 context("but it is equal to expected") {
                     it("doesn't match") {
-                        expect(subject).notTo.beLessThan(7)
+                        expect(subject).toNot.beLessThan(7)
                     }
                 }
             }
@@ -147,9 +147,9 @@ class BeLessThanSpec: QuickSpec {
                 context("and nil") {
                     it("does not match") {
                         expect(subject).notTo.beLessThan(5)
-                        expect(subject).notTo.beLessThan(3.14159)
+                        expect(subject).toNot.beLessThan(3.14159)
                         expect(subject).notTo.beLessThan(NSNumber(float: 2.5))
-                        expect(subject).notTo.beLessThan(nil)
+                        expect(subject).toNot.beLessThan(nil)
                     }
                 }
                 
@@ -169,7 +169,7 @@ class BeLessThanSpec: QuickSpec {
                     
                     context("but it is equal to expected") {
                         it("doesn't match") {
-                            expect(subject).notTo.beLessThan(2.5)
+                            expect(subject).toNot.beLessThan(2.5)
                         }
                     }
                 }
@@ -192,7 +192,7 @@ class BeLessThanSpec: QuickSpec {
                 
                 context("but it is equal to expected") {
                     it("doesn't match") {
-                        expect(subject).notTo.beLessThan(-6.66)
+                        expect(subject).toNot.beLessThan(-6.66)
                     }
                 }
             }
@@ -203,9 +203,9 @@ class BeLessThanSpec: QuickSpec {
                 context("and nil") {
                     it("does not match") {
                         expect(subject).notTo.beLessThan(5)
-                        expect(subject).notTo.beLessThan(3.14159)
+                        expect(subject).toNot.beLessThan(3.14159)
                         expect(subject).notTo.beLessThan(NSNumber(float: 2.5))
-                        expect(subject).notTo.beLessThan(nil)
+                        expect(subject).toNot.beLessThan(nil)
                     }
                 }
                 
@@ -221,14 +221,14 @@ class BeLessThanSpec: QuickSpec {
                     context("but it is greater than expected") {
                         it("doesn't match") {
                             expect(subject).notTo.beLessThan(4.5)
-                            expect(subject).notTo.beLessThan(NSNumber(int: 1))
+                            expect(subject).toNot.beLessThan(NSNumber(int: 1))
                         }
                     }
                     
                     context("but it is equal to expected") {
                         it("doesn't match") {
                             expect(subject).notTo.beLessThan(13)
-                            expect(subject).notTo.beLessThan(13.0)
+                            expect(subject).toNot.beLessThan(13.0)
                             expect(subject).notTo.beLessThan(NSNumber(int: 13))
                         }
                     }
@@ -247,14 +247,14 @@ class BeLessThanSpec: QuickSpec {
                 
                 context("but it is greater than expected") {
                     it("doesn't match") {
-                        expect(subject).notTo.beLessThan(0)
+                        expect(subject).toNot.beLessThan(0)
                         expect(subject).notTo.beLessThan(NSNumber(double: 2.3))
                     }
                 }
                 
                 context("but it is equal to expected") {
                     it("doesn't match") {
-                        expect(subject).notTo.beLessThan(3.14159)
+                        expect(subject).toNot.beLessThan(3.14159)
                         expect(subject).notTo.beLessThan(NSNumber(double: 3.14159))
                     }
                 }
