@@ -112,7 +112,7 @@ class BeEmptySpec: QuickSpec {
                     context("but it is not empty") {
                         beforeEach { subject = ["Daario Naharis"] }
                         it("doesn't match") {
-                            expect(subject).notTo.beEmpty()
+                            expect(subject).toNot.beEmpty()
                         }
                     }
                 }
@@ -140,7 +140,7 @@ class BeEmptySpec: QuickSpec {
                 
                 context("and nil") {
                     it("does not match") {
-                        expect(subject).notTo.beEmpty()
+                        expect(subject).toNot.beEmpty()
                     }
                 }
                 
@@ -174,7 +174,7 @@ class BeEmptySpec: QuickSpec {
                 context("but it is not empty") {
                     beforeEach { subject = NSSet(objects: "Daario Naharis") }
                     it("doesn't match") {
-                        expect(subject).notTo.beEmpty()
+                        expect(subject).toNot.beEmpty()
                     }
                 }
             }
@@ -198,7 +198,7 @@ class BeEmptySpec: QuickSpec {
 
             context("when the subject is neither an array nor a set") {
                 it("doesn't match") {
-                    expect(42).notTo.beEmpty()
+                    expect(42).toNot.beEmpty()
                 }
             }
         }
