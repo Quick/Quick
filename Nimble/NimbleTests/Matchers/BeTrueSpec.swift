@@ -36,7 +36,7 @@ class BeTrueSpec: QuickSpec {
                 context("and nil") {
                     beforeEach { subject = nil }
                     it("does not match") {
-                        expect(subject).toNot.beTrue()
+                        expect(subject).notTo.beTrue()
                     }
                 }
 
@@ -63,7 +63,7 @@ class BeTrueSpec: QuickSpec {
                 }
 
                 it("does not match 'false'") {
-                    expect(false).toNot.beTrue()
+                    expect(false).notTo.beTrue()
                 }
 
                 it("does not match arbitrary objects") {

@@ -19,7 +19,7 @@ import Foundation
     }
 
     func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected \(actual) to not match \(expected)"
+        return "expected \(actual) not to match \(expected)"
     }
 
     func match(actual: NSObject?) -> Bool {

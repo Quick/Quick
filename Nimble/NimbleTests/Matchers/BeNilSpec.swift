@@ -52,7 +52,7 @@ class BeNilSpec : QuickSpec {
                 let subject = NSObject()
 
                 it("does not match") {
-                    expect(subject).notTo.beNil()
+                    expect(subject).toNot.beNil()
                 }
             }
         }

@@ -58,7 +58,7 @@ class PersonSpec: QuickSpec {
 
             it("does not live with dinosaurs") {
                 expect(dinosaursExtinct).to.beTrue()
-                expect(mankindExtinct).toNot.beTrue()
+                expect(mankindExtinct).notTo.beTrue()
             }
 
             describe("greeting") {
@@ -74,7 +74,7 @@ class PersonSpec: QuickSpec {
                     beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
                         expect(person.greeting).to.equal("Hello!")
-                        expect(person.greeting).toNot.equal("Oh, hi.")
+                        expect(person.greeting).notTo.equal("Oh, hi.")
                     }
                 }
             }
