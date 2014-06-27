@@ -10,11 +10,11 @@ import Foundation
 
 class BeIdenticalTo: Matcher {
     override func failureMessage(actual: NSObject?) -> String {
-        return "expected '\(expected)' to be the same instance as '\(actual)'"
+        return NSString(format: "expected '%@' (%p) to be identical to '%@' (%p)", actual!, actual!, expected!, expected!)
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return "expected subject not to be the same instance as '\(expected)'"
+        return NSString(format: "expected '%@' (%p) not to be identical to '%@' (%p)", actual!, actual!, expected!, expected!)
     }
 
     override func match(actual: NSObject?) -> Bool {
