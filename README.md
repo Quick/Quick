@@ -549,8 +549,8 @@ expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 
 ### List of Matchers
 
-- `equal(expected: NSObject?)` or `nmb_equal:`
 - `beNil()` or `nmb_beNil`
+- `equal(expected: NSObject?)` or `nmb_equal:`
 
 #### Booleans
 
