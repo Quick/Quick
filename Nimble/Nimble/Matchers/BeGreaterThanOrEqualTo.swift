@@ -34,7 +34,7 @@ class BeGreaterThanOrEqualTo: Matcher {
 }
 
 extension Prediction {
-    func beGreaterThanOrEqualTo(expected: NSObject?) {
+    @objc(nmb_beGreaterThanOrEqualTo:) func beGreaterThanOrEqualTo(expected: NSObject?) {
         evaluate(BeGreaterThanOrEqualTo(expected))
     }
 }

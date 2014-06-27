@@ -59,6 +59,14 @@
 		5AFCB0761959D22F0020B13C /* NMBDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AFCB0731959D22F0020B13C /* NMBDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5AFCB0771959D22F0020B13C /* NMBDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCB0741959D22F0020B13C /* NMBDSL.m */; };
 		5AFCB0781959D22F0020B13C /* NMBDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCB0741959D22F0020B13C /* NMBDSL.m */; };
+		93296524195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 93296523195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h */; };
+		93296525195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 93296523195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h */; };
+		9329652B195D0E1A00584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9329652A195D0E1900584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h */; };
+		9329652C195D0E1A00584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9329652A195D0E1900584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h */; };
+		9329652E195D0E2700584D89 /* NMBDSL+BeLessThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9329652D195D0E2700584D89 /* NMBDSL+BeLessThan.h */; };
+		9329652F195D0E2700584D89 /* NMBDSL+BeLessThan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9329652D195D0E2700584D89 /* NMBDSL+BeLessThan.h */; };
+		93296531195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 93296530195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h */; };
+		93296532195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h in Headers */ = {isa = PBXBuildFile; fileRef = 93296530195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h */; };
 		932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
 		932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
 		932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
@@ -181,6 +189,10 @@
 		5AFCB06C1959D1A30020B13C /* NimbleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleSpec.m; sourceTree = "<group>"; };
 		5AFCB0731959D22F0020B13C /* NMBDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMBDSL.h; sourceTree = "<group>"; };
 		5AFCB0741959D22F0020B13C /* NMBDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMBDSL.m; sourceTree = "<group>"; };
+		93296523195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeGreaterThan.h"; sourceTree = "<group>"; };
+		9329652A195D0E1900584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeGreaterThanOrEqualTo.h"; sourceTree = "<group>"; };
+		9329652D195D0E2700584D89 /* NMBDSL+BeLessThan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeLessThan.h"; sourceTree = "<group>"; };
+		93296530195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeLessThanOrEqualTo.h"; sourceTree = "<group>"; };
 		932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalseSpec.swift; sourceTree = "<group>"; };
 		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
 		9331517E19599D8B00408530 /* BeLessThan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThan.swift; sourceTree = "<group>"; };
@@ -306,7 +318,6 @@
 		2E37F07F1950672E00DF5316 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
-				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
 				935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */,
 				935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */,
 				93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */,
@@ -334,11 +345,14 @@
 		34F375C919515CC900CE1B99 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
-				932B52641951C68C0044C7E0 /* BeFalse.swift */,
 				935A02621959BC2500BB0484 /* BeGreaterThan.swift */,
+				93296523195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h */,
 				935A02681959C03900BB0484 /* BeGreaterThanOrEqualTo.swift */,
+				9329652A195D0E1900584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h */,
 				9331517E19599D8B00408530 /* BeLessThan.swift */,
+				9329652D195D0E2700584D89 /* NMBDSL+BeLessThan.h */,
 				93E305871959B757008804E3 /* BeLessThanOrEqualTo.swift */,
+				93296530195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h */,
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
@@ -360,7 +374,11 @@
 			files = (
 				5AFCB0751959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A2195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
+				9329652B195D0E1A00584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h in Headers */,
+				9329652E195D0E2700584D89 /* NMBDSL+BeLessThan.h in Headers */,
 				5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
+				93296524195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h in Headers */,
+				93296531195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h in Headers */,
 				5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
 				2E37EFF21950663300DF5316 /* Nimble.h in Headers */,
 			);
@@ -372,7 +390,11 @@
 			files = (
 				5AFCB0761959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A3195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
+				9329652C195D0E1A00584D89 /* NMBDSL+BeGreaterThanOrEqualTo.h in Headers */,
+				9329652F195D0E2700584D89 /* NMBDSL+BeLessThan.h in Headers */,
 				5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
+				93296525195D0E0D00584D89 /* NMBDSL+BeGreaterThan.h in Headers */,
+				93296532195D0E4500584D89 /* NMBDSL+BeLessThanOrEqualTo.h in Headers */,
 				5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
 				2E37F09E19506DCF00DF5316 /* Nimble.h in Headers */,
 			);

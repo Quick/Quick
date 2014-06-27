@@ -33,7 +33,7 @@ class BeLessThan: Matcher {
 }
 
 extension Prediction {
-    func beLessThan(expected: NSObject?) {
+    @objc(nmb_beLessThan:) func beLessThan(expected: NSObject?) {
         evaluate(BeLessThan(expected))
     }
 }

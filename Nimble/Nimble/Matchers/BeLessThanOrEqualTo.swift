@@ -34,7 +34,7 @@ class BeLessThanOrEqualTo: Matcher {
 }
 
 extension Prediction {
-    func beLessThanOrEqualTo(expected: NSObject?) {
+    @objc(nmb_beLessThanOrEqualTo:) func beLessThanOrEqualTo(expected: NSObject?) {
         evaluate(BeLessThanOrEqualTo(expected))
     }
 }
