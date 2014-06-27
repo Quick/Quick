@@ -19,6 +19,8 @@
 		2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0821950672E00DF5316 /* BeTrueSpec.swift */; };
 		2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0831950672E00DF5316 /* ContainSpec.swift */; };
 		2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E37F0841950672E00DF5316 /* EqualSpec.swift */; };
+		3486412D195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */; };
+		3486412E195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */; };
 		34F375771951596E00CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
 		34F375CF19515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
 		34F375D019515CC900CE1B99 /* Actual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375C119515CC900CE1B99 /* Actual.swift */; };
@@ -65,6 +67,12 @@
 		932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
 		93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F481951DF44006B1FE1 /* XCTest.framework */; };
 		93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F4E1951DF66006B1FE1 /* XCTest.framework */; };
+		93ABD53A1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
+		93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
+		93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
+		93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
+		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
+		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +153,7 @@
 		2E37F0821950672E00DF5316 /* BeTrueSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeTrueSpec.swift; sourceTree = "<group>"; };
 		2E37F0831950672E00DF5316 /* ContainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		2E37F0841950672E00DF5316 /* EqualSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
+		3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Flatten.swift"; sourceTree = "<group>"; };
 		34F375631951595D00CE1B99 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 		34F375C119515CC900CE1B99 /* Actual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actual.swift; sourceTree = "<group>"; };
 		34F375C219515CC900CE1B99 /* ActualClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActualClosure.swift; sourceTree = "<group>"; };
@@ -169,6 +178,9 @@
 		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
 		93625F481951DF44006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		93ABD5391958704900F8AE41 /* BeEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
+		93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmptySpec.swift; sourceTree = "<group>"; };
+		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +259,7 @@
 				5AFCB0731959D22F0020B13C /* NMBDSL.h */,
 				5AFCB0741959D22F0020B13C /* NMBDSL.m */,
 				34F375C919515CC900CE1B99 /* Matchers */,
+				3486412B195D4C7B0099DF92 /* Extensions */,
 				2E37EFEF1950663300DF5316 /* Supporting Files */,
 			);
 			path = Nimble;
@@ -282,13 +295,22 @@
 		2E37F07F1950672E00DF5316 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */,
+				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
-				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
 				2E37F0831950672E00DF5316 /* ContainSpec.swift */,
 				2E37F0841950672E00DF5316 /* EqualSpec.swift */,
 			);
 			path = Matchers;
+			sourceTree = "<group>";
+		};
+		3486412B195D4C7B0099DF92 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3486412C195D4CA40099DF92 /* NSObject+Flatten.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		34F375641951595D00CE1B99 /* Products */ = {
@@ -305,6 +327,8 @@
 		34F375C919515CC900CE1B99 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				93ABD5391958704900F8AE41 /* BeEmpty.swift */,
+				93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */,
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
@@ -327,6 +351,7 @@
 				5AFCB0751959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A2195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
 				5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
+				93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
 				2E37EFF21950663300DF5316 /* Nimble.h in Headers */,
 			);
@@ -339,6 +364,7 @@
 				5AFCB0761959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A3195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
 				5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
+				93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
 				2E37F09E19506DCF00DF5316 /* Nimble.h in Headers */,
 			);
@@ -550,7 +576,9 @@
 				34F375D519515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D119515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */,
+				93ABD53A1958704900F8AE41 /* BeEmpty.swift in Sources */,
 				34F375E519515CC900CE1B99 /* Equal.swift in Sources */,
+				3486412D195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */,
 				5AFCB0771959D22F0020B13C /* NMBDSL.m in Sources */,
 				34F375E719515CC900CE1B99 /* Prediction.swift in Sources */,
 				34F375DB19515CC900CE1B99 /* Expectation.swift in Sources */,
@@ -563,6 +591,7 @@
 			files = (
 				2E37F0A81950713000DF5316 /* BeTrueSpec.swift in Sources */,
 				5AFCB06D1959D1A30020B13C /* NimbleSpec.m in Sources */,
+				93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
@@ -585,7 +614,9 @@
 				34F375D619515CC900CE1B99 /* Callsite.swift in Sources */,
 				34F375D219515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */,
+				93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */,
 				34F375E619515CC900CE1B99 /* Equal.swift in Sources */,
+				3486412E195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */,
 				5AFCB0781959D22F0020B13C /* NMBDSL.m in Sources */,
 				34F375E819515CC900CE1B99 /* Prediction.swift in Sources */,
 				34F375DC19515CC900CE1B99 /* Expectation.swift in Sources */,
@@ -598,6 +629,7 @@
 			files = (
 				2E37F0AE1950722200DF5316 /* BeNilSpec.swift in Sources */,
 				5AFCB06E1959D1A30020B13C /* NimbleSpec.m in Sources */,
+				93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,

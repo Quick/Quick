@@ -51,7 +51,7 @@ class BeTrueSpec: QuickSpec {
                     context("and is not true") {
                         beforeEach { subject = "Daenerys Targaryen" }
                         it("does not match") {
-                            expect(subject).toNot.beTrue()
+                            expect(subject).notTo.beTrue()
                         }
                     }
                 }
@@ -67,7 +67,7 @@ class BeTrueSpec: QuickSpec {
                 }
 
                 it("does not match arbitrary objects") {
-                    expect("true").toNot.beTrue()
+                    expect("true").notTo.beTrue()
                 }
             }
         }

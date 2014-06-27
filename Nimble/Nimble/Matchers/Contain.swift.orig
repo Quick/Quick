@@ -14,7 +14,11 @@ class Contain: Matcher {
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
+<<<<<<< HEAD
+        return "expected '\(_flatten(actual))' not to contain '\(expected)'"
+=======
         return "expected '\(actual?.nmb_flatten())' not to contain '\(expected)'"
+>>>>>>> endersstocker-is-empty
     }
 
     override func match(actual: NSObject?) -> Bool {
