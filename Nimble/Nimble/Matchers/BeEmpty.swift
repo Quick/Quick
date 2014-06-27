@@ -51,7 +51,7 @@ class BeEmpty: Matcher {
 }
 
 extension Prediction {
-    func beEmpty() {
+    @objc(nmb_beEmpty) func beEmpty() {
         evaluate(BeEmpty())
     }
 }

@@ -69,6 +69,8 @@
 		93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
 		93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
 		93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
+		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
+		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,7 @@
 		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93ABD5391958704900F8AE41 /* BeEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
 		93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmptySpec.swift; sourceTree = "<group>"; };
+		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,7 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				93ABD5391958704900F8AE41 /* BeEmpty.swift */,
-				932B52641951C68C0044C7E0 /* BeFalse.swift */,
+				93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */,
 				34F375CA19515CC900CE1B99 /* BeNil.swift */,
 				5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */,
 				34F375CB19515CC900CE1B99 /* BeTrue.swift */,
@@ -336,6 +339,7 @@
 				5AFCB0751959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A2195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
 				5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
+				93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
 				2E37EFF21950663300DF5316 /* Nimble.h in Headers */,
 			);
@@ -348,6 +352,7 @@
 				5AFCB0761959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A3195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
 				5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
+				93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
 				2E37F09E19506DCF00DF5316 /* Nimble.h in Headers */,
 			);
