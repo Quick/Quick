@@ -11,11 +11,11 @@ class BeFalse: Equal {
     init() {
         super.init(false)
     }
-    
+
     override func failureMessage(actual: NSObject?) -> String {
         return "expected subject to be false"
     }
-    
+
     override func negativeFailureMessage(actual: NSObject?) -> String {
         return "expected subject not to be false"
     }

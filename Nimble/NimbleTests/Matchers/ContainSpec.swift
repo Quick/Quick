@@ -42,7 +42,7 @@ class ContainSpec: QuickSpec {
                         expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' to contain 'Jon Snow'")
                     }
                 }
-                
+
                 context("when the subject is a string") {
                     beforeEach { subject = "Ygritte"}
                     it("says it expected subject to contain expected") {
@@ -76,7 +76,7 @@ class ContainSpec: QuickSpec {
                         expect(message).to.equal("expected '[ Sansa Stark, Robb Stark ]' not to contain 'Jon Snow'")
                     }
                 }
-                
+
                 context("when the subject is a string") {
                     beforeEach { subject = "Ygritte"}
                     it("says it expected subject not to contain expected") {
@@ -172,23 +172,23 @@ class ContainSpec: QuickSpec {
                     }
                 }
             }
-            
+
             context("when subject is a string") {
                 let subject = "Dolorous Edd"
-                
+
                 context("and it contains the element") {
                     it("matches") {
                         expect(subject).to.contain("Edd")
                     }
                 }
-                
+
                 context("but it doesn't contain the element") {
                     it("doesn't match") {
                         expect(subject).notTo.contain("Hodor")
                     }
                 }
             }
-            
+
             context("when the subject is neither an array nor a set") {
                 it("doesn't match") {
                     expect(10).toNot.contain(1)

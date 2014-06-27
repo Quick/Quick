@@ -12,249 +12,120 @@ class BeGreaterThanOrEqualToSpec: QuickSpec {
     override func spec() {
         describe("BeGreaterThanOrEqualTo") {
             var matcher: BeGreaterThanOrEqualTo! = nil
-            var subject: NSObject?
             beforeEach { matcher = BeGreaterThanOrEqualTo(97.78) }
-            
+
             describe("failureMessage") {
                 context("when the subject is nil") {
-                    beforeEach { subject = nil }
                     it("says it expected subject not to be nil") {
-                        let message = matcher.failureMessage(subject)
+                        let message = matcher.failureMessage(nil)
                         expect(message).to.equal("expected subject not to be nil")
                     }
                 }
-                
-                context("when the subject is an Int") {
-                    beforeEach { subject = 33 }
+
+                context("when the subject is not nil") {
                     it("says it expected the subject to be greater than or equal to expected") {
-                        let message = matcher.failureMessage(subject)
-                        expect(message).to.equal("expected subject to be >= '97.78', got '33'")
-                    }
-                }
-                
-                context("when the subject is a Double") {
-                    beforeEach { subject = 12.21 }
-                    it("says it expected the subject to be greater than or equal to expected") {
-                        let message = matcher.failureMessage(subject)
-                        expect(message).to.equal("expected subject to be >= '97.78', got '12.21'")
-                    }
-                }
-                
-                context("when the subject is a Number") {
-                    beforeEach { subject = NSNumber(int: 4) }
-                    it("says it expected the subject to be greater than or equal to expected") {
-                        let message = matcher.failureMessage(subject)
-                        expect(message).to.equal("expected subject to be >= '97.78', got '4'")
+                        let message = matcher.failureMessage(12.21)
+                        expect(message).to.equal("expected subject to be greater than or equal to '97.78', got '12.21'")
                     }
                 }
             }
-            
+
             describe("negativeFailureMessage") {
                 context("when the subject is nil") {
-                    beforeEach { subject = nil }
                     it("says it expected subject not to be nil") {
-                        let message = matcher.negativeFailureMessage(subject)
+                        let message = matcher.negativeFailureMessage(nil)
                         expect(message).to.equal("expected subject not to be nil")
                     }
                 }
-                
-                context("when the subject is an Int") {
-                    beforeEach { subject = 100 }
+
+                context("when the subject is not nil") {
                     it("says it expected the subject not to be greater than or equal to expected") {
-                        let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject not to be >= '97.78', got '100'")
-                    }
-                }
-                
-                context("when the subject is a Double") {
-                    beforeEach { subject = 666.6 }
-                    it("says it expected the subject not to be greater than or equal to expected") {
-                        let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject not to be >= '97.78', got '666.6'")
-                    }
-                }
-                
-                context("when the subject is a Number") {
-                    beforeEach { subject = NSNumber(int: 1_000) }
-                    it("says it expected the subject not to be greater than or equal to expected") {
-                        let message = matcher.negativeFailureMessage(subject)
-                        expect(message).to.equal("expected subject not to be >= '97.78', got '1000'")
+                        let message = matcher.negativeFailureMessage(89)
+                        expect(message).to.equal("expected subject not to be greater than or equal to '97.78', got '89'")
                     }
                 }
             }
         }
-        
+
         describe("beGreaterThanOrEqualTo()") {
-            context("when the subject is an optional Int") {
-                var subject: Int?
-                
+            context("when the subject is not a number") {
+                it("doesn't match") {
+                    expect("Night's Watch").notTo.beGreaterThanOrEqualTo("The Crows")
+                }
+            }
+
+            context("when the subject is an optional") {
+                var subject: NSObject?
+
                 context("and nil") {
-                    it("does not match") {
-                        expect(subject).notTo.beGreaterThanOrEqualTo(5)
-                        expect(subject).toNot.beGreaterThanOrEqualTo(3.14159)
-                        expect(subject).notTo.beGreaterThanOrEqualTo(NSNumber(float: 2.5))
-                        expect(subject).toNot.beGreaterThanOrEqualTo(nil)
+                    beforeEach { subject = nil }
+
+                    context("and the expected value is nil") {
+                        it("doesn't match") {
+                            expect(subject).toNot.beGreaterThanOrEqualTo(nil)
+                        }
+                    }
+
+                    context("and the expected value is non-nil") {
+                        it("doesn't match") {
+                            expect(subject).toNot.beGreaterThanOrEqualTo(0)
+                        }
                     }
                 }
-                
+
                 context("and non-nil") {
                     beforeEach { subject = 25 }
+
                     context("and it is greater than expected") {
                         it("matches") {
                             expect(subject).to.beGreaterThanOrEqualTo(7)
                         }
                     }
-                    
+
                     context("and it is equal to expected") {
                         it("matches") {
-                            expect(subject).to.beGreaterThanOrEqualTo(25)
+                            expect(subject).to.beGreaterThanOrEqualTo(subject)
                         }
                     }
-                    
-                    context("but it is less than expected") {
+
+                    context("and it is less than expected") {
                         it("doesn't match") {
                             expect(subject).notTo.beGreaterThanOrEqualTo(100)
                         }
                     }
-                }
-            }
-            
-            context("when the subject is an Int") {
-                var subject: Int = 424
-                
-                context("and it is greater than expected") {
-                    it("matches") {
-                        expect(subject).to.beGreaterThanOrEqualTo(22)
-                    }
-                }
-                
-                context("and it is equal to expected") {
-                    it("matches") {
-                        expect(subject).to.beGreaterThanOrEqualTo(424)
-                    }
-                }
-                
-                context("but it is less than expected") {
-                    it("doesn't match") {
-                        expect(subject).toNot.beGreaterThanOrEqualTo(1_111)
-                    }
-                }
-            }
-            
-            context("when the subject is an optional Double") {
-                var subject: Double?
-                
-                context("and nil") {
-                    it("does not match") {
-                        expect(subject).notTo.beGreaterThanOrEqualTo(5)
-                        expect(subject).toNot.beGreaterThanOrEqualTo(3.14159)
-                        expect(subject).notTo.beGreaterThanOrEqualTo(NSNumber(float: 2.5))
-                        expect(subject).toNot.beGreaterThanOrEqualTo(nil)
-                    }
-                }
-                
-                context("and non-nil") {
-                    beforeEach { subject = 18.81 }
-                    context("and it is greater than expected") {
-                        it("matches") {
-                            expect(subject).to.beGreaterThanOrEqualTo(10.01)
-                        }
-                    }
-                    
-                    context("and it is equal to expected") {
-                        it("matches") {
-                            expect(subject).to.beGreaterThanOrEqualTo(18.81)
-                        }
-                    }
-                    
-                    context("but it is less than expected") {
+
+                    context("but expected is not a number") {
                         it("doesn't match") {
-                            expect(subject).notTo.beGreaterThanOrEqualTo(88.88)
+                            expect(subject).notTo.beGreaterThanOrEqualTo(["Frey", "Greyjoy"])
                         }
                     }
                 }
             }
-            
-            context("when the subject is a Double") {
-                var subject: Double = 7.5
-                
+
+            context("when the subject is not an optional") {
+                var subject: NSObject = 10.8
+
                 context("and it is greater than expected") {
                     it("matches") {
-                        expect(subject).to.beGreaterThanOrEqualTo(1.1)
+                        expect(subject).to.beGreaterThanOrEqualTo(10.7)
                     }
                 }
-                
+
                 context("and it is equal to expected") {
                     it("matches") {
-                        expect(subject).to.beGreaterThanOrEqualTo(7.5)
+                        expect(subject).to.beGreaterThanOrEqualTo(subject)
                     }
                 }
-                
-                context("but it is less than expected") {
+
+                context("and it is less than expected") {
                     it("doesn't match") {
-                        expect(subject).toNot.beGreaterThanOrEqualTo(838.5)
+                        expect(subject).toNot.beGreaterThanOrEqualTo(10.9)
                     }
                 }
-            }
-            
-            context("when the subject is an optional Number") {
-                var subject: NSNumber?
-                
-                context("and nil") {
-                    it("does not match") {
-                        expect(subject).notTo.beGreaterThanOrEqualTo(5)
-                        expect(subject).toNot.beGreaterThanOrEqualTo(3.14159)
-                        expect(subject).notTo.beGreaterThanOrEqualTo(NSNumber(float: 2.5))
-                        expect(subject).toNot.beGreaterThanOrEqualTo(nil)
-                    }
-                }
-                
-                context("and non-nil") {
-                    beforeEach { subject = NSNumber(int: 40) }
-                    context("and it is greater than expected") {
-                        it("matches") {
-                            expect(subject).to.beGreaterThanOrEqualTo(12)
-                            expect(subject).to.beGreaterThanOrEqualTo(NSNumber(float: 32.4))
-                        }
-                    }
-                    
-                    context("and it is equal to expected") {
-                        it("matches") {
-                            expect(subject).to.beGreaterThanOrEqualTo(40)
-                            expect(subject).to.beGreaterThanOrEqualTo(NSNumber(double: 40.0))
-                        }
-                    }
-                    
-                    context("but it is less than expected") {
-                        it("doesn't match") {
-                            expect(subject).notTo.beGreaterThanOrEqualTo(50)
-                            expect(subject).toNot.beGreaterThanOrEqualTo(NSNumber(double: 77.77))
-                        }
-                    }
-                }
-            }
-            
-            context("when the subject is a Number") {
-                var subject = NSNumber(double: 13.3)
-                
-                context("and it is greater than expected") {
-                    it("matches") {
-                        expect(subject).to.beGreaterThanOrEqualTo(9)
-                        expect(subject).to.beGreaterThanOrEqualTo(NSNumber(double: 1.5))
-                    }
-                }
-                
-                context("and it is equal to expected") {
-                    it("matches") {
-                        expect(subject).to.beGreaterThanOrEqualTo(13.3)
-                        expect(subject).to.beGreaterThanOrEqualTo(NSNumber(double: 13.3))
-                    }
-                }
-                
-                context("but it is less than expected") {
+
+                context("but expected is not a number") {
                     it("doesn't match") {
-                        expect(subject).notTo.beGreaterThanOrEqualTo(1_000)
-                        expect(subject).toNot.beGreaterThanOrEqualTo(NSNumber(int: 14))
+                        expect(subject).notTo.beGreaterThanOrEqualTo("House Arryn")
                     }
                 }
             }
