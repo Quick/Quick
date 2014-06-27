@@ -3,7 +3,7 @@
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
-![](http://f.cl.ly/items/2F362k2E3f0u2R0p3q1c/Screen%20Shot%202014-06-14%20at%208.16.22%20PM.png)
+![](http://lanausee.com/files/QuickNimble-screenshot-06.18.14.png)
 
 ```swift
 import Quick
