@@ -11,10 +11,19 @@ import Nimble
 
 class PersonSpec: QuickSpec {
     override func spec() {
-        sharedExamples("an optimistic person") {
-            var person: Person! = nil
+        var dinosaursExtinct = false
+        var mankindExtinct = false
+
+        sharedExamples("something living after dinosaurs are extinct") {
+            it("no longer deals with dinosaurs") {
+                expect(dinosaursExtinct).to.beTrue()
+            }
+        }
+
+        sharedExamples("an optimistic person") { (sharedExampleContext: SharedExampleContext) in
+            var person: Person!
             beforeEach {
-                person = Person()
+                person = sharedExampleContext()["person"] as Person
             }
 
             it("is happy") {
@@ -28,8 +37,6 @@ class PersonSpec: QuickSpec {
 
         describe("Person") {
             var person: Person! = nil
-            var dinosaursExtinct = false
-            var mankindExtinct = false
 
             beforeSuite {
                 assert(!dinosaursExtinct, "nothing goes extinct twice")
@@ -44,7 +51,10 @@ class PersonSpec: QuickSpec {
             beforeEach { person = Person() }
             afterEach  { person = nil }
 
-            itBehavesLike("an optimistic person")
+            itBehavesLike("something living after dinosaurs are extinct")
+            itBehavesLike("an optimistic person") {
+                return ["person": person]
+            }
 
             it("gets hungry") {
                 person!.eatChineseFood()

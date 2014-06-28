@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias SharedExampleContext = () -> (NSDictionary)
+typealias SharedExampleClosure = (SharedExampleContext) -> ()
+
 class World: NSObject {
     var _specs: Dictionary<String, ExampleGroup> = [:]
 
@@ -17,7 +20,7 @@ class World: NSObject {
     var _afterSuites: (() -> ())[] = []
     var _afterSuitesNotRunYet = true
 
-    var _sharedExamples: Dictionary<String, () -> ()> = [:]
+    var _sharedExamples: Dictionary<String, SharedExampleClosure> = [:]
 
     var currentExampleGroup: ExampleGroup?
 
@@ -75,7 +78,7 @@ class World: NSObject {
         }
     }
 
-    func registerSharedExample(name: String, closure: () -> ()) {
+    func registerSharedExample(name: String, closure: SharedExampleClosure) {
         _raiseIfSharedExampleAlreadyRegistered(name)
         _sharedExamples[name] = closure
     }
@@ -88,7 +91,7 @@ class World: NSObject {
         }
     }
 
-    func sharedExample(name: String) -> (() -> ()) {
+    func sharedExample(name: String) -> SharedExampleClosure {
         _raiseIfSharedExampleNotRegistered(name)
         return _sharedExamples[name]!
     }

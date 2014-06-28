@@ -17,7 +17,7 @@ import Foundation
         World.sharedWorld().appendAfterSuite(closure)
     }
 
-    class func sharedExamples(name: String, closure: () -> ()) {
+    class func sharedExamples(name: String, closure: SharedExampleClosure) {
         World.sharedWorld().registerSharedExample(name, closure: closure)
     }
 
@@ -47,14 +47,14 @@ import Foundation
         World.sharedWorld().currentExampleGroup!.appendExample(example)
     }
 
-    class func itBehavesLike(name: String, file: String, line: Int) {
+    class func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String, line: Int) {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld().sharedExample(name)
 
         var group = ExampleGroup(name)
         World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
         World.sharedWorld().currentExampleGroup = group
-        closure()
+        closure(sharedExampleContext)
         World.sharedWorld().currentExampleGroup!.walkDownExamples { (example: Example) in
             example.isSharedExample = true
             example.callsite = callsite
@@ -77,6 +77,10 @@ func afterSuite(closure: () -> ()) {
 }
 
 func sharedExamples(name: String, closure: () -> ()) {
+    DSL.sharedExamples(name, closure: { (NSDictionary) in closure() })
+}
+
+func sharedExamples(name: String, closure: SharedExampleClosure) {
     DSL.sharedExamples(name, closure: closure)
 }
 
@@ -101,7 +105,11 @@ func it(description: String, closure: () -> (), file: String = __FILE__, line: I
 }
 
 func itBehavesLike(name: String, file: String = __FILE__, line: Int = __LINE__) {
-    DSL.itBehavesLike(name, file: file, line: line)
+    itBehavesLike(name, { return [:] }, file: file, line: line)
+}
+
+func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String = __FILE__, line: Int = __LINE__) {
+    DSL.itBehavesLike(name, sharedExampleContext: sharedExampleContext, file: file, line: line)
 }
 
 func pending(description: String, closure: () -> ()) {
