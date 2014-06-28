@@ -433,6 +433,79 @@ I can specify as many `beforeSuite` and `afterSuite` as I like. All
 will be executed after all tests are finished. There's no guarantee as
 to what order they will be executed in, however.
 
+### Sharing Examples
+
+I sometimes need to write one set of specifications, then apply those
+specifications to several test objects.
+
+For example, let's say I have a protocol called `Edible`. When a dolphin
+eats something `Edible`, the dolphin becomes happy.
+
+`Mackerel` and `Cod` are both edible, and I'd like to specify that
+dolphins are happy to eat either one.
+
+I can define a set of "shared examples" for "something edible". Then, I
+can specify that both mackerel and cod behave like "something edible":
+
+```swift
+// Swift
+
+import Quick
+import Nimble
+
+class MackerelSpec: QuickSpec {
+    override func spec() {
+        var mackerel: Mackerel! = nil
+        beforeEach {
+            mackerel = Mackerel()
+        }
+
+        beforeSuite {
+            sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
+                it("makes dolphins happy") {
+                    let dolphin = Dolphin(isHappy: false)
+                    let edible = sharedExampleContext()["edible"]
+                    dolphin.eat(edible)
+                }
+            }
+        }
+
+        itBehavesLike("something edible") { ["edible": mackerel] }
+    }
+}
+
+class CodSpec: QuickSpec {
+    override func spec() {
+        var cod: Cod! = nil
+        beforeEach {
+            cod = Cod()
+        }
+
+        itBehavesLike("something edible") { ["edible": cod] }
+    }
+}
+```
+
+Shared examples can include any number of `it`, `context`, and
+`describe` blocks. They save me a *lot* of typing when I want to run
+the same tests against several different kinds of objects.
+
+If I don't need any additional context, I can simply use closures that
+take no parameters. This might be useful when testing some sort of
+global state:
+
+```swift
+// Swift
+
+import Quick
+
+sharedExamplesFor("everything under the sea") {
+    // ...
+}
+
+itBehavesLike("everything under the sea")
+```
+
 ## Nimble: Assertions Using `expect(...).to`
 
 I can use Quick to define examples and example groups. Within those

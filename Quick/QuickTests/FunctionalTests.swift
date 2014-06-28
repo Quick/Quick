@@ -52,9 +52,7 @@ class PersonSpec: QuickSpec {
             afterEach  { person = nil }
 
             itBehavesLike("something living after dinosaurs are extinct")
-            itBehavesLike("an optimistic person") {
-                return ["person": person]
-            }
+            itBehavesLike("an optimistic person") { ["person": person] }
 
             it("gets hungry") {
                 person!.eatChineseFood()
