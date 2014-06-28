@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-@class Example;
+@class Failure;
 
 /**
  QuickSpec is a base class all specs written in Quick inherit from.
@@ -54,15 +54,5 @@
  See DSL.swift for more information on what syntax is available.
  */
 - (void)spec;
-
-/**
- This method is called when an unhandled exception is raised while an
- example is running. By default, the exception will be reported as an
- XCTest failure, and the example will be highlighted in Xcode.
-
- You can override this method in your spec if you wish to provide custom
- handling based on the specific exception.
- */
-- (void)example:(Example *)example failedWithException:(NSException *)exception;
 
 @end

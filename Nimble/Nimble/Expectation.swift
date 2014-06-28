@@ -11,16 +11,16 @@ import XCTest
 class Expectation: Prediction {
     let actual: NSObject?
 
-    init(_ actual: NSObject?, callsite: Callsite_, negative: Bool) {
+    init(_ actual: NSObject?, callsite: Callsite, negative: Bool) {
         self.actual = actual
         super.init(callsite: callsite, negative: negative)
     }
 
     override func evaluate(matcher: Matcher) {
         if (negative && matcher.match(actual)) {
-            XCTFail(matcher.negativeFailureMessage(actual), file: callsite.file, line: callsite.line)
+            fail(matcher.negativeFailureMessage(actual), callsite: callsite)
         } else if (!negative && !matcher.match(actual)) {
-            XCTFail(matcher.failureMessage(actual), file: callsite.file, line: callsite.line)
+            fail(matcher.negativeFailureMessage(actual), callsite: callsite)
         }
     }
 }

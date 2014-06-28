@@ -10,11 +10,11 @@ import Foundation
 
 @objc class DSL {
     class func expect(actual: NSObject?, file: String = __FILE__, line: Int = __LINE__) -> Actual {
-        return Actual(actual, callsite: Callsite_(file: file, line: line))
+        return Actual(actual, callsite: Callsite(file: file, line: line))
     }
 
     @objc(expectBlock:file:line:) class func expect(closure: () -> (NSObject?), file: String = __FILE__, line: Int = __LINE__) -> ActualClosure {
-        return ActualClosure(closure, callsite: Callsite_(file: file, line: line))
+        return ActualClosure(closure, callsite: Callsite(file: file, line: line))
     }
 }
 

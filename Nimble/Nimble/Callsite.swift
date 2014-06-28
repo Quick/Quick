@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc class Callsite_ {
+@objc class Callsite {
     let file: String
     let line: Int
 

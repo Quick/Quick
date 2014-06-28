@@ -34,34 +34,3 @@ qck_describe(@"a describe block", ^{
 });
 
 QuickSpecEnd
-
-
-@interface UnhandledExceptionTestsObjC : QuickSpec
-@property (nonatomic) NSException *expected;
-@end
-
-@implementation UnhandledExceptionTestsObjC
-
-- (NSException *)expected {
-    if (!_expected) {
-        _expected = [[NSException alloc] initWithName:@"name" reason:@"reason" userInfo:nil];
-    }
-    return _expected;
-}
-
-- (void)spec {
-
-    qck_describe(@"unexpected exceptions raised during an example", ^{
-        qck_it(@"catches unhandled exceptions", ^{
-            [self.expected raise];
-            XCTFail("expected test execution not to continue after raised exception");
-        });
-    });
-
-}
-
-- (void)example:(Example *)example failedWithException:(NSException *)exception {
-    XCTAssertEqualObjects(exception, self.expected, @"expected captured exception to be identical to the one raised");
-}
-
-@end

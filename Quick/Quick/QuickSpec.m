@@ -23,18 +23,32 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 /**
  The runtime sends initialize to each class in a program just before the class, or any class
- that inherits from it, is sent its first message from within the program. Hook into this
- event to compile the example groups for this spec subclass.
+ that inherits from it, is sent its first message from within the program. QuickSpec hooks into
+ this event to compile the example groups for this spec subclass.
+
+ If an exception occurs when compiling the examples, report it to the user. Chances are they
+ included an expectation outside of a "it", "describe", or "context" block.
  */
 + (void)initialize {
     [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
     QuickSpec *spec = [self new];
-    [spec spec];
+
+    @try {
+        [spec spec];
+    }
+    @catch (NSException *exception) {
+        [NSException raise:NSInternalInconsistencyException
+                    format:@"An exception occurred when building Quick's example groups.\n"
+                           @"Perhaps an 'expect(...).to' expectation was evaluated outside of "
+                           @"an 'it', 'context', or 'describe' block?\nHere's the original "
+                           @"exception: '%@', reason: '%@', userInfo: '%@'",
+                           exception.name, exception.reason, exception.userInfo];
+    }
 }
 
 /**
- Invocations for each test method in the test case. Override this method to define a new
- method for each example defined in +[QuickSpec spec].
+ Invocations for each test method in the test case. QuickSpec overrides this method to define a
+ new method for each example defined in +[QuickSpec spec].
 
  @return An array of invocations that execute the newly defined example methods.
  */
@@ -54,7 +68,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 /**
  XCTest sets the invocation for the current test case instance using this setter.
- Hook into this event to give the test case a reference to the current example.
+ QuickSpec hooks into this event to give the test case a reference to the current example.
  It will need this reference to correctly report its name to XCTest.
  */
 - (void)setInvocation:(NSInvocation *)invocation {
@@ -63,12 +77,12 @@ const void * const QCKExampleKey = &QCKExampleKey;
 }
 
 /**
- The test's name. This is to be overridden by subclasses. By default, this uses the
- invocation's selector's name (i.e.: "-[WinterTests testWinterIsComing]").
- This method provides the name of the test class, along with a string made up
- of the example group and example descriptions.
+ The test's name. XCTest expects this to be overridden by subclasses. By default, this
+ uses the invocation's selector's name (i.e.: "-[WinterTests testWinterIsComing]").
+ QuickSpec overrides this method to provide the name of the test class, along with a
+ string made up of the example group and example descriptions.
 
- This string is displayed in the log navigator as the test is being run.
+ @return A string to be displayed in the log navigator as the test is being run.
  */
 - (NSString *)name {
     return [NSString stringWithFormat:@"%@: %@",
@@ -79,19 +93,34 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 - (void)spec { }
 
-- (void)example:(Example *)example failedWithException:(NSException *)exception {
-    [self recordFailureWithDescription:exception.description inFile:example.callsite.file atLine:example.callsite.line expected:NO];
-}
-
 #pragma mark - Internal Methods
 
+/**
+ QuickSpec uses this method to dynamically define a new instance method for the
+ given example. The instance method runs the example, catching any exceptions.
+ The exceptions are then reported as test failures.
+
+ In order to report the correct file and line number, examples must raise exceptions
+ containing following keys in their userInfo:
+
+ - "SenTestFilenameKey": A String representing the file name
+ - "SenTestLineNumberKey": An Int representing the line number
+
+ These keys used to be used by SenTestingKit, and are still used by some testing tools
+ in the wild. See: https://github.com/modocache/Quick/pull/41
+
+ @return The selector of the newly defined instance method.
+ */
 + (SEL)addInstanceMethodForExample:(Example *)example {
     IMP implementation = imp_implementationWithBlock(^(id self){
         @try {
             [example run];
         }
         @catch (NSException *exception) {
-            [self example:example failedWithException:exception];
+            Callsite *callsite = exception.qck_callsite ? exception.qck_callsite : example.callsite;
+            Failure *failure = [Failure failureWithException:exception
+                                                    callsite:callsite];
+            [self recordFailure:failure];
         }
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
@@ -111,6 +140,19 @@ const void * const QCKExampleKey = &QCKExampleKey;
                              example,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return invocation;
+}
+
+/**
+ This method is used to record failures, whether they represent example
+ expectations that were not met, or exceptions raised during test setup
+ and teardown. By default, the failure will be reported as an
+ XCTest failure, and the example will be highlighted in Xcode.
+ */
+- (void)recordFailure:(Failure *)failure {
+    [self recordFailureWithDescription:failure.exception.reason
+                                inFile:failure.callsite.file
+                                atLine:failure.callsite.line
+                              expected:NO];
 }
 
 @end

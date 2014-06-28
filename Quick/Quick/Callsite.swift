@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-import Foundation
-
 @objc class Callsite {
     let file: String
     let line: Int

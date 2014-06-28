@@ -108,28 +108,3 @@ class PoetSpec: QuickSpec {
         }
     }
 }
-
-class UnhandledExceptionSpec: QuickSpec {
-
-    var expected = NSException(name: "name", reason: "reason", userInfo: nil)
-    let exampleCallsite = Callsite(file: "file", line: -1)
-
-    override func spec() {
-
-        describe("unexpected exceptions raised during an example") {
-            it("catches unhandled exceptions", {
-                self.expected.raise()
-                XCTFail("expected test execution not to continue after raised exception")
-            }, file: self.exampleCallsite.file, line: self.exampleCallsite.line)
-        }
-
-    }
-
-    override func example(example: Example!, failedWithException actualException: NSException!) {
-        let actualCallsite = example.callsite
-        expect(actualCallsite.file).to.equal(exampleCallsite.file)
-        expect(actualCallsite.line).to.equal(exampleCallsite.line)
-        expect(actualException).to.equal(expected)
-    }
-
-}

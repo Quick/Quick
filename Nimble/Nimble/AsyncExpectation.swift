@@ -38,7 +38,7 @@ class AsyncExpectation: ClosureExpectation {
     func _shouldEndPositiveWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if matched || expired {
             if !matched {
-                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
+                fail(failureMessage, callsite: callsite)
             }
             return true
         } else {
@@ -49,7 +49,7 @@ class AsyncExpectation: ClosureExpectation {
     func _shouldEndNegativeWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if expired {
             if matched {
-                XCTFail(failureMessage, file: callsite.file, line: callsite.line)
+                fail(failureMessage, callsite: callsite)
             }
             return true
         } else {
