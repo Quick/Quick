@@ -118,7 +118,10 @@ const void * const QCKExampleKey = &QCKExampleKey;
             [example run];
         }
         @catch (NSException *exception) {
-            Callsite *callsite = exception.qck_callsite ? exception.qck_callsite : example.callsite;
+            Callsite *callsite = exception.qck_callsite;
+            if (!callsite || example.isSharedExample) {
+                callsite = example.callsite;
+            }
             Failure *failure = [Failure failureWithException:exception
                                                     callsite:callsite];
             [self recordFailure:failure];

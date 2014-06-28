@@ -11,6 +11,21 @@ import Nimble
 
 class PersonSpec: QuickSpec {
     override func spec() {
+        sharedExamples("an optimistic person") {
+            var person: Person! = nil
+            beforeEach {
+                person = Person()
+            }
+
+            it("is happy") {
+                expect(person.isHappy).to.beTrue()
+            }
+
+            it("is a dreamer") {
+                expect(person.hopes).to.contain("winning the lottery")
+            }
+        }
+
         describe("Person") {
             var person: Person! = nil
             var dinosaursExtinct = false
@@ -29,13 +44,7 @@ class PersonSpec: QuickSpec {
             beforeEach { person = Person() }
             afterEach  { person = nil }
 
-            it("is happy") {
-                expect(person.isHappy).to.beTrue()
-            }
-
-            it("is a dreamer") {
-                expect(person.hopes).to.contain("winning the lottery")
-            }
+            itBehavesLike("an optimistic person")
 
             it("gets hungry") {
                 person!.eatChineseFood()

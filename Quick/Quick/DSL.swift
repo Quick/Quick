@@ -17,6 +17,10 @@ import Foundation
         World.sharedWorld().appendAfterSuite(closure)
     }
 
+    class func sharedExamples(name: String, closure: () -> ()) {
+        World.sharedWorld().registerSharedExample(name, closure: closure)
+    }
+
     class func describe(description: String, closure: () -> ()) {
         var group = ExampleGroup(description)
         World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
@@ -43,6 +47,22 @@ import Foundation
         World.sharedWorld().currentExampleGroup!.appendExample(example)
     }
 
+    class func itBehavesLike(name: String, file: String, line: Int) {
+        let callsite = Callsite(file: file, line: line)
+        let closure = World.sharedWorld().sharedExample(name)
+
+        var group = ExampleGroup(name)
+        World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
+        World.sharedWorld().currentExampleGroup = group
+        closure()
+        World.sharedWorld().currentExampleGroup!.walkDownExamples { (example: Example) in
+            example.isSharedExample = true
+            example.callsite = callsite
+        }
+
+        World.sharedWorld().currentExampleGroup = group.parent
+    }
+
     class func pending(description: String, closure: () -> ()) {
         NSLog("Pending: %@", description)
     }
@@ -54,6 +74,10 @@ func beforeSuite(closure: () -> ()) {
 
 func afterSuite(closure: () -> ()) {
     DSL.afterSuite(closure)
+}
+
+func sharedExamples(name: String, closure: () -> ()) {
+    DSL.sharedExamples(name, closure: closure)
 }
 
 func describe(description: String, closure: () -> ()) {
@@ -74,6 +98,10 @@ func afterEach(closure: () -> ()) {
 
 func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
     DSL.it(description, file: file, line: line, closure: closure)
+}
+
+func itBehavesLike(name: String, file: String = __FILE__, line: Int = __LINE__) {
+    DSL.itBehavesLike(name, file: file, line: line)
 }
 
 func pending(description: String, closure: () -> ()) {

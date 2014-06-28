@@ -17,13 +17,15 @@ class World: NSObject {
     var _afterSuites: (() -> ())[] = []
     var _afterSuitesNotRunYet = true
 
+    var _sharedExamples: Dictionary<String, () -> ()> = [:]
+
     var currentExampleGroup: ExampleGroup?
 
-    struct Shared {
+    struct _Shared {
         static let instance = World()
     }
     class func sharedWorld() -> World {
-        return Shared.instance
+        return _Shared.instance
     }
 
     func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
@@ -70,6 +72,32 @@ class World: NSObject {
                 }
             }
             return count
+        }
+    }
+
+    func registerSharedExample(name: String, closure: () -> ()) {
+        _raiseIfSharedExampleAlreadyRegistered(name)
+        _sharedExamples[name] = closure
+    }
+
+    func _raiseIfSharedExampleAlreadyRegistered(name: String) {
+        if _sharedExamples[name] != nil {
+            NSException(name: NSInternalInconsistencyException,
+                reason: "A shared example named '\(name)' has already been registered.",
+                userInfo: nil).raise()
+        }
+    }
+
+    func sharedExample(name: String) -> (() -> ()) {
+        _raiseIfSharedExampleNotRegistered(name)
+        return _sharedExamples[name]!
+    }
+
+    func _raiseIfSharedExampleNotRegistered(name: String) {
+        if _sharedExamples[name] == nil {
+            NSException(name: NSInternalInconsistencyException,
+                reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(_sharedExamples.keys)'",
+                userInfo: nil).raise()
         }
     }
 }

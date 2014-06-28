@@ -16,6 +16,7 @@ var _numberOfExamplesRun = 0
     var _description: String
     var _closure: () -> ()
 
+    var isSharedExample = false
     var callsite: Callsite
 
     var name: String { get { return group!.name + ", " + _description } }
