@@ -28,7 +28,7 @@ var _numberOfExamplesRun = 0
 
     func run() {
         if _numberOfExamplesRun == 0 {
-            World.runBeforeSpec()
+            World.sharedWorld().runBeforeSpec()
         }
 
         for before in group!.befores {
@@ -42,8 +42,8 @@ var _numberOfExamplesRun = 0
         }
 
         ++_numberOfExamplesRun
-        if _numberOfExamplesRun >= World.exampleCount {
-            World.runAfterSpec()
+        if _numberOfExamplesRun >= World.sharedWorld().exampleCount {
+            World.sharedWorld().runAfterSpec()
         }
     }
 }

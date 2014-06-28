@@ -10,19 +10,19 @@ import Foundation
 
 @objc class DSL {
     class func beforeSuite(closure: () -> ()) {
-        World.appendBeforeSuite(closure)
+        World.sharedWorld().appendBeforeSuite(closure)
     }
 
     class func afterSuite(closure: () -> ()) {
-        World.appendAfterSuite(closure)
+        World.sharedWorld().appendAfterSuite(closure)
     }
 
     class func describe(description: String, closure: () -> ()) {
         var group = ExampleGroup(description)
-        World.currentExampleGroup()!.appendExampleGroup(group)
-        World.setCurrentExampleGroup(group)
+        World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
+        World.sharedWorld().currentExampleGroup = group
         closure()
-        World.setCurrentExampleGroup(group.parent)
+        World.sharedWorld().currentExampleGroup = group.parent
     }
 
     class func context(description: String, closure: () -> ()) {
@@ -30,17 +30,17 @@ import Foundation
     }
 
     class func beforeEach(closure: () -> ()) {
-        World.currentExampleGroup()!.appendBefore(closure)
+        World.sharedWorld().currentExampleGroup!.appendBefore(closure)
     }
 
     class func afterEach(closure: () -> ()) {
-        World.currentExampleGroup()!.appendAfter(closure)
+        World.sharedWorld().currentExampleGroup!.appendAfter(closure)
     }
 
     class func it(description: String, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
         let example = Example(description, callsite, closure)
-        World.currentExampleGroup()!.appendExample(example)
+        World.sharedWorld().currentExampleGroup!.appendExample(example)
     }
 
     class func pending(description: String, closure: () -> ()) {

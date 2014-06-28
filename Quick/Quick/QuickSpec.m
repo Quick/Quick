@@ -30,7 +30,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
  included an expectation outside of a "it", "describe", or "context" block.
  */
 + (void)initialize {
-    [World setCurrentExampleGroup:[World rootExampleGroupForSpecClass:[self class]]];
+    World *world = [World sharedWorld];
+    world.currentExampleGroup = [world rootExampleGroupForSpecClass:[self class]];
     QuickSpec *spec = [self new];
 
     @try {
@@ -53,7 +54,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray *)testInvocations {
-    NSArray *examples = [World rootExampleGroupForSpecClass:[self class]].examples;
+    NSArray *examples = [[World sharedWorld] rootExampleGroupForSpecClass:[self class]].examples;
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
 
     for (Example *example in examples) {

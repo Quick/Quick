@@ -8,17 +8,25 @@
 
 import Foundation
 
-var _specs: Dictionary<String, ExampleGroup> = [:]
-var _currentExampleGroup: ExampleGroup?
+class World: NSObject {
+    var _specs: Dictionary<String, ExampleGroup> = [:]
 
-var _beforeSuite: (() -> ())[] = []
-var _beforeSuiteNotRunYet = true
+    var _beforeSuites: (() -> ())[] = []
+    var _beforeSuitesNotRunYet = true
 
-var _afterSuite: (() -> ())[] = []
-var _afterSuiteNotRunYet = true
+    var _afterSuites: (() -> ())[] = []
+    var _afterSuitesNotRunYet = true
 
-@objc class World {
-    class func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
+    var currentExampleGroup: ExampleGroup?
+
+    struct Shared {
+        static let instance = World()
+    }
+    class func sharedWorld() -> World {
+        return Shared.instance
+    }
+
+    func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
         let name = NSStringFromClass(cls)
         if let group = _specs[name] {
             return group
@@ -29,39 +37,31 @@ var _afterSuiteNotRunYet = true
         }
     }
 
-    class func runBeforeSpec() {
-        assert(_beforeSuiteNotRunYet, "runBeforeSuite was called twice")
-        for closure in _beforeSuite {
-            closure()
+    func runBeforeSpec() {
+        assert(_beforeSuitesNotRunYet, "runBeforeSuite was called twice")
+        for beforeSuite in _beforeSuites {
+            beforeSuite()
         }
-        _beforeSuiteNotRunYet = false
+        _beforeSuitesNotRunYet = false
     }
 
-    class func runAfterSpec() {
-        assert(_afterSuiteNotRunYet, "runAfterSuite was called twice")
-        for closure in _afterSuite {
-            closure()
+    func runAfterSpec() {
+        assert(_afterSuitesNotRunYet, "runAfterSuite was called twice")
+        for afterSuite in _afterSuites {
+            afterSuite()
         }
-        _afterSuiteNotRunYet = false
+        _afterSuitesNotRunYet = false
     }
 
-    class func appendBeforeSuite(closure: () -> ()) {
-        _beforeSuite.append(closure)
+    func appendBeforeSuite(closure: () -> ()) {
+        _beforeSuites.append(closure)
     }
 
-    class func appendAfterSuite(closure: () -> ()) {
-        _afterSuite.append(closure)
+    func appendAfterSuite(closure: () -> ()) {
+        _afterSuites.append(closure)
     }
 
-    class func setCurrentExampleGroup(group: ExampleGroup?) {
-        _currentExampleGroup = group
-    }
-
-    class func currentExampleGroup() -> ExampleGroup? {
-        return _currentExampleGroup
-    }
-
-    class var exampleCount: Int {
+    var exampleCount: Int {
         get {
             var count = 0
             for (_, group) in _specs {
