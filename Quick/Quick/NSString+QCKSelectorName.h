@@ -10,6 +10,6 @@
 
 @interface NSString (QCKSelectorName)
 
-@property (nonatomic, readonly) NSString *selectorName;
+@property (nonatomic, readonly) NSString *qck_selectorName;
 
 @end

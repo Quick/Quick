@@ -124,7 +124,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
         }
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
-    SEL selector = NSSelectorFromString(example.name.selectorName);
+    SEL selector = NSSelectorFromString(example.name.qck_selectorName);
     class_addMethod(self, selector, implementation, types);
 
     return selector;
