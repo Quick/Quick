@@ -40,9 +40,12 @@ const void * const QCKExampleKey = &QCKExampleKey;
     @catch (NSException *exception) {
         [NSException raise:NSInternalInconsistencyException
                     format:@"An exception occurred when building Quick's example groups.\n"
-                           @"Perhaps an 'expect(...).to' expectation was evaluated outside of "
-                           @"an 'it', 'context', or 'describe' block?\nHere's the original "
-                           @"exception: '%@', reason: '%@', userInfo: '%@'",
+                           @"Some possible reasons this might happen include:\n\n"
+                           @"- An 'expect(...).to' expectation was evaluated outside of "
+                           @"an 'it', 'context', or 'describe' block\n"
+                           @"- 'sharedExamples' was called twice with the same name\n"
+                           @"- 'itBehavesLike' was called with a name that is not registered as a shared example\n\n"
+                           @"Here's the original exception: '%@', reason: '%@', userInfo: '%@'",
                            exception.name, exception.reason, exception.userInfo];
     }
 }
