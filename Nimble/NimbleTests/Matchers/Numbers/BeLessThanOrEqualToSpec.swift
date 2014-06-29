@@ -14,14 +14,11 @@ class BeLessThanOrEqualToSpec: QuickSpec {
             var matcher: BeLessThanOrEqualTo! = nil
             beforeEach { matcher = BeLessThanOrEqualTo(10) }
 
-            describe("failureMessage") {
-                context("when the subject is nil") {
-                    it("says it expected subject not to be nil") {
-                        let message = matcher.failureMessage(nil)
-                        expect(message).to.equal("expected subject not to be nil")
-                    }
-                }
+            itBehavesLike("a matcher that complains about nil subjects") {
+                ["matcher": BeLessThanOrEqualTo(nil)]
+            }
 
+            describe("failureMessage") {
                 context("when the subject is not nil") {
                     it("says it expected the subject to be less than or equal to expected") {
                         let message = matcher.failureMessage("Davos Seaworth")
@@ -31,13 +28,6 @@ class BeLessThanOrEqualToSpec: QuickSpec {
             }
 
             describe("negativeFailureMessage") {
-                context("when the subject is nil") {
-                    it("says it expected subject not to be nil") {
-                        let message = matcher.negativeFailureMessage(nil)
-                        expect(message).to.equal("expected subject not to be nil")
-                    }
-                }
-
                 context("when the subject is not nil") {
                     it("says it expected the subject not to be less than or equal to expected") {
                         let message = matcher.negativeFailureMessage(999)

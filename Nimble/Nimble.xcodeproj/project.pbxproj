@@ -67,6 +67,8 @@
 		34F375E719515CC900CE1B99 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375CE19515CC900CE1B99 /* Prediction.swift */; };
 		34F375E819515CC900CE1B99 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375CE19515CC900CE1B99 /* Prediction.swift */; };
 		34F375E919515DE500CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
+		5A4A0D861960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */; };
+		5A4A0D871960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */; };
 		5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -207,6 +209,7 @@
 		34F375CC19515CC900CE1B99 /* Contain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
 		34F375CD19515CC900CE1B99 /* Equal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
 		34F375CE19515CC900CE1B99 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherSharedExampleGroups.swift; sourceTree = "<group>"; };
 		5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeFalse.h"; sourceTree = "<group>"; };
 		5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeNil.h"; sourceTree = "<group>"; };
 		5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeTrue.h"; sourceTree = "<group>"; };
@@ -340,6 +343,7 @@
 		2E37F07F1950672E00DF5316 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */,
 				93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */,
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
@@ -684,6 +688,7 @@
 				5AFCB06D1959D1A30020B13C /* NimbleSpec.m in Sources */,
 				5AFBC486196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				5AFBC484196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */,
+				5A4A0D861960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */,
 				93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
@@ -733,6 +738,7 @@
 				5AFCB06E1959D1A30020B13C /* NimbleSpec.m in Sources */,
 				5AFBC487196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				5AFBC485196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */,
+				5A4A0D871960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */,
 				93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,

@@ -11,31 +11,9 @@ import Nimble
 
 class BeIdenticalToSpec: QuickSpec {
     override func spec() {
-        sharedExamples("a matcher that complains about nil subjects") { (sharedExampleContext: SharedExampleContext) in
-            describe("failureMessage") {
-                context("when the subject is nil") {
-                    it("says it expected subject not to be nil") {
-                        let matcher = sharedExampleContext()["matcher"] as Matcher
-                        let message = matcher.failureMessage("any value")
-                        expect(message).to.equal("expected subject not to be nil")
-                    }
-                }
-            }
-
-            describe("negativeFailureMessage") {
-                context("when the subject is nil") {
-                    it("says it expected subject not to be nil") {
-                        let matcher = sharedExampleContext()["matcher"] as Matcher
-                        let message = matcher.negativeFailureMessage("any value")
-                        expect(message).to.equal("expected subject not to be nil")
-                    }
-                }
-            }
-        }
-
         describe("BeIdenticalTo") {
             itBehavesLike("a matcher that complains about nil subjects") {
-                return ["matcher": BeIdenticalTo(nil)]
+                ["matcher": BeIdenticalTo(nil)]
             }
         }
 

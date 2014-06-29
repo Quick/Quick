@@ -14,14 +14,9 @@ class BeLessThanSpec: QuickSpec {
             var matcher: BeLessThan! = nil
             beforeEach { matcher = BeLessThan(nil) }
 
-            describe("failureMessage") {
-                context("when the subject is nil") {
-                    it("says it expected subject not to be nil") {
-                        let message = matcher.failureMessage(nil)
-                        expect(message).to.equal("expected subject not to be nil")
-                    }
-                }
+            itBehavesLike("a matcher that complains about nil subjects") { ["matcher": matcher] }
 
+            describe("failureMessage") {
                 context("when the subject is not nil") {
                     it("says it expected the subject to be greater than expected") {
                         let message = matcher.failureMessage(0)
@@ -31,13 +26,6 @@ class BeLessThanSpec: QuickSpec {
             }
 
             describe("negativeFailureMessage") {
-                context("when the subject is nil") {
-                    it("says it expected subject not to be nil") {
-                        let message = matcher.negativeFailureMessage(nil)
-                        expect(message).to.equal("expected subject not to be nil")
-                    }
-                }
-
                 context("when the subject is not nil") {
                     it("says it expected the subject not to be less than expected") {
                         let message = matcher.negativeFailureMessage(-9.98)

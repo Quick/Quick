@@ -9,11 +9,11 @@
 import Quick
 import Nimble
 
-class PersonSpec: QuickSpec {
-    override func spec() {
-        var dinosaursExtinct = false
-        var mankindExtinct = false
+var dinosaursExtinct = false
+var mankindExtinct = false
 
+class FunctionalSharedExamples: QuickSharedExampleGroups {
+    override class func sharedExampleGroups() {
         sharedExamples("something living after dinosaurs are extinct") {
             it("no longer deals with dinosaurs") {
                 expect(dinosaursExtinct).to.beTrue()
@@ -34,7 +34,11 @@ class PersonSpec: QuickSpec {
                 expect(person.hopes).to.contain("winning the lottery")
             }
         }
+    }
+}
 
+class PersonSpec: QuickSpec {
+    override func spec() {
         describe("Person") {
             var person: Person! = nil
 

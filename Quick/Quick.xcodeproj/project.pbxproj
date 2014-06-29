@@ -33,6 +33,10 @@
 		34F375BC19515CA700CE1B99 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
 		34F375EB1951646A00CE1B99 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3758319515A0100CE1B99 /* Nimble.framework */; };
 		34F375EC1951647100CE1B99 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3758319515A0100CE1B99 /* Nimble.framework */; };
+		5A4A0D7D1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A4A0D7E1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */; };
+		5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A5D11AA1947412800F6D13D /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
@@ -264,6 +268,8 @@
 		34F375A419515CA700CE1B99 /* QuickSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSpec.h; sourceTree = "<group>"; };
 		34F375A519515CA700CE1B99 /* QuickSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSpec.m; sourceTree = "<group>"; };
 		34F375A619515CA700CE1B99 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSharedExampleGroups.h; sourceTree = "<group>"; };
+		5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSharedExampleGroups.m; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFC5948195ED5B900D3E0A2 /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
@@ -368,6 +374,8 @@
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
 				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
 				5AFC595F195EEDA900D3E0A2 /* NSException+Callsite.swift */,
+				5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */,
+				5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
 			path = Quick;
@@ -417,6 +425,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4A0D7E1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */,
 				34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
@@ -428,6 +437,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A4A0D7D1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */,
 				34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
@@ -659,6 +669,7 @@
 				34F375B619515CA700CE1B99 /* QCKDSL.m in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
+				5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +698,7 @@
 				34F375B519515CA700CE1B99 /* QCKDSL.m in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
+				5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -436,9 +436,6 @@ to what order they will be executed in, however.
 
 ### Sharing Examples
 
-> **NOTE:** Some issues remain with shared examples, see:
-  https://github.com/modocache/Quick/issues/81 for details.
-
 I sometimes need to write one set of specifications, then apply those
 specifications to several test objects.
 
@@ -457,13 +454,8 @@ can specify that both mackerel and cod behave like "something edible":
 import Quick
 import Nimble
 
-class MackerelSpec: QuickSpec {
-    override func spec() {
-        var mackerel: Mackerel! = nil
-        beforeEach {
-            mackerel = Mackerel()
-        }
-
+class EdibleSharedExamples: QuickSharedExampleGroups {
+    override class func sharedExampleGroups() {
         sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
             it("makes dolphins happy") {
                 let dolphin = Dolphin(happy: false)
@@ -471,6 +463,15 @@ class MackerelSpec: QuickSpec {
                 dolphin.eat(edible)
                 expect(dolphin.isHappy).to.beTrue()
             }
+        }
+    }
+}
+
+class MackerelSpec: QuickSpec {
+    override func spec() {
+        var mackerel: Mackerel! = nil
+        beforeEach {
+            mackerel = Mackerel()
         }
 
         itBehavesLike("something edible") { ["edible": mackerel] }
