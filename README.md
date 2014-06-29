@@ -436,6 +436,9 @@ to what order they will be executed in, however.
 
 ### Sharing Examples
 
+> **NOTE:** Some issues remain with shared examples, see:
+  https://github.com/modocache/Quick/issues/81 for details.
+
 I sometimes need to write one set of specifications, then apply those
 specifications to several test objects.
 
@@ -461,14 +464,12 @@ class MackerelSpec: QuickSpec {
             mackerel = Mackerel()
         }
 
-        beforeSuite {
-            sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
-                it("makes dolphins happy") {
-                    let dolphin = Dolphin(happy: false)
-                    let edible = sharedExampleContext()["edible"]
-                    dolphin.eat(edible)
-                    expect(dolphin.isHappy).to.beTrue()
-                }
+        sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
+            it("makes dolphins happy") {
+                let dolphin = Dolphin(happy: false)
+                let edible = sharedExampleContext()["edible"]
+                dolphin.eat(edible)
+                expect(dolphin.isHappy).to.beTrue()
             }
         }
 

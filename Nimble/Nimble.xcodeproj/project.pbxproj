@@ -73,6 +73,14 @@
 		5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A2195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A3195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AFBC482196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */; };
+		5AFBC483196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */; };
+		5AFBC484196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47F196072FA0080CC20 /* BeGreaterThanSpec.swift */; };
+		5AFBC485196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47F196072FA0080CC20 /* BeGreaterThanSpec.swift */; };
+		5AFBC486196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC480196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift */; };
+		5AFBC487196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC480196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift */; };
+		5AFBC488196072FA0080CC20 /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC481196072FA0080CC20 /* BeLessThanSpec.swift */; };
+		5AFBC489196072FA0080CC20 /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC481196072FA0080CC20 /* BeLessThanSpec.swift */; };
 		5AFCB06D1959D1A30020B13C /* NimbleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCB06C1959D1A30020B13C /* NimbleSpec.m */; };
 		5AFCB06E1959D1A30020B13C /* NimbleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFCB06C1959D1A30020B13C /* NimbleSpec.m */; };
 		5AFCB0751959D22F0020B13C /* NMBDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AFCB0731959D22F0020B13C /* NMBDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,20 +91,12 @@
 		932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */; };
 		932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
 		932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932B52641951C68C0044C7E0 /* BeFalse.swift */; };
-		935A025C1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */; };
-		935A025D1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */; };
-		935A02661959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */; };
-		935A02671959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */; };
 		93625F491951DF44006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F481951DF44006B1FE1 /* XCTest.framework */; };
 		93625F4F1951DF66006B1FE1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93625F4E1951DF66006B1FE1 /* XCTest.framework */; };
-		93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
-		93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */; };
 		93ABD53A1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
 		93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
 		93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
 		93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
-		93E305811959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
-		93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */; };
 		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
 		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
 		FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
@@ -210,19 +210,19 @@
 		5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeFalse.h"; sourceTree = "<group>"; };
 		5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeNil.h"; sourceTree = "<group>"; };
 		5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeTrue.h"; sourceTree = "<group>"; };
+		5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualToSpec.swift; sourceTree = "<group>"; };
+		5AFBC47F196072FA0080CC20 /* BeGreaterThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanSpec.swift; sourceTree = "<group>"; };
+		5AFBC480196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
+		5AFBC481196072FA0080CC20 /* BeLessThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
 		5AFCB06C1959D1A30020B13C /* NimbleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NimbleSpec.m; sourceTree = "<group>"; };
 		5AFCB0731959D22F0020B13C /* NMBDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMBDSL.h; sourceTree = "<group>"; };
 		5AFCB0741959D22F0020B13C /* NMBDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMBDSL.m; sourceTree = "<group>"; };
 		932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalseSpec.swift; sourceTree = "<group>"; };
 		932B52641951C68C0044C7E0 /* BeFalse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFalse.swift; sourceTree = "<group>"; };
-		935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanSpec.swift; sourceTree = "<group>"; };
-		935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualToSpec.swift; sourceTree = "<group>"; };
 		93625F481951DF44006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		93625F4E1951DF66006B1FE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
 		93ABD5391958704900F8AE41 /* BeEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
 		93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeEmptySpec.swift; sourceTree = "<group>"; };
-		93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
 		93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeEmpty.h"; sourceTree = "<group>"; };
 		FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeIdenticalToSpec.swift; sourceTree = "<group>"; };
 		FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeIdenticalTo.swift; sourceTree = "<group>"; };
@@ -342,15 +342,12 @@
 			children = (
 				93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */,
 				932B525B1951C59A0044C7E0 /* BeFalseSpec.swift */,
-				935A025B1959B9D500BB0484 /* BeGreaterThanSpec.swift */,
-				935A02651959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift */,
-				93A3399C19599A6B00A13C4B /* BeLessThanSpec.swift */,
-				93E305801959B365008804E3 /* BeLessThanOrEqualToSpec.swift */,
 				2E37F0811950672E00DF5316 /* BeNilSpec.swift */,
 				2E37F0821950672E00DF5316 /* BeTrueSpec.swift */,
 				2E37F0831950672E00DF5316 /* ContainSpec.swift */,
 				2E37F0841950672E00DF5316 /* EqualSpec.swift */,
 				FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */,
+				5AFBC47D196072FA0080CC20 /* Numbers */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -403,10 +400,21 @@
 				5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */,
 				34F375CC19515CC900CE1B99 /* Contain.swift */,
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
-				3486413F195D74AF0099DF92 /* Numbers */,
 				FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */,
+				3486413F195D74AF0099DF92 /* Numbers */,
 			);
 			path = Matchers;
+			sourceTree = "<group>";
+		};
+		5AFBC47D196072FA0080CC20 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */,
+				5AFBC47F196072FA0080CC20 /* BeGreaterThanSpec.swift */,
+				5AFBC480196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift */,
+				5AFBC481196072FA0080CC20 /* BeLessThanSpec.swift */,
+			);
+			path = Numbers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -671,18 +679,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935A02661959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */,
+				5AFBC482196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift in Sources */,
 				2E37F0A81950713000DF5316 /* BeTrueSpec.swift in Sources */,
 				5AFCB06D1959D1A30020B13C /* NimbleSpec.m in Sources */,
+				5AFBC486196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift in Sources */,
+				5AFBC484196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */,
 				93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
-				935A025C1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */,
-				93E305811959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
 				2E37F08A1950672E00DF5316 /* BeNilSpec.swift in Sources */,
-				93A3399D19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */,
+				5AFBC488196072FA0080CC20 /* BeLessThanSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,18 +728,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935A02671959BCF800BB0484 /* BeGreaterThanOrEqualToSpec.swift in Sources */,
+				5AFBC483196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift in Sources */,
 				2E37F0AE1950722200DF5316 /* BeNilSpec.swift in Sources */,
 				5AFCB06E1959D1A30020B13C /* NimbleSpec.m in Sources */,
+				5AFBC487196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift in Sources */,
+				5AFBC485196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */,
 				93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
-				935A025D1959B9D500BB0484 /* BeGreaterThanSpec.swift in Sources */,
-				93E305821959B365008804E3 /* BeLessThanOrEqualToSpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
 				2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */,
-				93A3399E19599A6B00A13C4B /* BeLessThanSpec.swift in Sources */,
+				5AFBC489196072FA0080CC20 /* BeLessThanSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

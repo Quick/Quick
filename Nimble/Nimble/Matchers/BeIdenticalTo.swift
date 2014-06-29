@@ -17,7 +17,7 @@ class BeIdenticalTo: Matcher {
                 return NSString(format: "expected '%@' (%p), got nil", unwrappedExpected, unwrappedExpected)
             }
         } else {
-            return NSString(format: "cannot expect nil to be identical to anything")
+            return "expected subject not to be nil"
         }
     }
 
@@ -25,7 +25,7 @@ class BeIdenticalTo: Matcher {
         if let unwrappedExpected = expected {
             return NSString(format: "expected subject not to be identical to '%@' (%p)", expected!, expected!)
         } else {
-            return NSString(format: "cannot expect nil to be identical to anything")
+            return "expected subject not to be nil"
         }
     }
 

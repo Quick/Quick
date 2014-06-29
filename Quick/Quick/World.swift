@@ -99,7 +99,7 @@ class World: NSObject {
     func _raiseIfSharedExampleNotRegistered(name: String) {
         if _sharedExamples[name] == nil {
             NSException(name: NSInternalInconsistencyException,
-                reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(_sharedExamples.keys)'",
+                reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(_sharedExamples.keys))'",
                 userInfo: nil).raise()
         }
     }
