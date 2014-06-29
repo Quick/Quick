@@ -464,9 +464,10 @@ class MackerelSpec: QuickSpec {
         beforeSuite {
             sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
                 it("makes dolphins happy") {
-                    let dolphin = Dolphin(isHappy: false)
+                    let dolphin = Dolphin(happy: false)
                     let edible = sharedExampleContext()["edible"]
                     dolphin.eat(edible)
+                    expect(dolphin.isHappy).to.beTrue()
                 }
             }
         }
