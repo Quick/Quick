@@ -20,7 +20,7 @@ class Expectation: Prediction {
         if (negative && matcher.match(actual)) {
             fail(matcher.negativeFailureMessage(actual), callsite: callsite)
         } else if (!negative && !matcher.match(actual)) {
-            fail(matcher.negativeFailureMessage(actual), callsite: callsite)
+            fail(matcher.failureMessage(actual), callsite: callsite)
         }
     }
 }
