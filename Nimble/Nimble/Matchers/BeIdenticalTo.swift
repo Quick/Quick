@@ -22,7 +22,11 @@ class BeIdenticalTo: Matcher {
     }
 
     override func negativeFailureMessage(actual: NSObject?) -> String {
-        return NSString(format: "expected subject not to be identical to '%@' (%p)", expected!, expected!)
+        if let unwrappedExpected = expected {
+            return NSString(format: "expected subject not to be identical to '%@' (%p)", expected!, expected!)
+        } else {
+            return NSString(format: "cannot expect nil to be identical to anything")
+        }
     }
 
     override func match(actual: NSObject?) -> Bool {
