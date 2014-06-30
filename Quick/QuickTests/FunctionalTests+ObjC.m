@@ -18,7 +18,7 @@ qck_sharedExamples(@"a truthy value", ^(QCKDSLSharedExampleContext context) {
         value = context()[@"value"];
     });
 
-    qck_it(@"fails", ^{
+    qck_it(@"is true", ^{
         [nmb_expect(value).to beTrue];
     });
 });
