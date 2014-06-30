@@ -707,7 +707,7 @@ expect("dolphin").toNot.contain("fish")
 [nmb_expect(@"dolphin").to nmb_contain:@"fish"];
 ```
 
-`Empty` matches if the given array or set contains no elements, or if
+`BeEmpty` matches if the given array or set contains no elements, or if
 the given string is an empty string (`""`):
 
 ```swift
