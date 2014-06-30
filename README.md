@@ -45,9 +45,16 @@ class TableOfContentsSpec: QuickSpec {
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
+  - [Available Matchers](#available-matchers)
+    - [Equal](#equal)
+    - [BeIdenticalTo](#beidenticalto)
+    - [BeNil](#benil)
+    - [BeTrue](#betrue)
+    - [BeFalse](#befalse)
+    - [BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan](#belessthan-belessthanorequalto-begreaterthanorequalto-begreaterthan)
+    - [Contain and BeEmpty](#contain-and-beempty)
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
   - [Asynchronous Expectations Using `will` and `willNot`](#asynchronous-expectations-using-will-and-willnot)
-  - [List of Matchers](#list-of-matchers)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone this repository](#1-clone-this-repository)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
@@ -536,6 +543,8 @@ expect(person.greeting).notTo.equal("Hello!")
 [nmb_expect(person.greeting).notTo nmb_equal:@"Hello!"];
 ```
 
+### Available Matchers
+
 Nimble includes matchers that test whether the subject of an
 expectation is true, or equal to something, or whether it
 contains a specific element:
@@ -558,6 +567,105 @@ expect(person.hopes).to.contain("winning the lottery")
 [nmb_expect(@(person.isHappy)).to beTrue];
 [nmb_expect(person.greeting).to nmb_equal:@"Hello!"];
 [nmb_expect(person.hopes).to nmb_contain:@"winning the lottery"];
+```
+
+#### Equal
+
+`Equal` matches if two objects are equal. It tests for equality using
+the `==` operator:
+
+```swift
+expect("dolphin").to.equal("dolphin")
+expect("dolphin").toNot.equal("sea turtle")
+```
+
+#### BeIdenticalTo
+
+`BeIdenticalTo` matches if two objects are the *same object*. It tests for
+identity using the `===` operator:
+
+```swift
+let kind = "bottlenose dolphins"
+expect(kind).to.beIdenticalTo(kind)
+expect(kind).toNot.beIdenticalTo("bottlenose dolphins")
+```
+
+Note that in the above example, `beIdenticalTo()` matches when comparing
+the same string object (`kind`), but doesn't match for two different string
+objects--even though the strings themselves are equal.
+
+#### BeNil
+
+`BeNil` acts just like the `Equal` matcher, but it tests whether the
+subject of the expectation is equal to `nil`:
+
+```swift
+expect(nil).to.beNil()
+expect("dolphin").toNot.beNil()
+```
+
+#### BeTrue
+
+`BeTrue` matches if the subject of the expectation is equal to `true`:
+
+```swift
+expect(true).to.beTrue()
+expect(false).toNot.beTrue()
+expect(1).toNot.beTrue()
+```
+
+Note that although `1` above is a "truthy" value, it is not equal to
+the boolean `true`, so `beTrue()` does not match.
+
+#### BeFalse
+
+Similarly to `BeTrue`, `BeFalse` matches if the subject of the
+expectation is equal to `false`:
+
+```swift
+expect(false).to.beFalse()
+expect(true).toNot.beFalse()
+expect(nil).toNot.beFalse)
+```
+
+#### BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan
+
+These matchers compare the subject to arbitrary numbers. They only match
+if both the subject and the given value are numbers, and those
+numbers meet the given conditions:
+
+```swift
+expect(10).to.beLessThan(11)
+expect(10).to.beLessThanOrEqualTo(10)
+expect(10).to.beGreaterThanOrEqualTo(10)
+expect(10).to.beGreaterThan(9)
+```
+
+#### Contain and BeEmpty
+
+These matchers apply to collections such as arrays or sets. `Contain`
+matches if the array or set contains the specified element:
+
+```swift
+expect([1, 2, 3]).to.contain(1)
+expect([1, 2, 3]).toNot.contain(4)
+```
+
+`Contain` can also be used on strings. It matches if the string contains
+the given substring:
+
+```swift
+expect("blowfish").to.contain("fish")
+expect("dolphin").toNot.contain("fish")
+```
+
+`Empty` matches if the given array or set contains no elements, or if
+the given string is an empty string (`""`):
+
+```swift
+expect([]).to.beEmpty()
+expect([1, 2, 3]).toNot.beEmpty()
+expect("").to.beEmpty()
 ```
 
 ### Automatic Optional Unwrapping
@@ -621,30 +729,7 @@ expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 
 [[nmb_expectBlock(^{ return @(person.isHungry); }) willBefore:3] beTrue];
 [[nmb_expectBlock(^{ return @(person.isSatisfied); }) willNotBefore:3] beTrue];
-
 ```
-
-### List of Matchers
-
-- `beNil()` or `nmb_beNil`
-- `equal(expected: NSObject?)` or `nmb_equal:`
-
-#### Booleans
-
-- `beTrue()` or `nmb_beTrue`
-- `beFalse()` or `nmb_beFalse`
-
-#### Collections
-
-- `beEmpty()` or `nmb_beEmpty`
-- `contain(expected: NSObject?)` or `nmb_contain:`
-
-#### Numbers
-
-- `beLessThan(expected: NSObject?)` or `nmb_beLessThan:`
-- `beGreaterThan(expected: NSObject?)` or `nmb_beGreaterThan:`
-- `beLessThanOrEqualTo(expected: NSObject?)` or `nmb_beLessThanOrEqualTo:`
-- `beGreaterThanOrEqualTo(expected: NSObject?)` or `nmb_beGreaterThanOrEqualTo:`
 
 ## How to Install Quick
 
