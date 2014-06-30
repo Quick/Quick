@@ -47,6 +47,7 @@ class TableOfContentsSpec: QuickSpec {
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
   - [Asynchronous Expectations Using `will` and `willNot`](#asynchronous-expectations-using-will-and-willnot)
+  - [List of Matchers](#list-of-matchers)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone this repository](#1-clone-this-repository)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
@@ -622,6 +623,28 @@ expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 [[nmb_expectBlock(^{ return @(person.isSatisfied); }) willNotBefore:3] beTrue];
 
 ```
+
+### List of Matchers
+
+- `beNil()` or `nmb_beNil`
+- `equal(expected: NSObject?)` or `nmb_equal:`
+
+#### Booleans
+
+- `beTrue()` or `nmb_beTrue`
+- `beFalse()` or `nmb_beFalse`
+
+#### Collections
+
+- `beEmpty()` or `nmb_beEmpty`
+- `contain(expected: NSObject?)` or `nmb_contain:`
+
+#### Numbers
+
+- `beLessThan(expected: NSObject?)` or `nmb_beLessThan:`
+- `beGreaterThan(expected: NSObject?)` or `nmb_beGreaterThan:`
+- `beLessThanOrEqualTo(expected: NSObject?)` or `nmb_beLessThanOrEqualTo:`
+- `beGreaterThanOrEqualTo(expected: NSObject?)` or `nmb_beGreaterThanOrEqualTo:`
 
 ## How to Install Quick
 
