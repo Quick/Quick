@@ -579,6 +579,11 @@ expect("dolphin").to.equal("dolphin")
 expect("dolphin").toNot.equal("sea turtle")
 ```
 
+```objc
+[nmb_expect(@"dolphin").to nmb_equal:@"dolphin"];
+[nmb_expect(@"dolphin").toNot nmb_equal:@"sea turtle"];
+```
+
 #### BeIdenticalTo
 
 `BeIdenticalTo` matches if two objects are the *same object*. It tests for
@@ -588,6 +593,12 @@ identity using the `===` operator:
 let kind = "bottlenose dolphins"
 expect(kind).to.beIdenticalTo(kind)
 expect(kind).toNot.beIdenticalTo("bottlenose dolphins")
+```
+
+```objc
+NSString *kind = @"bottlenose dolphins"
+[nmb_expect(kind).to nmb_beIdenticalTo:kind];
+[nmb_expect(kind).toNot nmb_beIdenticalTo:@"bottlenose dolphins"];
 ```
 
 Note that in the above example, `beIdenticalTo()` matches when comparing
@@ -604,6 +615,11 @@ expect(nil).to.beNil()
 expect("dolphin").toNot.beNil()
 ```
 
+```objc
+[nmb_expect(nil).to beNil];
+[nmb_expect(@"dolphin").toNot beNil];
+```
+
 #### BeTrue
 
 `BeTrue` matches if the subject of the expectation is equal to `true`:
@@ -611,11 +627,20 @@ expect("dolphin").toNot.beNil()
 ```swift
 expect(true).to.beTrue()
 expect(false).toNot.beTrue()
-expect(1).toNot.beTrue()
+expect(10).toNot.beTrue()
 ```
 
-Note that although `1` above is a "truthy" value, it is not equal to
+```objc
+[nmb_expect(@YES).to beTrue];
+[nmb_expect(@NO).toNot beTrue];
+[nmb_expect(@10).to beTrue];
+```
+
+Note that although `10` above is a "truthy" value, it is not equal to
 the boolean `true`, so `beTrue()` does not match.
+
+> **NOTE:** In Objective-C, `@1` and `@YES` are equal, so the expectation
+  `[nmb_expect(@1).to beTrue]` passes.
 
 #### BeFalse
 
@@ -626,6 +651,12 @@ expectation is equal to `false`:
 expect(false).to.beFalse()
 expect(true).toNot.beFalse()
 expect(nil).toNot.beFalse)
+```
+
+```objc
+[nmb_expect(@NO).to beFalse];
+[nmb_expect(@YES).toNot beFalse];
+[nmb_expect(nil).toNot beFalse];
 ```
 
 #### BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan
@@ -641,6 +672,13 @@ expect(10).to.beGreaterThanOrEqualTo(10)
 expect(10).to.beGreaterThan(9)
 ```
 
+```objc
+[nmb_expect(@10).to nmb_beLessThan(@11)];
+[nmb_expect(@10).to nmb_beLessThanOrEqualTo(@10)];
+[nmb_expect(@10).to nmb_beGreaterThanOrEqualTo(@10)];
+[nmb_expect(@10).to nmb_beGreaterThan(@9)];
+```
+
 #### Contain and BeEmpty
 
 These matchers apply to collections such as arrays or sets. `Contain`
@@ -651,12 +689,22 @@ expect([1, 2, 3]).to.contain(1)
 expect([1, 2, 3]).toNot.contain(4)
 ```
 
+```objc
+[nmb_expect((@[@1, @2, @3])).to nmb_contain:@1];
+[nmb_expect((@[@1, @2, @3])).to nmb_contain:@4];
+```
+
 `Contain` can also be used on strings. It matches if the string contains
 the given substring:
 
 ```swift
 expect("blowfish").to.contain("fish")
 expect("dolphin").toNot.contain("fish")
+```
+
+```objc
+[nmb_expect(@"blowfish").to nmb_contain:@"fish"];
+[nmb_expect(@"dolphin").to nmb_contain:@"fish"];
 ```
 
 `Empty` matches if the given array or set contains no elements, or if
@@ -666,6 +714,12 @@ the given string is an empty string (`""`):
 expect([]).to.beEmpty()
 expect([1, 2, 3]).toNot.beEmpty()
 expect("").to.beEmpty()
+```
+
+```objc
+[nmb_expect((@[])).to beEmpty];
+[nmb_expect((@[@1, @2, @3])).toNot beEmpty];
+[nmb_expect(@"").to beEmpty];
 ```
 
 ### Automatic Optional Unwrapping
