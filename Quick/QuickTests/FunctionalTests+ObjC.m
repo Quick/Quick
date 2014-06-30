@@ -9,7 +9,25 @@
 #import <Quick/Quick.h>
 #import <Nimble/Nimble.h>
 
+
+QuickSharedExampleGroupsBegin(FunctionalTestsObjCSharedExampleGroups)
+
+qck_sharedExamples(@"a truthy value", ^(QCKDSLSharedExampleContext context) {
+    __block NSNumber *value = nil;
+    qck_beforeEach(^{
+        value = context()[@"value"];
+    });
+
+    qck_it(@"fails", ^{
+        [nmb_expect(value).to beTrue];
+    });
+});
+
+QuickSharedExampleGroupsEnd
+
+
 static BOOL beforeSuiteExecuted_afterSuiteNotYetExecuted = NO;
+
 
 QuickSpecBegin(FunctionalTestsObjC)
 
@@ -25,6 +43,8 @@ qck_describe(@"a describe block", ^{
     qck_it(@"contains an it block", ^{
         [nmb_expect(@(beforeSuiteExecuted_afterSuiteNotYetExecuted)).to beTrue];
     });
+
+    qck_itBehavesLike(@"a truthy value", ^{ return @{ @"value": @YES }; });
 
     qck_pending(@"a pending block", ^{
         qck_it(@"contains a failing it block", ^{

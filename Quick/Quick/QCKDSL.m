@@ -19,6 +19,10 @@
     [DSL afterSuite:closure];
 }
 
++ (void)sharedExamples:(NSString *)name closure:(QCKDSLSharedExampleBlock)closure {
+    [DSL sharedExamples:name closure:closure];
+}
+
 + (void)describe:(NSString *)description closure:(void(^)(void))closure {
     [DSL describe:description closure:closure];
 }
@@ -37,6 +41,10 @@
 
 + (void)it:(NSString *)description file:(NSString *)file line:(NSUInteger)line closure:(void (^)(void))closure {
     [DSL it:description file:file line:line closure:closure];
+}
+
++ (void)itBehavesLike:(NSString *)name context:(QCKDSLSharedExampleContext)context file:(NSString *)file line:(NSUInteger)line {
+    [DSL itBehavesLike:name sharedExampleContext:context file:file line:line];
 }
 
 + (void)pending:(NSString *)description closure:(void(^)(void))closure {
