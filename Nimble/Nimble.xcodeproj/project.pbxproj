@@ -61,12 +61,24 @@
 		34F375E919515DE500CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
 		5A4A0D861960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */; };
 		5A4A0D871960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */; };
+		5A4A0D99196169A4005678EA /* NMBRaise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D97196169A4005678EA /* NMBRaise.h */; };
+		5A4A0D9A196169A4005678EA /* NMBRaise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D97196169A4005678EA /* NMBRaise.h */; };
+		5A4A0D9B196169A4005678EA /* NMBRaise.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D98196169A4005678EA /* NMBRaise.m */; };
+		5A4A0D9C196169A4005678EA /* NMBRaise.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D98196169A4005678EA /* NMBRaise.m */; };
+		5A4A0D9E19616A24005678EA /* Raise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D9D19616A24005678EA /* Raise.swift */; };
+		5A4A0D9F19616A24005678EA /* Raise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D9D19616A24005678EA /* Raise.swift */; };
+		5A4A0DA71961F58B005678EA /* Nimble-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */; };
+		5A4A0DA81961F58B005678EA /* Nimble-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */; };
+		5A4A0DAA1961F615005678EA /* RaiseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0DA91961F615005678EA /* RaiseSpec.swift */; };
+		5A4A0DAB1961F615005678EA /* RaiseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0DA91961F615005678EA /* RaiseSpec.swift */; };
 		5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A2195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A7259A3195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A8BE371196255A70019BF6D /* NMBRaiseSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE370196255A70019BF6D /* NMBRaiseSpecHelper.m */; };
+		5A8BE372196255A70019BF6D /* NMBRaiseSpecHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE370196255A70019BF6D /* NMBRaiseSpecHelper.m */; };
 		5AFBC482196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */; };
 		5AFBC483196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */; };
 		5AFBC484196072FA0080CC20 /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBC47F196072FA0080CC20 /* BeGreaterThanSpec.swift */; };
@@ -198,9 +210,17 @@
 		34F375CD19515CC900CE1B99 /* Equal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
 		34F375CE19515CC900CE1B99 /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatcherSharedExampleGroups.swift; sourceTree = "<group>"; };
+		5A4A0D97196169A4005678EA /* NMBRaise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMBRaise.h; sourceTree = "<group>"; };
+		5A4A0D98196169A4005678EA /* NMBRaise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMBRaise.m; sourceTree = "<group>"; };
+		5A4A0D9D19616A24005678EA /* Raise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Raise.swift; sourceTree = "<group>"; };
+		5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Nimble-Bridging-Header.h"; sourceTree = "<group>"; };
+		5A4A0DA91961F615005678EA /* RaiseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaiseSpec.swift; sourceTree = "<group>"; };
 		5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeFalse.h"; sourceTree = "<group>"; };
 		5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeNil.h"; sourceTree = "<group>"; };
 		5A72599D195A1D5D002722D8 /* NMBDSL+BeTrue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeTrue.h"; sourceTree = "<group>"; };
+		5A8BE36F196255A70019BF6D /* NMBRaiseSpecHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMBRaiseSpecHelper.h; sourceTree = "<group>"; };
+		5A8BE370196255A70019BF6D /* NMBRaiseSpecHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMBRaiseSpecHelper.m; sourceTree = "<group>"; };
+		5A8BE377196256290019BF6D /* NimbleTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbleTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		5AFBC47E196072FA0080CC20 /* BeGreaterThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualToSpec.swift; sourceTree = "<group>"; };
 		5AFBC47F196072FA0080CC20 /* BeGreaterThanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeGreaterThanSpec.swift; sourceTree = "<group>"; };
 		5AFBC480196072FA0080CC20 /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
@@ -283,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				2E37EFF11950663300DF5316 /* Nimble.h */,
+				5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */,
 				34F375C619515CC900CE1B99 /* DSL.swift */,
 				34F375C119515CC900CE1B99 /* Actual.swift */,
 				34F375C219515CC900CE1B99 /* ActualClosure.swift */,
@@ -313,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				34F375631951595D00CE1B99 /* Quick.xcodeproj */,
+				5A8BE377196256290019BF6D /* NimbleTests-Bridging-Header.h */,
 				5AFCB06C1959D1A30020B13C /* NimbleSpec.m */,
 				2E37F07F1950672E00DF5316 /* Matchers */,
 				2E37EFFC1950663300DF5316 /* Supporting Files */,
@@ -339,6 +361,9 @@
 				2E37F0831950672E00DF5316 /* ContainSpec.swift */,
 				2E37F0841950672E00DF5316 /* EqualSpec.swift */,
 				FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */,
+				5A4A0DA91961F615005678EA /* RaiseSpec.swift */,
+				5A8BE36F196255A70019BF6D /* NMBRaiseSpecHelper.h */,
+				5A8BE370196255A70019BF6D /* NMBRaiseSpecHelper.m */,
 				5AFBC47D196072FA0080CC20 /* Numbers */,
 			);
 			path = Matchers;
@@ -389,6 +414,9 @@
 				34F375CC19515CC900CE1B99 /* Contain.swift */,
 				34F375CD19515CC900CE1B99 /* Equal.swift */,
 				FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */,
+				5A4A0D97196169A4005678EA /* NMBRaise.h */,
+				5A4A0D98196169A4005678EA /* NMBRaise.m */,
+				5A4A0D9D19616A24005678EA /* Raise.swift */,
 				3486413F195D74AF0099DF92 /* Numbers */,
 			);
 			path = Matchers;
@@ -414,9 +442,11 @@
 			files = (
 				5AFCB0751959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A2195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
+				5A4A0D99196169A4005678EA /* NMBRaise.h in Headers */,
 				5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
 				93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
+				5A4A0DA71961F58B005678EA /* Nimble-Bridging-Header.h in Headers */,
 				2E37EFF21950663300DF5316 /* Nimble.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,9 +457,11 @@
 			files = (
 				5AFCB0761959D22F0020B13C /* NMBDSL.h in Headers */,
 				5A7259A3195A1D5D002722D8 /* NMBDSL+BeTrue.h in Headers */,
+				5A4A0D9A196169A4005678EA /* NMBRaise.h in Headers */,
 				5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
 				93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
+				5A4A0DA81961F58B005678EA /* Nimble-Bridging-Header.h in Headers */,
 				2E37F09E19506DCF00DF5316 /* Nimble.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,6 +667,7 @@
 				34F375CF19515CC900CE1B99 /* Actual.swift in Sources */,
 				34F375D719515CC900CE1B99 /* ClosureExpectation.swift in Sources */,
 				34F375D919515CC900CE1B99 /* DSL.swift in Sources */,
+				5A4A0D9B196169A4005678EA /* NMBRaise.m in Sources */,
 				34864149195D74AF0099DF92 /* BeGreaterThan.swift in Sources */,
 				34F375E319515CC900CE1B99 /* Contain.swift in Sources */,
 				3486414D195D74AF0099DF92 /* BeLessThan.swift in Sources */,
@@ -644,6 +677,7 @@
 				34F375D119515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52651951C68C0044C7E0 /* BeFalse.swift in Sources */,
 				93ABD53A1958704900F8AE41 /* BeEmpty.swift in Sources */,
+				5A4A0D9E19616A24005678EA /* Raise.swift in Sources */,
 				34864159195D74AF0099DF92 /* NumberComparisonMatcher.swift in Sources */,
 				34F375E519515CC900CE1B99 /* Equal.swift in Sources */,
 				3486412D195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */,
@@ -668,10 +702,12 @@
 				93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
 				932B525C1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
+				5A8BE371196255A70019BF6D /* NMBRaiseSpecHelper.m in Sources */,
 				2E37F0961950672E00DF5316 /* EqualSpec.swift in Sources */,
 				2E37F0921950672E00DF5316 /* ContainSpec.swift in Sources */,
 				2E37F08A1950672E00DF5316 /* BeNilSpec.swift in Sources */,
 				5AFBC488196072FA0080CC20 /* BeLessThanSpec.swift in Sources */,
+				5A4A0DAA1961F615005678EA /* RaiseSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +721,7 @@
 				34F375D019515CC900CE1B99 /* Actual.swift in Sources */,
 				34F375D819515CC900CE1B99 /* ClosureExpectation.swift in Sources */,
 				34F375DA19515CC900CE1B99 /* DSL.swift in Sources */,
+				5A4A0D9C196169A4005678EA /* NMBRaise.m in Sources */,
 				3486414A195D74AF0099DF92 /* BeGreaterThan.swift in Sources */,
 				34F375E419515CC900CE1B99 /* Contain.swift in Sources */,
 				3486414E195D74AF0099DF92 /* BeLessThan.swift in Sources */,
@@ -694,6 +731,7 @@
 				34F375D219515CC900CE1B99 /* ActualClosure.swift in Sources */,
 				932B52661951C68C0044C7E0 /* BeFalse.swift in Sources */,
 				93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */,
+				5A4A0D9F19616A24005678EA /* Raise.swift in Sources */,
 				3486415A195D74AF0099DF92 /* NumberComparisonMatcher.swift in Sources */,
 				34F375E619515CC900CE1B99 /* Equal.swift in Sources */,
 				3486412E195D4CA40099DF92 /* NSObject+Flatten.swift in Sources */,
@@ -718,10 +756,12 @@
 				93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */,
 				932B525D1951C59A0044C7E0 /* BeFalseSpec.swift in Sources */,
 				FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */,
+				5A8BE372196255A70019BF6D /* NMBRaiseSpecHelper.m in Sources */,
 				2E37F0AF1950722200DF5316 /* BeTrueSpec.swift in Sources */,
 				2E37F0B01950722300DF5316 /* ContainSpec.swift in Sources */,
 				2E37F0B11950722300DF5316 /* EqualSpec.swift in Sources */,
 				5AFBC489196072FA0080CC20 /* BeLessThanSpec.swift in Sources */,
+				5A4A0DAB1961F615005678EA /* RaiseSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +834,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Nimble/Nimble-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -832,6 +873,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Nimble/Nimble-Bridging-Header.h";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -902,6 +944,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NimbleTests/NimbleTests-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -917,6 +960,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NimbleTests/NimbleTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -1000,6 +1044,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "NimbleTests/NimbleTests-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -1017,6 +1062,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "NimbleTests/NimbleTests-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

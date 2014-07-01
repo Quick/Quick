@@ -18,6 +18,21 @@ class ClosureExpectation: Prediction {
     }
 
     override func evaluate(matcher: Matcher) {
-        matcher.match(actualClosure())
+        let actual = actualClosure()
+        let matched = matcher.match(actual)
+        if negative && matched {
+            fail(matcher.negativeFailureMessage(actual), callsite: callsite)
+        } else if !negative && !matched {
+            fail(matcher.failureMessage(actual), callsite: callsite)
+        }
+    }
+
+    func evaluateClosure(matcher: Matcher) {
+        let matched = matcher.matchClosure(actualClosure)
+        if negative && matched {
+            fail(matcher.negativeFailureMessage(nil), callsite: callsite)
+        } else if !negative && !matched {
+            fail(matcher.failureMessage(nil), callsite: callsite)
+        }
     }
 }

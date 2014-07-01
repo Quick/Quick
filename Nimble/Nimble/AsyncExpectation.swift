@@ -35,6 +35,21 @@ class AsyncExpectation: ClosureExpectation {
         }
     }
 
+    override func evaluateClosure(matcher: Matcher) {
+        let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
+        while (true) {
+            let expired = NSDate.date().compare(expirationDate) != NSComparisonResult.OrderedAscending
+            let matched = matcher.matchClosure(actualClosure)
+
+            if (negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessage(nil)) ||
+                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessage(nil))) {
+                    break
+            }
+
+            NSRunLoop.currentRunLoop().runUntilDate(NSDate(timeIntervalSinceNow:0.01))
+        }
+    }
+
     func _shouldEndPositiveWait(expired: Bool, _ matched: Bool, _ failureMessage: String) -> Bool {
         if matched || expired {
             if !matched {

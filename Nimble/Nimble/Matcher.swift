@@ -28,4 +28,11 @@ import Foundation
                     userInfo: nil).raise()
         return false
     }
+
+    func matchClosure(actualClosure: () -> (NSObject?)) -> Bool {
+        NSException(name: NSInternalInconsistencyException,
+            reason:"Matchers that evaluate closures must override matchClosure()",
+            userInfo: nil).raise()
+        return false
+    }
 }

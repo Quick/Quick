@@ -17,11 +17,7 @@ import Foundation
         self.callsite = callsite
     }
 
-    var to: Expectation {
-        get { return Expectation(actual, callsite: callsite, negative: false) }
-    }
-    var notTo: Expectation {
-        get { return Expectation(actual, callsite: callsite, negative: true) }
-    }
-    var toNot: Expectation { get { return notTo } }
+    var to: Expectation { return Expectation(actual, callsite: callsite, negative: false) }
+    var notTo: Expectation { return Expectation(actual, callsite: callsite, negative: true) }
+    var toNot: Expectation { return notTo }
 }

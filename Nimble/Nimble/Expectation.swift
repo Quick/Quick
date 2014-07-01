@@ -17,9 +17,10 @@ class Expectation: Prediction {
     }
 
     override func evaluate(matcher: Matcher) {
-        if (negative && matcher.match(actual)) {
+        let matched = matcher.match(actual)
+        if negative && matched {
             fail(matcher.negativeFailureMessage(actual), callsite: callsite)
-        } else if (!negative && !matcher.match(actual)) {
+        } else if !negative && !matched {
             fail(matcher.failureMessage(actual), callsite: callsite)
         }
     }

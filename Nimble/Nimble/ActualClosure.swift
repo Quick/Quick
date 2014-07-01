@@ -17,15 +17,19 @@ import Foundation
         self.callsite = callsite
     }
 
+    var to: ClosureExpectation {
+        return ClosureExpectation(actualClosure, callsite: callsite, negative: false)
+    }
+    var notTo: ClosureExpectation {
+        return ClosureExpectation(actualClosure, callsite: callsite, negative: true)
+    }
+    var toNot: ClosureExpectation { return notTo }
+
     var will: AsyncExpectation {
-        get {
-            return AsyncExpectation(actualClosure, callsite: callsite, negative: false)
-        }
+        return AsyncExpectation(actualClosure, callsite: callsite, negative: false)
     }
     var willNot: AsyncExpectation {
-        get {
-            return AsyncExpectation(actualClosure, callsite: callsite, negative: true)
-        }
+        return AsyncExpectation(actualClosure, callsite: callsite, negative: true)
     }
 
     func willBefore(seconds: NSTimeInterval) -> AsyncExpectation {
