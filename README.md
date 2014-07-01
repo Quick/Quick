@@ -53,6 +53,7 @@ class TableOfContentsSpec: QuickSpec {
     - [BeFalse](#befalse)
     - [BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan](#belessthan-belessthanorequalto-begreaterthanorequalto-begreaterthan)
     - [Contain and BeEmpty](#contain-and-beempty)
+    - [Raise](#raise)
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
   - [Asynchronous Expectations Using `will` and `willNot`](#asynchronous-expectations-using-will-and-willnot)
 - [How to Install Quick](#how-to-install-quick)
@@ -720,6 +721,30 @@ expect("").to.beEmpty()
 [nmb_expect((@[])).to beEmpty];
 [nmb_expect((@[@1, @2, @3])).toNot beEmpty];
 [nmb_expect(@"").to beEmpty];
+```
+
+#### Raise
+
+Quick also allows me to make expectations on closures. For example, I
+can specify that a block of code raises an exception. I can also specify
+it raises an exception with a specific name, reason, or userInfo
+dictionary:
+
+```swift
+expect{penguin.fly()}.to.raise()
+expect{penguin.fly()}.to.raise(NSInternalInconsistencyException)
+expect{penguin.fly()}.to.raise(NSInternalInconsistencyException, reason: "Penguins can't fly!")
+expect{penguin.fly()}.to.raise(NSInternalInconsistencyException, reason: "Penguins can't fly!", userInfo: ["url": "https://www.youtube.com/watch?v=6JsZbSzMi08"])
+```
+
+```objc
+[nmb_expect([penguin fly]).to nmb_raise];
+[nmb_expect([penguin fly]).to nmb_raiseWithName:NSInternalInconsistencyException];
+[nmb_expect([penguin fly]).to nmb_raiseWithName:NSInternalInconsistencyException
+                                         reason:@"Penguins can't fly!"];
+[nmb_expect([penguin fly]).to nmb_raiseWithName:NSInternalInconsistencyException
+                                         reason:@"Penguins can't fly!"
+                                       userInfo:@{@"url": @"https://www.youtube.com/watch?v=6JsZbSzMi08"}];
 ```
 
 ### Automatic Optional Unwrapping
