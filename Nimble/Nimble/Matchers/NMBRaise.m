@@ -10,19 +10,15 @@
 
 @implementation NMBRaise
 
-+ (void)raise {
-    [NSException raise:NSInternalInconsistencyException format:@""];
-}
-
-+ (BOOL)raises:(void (^)(void))block {
++ (NSException *)raises:(void (^)(void))block {
     @try {
         block();
     }
     @catch (NSException *exception) {
-        return YES;
+        return exception;
     }
 
-    return NO;
+    return nil;
 }
 
 @end

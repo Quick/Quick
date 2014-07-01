@@ -22,6 +22,14 @@ import Foundation
         return "expected \(actual) not to match \(expected)"
     }
 
+    func failureMessageForClosure(actualClosure: () -> (NSObject?)) -> String {
+        return "expected closure to match \(expected)"
+    }
+
+    func negativeFailureMessageForClosure(actualClosure: () -> (NSObject?)) -> String {
+        return "expected closure not to match \(expected)"
+    }
+
     func match(actual: NSObject?) -> Bool {
         NSException(name: NSInternalInconsistencyException,
                     reason:"Matchers must override match()",

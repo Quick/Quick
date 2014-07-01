@@ -10,7 +10,6 @@
 
 @interface NMBRaise : NSObject
 
-+ (void)raise;
-+ (BOOL)raises:(void (^)(void))block;
++ (NSException *)raises:(void (^)(void))block;
 
 @end

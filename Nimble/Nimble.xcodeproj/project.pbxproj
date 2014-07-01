@@ -61,14 +61,12 @@
 		34F375E919515DE500CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3756C1951595E00CE1B99 /* Quick.framework */; };
 		5A4A0D861960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */; };
 		5A4A0D871960AF3A005678EA /* MatcherSharedExampleGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D851960AF3A005678EA /* MatcherSharedExampleGroups.swift */; };
-		5A4A0D99196169A4005678EA /* NMBRaise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D97196169A4005678EA /* NMBRaise.h */; };
-		5A4A0D9A196169A4005678EA /* NMBRaise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D97196169A4005678EA /* NMBRaise.h */; };
+		5A4A0D99196169A4005678EA /* NMBRaise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D97196169A4005678EA /* NMBRaise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A4A0D9A196169A4005678EA /* NMBRaise.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D97196169A4005678EA /* NMBRaise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A4A0D9B196169A4005678EA /* NMBRaise.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D98196169A4005678EA /* NMBRaise.m */; };
 		5A4A0D9C196169A4005678EA /* NMBRaise.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D98196169A4005678EA /* NMBRaise.m */; };
 		5A4A0D9E19616A24005678EA /* Raise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D9D19616A24005678EA /* Raise.swift */; };
 		5A4A0D9F19616A24005678EA /* Raise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D9D19616A24005678EA /* Raise.swift */; };
-		5A4A0DA71961F58B005678EA /* Nimble-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */; };
-		5A4A0DA81961F58B005678EA /* Nimble-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */; };
 		5A4A0DAA1961F615005678EA /* RaiseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0DA91961F615005678EA /* RaiseSpec.swift */; };
 		5A4A0DAB1961F615005678EA /* RaiseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0DA91961F615005678EA /* RaiseSpec.swift */; };
 		5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -103,8 +101,8 @@
 		93ABD53B1958704900F8AE41 /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD5391958704900F8AE41 /* BeEmpty.swift */; };
 		93ABD53D1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
 		93ABD53E1958705B00F8AE41 /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ABD53C1958705B00F8AE41 /* BeEmptySpec.swift */; };
-		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
-		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; };
+		93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E3341A195D09900031AD9A /* NMBDSL+BeEmpty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA8EA89E19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
 		FA8EA89F19568B7900244180 /* BeIdenticalToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA89D19568B7900244180 /* BeIdenticalToSpec.swift */; };
 		FA8EA8A519568BED00244180 /* BeIdenticalTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8EA8A419568BED00244180 /* BeIdenticalTo.swift */; };
@@ -213,7 +211,6 @@
 		5A4A0D97196169A4005678EA /* NMBRaise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMBRaise.h; sourceTree = "<group>"; };
 		5A4A0D98196169A4005678EA /* NMBRaise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMBRaise.m; sourceTree = "<group>"; };
 		5A4A0D9D19616A24005678EA /* Raise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Raise.swift; sourceTree = "<group>"; };
-		5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Nimble-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A4A0DA91961F615005678EA /* RaiseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaiseSpec.swift; sourceTree = "<group>"; };
 		5A72599B195A1D5D002722D8 /* NMBDSL+BeFalse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeFalse.h"; sourceTree = "<group>"; };
 		5A72599C195A1D5D002722D8 /* NMBDSL+BeNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NMBDSL+BeNil.h"; sourceTree = "<group>"; };
@@ -303,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				2E37EFF11950663300DF5316 /* Nimble.h */,
-				5A4A0DA61961F58B005678EA /* Nimble-Bridging-Header.h */,
 				34F375C619515CC900CE1B99 /* DSL.swift */,
 				34F375C119515CC900CE1B99 /* Actual.swift */,
 				34F375C219515CC900CE1B99 /* ActualClosure.swift */,
@@ -446,7 +442,6 @@
 				5A7259A0195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
 				93E3341B195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599E195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
-				5A4A0DA71961F58B005678EA /* Nimble-Bridging-Header.h in Headers */,
 				2E37EFF21950663300DF5316 /* Nimble.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,7 +456,6 @@
 				5A7259A1195A1D5D002722D8 /* NMBDSL+BeNil.h in Headers */,
 				93E3341C195D09900031AD9A /* NMBDSL+BeEmpty.h in Headers */,
 				5A72599F195A1D5D002722D8 /* NMBDSL+BeFalse.h in Headers */,
-				5A4A0DA81961F58B005678EA /* Nimble-Bridging-Header.h in Headers */,
 				2E37F09E19506DCF00DF5316 /* Nimble.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -834,7 +828,6 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Nimble/Nimble-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -873,7 +866,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Nimble/Nimble-Bridging-Header.h";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

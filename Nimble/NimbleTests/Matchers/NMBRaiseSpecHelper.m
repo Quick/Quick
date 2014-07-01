@@ -13,8 +13,24 @@
 #pragma mark - Public Interface
 
 + (void)raise {
-    [NSException raise:@"NMBRaiseSpecHelperException"
-                format:@"This exception was thrown as part of a spec"];
+    [self raiseWithName:NSInternalInconsistencyException reason:nil userInfo:nil];
+}
+
++ (void)raiseWithName:(NSString *)name {
+    [self raiseWithName:name reason:nil userInfo:nil];
+}
+
++ (void)raiseWithName:(NSString *)name reason:(NSString *)reason {
+    [self raiseWithName:name reason:reason userInfo:nil];
+}
+
++ (void)raiseWithName:(NSString *)name
+               reason:(NSString *)reason
+             userInfo:(NSDictionary *)userInfo {
+    NSException *exception = [NSException exceptionWithName:name
+                                                     reason:reason
+                                                   userInfo:userInfo];
+    [exception raise];
 }
 
 @end

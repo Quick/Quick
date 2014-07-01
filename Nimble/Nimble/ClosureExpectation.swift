@@ -30,9 +30,9 @@ class ClosureExpectation: Prediction {
     func evaluateClosure(matcher: Matcher) {
         let matched = matcher.matchClosure(actualClosure)
         if negative && matched {
-            fail(matcher.negativeFailureMessage(nil), callsite: callsite)
+            fail(matcher.negativeFailureMessageForClosure(actualClosure), callsite: callsite)
         } else if !negative && !matched {
-            fail(matcher.failureMessage(nil), callsite: callsite)
+            fail(matcher.failureMessageForClosure(actualClosure), callsite: callsite)
         }
     }
 }

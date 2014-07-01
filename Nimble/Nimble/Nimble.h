@@ -20,3 +20,5 @@ FOUNDATION_EXPORT const unsigned char NimbleVersionString[];
 #import <Nimble/NMBDSL+BeNil.h>
 #import <Nimble/NMBDSL+BeTrue.h>
 #import <Nimble/NMBDSL+BeFalse.h>
+#import <Nimble/NMBDSL+BeEmpty.h>
+#import <Nimble/NMBRaise.h>

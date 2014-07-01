@@ -14,7 +14,7 @@ class AsyncExpectation: ClosureExpectation {
 
     override func evaluate(matcher: Matcher) {
         let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
-        while (true) {
+        while true {
             let expired = NSDate.date().compare(expirationDate) != NSComparisonResult.OrderedAscending
             let actual = actualClosure()
             let matched = matcher.match(actual)
@@ -26,8 +26,8 @@ class AsyncExpectation: ClosureExpectation {
             //
             // "willNot", on the other hand, implies that we never matched,
             // even after waiting until the time out.
-            if (negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessage(actual)) ||
-                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessage(actual))) {
+            if negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessage(actual)) ||
+                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessage(actual)) {
                     break
             }
 
@@ -37,12 +37,12 @@ class AsyncExpectation: ClosureExpectation {
 
     override func evaluateClosure(matcher: Matcher) {
         let expirationDate = NSDate(timeIntervalSinceNow: timeOut)
-        while (true) {
+        while true {
             let expired = NSDate.date().compare(expirationDate) != NSComparisonResult.OrderedAscending
             let matched = matcher.matchClosure(actualClosure)
 
-            if (negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessage(nil)) ||
-                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessage(nil))) {
+            if negative && _shouldEndNegativeWait(expired, matched, matcher.negativeFailureMessageForClosure(actualClosure)) ||
+                !negative && _shouldEndPositiveWait(expired, matched, matcher.failureMessageForClosure(actualClosure)) {
                     break
             }
 
