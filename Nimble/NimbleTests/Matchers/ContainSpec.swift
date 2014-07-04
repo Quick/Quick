@@ -34,6 +34,14 @@ class ContainSpec: QuickSpec {
                         expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' to contain 'Jon Snow'")
                     }
                 }
+                
+                context("when the subject is a dictionary") {
+                    beforeEach { subject = [ "Robb Stark": "Sansa Stark" ] }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher.failureMessage(subject)
+                        expect(message).to.equal("expected '{\n    \"Robb Stark\" = \"Sansa Stark\";\n}' to contain 'Jon Snow'")
+                    }
+                }
 
                 context("when the subject is a set") {
                     beforeEach { subject = NSSet(objects: "Robb Stark", "Sansa Stark") }
@@ -66,6 +74,14 @@ class ContainSpec: QuickSpec {
                     it("says it expected subject not to contain expected") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal("expected '[ Robb Stark, Sansa Stark ]' not to contain 'Jon Snow'")
+                    }
+                }
+                
+                context("when the subject is a dictionary") {
+                    beforeEach { subject = [ "Ghost": "Jon Snow" ] }
+                    it("says it expected subject to contain expected") {
+                        let message = matcher.negativeFailureMessage(subject)
+                        expect(message).to.equal("expected '{\n    Ghost = \"Jon Snow\";\n}' not to contain 'Jon Snow'")
                     }
                 }
 
@@ -123,6 +139,55 @@ class ContainSpec: QuickSpec {
                     }
                 }
 
+                context("but it doesn't contain the element") {
+                    it("doesn't match") {
+                        expect(subject).toNot.contain("Oberyn Martell")
+                    }
+                }
+            }
+
+            context("when the subject is an optional dictionary") {
+                var subject: Dictionary<String, Int>?
+                
+                context("and nil") {
+                    it("does not match") {
+                        expect(subject).notTo.contain(10)
+                        expect(subject).toNot.contain(nil)
+                    }
+                }
+                
+                context("and non-nil") {
+                    beforeEach {
+                        subject = [
+                            "Three":  3,
+                            "One"  :  1,
+                            "Ten"  : 10,
+                            "Two"  :  2
+                        ]
+                    }
+                    context("and it contains the element") {
+                        it("matches") {
+                            expect(subject).to.contain(10)
+                        }
+                    }
+                    
+                    context("but it doesn't contain the element") {
+                        it("doesn't match") {
+                            expect(subject).notTo.contain(20)
+                        }
+                    }
+                }
+            }
+            
+            context("when the subject is a dictionary") {
+                let subject = ["House Tyrell": "Olenna Tyrell"]
+                
+                context("and it contains the element") {
+                    it("matches") {
+                        expect(subject).to.contain("Olenna Tyrell")
+                    }
+                }
+                
                 context("but it doesn't contain the element") {
                     it("doesn't match") {
                         expect(subject).toNot.contain("Oberyn Martell")
@@ -189,7 +254,7 @@ class ContainSpec: QuickSpec {
                 }
             }
 
-            context("when the subject is neither an array nor a set") {
+            context("when the subject is not an array, dictionary, set, or string") {
                 it("doesn't match") {
                     expect(10).toNot.contain(1)
                 }

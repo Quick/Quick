@@ -22,6 +22,8 @@ class Contain: Matcher {
             switch x {
             case let array as NSArray:
                 return array.containsObject(expected)
+            case let dictionary as NSDictionary:
+                return (dictionary.allValues as NSArray).containsObject(expected)
             case let set as NSSet:
                 return set.containsObject(expected)
             case let string as NSString:
