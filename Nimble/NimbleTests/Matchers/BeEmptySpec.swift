@@ -1,10 +1,3 @@
-//
-//  BeEmptySpec.swift
-//  Quick
-//
-//  Created by Bryan Enders on 6/23/14.
-//
-
 import Quick
 import Nimble
 
@@ -32,6 +25,14 @@ class BeEmptySpec: QuickSpec {
                     it("says it expected subject to be empty") {
                         let message = matcher.failureMessage(subject)
                         expect(message).to.equal("expected subject to be empty, got '[ Davos Seaworth, Gilly ]'")
+                    }
+                }
+                
+                context("when the subject is a dictionary") {
+                    beforeEach { subject = ["Davos Seaworth": "Gilly"] }
+                    it("says it expected subject to be empty") {
+                        let message = matcher.failureMessage(subject)
+                        expect(message).to.equal("expected subject to be empty, got '{\n    \"Davos Seaworth\" = Gilly;\n}'")
                     }
                 }
 
@@ -66,6 +67,14 @@ class BeEmptySpec: QuickSpec {
 
                 context("when the subject is an array") {
                     beforeEach { subject = [] }
+                    it("says it expected subject not to be empty") {
+                        let message = matcher.negativeFailureMessage(subject)
+                        expect(message).to.equal(negativeMessage)
+                    }
+                }
+                
+                context("when the subject is a dictionary") {
+                    beforeEach { subject = Dictionary<String, String>() }
                     it("says it expected subject not to be empty") {
                         let message = matcher.negativeFailureMessage(subject)
                         expect(message).to.equal(negativeMessage)
@@ -135,6 +144,59 @@ class BeEmptySpec: QuickSpec {
                 }
             }
 
+            context("when the subject is an optional dictionary") {
+                var subject: Dictionary<String, String>?
+                
+                context("and nil") {
+                    it("does not match") {
+                        expect(subject).notTo.beEmpty()
+                    }
+                }
+                
+                context("and not nil") {
+                    beforeEach { subject = Dictionary<String, String>() }
+                    
+                    context("and it is empty") {
+                        it("matches") {
+                            expect(subject).to.beEmpty()
+                        }
+                    }
+                    
+                    context("but it is not empty") {
+                        beforeEach { subject = ["Daario": "Naharis"] }
+                        it("doesn't match") {
+                            expect(subject).toNot.beEmpty()
+                        }
+                    }
+                }
+            }
+
+            context("when the subject is a dictionary") {
+                var subject = Dictionary<String, String>()
+                
+                context("and it is empty") {
+                    it("matches") {
+                        expect(subject).to.beEmpty()
+                    }
+                }
+                
+                context("but it is not empty") {
+                    beforeEach {
+                        subject = [
+                            "Robb Stark": "Grey Wind",
+                            "Sansa Stark": "Lady",
+                            "Arya Stark": "Nymeria",
+                            "Bran Stark": "Summer",
+                            "Rickon Stark": "Shaggydog",
+                            "Jon Snow": "Ghost"
+                        ]
+                    }
+                    it("doesn't match") {
+                        expect(subject).notTo.beEmpty()
+                    }
+                }
+            }
+
             context("when the subject is an optional set") {
                 var subject: NSSet?
 
@@ -196,7 +258,7 @@ class BeEmptySpec: QuickSpec {
                 }
             }
 
-            context("when the subject is neither an array nor a set") {
+            context("when the subject is not an array, dictionary, set, or string") {
                 it("doesn't match") {
                     expect(42).toNot.beEmpty()
                 }
