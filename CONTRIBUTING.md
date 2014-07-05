@@ -6,7 +6,8 @@
   - [Building the Project](#building-the-project)
   - [Pull Requests](#pull-requests)
     - [Style Conventions](#style-conventions)
-  - [Commit Bits](#commit-bits)
+  - [Core Members](#core-members)
+    - [Code of Conduct](#code-of-conduct)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -61,9 +62,28 @@ it.
 - In Objective-C, use `#pragma mark -` to mark public, internal,
   protocol, and superclass methods. See `QuickSpec.m` for an example.
 
-## Commit Bits
+## Core Members
 
 If a few of your pull requests have been merged, and you'd like a
 controlling stake in the project, file an issue asking for write access
 to the repository.
+
+### Code of Conduct
+
+Your conduct as a core member is your own responsibility, but here are
+some "ground rules":
+
+- Feel free to push whatever you want to master, and (if you have
+  ownership permissions) to create any repositories you'd like.
+
+  Ideally, however, all changes should be submitted as GitHub pull
+  requests. No one should merge their own pull request, unless no
+  other core members respond for at least a few days.
+
+  If you'd like to create a new repository, it'd be nice if you created
+  a GitHub issue and gathered some feedback first.
+
+- It'd be awesome if you could review, provide feedback on, and close
+  issues or pull requests submitted to the project. Please provide kind,
+  constructive feedback. Please don't be sarcastic or snarky.
 
