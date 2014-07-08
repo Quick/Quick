@@ -7,19 +7,22 @@
 //
 
 @objc class ExampleGroup {
+    typealias BeforeClosure = () -> ()
+    typealias AfterClosure = BeforeClosure
+
     weak var parent: ExampleGroup?
 
     var _description: String
-    var _localBefores: (() -> ())[] = []
-    var _localAfters: (() -> ())[] = []
-    var _groups: ExampleGroup[] = []
-    var _localExamples: Example[] = []
+    var _localBefores = [BeforeClosure]()
+    var _localAfters = [AfterClosure]()
+    var _groups = [ExampleGroup]()
+    var _localExamples = [Example]()
 
     init(_ description: String) {
         self._description = description
     }
 
-    var befores: (() -> ())[] {
+    var befores: [BeforeClosure] {
         get {
             var closures = _localBefores
             walkUp() { (group: ExampleGroup) -> () in
@@ -29,7 +32,7 @@
         }
     }
 
-    var afters: (() -> ())[] {
+    var afters: [AfterClosure] {
         get {
             var closures = _localAfters
             walkUp() { (group: ExampleGroup) -> () in
@@ -39,7 +42,7 @@
         }
     }
 
-    var examples: Example[] {
+    var examples: [Example] {
         get {
             var examples = _localExamples
             for group in _groups {
@@ -94,11 +97,11 @@
         _localExamples.append(example)
     }
 
-    func appendBefore(closure: () -> ()) {
+    func appendBefore(closure: BeforeClosure) {
         _localBefores.append(closure)
     }
 
-    func appendAfter(closure: () -> ()) {
+    func appendAfter(closure: AfterClosure) {
         _localAfters.append(closure)
     }
 }
