@@ -89,7 +89,7 @@ class ContainSpec: QuickSpec {
 
         describe("contain()") {
             context("when the subject is an optional array") {
-                var subject: AnyObject[]?
+                var subject: [AnyObject]?
 
                 context("and nil") {
                     it("does not match") {

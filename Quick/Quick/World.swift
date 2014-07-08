@@ -14,13 +14,13 @@ typealias SharedExampleClosure = (SharedExampleContext) -> ()
 class World: NSObject {
     var _specs: Dictionary<String, ExampleGroup> = [:]
 
-    var _beforeSuites: (() -> ())[] = []
+    var _beforeSuites: [(() -> ())] = []
     var _beforeSuitesNotRunYet = true
 
-    var _afterSuites: (() -> ())[] = []
+    var _afterSuites: [(() -> ())] = []
     var _afterSuitesNotRunYet = true
 
-    var _sharedExamples: Dictionary<String, SharedExampleClosure> = [:]
+    var _sharedExamples: [String: SharedExampleClosure] = [:]
 
     var currentExampleGroup: ExampleGroup?
 
@@ -84,7 +84,7 @@ class World: NSObject {
     }
 
     func _raiseIfSharedExampleAlreadyRegistered(name: String) {
-        if _sharedExamples[name] != nil {
+        if _sharedExamples[name] {
             NSException(name: NSInternalInconsistencyException,
                 reason: "A shared example named '\(name)' has already been registered.",
                 userInfo: nil).raise()
@@ -97,7 +97,7 @@ class World: NSObject {
     }
 
     func _raiseIfSharedExampleNotRegistered(name: String) {
-        if _sharedExamples[name] == nil {
+        if !_sharedExamples[name] {
             NSException(name: NSInternalInconsistencyException,
                 reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(_sharedExamples.keys))'",
                 userInfo: nil).raise()

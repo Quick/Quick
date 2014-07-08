@@ -10,16 +10,16 @@
     weak var parent: ExampleGroup?
 
     var _description: String
-    var _localBefores: (() -> ())[] = []
-    var _localAfters: (() -> ())[] = []
-    var _groups: ExampleGroup[] = []
-    var _localExamples: Example[] = []
+    var _localBefores: [(() -> ())] = []
+    var _localAfters: [(() -> ())] = []
+    var _groups: [ExampleGroup] = []
+    var _localExamples: [Example] = []
 
     init(_ description: String) {
         self._description = description
     }
 
-    var befores: (() -> ())[] {
+    var befores: [(() -> ())] {
         get {
             var closures = _localBefores
             walkUp() { (group: ExampleGroup) -> () in
@@ -29,7 +29,7 @@
         }
     }
 
-    var afters: (() -> ())[] {
+    var afters: [(() -> ())] {
         get {
             var closures = _localAfters
             walkUp() { (group: ExampleGroup) -> () in
@@ -39,7 +39,7 @@
         }
     }
 
-    var examples: Example[] {
+    var examples: [Example] {
         get {
             var examples = _localExamples
             for group in _groups {
