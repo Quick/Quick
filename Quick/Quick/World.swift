@@ -12,12 +12,15 @@ typealias SharedExampleContext = () -> (NSDictionary)
 typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
 class World: NSObject {
+    typealias BeforeSuiteClosure = () -> ()
+    typealias AfterSuiteClosure = BeforeSuiteClosure
+
     var _specs: Dictionary<String, ExampleGroup> = [:]
 
-    var _beforeSuites: [(() -> ())] = []
+    var _beforeSuites = [BeforeSuiteClosure]()
     var _beforeSuitesNotRunYet = true
 
-    var _afterSuites: [(() -> ())] = []
+    var _afterSuites = [AfterSuiteClosure]()
     var _afterSuitesNotRunYet = true
 
     var _sharedExamples: [String: SharedExampleClosure] = [:]
@@ -58,11 +61,11 @@ class World: NSObject {
         _afterSuitesNotRunYet = false
     }
 
-    func appendBeforeSuite(closure: () -> ()) {
+    func appendBeforeSuite(closure: BeforeSuiteClosure) {
         _beforeSuites.append(closure)
     }
 
-    func appendAfterSuite(closure: () -> ()) {
+    func appendAfterSuite(closure: AfterSuiteClosure) {
         _afterSuites.append(closure)
     }
 
