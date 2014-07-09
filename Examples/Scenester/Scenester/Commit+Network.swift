@@ -30,7 +30,7 @@ extension Commit {
                         return
                     }
 
-                    if let commits = json as? NSDictionary[] {
+                    if let commits = json as? [NSDictionary] {
                         if commits.count == 0 {
                             failure(error: self.commitError(CommitErrorCode.NoCommits))
                         } else {
