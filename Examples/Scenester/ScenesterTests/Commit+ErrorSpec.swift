@@ -19,7 +19,7 @@ class Commit_ErrorSpec: QuickSpec {
                 beforeEach { code = CommitErrorCode.NoCommits }
                 it("returns an error") {
                     let error = Commit.commitError(code)
-                    expect(error.localizedDescription).to.equal("The repo does not have any commits.")
+                    expect(error.localizedDescription).to(equal("The repo does not have any commits."))
                 }
             }
 
@@ -27,7 +27,7 @@ class Commit_ErrorSpec: QuickSpec {
                 beforeEach { code = CommitErrorCode.InvalidCommit }
                 it("returns an error") {
                     let error = Commit.commitError(code)
-                    expect(error.localizedDescription).to.equal("The commit JSON is invalid.")
+                    expect(error.localizedDescription).to(equal("The commit JSON is invalid."))
                 }
             }
 
@@ -35,7 +35,7 @@ class Commit_ErrorSpec: QuickSpec {
                 beforeEach { code = CommitErrorCode.InvalidResponse }
                 it("returns an error") {
                     let error = Commit.commitError(code)
-                    expect(error.localizedDescription).to.equal("The response JSON for that repo does not contain commit data.")
+                    expect(error.localizedDescription).to(equal("The response JSON for that repo does not contain commit data."))
                 }
             }
         }

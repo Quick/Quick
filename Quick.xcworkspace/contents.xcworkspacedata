@@ -5,7 +5,7 @@
       location = "group:Quick/Quick.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Nimble/Nimble.xcodeproj">
+      location = "group:Externals/Nimble/Nimble.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Examples/Scenester/Scenester.xcodeproj">

@@ -29,7 +29,7 @@ class Commit_NetworkSpec: QuickSpec {
                         } else {
                             return ""
                         }
-                    }.willBefore(3).equal("modocache")
+                    }.toEventually(equal("modocache"), timeout: 3)
                 }
             }
         }

@@ -16,7 +16,7 @@ class FunctionalSharedExamples: QuickSharedExampleGroups {
     override class func sharedExampleGroups() {
         sharedExamples("something living after dinosaurs are extinct") {
             it("no longer deals with dinosaurs") {
-                expect(dinosaursExtinct).to.beTrue()
+                expect(dinosaursExtinct).to(beTruthy())
             }
         }
 
@@ -27,11 +27,11 @@ class FunctionalSharedExamples: QuickSharedExampleGroups {
             }
 
             it("is happy") {
-                expect(person.isHappy).to.beTrue()
+                expect(person.isHappy).to(beTruthy())
             }
 
             it("is a dreamer") {
-                expect(person.hopes).to.contain("winning the lottery")
+                expect(person.hopes).to(contain("winning the lottery"))
             }
         }
     }
@@ -60,42 +60,42 @@ class PersonSpec: QuickSpec {
 
             it("gets hungry") {
                 person!.eatChineseFood()
-                expect{person.isHungry}.will.beTrue()
+                expect{person.isHungry}.toEventually(beTruthy())
             }
 
             it("will never be satisfied") {
-                expect{person.isSatisfied}.willNot.beTrue()
+                expect{person.isSatisfied}.toEventuallyNot(beTruthy())
             }
 
             it("🔥🔥それでも俺たちは🔥🔥") {
-                expect{person.isSatisfied}.willNot.beTrue()
+                expect{person.isSatisfied}.toEventuallyNot(beTruthy())
             }
 
             pending("but one day") {
                 it("will never want for anything") {
-                    expect{person.isSatisfied}.will.beTrue()
+                    expect{person.isSatisfied}.toEventually(beTruthy())
                 }
             }
 
             it("does not live with dinosaurs") {
-                expect(dinosaursExtinct).to.beTrue()
-                expect(mankindExtinct).notTo.beTrue()
+                expect(dinosaursExtinct).to(beTruthy())
+                expect(mankindExtinct).notTo(beTruthy())
             }
 
             describe("greeting") {
                 context("when the person is unhappy") {
                     beforeEach { person.isHappy = false }
                     it("is lukewarm") {
-                        expect(person.greeting).to.equal("Oh, hi.")
-                        expect(person.greeting).notTo.equal("Hello!")
+                        expect(person.greeting).to(equal("Oh, hi."))
+                        expect(person.greeting).notTo(equal("Hello!"))
                     }
                 }
 
                 context("when the person is happy") {
                     beforeEach { person!.isHappy = true }
                     it("is enthusiastic") {
-                        expect(person.greeting).to.equal("Hello!")
-                        expect(person.greeting).notTo.equal("Oh, hi.")
+                        expect(person.greeting).to(equal("Hello!"))
+                        expect(person.greeting).notTo(equal("Oh, hi."))
                     }
                 }
             }
@@ -115,14 +115,14 @@ class PoetSpec: QuickSpec {
                 context("when the poet is unhappy") {
                     beforeEach { poet.isHappy = false }
                     it("is dramatic") {
-                        expect(poet.greeting).to.equal("Woe is me!")
+                        expect(poet.greeting).to(equal("Woe is me!"))
                     }
                 }
 
                 context("when the poet is happy") {
                     beforeEach { poet.isHappy = true }
                     it("is joyous") {
-                        expect(poet.greeting).to.equal("Oh, joyous day!")
+                        expect(poet.greeting).to(equal("Oh, joyous day!"))
                     }
                 }
             }

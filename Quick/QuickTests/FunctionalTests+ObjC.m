@@ -19,7 +19,7 @@ qck_sharedExamples(@"a truthy value", ^(QCKDSLSharedExampleContext context) {
     });
 
     qck_it(@"is true", ^{
-        [nmb_expect(value).to beTrue];
+        expect(value).to(beTruthy());
     });
 });
 
@@ -41,14 +41,14 @@ qck_afterSuite(^{
 
 qck_describe(@"a describe block", ^{
     qck_it(@"contains an it block", ^{
-        [nmb_expect(@(beforeSuiteExecuted_afterSuiteNotYetExecuted)).to beTrue];
+        expect(@(beforeSuiteExecuted_afterSuiteNotYetExecuted)).to(beTruthy());
     });
 
     qck_itBehavesLike(@"a truthy value", ^{ return @{ @"value": @YES }; });
 
     qck_pending(@"a pending block", ^{
         qck_it(@"contains a failing it block", ^{
-            [nmb_expect(@NO).to beTrue];
+            expect(@NO).to(beTruthy());
         });
     });
 });

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F6BB85619691C06009F1DBB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB84F19691BDF009F1DBB /* Nimble.framework */; };
 		34F37618195166CE00CE1B99 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F376001951665B00CE1B99 /* Quick.framework */; };
-		34F37619195166D400CE1B99 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F3760F1951666500CE1B99 /* Nimble.framework */; };
 		5A00E32E1946D8B800276F53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00E32D1946D8B800276F53 /* main.swift */; };
 		5A00E3301946D8B800276F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A00E32F1946D8B800276F53 /* AppDelegate.swift */; };
 		5A00E3321946D8B800276F53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A00E3311946D8B800276F53 /* Images.xcassets */; };
@@ -23,6 +23,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F6BB84E19691BDF009F1DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74291940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		1F6BB85019691BDF009F1DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74341940169200FFFC47;
+			remoteInfo = "Nimble-iOSTests";
+		};
+		1F6BB85219691BDF009F1DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EAD195C0D6300ED456B;
+			remoteInfo = "Nimble-OSX";
+		};
+		1F6BB85419691BDF009F1DBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EB7195C0D6300ED456B;
+			remoteInfo = "Nimble-OSXTests";
+		};
 		2E5DCEC61950784000E24209 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A00E3201946D8B800276F53 /* Project object */;
@@ -65,34 +93,6 @@
 			remoteGlobalIDString = 5A5D118619473F2100F6D13D;
 			remoteInfo = "Quick-iOSTests";
 		};
-		34F3760E1951666500CE1B99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34F376071951666500CE1B99 /* Nimble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E37EFEC1950663300DF5316;
-			remoteInfo = Nimble;
-		};
-		34F376101951666500CE1B99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34F376071951666500CE1B99 /* Nimble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E37EFF71950663300DF5316;
-			remoteInfo = NimbleTests;
-		};
-		34F376121951666500CE1B99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34F376071951666500CE1B99 /* Nimble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E37F0161950665000DF5316;
-			remoteInfo = "Nimble-iOS";
-		};
-		34F376141951666500CE1B99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 34F376071951666500CE1B99 /* Nimble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E37F0201950665000DF5316;
-			remoteInfo = "Nimble-iOSTests";
-		};
 		5A00E33B1946D8B800276F53 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A00E3201946D8B800276F53 /* Project object */;
@@ -131,9 +131,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../../Externals/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		2E5DCEBC1950782E00E24209 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Scenester-dssnwvutierdzfdjdqhsnhcrimse/Build/Products/Debug/Nimble.framework"; sourceTree = "<group>"; };
 		34F375F81951665B00CE1B99 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../../Quick/Quick.xcodeproj; sourceTree = "<group>"; };
-		34F376071951666500CE1B99 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../../Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		5A00E3281946D8B800276F53 /* Scenester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scenester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A00E32C1946D8B800276F53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A00E32D1946D8B800276F53 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -164,14 +164,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6BB85619691C06009F1DBB /* Nimble.framework in Frameworks */,
 				34F37618195166CE00CE1B99 /* Quick.framework in Frameworks */,
-				34F37619195166D400CE1B99 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F6BB84819691BDF009F1DBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F6BB84F19691BDF009F1DBB /* Nimble.framework */,
+				1F6BB85119691BDF009F1DBB /* NimbleTests.xctest */,
+				1F6BB85319691BDF009F1DBB /* Nimble.framework */,
+				1F6BB85519691BDF009F1DBB /* Nimble-OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		34F375F91951665B00CE1B99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,17 +190,6 @@
 				34F376021951665B00CE1B99 /* QuickTests.xctest */,
 				34F376041951665B00CE1B99 /* Quick.framework */,
 				34F376061951665B00CE1B99 /* Quick-iOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		34F376081951666500CE1B99 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				34F3760F1951666500CE1B99 /* Nimble.framework */,
-				34F376111951666500CE1B99 /* NimbleTests.xctest */,
-				34F376131951666500CE1B99 /* Nimble.framework */,
-				34F376151951666500CE1B99 /* Nimble-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,8 +243,8 @@
 				5A5D11531946F54A00F6D13D /* CommitSpec.swift */,
 				5A5D11581946F73700F6D13D /* Commit+ErrorSpec.swift */,
 				5A5D116F1946FC4600F6D13D /* Commit+NetworkSpec.swift */,
+				1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */,
 				34F375F81951665B00CE1B99 /* Quick.xcodeproj */,
-				34F376071951666500CE1B99 /* Nimble.xcodeproj */,
 				5A00E33E1946D8B800276F53 /* Supporting Files */,
 			);
 			path = ScenesterTests;
@@ -342,8 +342,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 34F376081951666500CE1B99 /* Products */;
-					ProjectRef = 34F376071951666500CE1B99 /* Nimble.xcodeproj */;
+					ProductGroup = 1F6BB84819691BDF009F1DBB /* Products */;
+					ProjectRef = 1F6BB84719691BDF009F1DBB /* Nimble.xcodeproj */;
 				},
 				{
 					ProductGroup = 34F375F91951665B00CE1B99 /* Products */;
@@ -359,6 +359,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1F6BB84F19691BDF009F1DBB /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 1F6BB84E19691BDF009F1DBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F6BB85119691BDF009F1DBB /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 1F6BB85019691BDF009F1DBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F6BB85319691BDF009F1DBB /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 1F6BB85219691BDF009F1DBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F6BB85519691BDF009F1DBB /* Nimble-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Nimble-OSXTests.xctest";
+			remoteRef = 1F6BB85419691BDF009F1DBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		34F376001951665B00CE1B99 /* Quick.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -385,34 +413,6 @@
 			fileType = wrapper.cfbundle;
 			path = "Quick-iOSTests.xctest";
 			remoteRef = 34F376051951665B00CE1B99 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34F3760F1951666500CE1B99 /* Nimble.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Nimble.framework;
-			remoteRef = 34F3760E1951666500CE1B99 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34F376111951666500CE1B99 /* NimbleTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = NimbleTests.xctest;
-			remoteRef = 34F376101951666500CE1B99 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34F376131951666500CE1B99 /* Nimble.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Nimble.framework;
-			remoteRef = 34F376121951666500CE1B99 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		34F376151951666500CE1B99 /* Nimble-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Nimble-iOSTests.xctest";
-			remoteRef = 34F376141951666500CE1B99 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

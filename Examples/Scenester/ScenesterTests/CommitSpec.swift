@@ -18,7 +18,7 @@ class CommitSpec: QuickSpec {
 
             describe("simpleDescription") {
                 it("returns author: 'commit message'") {
-                    expect(commit.simpleDescription).to.equal("jaime-lannister: 'debt repaid'")
+                    expect(commit.simpleDescription).to(equal("jaime-lannister: 'debt repaid'"))
                 }
             }
         }
