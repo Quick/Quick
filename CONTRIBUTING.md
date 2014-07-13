@@ -50,7 +50,7 @@ it.
 - Be sure the unit tests for both the OS X and iOS targets of both Quick
   and Nimble pass before submitting your pull request. You can run all
   the OS X unit tests using `rake test` (hopefully this will support iOS
-  soon, see: https://github.com/modocache/Quick/issues/25).
+  soon, see: https://github.com/Quick/Quick/issues/25).
 - If you've added a file to the project, make sure it's included in both
   the OS X and iOS targets.
 
