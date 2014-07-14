@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F6BB86619691C97009F1DBB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; };
-		1F6BB86719691C9A009F1DBB /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; };
 		1F6BB86819693204009F1DBB /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
 		1F6BB86A1969BF75009F1DBB /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
+		1FC1C8441973D16300E74AF1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; };
+		1FC1C8451973D16600E74AF1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; };
 		34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
@@ -291,7 +291,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6BB86619691C97009F1DBB /* Nimble.framework in Frameworks */,
 				AADBF9AC195213AD005E1714 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC1C8451973D16600E74AF1 /* Nimble.framework in Frameworks */,
 				5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +308,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6BB86719691C9A009F1DBB /* Nimble.framework in Frameworks */,
 				AAACAAD919532C4E00B492A8 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FC1C8441973D16300E74AF1 /* Nimble.framework in Frameworks */,
 				DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
