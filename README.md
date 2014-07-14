@@ -832,7 +832,7 @@ An example project with this complete setup is available in the
 ### 1. Clone this repository
 
 ```
-git clone git@github.com:modocache/Quick.git
+git clone git@github.com:Quick/Quick.git
 ```
 
 ### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
