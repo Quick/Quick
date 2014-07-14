@@ -1,10 +1,3 @@
-//
-//  BeEmpty.swift
-//  Quick
-//
-//  Created by Bryan Enders on 6/23/14.
-//
-
 import Foundation
 
 class BeEmpty: Matcher {
@@ -31,6 +24,8 @@ class BeEmpty: Matcher {
             switch x {
             case let array as NSArray:
                 return array.count == expected
+            case let dictionary as NSDictionary:
+                return dictionary.count == expected
             case let set as NSSet:
                 return set.count == expected
             case let string as NSString:
