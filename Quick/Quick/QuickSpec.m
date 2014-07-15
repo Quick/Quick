@@ -120,18 +120,11 @@ const void * const QCKExampleKey = &QCKExampleKey;
  */
 + (SEL)addInstanceMethodForExample:(Example *)example {
     IMP implementation = imp_implementationWithBlock(^(id self){
-        @try {
+        QuickNimbleAdapter *adapter = [[QuickNimbleAdapter alloc] init];
+
+        [adapter reportToTestCase:self sharedExampleCallsite:example.callsite failuresInBlock:^{
             [example run];
-        }
-        @catch (NSException *exception) {
-            Callsite *callsite = exception.qck_callsite;
-            if (!callsite || example.isSharedExample) {
-                callsite = example.callsite;
-            }
-            Failure *failure = [Failure failureWithException:exception
-                                                    callsite:callsite];
-            [self recordFailure:failure];
-        }
+        }];
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
     SEL selector = NSSelectorFromString(example.name.qck_selectorName);

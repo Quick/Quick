@@ -11,6 +11,10 @@
 		1F6BB86A1969BF75009F1DBB /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
 		1FC1C8441973D16300E74AF1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; };
 		1FC1C8451973D16600E74AF1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; };
+		1FDC514F1974EBEF0094E558 /* NimbleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC514E1974EBEF0094E558 /* NimbleAdapter.swift */; };
+		1FDC51501974EBEF0094E558 /* NimbleAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC514E1974EBEF0094E558 /* NimbleAdapter.swift */; };
+		1FDC51551974EBFC0094E558 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1FDC51561974EC020094E558 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6BB85F19691C87009F1DBB /* Nimble.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
@@ -256,6 +260,7 @@
 
 /* Begin PBXFileReference section */
 		1F6BB85719691C87009F1DBB /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../Externals/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
+		1FDC514E1974EBEF0094E558 /* NimbleAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleAdapter.swift; sourceTree = "<group>"; };
 		34512A381948223C007D457A /* FunctionalTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FunctionalTests+ObjC.m"; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		34F3759D19515CA700CE1B99 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
@@ -291,6 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDC51561974EC020094E558 /* Nimble.framework in Frameworks */,
 				AADBF9AC195213AD005E1714 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDC51551974EBFC0094E558 /* Nimble.framework in Frameworks */,
 				AAACAAD919532C4E00B492A8 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +374,7 @@
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				5AFC5948195ED5B900D3E0A2 /* Failure.swift */,
+				1FDC514E1974EBEF0094E558 /* NimbleAdapter.swift */,
 				34F375A219515CA700CE1B99 /* QCKDSL.h */,
 				34F375A319515CA700CE1B99 /* QCKDSL.m */,
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
@@ -662,6 +670,7 @@
 			files = (
 				34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
 				5AFC5961195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
+				1FDC51501974EBEF0094E558 /* NimbleAdapter.swift in Sources */,
 				5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
@@ -691,6 +700,7 @@
 			files = (
 				34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
 				5AFC5960195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
+				1FDC514F1974EBEF0094E558 /* NimbleAdapter.swift in Sources */,
 				5AFC5949195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
