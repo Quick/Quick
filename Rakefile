@@ -5,7 +5,7 @@ end
 desc "Run unit tests for all OS X targets"
 task :test do |t|
   run "xcodebuild -workspace Quick.xcworkspace -scheme Quick clean test"
-  run "xcodebuild -workspace Quick.xcworkspace -scheme Nimble clean test"
+  run "xcodebuild -workspace Quick.xcworkspace -scheme Nimble-OSX clean test"
 end
 
 namespace "templates" do
