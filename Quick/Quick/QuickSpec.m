@@ -120,11 +120,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
  */
 + (SEL)addInstanceMethodForExample:(Example *)example {
     IMP implementation = imp_implementationWithBlock(^(id self){
-        QuickNimbleAdapter *adapter = [[QuickNimbleAdapter alloc] init];
-
-        [adapter reportToTestCase:self sharedExampleCallsite:example.callsite failuresInBlock:^{
-            [example run];
-        }];
+        [example run];
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
     SEL selector = NSSelectorFromString(example.name.qck_selectorName);
@@ -151,11 +147,18 @@ const void * const QCKExampleKey = &QCKExampleKey;
  and teardown. By default, the failure will be reported as an
  XCTest failure, and the example will be highlighted in Xcode.
  */
-- (void)recordFailure:(Failure *)failure {
-    [self recordFailureWithDescription:failure.exception.reason
-                                inFile:failure.callsite.file
-                                atLine:failure.callsite.line
-                              expected:NO];
+- (void)recordFailureWithDescription:(NSString *)description
+                              inFile:(NSString *)filePath
+                              atLine:(NSUInteger)lineNumber
+                            expected:(BOOL)expected {
+    if (self.example.isSharedExample) {
+        filePath = self.example.callsite.file;
+        lineNumber = self.example.callsite.line;
+    }
+    [super recordFailureWithDescription:description
+                                 inFile:filePath
+                                 atLine:lineNumber
+                               expected:expected];
 }
 
 @end
