@@ -10,16 +10,16 @@ import XCTest
 
 var _numberOfExamplesRun = 0
 
-@objc class Example {
+@objc public class Example {
     weak var group: ExampleGroup?
 
     var _description: String
     var _closure: () -> ()
 
-    var isSharedExample = false
-    var callsite: Callsite
+    public var isSharedExample = false
+    public var callsite: Callsite
 
-    var name: String { get { return group!.name + ", " + _description } }
+    public var name: String { get { return group!.name + ", " + _description } }
 
     init(_ description: String, _ callsite: Callsite, _ closure: () -> ()) {
         self._description = description
@@ -27,7 +27,7 @@ var _numberOfExamplesRun = 0
         self.callsite = callsite
     }
 
-    func run() {
+    public func run() {
         if _numberOfExamplesRun == 0 {
             World.sharedWorld().runBeforeSpec()
         }

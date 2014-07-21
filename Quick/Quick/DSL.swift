@@ -8,20 +8,20 @@
 
 import Foundation
 
-@objc class DSL {
-    class func beforeSuite(closure: () -> ()) {
+@objc public class DSL {
+    public class func beforeSuite(closure: () -> ()) {
         World.sharedWorld().appendBeforeSuite(closure)
     }
 
-    class func afterSuite(closure: () -> ()) {
+    public class func afterSuite(closure: () -> ()) {
         World.sharedWorld().appendAfterSuite(closure)
     }
 
-    class func sharedExamples(name: String, closure: SharedExampleClosure) {
+    public class func sharedExamples(name: String, closure: SharedExampleClosure) {
         World.sharedWorld().registerSharedExample(name, closure: closure)
     }
 
-    class func describe(description: String, closure: () -> ()) {
+    public class func describe(description: String, closure: () -> ()) {
         var group = ExampleGroup(description)
         World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
         World.sharedWorld().currentExampleGroup = group
@@ -29,25 +29,25 @@ import Foundation
         World.sharedWorld().currentExampleGroup = group.parent
     }
 
-    class func context(description: String, closure: () -> ()) {
+    public class func context(description: String, closure: () -> ()) {
         self.describe(description, closure: closure)
     }
 
-    class func beforeEach(closure: () -> ()) {
+    public class func beforeEach(closure: () -> ()) {
         World.sharedWorld().currentExampleGroup!.appendBefore(closure)
     }
 
-    class func afterEach(closure: () -> ()) {
+    public class func afterEach(closure: () -> ()) {
         World.sharedWorld().currentExampleGroup!.appendAfter(closure)
     }
 
-    class func it(description: String, file: String, line: Int, closure: () -> ()) {
+    public class func it(description: String, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
         let example = Example(description, callsite, closure)
         World.sharedWorld().currentExampleGroup!.appendExample(example)
     }
 
-    class func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String, line: Int) {
+    public class func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String, line: Int) {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld().sharedExample(name)
 
@@ -63,7 +63,7 @@ import Foundation
         World.sharedWorld().currentExampleGroup = group.parent
     }
 
-    class func pending(description: String, closure: () -> ()) {
+    public class func pending(description: String, closure: () -> ()) {
         NSLog("Pending: %@", description)
     }
 }

@@ -8,10 +8,10 @@
 
 import Foundation
 
-typealias SharedExampleContext = () -> (NSDictionary)
-typealias SharedExampleClosure = (SharedExampleContext) -> ()
+public typealias SharedExampleContext = () -> (NSDictionary)
+public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
-class World: NSObject {
+public class World: NSObject {
     typealias BeforeSuiteClosure = () -> ()
     typealias AfterSuiteClosure = BeforeSuiteClosure
 
@@ -25,16 +25,16 @@ class World: NSObject {
 
     var _sharedExamples: [String: SharedExampleClosure] = [:]
 
-    var currentExampleGroup: ExampleGroup?
+    public var currentExampleGroup: ExampleGroup?
 
     struct _Shared {
         static let instance = World()
     }
-    class func sharedWorld() -> World {
+    public class func sharedWorld() -> World {
         return _Shared.instance
     }
 
-    func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
+    public func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
         let name = NSStringFromClass(cls)
         if let group = _specs[name] {
             return group

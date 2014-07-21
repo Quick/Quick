@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-@objc class ExampleGroup {
+@objc public class ExampleGroup {
     typealias BeforeClosure = () -> ()
     typealias AfterClosure = BeforeClosure
 
@@ -42,7 +42,7 @@
         }
     }
 
-    var examples: [Example] {
+    public var examples: [Example] {
         get {
             var examples = _localExamples
             for group in _groups {
