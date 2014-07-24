@@ -68,50 +68,50 @@ import Foundation
     }
 }
 
-func beforeSuite(closure: () -> ()) {
+public func beforeSuite(closure: () -> ()) {
     DSL.beforeSuite(closure)
 }
 
-func afterSuite(closure: () -> ()) {
+public func afterSuite(closure: () -> ()) {
     DSL.afterSuite(closure)
 }
 
-func sharedExamples(name: String, closure: () -> ()) {
+public func sharedExamples(name: String, closure: () -> ()) {
     DSL.sharedExamples(name, closure: { (NSDictionary) in closure() })
 }
 
-func sharedExamples(name: String, closure: SharedExampleClosure) {
+public func sharedExamples(name: String, closure: SharedExampleClosure) {
     DSL.sharedExamples(name, closure: closure)
 }
 
-func describe(description: String, closure: () -> ()) {
+public func describe(description: String, closure: () -> ()) {
     DSL.describe(description, closure: closure)
 }
 
-func context(description: String, closure: () -> ()) {
+public func context(description: String, closure: () -> ()) {
     describe(description, closure)
 }
 
-func beforeEach(closure: () -> ()) {
+public func beforeEach(closure: () -> ()) {
     DSL.beforeEach(closure)
 }
 
-func afterEach(closure: () -> ()) {
+public func afterEach(closure: () -> ()) {
     DSL.afterEach(closure)
 }
 
-func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
+public func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
     DSL.it(description, file: file, line: line, closure: closure)
 }
 
-func itBehavesLike(name: String, file: String = __FILE__, line: Int = __LINE__) {
+public func itBehavesLike(name: String, file: String = __FILE__, line: Int = __LINE__) {
     itBehavesLike(name, { return [:] }, file: file, line: line)
 }
 
-func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String = __FILE__, line: Int = __LINE__) {
+public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String = __FILE__, line: Int = __LINE__) {
     DSL.itBehavesLike(name, sharedExampleContext: sharedExampleContext, file: file, line: line)
 }
 
-func pending(description: String, closure: () -> ()) {
+public func pending(description: String, closure: () -> ()) {
     DSL.pending(description, closure: closure)
 }
