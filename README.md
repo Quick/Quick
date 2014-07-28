@@ -572,15 +572,17 @@ expect(person.hopes).to.contain("winning the lottery")
 
 #### Equal
 
-`Equal` matches if two objects are equal. It tests for equality using
+`Equal` matches if two values or objects are equal. It tests for equality using
 the `==` operator:
 
 ```swift
+expect(42).to.equal(42)
 expect("dolphin").to.equal("dolphin")
 expect("dolphin").toNot.equal("sea turtle")
 ```
 
 ```objc
+[nmb_expect(@42).to nmb_equal:@42];
 [nmb_expect(@"dolphin").to nmb_equal:@"dolphin"];
 [nmb_expect(@"dolphin").toNot nmb_equal:@"sea turtle"];
 ```
