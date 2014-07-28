@@ -14,15 +14,15 @@ class TableOfContentsSpec: QuickSpec {
         describe("the table of contents below") {
             it("has everything you need to get started") {
                 let sections = TableOfContents().sections
-                expect(sections).to.contain("Quick Core")
-                expect(sections).to.contain("Quick Expectations")
-                expect(sections).to.contain("How to Install Quick")
+                expect(sections).to(contain("Quick Core"))
+                expect(sections).to(contain("Quick Expectations"))
+                expect(sections).to(contain("How to Install Quick"))
             }
 
             context("if it doesn't have what you're looking for") {
                 it("needs to be updated") {
                     let you = You(awesome: true)
-                    expect{you.submittedAnIssue}.will.beTrue()
+                    expect{you.submittedAnIssue}.toEventually(beTruthy())
                 }
             }
         }
@@ -34,6 +34,7 @@ class TableOfContentsSpec: QuickSpec {
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 - [Quick: Examples and Example Groups](#quick-examples-and-example-groups)
   - [Examples Using `it`](#examples-using-it)
@@ -49,13 +50,13 @@ class TableOfContentsSpec: QuickSpec {
     - [Equal](#equal)
     - [BeIdenticalTo](#beidenticalto)
     - [BeNil](#benil)
-    - [BeTrue](#betrue)
-    - [BeFalse](#befalse)
+    - [BeTruthy](#betruthy)
+    - [BeFalsy](#befalsy)
     - [BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan](#belessthan-belessthanorequalto-begreaterthanorequalto-begreaterthan)
     - [Contain and BeEmpty](#contain-and-beempty)
-    - [Raise](#raise)
+    - [RaiseException](#raiseexception)
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
-  - [Asynchronous Expectations Using `will` and `willNot`](#asynchronous-expectations-using-will-and-willnot)
+  - [Asynchronous Expectations Using `toEventually` and `toEventuallyNot`](#asynchronous-expectations-using-toeventually-and-toeventuallynot)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
@@ -94,11 +95,11 @@ import Nimble
 class DolphinSpec: QuickSpec {
     override func spec() {
         it("is friendly") {
-            expect(Dolphin().isFriendly).to.beTrue()
+            expect(Dolphin().isFriendly).to(beTruthy())
         }
 
         it("is smart") {
-            expect(Dolphin().isSmart).to.beTrue()
+            expect(Dolphin().isSmart).to(beTruthy())
         }
     }
 }
@@ -113,11 +114,11 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_it(@"is friendly", ^{
-    [nmb_expect(@([[Dolphin new] isFriendly])).to beTrue];
+    expect(@([[Dolphin new] isFriendly])).to(beTruthy());
 });
 
 qck_it(@"is smart", ^{
-    [nmb_expect(@([[Dolphin new] isSmart])).to beTrue];
+    expect(@([[Dolphin new] isSmart])).to(beTruthy());
 });
 
 QuickSpecEnd
@@ -151,12 +152,12 @@ class DolphinSpec: QuickSpec {
             describe("its click") {
                 it("is loud") {
                     let click = Dolphin().click()
-                    expect(click.isLoud).to.beTrue()
+                    expect(click.isLoud).to(beTruthy())
                 }
 
                 it("has a high frequency") {
                     let click = Dolphin().click()
-                    expect(click.hasHighFrequency).to.beTrue()
+                    expect(click.hasHighFrequency).to(beTruthy())
                 }
             }
         }
@@ -176,12 +177,12 @@ qck_describe(@"a dolphin", ^{
     qck_describe(@"its click", ^{
         qck_it(@"is loud", ^{
             Click *click = [[Dolphin new] click];
-            [nmb_expect(@(click.isLoud)).to beTrue];
+            expect(@(click.isLoud)).to(beTruthy());
         });
 
         qck_it(@"has a high frequency", ^{
             Click *click = [[Dolphin new] click];
-            [nmb_expect(@(click.hasHighFrequency)).to beTrue];
+            expect(@(click.hasHighFrequency)).to(beTruthy());
         });
     });
 });
@@ -220,11 +221,11 @@ class DolphinSpec: QuickSpec {
                 }
 
                 it("is loud") {
-                    expect(click!.isLoud).to.beTrue()
+                    expect(click!.isLoud).to(beTruthy())
                 }
 
                 it("has a high frequency") {
-                    expect(click!.hasHighFrequency).to.beTrue()
+                    expect(click!.hasHighFrequency).to(beTruthy())
                 }
             }
         }
@@ -253,11 +254,11 @@ qck_describe(@"a dolphin", ^{
         });
 
         qck_it(@"is loud", ^{
-            [nmb_expect(@(click.isLoud)).to beTrue];
+            expect(@(click.isLoud)).to(beTruthy());
         });
 
         qck_it(@"has a high frequency", ^{
-            [nmb_expect(@(click.hasHighFrequency)).to beTrue];
+            expect(@(click.hasHighFrequency)).to(beTruthy());
         });
     });
 });
@@ -300,7 +301,7 @@ class DolphinSpec: QuickSpec {
             describe("its click") {
                 context("when the dolphin is not near anything interesting") {
                     it("is only emitted once") {
-                        expect(dolphin!.click().count).to.equal(1)
+                        expect(dolphin!.click().count).to(equal(1))
                     }
                 }
 
@@ -312,7 +313,7 @@ class DolphinSpec: QuickSpec {
                     }
 
                     it("is emitted three times") {
-                        expect(dolphin!.click().count).to.equal(3)
+                        expect(dolphin!.click().count).to(equal(3))
                     }
                 }
             }
@@ -336,7 +337,7 @@ qck_describe(@"a dolphin", ^{
     qck_describe(@"its click", ^{
         qck_context(@"when the dolphin is not near anything interesting", ^{
             qck_it(@"is only emitted once", ^{
-                [nmb_expect(@([[dolphin click] count])).to nmb_equal:@1];
+                expect(@([[dolphin click] count])).to(equal(@1));
             });
         });
 
@@ -347,7 +348,7 @@ qck_describe(@"a dolphin", ^{
             });
 
             qck_it(@"is emitted three times", ^{
-                [nmb_expect(@([[dolphin click] count])).to nmb_equal:@3];
+                expect(@([[dolphin click] count])).to(equal(@3));
             });
         });
     });
@@ -470,7 +471,7 @@ class EdibleSharedExamples: QuickSharedExampleGroups {
                 let dolphin = Dolphin(happy: false)
                 let edible = sharedExampleContext()["edible"]
                 dolphin.eat(edible)
-                expect(dolphin.isHappy).to.beTrue()
+                expect(dolphin.isHappy).to(beTruthy())
             }
         }
     }
@@ -531,8 +532,8 @@ Nimble expectations use the `expect(...).to` syntax:
 
 import Nimble
 
-expect(person.greeting).to.equal("Oh, hi.")
-expect(person.greeting).notTo.equal("Hello!")
+expect(person.greeting).to(equal("Oh, hi."))
+expect(person.greeting).notTo(equal("Hello!"))
 ```
 
 ```objc
@@ -540,8 +541,8 @@ expect(person.greeting).notTo.equal("Hello!")
 
 #import <Nimble/Nimble.h>
 
-[nmb_expect(person.greeting).to nmb_equal:@"Oh, hi."];
-[nmb_expect(person.greeting).notTo nmb_equal:@"Hello!"];
+expect(person.greeting).to(equal(@"Oh, hi."));
+expect(person.greeting).notTo(equal(@"Hello!"));
 ```
 
 ### Available Matchers
@@ -555,9 +556,9 @@ contains a specific element:
 
 import Nimble
 
-expect(person.isHappy).to.beTrue()
-expect(person.greeting).to.equal("Hello!")
-expect(person.hopes).to.contain("winning the lottery")
+expect(person.isHappy).to(beTruthy())
+expect(person.greeting).to(equal("Hello!"))
+expect(person.hopes).to(contain("winning the lottery"))
 ```
 
 ```objc
@@ -565,9 +566,9 @@ expect(person.hopes).to.contain("winning the lottery")
 
 #import <Nimble/Nimble.h>
 
-[nmb_expect(@(person.isHappy)).to beTrue];
-[nmb_expect(person.greeting).to nmb_equal:@"Hello!"];
-[nmb_expect(person.hopes).to nmb_contain:@"winning the lottery"];
+expect(@(person.isHappy)).to(beTruthy());
+expect(person.greeting).to(equal(@"Hello!"));
+expect(person.hopes).to(contain:@"winning the lottery"));
 ```
 
 #### Equal
@@ -576,13 +577,13 @@ expect(person.hopes).to.contain("winning the lottery")
 the `==` operator:
 
 ```swift
-expect("dolphin").to.equal("dolphin")
-expect("dolphin").toNot.equal("sea turtle")
+expect("dolphin").to(equal("dolphin"))
+expect("dolphin").toNot(equal("sea turtle"))
 ```
 
 ```objc
-[nmb_expect(@"dolphin").to nmb_equal:@"dolphin"];
-[nmb_expect(@"dolphin").toNot nmb_equal:@"sea turtle"];
+expect(@"dolphin").to(equal(@"dolphin"));
+expect(@"dolphin").toNot(equal:@"sea turtle"));
 ```
 
 #### BeIdenticalTo
@@ -592,14 +593,14 @@ identity using the `===` operator:
 
 ```swift
 let kind = "bottlenose dolphins"
-expect(kind).to.beIdenticalTo(kind)
-expect(kind).toNot.beIdenticalTo("bottlenose dolphins")
+expect(kind).to(beIdenticalTo(kind))
+expect(kind).toNot(beIdenticalTo("bottlenose dolphins"))
 ```
 
 ```objc
 NSString *kind = @"bottlenose dolphins"
-[nmb_expect(kind).to nmb_beIdenticalTo:kind];
-[nmb_expect(kind).toNot nmb_beIdenticalTo:@"bottlenose dolphins"];
+expect(kind).to(beIdenticalTo(kind));
+expect(kind).toNot(beIdenticalTo(@"bottlenose dolphins"));
 ```
 
 Note that in the above example, `beIdenticalTo()` matches when comparing
@@ -612,52 +613,46 @@ objects--even though the strings themselves are equal.
 subject of the expectation is equal to `nil`:
 
 ```swift
-expect(nil).to.beNil()
-expect("dolphin").toNot.beNil()
+expect(nil).to(beNil())
+expect("dolphin").toNot(beNil())
 ```
 
 ```objc
-[nmb_expect(nil).to beNil];
-[nmb_expect(@"dolphin").toNot beNil];
+expect(nil).to(beNil());
+expect(@"dolphin").toNot(beNil());
 ```
 
-#### BeTrue
+#### BeTruthy
 
-`BeTrue` matches if the subject of the expectation is equal to `true`:
+`BeTruthy` matches if the subject of the expectation is not `false` or `nil`:
 
 ```swift
-expect(true).to.beTrue()
-expect(false).toNot.beTrue()
-expect(10).toNot.beTrue()
+expect(true).to(beTruthy())
+expect(false).toNot(beTruthy())
+expect(10).toNot(beTruthy())
 ```
 
 ```objc
-[nmb_expect(@YES).to beTrue];
-[nmb_expect(@NO).toNot beTrue];
-[nmb_expect(@10).to beTrue];
+expect(@YES).to(beTruthy());
+expect(@NO).toNot(beTruthy());
+expect(@10).to(beTruthy());
 ```
 
-Note that although `10` above is a "truthy" value, it is not equal to
-the boolean `true`, so `beTrue()` does not match.
+#### BeFalsy
 
-> **NOTE:** In Objective-C, `@1` and `@YES` are equal, so the expectation
-  `[nmb_expect(@1).to beTrue]` passes.
-
-#### BeFalse
-
-Similarly to `BeTrue`, `BeFalse` matches if the subject of the
-expectation is equal to `false`:
+Similarly to `BeTruthy`, `BeFalsy` matches if the subject of the
+expectation is equal to `false` or `nil`:
 
 ```swift
-expect(false).to.beFalse()
-expect(true).toNot.beFalse()
-expect(nil).toNot.beFalse)
+expect(false).to(beFalsy())
+expect(true).toNot(beFalsy())
+expect(nil).toNot(beFalsy())
 ```
 
 ```objc
-[nmb_expect(@NO).to beFalse];
-[nmb_expect(@YES).toNot beFalse];
-[nmb_expect(nil).toNot beFalse];
+expect(@NO).to(beFalsy());
+expect(@YES).toNot(beFalsy());
+expect(nil).toNot(beFalsy());
 ```
 
 #### BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan
@@ -667,17 +662,17 @@ if both the subject and the given value are numbers, and those
 numbers meet the given conditions:
 
 ```swift
-expect(10).to.beLessThan(11)
-expect(10).to.beLessThanOrEqualTo(10)
-expect(10).to.beGreaterThanOrEqualTo(10)
-expect(10).to.beGreaterThan(9)
+expect(10).to(beLessThan(11))
+expect(10).to(beLessThanOrEqualTo(10))
+expect(10).to(beGreaterThanOrEqualTo(10))
+expect(10).to(beGreaterThan(9))
 ```
 
 ```objc
-[nmb_expect(@10).to nmb_beLessThan(@11)];
-[nmb_expect(@10).to nmb_beLessThanOrEqualTo(@10)];
-[nmb_expect(@10).to nmb_beGreaterThanOrEqualTo(@10)];
-[nmb_expect(@10).to nmb_beGreaterThan(@9)];
+expect(@10).to(beLessThan(@11));
+expect(@10).to(beLessThanOrEqualTo(@10));
+expect(@10).to(beGreaterThanOrEqualTo(@10));
+expect(@10).to(beGreaterThan(@9));
 ```
 
 #### Contain and BeEmpty
@@ -686,44 +681,44 @@ These matchers apply to collections such as arrays or sets. `Contain`
 matches if the array or set contains the specified element:
 
 ```swift
-expect([1, 2, 3]).to.contain(1)
-expect([1, 2, 3]).toNot.contain(4)
+expect([1, 2, 3]).to(contain(1))
+expect([1, 2, 3]).toNot(contain(4))
 ```
 
 ```objc
-[nmb_expect((@[@1, @2, @3])).to nmb_contain:@1];
-[nmb_expect((@[@1, @2, @3])).to nmb_contain:@4];
+expect((@[@1, @2, @3])).to(contain(@1));
+expect((@[@1, @2, @3])).to(contain(@4));
 ```
 
 `Contain` can also be used on strings. It matches if the string contains
 the given substring:
 
 ```swift
-expect("blowfish").to.contain("fish")
-expect("dolphin").toNot.contain("fish")
+expect("blowfish").to(contain("fish"))
+expect("dolphin").toNot(contain("fish"))
 ```
 
 ```objc
-[nmb_expect(@"blowfish").to nmb_contain:@"fish"];
-[nmb_expect(@"dolphin").to nmb_contain:@"fish"];
+expect(@"blowfish").to(contain(@"fish"));
+expect(@"dolphin").to(contain(@"fish"));
 ```
 
 `BeEmpty` matches if the given array or set contains no elements, or if
 the given string is an empty string (`""`):
 
 ```swift
-expect([]).to.beEmpty()
-expect([1, 2, 3]).toNot.beEmpty()
-expect("").to.beEmpty()
+expect([]).to(beEmpty())
+expect([1, 2, 3]).toNot(beEmpty())
+expect("").to(beEmpty())
 ```
 
 ```objc
-[nmb_expect((@[])).to beEmpty];
-[nmb_expect((@[@1, @2, @3])).toNot beEmpty];
-[nmb_expect(@"").to beEmpty];
+expect((@[])).to(beEmpty());
+expect((@[@1, @2, @3])).toNot(beEmpty());
+expect(@"").to(beEmpty());
 ```
 
-#### Raise
+#### RaiseException
 
 Quick also allows me to make expectations on closures. For example, I
 can specify that a block of code raises an exception. I can also specify
@@ -731,20 +726,16 @@ it raises an exception with a specific name, reason, or userInfo
 dictionary:
 
 ```swift
-expect{penguin.fly()}.to.raise()
-expect{penguin.fly()}.to.raise(NSInternalInconsistencyException)
-expect{penguin.fly()}.to.raise(NSInternalInconsistencyException, reason: "Penguins can't fly!")
-expect{penguin.fly()}.to.raise(NSInternalInconsistencyException, reason: "Penguins can't fly!", userInfo: ["url": "https://www.youtube.com/watch?v=6JsZbSzMi08"])
+expect{penguin.fly()}.to(raiseException())
+expect{penguin.fly()}.to(raiseException(named: NSInternalInconsistencyException))
+expect{penguin.fly()}.to(raiseException(named: NSInternalInconsistencyException, reason: "Penguins can't fly!")
 ```
 
 ```objc
-[nmb_expect([penguin fly]).to nmb_raise];
-[nmb_expect([penguin fly]).to nmb_raiseWithName:NSInternalInconsistencyException];
-[nmb_expect([penguin fly]).to nmb_raiseWithName:NSInternalInconsistencyException
-                                         reason:@"Penguins can't fly!"];
-[nmb_expect([penguin fly]).to nmb_raiseWithName:NSInternalInconsistencyException
-                                         reason:@"Penguins can't fly!"
-                                       userInfo:@{@"url": @"https://www.youtube.com/watch?v=6JsZbSzMi08"}];
+expect([penguin fly]).to(raiseException());
+expect([penguin fly]).to(raiseException().named(NSInternalInconsistencyException));
+expect([penguin fly]).to(raiseException().named(:NSInternalInconsistencyException)
+                                         .reason(@"Penguins can't fly!"));
 ```
 
 ### Automatic Optional Unwrapping
@@ -755,15 +746,15 @@ unwrap the variable using a trailing `!`: Nimble does that for me.
 ```swift
 var optVal: Int?
 
-expect(optVal).to.beNil()
+expect(optVal).to(beNil())
 
 optVal = 123
 
-expect(optVal).toNot.beNil()
-expect(optVal).to.equal(123)
+expect(optVal).toNot(beNil())
+expect(optVal).to(equal(123))
 ```
 
-### Asynchronous Expectations Using `will` and `willNot`
+### Asynchronous Expectations Using `toEventually` and `toEventuallyNot`
 
 Nimble also allows for asynchronous expectations, by wrapping the subject
 in braces instead of parentheses. This allows the subject to be
@@ -775,8 +766,8 @@ only hunger, and never satisfaction:
 
 import Nimble
 
-expect{person.isHungry}.will.beTrue()
-expect{person.isSatisfied}.willNot.beTrue()
+expect{person.isHungry}.toEventually(beTrue())
+expect{person.isSatisfied}.toEventuallyNot(beTrue())
 ```
 
 ```objc
@@ -784,21 +775,21 @@ expect{person.isSatisfied}.willNot.beTrue()
 
 #import <Nimble/Nimble.h>
 
-[nmb_expectBlock(^{ return @(person.isHungry); }).will beTrue];
-[nmb_expectBlock(^{ return @(person.isSatisfied); }).willNot beTrue];
+expectBlock(^{ return @(person.isHungry); }).toEventually(beTruthy());
+expectBlock(^{ return @(person.isSatisfied); }).toEventuallyNot(beTruthy());
 ```
 
-Asynchronous expectations time out after one second by default. I can
-extend this default by using `willBefore`. The following times out after 3
-seconds:
+Asynchronous expectations time out after one second by default. You can change
+this by passing in the ``timeout:`` keywora argument. The following times out
+after 3 seconds:
 
 ```swift
 // Swift
 
 import Nimble
 
-expect{person!.isHungry}.willBefore(3).beTrue()
-expect{person!.isSatisfied}.willNotBefore(3).beTrue()
+expect{person!.isHungry}.toEventually(beTruthy(), timeout: 3)
+expect{person!.isSatisfied}.toEventuallyNot(beTruthy(), timeout: 3)
 ```
 
 ```objc
@@ -806,14 +797,12 @@ expect{person!.isSatisfied}.willNotBefore(3).beTrue()
 
 #import <Nimble/Nimble.h>
 
-[[nmb_expectBlock(^{ return @(person.isHungry); }) willBefore:3] beTrue];
-[[nmb_expectBlock(^{ return @(person.isSatisfied); }) willNotBefore:3] beTrue];
+// Currently not supported in objective-c
 ```
 
 ## How to Install Quick
 
-> This module is beta software, and can only run using the latest, beta version
-of Xcode.
+> This module is beta software, it currently supports Xcode 6 Beta 4.
 
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may either one, or
