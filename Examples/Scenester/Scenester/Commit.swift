@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Commit {
-    let message: String
-    let author: String
+public struct Commit {
+    public let message: String
+    public let author: String
     
-    var simpleDescription: String { get { return "\(author): '\(message)'" } }
+    public var simpleDescription: String { get { return "\(author): '\(message)'" } }
     
-    init(message: String, author: String) {
+    public init(message: String, author: String) {
         self.message = message
         self.author = author
     }

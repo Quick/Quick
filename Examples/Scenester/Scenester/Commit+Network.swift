@@ -9,7 +9,7 @@
 import Foundation
 
 extension Commit {
-    static func latestCommit(repo: String,
+    public static func latestCommit(repo: String,
         success: (commit: Commit) -> (), failure: (error: NSError) -> ()) {
 
             let endpoint = "https://api.github.com/repos/\(repo)/commits"
