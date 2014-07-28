@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
 //
 
-@objc class Callsite {
-    let file: String
-    let line: Int
+@objc public class Callsite {
+    public let file: String
+    public let line: Int
 
     init(file: String, line: Int) {
         self.file = file
