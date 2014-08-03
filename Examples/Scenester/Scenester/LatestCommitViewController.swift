@@ -9,9 +9,9 @@
 import Cocoa
 
 class LatestCommitViewController: NSViewController {
-    @IBOutlet var button: NSButton
-    @IBOutlet var commitTextField: NSTextField
-    @IBOutlet var repoTextField: NSTextField
+    @IBOutlet var button: NSButton!
+    @IBOutlet var commitTextField: NSTextField!
+    @IBOutlet var repoTextField: NSTextField!
 
     var requestingCommit: Bool {
         get { return !self.button.enabled }

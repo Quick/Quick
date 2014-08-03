@@ -8,13 +8,13 @@
 
 import Foundation
 
-let CommitErrorDomain = "CommitErrorDomain"
-enum CommitErrorCode: Int {
+public let CommitErrorDomain = "CommitErrorDomain"
+public enum CommitErrorCode: Int {
     case NoCommits, InvalidCommit, InvalidResponse
 }
 
 extension Commit {
-    static func commitError(code: CommitErrorCode) -> NSError {
+    public static func commitError(code: CommitErrorCode) -> NSError {
         switch code {
         case .NoCommits:
             return NSError(domain: CommitErrorDomain, code: code.toRaw(),
