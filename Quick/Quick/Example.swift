@@ -8,8 +8,6 @@
 
 import XCTest
 
-var _numberOfExamplesRun = 0
-
 @objc public class Example {
     weak var group: ExampleGroup?
 
@@ -28,7 +26,7 @@ var _numberOfExamplesRun = 0
     }
 
     public func run() {
-        if _numberOfExamplesRun == 0 {
+        if World.sharedWorld().currentExampleIndex == 0 {
             World.sharedWorld().runBeforeSpec()
         }
 
@@ -42,9 +40,9 @@ var _numberOfExamplesRun = 0
             after()
         }
 
-        ++_numberOfExamplesRun
-        if _numberOfExamplesRun >= World.sharedWorld().exampleCount {
+        if World.sharedWorld().currentExampleIndex + 1 >= World.sharedWorld().exampleCount {
             World.sharedWorld().runAfterSpec()
         }
+        World.sharedWorld().currentExampleIndex++
     }
 }

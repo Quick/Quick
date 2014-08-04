@@ -27,6 +27,8 @@ public class World: NSObject {
 
     public var currentExampleGroup: ExampleGroup?
 
+    public var currentExampleIndex = 0
+
     struct _Shared {
         static let instance = World()
     }
