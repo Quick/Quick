@@ -87,7 +87,7 @@ public class World: NSObject {
     }
 
     func _raiseIfSharedExampleAlreadyRegistered(name: String) {
-        if _sharedExamples[name] {
+        if _sharedExamples[name] != nil {
             NSException(name: NSInternalInconsistencyException,
                 reason: "A shared example named '\(name)' has already been registered.",
                 userInfo: nil).raise()
@@ -100,7 +100,7 @@ public class World: NSObject {
     }
 
     func _raiseIfSharedExampleNotRegistered(name: String) {
-        if !_sharedExamples[name] {
+        if _sharedExamples[name] == nil {
             NSException(name: NSInternalInconsistencyException,
                 reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(_sharedExamples.keys))'",
                 userInfo: nil).raise()
