@@ -891,6 +891,7 @@ $ rake templates:uninstall
 ## Who Uses Quick
 
 - https://github.com/jspahrsummers/RXSwift
+- https://github.com/artsy/eidolon
 
 > Add an issue or [tweet](https://twitter.com/modocache) if you'd like to be added to this list.
 
