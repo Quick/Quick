@@ -1029,7 +1029,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(SYSTEM_APPS_DIR)/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
@@ -1053,7 +1052,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(SYSTEM_APPS_DIR)/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 					"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/Library/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
