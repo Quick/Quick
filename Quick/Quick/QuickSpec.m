@@ -83,6 +83,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
     [super setInvocation:invocation];
 }
 
+#ifndef QUICK_DISABLE_CUSTOM_FORMAT
+
 /**
  The test's name. XCTest expects this to be overridden by subclasses. By default, this
  uses the invocation's selector's name (i.e.: "-[WinterTests testWinterIsComing]").
@@ -95,6 +97,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
     return [NSString stringWithFormat:@"%@: %@",
             NSStringFromClass([self class]), self.example.name];
 }
+
+#endif
 
 #pragma mark - Public Interface
 
