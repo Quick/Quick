@@ -56,7 +56,7 @@
         get {
             var name = _description
             walkUp() { (group: ExampleGroup) -> () in
-                if group.parent != nil {
+                if group.parent.hasValue {
                     name = group._description + ", " + name
                 }
             }

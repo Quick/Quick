@@ -25,7 +25,7 @@ extension Commit {
                     var jsonError : NSError?
                     let json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
                         options: NSJSONReadingOptions.fromRaw(0)!, error: &jsonError)
-                    if jsonError != nil {
+                    if jsonError.hasValue {
                         failure(error: jsonError!)
                         return
                     }
