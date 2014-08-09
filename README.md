@@ -581,17 +581,17 @@ the `==` operator:
 ```swift
 // Swift
 
-expect(42).to.equal(42)
-expect("dolphin").to(equal("dolphin"))
-expect("dolphin").toNot(equal("sea turtle"))
+expect(@42).to(equal(@42));
+expect(@"dolphin").to(equal(@"dolphin"));
+expect(@"dolphin").toNot(equal:@"sea turtle"));
 ```
 
 ```objc
 // Objective-C
 
-expect(@42).to(equal(@42));
-expect(@"dolphin").to(equal(@"dolphin"));
-expect(@"dolphin").toNot(equal:@"sea turtle"));
+expect(42).to.equal(42)
+expect("dolphin").to(equal("dolphin"))
+expect("dolphin").toNot(equal("sea turtle"))
 ```
 
 #### BeIdenticalTo
@@ -942,4 +942,3 @@ $ rake templates:uninstall
 ## License
 
 MIT license. See the `LICENSE` file for details.
-
