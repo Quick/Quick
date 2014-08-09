@@ -6,6 +6,8 @@ Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com
 ![](http://f.cl.ly/items/2F362k2E3f0u2R0p3q1c/Screen%20Shot%202014-06-14%20at%208.16.22%20PM.png)
 
 ```swift
+// Swift
+
 import Quick
 import Nimble
 
@@ -577,12 +579,16 @@ expect(person.hopes).to(contain:@"winning the lottery"));
 the `==` operator:
 
 ```swift
+// Swift
+
 expect(42).to.equal(42)
 expect("dolphin").to(equal("dolphin"))
 expect("dolphin").toNot(equal("sea turtle"))
 ```
 
 ```objc
+// Objective-C
+
 expect(@42).to(equal(@42));
 expect(@"dolphin").to(equal(@"dolphin"));
 expect(@"dolphin").toNot(equal:@"sea turtle"));
@@ -594,12 +600,16 @@ expect(@"dolphin").toNot(equal:@"sea turtle"));
 identity using the `===` operator:
 
 ```swift
+// Swift
+
 let kind = "bottlenose dolphins"
 expect(kind).to(beIdenticalTo(kind))
 expect(kind).toNot(beIdenticalTo("bottlenose dolphins"))
 ```
 
 ```objc
+// Objective-C
+
 NSString *kind = @"bottlenose dolphins"
 expect(kind).to(beIdenticalTo(kind));
 expect(kind).toNot(beIdenticalTo(@"bottlenose dolphins"));
@@ -615,11 +625,15 @@ objects--even though the strings themselves are equal.
 subject of the expectation is equal to `nil`:
 
 ```swift
+// Swift
+
 expect(nil).to(beNil())
 expect("dolphin").toNot(beNil())
 ```
 
 ```objc
+// Objective-C
+
 expect(nil).to(beNil());
 expect(@"dolphin").toNot(beNil());
 ```
@@ -629,12 +643,16 @@ expect(@"dolphin").toNot(beNil());
 `BeTruthy` matches if the subject of the expectation is not `false` or `nil`:
 
 ```swift
+// Swift
+
 expect(true).to(beTruthy())
 expect(false).toNot(beTruthy())
 expect(10).toNot(beTruthy())
 ```
 
 ```objc
+// Objective-C
+
 expect(@YES).to(beTruthy());
 expect(@NO).toNot(beTruthy());
 expect(@10).to(beTruthy());
@@ -646,12 +664,16 @@ Similarly to `BeTruthy`, `BeFalsy` matches if the subject of the
 expectation is equal to `false` or `nil`:
 
 ```swift
+// Swift
+
 expect(false).to(beFalsy())
 expect(true).toNot(beFalsy())
 expect(nil).toNot(beFalsy())
 ```
 
 ```objc
+// Objective-C
+
 expect(@NO).to(beFalsy());
 expect(@YES).toNot(beFalsy());
 expect(nil).toNot(beFalsy());
@@ -664,6 +686,8 @@ if both the subject and the given value are numbers, and those
 numbers meet the given conditions:
 
 ```swift
+// Swift
+
 expect(10).to(beLessThan(11))
 expect(10).to(beLessThanOrEqualTo(10))
 expect(10).to(beGreaterThanOrEqualTo(10))
@@ -671,6 +695,8 @@ expect(10).to(beGreaterThan(9))
 ```
 
 ```objc
+// Objective-C
+
 expect(@10).to(beLessThan(@11));
 expect(@10).to(beLessThanOrEqualTo(@10));
 expect(@10).to(beGreaterThanOrEqualTo(@10));
@@ -683,11 +709,15 @@ These matchers apply to collections such as arrays or sets. `Contain`
 matches if the array or set contains the specified element:
 
 ```swift
+// Swift
+
 expect([1, 2, 3]).to(contain(1))
 expect([1, 2, 3]).toNot(contain(4))
 ```
 
 ```objc
+// Objective-C
+
 expect((@[@1, @2, @3])).to(contain(@1));
 expect((@[@1, @2, @3])).to(contain(@4));
 ```
@@ -696,11 +726,15 @@ expect((@[@1, @2, @3])).to(contain(@4));
 the given substring:
 
 ```swift
+// Swift
+
 expect("blowfish").to(contain("fish"))
 expect("dolphin").toNot(contain("fish"))
 ```
 
 ```objc
+// Objective-C
+
 expect(@"blowfish").to(contain(@"fish"));
 expect(@"dolphin").to(contain(@"fish"));
 ```
@@ -709,12 +743,16 @@ expect(@"dolphin").to(contain(@"fish"));
 the given string is an empty string (`""`):
 
 ```swift
+// Swift
+
 expect([]).to(beEmpty())
 expect([1, 2, 3]).toNot(beEmpty())
 expect("").to(beEmpty())
 ```
 
 ```objc
+// Objective-C
+
 expect((@[])).to(beEmpty());
 expect((@[@1, @2, @3])).toNot(beEmpty());
 expect(@"").to(beEmpty());
@@ -728,12 +766,16 @@ it raises an exception with a specific name, reason, or userInfo
 dictionary:
 
 ```swift
+// Swift
+
 expect{penguin.fly()}.to(raiseException())
 expect{penguin.fly()}.to(raiseException(named: NSInternalInconsistencyException))
 expect{penguin.fly()}.to(raiseException(named: NSInternalInconsistencyException, reason: "Penguins can't fly!")
 ```
 
 ```objc
+// Objective-C
+
 expect([penguin fly]).to(raiseException());
 expect([penguin fly]).to(raiseException().named(NSInternalInconsistencyException));
 expect([penguin fly]).to(raiseException().named(:NSInternalInconsistencyException)
@@ -746,6 +788,8 @@ When passing an optional to an expectation in Swift, there's no need to
 unwrap the variable using a trailing `!`: Nimble does that for me.
 
 ```swift
+// Swift
+
 var optVal: Int?
 
 expect(optVal).to(beNil())
