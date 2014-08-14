@@ -83,19 +83,6 @@ const void * const QCKExampleKey = &QCKExampleKey;
     [super setInvocation:invocation];
 }
 
-/**
- The test's name. XCTest expects this to be overridden by subclasses. By default, this
- uses the invocation's selector's name (i.e.: "-[WinterTests testWinterIsComing]").
- QuickSpec overrides this method to provide the name of the test class, along with a
- string made up of the example group and example descriptions.
-
- @return A string to be displayed in the log navigator as the test is being run.
- */
-- (NSString *)name {
-    return [NSString stringWithFormat:@"%@: %@",
-            NSStringFromClass([self class]), self.example.name];
-}
-
 #pragma mark - Public Interface
 
 - (void)spec { }
