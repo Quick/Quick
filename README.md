@@ -581,7 +581,7 @@ the `==` operator:
 ```swift
 // Swift
 
-expect(42).to.equal(42)
+expect(42).to(equal(42))
 expect("dolphin").to(equal("dolphin"))
 expect("dolphin").toNot(equal("sea turtle"))
 ```
