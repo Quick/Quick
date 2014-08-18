@@ -922,7 +922,7 @@ To manually install the templates, just clone the repository and
 run the `templates:install` rake task:
 
 ```sh
-$ git clone git@github.com:modocache/Quick.git
+$ git clone git@github.com:Quick/Quick.git
 $ rake templates:install
 ```
 
