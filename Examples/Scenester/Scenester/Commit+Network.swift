@@ -17,7 +17,7 @@ extension Commit {
 
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(),
                 completionHandler: { (response: NSURLResponse!, data: NSData!, error: NSError!) in
-                    if error {
+                    if (error != nil) {
                         failure(error: error)
                         return
                     }
@@ -25,7 +25,7 @@ extension Commit {
                     var jsonError : NSError?
                     let json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data,
                         options: NSJSONReadingOptions.fromRaw(0)!, error: &jsonError)
-                    if jsonError.hasValue {
+                    if jsonError != nil {
                         failure(error: jsonError!)
                         return
                     }
