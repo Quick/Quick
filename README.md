@@ -936,6 +936,7 @@ $ rake templates:uninstall
 
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
+- https://github.com/AshFurrow/Moya
 
 > Add an issue or [tweet](https://twitter.com/modocache) if you'd like to be added to this list.
 
