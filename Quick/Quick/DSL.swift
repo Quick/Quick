@@ -34,6 +34,12 @@ import Foundation
     }
 
     public class func beforeEach(closure: () -> ()) {
+        World.sharedWorld().currentExampleGroup!.appendBefore { (exampleMetadata: ExampleMetadata) in
+            closure()
+        }
+    }
+
+    public class func beforeEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
         World.sharedWorld().currentExampleGroup!.appendBefore(closure)
     }
 
@@ -94,6 +100,10 @@ public func context(description: String, closure: () -> ()) {
 
 public func beforeEach(closure: () -> ()) {
     DSL.beforeEach(closure)
+}
+
+public func beforeEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
+    DSL.beforeEach(closure: closure)
 }
 
 public func afterEach(closure: () -> ()) {

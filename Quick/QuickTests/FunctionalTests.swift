@@ -55,6 +55,10 @@ class PersonSpec: QuickSpec {
             beforeEach { person = Person() }
             afterEach  { person = nil }
 
+            beforeEach(closure: {(exampleMetadata: ExampleMetadata) in
+                NSLog("beforeEach example: \(exampleMetadata.exampleIndex) \(exampleMetadata.example.name)")
+            })
+
             itBehavesLike("something living after dinosaurs are extinct")
             itBehavesLike("an optimistic person") { ["person": person] }
 

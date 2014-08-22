@@ -49,6 +49,8 @@
 		5AFC5961195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC595F195EEDA900D3E0A2 /* NSException+Callsite.swift */; };
 		AAACAAD919532C4E00B492A8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBF9A819521298005E1714 /* XCTest.framework */; };
 		AADBF9AC195213AD005E1714 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBF9A919521298005E1714 /* XCTest.framework */; };
+		DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
+		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
@@ -276,6 +278,7 @@
 		5AFC595F195EEDA900D3E0A2 /* NSException+Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSException+Callsite.swift"; sourceTree = "<group>"; };
 		AADBF9A819521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AADBF9A919521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -364,6 +367,7 @@
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759D19515CA700CE1B99 /* DSL.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
+				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				5AFC5948195ED5B900D3E0A2 /* Failure.swift */,
@@ -661,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
+				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				5AFC5961195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
 				5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
@@ -690,6 +695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
+				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
 				5AFC5960195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
 				5AFC5949195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,

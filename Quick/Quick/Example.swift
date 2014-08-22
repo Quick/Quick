@@ -33,7 +33,8 @@ var _numberOfExamplesRun = 0
         }
 
         for before in group!.befores {
-            before()
+            let metadata = ExampleMetadata(example: self, exampleIndex: _numberOfExamplesRun)
+            before(exampleMetadata: metadata)
         }
 
         _closure()
