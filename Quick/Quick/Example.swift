@@ -32,15 +32,15 @@ var _numberOfExamplesRun = 0
             World.sharedWorld().runBeforeSpec()
         }
 
+        let exampleMetadata = ExampleMetadata(example: self, exampleIndex: _numberOfExamplesRun)
         for before in group!.befores {
-            let metadata = ExampleMetadata(example: self, exampleIndex: _numberOfExamplesRun)
-            before(exampleMetadata: metadata)
+            before(exampleMetadata: exampleMetadata)
         }
 
         _closure()
 
         for after in group!.afters {
-            after()
+            after(exampleMetadata: exampleMetadata)
         }
 
         ++_numberOfExamplesRun

@@ -8,7 +8,7 @@
 
 @objc public class ExampleGroup {
     typealias BeforeClosure = (exampleMetadata: ExampleMetadata) -> ()
-    typealias AfterClosure = () -> ()
+    typealias AfterClosure = BeforeClosure
 
     weak var parent: ExampleGroup?
 

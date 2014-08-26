@@ -44,6 +44,12 @@ import Foundation
     }
 
     public class func afterEach(closure: () -> ()) {
+        World.sharedWorld().currentExampleGroup!.appendAfter { (exampleMetadata: ExampleMetadata) in
+            closure()
+        }
+    }
+
+    public class func afterEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
         World.sharedWorld().currentExampleGroup!.appendAfter(closure)
     }
 
@@ -108,6 +114,10 @@ public func beforeEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
 
 public func afterEach(closure: () -> ()) {
     DSL.afterEach(closure)
+}
+
+public func afterEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
+    DSL.afterEach(closure: closure)
 }
 
 public func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
