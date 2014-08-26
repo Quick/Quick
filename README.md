@@ -938,6 +938,7 @@ $ rake templates:uninstall
 - https://github.com/artsy/eidolon
 - https://github.com/AshFurrow/Moya
 - https://github.com/nerdyc/Squeal
+- https://github.com/pepibumur/SugarRecord
 
 > Add an issue or [tweet](https://twitter.com/modocache) if you'd like to be added to this list.
 
