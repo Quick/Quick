@@ -59,10 +59,14 @@ class TableOfContentsSpec: QuickSpec {
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
   - [Asynchronous Expectations Using `toEventually` and `toEventuallyNot`](#asynchronous-expectations-using-toeventually-and-toeventuallynot)
 - [How to Install Quick](#how-to-install-quick)
-  - [1. Create submodules of the Quick and Nimble repositories](#1-create-submodules-of-the-quick-and-nimble-repositories)
+  - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
   - [4. Start writing specs!](#4-start-writing-specs!)
+- [Including Quick in a Git Repository Using Submodules](#including-quick-in-a-git-repository-using-submodules)
+  - [Adding Quick as a Git Submodule](#adding-quick-as-a-git-submodule)
+  - [Updating the Quick Submodule](#updating-the-quick-submodule)
+  - [Cloning a Repository that Includes a Quick Submodule](#cloning-a-repository-that-includes-a-quick-submodule)
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
@@ -851,25 +855,24 @@ expect{person!.isSatisfied}.toEventuallyNot(beTruthy(), timeout: 3)
 > This module is beta software, it currently supports Xcode 6 Beta 4.
 
 Quick provides the syntax to define examples and example groups. Nimble
-provides the `expect(...).to` assertion syntax. You may either one, or
-both, in your tests.
+provides the `expect(...).to` assertion syntax. You may use either one,
+or both, in your tests.
 
 To use Quick and Nimble to test your iOS or OS X applications, follow these 4 easy steps:
 
-1. [Create submodules of the Quick and Nimble repositories](#1-create-submodules-of-the-quick-and-nimble-repositories)
+1. [Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
 2. [Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
 3. [Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
 4. Start writing specs!
 
-An example project with this complete setup is available in the
+Example projects with this complete setup is available in the
 [`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
 
-### 1. Create submodules of the Quick and Nimble repositories
+### 1. Clone the Quick and Nimble repositories
 
 ```sh
-mkdir vendor
-git submodule add git@github.com:Quick/Quick.git vendor/Quick
-git submodule add git@github.com:Quick/Nimble.git vendor/Nimble
+git clone git@github.com:Quick/Quick.git vendor/Quick
+git clone add git@github.com:Quick/Nimble.git vendor/Nimble
 ```
 
 ### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
@@ -903,6 +906,56 @@ Do the same for the `Nimble.framework`.
 ### 4. Start writing specs!
 
 If you run into any problems, please file an issue.
+
+## Including Quick in a Git Repository Using Submodules
+
+To include Quick in a Git repository, I use Git submodules. Git
+submodules are great because:
+
+1. I can track exactly which version of Quick I'm using
+2. It is easy to update the Quick version I'm using
+
+### Adding Quick as a Git Submodule
+
+To use Git submodules, follow the same steps as above, except instead of
+cloning the Quick and Nimble repositories, add them to your project as
+submodules:
+
+```sh
+mkdir Vendor # you can keep your submodules in their own directory
+git submodule add git@github.com:Quick/Quick.git Vendor/Quick
+git submodule add git@github.com:Quick/Nimble.git Vendor/Nimble
+```
+
+### Updating the Quick Submodule
+
+If you ever want to update the Quick submodule to latest version, enter
+the Quick directory and pull from the master repository:
+
+```sh
+cd Vendor/Quick
+git pull --rebase origin master
+```
+
+Your Git repository will track changes to submodules. You'll want to
+commit the fact that you've updated the Quick submodule:
+
+```sh
+git commit -m "Updated Quick submodule"
+```
+
+### Cloning a Repository that Includes a Quick Submodule
+
+After other people clone your repository, they'll have to pull down the
+submodules as well. They can do so by running the `git submodule update`
+command:
+
+```sh
+git submodule update --init --recursive
+```
+
+You can read more about Git submodules
+[here](http://git-scm.com/book/en/Git-Tools-Submodules).
 
 ## How to Install Quick File Templates
 
