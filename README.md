@@ -12,23 +12,23 @@ import Quick
 import Nimble
 
 class TableOfContentsSpec: QuickSpec {
-    override func spec() {
-        describe("the table of contents below") {
-            it("has everything you need to get started") {
-                let sections = TableOfContents().sections
-                expect(sections).to(contain("Quick Core"))
-                expect(sections).to(contain("Quick Expectations"))
-                expect(sections).to(contain("How to Install Quick"))
-            }
+  override func spec() {
+    describe("the table of contents below") {
+      it("has everything you need to get started") {
+        let sections = TableOfContents().sections
+        expect(sections).to(contain("Quick: Examples and Example Groups"))
+        expect(sections).to(contain("Nimble: Assertions using expect(...).to"))
+        expect(sections).to(contain("How to Install Quick"))
+      }
 
-            context("if it doesn't have what you're looking for") {
-                it("needs to be updated") {
-                    let you = You(awesome: true)
-                    expect{you.submittedAnIssue}.toEventually(beTruthy())
-                }
-            }
+      context("if it doesn't have what you're looking for") {
+        it("needs to be updated") {
+          let you = You(awesome: true)
+          expect{you.submittedAnIssue}.toEventually(beTruthy())
         }
+      }
     }
+  }
 }
 ```
 
@@ -36,7 +36,6 @@ class TableOfContentsSpec: QuickSpec {
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 - [Quick: Examples and Example Groups](#quick-examples-and-example-groups)
   - [Examples Using `it`](#examples-using-it)
@@ -82,10 +81,10 @@ Quick uses a special syntax that allows me to define **examples** and
 Examples use assertions to demonstrate how code should behave.
 These are like "tests" in XCTest.
 
-Quick allows me to define examples using `it`. `it` also takes a string,
-which serves as a description of the example.
+Quick allows me to define examples using `it`. `it` also takes a string:
+the name of the example.
 
-Below, I specify examples of how my `Dolphin` class should behave.
+Below, using examples, I specify how my `Dolphin` class should behave.
 When I create a new dolphin, it should be smart and friendly.
 
 ```swift
@@ -95,15 +94,15 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        it("is friendly") {
-            expect(Dolphin().isFriendly).to(beTruthy())
-        }
-
-        it("is smart") {
-            expect(Dolphin().isSmart).to(beTruthy())
-        }
+  override func spec() {
+    it("is friendly") {
+      expect(Dolphin().isFriendly).to(beTruthy())
     }
+
+    it("is smart") {
+      expect(Dolphin().isSmart).to(beTruthy())
+    }
+  }
 }
 ```
 
@@ -116,11 +115,11 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_it(@"is friendly", ^{
-    expect(@([[Dolphin new] isFriendly])).to(beTruthy());
+  expect(@([[Dolphin new] isFriendly])).to(beTruthy());
 });
 
 qck_it(@"is smart", ^{
-    expect(@([[Dolphin new] isSmart])).to(beTruthy());
+  expect(@([[Dolphin new] isSmart])).to(beTruthy());
 });
 
 QuickSpecEnd
@@ -132,15 +131,15 @@ QuickSpecEnd
 ### Example Groups Using `describe` and `context`
 
 Example groups are logical groupings of examples. By grouping similar
-examples together, we can share setup and teardown code between them.
+examples together, I can share setup and teardown code between them.
 
 #### Describing Classes and Methods Using `describe`
 
 Let's say I want to specify the behavior of my `Dolphin` class's `click`
 method (or, in other words, I want to test the method works).
 
-I can group all of the tests for `click` using `describe`. Grouping
-similar examples together makes my spec easier to read.
+I can group all of the tests for `click` together using `describe`.
+Grouping similar examples together makes my spec easier to read.
 
 ```swift
 // Swift
@@ -149,21 +148,21 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        describe("a dolphin") {
-            describe("its click") {
-                it("is loud") {
-                    let click = Dolphin().click()
-                    expect(click.isLoud).to(beTruthy())
-                }
-
-                it("has a high frequency") {
-                    let click = Dolphin().click()
-                    expect(click.hasHighFrequency).to(beTruthy())
-                }
-            }
+  override func spec() {
+    describe("a dolphin") {
+      describe("its click") {
+        it("is loud") {
+          let click = Dolphin().click()
+          expect(click.isLoud).to(beTruthy())
         }
+
+        it("has a high frequency") {
+          let click = Dolphin().click()
+          expect(click.hasHighFrequency).to(beTruthy())
+        }
+      }
     }
+  }
 }
 ```
 
@@ -176,17 +175,17 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_describe(@"a dolphin", ^{
-    qck_describe(@"its click", ^{
-        qck_it(@"is loud", ^{
-            Click *click = [[Dolphin new] click];
-            expect(@(click.isLoud)).to(beTruthy());
-        });
-
-        qck_it(@"has a high frequency", ^{
-            Click *click = [[Dolphin new] click];
-            expect(@(click.hasHighFrequency)).to(beTruthy());
-        });
+  qck_describe(@"its click", ^{
+    qck_it(@"is loud", ^{
+      Click *click = [[Dolphin new] click];
+      expect(@(click.isLoud)).to(beTruthy());
     });
+
+    qck_it(@"has a high frequency", ^{
+      Click *click = [[Dolphin new] click];
+      expect(@(click.hasHighFrequency)).to(beTruthy());
+    });
+  });
 });
 
 QuickSpecEnd
@@ -209,29 +208,29 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        describe("a dolphin") {
-            var dolphin: Dolphin?
-            beforeEach {
-                dolphin = Dolphin()
-            }
+  override func spec() {
+    describe("a dolphin") {
+      var dolphin: Dolphin?
+      beforeEach {
+        dolphin = Dolphin()
+      }
 
-            describe("its click") {
-                var click: Click?
-                beforeEach {
-                    click = dolphin!.click()
-                }
-
-                it("is loud") {
-                    expect(click!.isLoud).to(beTruthy())
-                }
-
-                it("has a high frequency") {
-                    expect(click!.hasHighFrequency).to(beTruthy())
-                }
-            }
+      describe("its click") {
+        var click: Click?
+        beforeEach {
+          click = dolphin!.click()
         }
+
+        it("is loud") {
+          expect(click!.isLoud).to(beTruthy())
+        }
+
+        it("has a high frequency") {
+          expect(click!.hasHighFrequency).to(beTruthy())
+        }
+      }
     }
+  }
 }
 ```
 
@@ -244,25 +243,25 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_describe(@"a dolphin", ^{
-    __block Dolphin *dolphin = nil;
+  __block Dolphin *dolphin = nil;
+  qck_beforeEach(^{
+      dolphin = [Dolphin new];
+  });
+
+  qck_describe(@"its click", ^{
+    __block Click *click = nil;
     qck_beforeEach(^{
-        dolphin = [Dolphin new];
+      click = [dolphin click];
     });
 
-    qck_describe(@"its click", ^{
-        __block Click *click = nil;
-        qck_beforeEach(^{
-            click = [dolphin click];
-        });
-
-        qck_it(@"is loud", ^{
-            expect(@(click.isLoud)).to(beTruthy());
-        });
-
-        qck_it(@"has a high frequency", ^{
-            expect(@(click.hasHighFrequency)).to(beTruthy());
-        });
+    qck_it(@"is loud", ^{
+      expect(@(click.isLoud)).to(beTruthy());
     });
+
+    qck_it(@"has a high frequency", ^{
+      expect(@(click.hasHighFrequency)).to(beTruthy());
+    });
+  });
 });
 
 QuickSpecEnd
@@ -295,32 +294,32 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        describe("a dolphin") {
-            var dolphin: Dolphin?
-            beforeEach { dolphin = Dolphin() }
+  override func spec() {
+    describe("a dolphin") {
+      var dolphin: Dolphin?
+      beforeEach { dolphin = Dolphin() }
 
-            describe("its click") {
-                context("when the dolphin is not near anything interesting") {
-                    it("is only emitted once") {
-                        expect(dolphin!.click().count).to(equal(1))
-                    }
-                }
-
-                context("when the dolphin is near something interesting") {
-                    beforeEach {
-                        let ship = SunkenShip()
-                        Jamaica.dolphinCove.add(ship)
-                        Jamaica.dolphinCove.add(dolphin)
-                    }
-
-                    it("is emitted three times") {
-                        expect(dolphin!.click().count).to(equal(3))
-                    }
-                }
-            }
+      describe("its click") {
+        context("when the dolphin is not near anything interesting") {
+          it("is only emitted once") {
+            expect(dolphin!.click().count).to(equal(1))
+          }
         }
+
+        context("when the dolphin is near something interesting") {
+          beforeEach {
+            let ship = SunkenShip()
+            Jamaica.dolphinCove.add(ship)
+            Jamaica.dolphinCove.add(dolphin)
+          }
+
+          it("is emitted three times") {
+            expect(dolphin!.click().count).to(equal(3))
+          }
+        }
+      }
     }
+  }
 }
 ```
 
@@ -333,27 +332,27 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_describe(@"a dolphin", ^{
-    __block Dolphin *dolphin = nil;
-    qck_beforeEach(^{ dolphin = [Dolphin new]; });
+  __block Dolphin *dolphin = nil;
+  qck_beforeEach(^{ dolphin = [Dolphin new]; });
 
-    qck_describe(@"its click", ^{
-        qck_context(@"when the dolphin is not near anything interesting", ^{
-            qck_it(@"is only emitted once", ^{
-                expect(@([[dolphin click] count])).to(equal(@1));
-            });
-        });
-
-        qck_context(@"when the dolphin is near something interesting", ^{
-            qck_beforeEach(^{
-                [[Jamaica dolphinCove] add:[SunkenShip new]];
-                [[Jamaica dolphinCove] add:dolphin];
-            });
-
-            qck_it(@"is emitted three times", ^{
-                expect(@([[dolphin click] count])).to(equal(@3));
-            });
-        });
+  qck_describe(@"its click", ^{
+    qck_context(@"when the dolphin is not near anything interesting", ^{
+      qck_it(@"is only emitted once", ^{
+        expect(@([[dolphin click] count])).to(equal(@1));
+      });
     });
+
+    qck_context(@"when the dolphin is near something interesting", ^{
+      qck_beforeEach(^{
+        [[Jamaica dolphinCove] add:[SunkenShip new]];
+        [[Jamaica dolphinCove] add:dolphin];
+      });
+
+      qck_it(@"is emitted three times", ^{
+        expect(@([[dolphin click] count])).to(equal(@3));
+      });
+    });
+  });
 });
 
 QuickSpecEnd
@@ -373,7 +372,7 @@ will mark that example group as pending for now:
 // Swift
 
 pending("when the dolphin is near something interesting") {
-    // ...none of the code in this closure will be run.
+  // ...none of the code in this closure will be run.
 }
 ```
 
@@ -381,7 +380,7 @@ pending("when the dolphin is near something interesting") {
 // Objective-C
 
 qck_pending(@"when the dolphin is near something interesting", ^{
-    // ...none of the code in this closure will be run.
+  // ...none of the code in this closure will be run.
 });
 ```
 
@@ -401,20 +400,20 @@ Quick allows me to do this by using `beforeSuite` and `afterSuite`.
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        beforeSuite {
-            OceanDatabase.createDatabase(name: "test.db")
-            OceanDatabase.connectToDatabase(name: "test.db")
-        }
-
-        afterSuite {
-            OceanDatabase.teardownDatabase(name: "test.db")
-        }
-
-        describe("a dolphin") {
-            // ...
-        }
+  override func spec() {
+    beforeSuite {
+      OceanDatabase.createDatabase(name: "test.db")
+      OceanDatabase.connectToDatabase(name: "test.db")
     }
+
+    afterSuite {
+      OceanDatabase.teardownDatabase(name: "test.db")
+    }
+
+    describe("a dolphin") {
+      // ...
+    }
+  }
 }
 ```
 
@@ -426,16 +425,16 @@ class DolphinSpec: QuickSpec {
 QuickSpecBegin(DolphinSpec)
 
 qck_beforeSuite(^{
-    [OceanDatabase createDatabase:@"test.db"];
-    [OceanDatabase connectToDatabase:@"test.db"];
+  [OceanDatabase createDatabase:@"test.db"];
+  [OceanDatabase connectToDatabase:@"test.db"];
 });
 
 qck_afterSuite(^{
-    [OceanDatabase teardownDatabase:@"test.db"];
+  [OceanDatabase teardownDatabase:@"test.db"];
 });
 
 qck_describe(@"a dolphin", ^{
-    // ...
+  // ...
 });
 
 QuickSpecEnd
@@ -467,38 +466,38 @@ import Quick
 import Nimble
 
 class EdibleSharedExamples: QuickSharedExampleGroups {
-    override class func sharedExampleGroups() {
-        sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
-            it("makes dolphins happy") {
-                let dolphin = Dolphin(happy: false)
-                let edible = sharedExampleContext()["edible"]
-                dolphin.eat(edible)
-                expect(dolphin.isHappy).to(beTruthy())
-            }
-        }
+  override class func sharedExampleGroups() {
+    sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
+      it("makes dolphins happy") {
+        let dolphin = Dolphin(happy: false)
+        let edible = sharedExampleContext()["edible"]
+        dolphin.eat(edible)
+        expect(dolphin.isHappy).to(beTruthy())
+      }
     }
+  }
 }
 
 class MackerelSpec: QuickSpec {
-    override func spec() {
-        var mackerel: Mackerel! = nil
-        beforeEach {
-            mackerel = Mackerel()
-        }
-
-        itBehavesLike("something edible") { ["edible": mackerel] }
+  override func spec() {
+    var mackerel: Mackerel! = nil
+    beforeEach {
+      mackerel = Mackerel()
     }
+
+    itBehavesLike("something edible") { ["edible": mackerel] }
+  }
 }
 
 class CodSpec: QuickSpec {
-    override func spec() {
-        var cod: Cod! = nil
-        beforeEach {
-            cod = Cod()
-        }
-
-        itBehavesLike("something edible") { ["edible": cod] }
+  override func spec() {
+    var cod: Cod! = nil
+    beforeEach {
+      cod = Cod()
     }
+
+    itBehavesLike("something edible") { ["edible": cod] }
+  }
 }
 ```
 
@@ -516,7 +515,7 @@ global state:
 import Quick
 
 sharedExamplesFor("everything under the sea") {
-    // ...
+  // ...
 }
 
 itBehavesLike("everything under the sea")
@@ -525,7 +524,8 @@ itBehavesLike("everything under the sea")
 ## Nimble: Assertions Using `expect(...).to`
 
 I can use Quick to define examples and example groups. Within those
-examples, I can make expectations using Nimble, Quick's sister project.
+examples, I can make expectations using [Nimble](https://github.com/Quick/Nimble),
+Quick's sister project.
 
 Nimble expectations use the `expect(...).to` syntax:
 
