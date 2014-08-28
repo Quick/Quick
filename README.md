@@ -955,7 +955,9 @@ git submodule update --init --recursive
 ```
 
 You can read more about Git submodules
-[here](http://git-scm.com/book/en/Git-Tools-Submodules).
+[here](http://git-scm.com/book/en/Git-Tools-Submodules). To see examples
+of Git submodules in action, check out any of the repositories linked to
+in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 
 ## How to Install Quick File Templates
 
