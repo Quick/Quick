@@ -60,7 +60,7 @@ class TableOfContentsSpec: QuickSpec {
   - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
   - [Asynchronous Expectations Using `toEventually` and `toEventuallyNot`](#asynchronous-expectations-using-toeventually-and-toeventuallynot)
 - [How to Install Quick](#how-to-install-quick)
-  - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
+  - [1. Create submodules of the Quick and Nimble repositories](#1-create-submodules-of-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
   - [4. Start writing specs!](#4-start-writing-specs!)
