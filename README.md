@@ -856,7 +856,7 @@ both, in your tests.
 
 To use Quick and Nimble to test your iOS or OS X applications, follow these 4 easy steps:
 
-1. [Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
+1. [Create submodules of the Quick and Nimble repositories](#1-create-submodules-of-the-quick-and-nimble-repositories)
 2. [Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
 3. [Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
 4. Start writing specs!
@@ -864,11 +864,12 @@ To use Quick and Nimble to test your iOS or OS X applications, follow these 4 ea
 An example project with this complete setup is available in the
 [`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
 
-### 1. Clone the Quick and Nimble repositories
+### 1. Create submodules of the Quick and Nimble repositories
 
-```
-git clone git@github.com:Quick/Quick.git
-git clone git@github.com:Quick/Nimble.git
+```sh
+mkdir vendor
+git submodule add git@github.com:Quick/Quick.git vendor/Quick
+git submodule add git@github.com:Quick/Nimble.git vendor/Nimble
 ```
 
 ### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
