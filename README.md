@@ -523,6 +523,7 @@ import Nimble
 
 expect(person.greeting).to(equal("Oh, hi."))
 expect(person.greeting).notTo(equal("Hello!"))
+expect(person.isHappy).toEventually(beTruthy())
 ```
 
 ```objc
@@ -532,12 +533,13 @@ expect(person.greeting).notTo(equal("Hello!"))
 
 expect(person.greeting).to(equal(@"Oh, hi."));
 expect(person.greeting).notTo(equal(@"Hello!"));
+expect(@(person.isHappy)).toEventually(beTruthy());
 ```
 
 You can find much more detailed documentation on
 [Nimble](https://github.com/Quick/Nimble), including a
-full set of available matchers, in [the project's
-README](https://github.com/Quick/Nimble).
+full set of available matchers and details on how to perform asynchronous tests,
+in [the project's README](https://github.com/Quick/Nimble).
 
 ## How to Install Quick
 
