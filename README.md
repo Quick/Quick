@@ -563,7 +563,7 @@ Example projects with this complete setup is available in the
 
 ```sh
 git clone git@github.com:Quick/Quick.git vendor/Quick
-git clone add git@github.com:Quick/Nimble.git vendor/Nimble
+git clone git@github.com:Quick/Nimble.git vendor/Nimble
 ```
 
 ### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
