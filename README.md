@@ -562,8 +562,8 @@ Example projects with this complete setup is available in the
 ### 1. Clone the Quick and Nimble repositories
 
 ```sh
-git clone git@github.com:Quick/Quick.git vendor/Quick
-git clone add git@github.com:Quick/Nimble.git vendor/Nimble
+git clone git@github.com:Quick/Quick.git Vendor/Quick
+git clone git@github.com:Quick/Nimble.git Vendor/Nimble
 ```
 
 ### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
@@ -616,6 +616,7 @@ submodules:
 mkdir Vendor # you can keep your submodules in their own directory
 git submodule add git@github.com:Quick/Quick.git Vendor/Quick
 git submodule add git@github.com:Quick/Nimble.git Vendor/Nimble
+git submodule update --init --recursive
 ```
 
 ### Updating the Quick Submodule
