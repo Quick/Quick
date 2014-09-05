@@ -616,6 +616,7 @@ submodules:
 mkdir Vendor # you can keep your submodules in their own directory
 git submodule add git@github.com:Quick/Quick.git Vendor/Quick
 git submodule add git@github.com:Quick/Nimble.git Vendor/Nimble
+git submodule update --init --recursive
 ```
 
 ### Updating the Quick Submodule
