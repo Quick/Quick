@@ -115,3 +115,15 @@ public func itBehavesLike(name: String, sharedExampleContext: SharedExampleConte
 public func pending(description: String, closure: () -> ()) {
     DSL.pending(description, closure: closure)
 }
+
+public func xdescribe(description: String, closure: () -> ()) {
+    pending(description, closure)
+}
+
+public func xcontext(description: String, closure: () -> ()) {
+    pending(description, closure)
+}
+
+public func xit(description: String, closure: () -> ()) {
+    pending(description, closure)
+}

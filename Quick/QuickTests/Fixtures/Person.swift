@@ -13,6 +13,8 @@ class Person: NSObject {
     var isHungry = false
     var isSatisfied = false
     var hopes = ["winning the lottery", "going on a blimp ride"]
+    var smalltalk = "Come here often?"
+    var valediction = "See you soon."
 
     var greeting: String {
         get {

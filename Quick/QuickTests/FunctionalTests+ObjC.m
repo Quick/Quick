@@ -51,6 +51,22 @@ qck_describe(@"a describe block", ^{
             expect(@NO).to(beTruthy());
         });
     });
+    
+    qck_xdescribe(@"a pending (shorthand) describe block", ^{
+        qck_it(@"contains a failing it block", ^{
+            expect(@NO).to(beTruthy());
+        });
+    });
+    
+    qck_xcontext(@"a pending (shorthand) context block", ^{
+        qck_it(@"contains a failing it block", ^{
+            expect(@NO).to(beTruthy());
+        });
+    });
+    
+    qck_xit(@"contains a pending (shorthand) it block", ^{
+        expect(@NO).to(beTruthy());
+    });
 });
 
 QuickSpecEnd

@@ -40,6 +40,9 @@
 #define qck_it(description, block) [QCKDSL it:description file:@(__FILE__) line:__LINE__ closure:block]
 #define qck_itBehavesLike(name, block) [QCKDSL itBehavesLike:name context:block file:@(__FILE__) line:__LINE__]
 #define qck_pending(description, block) [QCKDSL pending:description closure:block]
+#define qck_xdescribe(description, block) [QCKDSL xdescribe:description closure:block]
+#define qck_xcontext(description, block) [QCKDSL xcontext:description closure:block]
+#define qck_xit(description, block) [QCKDSL xit:description closure:block]
 
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
@@ -56,5 +59,8 @@ typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 + (void)it:(NSString *)description file:(NSString *)file line:(NSUInteger)line closure:(void(^)(void))closure;
 + (void)itBehavesLike:(NSString *)name context:(QCKDSLSharedExampleContext)context file:(NSString *)file line:(NSUInteger)line;
 + (void)pending:(NSString *)description closure:(void(^)(void)) __unused closure;
++ (void)xdescribe:(NSString *)description closure:(void(^)(void)) __unused closure;
++ (void)xcontext:(NSString *)description closure:(void(^)(void)) __unused closure;
++ (void)xit:(NSString *)description closure:(void(^)(void)) __unused closure;
 
 @end

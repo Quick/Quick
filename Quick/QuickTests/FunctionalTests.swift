@@ -99,6 +99,42 @@ class PersonSpec: QuickSpec {
                     }
                 }
             }
+            
+            xdescribe("smalltalk") {
+                context("when the person is unhappy") {
+                    beforeEach { person.isHappy = false }
+                    it("is lukewarm") {
+                        expect{person.smalltalk}.to(equal("Weather's nice."))
+                        expect{person.smalltalk}.notTo(equal("How are you!?"))
+                    }
+                }
+                
+                context("when the person is happy") {
+                    beforeEach { person.isHappy = true }
+                    it("is enthusiastic") {
+                        expect{person.smalltalk}.to(equal("How are you!?"))
+                        expect{person.smalltalk}.notTo(equal("Weather's nice."))
+                    }
+                }
+            }
+            
+            describe("valediction") {
+                xcontext("when the person is unhappy") {
+                    beforeEach { person.isHappy = false }
+                    it("is lukewarm") {
+                        expect{person.valediction}.to(equal("Bye then."))
+                        expect{person.valediction}.notTo(equal("I'll miss you!"))
+                    }
+                }
+                
+                context("when the person is happy") {
+                    beforeEach { person.isHappy = true }
+                    xit("is enthusiastic") {
+                        expect{person.valediction}.to(equal("I'll miss you!"))
+                        expect{person.valediction}.notTo(equal("Bye then."))
+                    }
+                }
+            }
         }
     }
 }
