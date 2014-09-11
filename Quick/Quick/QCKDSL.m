@@ -51,4 +51,16 @@
     [DSL pending:description closure:closure];
 }
 
++ (void)xdescribe:(NSString *)description closure:(void(^)(void))closure {
+    [self pending:description closure:closure];
+}
+
++ (void)xcontext:(NSString *)description closure:(void(^)(void))closure {
+    [self pending:description closure:closure];
+}
+
++ (void)xit:(NSString *)description closure:(void(^)(void))closure {
+    [self pending:description closure:closure];
+}
+
 @end

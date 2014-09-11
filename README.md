@@ -373,6 +373,44 @@ qck_pending(@"when the dolphin is near something interesting", ^{
 });
 ```
 
+#### Shorthand syntax
+
+Examples and groups can also be marked as pending by using
+`xdescribe`, `xcontext`, and `xit` in Swift, and `qck_xdescribe`,
+`qck_context`, and `qck_it` in Objective-C.
+
+```swift
+// Swift
+
+xdescribe("its click") {
+  // ...none of the code in this closure will be run.
+}
+
+xcontext("when the dolphin is not near anything interesting") {
+  // ...none of the code in this closure will be run.
+}
+
+xit("is only emitted once") {
+  // ...none of the code in this closure will be run.
+}
+```
+
+```objc
+// Objective-C
+
+qck_xdescribe(@"its click", ^{
+  // ...none of the code in this closure will be run.
+});
+
+qck_xcontext(@"when the dolphin is not near anything interesting", ^{
+  // ...none of the code in this closure will be run.
+});
+
+qck_xit(@"is only emitted once", ^{
+  // ...none of the code in this closure will be run.
+});
+```
+
 ### Global Setup/Teardown Using `beforeSuite` and `afterSuite`
 
 Some test setup needs to be performed before *any* examples are
