@@ -40,8 +40,8 @@
 #define qck_it(description, block) [QCKDSL it:description file:@(__FILE__) line:__LINE__ closure:block]
 #define qck_itBehavesLike(name, block) [QCKDSL itBehavesLike:name context:block file:@(__FILE__) line:__LINE__]
 #define qck_pending(description, block) [QCKDSL pending:description closure:block]
-#define qck_xdescribe(description, block) [QCKDSL xit:description closure:block]
-#define qck_xcontext(description, block) [QCKDSL xit:description closure:block]
+#define qck_xdescribe(description, block) [QCKDSL xdescribe:description closure:block]
+#define qck_xcontext(description, block) [QCKDSL xcontext:description closure:block]
 #define qck_xit(description, block) [QCKDSL xit:description closure:block]
 
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
