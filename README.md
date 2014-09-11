@@ -377,7 +377,7 @@ qck_pending(@"when the dolphin is near something interesting", ^{
 
 Examples and groups can also be marked as pending by using
 `xdescribe`, `xcontext`, and `xit` in Swift, and `qck_xdescribe`,
-`qck_context`, and `qck_it` in Objective-C.
+`qck_xcontext`, and `qck_xit` in Objective-C.
 
 ```swift
 // Swift
