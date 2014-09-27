@@ -30,7 +30,6 @@
     @end \
 
 
-
 #define qck_beforeSuite(...) [QCKDSL beforeSuite:__VA_ARGS__]
 #define qck_afterSuite(...) [QCKDSL afterSuite:__VA_ARGS__]
 #define qck_sharedExamples(name, ...) [QCKDSL sharedExamples:name closure:__VA_ARGS__]
