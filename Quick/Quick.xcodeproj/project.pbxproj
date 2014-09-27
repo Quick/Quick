@@ -49,10 +49,14 @@
 		5AFC5961195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC595F195EEDA900D3E0A2 /* NSException+Callsite.swift */; };
 		AAACAAD919532C4E00B492A8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBF9A819521298005E1714 /* XCTest.framework */; };
 		AADBF9AC195213AD005E1714 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBF9A919521298005E1714 /* XCTest.framework */; };
+		DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
+		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
 		DAEB6BD5194387D700289F44 /* Poet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCF194387D700289F44 /* Poet.swift */; };
+		DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */; };
+		DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +280,7 @@
 		5AFC595F195EEDA900D3E0A2 /* NSException+Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSException+Callsite.swift"; sourceTree = "<group>"; };
 		AADBF9A819521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AADBF9A919521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -284,6 +289,7 @@
 		DAEB6BCB194387D700289F44 /* FunctionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalTests.swift; sourceTree = "<group>"; };
 		DAEB6BCE194387D700289F44 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DAEB6BCF194387D700289F44 /* Poet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poet.swift; sourceTree = "<group>"; };
+		DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadataFunctionalTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +370,7 @@
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759D19515CA700CE1B99 /* DSL.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
+				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				5AFC5948195ED5B900D3E0A2 /* Failure.swift */,
@@ -395,6 +402,7 @@
 				1F6BB85719691C87009F1DBB /* Nimble.xcodeproj */,
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				34512A381948223C007D457A /* FunctionalTests+ObjC.m */,
+				DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
 			);
@@ -661,6 +669,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
+				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				5AFC5961195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
 				5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
@@ -680,6 +689,7 @@
 			files = (
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
+				DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
 				1F6BB86819693204009F1DBB /* FunctionalTests.swift in Sources */,
 				5A5D11AD1947412800F6D13D /* Poet.swift in Sources */,
 			);
@@ -690,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
+				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
 				5AFC5960195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
 				5AFC5949195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
@@ -709,6 +720,7 @@
 			files = (
 				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAEB6BD4194387D700289F44 /* Person.swift in Sources */,
+				DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
 				1F6BB86A1969BF75009F1DBB /* FunctionalTests.swift in Sources */,
 				DAEB6BD5194387D700289F44 /* Poet.swift in Sources */,
 			);
