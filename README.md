@@ -525,13 +525,56 @@ class CodSpec: QuickSpec {
 }
 ```
 
+```objc
+// Objective-C
+
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickSharedExampleGroupsBegin(EdibleSharedExamples)
+
+qck_sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
+  it(@"makes dolphins happy") {
+    Dolphin *dolphin = [[Dolphin alloc] init];
+    dolphin.happy = NO;
+    id<Edible> edible = exampleContext()[@"edible"];
+    [dolphin eat:edible];
+    expect(dolphin.isHappy).to(beTruthy())
+  }
+});
+
+QuickSharedExampleGroupsEnd
+
+QuickSpecBegin(MackerelSpec)
+
+__block Mackerel *mackerel = nil;
+qck_beforeEach(^{
+  mackerel = [[Mackerel alloc] init];
+});
+
+qck_itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
+
+QuickSpecEnd
+
+QuickSpecBegin(CodSpec)
+
+__block Mackerel *cod = nil;
+qck_beforeEach(^{
+  cod = [[Cod alloc] init];
+});
+
+qck_itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
+
+QuickSpecEnd
+```
+
 Shared examples can include any number of `it`, `context`, and
 `describe` blocks. They save a *lot* of typing when running
 the same tests against several different kinds of objects.
 
-In some cases, you won't need any additional context, and you can simply
-use `sharedExampleFor` closures that take no parameters. This might be
-useful when testing some sort of global state:
+In some cases, you won't need any additional context. In Swift, you can
+simply use `sharedExampleFor` closures that take no parameters. This
+might be useful when testing some sort of global state:
 
 ```swift
 // Swift
@@ -544,6 +587,11 @@ sharedExamplesFor("everything under the sea") {
 
 itBehavesLike("everything under the sea")
 ```
+
+> In Objective-C, you'll have to pass a block that takes a
+  `QCKDSLSharedExampleContext`, even if you don't plan on using that
+  argument. Sorry, but that's the way the cookie crumbles!
+  :cookie: :bomb:
 
 ## Nimble: Assertions Using `expect(...).to`
 
