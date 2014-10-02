@@ -30,19 +30,19 @@
     @end \
 
 
-#define qck_beforeSuite(block) [QCKDSL beforeSuite:block]
-#define qck_afterSuite(block) [QCKDSL afterSuite:block]
-#define qck_sharedExamples(name, block) [QCKDSL sharedExamples:name closure:block]
-#define qck_describe(description, block) [QCKDSL describe:description closure:block]
-#define qck_context(description, block) [QCKDSL context:description closure:block]
-#define qck_beforeEach(block) [QCKDSL beforeEach:block]
-#define qck_afterEach(block) [QCKDSL afterEach:block]
-#define qck_it(description, block) [QCKDSL it:description file:@(__FILE__) line:__LINE__ closure:block]
-#define qck_itBehavesLike(name, block) [QCKDSL itBehavesLike:name context:block file:@(__FILE__) line:__LINE__]
-#define qck_pending(description, block) [QCKDSL pending:description closure:block]
-#define qck_xdescribe(description, block) [QCKDSL xdescribe:description closure:block]
-#define qck_xcontext(description, block) [QCKDSL xcontext:description closure:block]
-#define qck_xit(description, block) [QCKDSL xit:description closure:block]
+#define qck_beforeSuite(...) [QCKDSL beforeSuite:__VA_ARGS__]
+#define qck_afterSuite(...) [QCKDSL afterSuite:__VA_ARGS__]
+#define qck_sharedExamples(name, ...) [QCKDSL sharedExamples:name closure:__VA_ARGS__]
+#define qck_describe(description, ...) [QCKDSL describe:description closure:__VA_ARGS__]
+#define qck_context(description, ...) [QCKDSL context:description closure:__VA_ARGS__]
+#define qck_beforeEach(...) [QCKDSL beforeEach:__VA_ARGS__]
+#define qck_afterEach(...) [QCKDSL afterEach:__VA_ARGS__]
+#define qck_it(description, ...) [QCKDSL it:description file:@(__FILE__) line:__LINE__ closure:__VA_ARGS__]
+#define qck_itBehavesLike(name, ...) [QCKDSL itBehavesLike:name context:__VA_ARGS__ file:@(__FILE__) line:__LINE__]
+#define qck_pending(description, ...) [QCKDSL pending:description closure:__VA_ARGS__]
+#define qck_xdescribe(description, ...) [QCKDSL xdescribe:description closure:__VA_ARGS__]
+#define qck_xcontext(description, ...) [QCKDSL xcontext:description closure:__VA_ARGS__]
+#define qck_xit(description, ...) [QCKDSL xit:description closure:__VA_ARGS__]
 
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
