@@ -47,6 +47,7 @@ class TableOfContentsSpec: QuickSpec {
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
+- [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
@@ -626,6 +627,113 @@ You can find much more detailed documentation on
 [Nimble](https://github.com/Quick/Nimble), including a
 full set of available matchers and details on how to perform asynchronous tests,
 in [the project's README](https://github.com/Quick/Nimble).
+
+## Testing UIKit with Quick
+
+Quick can be used for testing UIKit interaction as well. Say, for example, we have a `DolphinTableViewController` that displays one cell with label `Bottlenose`. We want to test that the cell gets displayed when the view is loaded. Additionally, we would like to delete the row upon selecting it. An approach might be:
+
+```swift
+// Swift
+
+import UIKit
+import Quick
+import Nimble
+
+class DolphinTableViewControllerSpecs: QuickSpec {
+  override func spec() {
+    var viewController: DolphinTableViewController!
+
+    beforeEach {
+      viewController = DolphinTableViewController()
+    }
+
+    describe("viewDidLoad") {
+      beforeEach {
+        viewController.view
+        // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+      }
+
+      it("loads the table view with one cell") {
+        let tableView = viewController.tableView
+
+        var indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        var cell = viewController.tableView(tableView, cellForRowAtIndexPath: indexPath)
+
+        expect(cell.textLabel?.text).to(equal("Bottlenose"))
+      }
+    }
+
+    describe("didSelectRowAtIndexPath") {
+      beforeEach {
+        viewController.view
+      }
+
+      it("deletes the selected row and reloads the tableView's data") {
+        let tableView = viewController.tableView
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+
+        viewController.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+
+        var cell = viewController.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        expect(cell.textLabel?.text).to(beNil())
+      }
+    }
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <UIKit/UIKit.h>
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickSpecBegin(DolphinTableViewControllerSpec)
+
+qck_describe(@"viewDidLoad") {
+  __block DolphinTableViewController *viewController = nil;
+
+  qck_beforeEach(^{
+    viewController = [[DolphinTableViewController alloc] init];
+  });
+
+  qck_it(@"loads the table view with three types of dolphin", ^{
+    qck_beforeEach(^{
+      [viewController view];
+      // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+    });
+
+    UITableView *tableView = [viewController tableView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    expect(@([[cell textLabel] text])).to(equal(@"Bottlenose"));
+  });
+}
+
+qck_describe(@"didSelectRowAtIndexPath") {
+  __block DolphinTableViewController *viewController = nil;
+
+  qck_beforeEach(^{
+    viewController = [[DolphinTableViewController alloc] init];
+    [viewController view];
+   });
+
+  qck_it(@"deletes the selected row and reloads the tableView's data", ^{
+    UITableView *tableView = [viewController tableView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+    [viewController tableView:tableView didSelectRowAtIndexPath:indexPath];
+
+    UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    expect(@([[cell textLabel] text])).to(beNil());
+  });
+}
+
+QuickSpecEnd
+```
 
 ## How to Install Quick
 
