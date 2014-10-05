@@ -630,7 +630,7 @@ in [the project's README](https://github.com/Quick/Nimble).
 
 ## Testing UIKit with Quick
 
-Quick can be used for testing UIKit interaction as well. Say, for example, we have a `DolphinTableViewController` that displays one cell with label `Bottlenose`. We want to test that the cell gets displayed when the view is loaded. Additionally, we would to delete the row upon selecting it. An approach might be:
+Quick can be used for testing UIKit interaction as well. Say, for example, we have a `DolphinTableViewController` that displays one cell with label `Bottlenose`. We want to test that the cell gets displayed when the view is loaded. Additionally, we would like to delete the row upon selecting it. An approach might be:
 
 ```swift
 // Swift
@@ -645,10 +645,14 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
     beforeEach {
       viewController = DolphinTableViewController()
-      viewController.viewDidLoad()
     }
 
     describe("viewDidLoad") {
+      beforeEach {
+        viewController.view
+        // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+      }
+
       it("loads the table view with one cell") {
         let tableView = viewController.tableView
 
@@ -660,6 +664,10 @@ class DolphinTableViewControllerSpecs: QuickSpec {
     }
 
     describe("didSelectRowAtIndexPath") {
+      beforeEach {
+        viewController.view
+      }
+
       it("deletes the selected row and reloads the tableView's data") {
         let tableView = viewController.tableView
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -684,14 +692,18 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 QuickSpecBegin(DolphinTableViewControllerSpec)
 
 qck_describe(@"viewDidLoad") {
-  _block DolphinTableViewController *viewController = nil;
+  __block DolphinTableViewController *viewController = nil;
 
   qck_beforeEach(^{
     viewController = [[DolphinTableViewController alloc] init];
-    [viewController viewDidLoad];
   });
 
   qck_it(@"loads the table view with three types of dolphin", ^{
+    qck_beforeEach(^{
+      [viewController view];
+      // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+    });
+
     UITableView *tableView = [viewController tableView];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -705,7 +717,7 @@ qck_describe(@"didSelectRowAtIndexPath") {
 
   qck_beforeEach(^{
     viewController = [[DolphinTableViewController alloc] init];
-    [viewController viewDidLoad];
+    [viewController view];
    });
 
   qck_it(@"deletes the selected row and reloads the tableView's data", ^{
