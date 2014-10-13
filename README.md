@@ -44,8 +44,10 @@ class TableOfContentsSpec: QuickSpec {
     - [Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`](#sharing-setupteardown-code-using-beforeeach-and-aftereach)
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
+    - [Shorthand syntax](#shorthand-syntax)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
+- [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
 - [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
@@ -105,11 +107,11 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_it(@"is friendly", ^{
+it(@"is friendly", ^{
   expect(@([[Dolphin new] isFriendly])).to(beTruthy());
 });
 
-qck_it(@"is smart", ^{
+it(@"is smart", ^{
   expect(@([[Dolphin new] isSmart])).to(beTruthy());
 });
 
@@ -164,14 +166,14 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
-  qck_describe(@"its click", ^{
-    qck_it(@"is loud", ^{
+describe(@"a dolphin", ^{
+  describe(@"its click", ^{
+    it(@"is loud", ^{
       Click *click = [[Dolphin new] click];
       expect(@(click.isLoud)).to(beTruthy());
     });
 
-    qck_it(@"has a high frequency", ^{
+    it(@"has a high frequency", ^{
       Click *click = [[Dolphin new] click];
       expect(@(click.hasHighFrequency)).to(beTruthy());
     });
@@ -231,23 +233,23 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
+describe(@"a dolphin", ^{
   __block Dolphin *dolphin = nil;
-  qck_beforeEach(^{
+  beforeEach(^{
       dolphin = [Dolphin new];
   });
 
-  qck_describe(@"its click", ^{
+  describe(@"its click", ^{
     __block Click *click = nil;
-    qck_beforeEach(^{
+    beforeEach(^{
       click = [dolphin click];
     });
 
-    qck_it(@"is loud", ^{
+    it(@"is loud", ^{
       expect(@(click.isLoud)).to(beTruthy());
     });
 
-    qck_it(@"has a high frequency", ^{
+    it(@"has a high frequency", ^{
       expect(@(click.hasHighFrequency)).to(beTruthy());
     });
   });
@@ -320,24 +322,24 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
+describe(@"a dolphin", ^{
   __block Dolphin *dolphin = nil;
-  qck_beforeEach(^{ dolphin = [Dolphin new]; });
+  beforeEach(^{ dolphin = [Dolphin new]; });
 
-  qck_describe(@"its click", ^{
-    qck_context(@"when the dolphin is not near anything interesting", ^{
-      qck_it(@"is only emitted once", ^{
+  describe(@"its click", ^{
+    context(@"when the dolphin is not near anything interesting", ^{
+      it(@"is only emitted once", ^{
         expect(@([[dolphin click] count])).to(equal(@1));
       });
     });
 
-    qck_context(@"when the dolphin is near something interesting", ^{
-      qck_beforeEach(^{
+    context(@"when the dolphin is near something interesting", ^{
+      beforeEach(^{
         [[Jamaica dolphinCove] add:[SunkenShip new]];
         [[Jamaica dolphinCove] add:dolphin];
       });
 
-      qck_it(@"is emitted three times", ^{
+      it(@"is emitted three times", ^{
         expect(@([[dolphin click] count])).to(equal(@3));
       });
     });
@@ -349,9 +351,8 @@ QuickSpecEnd
 
 ### Temporarily Disabling Examples or Groups Using `pending`
 
-For examples that don't pass yet, use `pending` in Swift, or
-`qck_pending` in Objective-C. Pending examples are not run,
-but are printed out along with the test results.
+For examples that don't pass yet, use `pending`. Pending examples
+are not run, but are printed out along with the test results.
 
 The example below marks the cases in which the dolphin is close to
 something interesting as "pending"--perhaps that functionality hasn't
@@ -369,7 +370,7 @@ pending("when the dolphin is near something interesting") {
 ```objc
 // Objective-C
 
-qck_pending(@"when the dolphin is near something interesting", ^{
+pending(@"when the dolphin is near something interesting", ^{
   // ...none of the code in this closure will be run.
 });
 ```
@@ -377,8 +378,7 @@ qck_pending(@"when the dolphin is near something interesting", ^{
 #### Shorthand syntax
 
 Examples and groups can also be marked as pending by using
-`xdescribe`, `xcontext`, and `xit` in Swift, and `qck_xdescribe`,
-`qck_xcontext`, and `qck_xit` in Objective-C.
+`xdescribe`, `xcontext`, and `xit`:
 
 ```swift
 // Swift
@@ -399,15 +399,15 @@ xit("is only emitted once") {
 ```objc
 // Objective-C
 
-qck_xdescribe(@"its click", ^{
+xdescribe(@"its click", ^{
   // ...none of the code in this closure will be run.
 });
 
-qck_xcontext(@"when the dolphin is not near anything interesting", ^{
+xcontext(@"when the dolphin is not near anything interesting", ^{
   // ...none of the code in this closure will be run.
 });
 
-qck_xit(@"is only emitted once", ^{
+xit(@"is only emitted once", ^{
   // ...none of the code in this closure will be run.
 });
 ```
@@ -451,16 +451,16 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_beforeSuite(^{
+beforeSuite(^{
   [OceanDatabase createDatabase:@"test.db"];
   [OceanDatabase connectToDatabase:@"test.db"];
 });
 
-qck_afterSuite(^{
+afterSuite(^{
   [OceanDatabase teardownDatabase:@"test.db"];
 });
 
-qck_describe(@"a dolphin", ^{
+describe(@"a dolphin", ^{
   // ...
 });
 
@@ -593,6 +593,28 @@ itBehavesLike("everything under the sea")
   `QCKDSLSharedExampleContext`, even if you don't plan on using that
   argument. Sorry, but that's the way the cookie crumbles!
   :cookie: :bomb:
+
+## Using Quick in Objective-C: The Optional Shorthand Syntax
+
+Quick works equally well in both Swift and Objective-C.
+
+Importing Quick in an Objective-C file defines macros such as `it`,
+`context`, and `describe`. It's possible that the project you are
+testing also defines symbols with these same names. In that case, you
+can avoid namespace collision by turning off Quick's optional "shorthand" syntax:
+
+```objc
+#define QUICK_DISABLE_SHORT_SYNTAX 1
+
+#import <Quick/Quick.h>
+
+QuickSpecBegin(DolphinSpec)
+// ...
+QuickSpecEnd
+```
+
+You must define the `QUICK_DISABLE_SHORT_SYNTAX` macro *before*
+importing the Quick header.
 
 ## Nimble: Assertions Using `expect(...).to`
 
