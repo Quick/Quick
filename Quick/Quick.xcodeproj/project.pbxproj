@@ -65,6 +65,10 @@
 		DA8F91A619F3208B006F6675 /* BeforeSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */; };
 		DA8F91A819F32556006F6675 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */; };
 		DA8F91A919F32556006F6675 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */; };
+		DA8F91AB19F3299E006F6675 /* SharedExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */; };
+		DA8F91AC19F3299E006F6675 /* SharedExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */; };
+		DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */; };
+		DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
@@ -306,6 +310,8 @@
 		DAA63EA219F7637300CD0A3B /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
 		DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeSuiteTests.swift; sourceTree = "<group>"; };
 		DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSuiteTests.swift; sourceTree = "<group>"; };
+		DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExamplesTests.swift; sourceTree = "<group>"; };
+		DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalTests_SharedExamplesTests_SharedExamples.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -386,6 +392,7 @@
 				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
 				DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */,
+				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -473,6 +480,7 @@
 			children = (
 				DAEB6BCE194387D700289F44 /* Person.swift */,
 				DAEB6BCF194387D700289F44 /* Poet.swift */,
+				DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -745,7 +753,9 @@
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DA87078419F48775008C04AC /* BeforeEachTests.swift in Sources */,
 				DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */,
+				DA8F91AC19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
+				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
 				DA8F919E19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
 				DA8F91A919F32556006F6675 /* AfterSuiteTests.swift in Sources */,
@@ -784,7 +794,9 @@
 				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DA87078319F48775008C04AC /* BeforeEachTests.swift in Sources */,
 				DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */,
+				DA8F91AB19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
 				DAEB6BD4194387D700289F44 /* Person.swift in Sources */,
+				DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
 				DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
 				DA8F91A819F32556006F6675 /* AfterSuiteTests.swift in Sources */,
