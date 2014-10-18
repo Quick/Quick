@@ -7,7 +7,4 @@
    <FileRef
       location = "group:Externals/Nimble/Nimble.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Examples/Scenester/Scenester.xcodeproj">
-   </FileRef>
 </Workspace>
