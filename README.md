@@ -534,7 +534,7 @@ class CodSpec: QuickSpec {
 
 QuickSharedExampleGroupsBegin(EdibleSharedExamples)
 
-qck_sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
+sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
   it(@"makes dolphins happy") {
     Dolphin *dolphin = [[Dolphin alloc] init];
     dolphin.happy = NO;
@@ -549,22 +549,22 @@ QuickSharedExampleGroupsEnd
 QuickSpecBegin(MackerelSpec)
 
 __block Mackerel *mackerel = nil;
-qck_beforeEach(^{
+beforeEach(^{
   mackerel = [[Mackerel alloc] init];
 });
 
-qck_itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
+itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
 
 QuickSpecEnd
 
 QuickSpecBegin(CodSpec)
 
 __block Mackerel *cod = nil;
-qck_beforeEach(^{
+beforeEach(^{
   cod = [[Cod alloc] init];
 });
 
-qck_itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
+itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
 
 QuickSpecEnd
 ```
@@ -713,15 +713,15 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
 QuickSpecBegin(DolphinTableViewControllerSpec)
 
-qck_describe(@"viewDidLoad") {
+describe(@"viewDidLoad") {
   __block DolphinTableViewController *viewController = nil;
 
-  qck_beforeEach(^{
+  beforeEach(^{
     viewController = [[DolphinTableViewController alloc] init];
   });
 
-  qck_it(@"loads the table view with three types of dolphin", ^{
-    qck_beforeEach(^{
+  it(@"loads the table view with three types of dolphin", ^{
+    beforeEach(^{
       [viewController view];
       // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
     });
@@ -734,15 +734,15 @@ qck_describe(@"viewDidLoad") {
   });
 }
 
-qck_describe(@"didSelectRowAtIndexPath") {
+describe(@"didSelectRowAtIndexPath") {
   __block DolphinTableViewController *viewController = nil;
 
-  qck_beforeEach(^{
+  beforeEach(^{
     viewController = [[DolphinTableViewController alloc] init];
     [viewController view];
    });
 
-  qck_it(@"deletes the selected row and reloads the tableView's data", ^{
+  it(@"deletes the selected row and reloads the tableView's data", ^{
     UITableView *tableView = [viewController tableView];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 
