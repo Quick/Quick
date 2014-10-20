@@ -898,7 +898,12 @@ $ rake templates:uninstall
 
 ## Who Uses Quick
 
+Quick is used by many companies, open-source projects, and individuals,
+including [GitHub](https://github.com/github) and
+[ReactiveCocoa](https://github.com/ReactiveCocoa). See examples below:
+
 - https://github.com/ReactiveCocoa/ReactiveCocoa
+- https://github.com/github/Archimedes
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
 - https://github.com/AshFurrow/Moya
