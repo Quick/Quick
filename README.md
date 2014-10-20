@@ -671,9 +671,10 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
     describe("viewDidLoad") {
       beforeEach {
-        viewController.view
         // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+        viewController.view
       }
+
 
       it("loads the table view with one cell") {
         let tableView = viewController.tableView
@@ -687,7 +688,9 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
     describe("didSelectRowAtIndexPath") {
       beforeEach {
-        viewController.view
+        // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and viewDidAppear: callbacks
+        viewController.beginAppearanceTransition(true, animated: false)
+        viewController.endAppearanceTransition()
       }
 
       it("deletes the selected row and reloads the tableView's data") {
@@ -722,8 +725,8 @@ describe(@"viewDidLoad") {
 
   it(@"loads the table view with three types of dolphin", ^{
     beforeEach(^{
-      [viewController view];
       // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+      [viewController view];
     });
 
     UITableView *tableView = [viewController tableView];
@@ -738,8 +741,10 @@ describe(@"didSelectRowAtIndexPath") {
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
     viewController = [[DolphinTableViewController alloc] init];
-    [viewController view];
+    [viewController beginAppearanceTransition:YES animated:NO];
+    [viewController endAppearanceTransition];
    });
 
   it(@"deletes the selected row and reloads the tableView's data", ^{
