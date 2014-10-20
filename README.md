@@ -898,6 +898,7 @@ $ rake templates:uninstall
 
 ## Who Uses Quick
 
+- https://github.com/ReactiveCocoa/ReactiveCocoa
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
 - https://github.com/AshFurrow/Moya
