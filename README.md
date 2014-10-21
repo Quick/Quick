@@ -1,4 +1,4 @@
-![](http://f.cl.ly/items/2o2r3F1f3h3W1Y2E360J/Introducing-Quick.png)
+![](http://f.cl.ly/items/0r1E192C1R0b2g2Q3h2w/QuickLogo_Color.png)
 
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
@@ -44,9 +44,12 @@ class TableOfContentsSpec: QuickSpec {
     - [Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`](#sharing-setupteardown-code-using-beforeeach-and-aftereach)
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
+    - [Shorthand syntax](#shorthand-syntax)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
+- [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
+- [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
@@ -104,11 +107,11 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_it(@"is friendly", ^{
+it(@"is friendly", ^{
   expect(@([[Dolphin new] isFriendly])).to(beTruthy());
 });
 
-qck_it(@"is smart", ^{
+it(@"is smart", ^{
   expect(@([[Dolphin new] isSmart])).to(beTruthy());
 });
 
@@ -163,14 +166,14 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
-  qck_describe(@"its click", ^{
-    qck_it(@"is loud", ^{
+describe(@"a dolphin", ^{
+  describe(@"its click", ^{
+    it(@"is loud", ^{
       Click *click = [[Dolphin new] click];
       expect(@(click.isLoud)).to(beTruthy());
     });
 
-    qck_it(@"has a high frequency", ^{
+    it(@"has a high frequency", ^{
       Click *click = [[Dolphin new] click];
       expect(@(click.hasHighFrequency)).to(beTruthy());
     });
@@ -230,23 +233,23 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
+describe(@"a dolphin", ^{
   __block Dolphin *dolphin = nil;
-  qck_beforeEach(^{
+  beforeEach(^{
       dolphin = [Dolphin new];
   });
 
-  qck_describe(@"its click", ^{
+  describe(@"its click", ^{
     __block Click *click = nil;
-    qck_beforeEach(^{
+    beforeEach(^{
       click = [dolphin click];
     });
 
-    qck_it(@"is loud", ^{
+    it(@"is loud", ^{
       expect(@(click.isLoud)).to(beTruthy());
     });
 
-    qck_it(@"has a high frequency", ^{
+    it(@"has a high frequency", ^{
       expect(@(click.hasHighFrequency)).to(beTruthy());
     });
   });
@@ -319,24 +322,24 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
+describe(@"a dolphin", ^{
   __block Dolphin *dolphin = nil;
-  qck_beforeEach(^{ dolphin = [Dolphin new]; });
+  beforeEach(^{ dolphin = [Dolphin new]; });
 
-  qck_describe(@"its click", ^{
-    qck_context(@"when the dolphin is not near anything interesting", ^{
-      qck_it(@"is only emitted once", ^{
+  describe(@"its click", ^{
+    context(@"when the dolphin is not near anything interesting", ^{
+      it(@"is only emitted once", ^{
         expect(@([[dolphin click] count])).to(equal(@1));
       });
     });
 
-    qck_context(@"when the dolphin is near something interesting", ^{
-      qck_beforeEach(^{
+    context(@"when the dolphin is near something interesting", ^{
+      beforeEach(^{
         [[Jamaica dolphinCove] add:[SunkenShip new]];
         [[Jamaica dolphinCove] add:dolphin];
       });
 
-      qck_it(@"is emitted three times", ^{
+      it(@"is emitted three times", ^{
         expect(@([[dolphin click] count])).to(equal(@3));
       });
     });
@@ -348,9 +351,8 @@ QuickSpecEnd
 
 ### Temporarily Disabling Examples or Groups Using `pending`
 
-For examples that don't pass yet, use `pending` in Swift, or
-`qck_pending` in Objective-C. Pending examples are not run,
-but are printed out along with the test results.
+For examples that don't pass yet, use `pending`. Pending examples
+are not run, but are printed out along with the test results.
 
 The example below marks the cases in which the dolphin is close to
 something interesting as "pending"--perhaps that functionality hasn't
@@ -368,7 +370,7 @@ pending("when the dolphin is near something interesting") {
 ```objc
 // Objective-C
 
-qck_pending(@"when the dolphin is near something interesting", ^{
+pending(@"when the dolphin is near something interesting", ^{
   // ...none of the code in this closure will be run.
 });
 ```
@@ -376,8 +378,7 @@ qck_pending(@"when the dolphin is near something interesting", ^{
 #### Shorthand syntax
 
 Examples and groups can also be marked as pending by using
-`xdescribe`, `xcontext`, and `xit` in Swift, and `qck_xdescribe`,
-`qck_xcontext`, and `qck_xit` in Objective-C.
+`xdescribe`, `xcontext`, and `xit`:
 
 ```swift
 // Swift
@@ -398,15 +399,15 @@ xit("is only emitted once") {
 ```objc
 // Objective-C
 
-qck_xdescribe(@"its click", ^{
+xdescribe(@"its click", ^{
   // ...none of the code in this closure will be run.
 });
 
-qck_xcontext(@"when the dolphin is not near anything interesting", ^{
+xcontext(@"when the dolphin is not near anything interesting", ^{
   // ...none of the code in this closure will be run.
 });
 
-qck_xit(@"is only emitted once", ^{
+xit(@"is only emitted once", ^{
   // ...none of the code in this closure will be run.
 });
 ```
@@ -450,16 +451,16 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_beforeSuite(^{
+beforeSuite(^{
   [OceanDatabase createDatabase:@"test.db"];
   [OceanDatabase connectToDatabase:@"test.db"];
 });
 
-qck_afterSuite(^{
+afterSuite(^{
   [OceanDatabase teardownDatabase:@"test.db"];
 });
 
-qck_describe(@"a dolphin", ^{
+describe(@"a dolphin", ^{
   // ...
 });
 
@@ -533,7 +534,7 @@ class CodSpec: QuickSpec {
 
 QuickSharedExampleGroupsBegin(EdibleSharedExamples)
 
-qck_sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
+sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
   it(@"makes dolphins happy") {
     Dolphin *dolphin = [[Dolphin alloc] init];
     dolphin.happy = NO;
@@ -548,22 +549,22 @@ QuickSharedExampleGroupsEnd
 QuickSpecBegin(MackerelSpec)
 
 __block Mackerel *mackerel = nil;
-qck_beforeEach(^{
+beforeEach(^{
   mackerel = [[Mackerel alloc] init];
 });
 
-qck_itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
+itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
 
 QuickSpecEnd
 
 QuickSpecBegin(CodSpec)
 
 __block Mackerel *cod = nil;
-qck_beforeEach(^{
+beforeEach(^{
   cod = [[Cod alloc] init];
 });
 
-qck_itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
+itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
 
 QuickSpecEnd
 ```
@@ -592,6 +593,28 @@ itBehavesLike("everything under the sea")
   `QCKDSLSharedExampleContext`, even if you don't plan on using that
   argument. Sorry, but that's the way the cookie crumbles!
   :cookie: :bomb:
+
+## Using Quick in Objective-C: The Optional Shorthand Syntax
+
+Quick works equally well in both Swift and Objective-C.
+
+Importing Quick in an Objective-C file defines macros such as `it`,
+`context`, and `describe`. It's possible that the project you are
+testing also defines symbols with these same names. In that case, you
+can avoid namespace collision by turning off Quick's optional "shorthand" syntax:
+
+```objc
+#define QUICK_DISABLE_SHORT_SYNTAX 1
+
+#import <Quick/Quick.h>
+
+QuickSpecBegin(DolphinSpec)
+// ...
+QuickSpecEnd
+```
+
+You must define the `QUICK_DISABLE_SHORT_SYNTAX` macro *before*
+importing the Quick header.
 
 ## Nimble: Assertions Using `expect(...).to`
 
@@ -626,6 +649,118 @@ You can find much more detailed documentation on
 [Nimble](https://github.com/Quick/Nimble), including a
 full set of available matchers and details on how to perform asynchronous tests,
 in [the project's README](https://github.com/Quick/Nimble).
+
+## Testing UIKit with Quick
+
+Quick can be used for testing UIKit interaction as well. Say, for example, we have a `DolphinTableViewController` that displays one cell with label `Bottlenose`. We want to test that the cell gets displayed when the view is loaded. Additionally, we would like to delete the row upon selecting it. An approach might be:
+
+```swift
+// Swift
+
+import UIKit
+import Quick
+import Nimble
+
+class DolphinTableViewControllerSpecs: QuickSpec {
+  override func spec() {
+    var viewController: DolphinTableViewController!
+
+    beforeEach {
+      viewController = DolphinTableViewController()
+    }
+
+    describe("viewDidLoad") {
+      beforeEach {
+        // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+        viewController.view
+      }
+
+
+      it("loads the table view with one cell") {
+        let tableView = viewController.tableView
+
+        var indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        var cell = viewController.tableView(tableView, cellForRowAtIndexPath: indexPath)
+
+        expect(cell.textLabel?.text).to(equal("Bottlenose"))
+      }
+    }
+
+    describe("didSelectRowAtIndexPath") {
+      beforeEach {
+        // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and viewDidAppear: callbacks
+        viewController.beginAppearanceTransition(true, animated: false)
+        viewController.endAppearanceTransition()
+      }
+
+      it("deletes the selected row and reloads the tableView's data") {
+        let tableView = viewController.tableView
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+
+        viewController.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+
+        var cell = viewController.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        expect(cell.textLabel?.text).to(beNil())
+      }
+    }
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <UIKit/UIKit.h>
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickSpecBegin(DolphinTableViewControllerSpec)
+
+describe(@"viewDidLoad") {
+  __block DolphinTableViewController *viewController = nil;
+
+  beforeEach(^{
+    viewController = [[DolphinTableViewController alloc] init];
+  });
+
+  it(@"loads the table view with three types of dolphin", ^{
+    beforeEach(^{
+      // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+      [viewController view];
+    });
+
+    UITableView *tableView = [viewController tableView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    expect(@([[cell textLabel] text])).to(equal(@"Bottlenose"));
+  });
+}
+
+describe(@"didSelectRowAtIndexPath") {
+  __block DolphinTableViewController *viewController = nil;
+
+  beforeEach(^{
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
+    viewController = [[DolphinTableViewController alloc] init];
+    [viewController beginAppearanceTransition:YES animated:NO];
+    [viewController endAppearanceTransition];
+   });
+
+  it(@"deletes the selected row and reloads the tableView's data", ^{
+    UITableView *tableView = [viewController tableView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+    [viewController tableView:tableView didSelectRowAtIndexPath:indexPath];
+
+    UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
+
+    expect(@([[cell textLabel] text])).to(beNil());
+  });
+}
+
+QuickSpecEnd
+```
 
 ## How to Install Quick
 
@@ -768,6 +903,12 @@ $ rake templates:uninstall
 
 ## Who Uses Quick
 
+Quick is used by many companies, open-source projects, and individuals,
+including [GitHub](https://github.com/github) and
+[ReactiveCocoa](https://github.com/ReactiveCocoa). See examples below:
+
+- https://github.com/ReactiveCocoa/ReactiveCocoa
+- https://github.com/github/Archimedes
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
 - https://github.com/AshFurrow/Moya

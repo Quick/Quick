@@ -44,6 +44,22 @@
 #define qck_xcontext(description, ...) [QCKDSL xcontext:description closure:__VA_ARGS__]
 #define qck_xit(description, ...) [QCKDSL xit:description closure:__VA_ARGS__]
 
+#ifndef QUICK_DISABLE_SHORT_SYNTAX
+#define beforeSuite(...) qck_beforeSuite(__VA_ARGS__)
+#define afterSuite(...) qck_afterSuite(__VA_ARGS__)
+#define sharedExamples(name, ...) qck_sharedExamples(name, __VA_ARGS__)
+#define describe(description, ...) qck_describe(description, __VA_ARGS__)
+#define context(description, ...) qck_context(description, __VA_ARGS__)
+#define beforeEach(...) qck_beforeEach(__VA_ARGS__)
+#define afterEach(...) qck_afterEach(__VA_ARGS__)
+#define it(description, ...) qck_it(description, __VA_ARGS__)
+#define itBehavesLike(name, ...) qck_itBehavesLike(name, __VA_ARGS__)
+#define pending(description, ...) qck_pending(description, __VA_ARGS__)
+#define xdescribe(description, ...) qck_xdescribe(description, __VA_ARGS__)
+#define xcontext(description, ...) qck_xcontext(description, __VA_ARGS__)
+#define xit(description, ...) qck_xit(description, __VA_ARGS__)
+#endif
+
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 
