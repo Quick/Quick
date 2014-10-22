@@ -59,6 +59,8 @@
 		DA8F919E19F31921006F6675 /* FailureTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */; };
 		DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
 		DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
+		DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
+		DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
@@ -296,6 +298,8 @@
 		DA8F919719F31680006F6675 /* QuickTestsBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickTestsBridgingHeader.h; sourceTree = "<group>"; };
 		DA8F919819F31680006F6675 /* XCTestObservationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTestObservationCenter.h; sourceTree = "<group>"; };
 		DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FailureTests+ObjC.m"; sourceTree = "<group>"; };
+		DAA7C0CE19F776940093D1D9 /* BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachTests.swift; sourceTree = "<group>"; };
+		DAA63EA219F7637300CD0A3B /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -373,6 +377,7 @@
 				DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */,
 				DA87078219F48775008C04AC /* BeforeEachTests.swift */,
 				DA05D60F19F73A3800771050 /* AfterEachTests.swift */,
+				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -729,6 +734,8 @@
 				DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
+				DA87078419F48775008C04AC /* BeforeEachTests.swift in Sources */,
+				DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */,
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
 				DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
 				DA8F919E19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
@@ -764,6 +771,8 @@
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
 				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
+				DA87078319F48775008C04AC /* BeforeEachTests.swift in Sources */,
+				DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DAEB6BD4194387D700289F44 /* Person.swift in Sources */,
 				DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
 				DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
