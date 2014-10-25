@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0600"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DAEB6B8D1943873100289F44"
+               BlueprintIdentifier = "5A5D117B19473F2100F6D13D"
                BuildableName = "Quick.framework"
-               BlueprintName = "Quick"
+               BlueprintName = "Quick-iOS"
+               ReferencedContainer = "container:Quick.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A5D118519473F2100F6D13D"
+               BuildableName = "Quick-iOSTests.xctest"
+               BlueprintName = "Quick-iOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,13 +46,22 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DAEB6B981943873100289F44"
-               BuildableName = "QuickTests.xctest"
-               BlueprintName = "QuickTests"
+               BlueprintIdentifier = "5A5D118519473F2100F6D13D"
+               BuildableName = "Quick-iOSTests.xctest"
+               BlueprintName = "Quick-iOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5A5D117B19473F2100F6D13D"
+            BuildableName = "Quick.framework"
+            BlueprintName = "Quick-iOS"
+            ReferencedContainer = "container:Quick.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -52,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DAEB6B8D1943873100289F44"
+            BlueprintIdentifier = "5A5D117B19473F2100F6D13D"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick"
+            BlueprintName = "Quick-iOS"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,6 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5A5D117B19473F2100F6D13D"
+            BuildableName = "Quick.framework"
+            BlueprintName = "Quick-iOS"
+            ReferencedContainer = "container:Quick.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
