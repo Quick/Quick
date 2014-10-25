@@ -924,5 +924,5 @@ including [GitHub](https://github.com/github) and
 
 ## License
 
-MIT license. See the `LICENSE` file for details.
+Apache 2.0 license. See the `LICENSE` file for details.
 
