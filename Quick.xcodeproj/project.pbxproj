@@ -68,6 +68,8 @@
 		DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
 		DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
 		DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
+		DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
+		DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
 		DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
@@ -311,6 +313,7 @@
 		DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExamplesTests.swift; sourceTree = "<group>"; };
 		DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalTests_SharedExamplesTests_SharedExamples.swift; sourceTree = "<group>"; };
 		DAA63EA219F7637300CD0A3B /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
+		DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SharedExamples+BeforeEachTests.swift"; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -392,6 +395,7 @@
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
 				DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
+				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -748,6 +752,7 @@
 				DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */,
 				DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
+				DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A619F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */,
@@ -788,6 +793,7 @@
 				DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */,
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
+				DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A519F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
 				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */,
