@@ -1,11 +1,3 @@
-//
-//  QCKDSL.m
-//  Quick
-//
-//  Created by Brian Ivan Gesiak on 6/11/14.
-//  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
-//
-
 #import "QCKDSL.h"
 #import <Quick/Quick-Swift.h>
 

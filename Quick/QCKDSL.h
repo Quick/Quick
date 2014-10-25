@@ -1,11 +1,3 @@
-//
-//  QCKDSL.h
-//  Quick
-//
-//  Created by Brian Ivan Gesiak on 6/11/14.
-//  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 #define QuickSharedExampleGroupsBegin(name) \

@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>io.modocache.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>io.quick.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleVersion</key>
 	<string>${CURRENT_PROJECT_VERSION}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014 Brian Ivan Gesiak. All rights reserved.</string>
+	<string>Copyright © 2014 - present, Quick Team. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>

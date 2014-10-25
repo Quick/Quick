@@ -1,11 +1,3 @@
-//
-//  Example.swift
-//  Quick
-//
-//  Created by Brian Ivan Gesiak on 6/5/14.
-//  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
-//
-
 import XCTest
 
 var _numberOfExamplesRun = 0

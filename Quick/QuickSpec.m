@@ -1,11 +1,3 @@
-//
-//  QCKSpec.m
-//  Quick
-//
-//  Created by Brian Ivan Gesiak on 6/6/14.
-//  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
-//
-
 #import "QuickSpec.h"
 #import "QuickSharedExampleGroups.h"
 #import "NSString+QCKSelectorName.h"
@@ -101,7 +93,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
  - "SenTestLineNumberKey": An Int representing the line number
 
  These keys used to be used by SenTestingKit, and are still used by some testing tools
- in the wild. See: https://github.com/modocache/Quick/pull/41
+ in the wild. See: https://github.com/Quick/Quick/pull/41
 
  @return The selector of the newly defined instance method.
  */

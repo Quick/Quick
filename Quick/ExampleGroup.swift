@@ -1,11 +1,3 @@
-//
-//  ExampleGroup.swift
-//  Quick
-//
-//  Created by Brian Ivan Gesiak on 6/5/14.
-//  Copyright (c) 2014 Brian Ivan Gesiak. All rights reserved.
-//
-
 @objc public class ExampleGroup {
     typealias BeforeClosure = (exampleMetadata: ExampleMetadata) -> ()
     typealias AfterClosure = BeforeClosure
