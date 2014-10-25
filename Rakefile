@@ -5,14 +5,12 @@ end
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS clean test"
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Nimble-iOS clean test"
+    run "xcodebuild -project Quick.xcodeproj -scheme Quick-iOS clean test"
   end
 
   desc "Run unit tests for all OS X targets"
   task :osx do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick clean test"
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Nimble-OSX clean test"
+    run "xcodebuild -project Quick.xcodeproj -scheme Quick clean test"
   end
 end
 
@@ -36,5 +34,5 @@ namespace "templates" do
   end
 end
 
-task default: [:test]
+task default: ["test:ios", "test:osx"]
 
