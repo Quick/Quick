@@ -55,9 +55,6 @@ class PersonSpec: QuickSpec {
             beforeEach { person = Person() }
             afterEach  { person = nil }
 
-            itBehavesLike("something living after dinosaurs are extinct")
-            itBehavesLike("an optimistic person") { ["person": person] }
-
             it("gets hungry") {
                 person!.eatChineseFood()
                 expect{person.isHungry}.toEventually(beTruthy())

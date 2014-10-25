@@ -44,7 +44,9 @@ var _numberOfExamplesRun = 0
         }
 
         ++_numberOfExamplesRun
-        if _numberOfExamplesRun >= World.sharedWorld().exampleCount {
+
+        let world = World.sharedWorld()
+        if !world.isRunningAdditionalSuites && _numberOfExamplesRun >= world.exampleCount {
             World.sharedWorld().runAfterSpec()
         }
     }
