@@ -53,6 +53,8 @@
 		DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
 		DA54728219FC2B5700332193 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA54727F19FC2B4400332193 /* Nimble.framework */; };
 		DA54728319FC2B5C00332193 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA54727B19FC2B4400332193 /* Nimble.framework */; };
+		DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
+		DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
 		DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
 		DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
 		DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */; };
@@ -302,6 +304,7 @@
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
 		DA54727319FC2B4400332193 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Externals/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
+		DA7AE6F019FC493F000AFDCE /* ItTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItTests.swift; sourceTree = "<group>"; };
 		DA87078219F48775008C04AC /* BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachTests.swift; sourceTree = "<group>"; };
 		DA8F919519F31680006F6675 /* QCKSpecRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKSpecRunner.h; sourceTree = "<group>"; };
 		DA8F919619F31680006F6675 /* QCKSpecRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKSpecRunner.m; sourceTree = "<group>"; };
@@ -388,6 +391,7 @@
 		DA8F919B19F3189D006F6675 /* FunctionalTests */ = {
 			isa = PBXGroup;
 			children = (
+				DA7AE6F019FC493F000AFDCE /* ItTests.swift */,
 				DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */,
 				DA87078219F48775008C04AC /* BeforeEachTests.swift */,
 				DA05D60F19F73A3800771050 /* AfterEachTests.swift */,
@@ -757,6 +761,7 @@
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DA8F91AC19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
+				DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */,
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
 				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
@@ -798,6 +803,7 @@
 				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DA8F91AB19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
+				DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */,
 				DAEB6BD4194387D700289F44 /* Person.swift in Sources */,
 				DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
