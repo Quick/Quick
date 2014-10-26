@@ -33,7 +33,8 @@ public class World: NSObject {
         if let group = _specs[name] {
             return group
         } else {
-            let group = ExampleGroup("root example group")
+            let group = ExampleGroup(description: "root example group",
+                                     isInternalRootExampleGroup: true)
             _specs[name] = group
             return group
         }
