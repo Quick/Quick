@@ -14,7 +14,7 @@ import Foundation
     }
 
     public class func describe(description: String, closure: () -> ()) {
-        var group = ExampleGroup(description)
+        var group = ExampleGroup(description: description)
         World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
         World.sharedWorld().currentExampleGroup = group
         closure()
@@ -55,7 +55,7 @@ import Foundation
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld().sharedExample(name)
 
-        var group = ExampleGroup(name)
+        var group = ExampleGroup(description: name)
         World.sharedWorld().currentExampleGroup!.appendExampleGroup(group)
         World.sharedWorld().currentExampleGroup = group
         closure(sharedExampleContext)
