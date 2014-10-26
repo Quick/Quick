@@ -35,8 +35,7 @@ it.
 
 ## Building the Project
 
-- Use `Quick.xcworkspace` to work on Quick, Nimble, and the example
-  apps.
+- Use `Quick.xcodeproj` to work on Quick.
 
 ## Pull Requests
 
