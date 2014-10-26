@@ -10,7 +10,7 @@ namespace "test" do
 
   desc "Run unit tests for all OS X targets"
   task :osx do |t|
-    run "xcodebuild -project Quick.xcodeproj -scheme Quick clean test"
+    run "xcodebuild -project Quick.xcodeproj -scheme Quick-OSX clean test"
   end
 end
 
