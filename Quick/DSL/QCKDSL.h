@@ -1,22 +1,47 @@
 #import <Foundation/Foundation.h>
 
+/**
+ Defines a new set of shared example groups. In the space between this and
+ `QuickSharedExampleGroupsEnd`, define any number of shared example groups
+ by using the `sharedExamples` macro (or `qck_sharedExamples`, if you have
+ the Quick shorthand disabled).
+
+ @param name The name of the shared examples class. Like any Objective-C
+             class name, this must be unique to the current runtime
+             environment. Note that this name is different from the names of
+             the shared examples defined using the `sharedExamples` macro.
+ */
 #define QuickSharedExampleGroupsBegin(name) \
     @interface name : QuickSharedExampleGroups; @end \
     @implementation name \
     + (void)sharedExampleGroups { \
 
 
+/**
+ Marks the end of a set of shared example groups.
+ Make sure you put this after `QuickSharedExampleGroupsBegin`.
+ */
 #define QuickSharedExampleGroupsEnd \
     } \
     @end \
 
 
+/**
+ Defines a new QuickSpec. Define examples and example groups within the space
+ between this and `QuickSpecEnd`.
+
+ @param name The name of the spec class. Like any Objective-C class name, this
+             must be unique to the current runtime environment.
+ */
 #define QuickSpecBegin(name) \
     @interface name : QuickSpec; @end \
     @implementation name \
     - (void)spec { \
 
 
+/**
+ Marks the end of a QuickSpec. Make sure you put this after `QuickSpecBegin`.
+ */
 #define QuickSpecEnd \
     } \
     @end \

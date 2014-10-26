@@ -13,8 +13,6 @@
 		34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
 		34F375A819515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
-		34F375A919515CA700CE1B99 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759D19515CA700CE1B99 /* DSL.swift */; };
-		34F375AA19515CA700CE1B99 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759D19515CA700CE1B99 /* DSL.swift */; };
 		34F375AB19515CA700CE1B99 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
 		34F375AC19515CA700CE1B99 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
 		34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759F19515CA700CE1B99 /* ExampleGroup.swift */; };
@@ -23,10 +21,6 @@
 		34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */; };
 		34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */; };
 		34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */; };
-		34F375B319515CA700CE1B99 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A219515CA700CE1B99 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34F375B419515CA700CE1B99 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A219515CA700CE1B99 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34F375B519515CA700CE1B99 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A319515CA700CE1B99 /* QCKDSL.m */; };
-		34F375B619515CA700CE1B99 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A319515CA700CE1B99 /* QCKDSL.m */; };
 		34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A419515CA700CE1B99 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A419515CA700CE1B99 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A519515CA700CE1B99 /* QuickSpec.m */; };
@@ -51,6 +45,14 @@
 		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
 		DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
+		DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
+		DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
+		DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E419FCAEE8002858A7 /* QCKDSL.m */; };
+		DA3124EB19FCAEE8002858A7 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E419FCAEE8002858A7 /* QCKDSL.m */; };
+		DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E519FCAEE8002858A7 /* World+DSL.swift */; };
+		DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E519FCAEE8002858A7 /* World+DSL.swift */; };
 		DA54728219FC2B5700332193 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA54727F19FC2B4400332193 /* Nimble.framework */; };
 		DA54728319FC2B5C00332193 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA54727B19FC2B4400332193 /* Nimble.framework */; };
 		DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
@@ -285,13 +287,10 @@
 /* Begin PBXFileReference section */
 		34512A381948223C007D457A /* FunctionalTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FunctionalTests+ObjC.m"; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
-		34F3759D19515CA700CE1B99 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		34F3759E19515CA700CE1B99 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		34F3759F19515CA700CE1B99 /* ExampleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
 		34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QCKSelectorName.h"; sourceTree = "<group>"; };
 		34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QCKSelectorName.m"; sourceTree = "<group>"; };
-		34F375A219515CA700CE1B99 /* QCKDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKDSL.h; sourceTree = "<group>"; };
-		34F375A319515CA700CE1B99 /* QCKDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKDSL.m; sourceTree = "<group>"; };
 		34F375A419515CA700CE1B99 /* QuickSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSpec.h; sourceTree = "<group>"; };
 		34F375A519515CA700CE1B99 /* QuickSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSpec.m; sourceTree = "<group>"; };
 		34F375A619515CA700CE1B99 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
@@ -305,6 +304,10 @@
 		AADBF9A919521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
+		DA3124E219FCAEE8002858A7 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
+		DA3124E319FCAEE8002858A7 /* QCKDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKDSL.h; sourceTree = "<group>"; };
+		DA3124E419FCAEE8002858A7 /* QCKDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKDSL.m; sourceTree = "<group>"; };
+		DA3124E519FCAEE8002858A7 /* World+DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "World+DSL.swift"; sourceTree = "<group>"; };
 		DA54727319FC2B4400332193 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Externals/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		DA7AE6F019FC493F000AFDCE /* ItTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItTests.swift; sourceTree = "<group>"; };
 		DA87078219F48775008C04AC /* BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachTests.swift; sourceTree = "<group>"; };
@@ -369,6 +372,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA3124E119FCAEE8002858A7 /* DSL */ = {
+			isa = PBXGroup;
+			children = (
+				DA3124E519FCAEE8002858A7 /* World+DSL.swift */,
+				DA3124E219FCAEE8002858A7 /* DSL.swift */,
+				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
+				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
+			);
+			path = DSL;
+			sourceTree = "<group>";
+		};
 		DA54727419FC2B4400332193 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,17 +446,15 @@
 		DAEB6B901943873100289F44 /* Quick */ = {
 			isa = PBXGroup;
 			children = (
+				DA3124E119FCAEE8002858A7 /* DSL */,
 				DAEB6B931943873100289F44 /* Quick.h */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				DAEE632919FF4EE30089F850 /* World+Singleton.swift */,
-				34F3759D19515CA700CE1B99 /* DSL.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				5AFC5948195ED5B900D3E0A2 /* Failure.swift */,
-				34F375A219515CA700CE1B99 /* QCKDSL.h */,
-				34F375A319515CA700CE1B99 /* QCKDSL.m */,
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
@@ -505,9 +517,9 @@
 			files = (
 				5A4A0D7E1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */,
 				34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
+				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
-				34F375B419515CA700CE1B99 /* QCKDSL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,9 +529,9 @@
 			files = (
 				5A4A0D7D1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */,
 				34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
+				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
-				34F375B319515CA700CE1B99 /* QCKDSL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,18 +751,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
+				DA3124EB19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				5AFC5961195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
 				5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
-				34F375AA19515CA700CE1B99 /* DSL.swift in Sources */,
-				34F375B619515CA700CE1B99 /* QCKDSL.m in Sources */,
 				DAEE632B19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
+				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
+				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,18 +795,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
+				DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
 				5AFC5960195EEDA900D3E0A2 /* NSException+Callsite.swift in Sources */,
 				5AFC5949195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
-				34F375A919515CA700CE1B99 /* DSL.swift in Sources */,
-				34F375B519515CA700CE1B99 /* QCKDSL.m in Sources */,
 				DAEE632A19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
+				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
+				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
