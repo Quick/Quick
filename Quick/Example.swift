@@ -11,7 +11,16 @@ var _numberOfExamplesRun = 0
     public var isSharedExample = false
     public var callsite: Callsite
 
-    public var name: String { get { return group!.name + ", " + _description } }
+    public var name: String {
+        get {
+            switch group!.name {
+                case .Some(let groupName):
+                    return "\(groupName), \(_description)"
+                case .None:
+                    return _description
+            }
+        }
+    }
 
     init(_ description: String, _ callsite: Callsite, _ closure: () -> ()) {
         self._description = description
