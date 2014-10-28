@@ -35,6 +35,9 @@ void qck_enumerateSubclasses(Class klass, QCKClassEnumerationBlock block) {
         dispatch_once(&onceToken, ^{
             qck_enumerateSubclasses([QuickSharedExampleGroups class], ^(__unsafe_unretained Class klass) {
                 [klass sharedExampleGroups];
+                [[World sharedWorld] configure:^(Configuration *configuration) {
+                    [klass configure:configuration];
+                }];
             });
             [[World sharedWorld] finalizeConfiguration];
         });
@@ -44,5 +47,7 @@ void qck_enumerateSubclasses(Class klass, QCKClassEnumerationBlock block) {
 #pragma mark - Public Interface
 
 + (void)sharedExampleGroups { }
+
++ (void)configure:(Configuration *)configuration { }
 
 @end

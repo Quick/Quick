@@ -83,6 +83,14 @@
 		DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
 		DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
 		DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
+		DAE714F019FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
+		DAE714F119FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
+		DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */; };
+		DAE714F419FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */; };
+		DAE714F719FF6812005905B8 /* Configuration+AfterEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */; };
+		DAE714F819FF6812005905B8 /* Configuration+AfterEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */; };
+		DAE714FA19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */; };
+		DAE714FB19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
@@ -334,6 +342,10 @@
 		DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalTests_SharedExamplesTests_SharedExamples.swift; sourceTree = "<group>"; };
 		DAA63EA219F7637300CD0A3B /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
 		DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SharedExamples+BeforeEachTests.swift"; sourceTree = "<group>"; };
+		DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+BeforeEachTests.swift"; sourceTree = "<group>"; };
+		DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+BeforeEach.swift"; sourceTree = "<group>"; };
+		DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+AfterEach.swift"; sourceTree = "<group>"; };
+		DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+AfterEachTests.swift"; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -438,6 +450,7 @@
 		DA8F919B19F3189D006F6675 /* FunctionalTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAE714E919FF65A6005905B8 /* Configuration */,
 				DA7AE6F019FC493F000AFDCE /* ItTests.swift */,
 				DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */,
 				DA87078219F48775008C04AC /* BeforeEachTests.swift */,
@@ -449,6 +462,33 @@
 				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
 			);
 			path = FunctionalTests;
+			sourceTree = "<group>";
+		};
+		DAE714E919FF65A6005905B8 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DAE714F519FF67FF005905B8 /* AfterEach */,
+				DAE714EA19FF65A6005905B8 /* BeforeEach */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DAE714EA19FF65A6005905B8 /* BeforeEach */ = {
+			isa = PBXGroup;
+			children = (
+				DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */,
+				DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */,
+			);
+			path = BeforeEach;
+			sourceTree = "<group>";
+		};
+		DAE714F519FF67FF005905B8 /* AfterEach */ = {
+			isa = PBXGroup;
+			children = (
+				DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */,
+				DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */,
+			);
+			path = AfterEach;
 			sourceTree = "<group>";
 		};
 		DAEB6B841943873100289F44 = {
@@ -807,8 +847,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE714F819FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */,
 				DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */,
+				DAE714F119FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A619F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
@@ -819,7 +861,9 @@
 				5A5D11AC1947412800F6D13D /* Person.swift in Sources */,
 				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
+				DAE714FB19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
 				DA8F919E19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
+				DAE714F419FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
 				DA8F91A919F32556006F6675 /* AfterSuiteTests.swift in Sources */,
 				1F6BB86819693204009F1DBB /* FunctionalTests.swift in Sources */,
 				5A5D11AD1947412800F6D13D /* Poet.swift in Sources */,
@@ -855,8 +899,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE714F719FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */,
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
+				DAE714F019FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A519F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
@@ -867,7 +913,9 @@
 				DAEB6BD4194387D700289F44 /* Person.swift in Sources */,
 				DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */,
+				DAE714FA19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
 				DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
+				DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
 				DA8F91A819F32556006F6675 /* AfterSuiteTests.swift in Sources */,
 				1F6BB86A1969BF75009F1DBB /* FunctionalTests.swift in Sources */,
 				DAEB6BD5194387D700289F44 /* Poet.swift in Sources */,
