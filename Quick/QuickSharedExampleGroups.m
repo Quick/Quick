@@ -1,4 +1,5 @@
 #import "QuickSharedExampleGroups.h"
+#import <Quick/Quick-Swift.h>
 #import <objc/runtime.h>
 
 typedef void (^QCKClassEnumerationBlock)(Class klass);
@@ -35,6 +36,7 @@ void qck_enumerateSubclasses(Class klass, QCKClassEnumerationBlock block) {
             qck_enumerateSubclasses([QuickSharedExampleGroups class], ^(__unsafe_unretained Class klass) {
                 [klass sharedExampleGroups];
             });
+            [[World sharedWorld] finalizeConfiguration];
         });
     }
 }

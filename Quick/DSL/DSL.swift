@@ -84,8 +84,8 @@ public func beforeEach(closure: BeforeExampleClosure) {
 }
 
 /**
-    Identical to beforeEach, except the closure is provided with metadata on
-    the example that the closure is being run prior to.
+    Identical to Quick.DSL.beforeEach, except the closure is provided with
+    metadata on the example that the closure is being run prior to.
 */
 public func beforeEach(#closure: BeforeExampleWithMetadataClosure) {
     World.sharedWorld().beforeEach(closure: closure)
@@ -104,8 +104,8 @@ public func afterEach(closure: AfterExampleClosure) {
 }
 
 /**
-    Identical to afterEach, except the closure is provided with metadata on
-    the example that the closure is being run after.
+    Identical to Quick.DSL.afterEach, except the closure is provided with
+    metadata on the example that the closure is being run after.
 */
 public func afterEach(#closure: AfterExampleWithMetadataClosure) {
     World.sharedWorld().afterEach(closure: closure)

@@ -45,6 +45,8 @@
 		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
 		DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
+		DA169E4819FF5DF100619816 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
+		DA169E4919FF5DF100619816 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
 		DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
 		DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
 		DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -310,6 +312,7 @@
 		AADBF9A919521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
+		DA169E4719FF5DF100619816 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		DA3124E219FCAEE8002858A7 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		DA3124E319FCAEE8002858A7 /* QCKDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKDSL.h; sourceTree = "<group>"; };
 		DA3124E419FCAEE8002858A7 /* QCKDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKDSL.m; sourceTree = "<group>"; };
@@ -381,6 +384,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA169E4619FF5DF100619816 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DA169E4719FF5DF100619816 /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		DA3124E119FCAEE8002858A7 /* DSL */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +476,7 @@
 		DAEB6B901943873100289F44 /* Quick */ = {
 			isa = PBXGroup;
 			children = (
+				DA169E4619FF5DF100619816 /* Configuration */,
 				DA3124E119FCAEE8002858A7 /* DSL */,
 				DA408BDE19FF5599005DF92A /* Hooks */,
 				DAEB6B931943873100289F44 /* Quick.h */,
@@ -782,6 +794,7 @@
 				DAEE632B19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
+				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
@@ -829,6 +842,7 @@
 				DAEE632A19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
+				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,

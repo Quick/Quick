@@ -5,10 +5,35 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
 public class World: NSObject {
     var _specs: Dictionary<String, ExampleGroup> = [:]
-
     var _sharedExamples: [String: SharedExampleClosure] = [:]
 
-    internal var suiteHooks = SuiteHooks()
+    let _configuration = Configuration()
+    var _isConfigurationFinalized = false
+
+    internal var exampleHooks: ExampleHooks {return _configuration.exampleHooks }
+    internal var suiteHooks: SuiteHooks { return _configuration.suiteHooks }
+
+    /**
+        Exposes the World's Configuration object within the scope of the closure
+        so that it may be configured. This method must not be called outside of
+        an overridden +[QuickConfiguration configure:] method.
+
+        :param: closure  A closure that takes a Configuration object that can
+                         be mutated to change Quick's behavior.
+    */
+    public func configure(closure: QuickConfigurer) {
+        assert(!_isConfigurationFinalized,
+               "Quick cannot be configured outside of a +[QuickConfiguration configure:] method. You should not call -[World configure:] directly. Instead, subclass QuickConfiguration and override the +[QuickConfiguration configure:] method.")
+        closure(configuration: _configuration)
+    }
+
+    /**
+        Finalizes the World's configuration.
+        Any subsequent calls to World.configure() will raise.
+    */
+    public func finalizeConfiguration() {
+        _isConfigurationFinalized = true
+    }
 
     public var currentExampleGroup: ExampleGroup?
 
