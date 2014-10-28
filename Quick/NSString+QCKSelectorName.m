@@ -3,7 +3,6 @@
 @implementation NSString (QCKSelectorName)
 
 - (NSString *)qck_selectorName {
-
     static NSMutableCharacterSet *invalidCharacters = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
