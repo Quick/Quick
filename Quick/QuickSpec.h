@@ -1,7 +1,5 @@
 #import <XCTest/XCTest.h>
 
-@class Failure;
-
 /**
  QuickSpec is a base class all specs written in Quick inherit from.
  They need to inherit from QuickSpec, a subclass of XCTestCase, in
