@@ -1,14 +1,10 @@
 @objc public class ExampleGroup {
-    typealias BeforeClosure = (exampleMetadata: ExampleMetadata) -> ()
-    typealias AfterClosure = BeforeClosure
+    internal let hooks = ExampleHooks()
 
     weak var parent: ExampleGroup?
 
     let _description: String
     let _isInternalRootExampleGroup: Bool
-
-    var _localBefores = [BeforeClosure]()
-    var _localAfters = [AfterClosure]()
     var _groups = [ExampleGroup]()
     var _localExamples = [Example]()
 
@@ -17,21 +13,21 @@
         self._isInternalRootExampleGroup = isInternalRootExampleGroup
     }
 
-    var befores: [BeforeClosure] {
+    var befores: [BeforeExampleWithMetadataClosure] {
         get {
-            var closures = _localBefores
+            var closures = hooks.befores
             walkUp() { (group: ExampleGroup) -> () in
-                closures.extend(group._localBefores)
+                closures.extend(group.hooks.befores)
             }
             return closures.reverse()
         }
     }
 
-    var afters: [AfterClosure] {
+    var afters: [AfterExampleWithMetadataClosure] {
         get {
-            var closures = _localAfters
+            var closures = hooks.afters
             walkUp() { (group: ExampleGroup) -> () in
-                closures.extend(group._localAfters)
+                closures.extend(group.hooks.afters)
             }
             return closures
         }
@@ -92,13 +88,5 @@
     func appendExample(example: Example) {
         example.group = self
         _localExamples.append(example)
-    }
-
-    func appendBefore(closure: BeforeClosure) {
-        _localBefores.append(closure)
-    }
-
-    func appendAfter(closure: AfterClosure) {
-        _localAfters.append(closure)
     }
 }

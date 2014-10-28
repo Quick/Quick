@@ -1,15 +1,15 @@
 /**
     Adds methods to World to support top-level DSL functions (Swift) and
-    macros (Objective-C). These functions map directly to the DSL test
+    macros (Objective-C). These functions map directly to the DSL that test
     writers use in their specs.
 */
 extension World {
-    public func beforeSuite(closure: () -> ()) {
-        appendBeforeSuite(closure)
+    public func beforeSuite(closure: BeforeSuiteClosure) {
+        suiteHooks.appendBefore(closure)
     }
 
-    public func afterSuite(closure: () -> ()) {
-        appendAfterSuite(closure)
+    public func afterSuite(closure: AfterSuiteClosure) {
+        suiteHooks.appendAfter(closure)
     }
 
     public func sharedExamples(name: String, closure: SharedExampleClosure) {
@@ -28,24 +28,20 @@ extension World {
         describe(description, closure: closure)
     }
 
-    public func beforeEach(closure: () -> ()) {
-        currentExampleGroup!.appendBefore { (exampleMetadata: ExampleMetadata) in
-            closure()
-        }
+    public func beforeEach(closure: BeforeExampleClosure) {
+        currentExampleGroup!.hooks.appendBefore(closure)
     }
 
-    public func beforeEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
-        currentExampleGroup!.appendBefore(closure)
+    public func beforeEach(#closure: BeforeExampleWithMetadataClosure) {
+        currentExampleGroup!.hooks.appendBefore(closure)
     }
 
-    public func afterEach(closure: () -> ()) {
-        currentExampleGroup!.appendAfter { (exampleMetadata: ExampleMetadata) in
-            closure()
-        }
+    public func afterEach(closure: AfterExampleClosure) {
+        currentExampleGroup!.hooks.appendAfter(closure)
     }
 
-    public func afterEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
-        currentExampleGroup!.appendAfter(closure)
+    public func afterEach(#closure: AfterExampleWithMetadataClosure) {
+        currentExampleGroup!.hooks.appendAfter(closure)
     }
 
     public func it(description: String, file: String, line: Int, closure: () -> ()) {

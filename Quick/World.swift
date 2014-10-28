@@ -4,18 +4,11 @@ public typealias SharedExampleContext = () -> (NSDictionary)
 public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
 public class World: NSObject {
-    typealias BeforeSuiteClosure = () -> ()
-    typealias AfterSuiteClosure = BeforeSuiteClosure
-
     var _specs: Dictionary<String, ExampleGroup> = [:]
 
-    var _beforeSuites = [BeforeSuiteClosure]()
-    var _beforeSuitesNotRunYet = true
-
-    var _afterSuites = [AfterSuiteClosure]()
-    var _afterSuitesNotRunYet = true
-
     var _sharedExamples: [String: SharedExampleClosure] = [:]
+
+    internal var suiteHooks = SuiteHooks()
 
     public var currentExampleGroup: ExampleGroup?
 
@@ -31,30 +24,6 @@ public class World: NSObject {
             _specs[name] = group
             return group
         }
-    }
-
-    func runBeforeSpec() {
-        assert(_beforeSuitesNotRunYet, "runBeforeSuite was called twice")
-        for beforeSuite in _beforeSuites {
-            beforeSuite()
-        }
-        _beforeSuitesNotRunYet = false
-    }
-
-    func runAfterSpec() {
-        assert(_afterSuitesNotRunYet, "runAfterSuite was called twice")
-        for afterSuite in _afterSuites {
-            afterSuite()
-        }
-        _afterSuitesNotRunYet = false
-    }
-
-    func appendBeforeSuite(closure: BeforeSuiteClosure) {
-        _beforeSuites.append(closure)
-    }
-
-    func appendAfterSuite(closure: AfterSuiteClosure) {
-        _afterSuites.append(closure)
     }
 
     var exampleCount: Int {
