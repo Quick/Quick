@@ -6,7 +6,7 @@
     If the test suite crashes before the first example is run, this closure
     will not be executed.
 */
-public func beforeSuite(closure: () -> ()) {
+public func beforeSuite(closure: BeforeSuiteClosure) {
     World.sharedWorld().beforeSuite(closure)
 }
 
@@ -18,7 +18,7 @@ public func beforeSuite(closure: () -> ()) {
     If the test suite crashes before all examples are run, this closure
     will not be executed.
 */
-public func afterSuite(closure: () -> ()) {
+public func afterSuite(closure: AfterSuiteClosure) {
     World.sharedWorld().afterSuite(closure)
 }
 
@@ -79,7 +79,7 @@ public func context(description: String, closure: () -> ()) {
 
     :param: closure The closure to be run prior to each example.
 */
-public func beforeEach(closure: () -> ()) {
+public func beforeEach(closure: BeforeExampleClosure) {
     World.sharedWorld().beforeEach(closure)
 }
 
@@ -87,7 +87,7 @@ public func beforeEach(closure: () -> ()) {
     Identical to beforeEach, except the closure is provided with metadata on
     the example that the closure is being run prior to.
 */
-public func beforeEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
+public func beforeEach(#closure: BeforeExampleWithMetadataClosure) {
     World.sharedWorld().beforeEach(closure: closure)
 }
 
@@ -99,7 +99,7 @@ public func beforeEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
 
     :param: closure The closure to be run after each example.
 */
-public func afterEach(closure: () -> ()) {
+public func afterEach(closure: AfterExampleClosure) {
     World.sharedWorld().afterEach(closure)
 }
 
@@ -107,7 +107,7 @@ public func afterEach(closure: () -> ()) {
     Identical to afterEach, except the closure is provided with metadata on
     the example that the closure is being run after.
 */
-public func afterEach(#closure: (exampleMetadata: ExampleMetadata) -> ()) {
+public func afterEach(#closure: AfterExampleWithMetadataClosure) {
     World.sharedWorld().afterEach(closure: closure)
 }
 

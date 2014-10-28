@@ -30,7 +30,7 @@ var _numberOfExamplesRun = 0
 
     public func run() {
         if _numberOfExamplesRun == 0 {
-            World.sharedWorld().runBeforeSpec()
+            World.sharedWorld().suiteHooks.executeBefores()
         }
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: _numberOfExamplesRun)
@@ -48,7 +48,7 @@ var _numberOfExamplesRun = 0
 
         let world = World.sharedWorld()
         if !world.isRunningAdditionalSuites && _numberOfExamplesRun >= world.exampleCount {
-            World.sharedWorld().runAfterSpec()
+            World.sharedWorld().suiteHooks.executeAfters()
         }
     }
 }
