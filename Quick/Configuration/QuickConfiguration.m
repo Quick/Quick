@@ -1,4 +1,4 @@
-#import "QuickSharedExampleGroups.h"
+#import "QuickConfiguration.h"
 #import <Quick/Quick-Swift.h>
 #import <objc/runtime.h>
 
@@ -25,16 +25,15 @@ void qck_enumerateSubclasses(Class klass, QCKClassEnumerationBlock block) {
     }
 }
 
-@implementation QuickSharedExampleGroups
+@implementation QuickConfiguration
 
 #pragma mark - NSObject Overrides
 
 + (void)initialize {
-    if ([self class] == [QuickSharedExampleGroups class]) {
+    if ([self class] == [QuickConfiguration class]) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            qck_enumerateSubclasses([QuickSharedExampleGroups class], ^(__unsafe_unretained Class klass) {
-                [klass sharedExampleGroups];
+            qck_enumerateSubclasses([QuickConfiguration class], ^(__unsafe_unretained Class klass) {
                 [[World sharedWorld] configure:^(Configuration *configuration) {
                     [klass configure:configuration];
                 }];
@@ -45,8 +44,6 @@ void qck_enumerateSubclasses(Class klass, QCKClassEnumerationBlock block) {
 }
 
 #pragma mark - Public Interface
-
-+ (void)sharedExampleGroups { }
 
 + (void)configure:(Configuration *)configuration { }
 

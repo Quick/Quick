@@ -4,8 +4,8 @@ import Nimble
 var dinosaursExtinct = false
 var mankindExtinct = false
 
-class FunctionalSharedExamples: QuickSharedExampleGroups {
-    override class func sharedExampleGroups() {
+class FunctionalSharedExamples: QuickConfiguration {
+    override class func configure(configuration: Configuration) {
         sharedExamples("something living after dinosaurs are extinct") {
             it("no longer deals with dinosaurs") {
                 expect(dinosaursExtinct).to(beTruthy())

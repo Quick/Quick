@@ -27,10 +27,6 @@
 		34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A519515CA700CE1B99 /* QuickSpec.m */; };
 		34F375BB19515CA700CE1B99 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
 		34F375BC19515CA700CE1B99 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
-		5A4A0D7D1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A4A0D7E1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */; };
-		5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A5D11AC1947412800F6D13D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
@@ -91,6 +87,10 @@
 		DAE714F819FF6812005905B8 /* Configuration+AfterEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */; };
 		DAE714FA19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */; };
 		DAE714FB19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */; };
+		DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAE7150019FF6A62005905B8 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
+		DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DAEB6BD4194387D700289F44 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCE194387D700289F44 /* Person.swift */; };
@@ -310,8 +310,6 @@
 		34F375A419515CA700CE1B99 /* QuickSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSpec.h; sourceTree = "<group>"; };
 		34F375A519515CA700CE1B99 /* QuickSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSpec.m; sourceTree = "<group>"; };
 		34F375A619515CA700CE1B99 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
-		5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSharedExampleGroups.h; sourceTree = "<group>"; };
-		5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSharedExampleGroups.m; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFC5948195ED5B900D3E0A2 /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
@@ -346,6 +344,8 @@
 		DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+BeforeEach.swift"; sourceTree = "<group>"; };
 		DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+AfterEach.swift"; sourceTree = "<group>"; };
 		DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Configuration+AfterEachTests.swift"; sourceTree = "<group>"; };
+		DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConfiguration.h; sourceTree = "<group>"; };
+		DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConfiguration.m; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
@@ -399,6 +399,8 @@
 		DA169E4619FF5DF100619816 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */,
+				DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */,
 				DA169E4719FF5DF100619816 /* Configuration.swift */,
 			);
 			path = Configuration;
@@ -532,8 +534,6 @@
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
 				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
 				5AFC595F195EEDA900D3E0A2 /* NSException+Callsite.swift */,
-				5A4A0D7B1960A84E005678EA /* QuickSharedExampleGroups.h */,
-				5A4A0D7C1960A84E005678EA /* QuickSharedExampleGroups.m */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
 			path = Quick;
@@ -587,8 +587,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4A0D7E1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */,
 				34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
+				DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
@@ -599,8 +599,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4A0D7D1960A84E005678EA /* QuickSharedExampleGroups.h in Headers */,
 				34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
+				DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
@@ -830,13 +830,13 @@
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
+				DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
 				DAEE632B19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
 				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
-				5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
@@ -882,13 +882,13 @@
 				DA408BE619FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				5AFC5949195ED5B900D3E0A2 /* Failure.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
+				DAE7150019FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
 				DAEE632A19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
 				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
-				5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
 				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,

@@ -2,9 +2,12 @@
 
 @class Configuration;
 
-@interface QuickSharedExampleGroups : NSObject
-
-+ (void)sharedExampleGroups;
+/**
+ Subclass QuickConfiguration and override the +[QuickConfiguration configure:]
+ method in order to configure how Quick behaves when running specs, or to define
+ shared examples that are used across spec files.
+ */
+@interface QuickConfiguration : NSObject
 
 /**
  This method is executed on each subclass of this class before Quick runs

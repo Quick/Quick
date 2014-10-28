@@ -1,28 +1,25 @@
 #import <Foundation/Foundation.h>
 
 /**
- Defines a new set of shared example groups. In the space between this and
- `QuickSharedExampleGroupsEnd`, define any number of shared example groups
- by using the `sharedExamples` macro (or `qck_sharedExamples`, if you have
- the Quick shorthand disabled).
+ Provides a hook for Quick to be configured before any examples are run.
+ Within this scope, override the +[QuickConfiguration configure:] method
+ to set properties on a configuration object to customize Quick behavior.
+ For details, see the documentation for Configuraiton.swift.
 
- @param name The name of the shared examples class. Like any Objective-C
+ @param name The name of the configuration class. Like any Objective-C
              class name, this must be unique to the current runtime
-             environment. Note that this name is different from the names of
-             the shared examples defined using the `sharedExamples` macro.
+             environment.
  */
-#define QuickSharedExampleGroupsBegin(name) \
-    @interface name : QuickSharedExampleGroups; @end \
+#define QuickConfigurationBegin(name) \
+    @interface name : QuickConfiguration; @end \
     @implementation name \
-    + (void)sharedExampleGroups { \
 
 
 /**
- Marks the end of a set of shared example groups.
- Make sure you put this after `QuickSharedExampleGroupsBegin`.
+ Marks the end of a Quick configuration.
+ Make sure you put this after `QuickConfigurationBegin`.
  */
-#define QuickSharedExampleGroupsEnd \
-    } \
+#define QuickConfigurationEnd \
     @end \
 
 
