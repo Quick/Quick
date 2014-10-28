@@ -21,13 +21,6 @@ public class World: NSObject {
 
     public var isRunningAdditionalSuites = false
 
-    struct _Shared {
-        static let instance = World()
-    }
-    public class func sharedWorld() -> World {
-        return _Shared.instance
-    }
-
     public func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
         let name = NSStringFromClass(cls)
         if let group = _specs[name] {

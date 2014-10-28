@@ -79,6 +79,8 @@
 		DAEB6BD5194387D700289F44 /* Poet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCF194387D700289F44 /* Poet.swift */; };
 		DAECD76319AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */; };
 		DAECD76419AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */; };
+		DAEE632A19FF4EE30089F850 /* World+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE632919FF4EE30089F850 /* World+Singleton.swift */; };
+		DAEE632B19FF4EE30089F850 /* World+Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE632919FF4EE30089F850 /* World+Singleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +328,7 @@
 		DAEB6BCE194387D700289F44 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DAEB6BCF194387D700289F44 /* Poet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poet.swift; sourceTree = "<group>"; };
 		DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadataFunctionalTests.swift; sourceTree = "<group>"; };
+		DAEE632919FF4EE30089F850 /* World+Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "World+Singleton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +434,7 @@
 			children = (
 				DAEB6B931943873100289F44 /* Quick.h */,
 				34F375A619515CA700CE1B99 /* World.swift */,
+				DAEE632919FF4EE30089F850 /* World+Singleton.swift */,
 				34F3759D19515CA700CE1B99 /* DSL.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
@@ -742,6 +746,7 @@
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AA19515CA700CE1B99 /* DSL.swift in Sources */,
 				34F375B619515CA700CE1B99 /* QCKDSL.m in Sources */,
+				DAEE632B19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
 				5A4A0D801960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
@@ -784,6 +789,7 @@
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375A919515CA700CE1B99 /* DSL.swift in Sources */,
 				34F375B519515CA700CE1B99 /* QCKDSL.m in Sources */,
+				DAEE632A19FF4EE30089F850 /* World+Singleton.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
 				5A4A0D7F1960A84E005678EA /* QuickSharedExampleGroups.m in Sources */,
