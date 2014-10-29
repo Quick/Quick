@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B8D1943873100289F44"
                BuildableName = "Quick.framework"
-               BlueprintName = "Quick"
+               BlueprintName = "Quick-OSX"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B981943873100289F44"
-               BuildableName = "QuickTests.xctest"
-               BlueprintName = "QuickTests"
+               BuildableName = "Quick-OSXTests.xctest"
+               BlueprintName = "Quick-OSXTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -54,7 +54,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick"
+            BlueprintName = "Quick-OSX"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
