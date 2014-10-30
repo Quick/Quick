@@ -911,6 +911,7 @@ including [GitHub](https://github.com/github) and
 
 - https://github.com/ReactiveCocoa/ReactiveCocoa
 - https://github.com/github/Archimedes
+- https://github.com/libgit2/objective-git
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
 - https://github.com/AshFurrow/Moya
