@@ -26,7 +26,15 @@ public typealias QuickConfigurer = (configuration: Configuration) -> ()
         Like Quick.DSL.beforeEach, this configures Quick to execute the
         given closure before each example that is run. The closure
         passed to this method is executed before each example Quick runs,
-        globally across the test suite.
+        globally across the test suite. You may call this method multiple
+        times across mulitple +[QuickConfigure configure:] methods in order
+        to define several closures to run before each example.
+
+        Note that, since Quick makes no guarantee as to the order in which
+        +[QuickConfiguration configure:] methods are evaluated, there is no
+        guarantee as to the order in which beforeEach closures are evaluated
+        either. Mulitple beforeEach defined on a single configuration, however,
+        will be executed in the order they're defined.
 
         :param: closure The closure to be executed before each example
                         in the test suite.
@@ -49,7 +57,15 @@ public typealias QuickConfigurer = (configuration: Configuration) -> ()
         Like Quick.DSL.afterEach, this configures Quick to execute the
         given closure after each example that is run. The closure
         passed to this method is executed after each example Quick runs,
-        globally across the test suite.
+        globally across the test suite. You may call this method multiple
+        times across mulitple +[QuickConfigure configure:] methods in order
+        to define several closures to run after each example.
+
+        Note that, since Quick makes no guarantee as to the order in which
+        +[QuickConfiguration configure:] methods are evaluated, there is no
+        guarantee as to the order in which afterEach closures are evaluated
+        either. Mulitple afterEach defined on a single configuration, however,
+        will be executed in the order they're defined.
 
         :param: closure The closure to be executed before each example
                         in the test suite.
