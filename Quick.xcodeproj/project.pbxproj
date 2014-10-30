@@ -61,6 +61,8 @@
 		DA54728319FC2B5C00332193 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA54727B19FC2B4400332193 /* Nimble.framework */; };
 		DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
 		DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
+		DA8C00211A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */; };
+		DA8C00221A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */; };
 		DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
 		DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
 		DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */; };
@@ -329,6 +331,7 @@
 		DA54727319FC2B4400332193 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Externals/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		DA7AE6F019FC493F000AFDCE /* ItTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItTests.swift; sourceTree = "<group>"; };
 		DA87078219F48775008C04AC /* BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachTests.swift; sourceTree = "<group>"; };
+		DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConfigurationTests.m; sourceTree = "<group>"; };
 		DA8F919519F31680006F6675 /* QCKSpecRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKSpecRunner.h; sourceTree = "<group>"; };
 		DA8F919619F31680006F6675 /* QCKSpecRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKSpecRunner.m; sourceTree = "<group>"; };
 		DA8F919719F31680006F6675 /* QuickTestsBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickTestsBridgingHeader.h; sourceTree = "<group>"; };
@@ -556,6 +559,7 @@
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				34512A381948223C007D457A /* FunctionalTests+ObjC.m */,
 				DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */,
+				DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
 			);
@@ -854,6 +858,7 @@
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A619F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
+				DA8C00221A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */,
 				34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DA8F91AC19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
@@ -906,6 +911,7 @@
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A519F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
+				DA8C00211A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */,
 				34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */,
 				DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DA8F91AB19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,

@@ -34,6 +34,23 @@ void qck_enumerateSubclasses(Class klass, QCKClassEnumerationBlock block) {
 
 @implementation QuickConfiguration
 
+#pragma mark - Object Lifecycle
+
+/**
+ QuickConfiguration is not meant to be instantiated; it merely provides a hook
+ for users to configure how Quick behaves. Raise an exception if an instance of
+ QuickConfiguration is created.
+ */
+- (instancetype)init {
+    NSString *className = NSStringFromClass([self class]);
+    NSString *selectorName = NSStringFromSelector(@selector(configure:));
+    [NSException raise:NSInternalInconsistencyException
+                format:@"%@ is not meant to be instantiated; "
+     @"subclass %@ and override %@ to configure Quick.",
+     className, className, selectorName];
+    return nil;
+}
+
 #pragma mark - NSObject Overrides
 
 /**
