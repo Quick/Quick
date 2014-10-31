@@ -5,8 +5,8 @@ import Nimble
 var specBeforeEachExecutedCount = 0
 var sharedExamplesBeforeEachExecutedCount = 0
 
-class FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples: QuickSharedExampleGroups {
-    override class func sharedExampleGroups() {
+class FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples: QuickConfiguration {
+    override class func configure(configuration: Configuration) {
         sharedExamples("a group of three shared examples with a beforeEach") {
             beforeEach { sharedExamplesBeforeEachExecutedCount += 1 }
             it("passes once") {}

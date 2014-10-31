@@ -29,11 +29,14 @@ var _numberOfExamplesRun = 0
     }
 
     public func run() {
+        let world = World.sharedWorld()
+
         if _numberOfExamplesRun == 0 {
-            World.sharedWorld().suiteHooks.executeBefores()
+            world.suiteHooks.executeBefores()
         }
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: _numberOfExamplesRun)
+        world.exampleHooks.executeBefores(exampleMetadata)
         for before in group!.befores {
             before(exampleMetadata: exampleMetadata)
         }
@@ -43,12 +46,13 @@ var _numberOfExamplesRun = 0
         for after in group!.afters {
             after(exampleMetadata: exampleMetadata)
         }
+        world.exampleHooks.executeAfters(exampleMetadata)
 
         ++_numberOfExamplesRun
 
-        let world = World.sharedWorld()
+
         if !world.isRunningAdditionalSuites && _numberOfExamplesRun >= world.exampleCount {
-            World.sharedWorld().suiteHooks.executeAfters()
+            world.suiteHooks.executeAfters()
         }
     }
 }

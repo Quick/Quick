@@ -1,5 +1,5 @@
 #import "QuickSpec.h"
-#import "QuickSharedExampleGroups.h"
+#import "QuickConfiguration.h"
 #import "NSString+QCKSelectorName.h"
 #import <Quick/Quick-Swift.h>
 #import <objc/runtime.h>
@@ -23,7 +23,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
  included an expectation outside of a "it", "describe", or "context" block.
  */
 + (void)initialize {
-    [QuickSharedExampleGroups initialize];
+    [QuickConfiguration initialize];
 
     World *world = [World sharedWorld];
     world.currentExampleGroup = [world rootExampleGroupForSpecClass:[self class]];

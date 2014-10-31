@@ -10,4 +10,4 @@ FOUNDATION_EXPORT const unsigned char QuickVersionString[];
 
 #import <Quick/QuickSpec.h>
 #import <Quick/QCKDSL.h>
-#import <Quick/QuickSharedExampleGroups.h>
+#import <Quick/QuickConfiguration.h>
