@@ -492,8 +492,8 @@ and specifies that both mackerel and cod behave like "something edible":
 import Quick
 import Nimble
 
-class EdibleSharedExamples: QuickSharedExampleGroups {
-  override class func sharedExampleGroups() {
+class EdibleSharedExamplesConfiguration: QuickConfiguration {
+  override class func configure(configuration: Configuration) {
     sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
       it("makes dolphins happy") {
         let dolphin = Dolphin(happy: false)
@@ -534,19 +534,21 @@ class CodSpec: QuickSpec {
 #import <Quick/Quick.h>
 #import <Nimble/Nimble.h>
 
-QuickSharedExampleGroupsBegin(EdibleSharedExamples)
+QuickConfigurationBegin(EdibleSharedExamplesConfiguration)
 
-sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
-  it(@"makes dolphins happy") {
-    Dolphin *dolphin = [[Dolphin alloc] init];
-    dolphin.happy = NO;
-    id<Edible> edible = exampleContext()[@"edible"];
-    [dolphin eat:edible];
-    expect(dolphin.isHappy).to(beTruthy())
-  }
-});
++ (void)configure:(Configuration *configuration) {
+  sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
+    it(@"makes dolphins happy") {
+      Dolphin *dolphin = [[Dolphin alloc] init];
+      dolphin.happy = NO;
+      id<Edible> edible = exampleContext()[@"edible"];
+      [dolphin eat:edible];
+      expect(dolphin.isHappy).to(beTruthy())
+    }
+  });
+}
 
-QuickSharedExampleGroupsEnd
+QuickConfigurationEnd
 
 QuickSpecBegin(MackerelSpec)
 
