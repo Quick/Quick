@@ -36,6 +36,7 @@ public class World: NSObject {
     }
 
     public var currentExampleGroup: ExampleGroup?
+    public var currentExampleMetadata: ExampleMetadata?
 
     public var isRunningAdditionalSuites = false
 
