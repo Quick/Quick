@@ -2,10 +2,16 @@ def run(command)
   system(command) or raise "RAKE TASK FAILED: #{command}"
 end
 
-desc "Run unit tests for all OS X targets"
-task :test do |t|
-  run "xcodebuild -workspace Quick.xcworkspace -scheme Quick clean test"
-  run "xcodebuild -workspace Quick.xcworkspace -scheme Nimble-OSX clean test"
+namespace "test" do
+  desc "Run unit tests for all iOS targets"
+  task :ios do |t|
+    run "xcodebuild -project Quick.xcodeproj -scheme Quick-iOS clean test"
+  end
+
+  desc "Run unit tests for all OS X targets"
+  task :osx do |t|
+    run "xcodebuild -project Quick.xcodeproj -scheme Quick-OSX clean test"
+  end
 end
 
 namespace "templates" do
@@ -28,5 +34,5 @@ namespace "templates" do
   end
 end
 
-task default: [:test]
+task default: ["test:ios", "test:osx"]
 

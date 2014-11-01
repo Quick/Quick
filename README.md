@@ -1,32 +1,36 @@
-![](http://f.cl.ly/items/2o2r3F1f3h3W1Y2E360J/Introducing-Quick.png)
+![](http://f.cl.ly/items/0r1E192C1R0b2g2Q3h2w/QuickLogo_Color.png)
 
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
-![](http://f.cl.ly/items/2F362k2E3f0u2R0p3q1c/Screen%20Shot%202014-06-14%20at%208.16.22%20PM.png)
+[![Build Status](https://travis-ci.org/Quick/Quick.svg)](https://travis-ci.org/Quick/Quick)
+
+![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/QuickSpec%20screenshot.png)
 
 ```swift
+// Swift
+
 import Quick
 import Nimble
 
 class TableOfContentsSpec: QuickSpec {
-    override func spec() {
-        describe("the table of contents below") {
-            it("has everything you need to get started") {
-                let sections = TableOfContents().sections
-                expect(sections).to(contain("Quick Core"))
-                expect(sections).to(contain("Quick Expectations"))
-                expect(sections).to(contain("How to Install Quick"))
-            }
+  override func spec() {
+    describe("the table of contents below") {
+      it("has everything you need to get started") {
+        let sections = TableOfContents().sections
+        expect(sections).to(contain("Quick: Examples and Example Groups"))
+        expect(sections).to(contain("Nimble: Assertions using expect(...).to"))
+        expect(sections).to(contain("How to Install Quick"))
+      }
 
-            context("if it doesn't have what you're looking for") {
-                it("needs to be updated") {
-                    let you = You(awesome: true)
-                    expect{you.submittedAnIssue}.toEventually(beTruthy())
-                }
-            }
+      context("if it doesn't have what you're looking for") {
+        it("needs to be updated") {
+          let you = You(awesome: true)
+          expect{you.submittedAnIssue}.toEventually(beTruthy())
         }
+      }
     }
+  }
 }
 ```
 
@@ -34,7 +38,6 @@ class TableOfContentsSpec: QuickSpec {
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 - [Quick: Examples and Example Groups](#quick-examples-and-example-groups)
   - [Examples Using `it`](#examples-using-it)
@@ -43,25 +46,21 @@ class TableOfContentsSpec: QuickSpec {
     - [Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`](#sharing-setupteardown-code-using-beforeeach-and-aftereach)
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
+    - [Shorthand syntax](#shorthand-syntax)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
+- [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
-  - [Available Matchers](#available-matchers)
-    - [Equal](#equal)
-    - [BeIdenticalTo](#beidenticalto)
-    - [BeNil](#benil)
-    - [BeTruthy](#betruthy)
-    - [BeFalsy](#befalsy)
-    - [BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan](#belessthan-belessthanorequalto-begreaterthanorequalto-begreaterthan)
-    - [Contain and BeEmpty](#contain-and-beempty)
-    - [RaiseException](#raiseexception)
-  - [Automatic Optional Unwrapping](#automatic-optional-unwrapping)
-  - [Asynchronous Expectations Using `toEventually` and `toEventuallyNot`](#asynchronous-expectations-using-toeventually-and-toeventuallynot)
+- [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
   - [4. Start writing specs!](#4-start-writing-specs!)
+- [Including Quick in a Git Repository Using Submodules](#including-quick-in-a-git-repository-using-submodules)
+  - [Adding Quick as a Git Submodule](#adding-quick-as-a-git-submodule)
+  - [Updating the Quick Submodule](#updating-the-quick-submodule)
+  - [Cloning a Repository that Includes a Quick Submodule](#cloning-a-repository-that-includes-a-quick-submodule)
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
@@ -72,19 +71,16 @@ class TableOfContentsSpec: QuickSpec {
 
 ## Quick: Examples and Example Groups
 
-Quick uses a special syntax that allows me to define **examples** and
-**example groups**.
+Quick uses a special syntax to define **examples** and **example groups**.
 
 ### Examples Using `it`
 
-Examples use assertions to demonstrate how code should behave.
-These are like "tests" in XCTest.
+Examples, defined with the `it` function, use assertions to demonstrate
+how code should behave. These are like "tests" in XCTest.
 
-Quick allows me to define examples using `it`. `it` also takes a string,
-which serves as a description of the example.
-
-Below, I specify examples of how my `Dolphin` class should behave.
-When I create a new dolphin, it should be smart and friendly.
+`it` takes two parameters: the name of the example, and a closure.
+The examples below specify how the `Dolphin` class should behave.
+A new dolphin should be smart and friendly:
 
 ```swift
 // Swift
@@ -93,15 +89,15 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        it("is friendly") {
-            expect(Dolphin().isFriendly).to(beTruthy())
-        }
-
-        it("is smart") {
-            expect(Dolphin().isSmart).to(beTruthy())
-        }
+  override func spec() {
+    it("is friendly") {
+      expect(Dolphin().isFriendly).to(beTruthy())
     }
+
+    it("is smart") {
+      expect(Dolphin().isSmart).to(beTruthy())
+    }
+  }
 }
 ```
 
@@ -113,12 +109,12 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_it(@"is friendly", ^{
-    expect(@([[Dolphin new] isFriendly])).to(beTruthy());
+it(@"is friendly", ^{
+  expect(@([[Dolphin new] isFriendly])).to(beTruthy());
 });
 
-qck_it(@"is smart", ^{
-    expect(@([[Dolphin new] isSmart])).to(beTruthy());
+it(@"is smart", ^{
+  expect(@([[Dolphin new] isSmart])).to(beTruthy());
 });
 
 QuickSpecEnd
@@ -129,16 +125,15 @@ QuickSpecEnd
 
 ### Example Groups Using `describe` and `context`
 
-Example groups are logical groupings of examples. By grouping similar
-examples together, we can share setup and teardown code between them.
+Example groups are logical groupings of examples. Example groups can share
+setup and teardown code.
 
 #### Describing Classes and Methods Using `describe`
 
-Let's say I want to specify the behavior of my `Dolphin` class's `click`
-method (or, in other words, I want to test the method works).
-
-I can group all of the tests for `click` using `describe`. Grouping
-similar examples together makes my spec easier to read.
+To specify the behavior of the `Dolphin` class's `click` method--in
+other words, to test the method works--several `it` examples can be
+grouped together using the `describe` function. Grouping similar
+examples together makes the spec easier to read:
 
 ```swift
 // Swift
@@ -147,21 +142,21 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        describe("a dolphin") {
-            describe("its click") {
-                it("is loud") {
-                    let click = Dolphin().click()
-                    expect(click.isLoud).to(beTruthy())
-                }
-
-                it("has a high frequency") {
-                    let click = Dolphin().click()
-                    expect(click.hasHighFrequency).to(beTruthy())
-                }
-            }
+  override func spec() {
+    describe("a dolphin") {
+      describe("its click") {
+        it("is loud") {
+          let click = Dolphin().click()
+          expect(click.isLoud).to(beTruthy())
         }
+
+        it("has a high frequency") {
+          let click = Dolphin().click()
+          expect(click.hasHighFrequency).to(beTruthy())
+        }
+      }
     }
+  }
 }
 ```
 
@@ -173,18 +168,18 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
-    qck_describe(@"its click", ^{
-        qck_it(@"is loud", ^{
-            Click *click = [[Dolphin new] click];
-            expect(@(click.isLoud)).to(beTruthy());
-        });
-
-        qck_it(@"has a high frequency", ^{
-            Click *click = [[Dolphin new] click];
-            expect(@(click.hasHighFrequency)).to(beTruthy());
-        });
+describe(@"a dolphin", ^{
+  describe(@"its click", ^{
+    it(@"is loud", ^{
+      Click *click = [[Dolphin new] click];
+      expect(@(click.isLoud)).to(beTruthy());
     });
+
+    it(@"has a high frequency", ^{
+      Click *click = [[Dolphin new] click];
+      expect(@(click.hasHighFrequency)).to(beTruthy());
+    });
+  });
 });
 
 QuickSpecEnd
@@ -192,13 +187,12 @@ QuickSpecEnd
 
 #### Sharing Setup/Teardown Code Using `beforeEach` and `afterEach`
 
-Besides making the intention of my examples clearer, example groups
-like `describe` allow me to share setup and teardown code among my
-examples.
+Example groups don't just make the examples clearer, they're also useful
+for sharing setup and teardown code among examples in a group.
 
-Using `beforeEach`, I can create a new instance of a dolphin and its
-click before each one of my examples. This ensures that both are in a
-"fresh" state for every example.
+In the example below, the `beforeEach` function is used to create a brand
+new instance of a dolphin and its click before each example in the group.
+This ensures that both are in a "fresh" state for every example:
 
 ```swift
 // Swift
@@ -207,29 +201,29 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        describe("a dolphin") {
-            var dolphin: Dolphin?
-            beforeEach {
-                dolphin = Dolphin()
-            }
+  override func spec() {
+    describe("a dolphin") {
+      var dolphin: Dolphin?
+      beforeEach {
+        dolphin = Dolphin()
+      }
 
-            describe("its click") {
-                var click: Click?
-                beforeEach {
-                    click = dolphin!.click()
-                }
-
-                it("is loud") {
-                    expect(click!.isLoud).to(beTruthy())
-                }
-
-                it("has a high frequency") {
-                    expect(click!.hasHighFrequency).to(beTruthy())
-                }
-            }
+      describe("its click") {
+        var click: Click?
+        beforeEach {
+          click = dolphin!.click()
         }
+
+        it("is loud") {
+          expect(click!.isLoud).to(beTruthy())
+        }
+
+        it("has a high frequency") {
+          expect(click!.hasHighFrequency).to(beTruthy())
+        }
+      }
     }
+  }
 }
 ```
 
@@ -241,33 +235,33 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
-    __block Dolphin *dolphin = nil;
-    qck_beforeEach(^{
-        dolphin = [Dolphin new];
+describe(@"a dolphin", ^{
+  __block Dolphin *dolphin = nil;
+  beforeEach(^{
+      dolphin = [Dolphin new];
+  });
+
+  describe(@"its click", ^{
+    __block Click *click = nil;
+    beforeEach(^{
+      click = [dolphin click];
     });
 
-    qck_describe(@"its click", ^{
-        __block Click *click = nil;
-        qck_beforeEach(^{
-            click = [dolphin click];
-        });
-
-        qck_it(@"is loud", ^{
-            expect(@(click.isLoud)).to(beTruthy());
-        });
-
-        qck_it(@"has a high frequency", ^{
-            expect(@(click.hasHighFrequency)).to(beTruthy());
-        });
+    it(@"is loud", ^{
+      expect(@(click.isLoud)).to(beTruthy());
     });
+
+    it(@"has a high frequency", ^{
+      expect(@(click.hasHighFrequency)).to(beTruthy());
+    });
+  });
 });
 
 QuickSpecEnd
 ```
 
-Sharing setup like this might not seem like such a big deal with my
-dolphin example, but for more complicated objects, it saves me a lot
+Sharing setup like this might not seem like a big deal with the
+dolphin example, but for more complicated objects, it saves a lot
 of typing!
 
 To execute code *after* each example, use `afterEach`.
@@ -278,13 +272,13 @@ Dolphins use clicks for echolocation. When they approach something
 particularly interesting to them, they release a series of clicks in
 order to get a better idea of what it is.
 
-I want to show that my `click` method behaves differently in different
-circumstances. Normally, the dolphin just clicks once. But when the dolphin
-is close to something interesting, it clicks several times.
+The tests need to show that the `click` method behaves differently in
+different circumstances. Normally, the dolphin just clicks once. But when
+the dolphin is close to something interesting, it clicks several times.
 
-I can express this in my tests by using `context`: one `context` for the
+This can be expressed using `context` functions: one `context` for the
 normal case, and one `context` for when the dolphin is close to
-something interesting.
+something interesting:
 
 ```swift
 // Swift
@@ -293,32 +287,32 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        describe("a dolphin") {
-            var dolphin: Dolphin?
-            beforeEach { dolphin = Dolphin() }
+  override func spec() {
+    describe("a dolphin") {
+      var dolphin: Dolphin?
+      beforeEach { dolphin = Dolphin() }
 
-            describe("its click") {
-                context("when the dolphin is not near anything interesting") {
-                    it("is only emitted once") {
-                        expect(dolphin!.click().count).to(equal(1))
-                    }
-                }
-
-                context("when the dolphin is near something interesting") {
-                    beforeEach {
-                        let ship = SunkenShip()
-                        Jamaica.dolphinCove.add(ship)
-                        Jamaica.dolphinCove.add(dolphin)
-                    }
-
-                    it("is emitted three times") {
-                        expect(dolphin!.click().count).to(equal(3))
-                    }
-                }
-            }
+      describe("its click") {
+        context("when the dolphin is not near anything interesting") {
+          it("is only emitted once") {
+            expect(dolphin!.click().count).to(equal(1))
+          }
         }
+
+        context("when the dolphin is near something interesting") {
+          beforeEach {
+            let ship = SunkenShip()
+            Jamaica.dolphinCove.add(ship)
+            Jamaica.dolphinCove.add(dolphin)
+          }
+
+          it("is emitted three times") {
+            expect(dolphin!.click().count).to(equal(3))
+          }
+        }
+      }
     }
+  }
 }
 ```
 
@@ -330,28 +324,28 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_describe(@"a dolphin", ^{
-    __block Dolphin *dolphin = nil;
-    qck_beforeEach(^{ dolphin = [Dolphin new]; });
+describe(@"a dolphin", ^{
+  __block Dolphin *dolphin = nil;
+  beforeEach(^{ dolphin = [Dolphin new]; });
 
-    qck_describe(@"its click", ^{
-        qck_context(@"when the dolphin is not near anything interesting", ^{
-            qck_it(@"is only emitted once", ^{
-                expect(@([[dolphin click] count])).to(equal(@1));
-            });
-        });
-
-        qck_context(@"when the dolphin is near something interesting", ^{
-            qck_beforeEach(^{
-                [[Jamaica dolphinCove] add:[SunkenShip new]];
-                [[Jamaica dolphinCove] add:dolphin];
-            });
-
-            qck_it(@"is emitted three times", ^{
-                expect(@([[dolphin click] count])).to(equal(@3));
-            });
-        });
+  describe(@"its click", ^{
+    context(@"when the dolphin is not near anything interesting", ^{
+      it(@"is only emitted once", ^{
+        expect(@([[dolphin click] count])).to(equal(@1));
+      });
     });
+
+    context(@"when the dolphin is near something interesting", ^{
+      beforeEach(^{
+        [[Jamaica dolphinCove] add:[SunkenShip new]];
+        [[Jamaica dolphinCove] add:dolphin];
+      });
+
+      it(@"is emitted three times", ^{
+        expect(@([[dolphin click] count])).to(equal(@3));
+      });
+    });
+  });
 });
 
 QuickSpecEnd
@@ -359,39 +353,75 @@ QuickSpecEnd
 
 ### Temporarily Disabling Examples or Groups Using `pending`
 
-I can also use `pending` in Swift, or `qck_pending` in Objective-C, to
-denote an example that does not pass yet. Pending blocks are not run,
-but are printed out along with the test results.
+For examples that don't pass yet, use `pending`. Pending examples
+are not run, but are printed out along with the test results.
 
-For example, I haven't yet implemented the `click` method to emit a
-series of clicks when the dolphin is near something interesting. So I
-will mark that example group as pending for now:
+The example below marks the cases in which the dolphin is close to
+something interesting as "pending"--perhaps that functionality hasn't
+been implemented yet, but these tests have been written as reminders
+that it should be soon:
 
 ```swift
 // Swift
 
 pending("when the dolphin is near something interesting") {
-    // ...none of the code in this closure will be run.
+  // ...none of the code in this closure will be run.
 }
 ```
 
 ```objc
 // Objective-C
 
-qck_pending(@"when the dolphin is near something interesting", ^{
-    // ...none of the code in this closure will be run.
+pending(@"when the dolphin is near something interesting", ^{
+  // ...none of the code in this closure will be run.
+});
+```
+
+#### Shorthand syntax
+
+Examples and groups can also be marked as pending by using
+`xdescribe`, `xcontext`, and `xit`:
+
+```swift
+// Swift
+
+xdescribe("its click") {
+  // ...none of the code in this closure will be run.
+}
+
+xcontext("when the dolphin is not near anything interesting") {
+  // ...none of the code in this closure will be run.
+}
+
+xit("is only emitted once") {
+  // ...none of the code in this closure will be run.
+}
+```
+
+```objc
+// Objective-C
+
+xdescribe(@"its click", ^{
+  // ...none of the code in this closure will be run.
+});
+
+xcontext(@"when the dolphin is not near anything interesting", ^{
+  // ...none of the code in this closure will be run.
+});
+
+xit(@"is only emitted once", ^{
+  // ...none of the code in this closure will be run.
 });
 ```
 
 ### Global Setup/Teardown Using `beforeSuite` and `afterSuite`
 
-I sometimes need to perform some setup before *any* of my examples are
-run. Let's say I maintain a database that keeps track of everything in
-the ocean. I want to create a new test database before any of my
-examples run. I also want to get rid of that database once my examples
-are finished running.
+Some test setup needs to be performed before *any* examples are
+run. For these cases, use `beforeSuite` and `afterSuite`.
 
-Quick allows me to do this by using `beforeSuite` and `afterSuite`.
+In the example below, a database of all the creatures in the ocean is
+created before any examples are run. That database is torn down once all
+the examples have finished:
 
 ```swift
 // Swift
@@ -399,20 +429,20 @@ Quick allows me to do this by using `beforeSuite` and `afterSuite`.
 import Quick
 
 class DolphinSpec: QuickSpec {
-    override func spec() {
-        beforeSuite {
-            OceanDatabase.createDatabase(name: "test.db")
-            OceanDatabase.connectToDatabase(name: "test.db")
-        }
-
-        afterSuite {
-            OceanDatabase.teardownDatabase(name: "test.db")
-        }
-
-        describe("a dolphin") {
-            // ...
-        }
+  override func spec() {
+    beforeSuite {
+      OceanDatabase.createDatabase(name: "test.db")
+      OceanDatabase.connectToDatabase(name: "test.db")
     }
+
+    afterSuite {
+      OceanDatabase.teardownDatabase(name: "test.db")
+    }
+
+    describe("a dolphin") {
+      // ...
+    }
+  }
 }
 ```
 
@@ -423,40 +453,38 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-qck_beforeSuite(^{
-    [OceanDatabase createDatabase:@"test.db"];
-    [OceanDatabase connectToDatabase:@"test.db"];
+beforeSuite(^{
+  [OceanDatabase createDatabase:@"test.db"];
+  [OceanDatabase connectToDatabase:@"test.db"];
 });
 
-qck_afterSuite(^{
-    [OceanDatabase teardownDatabase:@"test.db"];
+afterSuite(^{
+  [OceanDatabase teardownDatabase:@"test.db"];
 });
 
-qck_describe(@"a dolphin", ^{
-    // ...
+describe(@"a dolphin", ^{
+  // ...
 });
 
 QuickSpecEnd
 ```
 
-I can specify as many `beforeSuite` and `afterSuite` as I like. All
-`beforeSuite` will be executed before any tests, and all `afterSuite`
-will be executed after all tests are finished. There's no guarantee as
-to what order they will be executed in, however.
+> You can specify as many `beforeSuite` and `afterSuite` as you like. All
+  `beforeSuite` closures will be executed before any tests run, and all
+  `afterSuite` closures will be executed after all the tests are finished.
+  There is no guarantee as to what order these closures will be executed in.
 
 ### Sharing Examples
 
-I sometimes need to write one set of specifications, then apply those
-specifications to several test objects.
+In some cases, the same set of specifications apply to multiple objects.
 
-For example, let's say I have a protocol called `Edible`. When a dolphin
-eats something `Edible`, the dolphin becomes happy.
+For example, consider a protocol called `Edible`. When a dolphin
+eats something `Edible`, the dolphin becomes happy. `Mackerel` and
+`Cod` are both edible. Quick allows you to easily test that a dolphin is
+happy to eat either one.
 
-`Mackerel` and `Cod` are both edible, and I'd like to specify that
-dolphins are happy to eat either one.
-
-I can define a set of "shared examples" for "something edible". Then, I
-can specify that both mackerel and cod behave like "something edible":
+The example below defines a set of  "shared examples" for "something edible",
+and specifies that both mackerel and cod behave like "something edible":
 
 ```swift
 // Swift
@@ -464,49 +492,94 @@ can specify that both mackerel and cod behave like "something edible":
 import Quick
 import Nimble
 
-class EdibleSharedExamples: QuickSharedExampleGroups {
-    override class func sharedExampleGroups() {
-        sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
-            it("makes dolphins happy") {
-                let dolphin = Dolphin(happy: false)
-                let edible = sharedExampleContext()["edible"]
-                dolphin.eat(edible)
-                expect(dolphin.isHappy).to(beTruthy())
-            }
-        }
+class EdibleSharedExamplesConfiguration: QuickConfiguration {
+  override class func configure(configuration: Configuration) {
+    sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
+      it("makes dolphins happy") {
+        let dolphin = Dolphin(happy: false)
+        let edible = sharedExampleContext()["edible"]
+        dolphin.eat(edible)
+        expect(dolphin.isHappy).to(beTruthy())
+      }
     }
+  }
 }
 
 class MackerelSpec: QuickSpec {
-    override func spec() {
-        var mackerel: Mackerel! = nil
-        beforeEach {
-            mackerel = Mackerel()
-        }
-
-        itBehavesLike("something edible") { ["edible": mackerel] }
+  override func spec() {
+    var mackerel: Mackerel! = nil
+    beforeEach {
+      mackerel = Mackerel()
     }
+
+    itBehavesLike("something edible") { ["edible": mackerel] }
+  }
 }
 
 class CodSpec: QuickSpec {
-    override func spec() {
-        var cod: Cod! = nil
-        beforeEach {
-            cod = Cod()
-        }
-
-        itBehavesLike("something edible") { ["edible": cod] }
+  override func spec() {
+    var cod: Cod! = nil
+    beforeEach {
+      cod = Cod()
     }
+
+    itBehavesLike("something edible") { ["edible": cod] }
+  }
 }
 ```
 
+```objc
+// Objective-C
+
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickConfigurationBegin(EdibleSharedExamplesConfiguration)
+
++ (void)configure:(Configuration *configuration) {
+  sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
+    it(@"makes dolphins happy") {
+      Dolphin *dolphin = [[Dolphin alloc] init];
+      dolphin.happy = NO;
+      id<Edible> edible = exampleContext()[@"edible"];
+      [dolphin eat:edible];
+      expect(dolphin.isHappy).to(beTruthy())
+    }
+  });
+}
+
+QuickConfigurationEnd
+
+QuickSpecBegin(MackerelSpec)
+
+__block Mackerel *mackerel = nil;
+beforeEach(^{
+  mackerel = [[Mackerel alloc] init];
+});
+
+itBehavesLike(@"someting edible", ^{ return @{ @"edible": mackerel }; });
+
+QuickSpecEnd
+
+QuickSpecBegin(CodSpec)
+
+__block Mackerel *cod = nil;
+beforeEach(^{
+  cod = [[Cod alloc] init];
+});
+
+itBehavesLike(@"someting edible", ^{ return @{ @"edible": cod }; });
+
+QuickSpecEnd
+```
+
 Shared examples can include any number of `it`, `context`, and
-`describe` blocks. They save me a *lot* of typing when I want to run
+`describe` blocks. They save a *lot* of typing when running
 the same tests against several different kinds of objects.
 
-If I don't need any additional context, I can simply use closures that
-take no parameters. This might be useful when testing some sort of
-global state:
+In some cases, you won't need any additional context. In Swift, you can
+simply use `sharedExampleFor` closures that take no parameters. This
+might be useful when testing some sort of global state:
 
 ```swift
 // Swift
@@ -514,16 +587,45 @@ global state:
 import Quick
 
 sharedExamplesFor("everything under the sea") {
-    // ...
+  // ...
 }
 
 itBehavesLike("everything under the sea")
 ```
 
+> In Objective-C, you'll have to pass a block that takes a
+  `QCKDSLSharedExampleContext`, even if you don't plan on using that
+  argument. Sorry, but that's the way the cookie crumbles!
+  :cookie: :bomb:
+
+## Using Quick in Objective-C: The Optional Shorthand Syntax
+
+Quick works equally well in both Swift and Objective-C.
+
+Importing Quick in an Objective-C file defines macros such as `it`,
+`context`, and `describe`. It's possible that the project you are
+testing also defines symbols with these same names. In that case, you
+can avoid namespace collision by turning off Quick's optional "shorthand" syntax:
+
+```objc
+#define QUICK_DISABLE_SHORT_SYNTAX 1
+
+#import <Quick/Quick.h>
+
+QuickSpecBegin(DolphinSpec)
+// ...
+QuickSpecEnd
+```
+
+You must define the `QUICK_DISABLE_SHORT_SYNTAX` macro *before*
+importing the Quick header.
+
 ## Nimble: Assertions Using `expect(...).to`
 
-I can use Quick to define examples and example groups. Within those
-examples, I can make expectations using Nimble, Quick's sister project.
+Quick provides an easy language to define examples and example groups. Within those
+examples, [Nimble](https://github.com/Quick/Nimble) provides a simple
+language to define expectations--that is, to assert that code behaves a
+certain way, and to display a test failure if it doesn't.
 
 Nimble expectations use the `expect(...).to` syntax:
 
@@ -534,6 +636,7 @@ import Nimble
 
 expect(person.greeting).to(equal("Oh, hi."))
 expect(person.greeting).notTo(equal("Hello!"))
+expect(person.isHappy).toEventually(beTruthy())
 ```
 
 ```objc
@@ -543,263 +646,124 @@ expect(person.greeting).notTo(equal("Hello!"))
 
 expect(person.greeting).to(equal(@"Oh, hi."));
 expect(person.greeting).notTo(equal(@"Hello!"));
+expect(@(person.isHappy)).toEventually(beTruthy());
 ```
 
-### Available Matchers
+You can find much more detailed documentation on
+[Nimble](https://github.com/Quick/Nimble), including a
+full set of available matchers and details on how to perform asynchronous tests,
+in [the project's README](https://github.com/Quick/Nimble).
 
-Nimble includes matchers that test whether the subject of an
-expectation is true, or equal to something, or whether it
-contains a specific element:
+## Testing UIKit with Quick
+
+Quick can be used for testing UIKit interaction as well. Say, for example, we have a `DolphinTableViewController` that displays one cell with label `Bottlenose`. We want to test that the cell gets displayed when the view is loaded. Additionally, we would like to delete the row upon selecting it. An approach might be:
 
 ```swift
 // Swift
 
+import UIKit
+import Quick
 import Nimble
 
-expect(person.isHappy).to(beTruthy())
-expect(person.greeting).to(equal("Hello!"))
-expect(person.hopes).to(contain("winning the lottery"))
+class DolphinTableViewControllerSpecs: QuickSpec {
+  override func spec() {
+    var viewController: DolphinTableViewController!
+
+    beforeEach {
+      viewController = DolphinTableViewController()
+    }
+
+    describe("viewDidLoad") {
+      beforeEach {
+        // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+        viewController.view
+      }
+
+
+      it("loads the table view with one cell") {
+        let tableView = viewController.tableView
+
+        var indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        var cell = viewController.tableView(tableView, cellForRowAtIndexPath: indexPath)
+
+        expect(cell.textLabel?.text).to(equal("Bottlenose"))
+      }
+    }
+
+    describe("didSelectRowAtIndexPath") {
+      beforeEach {
+        // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and viewDidAppear: callbacks
+        viewController.beginAppearanceTransition(true, animated: false)
+        viewController.endAppearanceTransition()
+      }
+
+      it("deletes the selected row and reloads the tableView's data") {
+        let tableView = viewController.tableView
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+
+        viewController.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+
+        var cell = viewController.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        expect(cell.textLabel?.text).to(beNil())
+      }
+    }
+  }
+}
 ```
 
 ```objc
 // Objective-C
 
+#import <UIKit/UIKit.h>
+#import <Quick/Quick.h>
 #import <Nimble/Nimble.h>
 
-expect(@(person.isHappy)).to(beTruthy());
-expect(person.greeting).to(equal(@"Hello!"));
-expect(person.hopes).to(contain:@"winning the lottery"));
-```
+QuickSpecBegin(DolphinTableViewControllerSpec)
 
-#### Equal
+describe(@"viewDidLoad") {
+  __block DolphinTableViewController *viewController = nil;
 
-`Equal` matches if two values or objects are equal. It tests for equality using
-the `==` operator:
+  beforeEach(^{
+    viewController = [[DolphinTableViewController alloc] init];
+  });
 
-```swift
-expect(42).to.equal(42)
-expect("dolphin").to(equal("dolphin"))
-expect("dolphin").toNot(equal("sea turtle"))
-```
+  it(@"loads the table view with three types of dolphin", ^{
+    beforeEach(^{
+      // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
+      [viewController view];
+    });
 
-```objc
-expect(@42).to(equal(@42));
-expect(@"dolphin").to(equal(@"dolphin"));
-expect(@"dolphin").toNot(equal:@"sea turtle"));
-```
+    UITableView *tableView = [viewController tableView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
 
-#### BeIdenticalTo
+    expect(@([[cell textLabel] text])).to(equal(@"Bottlenose"));
+  });
+}
 
-`BeIdenticalTo` matches if two objects are the *same object*. It tests for
-identity using the `===` operator:
+describe(@"didSelectRowAtIndexPath") {
+  __block DolphinTableViewController *viewController = nil;
 
-```swift
-let kind = "bottlenose dolphins"
-expect(kind).to(beIdenticalTo(kind))
-expect(kind).toNot(beIdenticalTo("bottlenose dolphins"))
-```
+  beforeEach(^{
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
+    viewController = [[DolphinTableViewController alloc] init];
+    [viewController beginAppearanceTransition:YES animated:NO];
+    [viewController endAppearanceTransition];
+   });
 
-```objc
-NSString *kind = @"bottlenose dolphins"
-expect(kind).to(beIdenticalTo(kind));
-expect(kind).toNot(beIdenticalTo(@"bottlenose dolphins"));
-```
+  it(@"deletes the selected row and reloads the tableView's data", ^{
+    UITableView *tableView = [viewController tableView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 
-Note that in the above example, `beIdenticalTo()` matches when comparing
-the same string object (`kind`), but doesn't match for two different string
-objects--even though the strings themselves are equal.
+    [viewController tableView:tableView didSelectRowAtIndexPath:indexPath];
 
-#### BeNil
+    UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
 
-`BeNil` acts just like the `Equal` matcher, but it tests whether the
-subject of the expectation is equal to `nil`:
+    expect(@([[cell textLabel] text])).to(beNil());
+  });
+}
 
-```swift
-expect(nil).to(beNil())
-expect("dolphin").toNot(beNil())
-```
-
-```objc
-expect(nil).to(beNil());
-expect(@"dolphin").toNot(beNil());
-```
-
-#### BeTruthy
-
-`BeTruthy` matches if the subject of the expectation is not `false` or `nil`:
-
-```swift
-expect(true).to(beTruthy())
-expect(false).toNot(beTruthy())
-expect(10).toNot(beTruthy())
-```
-
-```objc
-expect(@YES).to(beTruthy());
-expect(@NO).toNot(beTruthy());
-expect(@10).to(beTruthy());
-```
-
-#### BeFalsy
-
-Similarly to `BeTruthy`, `BeFalsy` matches if the subject of the
-expectation is equal to `false` or `nil`:
-
-```swift
-expect(false).to(beFalsy())
-expect(true).toNot(beFalsy())
-expect(nil).toNot(beFalsy())
-```
-
-```objc
-expect(@NO).to(beFalsy());
-expect(@YES).toNot(beFalsy());
-expect(nil).toNot(beFalsy());
-```
-
-#### BeLessThan, BeLessThanOrEqualTo, BeGreaterThanOrEqualTo, BeGreaterThan
-
-These matchers compare the subject to arbitrary numbers. They only match
-if both the subject and the given value are numbers, and those
-numbers meet the given conditions:
-
-```swift
-expect(10).to(beLessThan(11))
-expect(10).to(beLessThanOrEqualTo(10))
-expect(10).to(beGreaterThanOrEqualTo(10))
-expect(10).to(beGreaterThan(9))
-```
-
-```objc
-expect(@10).to(beLessThan(@11));
-expect(@10).to(beLessThanOrEqualTo(@10));
-expect(@10).to(beGreaterThanOrEqualTo(@10));
-expect(@10).to(beGreaterThan(@9));
-```
-
-#### Contain and BeEmpty
-
-These matchers apply to collections such as arrays or sets. `Contain`
-matches if the array or set contains the specified element:
-
-```swift
-expect([1, 2, 3]).to(contain(1))
-expect([1, 2, 3]).toNot(contain(4))
-```
-
-```objc
-expect((@[@1, @2, @3])).to(contain(@1));
-expect((@[@1, @2, @3])).to(contain(@4));
-```
-
-`Contain` can also be used on strings. It matches if the string contains
-the given substring:
-
-```swift
-expect("blowfish").to(contain("fish"))
-expect("dolphin").toNot(contain("fish"))
-```
-
-```objc
-expect(@"blowfish").to(contain(@"fish"));
-expect(@"dolphin").to(contain(@"fish"));
-```
-
-`BeEmpty` matches if the given array or set contains no elements, or if
-the given string is an empty string (`""`):
-
-```swift
-expect([]).to(beEmpty())
-expect([1, 2, 3]).toNot(beEmpty())
-expect("").to(beEmpty())
-```
-
-```objc
-expect((@[])).to(beEmpty());
-expect((@[@1, @2, @3])).toNot(beEmpty());
-expect(@"").to(beEmpty());
-```
-
-#### RaiseException
-
-Quick also allows me to make expectations on closures. For example, I
-can specify that a block of code raises an exception. I can also specify
-it raises an exception with a specific name, reason, or userInfo
-dictionary:
-
-```swift
-expect{penguin.fly()}.to(raiseException())
-expect{penguin.fly()}.to(raiseException(named: NSInternalInconsistencyException))
-expect{penguin.fly()}.to(raiseException(named: NSInternalInconsistencyException, reason: "Penguins can't fly!")
-```
-
-```objc
-expect([penguin fly]).to(raiseException());
-expect([penguin fly]).to(raiseException().named(NSInternalInconsistencyException));
-expect([penguin fly]).to(raiseException().named(:NSInternalInconsistencyException)
-                                         .reason(@"Penguins can't fly!"));
-```
-
-### Automatic Optional Unwrapping
-
-When passing an optional to an expectation in Swift, there's no need to
-unwrap the variable using a trailing `!`: Nimble does that for me.
-
-```swift
-var optVal: Int?
-
-expect(optVal).to(beNil())
-
-optVal = 123
-
-expect(optVal).toNot(beNil())
-expect(optVal).to(equal(123))
-```
-
-### Asynchronous Expectations Using `toEventually` and `toEventuallyNot`
-
-Nimble also allows for asynchronous expectations, by wrapping the subject
-in braces instead of parentheses. This allows the subject to be
-evaluated as a closure. Below is an example of a subject who knows
-only hunger, and never satisfaction:
-
-```swift
-// Swift
-
-import Nimble
-
-expect{person.isHungry}.toEventually(beTrue())
-expect{person.isSatisfied}.toEventuallyNot(beTrue())
-```
-
-```objc
-// Objective-C
-
-#import <Nimble/Nimble.h>
-
-expectBlock(^{ return @(person.isHungry); }).toEventually(beTruthy());
-expectBlock(^{ return @(person.isSatisfied); }).toEventuallyNot(beTruthy());
-```
-
-Asynchronous expectations time out after one second by default. You can change
-this by passing in the ``timeout:`` keywora argument. The following times out
-after 3 seconds:
-
-```swift
-// Swift
-
-import Nimble
-
-expect{person!.isHungry}.toEventually(beTruthy(), timeout: 3)
-expect{person!.isSatisfied}.toEventuallyNot(beTruthy(), timeout: 3)
-```
-
-```objc
-// Objective-C
-
-#import <Nimble/Nimble.h>
-
-// Currently not supported in objective-c
+QuickSpecEnd
 ```
 
 ## How to Install Quick
@@ -807,8 +771,8 @@ expect{person!.isSatisfied}.toEventuallyNot(beTruthy(), timeout: 3)
 > This module is beta software, it currently supports Xcode 6 Beta 4.
 
 Quick provides the syntax to define examples and example groups. Nimble
-provides the `expect(...).to` assertion syntax. You may either one, or
-both, in your tests.
+provides the `expect(...).to` assertion syntax. You may use either one,
+or both, in your tests.
 
 To use Quick and Nimble to test your iOS or OS X applications, follow these 4 easy steps:
 
@@ -817,14 +781,14 @@ To use Quick and Nimble to test your iOS or OS X applications, follow these 4 ea
 3. [Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
 4. Start writing specs!
 
-An example project with this complete setup is available in the
+Example projects with this complete setup is available in the
 [`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
 
 ### 1. Clone the Quick and Nimble repositories
 
-```
-git clone git@github.com:Quick/Quick.git
-git clone git@github.com:Quick/Nimble.git
+```sh
+git clone git@github.com:Quick/Quick.git Vendor/Quick
+git clone git@github.com:Quick/Nimble.git Vendor/Nimble
 ```
 
 ### 2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target
@@ -859,6 +823,59 @@ Do the same for the `Nimble.framework`.
 
 If you run into any problems, please file an issue.
 
+## Including Quick in a Git Repository Using Submodules
+
+The best way to include Quick in a Git repository is by using Git
+submodules. Git submodules are great because:
+
+1. They track exactly which version of Quick is being used
+2. It's easy to update Quick to the latest--or any other--version
+
+### Adding Quick as a Git Submodule
+
+To use Git submodules, follow the same steps as above, except instead of
+cloning the Quick and Nimble repositories, add them to your project as
+submodules:
+
+```sh
+mkdir Vendor # you can keep your submodules in their own directory
+git submodule add git@github.com:Quick/Quick.git Vendor/Quick
+git submodule add git@github.com:Quick/Nimble.git Vendor/Nimble
+git submodule update --init --recursive
+```
+
+### Updating the Quick Submodule
+
+If you ever want to update the Quick submodule to latest version, enter
+the Quick directory and pull from the master repository:
+
+```sh
+cd Vendor/Quick
+git pull --rebase origin master
+```
+
+Your Git repository will track changes to submodules. You'll want to
+commit the fact that you've updated the Quick submodule:
+
+```sh
+git commit -m "Updated Quick submodule"
+```
+
+### Cloning a Repository that Includes a Quick Submodule
+
+After other people clone your repository, they'll have to pull down the
+submodules as well. They can do so by running the `git submodule update`
+command:
+
+```sh
+git submodule update --init --recursive
+```
+
+You can read more about Git submodules
+[here](http://git-scm.com/book/en/Git-Tools-Submodules). To see examples
+of Git submodules in action, check out any of the repositories linked to
+in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
+
 ## How to Install Quick File Templates
 
 The Quick repository includes file templates for both Swift and
@@ -878,7 +895,7 @@ To manually install the templates, just clone the repository and
 run the `templates:install` rake task:
 
 ```sh
-$ git clone git@github.com:modocache/Quick.git
+$ git clone git@github.com:Quick/Quick.git
 $ rake templates:install
 ```
 
@@ -890,7 +907,18 @@ $ rake templates:uninstall
 
 ## Who Uses Quick
 
+Quick is used by many companies, open-source projects, and individuals,
+including [GitHub](https://github.com/github) and
+[ReactiveCocoa](https://github.com/ReactiveCocoa). See examples below:
+
+- https://github.com/ReactiveCocoa/ReactiveCocoa
+- https://github.com/github/Archimedes
+- https://github.com/libgit2/objective-git
 - https://github.com/jspahrsummers/RXSwift
+- https://github.com/artsy/eidolon
+- https://github.com/AshFurrow/Moya
+- https://github.com/nerdyc/Squeal
+- https://github.com/pepibumur/SugarRecord
 
 > Add an issue or [tweet](https://twitter.com/modocache) if you'd like to be added to this list.
 
