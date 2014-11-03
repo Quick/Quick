@@ -3,6 +3,8 @@
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
+[![Build Status](https://travis-ci.org/Quick/Quick.svg)](https://travis-ci.org/Quick/Quick)
+
 ![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/QuickSpec%20screenshot.png)
 
 ```swift
@@ -490,8 +492,8 @@ and specifies that both mackerel and cod behave like "something edible":
 import Quick
 import Nimble
 
-class EdibleSharedExamples: QuickSharedExampleGroups {
-  override class func sharedExampleGroups() {
+class EdibleSharedExamplesConfiguration: QuickConfiguration {
+  override class func configure(configuration: Configuration) {
     sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
       it("makes dolphins happy") {
         let dolphin = Dolphin(happy: false)
@@ -532,19 +534,21 @@ class CodSpec: QuickSpec {
 #import <Quick/Quick.h>
 #import <Nimble/Nimble.h>
 
-QuickSharedExampleGroupsBegin(EdibleSharedExamples)
+QuickConfigurationBegin(EdibleSharedExamplesConfiguration)
 
-sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
-  it(@"makes dolphins happy") {
-    Dolphin *dolphin = [[Dolphin alloc] init];
-    dolphin.happy = NO;
-    id<Edible> edible = exampleContext()[@"edible"];
-    [dolphin eat:edible];
-    expect(dolphin.isHappy).to(beTruthy())
-  }
-});
++ (void)configure:(Configuration *configuration) {
+  sharedExamples(@"something edible", ^(QCKDSLSharedExampleContext exampleContext) {
+    it(@"makes dolphins happy") {
+      Dolphin *dolphin = [[Dolphin alloc] init];
+      dolphin.happy = NO;
+      id<Edible> edible = exampleContext()[@"edible"];
+      [dolphin eat:edible];
+      expect(dolphin.isHappy).to(beTruthy())
+    }
+  });
+}
 
-QuickSharedExampleGroupsEnd
+QuickConfigurationEnd
 
 QuickSpecBegin(MackerelSpec)
 
@@ -909,6 +913,7 @@ including [GitHub](https://github.com/github) and
 
 - https://github.com/ReactiveCocoa/ReactiveCocoa
 - https://github.com/github/Archimedes
+- https://github.com/libgit2/objective-git
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
 - https://github.com/AshFurrow/Moya
@@ -919,5 +924,5 @@ including [GitHub](https://github.com/github) and
 
 ## License
 
-MIT license. See the `LICENSE` file for details.
+Apache 2.0 license. See the `LICENSE` file for details.
 
