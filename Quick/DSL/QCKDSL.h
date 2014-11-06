@@ -43,22 +43,6 @@
     } \
     @end \
 
-#ifndef QUICK_DISABLE_SHORT_SYNTAX
-#define beforeSuite qck_beforeSuite
-#define afterSuite qck_afterSuite
-#define sharedExamples qck_sharedExamples
-#define describe qck_describe
-#define context qck_context
-#define beforeEach qck_beforeEach
-#define afterEach qck_afterEach
-#define it qck_it
-#define itBehavesLike qck_itBehavesLike
-#define pending qck_pending
-#define xdescribe qck_xdescribe
-#define xcontext qck_xcontext
-#define xit qck_xit
-#endif
-
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 typedef void (^QCKDSLExampleBlock)(void);
@@ -74,6 +58,55 @@ extern void qck_pending(NSString *description, QCKDSLExampleBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLExampleBlock closure);
 extern void qck_xcontext(NSString *description, QCKDSLExampleBlock closure);
 extern void qck_xit(NSString *description, QCKDSLExampleBlock closure);
+
+#ifndef QUICK_DISABLE_SHORT_SYNTAX
+static inline void beforeSuite(QCKDSLExampleBlock closure) {
+    qck_beforeSuite(closure);
+}
+
+static inline void afterSuite(QCKDSLExampleBlock closure) {
+    qck_afterSuite(closure);
+}
+
+static inline void sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
+    qck_sharedExamples(name, closure);
+}
+
+static inline void describe(NSString *description, QCKDSLExampleBlock closure) {
+    qck_describe(description, closure);
+}
+
+static inline void context(NSString *description, QCKDSLExampleBlock closure) {
+    qck_context(description, closure);
+}
+
+static inline void beforeEach(QCKDSLExampleBlock closure) {
+    qck_beforeEach(closure);
+}
+
+static inline void afterEach(QCKDSLExampleBlock closure) {
+    qck_afterEach(closure);
+}
+
+static inline void pending(NSString *description, QCKDSLExampleBlock closure) {
+    qck_pending(description, closure);
+}
+
+static inline void xdescribe(NSString *description, QCKDSLExampleBlock closure) {
+    qck_xdescribe(description, closure);
+}
+
+static inline void xcontext(NSString *description, QCKDSLExampleBlock closure) {
+    qck_xcontext(description, closure);
+}
+
+static inline void xit(NSString *description, QCKDSLExampleBlock closure) {
+    qck_xit(description, closure);
+}
+
+#define it qck_it
+#define itBehavesLike qck_itBehavesLike
+#endif
 
 #define qck_it qck_it_builder(@(__FILE__), __LINE__)
 #define qck_itBehavesLike qck_itBehavesLike_builder(@(__FILE__), __LINE__)
