@@ -35,26 +35,28 @@ describe(@"a describe block", ^{
         expect(@(beforeSuiteExecuted_afterSuiteNotYetExecuted)).to(beTruthy());
     });
 
-    itBehavesLike(@"a truthy value", ^{ return @{ @"value": @YES }; });
+    itBehavesLike(@"a truthy value", ^{
+        return @{ @"value": @YES };
+    });
 
     pending(@"a pending block", ^{
         it(@"contains a failing it block", ^{
             expect(@NO).to(beTruthy());
         });
     });
-    
+
     xdescribe(@"a pending (shorthand) describe block", ^{
         it(@"contains a failing it block", ^{
             expect(@NO).to(beTruthy());
         });
     });
-    
+
     xcontext(@"a pending (shorthand) context block", ^{
         it(@"contains a failing it block", ^{
             expect(@NO).to(beTruthy());
         });
     });
-    
+
     xit(@"contains a pending (shorthand) it block", ^{
         expect(@NO).to(beTruthy());
     });
