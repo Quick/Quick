@@ -237,6 +237,20 @@
 			remoteGlobalIDString = DAEB6B8D1943873100289F44;
 			remoteInfo = Quick;
 		};
+		1F5F97901A06DA4500C684A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA54727319FC2B4400332193 /* Nimble.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F1A74281940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		1F5F97961A06DA4D00C684A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA54727319FC2B4400332193 /* Nimble.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F925EAC195C0D6300ED456B;
+			remoteInfo = "Nimble-OSX";
+		};
 		5A5D118819473F2100F6D13D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEB6B851943873100289F44 /* Project object */;
@@ -643,6 +657,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1F5F97911A06DA4500C684A1 /* PBXTargetDependency */,
 				5A5D118919473F2100F6D13D /* PBXTargetDependency */,
 				5A5D11F0194741B500F6D13D /* PBXTargetDependency */,
 				5A5D11F2194741B500F6D13D /* PBXTargetDependency */,
@@ -689,6 +704,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1F5F97971A06DA4D00C684A1 /* PBXTargetDependency */,
 				DAEB6B9C1943873100289F44 /* PBXTargetDependency */,
 				047655521949F4CB00B288BB /* PBXTargetDependency */,
 				047655541949F4CB00B288BB /* PBXTargetDependency */,
@@ -1025,6 +1041,16 @@
 			isa = PBXTargetDependency;
 			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
 			targetProxy = 04DC9808194B838B00CE00B6 /* PBXContainerItemProxy */;
+		};
+		1F5F97911A06DA4500C684A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Nimble-iOS";
+			targetProxy = 1F5F97901A06DA4500C684A1 /* PBXContainerItemProxy */;
+		};
+		1F5F97971A06DA4D00C684A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Nimble-OSX";
+			targetProxy = 1F5F97961A06DA4D00C684A1 /* PBXContainerItemProxy */;
 		};
 		5A5D118919473F2100F6D13D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
