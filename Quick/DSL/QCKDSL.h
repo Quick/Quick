@@ -45,26 +45,26 @@
 
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
-typedef void (^QCKDSLExampleBlock)(void);
+typedef void (^QCKDSLEmptyBlock)(void);
 
-extern void qck_beforeSuite(QCKDSLExampleBlock closure);
-extern void qck_afterSuite(QCKDSLExampleBlock closure);
+extern void qck_beforeSuite(QCKDSLEmptyBlock closure);
+extern void qck_afterSuite(QCKDSLEmptyBlock closure);
 extern void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure);
-extern void qck_describe(NSString *description, QCKDSLExampleBlock closure);
-extern void qck_context(NSString *description, QCKDSLExampleBlock closure);
-extern void qck_beforeEach(QCKDSLExampleBlock closure);
-extern void qck_afterEach(QCKDSLExampleBlock closure);
-extern void qck_pending(NSString *description, QCKDSLExampleBlock closure);
-extern void qck_xdescribe(NSString *description, QCKDSLExampleBlock closure);
-extern void qck_xcontext(NSString *description, QCKDSLExampleBlock closure);
-extern void qck_xit(NSString *description, QCKDSLExampleBlock closure);
+extern void qck_describe(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_context(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_beforeEach(QCKDSLEmptyBlock closure);
+extern void qck_afterEach(QCKDSLEmptyBlock closure);
+extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_xit(NSString *description, QCKDSLEmptyBlock closure);
 
 #ifndef QUICK_DISABLE_SHORT_SYNTAX
-static inline void beforeSuite(QCKDSLExampleBlock closure) {
+static inline void beforeSuite(QCKDSLEmptyBlock closure) {
     qck_beforeSuite(closure);
 }
 
-static inline void afterSuite(QCKDSLExampleBlock closure) {
+static inline void afterSuite(QCKDSLEmptyBlock closure) {
     qck_afterSuite(closure);
 }
 
@@ -72,35 +72,35 @@ static inline void sharedExamples(NSString *name, QCKDSLSharedExampleBlock closu
     qck_sharedExamples(name, closure);
 }
 
-static inline void describe(NSString *description, QCKDSLExampleBlock closure) {
+static inline void describe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_describe(description, closure);
 }
 
-static inline void context(NSString *description, QCKDSLExampleBlock closure) {
+static inline void context(NSString *description, QCKDSLEmptyBlock closure) {
     qck_context(description, closure);
 }
 
-static inline void beforeEach(QCKDSLExampleBlock closure) {
+static inline void beforeEach(QCKDSLEmptyBlock closure) {
     qck_beforeEach(closure);
 }
 
-static inline void afterEach(QCKDSLExampleBlock closure) {
+static inline void afterEach(QCKDSLEmptyBlock closure) {
     qck_afterEach(closure);
 }
 
-static inline void pending(NSString *description, QCKDSLExampleBlock closure) {
+static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
     qck_pending(description, closure);
 }
 
-static inline void xdescribe(NSString *description, QCKDSLExampleBlock closure) {
+static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xdescribe(description, closure);
 }
 
-static inline void xcontext(NSString *description, QCKDSLExampleBlock closure) {
+static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xcontext(description, closure);
 }
 
-static inline void xit(NSString *description, QCKDSLExampleBlock closure) {
+static inline void xit(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xit(description, closure);
 }
 
@@ -111,7 +111,7 @@ static inline void xit(NSString *description, QCKDSLExampleBlock closure) {
 #define qck_it qck_it_builder(@(__FILE__), __LINE__)
 #define qck_itBehavesLike qck_itBehavesLike_builder(@(__FILE__), __LINE__)
 
-typedef void (^QCKItBlock)(NSString *description, QCKDSLExampleBlock closure);
+typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *descritpion, QCKDSLSharedExampleContext context);
 
 extern QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
