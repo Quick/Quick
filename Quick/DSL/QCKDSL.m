@@ -18,7 +18,7 @@ void qck_describe(NSString *description, QCKDSLExampleBlock closure) {
 }
 
 void qck_context(NSString *description, QCKDSLExampleBlock closure) {
-	qck_describe(description, closure);
+    qck_describe(description, closure);
 }
 
 void qck_beforeEach(QCKDSLExampleBlock closure) {
@@ -46,13 +46,13 @@ void qck_pending(NSString *description, QCKDSLExampleBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLExampleBlock closure) {
-	qck_pending(description, closure);
+    qck_pending(description, closure);
 }
 
 void qck_xcontext(NSString *description, QCKDSLExampleBlock closure) {
-	qck_pending(description, closure);
+    qck_pending(description, closure);
 }
 
 void qck_xit(NSString *description, QCKDSLExampleBlock closure) {
-	qck_pending(description, closure);
+    qck_pending(description, closure);
 }
