@@ -602,10 +602,11 @@ itBehavesLike("everything under the sea")
 
 Quick works equally well in both Swift and Objective-C.
 
-Importing Quick in an Objective-C file defines macros such as `it`,
-`context`, and `describe`. It's possible that the project you are
-testing also defines symbols with these same names. In that case, you
-can avoid namespace collision by turning off Quick's optional "shorthand" syntax:
+Importing Quick in an Objective-C file defines macros named `it` and
+`itShouldBehaveLike`, as well as functions like `context()`, `describe()`, etc.
+If the project you are testing also defines symbols with these names, you may
+encounter confusing build failures. In that case, you can avoid namespace
+collision by turning off Quick's optional "shorthand" syntax:
 
 ```objc
 #define QUICK_DISABLE_SHORT_SYNTAX 1
