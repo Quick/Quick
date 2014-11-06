@@ -31,13 +31,13 @@ void qck_afterEach(QCKDSLExampleBlock closure) {
 
 QCKItBlock qck_it_builder(NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLExampleBlock closure) {
-        [[World sharedWorld] it:description file:file line:line closure:closure];
+        [[World sharedWorld] itWithDescription:description file:file line:line closure:closure];
     };
 }
 
 QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line) {
-    return ^(NSString *description, QCKDSLSharedExampleContext context) {
-        [[World sharedWorld] itBehavesLike:name sharedExampleContext:context file:file line:line];
+    return ^(NSString *name, QCKDSLSharedExampleContext context) {
+        [[World sharedWorld] itBehavesLikeSharedExampleNamed:name sharedExampleContext:context file:file line:line];
     };
 }
 
