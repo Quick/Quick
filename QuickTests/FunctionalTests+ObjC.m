@@ -35,7 +35,9 @@ describe(@"a describe block", ^{
         expect(@(beforeSuiteExecuted_afterSuiteNotYetExecuted)).to(beTruthy());
     });
 
-    itBehavesLike(@"a truthy value", ^{ return @{ @"value": @YES }; });
+    itBehavesLike(@"a truthy value", ^{
+		return @{ @"value": @YES };
+	});
 
     pending(@"a pending block", ^{
         it(@"contains a failing it block", ^{
