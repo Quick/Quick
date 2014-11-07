@@ -50,6 +50,7 @@ class TableOfContentsSpec: QuickSpec {
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
 - [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
+  - [Caveat: Your Test Target Must Include At Least One Swift File](#caveat-your-test-target-must-include-at-least-one-swift-file)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
 - [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
@@ -602,10 +603,11 @@ itBehavesLike("everything under the sea")
 
 Quick works equally well in both Swift and Objective-C.
 
-Importing Quick in an Objective-C file defines macros such as `it`,
-`context`, and `describe`. It's possible that the project you are
-testing also defines symbols with these same names. In that case, you
-can avoid namespace collision by turning off Quick's optional "shorthand" syntax:
+Importing Quick in an Objective-C file defines macros named `it` and
+`itShouldBehaveLike`, as well as functions like `context()`, `describe()`, etc.
+If the project you are testing also defines symbols with these names, you may
+encounter confusing build failures. In that case, you can avoid namespace
+collision by turning off Quick's optional "shorthand" syntax:
 
 ```objc
 #define QUICK_DISABLE_SHORT_SYNTAX 1
@@ -619,6 +621,29 @@ QuickSpecEnd
 
 You must define the `QUICK_DISABLE_SHORT_SYNTAX` macro *before*
 importing the Quick header.
+
+### Caveat: Your Test Target Must Include At Least One Swift File
+
+The Swift stdlib will not be linked into your test target, and thus
+Quick will fail to execute properly, if you test target does not contain
+*at least one* Swift file. If it does not, your tests will exit
+prematurely with the following error:
+
+```
+*** Test session exited(82) without checking in. Executable cannot be
+loaded for some other reason, such as a problem with a library it
+depends on or a code signature/entitlements mismatch.
+```
+
+To fix the problem, add a blank file called `SwiftSpec.swift` to your test target:
+
+```swift
+// SwiftSpec.swift
+
+import Quick
+```
+
+> For more details on this issue, see https://github.com/Quick/Quick/issues/164.
 
 ## Nimble: Assertions Using `expect(...).to`
 
@@ -924,5 +949,5 @@ including [GitHub](https://github.com/github) and
 
 ## License
 
-MIT license. See the `LICENSE` file for details.
+Apache 2.0 license. See the `LICENSE` file for details.
 
