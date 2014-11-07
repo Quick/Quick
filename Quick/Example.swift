@@ -25,7 +25,7 @@ private var numberOfExamplesRun = 0
     private let description: String
     private let closure: () -> ()
 
-    init(description: String, callsite: Callsite, closure: () -> ()) {
+    internal init(description: String, callsite: Callsite, closure: () -> ()) {
         self.description = description
         self.closure = closure
         self.callsite = callsite
