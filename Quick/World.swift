@@ -3,7 +3,7 @@ import Foundation
 public typealias SharedExampleContext = () -> (NSDictionary)
 public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
-public class World: NSObject {
+@objc public class World {
     var _specs: Dictionary<String, ExampleGroup> = [:]
     var _sharedExamples: [String: SharedExampleClosure] = [:]
 
@@ -12,6 +12,8 @@ public class World: NSObject {
 
     internal var exampleHooks: ExampleHooks {return _configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return _configuration.suiteHooks }
+
+    internal init() {}
 
     /**
         Exposes the World's Configuration object within the scope of the closure
