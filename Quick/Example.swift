@@ -1,5 +1,3 @@
-import XCTest
-
 private var numberOfExamplesRun = 0
 
 /**
