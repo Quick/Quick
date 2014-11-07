@@ -47,7 +47,7 @@ extension World {
     @objc(itWithDescription:file:line:closure:)
     public func it(description: String, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
-        let example = Example(description, callsite, closure)
+        let example = Example(description: description, callsite: callsite, closure)
         currentExampleGroup!.appendExample(example)
     }
 

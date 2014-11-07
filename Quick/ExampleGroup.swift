@@ -3,14 +3,14 @@
 
     weak var parent: ExampleGroup?
 
-    let _description: String
-    let _isInternalRootExampleGroup: Bool
+    private let description: String
+    private let isInternalRootExampleGroup: Bool
     var _groups = [ExampleGroup]()
     var _localExamples = [Example]()
 
     init(description: String, isInternalRootExampleGroup: Bool = false) {
-        self._description = description
-        self._isInternalRootExampleGroup = isInternalRootExampleGroup
+        self.description = description
+        self.isInternalRootExampleGroup = isInternalRootExampleGroup
     }
 
     var befores: [BeforeExampleWithMetadataClosure] {
@@ -44,16 +44,13 @@
     }
 
     var name: String? {
-        get {
-            if self._isInternalRootExampleGroup {
-                return nil
-            } else {
-                var name = _description
-                walkUp() { (group: ExampleGroup) -> () in
-                    name = group._description + ", " + name
-                }
-                return name
+        if let parent = parent {
+            switch(parent.name) {
+                case .Some(let name): return "\(name), \(description)"
+                case .None: return description
             }
+        } else {
+            return isInternalRootExampleGroup ? nil : description
         }
     }
 
