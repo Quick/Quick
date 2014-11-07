@@ -56,6 +56,8 @@ private var numberOfExamplesRun = 0
         }
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: numberOfExamplesRun)
+        world.currentExampleMetadata = exampleMetadata
+
         world.exampleHooks.executeBefores(exampleMetadata)
         for before in group!.befores {
             before(exampleMetadata: exampleMetadata)

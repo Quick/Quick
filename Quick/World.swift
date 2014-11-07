@@ -32,6 +32,14 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     public var currentExampleGroup: ExampleGroup?
 
     /**
+        The example metadata of the test that is currently being run.
+        This is useful for using the Quick test metadata (like its name) at
+        runtime.
+    */
+
+    public var currentExampleMetadata: ExampleMetadata?
+
+    /**
         A flag that indicates whether additional test suites are being run
         within this test suite. This is only true within the context of Quick
         functional tests.
@@ -79,6 +87,7 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     public func finalizeConfiguration() {
         isConfigurationFinalized = true
     }
+
 
     /**
         Returns an internally constructed root example group for the given

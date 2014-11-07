@@ -33,6 +33,8 @@
 		5A5D11AD1947412800F6D13D /* Poet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCF194387D700289F44 /* Poet.swift */; };
 		5AFC5949195ED5B900D3E0A2 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC5948195ED5B900D3E0A2 /* Failure.swift */; };
 		5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC5948195ED5B900D3E0A2 /* Failure.swift */; };
+		609511031A052689003F9176 /* WorldExampleMetadataFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609510FD1A05261A003F9176 /* WorldExampleMetadataFunctionalTests.swift */; };
+		609511041A05268B003F9176 /* WorldExampleMetadataFunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609510FD1A05261A003F9176 /* WorldExampleMetadataFunctionalTests.swift */; };
 		AAACAAD919532C4E00B492A8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBF9A819521298005E1714 /* XCTest.framework */; };
 		AADBF9AC195213AD005E1714 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AADBF9A919521298005E1714 /* XCTest.framework */; };
 		DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
@@ -325,6 +327,7 @@
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFC5948195ED5B900D3E0A2 /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
+		609510FD1A05261A003F9176 /* WorldExampleMetadataFunctionalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorldExampleMetadataFunctionalTests.swift; path = FunctionalTests/WorldExampleMetadataFunctionalTests.swift; sourceTree = "<group>"; };
 		AADBF9A819521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AADBF9A919521298005E1714 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
@@ -565,6 +568,7 @@
 				DAEB6BCB194387D700289F44 /* FunctionalTests.swift */,
 				34512A381948223C007D457A /* FunctionalTests+ObjC.m */,
 				DAECD76219AC4039003EFF14 /* ExampleMetadataFunctionalTests.swift */,
+				609510FD1A05261A003F9176 /* WorldExampleMetadataFunctionalTests.swift */,
 				DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
@@ -860,6 +864,7 @@
 				DAE714F819FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */,
 				DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */,
+				609511031A052689003F9176 /* WorldExampleMetadataFunctionalTests.swift in Sources */,
 				DAE714F119FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
@@ -911,6 +916,7 @@
 				DAE714F719FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */,
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
+				609511041A05268B003F9176 /* WorldExampleMetadataFunctionalTests.swift in Sources */,
 				DAE714F019FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
