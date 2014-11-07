@@ -24,7 +24,6 @@ public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClos
 
 // MARK: Suite Hooks
 
-
 /**
     A closure executed before any examples are run.
 */

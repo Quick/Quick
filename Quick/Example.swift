@@ -1,57 +1,78 @@
 import XCTest
 
-var _numberOfExamplesRun = 0
+private var numberOfExamplesRun = 0
 
+/**
+    Examples, defined with the `it` function, use assertions to
+    demonstrate how code should behave. These are like "tests" in XCTest.
+*/
 @objc public class Example {
-    weak var group: ExampleGroup?
-
-    var _description: String
-    var _closure: () -> ()
-
+    /**
+        A boolean indicating whether the example is a shared example;
+        i.e.: whether it is an example defined with `itBehavesLike`.
+    */
     public var isSharedExample = false
+
+    /**
+        The site at which the example is defined.
+        This must be set correctly in order for Xcode to highlight
+        the correct line in red when reporting a failure.
+    */
     public var callsite: Callsite
 
-    public var name: String {
-        get {
-            switch group!.name {
-                case .Some(let groupName):
-                    return "\(groupName), \(_description)"
-                case .None:
-                    return _description
-            }
-        }
-    }
+    weak internal var group: ExampleGroup?
 
-    init(_ description: String, _ callsite: Callsite, _ closure: () -> ()) {
-        self._description = description
-        self._closure = closure
+    private let description: String
+    private let closure: () -> ()
+
+    internal init(description: String, callsite: Callsite, closure: () -> ()) {
+        self.description = description
+        self.closure = closure
         self.callsite = callsite
     }
 
+    /**
+        The example name. A name is a concatenation of the name of
+        the example group the example belongs to, followed by the
+        description of the example itself.
+
+        The example name is used to generate a test method selector
+        to be displayed in Xcode's test navigator.
+    */
+    public var name: String {
+        switch group!.name {
+        case .Some(let groupName): return "\(groupName), \(description)"
+        case .None: return description
+        }
+    }
+
+    /**
+        Executes the example closure, as well as all before and after
+        closures defined in the its surrounding example groups.
+    */
     public func run() {
         let world = World.sharedWorld()
 
-        if _numberOfExamplesRun == 0 {
+        if numberOfExamplesRun == 0 {
             world.suiteHooks.executeBefores()
         }
 
-        let exampleMetadata = ExampleMetadata(example: self, exampleIndex: _numberOfExamplesRun)
+        let exampleMetadata = ExampleMetadata(example: self, exampleIndex: numberOfExamplesRun)
         world.exampleHooks.executeBefores(exampleMetadata)
         for before in group!.befores {
             before(exampleMetadata: exampleMetadata)
         }
 
-        _closure()
+        closure()
 
         for after in group!.afters {
             after(exampleMetadata: exampleMetadata)
         }
         world.exampleHooks.executeAfters(exampleMetadata)
 
-        ++_numberOfExamplesRun
+        ++numberOfExamplesRun
 
-
-        if !world.isRunningAdditionalSuites && _numberOfExamplesRun >= world.exampleCount {
+        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.exampleCount {
             world.suiteHooks.executeAfters()
         }
     }
