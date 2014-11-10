@@ -60,46 +60,115 @@ extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xit(NSString *description, QCKDSLEmptyBlock closure);
 
 #ifndef QUICK_DISABLE_SHORT_SYNTAX
+/**
+    Defines a closure to be run prior to any examples in the test suite.
+    You may define an unlimited number of these closures, but there is no
+    guarantee as to the order in which they're run.
+ 
+    If the test suite crashes before the first example is run, this closure
+    will not be executed.
+ */
 static inline void beforeSuite(QCKDSLEmptyBlock closure) {
     qck_beforeSuite(closure);
 }
 
+
+/**
+    Defines a closure to be run after all of the examples in the test suite.
+    You may define an unlimited number of these closures, but there is no
+    guarantee as to the order in which they're run.
+     
+    If the test suite crashes before all examples are run, this closure
+    will not be executed.
+ */
 static inline void afterSuite(QCKDSLEmptyBlock closure) {
     qck_afterSuite(closure);
 }
 
+/**
+    Defines a group of shared examples. These examples can be re-used in several locations
+    by using the `itBehavesLike` function.
+ 
+    @param name The name of the shared example group. This must be unique across all shared example
+                groups defined in a test suite.
+    @param closure A closure containing the examples. This behaves just like an example group defined
+                   using `describe` or `context`--the closure may contain any number of `beforeEach`
+                   and `afterEach` closures, as well as any number of examples (defined using `it`).
+ */
 static inline void sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
     qck_sharedExamples(name, closure);
 }
 
+/**
+    Defines an example group. Example groups are logical groupings of examples.
+    Example groups can share setup and teardown code.
+ 
+    @param description An arbitrary string describing the example group.
+    @param closure A closure that can contain other examples.
+ */
 static inline void describe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_describe(description, closure);
 }
 
+/**
+    Defines an example group. Equivalent to `describe`.
+ */
 static inline void context(NSString *description, QCKDSLEmptyBlock closure) {
     qck_context(description, closure);
 }
 
+/**
+    Defines a closure to be run prior to each example in the current example
+    group. This closure is not run for pending or otherwise disabled examples.
+    An example group may contain an unlimited number of beforeEach. They'll be
+    run in the order they're defined, but you shouldn't rely on that behavior.
+ 
+    @param closure The closure to be run prior to each example.
+ */
 static inline void beforeEach(QCKDSLEmptyBlock closure) {
     qck_beforeEach(closure);
 }
 
+/**
+    Defines a closure to be run after each example in the current example
+    group. This closure is not run for pending or otherwise disabled examples.
+    An example group may contain an unlimited number of afterEach. They'll be
+    run in the order they're defined, but you shouldn't rely on that behavior.
+ 
+    @param closure The closure to be run after each example.
+ */
 static inline void afterEach(QCKDSLEmptyBlock closure) {
     qck_afterEach(closure);
 }
 
+/**
+    Defines an example or example group that should not be executed. Use `pending` to temporarily disable
+    examples or groups that should not be run yet.
+ 
+    @param description An arbitrary string describing the example or example group.
+    @param closure A closure that will not be evaluated.
+ */
 static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
     qck_pending(description, closure);
 }
 
+/**
+    Identical to `pending`. Use this to quickly disable a `describe` closure.
+ */
 static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xdescribe(description, closure);
 }
 
+/**
+    Identical to `pending`. Use this to quickly disable a `context` closure.
+ */
 static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xcontext(description, closure);
 }
 
+/**
+    Identical to `pending`. Use this to quickly disable a `it` closure.
+ */
 static inline void xit(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xit(description, closure);
 }
