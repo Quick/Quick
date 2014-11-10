@@ -67,6 +67,8 @@ extern void qck_xit(NSString *description, QCKDSLEmptyBlock closure);
  
     If the test suite crashes before the first example is run, this closure
     will not be executed.
+ 
+    @param closure The closure to be run prior to any examples in the test suite.
  */
 static inline void beforeSuite(QCKDSLEmptyBlock closure) {
     qck_beforeSuite(closure);
@@ -80,6 +82,8 @@ static inline void beforeSuite(QCKDSLEmptyBlock closure) {
      
     If the test suite crashes before all examples are run, this closure
     will not be executed.
+ 
+    @param closure The closure to be run after all of the examples in the test suite.
  */
 static inline void afterSuite(QCKDSLEmptyBlock closure) {
     qck_afterSuite(closure);
