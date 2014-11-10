@@ -5,6 +5,8 @@
 
     If the test suite crashes before the first example is run, this closure
     will not be executed.
+
+    :param: closure The closure to be run prior to any examples in the test suite.
 */
 public func beforeSuite(closure: BeforeSuiteClosure) {
     World.sharedWorld().beforeSuite(closure)
@@ -17,6 +19,8 @@ public func beforeSuite(closure: BeforeSuiteClosure) {
 
     If the test suite crashes before all examples are run, this closure
     will not be executed.
+
+    :param: closure The closure to be run after all of the examples in the test suite.
 */
 public func afterSuite(closure: AfterSuiteClosure) {
     World.sharedWorld().afterSuite(closure)
