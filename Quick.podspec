@@ -10,9 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Quick/Quick"
   s.license      = { :type => "Apache 2.0", :file => "LICENSE" }
 
-  s.author             = { "modocache" => "modocache@gmail.com" }
-  s.social_media_url   = "http://twitter.com/modocache"
-
+  s.author             = "Quick Contributors"
   s.ios.deployment_target = "7.0"
   s.osx.deployment_target = "10.7"
 
