@@ -74,6 +74,9 @@ some "ground rules":
   requests. No one should merge their own pull request, unless no
   other core members respond for at least a few days.
 
+  Pull requests should be issued from personal forks. The Quick repo
+  should be reserved for long-running feature branches.
+
   If you'd like to create a new repository, it'd be nice if you created
   a GitHub issue and gathered some feedback first.
 
