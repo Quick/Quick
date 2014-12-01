@@ -697,6 +697,11 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
     beforeEach {
       viewController = DolphinTableViewController()
+
+      // or if you are using storyboards.
+      // let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      // viewController = storyboard.instantiateViewControllerWithIdentifier("DolphinViewController") as DolphinViewController
+      // Your view controller must have the correct storyboard ID assigned
     }
 
     describe("viewDidLoad") {
@@ -751,6 +756,11 @@ describe(@"viewDidLoad") {
 
   beforeEach(^{
     viewController = [[DolphinTableViewController alloc] init];
+
+    // or if you are using storyboards.
+    // UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    viewController = [storyboard instantiateViewControllerWithIdentifier:@"DolphinViewController"];
+    // Your view controller must have the correct storyboard ID assigned
   });
 
   it(@"loads the table view with three types of dolphin", ^{
@@ -771,7 +781,7 @@ describe(@"didSelectRowAtIndexPath") {
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
-    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and
     viewController = [[DolphinTableViewController alloc] init];
     [viewController beginAppearanceTransition:YES animated:NO];
     [viewController endAppearanceTransition];
@@ -905,7 +915,7 @@ in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 ## How to Install Quick using Beta CocoaPods
 
 If you would like to use Quick with CocoaPods today, you will need to use
-rubygem's [Bundler](http://bundler.io) to use the swift branch of CocoaPods. This 
+rubygem's [Bundler](http://bundler.io) to use the swift branch of CocoaPods. This
 can be done by including a Gemfile that looks like this:
 
 ```ruby
