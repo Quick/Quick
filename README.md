@@ -927,7 +927,8 @@ Finally, run `bundle exec pod install`. The `bundle exec` ensures you're using
 the Swift CocoaPods version from your Gemfile.
 
 ## How to Install Quick using Carthage
-As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.
+As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.  
+ > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
 
 1. Add Quick and Nimble from your to your **Cartfile**
     ```
