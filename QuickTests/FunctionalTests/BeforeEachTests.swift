@@ -2,23 +2,35 @@ import XCTest
 import Quick
 import Nimble
 
-var outerBeforeEachExecutedCount = 0
-var innerBeforeEachExecutedCount = 0
-var noExamplesBeforeEachExecutedCount = 0
+private enum BeforeEachType {
+    case OuterOne
+    case OuterTwo
+    case InnerOne
+    case InnerTwo
+    case InnerThree
+    case NoExamples
+}
+
+private var beforeEachOrder = [BeforeEachType]()
 
 class FunctionalTests_BeforeEachSpec: QuickSpec {
     override func spec() {
-        beforeEach { outerBeforeEachExecutedCount += 1 }
-        it("executes the outer beforeEach once") {}
-        it("executes the outer beforeEach a second time") {}
+        beforeEach { beforeEachOrder.append(BeforeEachType.OuterOne) }
+        beforeEach { beforeEachOrder.append(BeforeEachType.OuterTwo) }
+
+        it("executes the outer beforeEach closures once [1]") {}
+        it("executes the outer beforeEach closures a second time [2]") {}
 
         context("when there are nested beforeEach") {
-            beforeEach { innerBeforeEachExecutedCount += 1 }
-            it("executes the outer and inner beforeEach") {}
+            beforeEach { beforeEachOrder.append(BeforeEachType.InnerOne) }
+            beforeEach { beforeEachOrder.append(BeforeEachType.InnerTwo) }
+            beforeEach { beforeEachOrder.append(BeforeEachType.InnerThree) }
+
+            it("executes the outer and inner beforeEach closures [3]") {}
         }
 
         context("when there are nested beforeEach without examples") {
-            beforeEach { noExamplesBeforeEachExecutedCount += 1 }
+            beforeEach { beforeEachOrder.append(BeforeEachType.NoExamples) }
         }
     }
 }
@@ -26,30 +38,26 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
 class BeforeEachTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        outerBeforeEachExecutedCount = 0
-        innerBeforeEachExecutedCount = 0
-        noExamplesBeforeEachExecutedCount = 0
+        beforeEachOrder = []
     }
 
     override func tearDown() {
-        outerBeforeEachExecutedCount = 0
-        innerBeforeEachExecutedCount = 0
-        noExamplesBeforeEachExecutedCount = 0
+        beforeEachOrder = []
         super.tearDown()
     }
 
-    func testOuterBeforeEachIsExecutedOnceBeforeEachExample() {
+    func testBeforeEachIsExecutedInTheCorrectOrder() {
         qck_runSpec(FunctionalTests_BeforeEachSpec.classForCoder())
-        XCTAssertEqual(outerBeforeEachExecutedCount, 3)
-    }
-
-    func testInnerBeforeEachIsExecutedOnceBeforeEachInnerExample() {
-        qck_runSpec(FunctionalTests_BeforeEachSpec.classForCoder())
-        XCTAssertEqual(innerBeforeEachExecutedCount, 1)
-    }
-
-    func testNoExamplesBeforeEachIsNeverExecuted() {
-        qck_runSpec(FunctionalTests_BeforeEachSpec.classForCoder())
-        XCTAssertEqual(noExamplesBeforeEachExecutedCount, 0)
+        let expectedOrder = [
+            // [1] The outer beforeEach closures are executed from top to bottom.
+            BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
+            // [2] The outer beforeEach closures are executed from top to bottom.
+            BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
+            // [3] The outer beforeEach closures are executed from top to bottom,
+            //     then the innter beforeEach closures are executed from top to bottom.
+            BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
+                BeforeEachType.InnerOne, BeforeEachType.InnerTwo, BeforeEachType.InnerThree,
+        ]
+        XCTAssertEqual(beforeEachOrder, expectedOrder)
     }
 }
