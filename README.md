@@ -697,11 +697,6 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
     beforeEach {
       viewController = DolphinTableViewController()
-
-      // or if you are using storyboards.
-      // let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      // viewController = storyboard.instantiateViewControllerWithIdentifier("DolphinViewController") as DolphinViewController
-      // Your view controller must have the correct storyboard ID assigned
     }
 
     describe("viewDidLoad") {
@@ -709,7 +704,6 @@ class DolphinTableViewControllerSpecs: QuickSpec {
         // Accessing the view property causes the UIKit framework to trigger the necessary methods to render the view.
         viewController.view
       }
-
 
       it("loads the table view with one cell") {
         let tableView = viewController.tableView
@@ -796,6 +790,75 @@ describe(@"didSelectRowAtIndexPath") {
     UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
 
     expect(@([[cell textLabel] text])).to(beNil());
+  });
+}
+
+QuickSpecEnd
+```
+
+### Testing ViewControllers that use storyboards
+
+If you want to test IBOutlet UI elements attached from storyboard you have to instantiate the controller using UIStoryboard object. Controller must have the correct storyboard ID assigned. If you want to test that an IBOutlet button has the correct text and is enabled when view has loaded you can do it like this:
+
+```swift
+// Swift
+
+import UIKit
+import Quick
+import Nimble
+
+class DolphinTableViewControllerSpecs: QuickSpec {
+  override func spec() {
+    var viewController: DolphinTableViewController!
+
+    beforeEach {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      viewController = storyboard.instantiateViewControllerWithIdentifier("DolphinViewController") as DolphinViewController
+    }
+
+    describe("viewDidLoad") {
+      beforeEach {
+        viewController.beginAppearanceTransition(true, animated: false)
+        viewController.endAppearanceTransition()
+      }
+
+      it("sets the correct text on an enabled button") {
+        let dolphinButton = viewController.dolphinButton
+
+        expect(dolphinButton.currentTitle).to(equal("Bottlenose"))
+        expect(dolphinButton.enabled).to(beTrue())
+      }
+    }
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <UIKit/UIKit.h>
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickSpecBegin(DolphinTableViewControllerSpec)
+
+describe(@"viewDidLoad") {
+  __block DolphinTableViewController *viewController = nil;
+
+  beforeEach(^{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    viewController = [storyboard instantiateViewControllerWithIdentifier:@"DolphinViewController"];
+  });
+
+  it(@"sets the correct text on an enabled button", ^{
+    beforeEach(^{
+      [viewController beginAppearanceTransition:YES animated:NO];
+      [viewController endAppearanceTransition];
+    });
+
+    UIButton *dolphinButton = viewController.dolphinButton;
+    expect([dolphinButton currentTitle]).to(equal(@"Bottlenose"));
+    expect(dolphinButton.enabled).to(equal(YES));
   });
 }
 
