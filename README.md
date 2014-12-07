@@ -746,7 +746,7 @@ class DolphinTableViewControllerSpecs: QuickSpec {
 
 QuickSpecBegin(DolphinTableViewControllerSpec)
 
-describe(@"viewDidLoad") {
+describe(@"viewDidLoad", ^{
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
@@ -767,7 +767,7 @@ describe(@"viewDidLoad") {
   });
 }
 
-describe(@"didSelectRowAtIndexPath") {
+describe(@"didSelectRowAtIndexPath", ^{
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
