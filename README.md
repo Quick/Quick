@@ -921,7 +921,7 @@ Then run `bundle install` to start using Swift CocoaPods for just this project.
 Then in your Podfile, add the following to your test target.
 
 ```
-  pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => '0.2.0'
+  pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.2.1'
 ```
 
 Finally, run `bundle exec pod install`. The `bundle exec` ensures you're using
