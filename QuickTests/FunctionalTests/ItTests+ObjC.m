@@ -7,6 +7,19 @@
 
 QuickSpecBegin(FunctionalTests_ItSpec)
 
+__block ExampleMetadata *exampleMetadata = nil;
+
+beforeEach(^{
+    exampleMetadata = [[World sharedWorld] currentExampleMetadata];
+});
+
+it(@" ", ^{
+    expect(exampleMetadata.example.name).to(equal(@" "));
+});
+
+it(@"has a description with セレクター名に使えない文字が入っている 👊💥", ^{
+    NSString *name = @"has a description with セレクター名に使えない文字が入っている 👊💥";
+    expect(exampleMetadata.example.name).to(equal(name));
 });
 
 QuickSpecEnd
