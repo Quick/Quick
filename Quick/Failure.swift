@@ -1,6 +1,6 @@
 import Foundation
 
-@objc class Failure {
+@objc final class Failure {
     let callsite: Callsite
     let exception: NSException
 

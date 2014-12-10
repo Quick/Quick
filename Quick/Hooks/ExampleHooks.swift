@@ -1,7 +1,7 @@
 /**
     A container for closures to be executed before and after each example.
 */
-internal class ExampleHooks {
+final internal class ExampleHooks {
 
     internal var befores: [BeforeExampleWithMetadataClosure] = []
     internal var afters: [AfterExampleWithMetadataClosure] = []
