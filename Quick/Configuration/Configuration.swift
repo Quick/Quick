@@ -8,7 +8,7 @@ public typealias QuickConfigurer = (configuration: Configuration) -> ()
     A configuration encapsulates various options you can use
     to configure Quick's behavior.
 */
-@objc public class Configuration {
+@objc final public class Configuration {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
 

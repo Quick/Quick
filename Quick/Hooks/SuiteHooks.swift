@@ -1,7 +1,7 @@
 /**
     A container for closures to be executed before and after all examples.
 */
-internal class SuiteHooks {
+final internal class SuiteHooks {
     internal var befores: [BeforeSuiteClosure] = []
     internal var beforesAlreadyExecuted = false
 

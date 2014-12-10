@@ -23,7 +23,7 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     You may configure how Quick behaves by calling the -[World configure:]
     method from within an overridden +[QuickConfiguration configure:] method.
 */
-@objc public class World {
+@objc final public class World {
     /**
         The example group that is currently being run.
         The DSL requires that this group is correctly set in order to build a

@@ -3,7 +3,7 @@
     the `describe` and `context` functions. Example groups can share
     setup and teardown code.
 */
-@objc public class ExampleGroup {
+@objc final public class ExampleGroup {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
 
