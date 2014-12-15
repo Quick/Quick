@@ -1,6 +1,5 @@
 #import <XCTest/XCTest.h>
 #import <Quick/Quick.h>
-#import <Nimble/Nimble.h>
 
 #import "QCKSpecRunner.h"
 
@@ -15,29 +14,29 @@ typedef NS_ENUM(NSUInteger, BeforeEachType) {
 
 static NSMutableArray *beforeEachOrder;
 
-QuickSpecBegin(FunctionalTests_BeforeEachSpec);
+QuickSpecBegin(FunctionalTests_BeforeEachSpec)
 
 beforeEach(^{ [beforeEachOrder addObject:@(OuterOne)]; });
 beforeEach(^{ [beforeEachOrder addObject:@(OuterTwo)]; });
 
-it(@"executes the outer beforeEach closures once [1]", ^{ });
-it(@"executes the outer beforeEach closures a second time [2]", ^{ });
+it(@"executes the outer beforeEach closures once [1]", ^{});
+it(@"executes the outer beforeEach closures a second time [2]", ^{});
 
 context(@"when there are nested beforeEach", ^{
     beforeEach(^{ [beforeEachOrder addObject:@(InnerOne)];   });
     beforeEach(^{ [beforeEachOrder addObject:@(InnerTwo)];   });
     beforeEach(^{ [beforeEachOrder addObject:@(InnerThree)]; });
 
-    it(@"executes the outer and inner beforeEach closures [3]", ^{ });
+    it(@"executes the outer and inner beforeEach closures [3]", ^{});
 });
 
 context(@"when there are nested beforeEach without examples", ^{
     beforeEach(^{ [beforeEachOrder addObject:@(NoExamples)]; });
 });
 
-QuickSpecEnd;
+QuickSpecEnd
 
-@interface BeforeEachTests : XCTestCase {} @end
+@interface BeforeEachTests : XCTestCase; @end
 
 @implementation BeforeEachTests
 
