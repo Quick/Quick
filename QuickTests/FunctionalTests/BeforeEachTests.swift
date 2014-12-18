@@ -54,7 +54,7 @@ class BeforeEachTests: XCTestCase {
             // [2] The outer beforeEach closures are executed from top to bottom.
             BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
             // [3] The outer beforeEach closures are executed from top to bottom,
-            //     then the innter beforeEach closures are executed from top to bottom.
+            //     then the inner beforeEach closures are executed from top to bottom.
             BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
                 BeforeEachType.InnerOne, BeforeEachType.InnerTwo, BeforeEachType.InnerThree,
         ]
