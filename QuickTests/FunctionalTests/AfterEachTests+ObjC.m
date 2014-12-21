@@ -54,8 +54,8 @@ QuickSpecEnd
 @implementation AfterEachTests
 
 - (void)setUp {
-    afterEachOrder = [NSMutableArray array];
     [super setUp];
+    afterEachOrder = [NSMutableArray array];
 }
 
 - (void)tearDown {
