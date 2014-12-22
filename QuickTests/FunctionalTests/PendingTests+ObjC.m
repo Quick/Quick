@@ -9,6 +9,21 @@ static NSUInteger onlyPendingExamplesBeforeEachExecutedCount = 0;
 
 QuickSpecBegin(FunctionalTests_PendingSpec)
 
+pending(@"an example that will not run", ^{
+    expect(@YES).to(beFalsy());
+});
+
+describe(@"a describe block containing only one enabled example", ^{
+    beforeEach(^{ oneExampleBeforeEachExecutedCount += 1; });
+    it(@"an example that will run", ^{});
+    pending(@"an example that will not run", ^{});
+});
+
+describe(@"a describe block containing only pending examples", ^{
+    beforeEach(^{ onlyPendingExamplesBeforeEachExecutedCount += 1; });
+    pending(@"an example that will not run", ^{});
+});
+
 QuickSpecEnd
 
 @interface PendingTests : XCTestCase; @end
