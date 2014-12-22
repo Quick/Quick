@@ -4,8 +4,10 @@
 
 #import "QCKSpecRunner.h"
 
-QuickSpecBegin(FunctionalTests_PendingSpec)
+static NSUInteger oneExampleBeforeEachExecutedCount = 0;
+static NSUInteger onlyPendingExamplesBeforeEachExecutedCount = 0;
 
+QuickSpecBegin(FunctionalTests_PendingSpec)
 
 QuickSpecEnd
 
@@ -15,9 +17,13 @@ QuickSpecEnd
 
 - (void)setUp {
     [super setUp];
+    oneExampleBeforeEachExecutedCount = 0;
+    onlyPendingExamplesBeforeEachExecutedCount = 0;
 }
 
 - (void)tearDown {
+    oneExampleBeforeEachExecutedCount = 0;
+    onlyPendingExamplesBeforeEachExecutedCount = 0;
     [super tearDown];
 }
 
