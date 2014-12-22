@@ -63,7 +63,7 @@ QuickSpecEnd
     [super tearDown];
 }
 
-- (void)testBeforeEachIsExecutedInTheCorrectOrder {
+- (void)testAfterEachIsExecutedInTheCorrectOrder {
     qck_runSpec([FunctionalTests_AfterEachSpec class]);
     NSArray *expectedOrder = @[
         // [1] The outer afterEach closures are executed from top to bottom.
