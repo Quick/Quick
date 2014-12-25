@@ -10,13 +10,13 @@ class FocusedSpec: QuickSpec {
 
         it("passes", {}, flags: ["focused": true])
 
-        describe("focused examples", {
+        fdescribe("focused examples") {
             it("passes") {}
             it("passes again") {}
-        }, flags: ["focused": true])
+        }
 
         describe("explicitly unfocused examples containing focused ones", {
-            it("fails (but is never run)", { XCTFail() }, flags: ["focused": true])
+            fit("fails (but is never run)") { XCTFail() }
         }, flags: ["focused": false])
     }
 }

@@ -25,7 +25,17 @@ extension World {
     }
 
     public func context(description: String, closure: () -> (), flags: FilterFlags) {
-        describe(description, closure: closure, flags: flags)
+        self.describe(description, closure: closure, flags: flags)
+    }
+
+    public func fdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+        var focusedFlags = flags
+        focusedFlags["focused"] = true
+        self.describe(description, closure: closure, flags: focusedFlags)
+    }
+
+    public func fcontext(description: String, closure: () -> (), flags: FilterFlags) {
+        self.fdescribe(description, closure: closure, flags: flags)
     }
 
     public func beforeEach(closure: BeforeExampleClosure) {
@@ -49,6 +59,12 @@ extension World {
         let callsite = Callsite(file: file, line: line)
         let example = Example(description: description, callsite: callsite, flags: flags, closure)
         currentExampleGroup!.appendExample(example)
+    }
+
+    public func fit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
+        var focusedFlags = flags
+        focusedFlags["focused"] = true
+        self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
     }
 
     @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:file:line:)

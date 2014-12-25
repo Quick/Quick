@@ -191,3 +191,24 @@ public func xcontext(description: String, closure: () -> ()) {
 public func xit(description: String, closure: () -> ()) {
     pending(description, closure)
 }
+
+/**
+    TODO: Documentation.
+*/
+public func fdescribe(description: String, closure: () -> (), flags: FilterFlags = [:]) {
+    World.sharedWorld().fdescribe(description, closure: closure, flags: flags)
+}
+
+/**
+    TODO: Documentation.
+*/
+public func fcontext(description: String, closure: () -> (), flags: FilterFlags = [:]) {
+    fdescribe(description, closure, flags: flags)
+}
+
+/**
+    TODO: Documentation.
+*/
+public func fit(description: String, closure: () -> (), flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
+    World.sharedWorld().fit(description, flags: flags, file: file, line: line, closure: closure)
+}
