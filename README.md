@@ -705,7 +705,6 @@ class DolphinTableViewControllerSpecs: QuickSpec {
         viewController.view
       }
 
-
       it("loads the table view with one cell") {
         let tableView = viewController.tableView
 
@@ -751,6 +750,11 @@ describe(@"viewDidLoad", ^{
 
   beforeEach(^{
     viewController = [[DolphinTableViewController alloc] init];
+
+    // or if you are using storyboards.
+    // UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    viewController = [storyboard instantiateViewControllerWithIdentifier:@"DolphinViewController"];
+    // Your view controller must have the correct storyboard ID assigned
   });
 
   it(@"loads the table view with three types of dolphin", ^{
@@ -771,7 +775,7 @@ describe(@"didSelectRowAtIndexPath", ^{
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
-    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and
     viewController = [[DolphinTableViewController alloc] init];
     [viewController beginAppearanceTransition:YES animated:NO];
     [viewController endAppearanceTransition];
@@ -786,6 +790,75 @@ describe(@"didSelectRowAtIndexPath", ^{
     UITableViewCell *cell = [viewController tableView:tableView cellForRowAtIndexPath:indexPath];
 
     expect(@([[cell textLabel] text])).to(beNil());
+  });
+}
+
+QuickSpecEnd
+```
+
+### Testing ViewControllers that use storyboards
+
+If you want to test IBOutlet UI elements attached from storyboard you have to instantiate the controller using UIStoryboard object. Controller must have the correct storyboard ID assigned. If you want to test that an IBOutlet button has the correct text and is enabled when view has loaded you can do it like this:
+
+```swift
+// Swift
+
+import UIKit
+import Quick
+import Nimble
+
+class DolphinTableViewControllerSpecs: QuickSpec {
+  override func spec() {
+    var viewController: DolphinTableViewController!
+
+    beforeEach {
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      viewController = storyboard.instantiateViewControllerWithIdentifier("DolphinViewController") as DolphinViewController
+    }
+
+    describe("viewDidLoad") {
+      beforeEach {
+        viewController.beginAppearanceTransition(true, animated: false)
+        viewController.endAppearanceTransition()
+      }
+
+      it("sets the correct text on an enabled button") {
+        let dolphinButton = viewController.dolphinButton
+
+        expect(dolphinButton.currentTitle).to(equal("Bottlenose"))
+        expect(dolphinButton.enabled).to(beTrue())
+      }
+    }
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <UIKit/UIKit.h>
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickSpecBegin(DolphinTableViewControllerSpec)
+
+describe(@"viewDidLoad") {
+  __block DolphinTableViewController *viewController = nil;
+
+  beforeEach(^{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    viewController = [storyboard instantiateViewControllerWithIdentifier:@"DolphinViewController"];
+  });
+
+  it(@"sets the correct text on an enabled button", ^{
+    beforeEach(^{
+      [viewController beginAppearanceTransition:YES animated:NO];
+      [viewController endAppearanceTransition];
+    });
+
+    UIButton *dolphinButton = viewController.dolphinButton;
+    expect([dolphinButton currentTitle]).to(equal(@"Bottlenose"));
+    expect(dolphinButton.enabled).to(equal(YES));
   });
 }
 
@@ -905,7 +978,7 @@ in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 ## How to Install Quick using Beta CocoaPods
 
 If you would like to use Quick with CocoaPods today, you will need to use
-rubygem's [Bundler](http://bundler.io) to use the swift branch of CocoaPods. This 
+rubygem's [Bundler](http://bundler.io) to use the swift branch of CocoaPods. This
 can be done by including a Gemfile that looks like this:
 
 ```ruby
