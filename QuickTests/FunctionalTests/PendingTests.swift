@@ -7,7 +7,7 @@ var onlyPendingExamplesBeforeEachExecutedCount = 0
 
 class FunctionalTests_PendingSpec: QuickSpec {
     override func spec() {
-        pending("an example that will not run") {
+        xit("an example that will not run") {
             expect(true).to(beFalsy())
         }
 

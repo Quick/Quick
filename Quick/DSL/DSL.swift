@@ -174,22 +174,22 @@ public func pending(description: String, closure: () -> ()) {
 /**
     Identical to `pending`. Use this to quickly disable a `describe` closure.
 */
-public func xdescribe(description: String, closure: () -> ()) {
-    pending(description, closure)
+public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+    World.sharedWorld().xdescribe(description, closure: closure, flags: flags)
 }
 
 /**
     Identical to `pending`. Use this to quickly disable a `context` closure.
 */
-public func xcontext(description: String, closure: () -> ()) {
-    pending(description, closure)
+public func xcontext(description: String, closure: () -> (), flags: FilterFlags) {
+    xdescribe(description, closure, flags)
 }
 
 /**
     Identical to `pending`. Use this to quickly disable a `it` closure.
 */
-public func xit(description: String, closure: () -> ()) {
-    pending(description, closure)
+public func xit(description: String, closure: () -> (), flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
+    World.sharedWorld().xit(description, flags: flags, file: file, line: line, closure: closure)
 }
 
 /**

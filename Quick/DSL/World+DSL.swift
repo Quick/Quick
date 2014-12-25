@@ -34,8 +34,10 @@ extension World {
         self.describe(description, closure: closure, flags: focusedFlags)
     }
 
-    public func fcontext(description: String, closure: () -> (), flags: FilterFlags) {
-        self.fdescribe(description, closure: closure, flags: flags)
+    public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+        var pendingFlags = flags
+        pendingFlags["pending"] = true
+        self.describe(description, closure: closure, flags: pendingFlags)
     }
 
     public func beforeEach(closure: BeforeExampleClosure) {
@@ -65,6 +67,12 @@ extension World {
         var focusedFlags = flags
         focusedFlags["focused"] = true
         self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
+    }
+
+    public func xit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
+        var pendingFlags = flags
+        pendingFlags["pending"] = true
+        self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
 
     @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:file:line:)

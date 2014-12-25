@@ -133,20 +133,26 @@ public typealias FilterFlags = [String: Bool]
     }
 
     /**
-        Passes the example through Quick.Configuration's registered filters,
-        in order to determine whether the example should be run or not.
-
-        :param: example An example that Quick.Configuration will determine whether to run or not.
-        :return: A boolean indicating whether the given example should run. True if the example
-                 is included in an inclusion filter, and also **not included** in an exclusion filter.
+        TODO: Documentation.
     */
-    public func shouldRun(example: Example) -> Bool {
-        var run = true
-        run = reduce(configuration.inclusionFilters.map({ $0(example: example) }), run, { run, next in run && next })
-        run = reduce(configuration.exclusionFilters.map({ $0(example: example) }), run, { run, next in run && !next })
-        return run
+    public func isIncluded(example: Example) -> Bool {
+        var included = false
+        for inclusionFilter in configuration.inclusionFilters {
+            included = included || inclusionFilter(example: example)
+        }
+        return included
     }
 
+    /**
+        TODO: Documentation.
+    */
+    public func isExcluded(example: Example) -> Bool {
+        var excluded = false
+        for exclusionFilter in configuration.exclusionFilters {
+            excluded = excluded || exclusionFilter(example: example)
+        }
+        return excluded
+    }
 
     // MARK: Internal
 
