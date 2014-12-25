@@ -64,15 +64,15 @@ public func sharedExamples(name: String, closure: SharedExampleClosure) {
     :param: description An arbitrary string describing the example group.
     :param: closure A closure that can contain other examples.
 */
-public func describe(description: String, closure: () -> ()) {
-    World.sharedWorld().describe(description, closure: closure)
+public func describe(description: String, closure: () -> (), flags: FilterFlags = [:]) {
+    World.sharedWorld().describe(description, closure: closure, flags: flags)
 }
 
 /**
     Defines an example group. Equivalent to `describe`.
 */
-public func context(description: String, closure: () -> ()) {
-    describe(description, closure)
+public func context(description: String, closure: () -> (), flags: FilterFlags = [:]) {
+    describe(description, closure, flags: flags)
 }
 
 /**

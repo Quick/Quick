@@ -8,12 +8,14 @@
     internal let hooks = ExampleHooks()
 
     private let description: String
+    private let flags: FilterFlags
     private let isInternalRootExampleGroup: Bool
     private var childGroups = [ExampleGroup]()
     private var childExamples = [Example]()
 
-    internal init(description: String, isInternalRootExampleGroup: Bool = false) {
+    internal init(description: String, flags: FilterFlags, isInternalRootExampleGroup: Bool = false) {
         self.description = description
+        self.flags = flags
         self.isInternalRootExampleGroup = isInternalRootExampleGroup
     }
 
@@ -38,6 +40,16 @@
         } else {
             return isInternalRootExampleGroup ? nil : description
         }
+    }
+
+    internal var filterFlags: FilterFlags {
+        var aggregateFlags = flags
+        walkUp() { (group: ExampleGroup) -> () in
+            for (key, value) in group.flags {
+                aggregateFlags[key] = value
+            }
+        }
+        return aggregateFlags
     }
 
     internal var befores: [BeforeExampleWithMetadataClosure] {

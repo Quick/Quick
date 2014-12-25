@@ -122,8 +122,11 @@ public typealias FilterFlags = [String: Bool]
         if let group = specs[name] {
             return group
         } else {
-            let group = ExampleGroup(description: "root example group",
-                                     isInternalRootExampleGroup: true)
+            let group = ExampleGroup(
+                description: "root example group",
+                flags: [:],
+                isInternalRootExampleGroup: true
+            )
             specs[name] = group
             return group
         }

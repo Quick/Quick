@@ -22,7 +22,7 @@ private var numberOfExamplesRun = 0
 
     private let description: String
     private let closure: () -> ()
-    internal let flags: FilterFlags
+    private let flags: FilterFlags
 
     internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
         self.description = description
@@ -77,5 +77,19 @@ private var numberOfExamplesRun = 0
         if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.exampleCount {
             world.suiteHooks.executeAfters()
         }
+    }
+
+    /**
+        Evaluates the filter flags set on this example and on the example groups
+        this example belongs to. Flags set on the example are trumped by flags on
+        the example group it belongs to. Flags on inner example groups are trumped
+        by flags on outer example groups.
+    */
+    internal var filterFlags: FilterFlags {
+        var aggregateFlags = flags
+        for (key, value) in group!.filterFlags {
+            aggregateFlags[key] = value
+        }
+        return aggregateFlags
     }
 }

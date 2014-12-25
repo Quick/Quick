@@ -16,16 +16,16 @@ extension World {
         registerSharedExample(name, closure: closure)
     }
 
-    public func describe(description: String, closure: () -> ()) {
-        var group = ExampleGroup(description: description)
+    public func describe(description: String, closure: () -> (), flags: FilterFlags) {
+        var group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
         closure()
         currentExampleGroup = group.parent
     }
 
-    public func context(description: String, closure: () -> ()) {
-        describe(description, closure: closure)
+    public func context(description: String, closure: () -> (), flags: FilterFlags) {
+        describe(description, closure: closure, flags: flags)
     }
 
     public func beforeEach(closure: BeforeExampleClosure) {
@@ -56,7 +56,8 @@ extension World {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld().sharedExample(name)
 
-        var group = ExampleGroup(description: name)
+        // TODO: Support filter flags for shared examples.
+        var group = ExampleGroup(description: name, flags: [:])
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
         closure(sharedExampleContext)
