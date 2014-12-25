@@ -13,6 +13,15 @@ public typealias SharedExampleContext = () -> (NSDictionary)
 public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
 /**
+    A mapping of string keys to booleans that can be used to
+    filter examples or example groups. For example, a "focused"
+    example would have the flags ["focused": true].
+
+    TODO: Define constants for "focused" and "pending".
+*/
+public typealias FilterFlags = [String: Bool]
+
+/**
     A collection of state Quick builds up in order to work its magic.
     World is primarily responsible for maintaining a mapping of QuickSpec
     classes to root example groups for those classes.
@@ -53,6 +62,7 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
     internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
+    public var runAllWhenEverythingFiltered: Bool { return configuration.runAllWhenEverythingFiltered }
 
     // MARK: Singleton Constructor
 
@@ -118,6 +128,22 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
             return group
         }
     }
+
+    /**
+        Passes the example through Quick.Configuration's registered filters,
+        in order to determine whether the example should be run or not.
+
+        :param: example An example that Quick.Configuration will determine whether to run or not.
+        :return: A boolean indicating whether the given example should run. True if the example
+                 is included in an inclusion filter, and also **not included** in an exclusion filter.
+    */
+    public func shouldRun(example: Example) -> Bool {
+        var run = true
+        run = reduce(configuration.inclusionFilters.map({ $0(example: example) }), run, { run, next in run && next })
+        run = reduce(configuration.exclusionFilters.map({ $0(example: example) }), run, { run, next in run && !next })
+        return run
+    }
+
 
     // MARK: Internal
 

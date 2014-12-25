@@ -44,10 +44,10 @@ extension World {
         currentExampleGroup!.hooks.appendAfter(closure)
     }
 
-    @objc(itWithDescription:file:line:closure:)
-    public func it(description: String, file: String, line: Int, closure: () -> ()) {
+    @objc(itWithDescription:flags:file:line:closure:)
+    public func it(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
-        let example = Example(description: description, callsite: callsite, closure)
+        let example = Example(description: description, callsite: callsite, flags: flags, closure)
         currentExampleGroup!.appendExample(example)
     }
 

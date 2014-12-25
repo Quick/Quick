@@ -124,8 +124,8 @@ public func afterEach(#closure: AfterExampleWithMetadataClosure) {
     :param: file The absolute path to the file containing the example. A sensible default is provided.
     :param: line The line containing the example. A sensible default is provided.
 */
-public func it(description: String, closure: () -> (), file: String = __FILE__, line: Int = __LINE__) {
-    World.sharedWorld().it(description, file: file, line: line, closure: closure)
+public func it(description: String, closure: () -> (), flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
+    World.sharedWorld().it(description, flags: flags, file: file, line: line, closure: closure)
 }
 
 /**

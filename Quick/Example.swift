@@ -22,11 +22,13 @@ private var numberOfExamplesRun = 0
 
     private let description: String
     private let closure: () -> ()
+    internal let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, closure: () -> ()) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
         self.description = description
         self.closure = closure
         self.callsite = callsite
+        self.flags = flags
     }
 
     /**

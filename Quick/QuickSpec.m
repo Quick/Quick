@@ -55,7 +55,15 @@ const void * const QCKExampleKey = &QCKExampleKey;
     NSArray *examples = [[World sharedWorld] rootExampleGroupForSpecClass:[self class]].examples;
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
 
-    for (Example *example in examples) {
+    NSArray *filteredExamples = [examples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
+        return [[World sharedWorld] shouldRun:example];
+    }]];
+    // TODO: Pending examples should never run, despite value of `runAllWhenEverythingFiltered`.
+    if ([filteredExamples count] == 0 && [World sharedWorld].runAllWhenEverythingFiltered) {
+        filteredExamples = examples;
+    }
+
+    for (Example *example in filteredExamples) {
         SEL selector = [self addInstanceMethodForExample:example];
         NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
                                                                          example:example];

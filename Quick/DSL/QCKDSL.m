@@ -31,7 +31,8 @@ void qck_afterEach(QCKDSLEmptyBlock closure) {
 
 QCKItBlock qck_it_builder(NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLEmptyBlock closure) {
-        [[World sharedWorld] itWithDescription:description file:file line:line closure:closure];
+        // TODO: Support filter flags in Objective-C.
+        [[World sharedWorld] itWithDescription:description flags:@{} file:file line:line closure:closure];
     };
 }
 
