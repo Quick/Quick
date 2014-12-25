@@ -27,6 +27,8 @@
 		34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A519515CA700CE1B99 /* QuickSpec.m */; };
 		34F375BB19515CA700CE1B99 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
 		34F375BC19515CA700CE1B99 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
+		470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */; };
+		470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */; };
 		479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
 		479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
 		47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
@@ -286,6 +288,7 @@
 		34F375A419515CA700CE1B99 /* QuickSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickSpec.h; sourceTree = "<group>"; };
 		34F375A519515CA700CE1B99 /* QuickSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickSpec.m; sourceTree = "<group>"; };
 		34F375A619515CA700CE1B99 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterEachTests+ObjC.m"; sourceTree = "<group>"; };
 		479C31E11A36156E00DA8718 /* ItTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ItTests+ObjC.m"; sourceTree = "<group>"; };
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,6 +429,7 @@
 				DA87078219F48775008C04AC /* BeforeEachTests.swift */,
 				47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */,
 				DA05D60F19F73A3800771050 /* AfterEachTests.swift */,
+				470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */,
 				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
 				DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */,
@@ -809,6 +813,7 @@
 				5A5D11AD1947412800F6D13D /* Poet.swift in Sources */,
 				479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */,
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
+				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +868,7 @@
 				DAEB6BD5194387D700289F44 /* Poet.swift in Sources */,
 				479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */,
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
+				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
