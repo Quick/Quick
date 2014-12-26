@@ -38,8 +38,9 @@ QCKItBlock qck_it_builder(NSString *file, NSUInteger line) {
 }
 
 QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line) {
+    // TODO: Support filter flags in Objective-C.
     return ^(NSString *name, QCKDSLSharedExampleContext context) {
-        [[World sharedWorld] itBehavesLikeSharedExampleNamed:name sharedExampleContext:context file:file line:line];
+        [[World sharedWorld] itBehavesLikeSharedExampleNamed:name sharedExampleContext:context flags:@{} file:file line:line];
     };
 }
 

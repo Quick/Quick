@@ -75,13 +75,12 @@ extension World {
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
 
-    @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:file:line:)
-    public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String, line: Int) {
+    @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:flags:file:line:)
+    public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: Int) {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld().sharedExample(name)
 
-        // TODO: Support filter flags for shared examples.
-        var group = ExampleGroup(description: name, flags: [:])
+        var group = ExampleGroup(description: name, flags: flags)
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
         closure(sharedExampleContext)

@@ -138,8 +138,8 @@ public func it(description: String, closure: () -> (), flags: FilterFlags = [:],
     :param: file The absolute path to the file containing the current example group. A sensible default is provided.
     :param: line The line containing the current example group. A sensible default is provided.
 */
-public func itBehavesLike(name: String, file: String = __FILE__, line: Int = __LINE__) {
-    itBehavesLike(name, { return [:] }, file: file, line: line)
+public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
+    itBehavesLike(name, { return [:] }, flags: flags, file: file, line: line)
 }
 
 /**
@@ -156,8 +156,8 @@ public func itBehavesLike(name: String, file: String = __FILE__, line: Int = __L
     :param: file The absolute path to the file containing the current example group. A sensible default is provided.
     :param: line The line containing the current example group. A sensible default is provided.
 */
-public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String = __FILE__, line: Int = __LINE__) {
-    World.sharedWorld().itBehavesLike(name, sharedExampleContext: sharedExampleContext, file: file, line: line)
+public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
+    World.sharedWorld().itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
 }
 
 /**
