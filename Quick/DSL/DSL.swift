@@ -63,6 +63,7 @@ public func sharedExamples(name: String, closure: SharedExampleClosure) {
 
     :param: description An arbitrary string describing the example group.
     :param: closure A closure that can contain other examples.
+    :param: flags A mapping of string keys to booleans that can be used to filter examples or example groups.
 */
 public func describe(description: String, closure: () -> (), flags: FilterFlags = [:]) {
     World.sharedWorld().describe(description, closure: closure, flags: flags)
@@ -121,6 +122,8 @@ public func afterEach(#closure: AfterExampleWithMetadataClosure) {
 
     :param: description An arbitrary string describing what the example is meant to specify.
     :param: closure A closure that can contain assertions.
+    :param: flags A mapping of string keys to booleans that can be used to filter examples or example groups.
+                  Empty by default.
     :param: file The absolute path to the file containing the example. A sensible default is provided.
     :param: line The line containing the example. A sensible default is provided.
 */
@@ -135,6 +138,8 @@ public func it(description: String, closure: () -> (), flags: FilterFlags = [:],
     :param: name The name of the shared examples group to be executed. This must be identical to the
                  name of a shared examples group defined using `sharedExamples`. If there are no shared
                  examples that match the name given, an exception is thrown and the test suite will crash.
+    :param: flags A mapping of string keys to booleans that can be used to filter examples or example groups.
+                  Empty by default.
     :param: file The absolute path to the file containing the current example group. A sensible default is provided.
     :param: line The line containing the current example group. A sensible default is provided.
 */
@@ -153,6 +158,8 @@ public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String =
                  examples that match the name given, an exception is thrown and the test suite will crash.
     :param: sharedExampleContext A closure that, when evaluated, returns key-value pairs that provide the
                                  shared examples with extra information on the subject of the example.
+    :param: flags A mapping of string keys to booleans that can be used to filter examples or example groups.
+                  Empty by default.
     :param: file The absolute path to the file containing the current example group. A sensible default is provided.
     :param: line The line containing the current example group. A sensible default is provided.
 */
@@ -172,42 +179,48 @@ public func pending(description: String, closure: () -> ()) {
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `describe` closure.
+    Use this to quickly mark a `describe` closure as pending.
+    This disables all examples within the closure.
 */
 public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
     World.sharedWorld().xdescribe(description, closure: closure, flags: flags)
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `context` closure.
+    Use this to quickly mark a `context` closure as pending.
+    This disables all examples within the closure.
 */
 public func xcontext(description: String, closure: () -> (), flags: FilterFlags) {
     xdescribe(description, closure, flags)
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `it` closure.
+    Use this to quickly mark an `it` closure as pending.
+    This disables the example and ensures the code within the closure is never run.
 */
 public func xit(description: String, closure: () -> (), flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
     World.sharedWorld().xit(description, flags: flags, file: file, line: line, closure: closure)
 }
 
 /**
-    TODO: Documentation.
+    Use this to quickly focus a `describe` closure, focusing the examples in the closure.
+    If any examples in the test suite are focused, only those examples are executed.
+    This trumps any explicitly focused or unfocused examples within the closure--they are all treated as focused.
 */
 public func fdescribe(description: String, closure: () -> (), flags: FilterFlags = [:]) {
     World.sharedWorld().fdescribe(description, closure: closure, flags: flags)
 }
 
 /**
-    TODO: Documentation.
+    Use this to quickly focus a `context` closure. Equivalent to `fdescribe`.
 */
 public func fcontext(description: String, closure: () -> (), flags: FilterFlags = [:]) {
     fdescribe(description, closure, flags: flags)
 }
 
 /**
-    TODO: Documentation.
+    Use this to quickly focus an `it` closure, focusing the example.
+    If any examples in the test suite are focused, only those examples are executed.
 */
 public func fit(description: String, closure: () -> (), flags: FilterFlags = [:], file: String = __FILE__, line: Int = __LINE__) {
     World.sharedWorld().fit(description, flags: flags, file: file, line: line, closure: closure)

@@ -14,7 +14,6 @@ void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
 }
 
 void qck_describe(NSString *description, QCKDSLEmptyBlock closure) {
-    // TODO: Support filter flags in Objective-C.
     [[World sharedWorld] describe:description closure:closure flags:@{}];
 }
 

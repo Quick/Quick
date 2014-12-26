@@ -39,7 +39,9 @@ public typealias ExampleFilter = (example: Example) -> Bool
 
     /**
         Registers an inclusion filter.
-        TODO: Add more documentation.
+
+        All examples are filtered using all inclusion filters.
+        The remaining examples are run. If no examples remain, all examples are run.
 
         :param: filter A filter that, given an example, returns a value indicating
                        whether that example should be included in the examples
@@ -51,7 +53,9 @@ public typealias ExampleFilter = (example: Example) -> Bool
 
     /**
         Registers an exclusion filter.
-        TODO: Add more documentation.
+
+        All examples that remain after being filtered by the inclusion filters are
+        then filtered via all exclusion filters.
 
         :param: filter A filter that, given an example, returns a value indicating
                        whether that example should be excluded from the examples

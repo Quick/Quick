@@ -124,25 +124,25 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     }
 
     /**
-        TODO: Documentation.
+        Returns a boolean indicating whether the given example passes any of the
+        registered inclusion filters.
+
+        :param: example The example to check against the registered inclusion filters.
+        :returns: Whether the example is included in the test suite.
     */
     public func isIncluded(example: Example) -> Bool {
-        var included = false
-        for inclusionFilter in configuration.inclusionFilters {
-            included = included || inclusionFilter(example: example)
-        }
-        return included
+        return configuration.inclusionFilters.reduce(false) { $0 || $1(example: example) }
     }
 
     /**
-        TODO: Documentation.
+        Returns a boolean indicating whether the given example is snagged by any of the
+        registered exclusion filters.
+
+        :param: example The example to check against the registered exclusion filters.
+        :returns: Whether the example is excluded from the test suite.
     */
     public func isExcluded(example: Example) -> Bool {
-        var excluded = false
-        for exclusionFilter in configuration.exclusionFilters {
-            excluded = excluded || exclusionFilter(example: example)
-        }
-        return excluded
+        return configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
     }
 
     // MARK: Internal

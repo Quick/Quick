@@ -158,28 +158,32 @@ static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `describe` closure.
+    Use this to quickly mark a `describe` block as pending.
+    This disables all examples within the block.
  */
 static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xdescribe(description, closure);
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `context` closure.
+    Use this to quickly mark a `context` block as pending.
+    This disables all examples within the block.
  */
 static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xcontext(description, closure);
 }
 
 /**
-    TODO: Documentation.
+    Use this to quickly focus a `describe` block, focusing the examples in the block.
+    If any examples in the test suite are focused, only those examples are executed.
+    This trumps any explicitly focused or unfocused examples within the block--they are all treated as focused.
  */
 static inline void fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_fdescribe(description, closure);
 }
 
 /**
-    TODO: Documentation.
+    Use this to quickly focus a `context` block. Equivalent to `fdescribe`.
  */
 static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_fcontext(description, closure);
