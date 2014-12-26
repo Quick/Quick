@@ -49,13 +49,21 @@ void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
+    [[World sharedWorld] xdescribe:description closure:closure flags:@{}];
 }
 
 void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
+    qck_xdescribe(description, closure);
 }
 
 void qck_xit(NSString *description, QCKDSLEmptyBlock closure) {
     qck_pending(description, closure);
+}
+
+void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
+    [[World sharedWorld] fdescribe:description closure:closure flags:@{}];
+}
+
+void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure) {
+    qck_fdescribe(description, closure);
 }

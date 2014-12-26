@@ -58,6 +58,8 @@ extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xit(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
 
 #ifndef QUICK_DISABLE_SHORT_SYNTAX
 /**
@@ -175,6 +177,20 @@ static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
  */
 static inline void xit(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xit(description, closure);
+}
+
+/**
+    TODO: Documentation.
+ */
+static inline void fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
+    qck_fdescribe(description, closure);
+}
+
+/**
+    TODO: Documentation.
+ */
+static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
+    qck_fcontext(description, closure);
 }
 
 #define it qck_it
