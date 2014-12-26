@@ -9,7 +9,7 @@ public typealias FilterFlags = [String: Bool]
     A namespace for filter flag keys, defined primarily to make the
     keys available in Objective-C.
 */
-@objc(QCKFilter) public class Filter {
+@objc(QCKFilter) final public class Filter {
     /**
         Example and example groups with [Focused: true] are included in test runs,
         excluding all other examples without this flag. Use this to only run one or
