@@ -13,15 +13,6 @@ public typealias SharedExampleContext = () -> (NSDictionary)
 public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
 /**
-    A mapping of string keys to booleans that can be used to
-    filter examples or example groups. For example, a "focused"
-    example would have the flags ["focused": true].
-
-    TODO: Define constants for "focused" and "pending".
-*/
-public typealias FilterFlags = [String: Bool]
-
-/**
     A collection of state Quick builds up in order to work its magic.
     World is primarily responsible for maintaining a mapping of QuickSpec
     classes to root example groups for those classes.

@@ -30,13 +30,13 @@ extension World {
 
     public func fdescribe(description: String, closure: () -> (), flags: FilterFlags) {
         var focusedFlags = flags
-        focusedFlags["focused"] = true
+        focusedFlags[Filter.focused] = true
         self.describe(description, closure: closure, flags: focusedFlags)
     }
 
     public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
         var pendingFlags = flags
-        pendingFlags["pending"] = true
+        pendingFlags[Filter.pending] = true
         self.describe(description, closure: closure, flags: pendingFlags)
     }
 
@@ -65,13 +65,13 @@ extension World {
 
     public func fit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         var focusedFlags = flags
-        focusedFlags["focused"] = true
+        focusedFlags[Filter.focused] = true
         self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
     }
 
     public func xit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         var pendingFlags = flags
-        pendingFlags["pending"] = true
+        pendingFlags[Filter.pending] = true
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
 

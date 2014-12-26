@@ -11,14 +11,14 @@ class FocusedSpecConfiguration: QuickConfiguration {
 
 class FocusedSpec: QuickSpec {
     override func spec() {
-        itBehavesLike("failing shared examples", flags: ["pending": true])
+        itBehavesLike("failing shared examples", flags: [Filter.pending: true])
 
         describe("unfocused examples") {
             it("fails (but is never run)") { XCTFail() }
             it("fails again (but is never run)") { XCTFail() }
         }
 
-        it("passes", {}, flags: ["focused": true])
+        it("passes", {}, flags: [Filter.focused: true])
 
         xit("fails (but is never run)") { XCTFail() }
 
@@ -30,6 +30,6 @@ class FocusedSpec: QuickSpec {
 
         describe("explicitly unfocused examples containing focused ones", {
             fit("fails (but is never run)") { XCTFail() }
-        }, flags: ["focused": false])
+        }, flags: [Filter.focused: false])
     }
 }

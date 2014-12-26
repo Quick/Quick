@@ -18,14 +18,14 @@ public typealias ExampleFilter = (example: Example) -> Bool
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
     internal var exclusionFilters: [ExampleFilter] = [{ example in
-        if let pending = example.filterFlags["pending"] {
+        if let pending = example.filterFlags[Filter.pending] {
             return pending
         } else {
             return false
         }
     }]
     internal var inclusionFilters: [ExampleFilter] = [{ example in
-        if let focused = example.filterFlags["focused"] {
+        if let focused = example.filterFlags[Filter.focused] {
             return focused
         } else {
             return false

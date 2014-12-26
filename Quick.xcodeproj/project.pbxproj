@@ -71,6 +71,8 @@
 		DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BE119FF5599005DF92A /* SuiteHooks.swift */; };
 		DA5663EE1A4C8D8500193C88 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
 		DA5663F41A4C8D9A00193C88 /* FocusedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9876BF1A4C87200004AA17 /* FocusedTests.swift */; };
+		DA6B30181A4DB0D500FFB148 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B30171A4DB0D500FFB148 /* Filter.swift */; };
+		DA6B30191A4DB0D500FFB148 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B30171A4DB0D500FFB148 /* Filter.swift */; };
 		DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
 		DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
 		DA8C00211A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */; };
@@ -332,6 +334,7 @@
 		DA408BE019FF5599005DF92A /* ExampleHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleHooks.swift; sourceTree = "<group>"; };
 		DA408BE119FF5599005DF92A /* SuiteHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuiteHooks.swift; sourceTree = "<group>"; };
 		DA5663E81A4C8D8500193C88 /* QuickFocused-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6B30171A4DB0D500FFB148 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		DA7AE6F019FC493F000AFDCE /* ItTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItTests.swift; sourceTree = "<group>"; };
 		DA87078219F48775008C04AC /* BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachTests.swift; sourceTree = "<group>"; };
 		DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConfigurationTests.m; sourceTree = "<group>"; };
@@ -567,6 +570,7 @@
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				5AFC5948195ED5B900D3E0A2 /* Failure.swift */,
+				DA6B30171A4DB0D500FFB148 /* Filter.swift */,
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
@@ -906,6 +910,7 @@
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
+				DA6B30191A4DB0D500FFB148 /* Filter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +984,7 @@
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
 				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,
+				DA6B30181A4DB0D500FFB148 /* Filter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
