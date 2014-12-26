@@ -63,12 +63,14 @@ extension World {
         currentExampleGroup!.appendExample(example)
     }
 
+    @objc(fitWithDescription:flags:file:line:closure:)
     public func fit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
         self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
     }
 
+    @objc(xitWithDescription:flags:file:line:closure:)
     public func xit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true

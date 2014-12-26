@@ -57,7 +57,6 @@ extern void qck_afterEach(QCKDSLEmptyBlock closure);
 extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_xit(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
 
@@ -173,13 +172,6 @@ static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `it` closure.
- */
-static inline void xit(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_xit(description, closure);
-}
-
-/**
     TODO: Documentation.
  */
 static inline void fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
@@ -194,14 +186,22 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 #define it qck_it
+#define xit qck_xit
+#define fit qck_fit
 #define itBehavesLike qck_itBehavesLike
+#define xitBehavesLike qck_xitBehavesLike
+#define fitBehavesLike qck_fitBehavesLike
 #endif
 
-#define qck_it qck_it_builder(@(__FILE__), __LINE__)
-#define qck_itBehavesLike qck_itBehavesLike_builder(@(__FILE__), __LINE__)
+#define qck_it qck_it_builder(@{}, @(__FILE__), __LINE__)
+#define qck_xit qck_it_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_fit qck_it_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
+#define qck_itBehavesLike qck_itBehavesLike_builder(@{}, @(__FILE__), __LINE__)
+#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_fitBehavesLike qck_itBehavesLike_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
 
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *descritpion, QCKDSLSharedExampleContext context);
 
-extern QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
-extern QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line);
+extern QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line);
+extern QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line);
