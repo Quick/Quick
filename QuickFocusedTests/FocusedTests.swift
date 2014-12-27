@@ -1,41 +1,48 @@
 import Quick
+import Nimble
 import XCTest
 
-class FocusedSpecConfiguration: QuickConfiguration {
+class FunctionalTests_FocusedSpec_SharedExamplesConfiguration: QuickConfiguration {
     override class func configure(configuration: Configuration) {
-        sharedExamples("failing shared examples") {
-            it("fails (but should never be run)") { XCTFail() }
+        sharedExamples("two passing shared examples") {
+            it("has an example that passes (4)") {}
+            it("has another example that passes (5)") {}
         }
     }
 }
 
-class FocusedSpec: QuickSpec {
+class FunctionalTests_FocusedSpec_Focused: QuickSpec {
     override func spec() {
-        itBehavesLike("failing shared examples", flags: [Filter.pending: true])
+        it("has an unfocused example that fails, but is never run") { fail() }
+        fit("has a focused example that passes (1)") {}
 
-        describe("unfocused examples") {
-            it("fails (but is never run)") { XCTFail() }
-            it("fails again (but is never run)") { XCTFail() }
+        fdescribe("a focused example group") {
+            it("has an example that is not focused, but will be run, and passes (2)") {}
+            fit("has a focused example that passes (3)") {}
         }
 
-        it("passes", {}, flags: [Filter.focused: true])
-
-        xit("fails (but is never run)") { XCTFail() }
-
-        fdescribe("focused examples") {
-            it("passes") {}
-            it("passes again") {}
-            xit("fails (but is never run)") { XCTFail() }
-        }
-
-        describe("explicitly unfocused examples containing focused ones", {
-            fit("fails (but is never run)") { XCTFail() }
-        }, flags: [Filter.focused: false])
+        // TODO: Port fitBehavesLike to Swift.
+        itBehavesLike("two passing shared examples", flags: [Filter.focused: true])
     }
 }
 
-class AnotherFocusedSpec: QuickSpec {
+class FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
     override func spec() {
-        it("fails (but is never run)") { XCTFail() }
+        it("has an unfocused example that fails, but is never run") { fail() }
+
+        describe("an unfocused example group that is never run") {
+            beforeEach { assert(false) }
+            it("has an example that fails, but is never run") { fail() }
+        }
+    }
+}
+
+class FocusedTests: XCTestCase {
+    func testOnlyFocusedExamplesAreExecuted() {
+        let result = qck_runSpecs([
+            FunctionalTests_FocusedSpec_Focused.classForCoder(),
+            FunctionalTests_FocusedSpec_Unfocused.classForCoder()
+        ])
+        XCTAssertEqual(result.executionCount, 5 as UInt)
     }
 }
