@@ -16,16 +16,28 @@ extension World {
         registerSharedExample(name, closure: closure)
     }
 
-    public func describe(description: String, closure: () -> ()) {
-        var group = ExampleGroup(description: description)
+    public func describe(description: String, closure: () -> (), flags: FilterFlags) {
+        var group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
         closure()
         currentExampleGroup = group.parent
     }
 
-    public func context(description: String, closure: () -> ()) {
-        describe(description, closure: closure)
+    public func context(description: String, closure: () -> (), flags: FilterFlags) {
+        self.describe(description, closure: closure, flags: flags)
+    }
+
+    public func fdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+        var focusedFlags = flags
+        focusedFlags[Filter.focused] = true
+        self.describe(description, closure: closure, flags: focusedFlags)
+    }
+
+    public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+        var pendingFlags = flags
+        pendingFlags[Filter.pending] = true
+        self.describe(description, closure: closure, flags: pendingFlags)
     }
 
     public func beforeEach(closure: BeforeExampleClosure) {
@@ -44,19 +56,33 @@ extension World {
         currentExampleGroup!.hooks.appendAfter(closure)
     }
 
-    @objc(itWithDescription:file:line:closure:)
-    public func it(description: String, file: String, line: Int, closure: () -> ()) {
+    @objc(itWithDescription:flags:file:line:closure:)
+    public func it(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
-        let example = Example(description: description, callsite: callsite, closure)
+        let example = Example(description: description, callsite: callsite, flags: flags, closure)
         currentExampleGroup!.appendExample(example)
     }
 
-    @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:file:line:)
-    public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, file: String, line: Int) {
+    @objc(fitWithDescription:flags:file:line:closure:)
+    public func fit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
+        var focusedFlags = flags
+        focusedFlags[Filter.focused] = true
+        self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
+    }
+
+    @objc(xitWithDescription:flags:file:line:closure:)
+    public func xit(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
+        var pendingFlags = flags
+        pendingFlags[Filter.pending] = true
+        self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
+    }
+
+    @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:flags:file:line:)
+    public func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: Int) {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld().sharedExample(name)
 
-        var group = ExampleGroup(description: name)
+        var group = ExampleGroup(description: name, flags: flags)
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
         closure(sharedExampleContext)

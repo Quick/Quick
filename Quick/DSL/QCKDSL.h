@@ -57,7 +57,8 @@ extern void qck_afterEach(QCKDSLEmptyBlock closure);
 extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_xit(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure);
+extern void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
 
 #ifndef QUICK_DISABLE_SHORT_SYNTAX
 /**
@@ -157,35 +158,54 @@ static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `describe` closure.
+    Use this to quickly mark a `describe` block as pending.
+    This disables all examples within the block.
  */
 static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xdescribe(description, closure);
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `context` closure.
+    Use this to quickly mark a `context` block as pending.
+    This disables all examples within the block.
  */
 static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xcontext(description, closure);
 }
 
 /**
-    Identical to `pending`. Use this to quickly disable a `it` closure.
+    Use this to quickly focus a `describe` block, focusing the examples in the block.
+    If any examples in the test suite are focused, only those examples are executed.
+    This trumps any explicitly focused or unfocused examples within the block--they are all treated as focused.
  */
-static inline void xit(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_xit(description, closure);
+static inline void fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
+    qck_fdescribe(description, closure);
+}
+
+/**
+    Use this to quickly focus a `context` block. Equivalent to `fdescribe`.
+ */
+static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
+    qck_fcontext(description, closure);
 }
 
 #define it qck_it
+#define xit qck_xit
+#define fit qck_fit
 #define itBehavesLike qck_itBehavesLike
+#define xitBehavesLike qck_xitBehavesLike
+#define fitBehavesLike qck_fitBehavesLike
 #endif
 
-#define qck_it qck_it_builder(@(__FILE__), __LINE__)
-#define qck_itBehavesLike qck_itBehavesLike_builder(@(__FILE__), __LINE__)
+#define qck_it qck_it_builder(@{}, @(__FILE__), __LINE__)
+#define qck_xit qck_it_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_fit qck_it_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
+#define qck_itBehavesLike qck_itBehavesLike_builder(@{}, @(__FILE__), __LINE__)
+#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_fitBehavesLike qck_itBehavesLike_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
 
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *descritpion, QCKDSLSharedExampleContext context);
 
-extern QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
-extern QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line);
+extern QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line);
+extern QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line);

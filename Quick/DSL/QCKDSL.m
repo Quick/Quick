@@ -14,7 +14,7 @@ void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
 }
 
 void qck_describe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] describe:description closure:closure];
+    [[World sharedWorld] describe:description closure:closure flags:@{}];
 }
 
 void qck_context(NSString *description, QCKDSLEmptyBlock closure) {
@@ -29,15 +29,23 @@ void qck_afterEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] afterEach:closure];
 }
 
-QCKItBlock qck_it_builder(NSString *file, NSUInteger line) {
+QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLEmptyBlock closure) {
-        [[World sharedWorld] itWithDescription:description file:file line:line closure:closure];
+        [[World sharedWorld] itWithDescription:description
+                                         flags:flags
+                                          file:file
+                                          line:line
+                                       closure:closure];
     };
 }
 
-QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line) {
+QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
     return ^(NSString *name, QCKDSLSharedExampleContext context) {
-        [[World sharedWorld] itBehavesLikeSharedExampleNamed:name sharedExampleContext:context file:file line:line];
+        [[World sharedWorld] itBehavesLikeSharedExampleNamed:name
+                                        sharedExampleContext:context
+                                                       flags:flags
+                                                        file:file
+                                                        line:line];
     };
 }
 
@@ -46,13 +54,17 @@ void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
+    [[World sharedWorld] xdescribe:description closure:closure flags:@{}];
 }
 
 void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
+    qck_xdescribe(description, closure);
 }
 
-void qck_xit(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
+void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
+    [[World sharedWorld] fdescribe:description closure:closure flags:@{}];
+}
+
+void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure) {
+    qck_fdescribe(description, closure);
 }
