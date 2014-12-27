@@ -52,26 +52,9 @@ const void * const QCKExampleKey = &QCKExampleKey;
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray *)testInvocations {
-    NSArray *specExamples = [[World sharedWorld] rootExampleGroupForSpecClass:[self class]].examples;
-    NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[specExamples count]];
-
-    NSArray *allExamples = [[World sharedWorld] examples];
-    NSArray *includedExamples = [allExamples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
-        return [[World sharedWorld] isIncluded:example];
-    }]];
-    if ([includedExamples count] == 0 && [World sharedWorld].runAllWhenEverythingFiltered) {
-        includedExamples = allExamples;
-    }
-
-    NSArray *examples = [specExamples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
-        return [includedExamples containsObject:example];
-    }]];
-
-    NSArray *filteredExamples = [examples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
-        return ![[World sharedWorld] isExcluded:example];
-    }]];
-
-    for (Example *example in filteredExamples) {
+    NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
+    NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
+    for (Example *example in examples) {
         SEL selector = [self addInstanceMethodForExample:example];
         NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
                                                                          example:example];

@@ -53,7 +53,6 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
     internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
-    public var runAllWhenEverythingFiltered: Bool { return configuration.runAllWhenEverythingFiltered }
 
     // MARK: Singleton Constructor
 
@@ -89,7 +88,6 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
         isConfigurationFinalized = true
     }
 
-
     /**
         Returns an internally constructed root example group for the given
         QuickSpec class.
@@ -124,36 +122,24 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     }
 
     /**
-        Returns a boolean indicating whether the given example passes any of the
-        registered inclusion filters.
+        Returns all examples that should be run for a given spec class.
+        There are two filtering passes that occur when determining which examples should be run.
+        That is, these examples are the ones that are included by inclusion filters, and are
+        not excluded by exclusion filters.
 
-        :param: example The example to check against the registered inclusion filters.
-        :returns: Whether the example is included in the test suite.
+        :param: specClass The QuickSpec subclass for which examples are to be returned.
+        :returns: A list of examples to be run as test invocations.
     */
-    public func isIncluded(example: Example) -> Bool {
-        return configuration.inclusionFilters.reduce(false) { $0 || $1(example: example) }
-    }
-
-    /**
-        Returns a boolean indicating whether the given example is snagged by any of the
-        registered exclusion filters.
-
-        :param: example The example to check against the registered exclusion filters.
-        :returns: Whether the example is excluded from the test suite.
-    */
-    public func isExcluded(example: Example) -> Bool {
-        return configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
-    }
-
-    /**
-        Returns a list of all examples in the test suite.
-    */
-    public var examples: [Example] {
-        var allExamples: [Example] = []
-        for (_, group) in specs {
-            group.walkDownExamples { allExamples.append($0) }
+    @objc(examplesForSpecClass:)
+    public func examples(specClass: AnyClass) -> [Example] {
+        // 1. Grab all included examples.
+        let included = includedExamples
+        // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
+        let spec = rootExampleGroupForSpecClass(specClass).examples.filter { contains(included, $0) }
+        // 3. Remove all excluded examples.
+        return spec.filter { example in
+            !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
         }
-        return allExamples
     }
 
     // MARK: Internal
@@ -166,6 +152,31 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     internal func sharedExample(name: String) -> SharedExampleClosure {
         raiseIfSharedExampleNotRegistered(name)
         return sharedExamples[name]!
+    }
+
+    internal var exampleCount: Int {
+        return allExamples.count
+    }
+
+    private var allExamples: [Example] {
+        var all: [Example] = []
+        for (_, group) in specs {
+            group.walkDownExamples { all.append($0) }
+        }
+        return all
+    }
+
+    private var includedExamples: [Example] {
+        let all = allExamples
+        let included = all.filter { example in
+            return self.configuration.inclusionFilters.reduce(false) { $0 || $1(example: example) }
+        }
+
+        if included.isEmpty && configuration.runAllWhenEverythingFiltered {
+            return all
+        } else {
+            return included
+        }
     }
 
     private func raiseIfSharedExampleAlreadyRegistered(name: String) {
