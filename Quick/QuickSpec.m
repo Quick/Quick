@@ -52,17 +52,22 @@ const void * const QCKExampleKey = &QCKExampleKey;
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray *)testInvocations {
-    NSArray *examples = [[World sharedWorld] rootExampleGroupForSpecClass:[self class]].examples;
-    NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
+    NSArray *specExamples = [[World sharedWorld] rootExampleGroupForSpecClass:[self class]].examples;
+    NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[specExamples count]];
 
-    NSArray *includedExamples = [examples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
+    NSArray *allExamples = [[World sharedWorld] examples];
+    NSArray *includedExamples = [allExamples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
         return [[World sharedWorld] isIncluded:example];
     }]];
     if ([includedExamples count] == 0 && [World sharedWorld].runAllWhenEverythingFiltered) {
-        includedExamples = examples;
+        includedExamples = allExamples;
     }
 
-    NSArray *filteredExamples = [includedExamples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
+    NSArray *examples = [specExamples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
+        return [includedExamples containsObject:example];
+    }]];
+
+    NSArray *filteredExamples = [examples filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(Example *example, NSDictionary *bindings) {
         return ![[World sharedWorld] isExcluded:example];
     }]];
 

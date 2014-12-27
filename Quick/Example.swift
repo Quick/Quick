@@ -74,7 +74,7 @@ private var numberOfExamplesRun = 0
 
         ++numberOfExamplesRun
 
-        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.exampleCount {
+        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.examples.count {
             world.suiteHooks.executeAfters()
         }
     }

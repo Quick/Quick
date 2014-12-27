@@ -33,3 +33,9 @@ class FocusedSpec: QuickSpec {
         }, flags: [Filter.focused: false])
     }
 }
+
+class AnotherFocusedSpec: QuickSpec {
+    override func spec() {
+        it("fails (but is never run)") { XCTFail() }
+    }
+}

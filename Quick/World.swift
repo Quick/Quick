@@ -145,15 +145,18 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
         return configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
     }
 
-    // MARK: Internal
-
-    internal var exampleCount: Int {
-        var count = 0
+    /**
+        Returns a list of all examples in the test suite.
+    */
+    public var examples: [Example] {
+        var allExamples: [Example] = []
         for (_, group) in specs {
-            group.walkDownExamples { _ in count += 1 }
+            group.walkDownExamples { allExamples.append($0) }
         }
-        return count
+        return allExamples
     }
+
+    // MARK: Internal
 
     internal func registerSharedExample(name: String, closure: SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
