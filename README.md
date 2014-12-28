@@ -958,7 +958,7 @@ in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 ## How to Install Quick using Beta CocoaPods
 
 If you would like to use Quick with CocoaPods today, you need to install the
-beta build of CocoaPods via `[sudo] gem install cocoapods` then add Quick
+beta build of CocoaPods via `[sudo] gem install cocoapods --pre` then add Quick
 to your Podfile.
 
 ```
