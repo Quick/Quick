@@ -47,6 +47,7 @@ class TableOfContentsSpec: QuickSpec {
     - [Specifying Conditional Behavior Using `context`](#specifying-conditional-behavior-using-context)
   - [Temporarily Disabling Examples or Groups Using `pending`](#temporarily-disabling-examples-or-groups-using-pending)
     - [Shorthand syntax](#shorthand-syntax)
+  - [Temporarily Running a Subset of Focused Examples](#temporarily-running-a-subset-of-focused-examples)
   - [Global Setup/Teardown Using `beforeSuite` and `afterSuite`](#global-setupteardown-using-beforesuite-and-aftersuite)
   - [Sharing Examples](#sharing-examples)
 - [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
@@ -416,6 +417,41 @@ xit(@"is only emitted once", ^{
 });
 ```
 
+### Temporarily Running a Subset of Focused Examples
+
+Sometimes it helps to focus on only one or a few examples. Running one
+or two exmaples is faster than the entire suite, after all. You can
+run only one or two by using the `fit` function. You can also focus a
+group of examples using `fdescribe` or `fcontext`:
+
+```swift
+fit("its click") {
+  // ...only this focused example will be run.
+}
+
+it("is only emitted once") {
+  // ...this example is not focused, and will not be run.
+}
+
+fdescribe("when the dolphin is near something interesting") {
+  // ...examples in this group are also focused, so they'll be run.
+}
+```
+
+```objc
+fit(@"its click", {
+  // ...only this focused example will be run.
+});
+
+it(@"is only emitted once", ^{
+  // ...this example is not focused, and will not be run.
+});
+
+fdescribe(@"when the dolphin is near something interesting", ^{
+  // ...examples in this group are also focused, so they'll be run.
+});
+```
+
 ### Global Setup/Teardown Using `beforeSuite` and `afterSuite`
 
 Some test setup needs to be performed before *any* examples are
@@ -599,6 +635,8 @@ itBehavesLike("everything under the sea")
   `QCKDSLSharedExampleContext`, even if you don't plan on using that
   argument. Sorry, but that's the way the cookie crumbles!
   :cookie: :bomb:
+
+You can also focus shared examples using the `fitBehavesLike` function.
 
 ## Using Quick in Objective-C: The Optional Shorthand Syntax
 
