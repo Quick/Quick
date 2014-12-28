@@ -957,28 +957,14 @@ in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 
 ## How to Install Quick using Beta CocoaPods
 
-If you would like to use Quick with CocoaPods today, you will need to use
-rubygem's [Bundler](http://bundler.io) to use the swift branch of CocoaPods. This 
-can be done by including a Gemfile that looks like this:
-
-```ruby
-source 'https://rubygems.org'
-
-gem 'cocoapods', :git => 'https://github.com/CocoaPods/CocoaPods.git', :branch => 'swift'
-gem 'cocoapods-core', :git => 'https://github.com/CocoaPods/Core.git'
-gem 'xcodeproj',  :git => 'https://github.com/CocoaPods/Xcodeproj.git'
-gem 'claide', :git => 'https://github.com/CocoaPods/CLAide.git'
-```
-
-Then run `bundle install` to start using Swift CocoaPods for just this project.
-Then in your Podfile, add the following to your test target.
+If you would like to use Quick with CocoaPods today, you need to install the
+beta build of CocoaPods via `[sudo] gem install cocoapods` then add Quick
+to your Podfile.
 
 ```
-  pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.2.1'
+  pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.2.2'
 ```
 
-Finally, run `bundle exec pod install`. The `bundle exec` ensures you're using
-the Swift CocoaPods version from your Gemfile.
 
 ## How to Install Quick File Templates
 
