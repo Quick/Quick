@@ -53,6 +53,7 @@ class TableOfContentsSpec: QuickSpec {
 - [Using Quick in Objective-C: The Optional Shorthand Syntax](#using-quick-in-objective-c-the-optional-shorthand-syntax)
   - [Caveat: Your Test Target Must Include At Least One Swift File](#caveat-your-test-target-must-include-at-least-one-swift-file)
 - [Nimble: Assertions Using `expect(...).to`](#nimble-assertions-using-expectto)
+- [Testing Swift Code](#testing-swift-code)
 - [Testing UIKit with Quick](#testing-uikit-with-quick)
 - [How to Install Quick](#how-to-install-quick)
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
@@ -717,6 +718,20 @@ You can find much more detailed documentation on
 [Nimble](https://github.com/Quick/Nimble), including a
 full set of available matchers and details on how to perform asynchronous tests,
 in [the project's README](https://github.com/Quick/Nimble).
+
+## Testing Swift Code
+
+In order to test code written in Swift, you'll need to do three things:
+
+1. Set "defines module" in your `.xcodeproj` to `YES`.
+2. Mark any class/method/function you want to test `public`, since only
+   `public` symbols are exported.
+3. `import YourAppModuleName` in your unit tests.
+
+Some developers advocate adding Swift source files to your test target.
+However, this leads to [subtle, hard-to-diagnose
+errors](https://github.com/Quick/Quick/issues/91), and is not
+recommended.
 
 ## Testing UIKit with Quick
 
