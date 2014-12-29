@@ -933,6 +933,7 @@ As Test targets do not have the "Embedded Binaries" section, the frameworks must
 1. Add Quick and Nimble from your to your **Cartfile**
     ```
     github "Quick/Quick"
+    github "Quick/Nimble"
     ```
     
 2. Run `Carthage update` 
