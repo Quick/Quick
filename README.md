@@ -937,7 +937,7 @@ As Test targets do not have the "Embedded Binaries" section, the frameworks must
     ```
     
 2. Run `Carthage update` 
-3. From your `Carthage.build/[platform]/` directory, add both Quick and Nimble to your test target's **Link Binary With Libraries** build phase
+3. From your `Carthage/Build/[platform]/` directory, add both Quick and Nimble to your test target's **Link Binary With Libraries** build phase
     ![](http://i.imgur.com/pBkDDk5.png)
 
 4. For your test target, create a new build phase of type **Copy Files**
