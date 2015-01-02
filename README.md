@@ -59,7 +59,7 @@ class TableOfContentsSpec: QuickSpec {
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
-  - [4. Start writing specs!](#4-start-writing-specs!)
+  - [4. Start writing specs!](#4-start-writing-specs)
 - [Including Quick in a Git Repository Using Submodules](#including-quick-in-a-git-repository-using-submodules)
   - [Adding Quick as a Git Submodule](#adding-quick-as-a-git-submodule)
   - [Updating the Quick Submodule](#updating-the-quick-submodule)
