@@ -38,6 +38,7 @@ class TableOfContentsSpec: QuickSpec {
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
 - [Quick: Examples and Example Groups](#quick-examples-and-example-groups)
   - [Examples Using `it`](#examples-using-it)
@@ -68,6 +69,8 @@ class TableOfContentsSpec: QuickSpec {
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
+- [Configuring Quick](#configuring-quick)
+  - [Adding Global Before and After Filters](#adding-global-before-and-after-filters)
 - [Who Uses Quick](#who-uses-quick)
 - [License](#license)
 
@@ -824,7 +827,7 @@ describe(@"didSelectRowAtIndexPath", ^{
   __block DolphinTableViewController *viewController = nil;
 
   beforeEach(^{
-    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and 
+    // Causes the UIKit framework to trigger the necessary methods to render the view and perform viewWillAppear: and
     viewController = [[DolphinTableViewController alloc] init];
     [viewController beginAppearanceTransition:YES animated:NO];
     [viewController endAppearanceTransition];
@@ -995,6 +998,124 @@ Uninstalling is easy, too:
 $ rake templates:uninstall
 ```
 
+## Configuring Quick
+The Quick configuration object exposes custom options to alter the behavior of
+the framework. The intention of this hook is to provide a global configuration
+to meet the needs of your project. *QuickConfiguration* is never meant to be
+instantiated. If you do so, an exception will be raised. Instead, subclass it
+and override the `configure()` class function, like so:
+
+```swift
+// Swift
+
+import Quick
+import Nimble
+
+class ProjectDataTestConfiguration: QuickConfiguration {
+  override class func configure(configuration : Configuration) {
+    // set options on the configuration object
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <Quick/Quick.h>
+#import <Nimble/Nimble.h>
+
+QuickConfigurationBegin(ProjectDataTestConfiguration)
+
++ (void)configure:(Configuration *configuration) {
+  // set options of the configuration object
+}
+
+QuickConfigurationEnd
+```
+
+Projects may include several configurations. However, Quick does not make any
+guarantee about the order in which they are executed.
+
+### Adding Global Before and After Filters
+Similar to `beforeEach()` and `afterEach()` functions in QuickSpec(s), global
+filters can be applied to all tests. For example, a computed value may need to
+be reset before each test case. In the following case, it is assumed that the
+tests rely on the `height` property of the `Dorsal` singleton to be 0 in order
+to do some sort of mathematical computation.
+
+```swift
+// Swift
+
+import Quick
+import Nimble
+
+class FinConfiguration: QuickConfiguration {
+  override class func configure(configuration: Configuration) {
+    configuration.beforeEach() {
+      fin = Dorsal.sharedFin()
+      fin.height = 0
+    }
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <Quick/Quick.h>
+#import "Dorsal.h"
+
+QuickConfigurationBegin(FinConfiguration)
+
++ (void) configure:(Configuration *)configuration {
+  [configuration beforeEach:^{
+    Dorsal *fin = [Dorsal sharedFin];
+    fin.height = 0;
+  }];
+}
+
+QuickConfigurationEnd
+```
+
+Every test resets the `height` property to 0.  Therefore, our tests with various
+computations remain entirely independent.
+
+In addition, Quick allows you to access metadata regarding the tests. The
+framework provides `beforeSuite()` and `afterSuite()` closures with
+metadata. Metadata is passed into the closure like so:
+
+```swift
+// Swift
+
+import Quick
+import Nimble
+
+class Fin2Configuration: QuickConfiguration {
+  override class func configure(configuration: Configuration) {
+    configuration.beforeEach({ (exampleMetadata : ExampleMetadata) -> () in
+      // work with metadata
+    })
+  }
+}
+```
+
+```objc
+// Objective-C
+
+#import <Quick/Quick.h>
+#import "Dorsal.h"
+
+QuickConfigurationBegin(Fin2Configuration)
+
++ (void) configure:(Configuration *)configuration {
+  [configuration beforeEachWithMetadata:^(ExampleMetadata *data) {
+    // work with metadata
+  }];
+}
+
+QuickConfigurationEnd
+```
+
 ## Who Uses Quick
 
 Quick is used by many companies, open-source projects, and individuals,
@@ -1015,4 +1136,3 @@ including [GitHub](https://github.com/github) and
 ## License
 
 Apache 2.0 license. See the `LICENSE` file for details.
-
