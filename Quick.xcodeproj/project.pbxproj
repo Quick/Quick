@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		1F6BB86819693204009F1DBB /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
 		1F6BB86A1969BF75009F1DBB /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEB6BCB194387D700289F44 /* FunctionalTests.swift */; };
+		2C741C4B1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C741C491A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h */; };
+		2C741C4C1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C741C491A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h */; };
+		2C741C4D1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */; };
+		2C741C4E1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */; };
+		2C741C501A56A26A00CB75CF /* XCTestObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */; };
+		2C741C511A56A26A00CB75CF /* XCTestObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */; };
+		2CF3E44C1A591D7100005FC0 /* XCTestDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */; };
+		2CF3E44D1A591D7100005FC0 /* XCTestDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */; };
+		2CF3E44F1A591E3600005FC0 /* XCTestManager_IDEInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */; };
+		2CF3E4501A591E3600005FC0 /* XCTestManager_IDEInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */; };
 		34512A391948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34512A3A1948223C007D457A /* FunctionalTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 34512A381948223C007D457A /* FunctionalTests+ObjC.m */; };
 		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
@@ -277,6 +287,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C741C491A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestObservationCenter+Reporting.h"; path = "Reporting/XCTestObservationCenter+Reporting.h"; sourceTree = "<group>"; };
+		2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCTestObservationCenter+Reporting.m"; path = "Reporting/XCTestObservationCenter+Reporting.m"; sourceTree = "<group>"; };
+		2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTestObservationCenter.h; path = Reporting/XCTestObservationCenter.h; sourceTree = "<group>"; };
+		2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTestDriver.h; path = Reporting/XCTestDriver.h; sourceTree = "<group>"; };
+		2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTestManager_IDEInterface.h; path = Reporting/XCTestManager_IDEInterface.h; sourceTree = "<group>"; };
 		34512A381948223C007D457A /* FunctionalTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FunctionalTests+ObjC.m"; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		34F3759E19515CA700CE1B99 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
@@ -374,6 +389,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C686BD41A58B4040000072D /* Reporting */ = {
+			isa = PBXGroup;
+			children = (
+				2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */,
+				2C741C491A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h */,
+				2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */,
+				2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */,
+				2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */,
+			);
+			name = Reporting;
+			sourceTree = "<group>";
+		};
 		DA169E4619FF5DF100619816 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +517,7 @@
 				DA169E4619FF5DF100619816 /* Configuration */,
 				DA3124E119FCAEE8002858A7 /* DSL */,
 				DA408BDE19FF5599005DF92A /* Hooks */,
+				2C686BD41A58B4040000072D /* Reporting */,
 				DAEB6B931943873100289F44 /* Quick.h */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
@@ -567,8 +595,12 @@
 				34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
+				2CF3E44D1A591D7100005FC0 /* XCTestDriver.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
+				2CF3E4501A591E3600005FC0 /* XCTestManager_IDEInterface.h in Headers */,
+				2C741C511A56A26A00CB75CF /* XCTestObservationCenter.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
+				2C741C4C1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,8 +611,12 @@
 				34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
+				2CF3E44C1A591D7100005FC0 /* XCTestDriver.h in Headers */,
 				34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */,
+				2CF3E44F1A591E3600005FC0 /* XCTestManager_IDEInterface.h in Headers */,
+				2C741C501A56A26A00CB75CF /* XCTestObservationCenter.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
+				2C741C4B1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C741C4E1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m in Sources */,
 				34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
 				DA3124EB19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE319FF5599005DF92A /* Closures.swift in Sources */,
@@ -816,6 +853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C741C4D1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m in Sources */,
 				34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
 				DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE219FF5599005DF92A /* Closures.swift in Sources */,
