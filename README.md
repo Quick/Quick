@@ -926,7 +926,7 @@ Then in your Podfile, add the following to your test target.
 Finally, run `bundle exec pod install`. The `bundle exec` ensures you're using
 the Swift CocoaPods version from your Gemfile.
 
-## How to Install Quick using Carthage
+## How to Install Quick using [Carthage](https://github.com/Carthage/Carthage)
 As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.  
  > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
 
@@ -945,6 +945,7 @@ As Test targets do not have the "Embedded Binaries" section, the frameworks must
 5. Set the **Destination** to **Frameworks**, then add both frameworks
     ![](http://i.imgur.com/rpnyWGH.png)
 
+This is not 'the one and only way' to use Carthage to manage dependencies, for further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md) 
 
 ## How to Install Quick File Templates
 
