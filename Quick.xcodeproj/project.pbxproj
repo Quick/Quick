@@ -33,8 +33,8 @@
 		471590411A488F3F00FBA644 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */; };
 		4772173A1A59C1B00022013E /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 477217391A59C1B00022013E /* AfterSuiteTests+ObjC.m */; };
 		4772173B1A59C1B00022013E /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 477217391A59C1B00022013E /* AfterSuiteTests+ObjC.m */; };
-		47876F7D1A49AD63002575C7 /* BeforeSuiteTests+Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+Objc.m */; };
-		47876F7E1A49AD71002575C7 /* BeforeSuiteTests+Objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+Objc.m */; };
+		47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
+		47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
 		479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
 		479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
 		47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
@@ -321,7 +321,7 @@
 		470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterEachTests+ObjC.m"; sourceTree = "<group>"; };
 		4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PendingTests+ObjC.m"; sourceTree = "<group>"; };
 		477217391A59C1B00022013E /* AfterSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterSuiteTests+ObjC.m"; sourceTree = "<group>"; };
-		47876F7B1A4999B0002575C7 /* BeforeSuiteTests+Objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeSuiteTests+Objc.m"; sourceTree = "<group>"; };
+		47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeSuiteTests+ObjC.m"; sourceTree = "<group>"; };
 		479C31E11A36156E00DA8718 /* ItTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ItTests+ObjC.m"; sourceTree = "<group>"; };
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -488,7 +488,7 @@
 				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
 				4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
-				47876F7B1A4999B0002575C7 /* BeforeSuiteTests+Objc.m */,
+				47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */,
 				DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */,
 				477217391A59C1B00022013E /* AfterSuiteTests+ObjC.m */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
@@ -955,7 +955,7 @@
 				479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */,
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
-				47876F7E1A49AD71002575C7 /* BeforeSuiteTests+Objc.m in Sources */,
+				47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,7 +1034,7 @@
 				479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */,
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
-				47876F7D1A49AD63002575C7 /* BeforeSuiteTests+Objc.m in Sources */,
+				47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
