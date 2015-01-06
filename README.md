@@ -966,6 +966,27 @@ to your Podfile.
 ```
 
 
+## How to Install Quick using [Carthage](https://github.com/Carthage/Carthage)
+As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.  
+ > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
+
+1. Add Quick to your **[Cartfile.private](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate)**
+    ```
+    github "Quick/Quick"
+    ```
+    
+2. Run `carthage update` 
+3. From your `Carthage/Build/[platform]/` directory, add both Quick and Nimble to your test target's **Link Binary With Libraries** build phase
+    ![](http://i.imgur.com/pBkDDk5.png)
+
+4. For your test target, create a new build phase of type **Copy Files**
+    ![](http://i.imgur.com/jZATIjQ.png) 
+
+5. Set the **Destination** to **Frameworks**, then add both frameworks
+    ![](http://i.imgur.com/rpnyWGH.png)
+
+This is not 'the one and only way' to use Carthage to manage dependencies, for further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md) 
+
 ## How to Install Quick File Templates
 
 The Quick repository includes file templates for both Swift and
