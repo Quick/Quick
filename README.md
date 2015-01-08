@@ -1037,6 +1037,7 @@ Projects may include several configurations. However, Quick does not make any
 guarantee about the order in which they are executed.
 
 ### Adding Global Before and After Filters
+
 Similar to `beforeEach()` and `afterEach()` functions in QuickSpec(s), global
 filters can be applied to all tests. For example, a computed value may need to
 be reset before each test case. In the following case, it is assumed that the
@@ -1067,7 +1068,7 @@ class FinConfiguration: QuickConfiguration {
 
 QuickConfigurationBegin(FinConfiguration)
 
-+ (void) configure:(Configuration *)configuration {
++ (void)configure:(Configuration *)configuration {
   [configuration beforeEach:^{
     Dorsal *fin = [Dorsal sharedFin];
     fin.height = 0;
@@ -1107,7 +1108,7 @@ class Fin2Configuration: QuickConfiguration {
 
 QuickConfigurationBegin(Fin2Configuration)
 
-+ (void) configure:(Configuration *)configuration {
++ (void)configure:(Configuration *)configuration {
   [configuration beforeEachWithMetadata:^(ExampleMetadata *data) {
     // work with metadata
   }];
