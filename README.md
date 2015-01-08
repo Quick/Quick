@@ -998,6 +998,7 @@ $ rake templates:uninstall
 ```
 
 ## Configuring Quick
+
 The Quick configuration object exposes custom options to alter the behavior of
 the framework. The intention of this hook is to provide a global configuration
 to meet the needs of your project. *QuickConfiguration* is never meant to be
