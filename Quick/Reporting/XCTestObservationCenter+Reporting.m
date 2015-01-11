@@ -14,15 +14,20 @@
 @implementation XCTestObservationCenter (Reporting)
 
 + (void)load {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self swizzleInstanceMethod:@selector(_testSuiteDidStart:) withMethod:@selector(qck_testSuiteDidStart:)];
-        [self swizzleInstanceMethod:@selector(_testSuiteDidStop:) withMethod:@selector(qck_testSuiteDidStop:)];
-        [self swizzleInstanceMethod:@selector(_testCaseDidStart:) withMethod:@selector(qck_testCaseDidStart:)];
-        [self swizzleInstanceMethod:@selector(_testCaseDidStop:) withMethod:@selector(qck_testCaseDidStop:)];
-        [self swizzleInstanceMethod:@selector(_testCaseDidFail:withDescription:inFile:atLine:) withMethod:@selector(qck_testCaseDidFail:withDescription:inFile:atLine:)];
-        [self swizzleInstanceMethod:@selector(_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:) withMethod:@selector(qck_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:)];
-    });
+    NSDictionary *environment = [[NSProcessInfo processInfo] environment];
+    NSString *reporter = [environment objectForKey:@"QUICK_REPORTER"];
+    
+    if (!(reporter == nil || [reporter isEqualToString:@"xcode"])) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [self swizzleInstanceMethod:@selector(_testSuiteDidStart:) withMethod:@selector(qck_testSuiteDidStart:)];
+            [self swizzleInstanceMethod:@selector(_testSuiteDidStop:) withMethod:@selector(qck_testSuiteDidStop:)];
+            [self swizzleInstanceMethod:@selector(_testCaseDidStart:) withMethod:@selector(qck_testCaseDidStart:)];
+            [self swizzleInstanceMethod:@selector(_testCaseDidStop:) withMethod:@selector(qck_testCaseDidStop:)];
+            [self swizzleInstanceMethod:@selector(_testCaseDidFail:withDescription:inFile:atLine:) withMethod:@selector(qck_testCaseDidFail:withDescription:inFile:atLine:)];
+            [self swizzleInstanceMethod:@selector(_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:) withMethod:@selector(qck_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:)];
+        });
+    }
 }
 
 #pragma mark - Test Suites
