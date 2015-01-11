@@ -17,7 +17,7 @@
     NSDictionary *environment = [[NSProcessInfo processInfo] environment];
     NSString *reporter = [environment objectForKey:@"QUICK_REPORTER"];
     
-    if (!(reporter == nil || [reporter isEqualToString:@"xcode"])) {
+    if (!(reporter == nil || [reporter isEqualToString:@"xctest"])) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             [self swizzleInstanceMethod:@selector(_testSuiteDidStart:) withMethod:@selector(qck_testSuiteDidStart:)];
