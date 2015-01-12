@@ -20,12 +20,12 @@
     if (!(reporter == nil || [reporter isEqualToString:@"xctest"])) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            [self swizzleInstanceMethod:@selector(_testSuiteDidStart:) withMethod:@selector(qck_testSuiteDidStart:)];
-            [self swizzleInstanceMethod:@selector(_testSuiteDidStop:) withMethod:@selector(qck_testSuiteDidStop:)];
-            [self swizzleInstanceMethod:@selector(_testCaseDidStart:) withMethod:@selector(qck_testCaseDidStart:)];
-            [self swizzleInstanceMethod:@selector(_testCaseDidStop:) withMethod:@selector(qck_testCaseDidStop:)];
-            [self swizzleInstanceMethod:@selector(_testCaseDidFail:withDescription:inFile:atLine:) withMethod:@selector(qck_testCaseDidFail:withDescription:inFile:atLine:)];
-            [self swizzleInstanceMethod:@selector(_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:) withMethod:@selector(qck_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:)];
+            [self qck_swizzleInstanceMethod:@selector(_testSuiteDidStart:) withMethod:@selector(qck_testSuiteDidStart:)];
+            [self qck_swizzleInstanceMethod:@selector(_testSuiteDidStop:) withMethod:@selector(qck_testSuiteDidStop:)];
+            [self qck_swizzleInstanceMethod:@selector(_testCaseDidStart:) withMethod:@selector(qck_testCaseDidStart:)];
+            [self qck_swizzleInstanceMethod:@selector(_testCaseDidStop:) withMethod:@selector(qck_testCaseDidStop:)];
+            [self qck_swizzleInstanceMethod:@selector(_testCaseDidFail:withDescription:inFile:atLine:) withMethod:@selector(qck_testCaseDidFail:withDescription:inFile:atLine:)];
+            [self qck_swizzleInstanceMethod:@selector(_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:) withMethod:@selector(qck_testCase:didMeasureValues:forPerformanceMetricID:name:unitsOfMeasurement:baselineName:baselineAverage:maxPercentRegression:maxPercentRelativeStandardDeviation:maxRegression:maxStandardDeviation:file:line:)];
         });
     }
 }
@@ -71,7 +71,7 @@
     
     if (!isSuspended) {
         NSString *testName = [[run test] name];
-        NSDictionary *components = [self getComponentsFromTestName:testName];
+        NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
         NSString *method = components[@"method"];
         
@@ -84,7 +84,7 @@
     
     if (!isSuspended) {
         NSString *testName = [[run test] name];
-        NSDictionary *components = [self getComponentsFromTestName:testName];
+        NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
         NSString *method = components[@"method"];
         
@@ -100,7 +100,7 @@
     
     if (!isSuspended) {
         NSString *testName = [[run test] name];
-        NSDictionary *components = [self getComponentsFromTestName:testName];
+        NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
         NSString *method = components[@"method"];
         
@@ -115,7 +115,7 @@
     
     if (!isSuspended) {
         NSString *testName = [[run test] name];
-        NSDictionary *components = [self getComponentsFromTestName:testName];
+        NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
         NSString *method = components[@"method"];
         
@@ -128,7 +128,7 @@
 
 #pragma mark - Helpers
 
-+ (void)swizzleInstanceMethod:(SEL)originalSelector withMethod:(SEL)swizzledSelector {
++ (void)qck_swizzleInstanceMethod:(SEL)originalSelector withMethod:(SEL)swizzledSelector {
     Class class = [self class];
     
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
@@ -143,7 +143,7 @@
     }
 }
 
-- (NSDictionary *)getComponentsFromTestName:(NSString *)testName {
+- (NSDictionary *)qck_getComponentsFromTestName:(NSString *)testName {
     NSUInteger location = 2;
     NSUInteger length = [testName length] - location - 1;
     NSRange range = NSMakeRange(location, length);
