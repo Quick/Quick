@@ -1,11 +1,3 @@
-//
-//  XCTestObservationCenter+Reporting.m
-//  Quick
-//
-//  Created by Paul Young on 1/2/15.
-//  Copyright (c) 2015 Brian Ivan Gesiak. All rights reserved.
-//
-
 #import "XCTestObservationCenter+Reporting.h"
 #import <XCTest/XCTestRun.h>
 #import "XCTestDriver.h"
