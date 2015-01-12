@@ -33,9 +33,7 @@
 #pragma mark - Test Suites
 
 - (void)qck_testSuiteDidStart:(XCTestSuiteRun *)run {
-    BOOL isSuspended = (BOOL)[self valueForKey:@"_isSuspended"];
-    
-    if (!isSuspended) {
+    if (![self qck_isSuspended]) {
         NSString *suiteName = [[run test] name];
         NSString *startDate = [[run startDate] description];
         [[[XCTestDriver sharedTestDriver] IDEProxy] _XCT_testSuite:suiteName didStartAt:startDate];
@@ -43,9 +41,7 @@
 }
 
 - (void)qck_testSuiteDidStop:(XCTestSuiteRun *)run {
-    BOOL isSuspended = (BOOL)[self valueForKey:@"_isSuspended"];
-    
-    if (!isSuspended) {
+    if (![self qck_isSuspended]) {
         NSString *suiteName = [[run test] name];
         NSString *stopDate = [[run stopDate] description];
         NSNumber *executionCount = [NSNumber numberWithUnsignedLong:[run executionCount]];
@@ -67,9 +63,7 @@
 #pragma mark - Test Cases
 
 - (void)qck_testCaseDidStart:(XCTestCaseRun *)run {
-    BOOL isSuspended = (BOOL)[self valueForKey:@"_isSuspended"];
-    
-    if (!isSuspended) {
+    if (![self qck_isSuspended]) {
         NSString *testName = [[run test] name];
         NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
@@ -80,9 +74,7 @@
 }
 
 - (void)qck_testCaseDidStop:(XCTestCaseRun *)run {
-    BOOL isSuspended = (BOOL)[self valueForKey:@"_isSuspended"];
-    
-    if (!isSuspended) {
+    if (![self qck_isSuspended]) {
         NSString *testName = [[run test] name];
         NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
@@ -96,9 +88,7 @@
 }
 
 - (void)qck_testCaseDidFail:(XCTestCaseRun *)run withDescription:(NSString *)description inFile:(NSString *)file atLine:(NSUInteger)line {
-    BOOL isSuspended = (BOOL)[self valueForKey:@"_isSuspended"];
-    
-    if (!isSuspended) {
+    if (![self qck_isSuspended]) {
         NSString *testName = [[run test] name];
         NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
@@ -111,9 +101,7 @@
 }
 
 - (void)qck_testCase:(XCTestCaseRun *)run didMeasureValues:(NSMutableArray *)values forPerformanceMetricID:(NSString *)performanceMetricID name:(NSString *)name unitsOfMeasurement:(NSString *)unitsOfMeasurement baselineName:(NSString *)baselineName baselineAverage:(NSNumber *)baselineAverage maxPercentRegression:(NSNumber *)maxPercentRegression maxPercentRelativeStandardDeviation:(NSNumber *)maxPercentRelativeStandardDeviation maxRegression:(NSNumber *)maxRegression maxStandardDeviation:(NSNumber *)maxStandardDeviation file:(NSString *)file line:(NSUInteger)line {
-    BOOL isSuspended = (BOOL)[self valueForKey:@"_isSuspended"];
-    
-    if (!isSuspended) {
+    if (![self qck_isSuspended]) {
         NSString *testName = [[run test] name];
         NSDictionary *components = [self qck_getComponentsFromTestName:testName];
         NSString *testClass = components[@"testClass"];
@@ -154,6 +142,10 @@
     NSString *method = [NSString stringWithFormat:@"%@()", components[1]];
     
     return @{ @"testClass": testClass, @"method": method };
+}
+
+- (BOOL)qck_isSuspended {
+    return (BOOL)[self valueForKey:@"_isSuspended"];
 }
 
 @end
