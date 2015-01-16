@@ -973,8 +973,10 @@ As Test targets do not have the "Embedded Binaries" section, the frameworks must
  > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
 
 1. Add Quick to your **[Cartfile.private](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate)**
+
     ```
     github "Quick/Quick"
+    github "Quick/Nimble"
     ```
     
 2. Run `carthage update` 
