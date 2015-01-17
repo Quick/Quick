@@ -5,9 +5,17 @@
 #import "QCKSpecRunner.h"
 
 QuickSpecBegin(FunctionalTests_SharedExamples_Spec)
+
+itBehavesLike(@"a group of three shared examples", ^NSDictionary*{ return @{}; });
+
 QuickSpecEnd
 
 QuickSpecBegin(FunctionalTests_SharedExamples_ContextSpec)
+
+itBehavesLike(@"shared examples that take a context", ^NSDictionary *{
+    return @{ @"callsite": @"SharedExamplesSpec" };
+});
+
 QuickSpecEnd
 
 @interface SharedExamplesTests : XCTestCase; @end
