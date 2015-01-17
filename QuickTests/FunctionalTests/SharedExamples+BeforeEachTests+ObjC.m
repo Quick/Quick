@@ -7,10 +7,27 @@
 static NSUInteger specBeforeEachExecutedCount = 0;
 static NSUInteger sharedExamplesBeforeEachExecutedCount = 0;
 
-QuickSpecBegin(FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples)
-QuickSpecEnd
+QuickConfigurationBegin(FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples)
+
++ (void)configure:(Configuration *)configuration {
+    sharedExamples(@"a group of three shared examples with a beforeEach in Obj-C",
+                   ^(QCKDSLSharedExampleContext context) {
+        beforeEach(^{ sharedExamplesBeforeEachExecutedCount += 1; });
+        it(@"passes once", ^{});
+        it(@"passes twice", ^{});
+        it(@"passes three times", ^{});
+    });
+}
+
+QuickConfigurationEnd
 
 QuickSpecBegin(FunctionalTests_SharedExamples_BeforeEachSpec)
+
+beforeEach(^{ specBeforeEachExecutedCount += 1; });
+it(@"executes the spec beforeEach once", ^{});
+itBehavesLike(@"a group of three shared examples with a beforeEach in Obj-C",
+              ^NSDictionary*{ return @{}; });
+
 QuickSpecEnd
 
 @interface SharedExamples_BeforeEachTests : XCTestCase; @end
@@ -35,7 +52,7 @@ QuickSpecEnd
 }
 
 - (void)testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample {
-    qck_runSpec([FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples class]);
+    qck_runSpec([FunctionalTests_SharedExamples_BeforeEachSpec class]);
     XCTAssertEqual(sharedExamplesBeforeEachExecutedCount, 3);
 }
 
