@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.source_files  = "Quick", "Quick/**/*.{swift,h,m}"
 
   s.framework = "XCTest"
+  s.requires_arc = true
 end
