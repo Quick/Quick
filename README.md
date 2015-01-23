@@ -64,7 +64,7 @@ class TableOfContentsSpec: QuickSpec {
   - [Adding Quick as a Git Submodule](#adding-quick-as-a-git-submodule)
   - [Updating the Quick Submodule](#updating-the-quick-submodule)
   - [Cloning a Repository that Includes a Quick Submodule](#cloning-a-repository-that-includes-a-quick-submodule)
-- [How to Install Quick using Beta CocoaPods](#how-to-install-quick-using-beta-cocoapods)
+- [How to Install Quick using CocoaPods](#how-to-install-quick-using-cocoapods)
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
@@ -957,16 +957,21 @@ You can read more about Git submodules
 of Git submodules in action, check out any of the repositories linked to
 in the ["Who Uses Quick"](#who-uses-quick) section of this guide.
 
-## How to Install Quick using Beta CocoaPods
+## How to Install Quick using CocoaPods
 
 If you would like to use Quick with CocoaPods today, you need to install the
 beta build of CocoaPods via `[sudo] gem install cocoapods --pre` then add Quick
 to your Podfile.
 
-```
-  pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.2.2'
+```rb
+pod 'Quick'
 ```
 
+If you need the latest cutting-edge code, use the following:
+
+```rb
+pod 'Quick', :head
+```
 
 ## How to Install Quick using [Carthage](https://github.com/Carthage/Carthage)
 As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.  
