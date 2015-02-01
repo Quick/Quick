@@ -849,8 +849,6 @@ QuickSpecEnd
 
 ## How to Install Quick
 
-> This module is beta software, it currently supports Xcode 6 Beta 4.
-
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may use either one,
 or both, in your tests.
