@@ -95,6 +95,6 @@ extension World {
     }
 
     public func pending(description: String, closure: () -> ()) {
-        NSLog("Pending: %@", description)
+        println("Pending: \(description)")
     }
 }
