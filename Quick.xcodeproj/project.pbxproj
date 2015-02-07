@@ -534,7 +534,9 @@
 				DA9876BE1A4C87200004AA17 /* QuickFocusedTests */,
 				DAEB6B8F1943873100289F44 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		DAEB6B8F1943873100289F44 /* Products */ = {
 			isa = PBXGroup;
