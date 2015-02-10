@@ -14,7 +14,7 @@ void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
 }
 
 void qck_describe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] describe:description closure:closure flags:@{}];
+    [[World sharedWorld] describe:description flags:@{} closure:closure];
 }
 
 void qck_context(NSString *description, QCKDSLEmptyBlock closure) {
@@ -54,7 +54,7 @@ void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] xdescribe:description closure:closure flags:@{}];
+    [[World sharedWorld] xdescribe:description flags:@{} closure:closure];
 }
 
 void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
@@ -62,7 +62,7 @@ void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] fdescribe:description closure:closure flags:@{}];
+    [[World sharedWorld] fdescribe:description flags:@{} closure:closure];
 }
 
 void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure) {

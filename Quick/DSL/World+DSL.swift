@@ -16,7 +16,7 @@ extension World {
         registerSharedExample(name, closure: closure)
     }
 
-    public func describe(description: String, closure: () -> (), flags: FilterFlags) {
+    public func describe(description: String, flags: FilterFlags, closure: () -> ()) {
         var group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup!.appendExampleGroup(group)
         currentExampleGroup = group
@@ -24,20 +24,20 @@ extension World {
         currentExampleGroup = group.parent
     }
 
-    public func context(description: String, closure: () -> (), flags: FilterFlags) {
-        self.describe(description, closure: closure, flags: flags)
+    public func context(description: String, flags: FilterFlags, closure: () -> ()) {
+        self.describe(description, flags: flags, closure: closure)
     }
 
-    public func fdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+    public func fdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
-        self.describe(description, closure: closure, flags: focusedFlags)
+        self.describe(description, flags: focusedFlags, closure: closure)
     }
 
-    public func xdescribe(description: String, closure: () -> (), flags: FilterFlags) {
+    public func xdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true
-        self.describe(description, closure: closure, flags: pendingFlags)
+        self.describe(description, flags: pendingFlags, closure: closure)
     }
 
     public func beforeEach(closure: BeforeExampleClosure) {
@@ -59,7 +59,7 @@ extension World {
     @objc(itWithDescription:flags:file:line:closure:)
     public func it(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
         let callsite = Callsite(file: file, line: line)
-        let example = Example(description: description, callsite: callsite, flags: flags, closure)
+        let example = Example(description: description, callsite: callsite, flags: flags, closure: closure)
         currentExampleGroup!.appendExample(example)
     }
 
