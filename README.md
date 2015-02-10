@@ -3,8 +3,7 @@
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
-[![Build Status](https://travis-ci.org/Quick/Quick.svg)](https://travis-ci.org/Quick/Quick)
-
+[![Build Status](https://travis-ci.org/Quick/Quick.svg?branch=swift-1.1)](https://travis-ci.org/Quick/Quick)
 ![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/QuickSpec%20screenshot.png)
 
 ```swift
@@ -862,6 +861,9 @@ To use Quick and Nimble to test your iOS or OS X applications, follow these 4 ea
 
 Example projects with this complete setup is available in the
 [`Examples`](https://github.com/modocache/Quick/tree/master/Examples) directory.
+
+The master branch of Quick supports Swift 1.2. For Swift 1.1 support,
+use the `swift-1.1` branch.
 
 ### 1. Clone the Quick and Nimble repositories
 

@@ -47,6 +47,10 @@ it.
 - Be sure the unit tests for both the OS X and iOS targets of both Quick
   and Nimble pass before submitting your pull request. You can run all
   the iOS and OS X unit tests using `rake test`.
+- To make minor updates to old versions of Quick that support Swift
+  1.1, issue a pull request against the `swift-1.1` branch. The master
+  branch supports Swift 1.2. Travis CI will only pass for pull requests
+  issued against the `swift-1.1` branch.
 
 ### Style Conventions
 
