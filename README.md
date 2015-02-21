@@ -65,6 +65,7 @@ class TableOfContentsSpec: QuickSpec {
   - [Updating the Quick Submodule](#updating-the-quick-submodule)
   - [Cloning a Repository that Includes a Quick Submodule](#cloning-a-repository-that-includes-a-quick-submodule)
 - [How to Install Quick using CocoaPods](#how-to-install-quick-using-cocoapods)
+- [How to Install Quick using Carthage](#how-to-install-quick-using-carthage)
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
