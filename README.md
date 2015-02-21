@@ -64,6 +64,7 @@ class TableOfContentsSpec: QuickSpec {
   - [Updating the Quick Submodule](#updating-the-quick-submodule)
   - [Cloning a Repository that Includes a Quick Submodule](#cloning-a-repository-that-includes-a-quick-submodule)
 - [How to Install Quick using CocoaPods](#how-to-install-quick-using-cocoapods)
+- [How to Install Quick using Carthage](#how-to-install-quick-using-carthage)
 - [How to Install Quick File Templates](#how-to-install-quick-file-templates)
   - [Using Alcatraz](#using-alcatraz)
   - [Manually via the Rakefile](#manually-via-the-rakefile)
@@ -974,7 +975,7 @@ pod 'Quick', :head
 ```
 
 ## How to Install Quick using [Carthage](https://github.com/Carthage/Carthage)
-As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.  
+As Test targets do not have the "Embedded Binaries" section, the frameworks must be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase to copy them to the target's Frameworks destination.
  > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
 
 1. Add Quick to your **[Cartfile.private](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate)**
@@ -983,18 +984,18 @@ As Test targets do not have the "Embedded Binaries" section, the frameworks must
     github "Quick/Quick"
     github "Quick/Nimble"
     ```
-    
-2. Run `carthage update` 
+
+2. Run `carthage update`
 3. From your `Carthage/Build/[platform]/` directory, add both Quick and Nimble to your test target's **Link Binary With Libraries** build phase
     ![](http://i.imgur.com/pBkDDk5.png)
 
 4. For your test target, create a new build phase of type **Copy Files**
-    ![](http://i.imgur.com/jZATIjQ.png) 
+    ![](http://i.imgur.com/jZATIjQ.png)
 
 5. Set the **Destination** to **Frameworks**, then add both frameworks
     ![](http://i.imgur.com/rpnyWGH.png)
 
-This is not 'the one and only way' to use Carthage to manage dependencies, for further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md) 
+This is not 'the one and only way' to use Carthage to manage dependencies, for further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md)
 
 ## How to Install Quick File Templates
 
