@@ -58,7 +58,8 @@ class TableOfContentsSpec: QuickSpec {
   - [1. Clone the Quick and Nimble repositories](#1-clone-the-quick-and-nimble-repositories)
   - [2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your test target](#2-add-quickxcodeproj-and-nimblexcodeproj-to-your-test-target)
   - [3. Link `Quick.framework` and `Nimble.framework`](#3-link-quickframework-and-nimbleframework)
-  - [4. Start writing specs!](#4-start-writing-specs)
+  - [4. Allow Running Specs on Device (optional)](#4-allow-running-specs-on-device-optional)
+  - [5. Start writing specs!](#5-start-writing-specs)
 - [Including Quick in a Git Repository Using Submodules](#including-quick-in-a-git-repository-using-submodules)
   - [Adding Quick as a Git Submodule](#adding-quick-as-a-git-submodule)
   - [Updating the Quick Submodule](#updating-the-quick-submodule)
@@ -901,7 +902,16 @@ Follow the same steps for `Nimble.xcodeproj`.
 
 Do the same for the `Nimble.framework`.
 
-### 4. Start writing specs!
+### 4. Allow Running Specs on Device (optional)
+
+In order to run specs written in Quick on device, you need to add `Quick.framework` and
+`Nimble.framework` as `Embedded Binaries` to `Host Application` of the
+test target. After adding a framework as an embedded binary, Xcode will
+automatically link the host app against the framework.
+
+![](http://indiedev.kapsi.fi/images/embed-in-host.png)
+
+### 5. Start writing specs!
 
 If you run into any problems, please file an issue.
 
