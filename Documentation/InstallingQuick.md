@@ -130,3 +130,12 @@ to copy them to the target's Frameworks destination.
 
 This is not "the one and only way" to use Carthage to manage dependencies.
 For further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md).
+
+### (Not Recommended) Running Quick Specs on a Physical iOS Device
+
+In order to run specs written in Quick on device, you need to add `Quick.framework` and
+`Nimble.framework` as `Embedded Binaries` to the `Host Application` of the
+test target. After adding a framework as an embedded binary, Xcode will
+automatically link the host app against the framework.
+
+![](http://indiedev.kapsi.fi/images/embed-in-host.png)
