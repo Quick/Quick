@@ -118,8 +118,9 @@ Let's write tests for these two cases:
 
 class OfferTests: XCTestCase {
   func testOffer_whenTheBananaIsPeeled_offersTheBanana() {
-    // Arrange: Create a banana.
+    // Arrange: Create a banana and peel it.
     let banana = Banana()
+    banana.peel()
 
     // Act: Create the string used to offer the banana.
     let message = offer(banana)
@@ -129,9 +130,8 @@ class OfferTests: XCTestCase {
   }
 
   func testOffer_whenTheBananaIsntPeeled_offersToPeelTheBanana() {
-    // Arrange: Create a banana and peel it.
+    // Arrange: Create a banana.
     let banana = Banana()
-    banana.peel()
 
     // Act: Create the string used to offer the banana.
     let message = offer(banana)
@@ -175,9 +175,11 @@ class OfferTests: XCTestCase {
 +  }
 +
   func testOffer_whenTheBananaIsPeeled_offersTheBanana() {
--    // Arrange: Create a banana.
+-    // Arrange: Create a banana and peel it.
 -    let banana = Banana()
--
++    // Arrange: Peel the banana.
+    banana.peel()
+
     // Act: Create the string used to offer the banana.
     let message = offer(banana)
 
@@ -186,11 +188,9 @@ class OfferTests: XCTestCase {
   }
 
   func testOffer_whenTheBananaIsntPeeled_offersToPeelTheBanana() {
--    // Arrange: Create a banana and peel it.
+-    // Arrange: Create a banana.
 -    let banana = Banana()
-+    // Arrange: Peel the banana.
-    banana.peel()
-
+-
     // Act: Create the string used to offer the banana.
     let message = offer(banana)
 
