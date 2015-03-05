@@ -95,6 +95,7 @@
 		DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
 		DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
 		DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
+		DAD297651AA8129D001D25CD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8100E901A1E4447007595ED /* Nimble.framework */; };
 		DAE714F019FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
 		DAE714F119FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
 		DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */; };
@@ -374,8 +375,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3E7A351A1E66CB00CCE408 /* Nimble.framework in Frameworks */,
 				5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */,
+				DA3E7A351A1E66CB00CCE408 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA9876B81A4C70EB0004AA17 /* Quick.framework in Frameworks */,
+				DAD297651AA8129D001D25CD /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1216,6 +1218,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
@@ -1235,6 +1238,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
@@ -1299,6 +1303,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
@@ -1318,6 +1323,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
