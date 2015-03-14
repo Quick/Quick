@@ -374,29 +374,29 @@ run only one or two by using the `fit` function. You can also focus a
 group of examples using `fdescribe` or `fcontext`:
 
 ```swift
-fit("its click") {
+fit("is loud") {
   // ...only this focused example will be run.
 }
 
-it("is only emitted once") {
+it("has a high frequency") {
   // ...this example is not focused, and will not be run.
 }
 
-fdescribe("when the dolphin is near something interesting") {
+fcontext("when the dolphin is near something interesting") {
   // ...examples in this group are also focused, so they'll be run.
 }
 ```
 
 ```objc
-fit(@"its click", {
+fit(@"is loud", {
   // ...only this focused example will be run.
 });
 
-it(@"is only emitted once", ^{
+it(@"has a high frequency", ^{
   // ...this example is not focused, and will not be run.
 });
 
-fdescribe(@"when the dolphin is near something interesting", ^{
+fcontext(@"when the dolphin is near something interesting", ^{
   // ...examples in this group are also focused, so they'll be run.
 });
 ```
