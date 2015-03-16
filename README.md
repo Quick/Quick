@@ -35,7 +35,7 @@ class TableOfContentsSpec: QuickSpec {
 
 ## Documentation
 
-Read the documentation [here](https://github.com/Quick/Quick/tree/master/Documentation).
+Read the documentation [in the Documentation folder](https://github.com/Quick/Quick/tree/master/Documentation).
 
 ## License
 
