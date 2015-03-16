@@ -33,6 +33,10 @@ class TableOfContentsSpec: QuickSpec {
 }
 ```
 
+## Documentation
+
+Read the documentation [in the Documentation folder](https://github.com/Quick/Quick/tree/master/Documentation).
+
 ## License
 
 Apache 2.0 license. See the `LICENSE` file for details.
