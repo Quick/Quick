@@ -80,18 +80,15 @@ You can read more about Git submodules [here](http://git-scm.com/book/en/Git-Too
 
 ## CocoaPods
 
-First, install the beta build of CocoaPods, which is necessary to install CocoaPods using Swift:
+First, update CocoaPods to Version 0.36.0 or newer, which is necessary to install CocoaPods using Swift.
 
-```sh
-gem install cocoapods --pre
-```
-
-Then, add Quick and Nimble to your Podfile:
+Then, add Quick and Nimble to your Podfile. Additionally, the ```use_frameworks!``` line is necessary for using Swift in CocoaPods:
 
 ```rb
 # Podfile
 
 target 'MyTests' do
+  use_frameworks!
   pod 'Quick'
   pod 'Nimble'
 end
