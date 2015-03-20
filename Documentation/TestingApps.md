@@ -12,7 +12,7 @@ classes like `UIViewController` subclasses.
 
 Normally, UIKit triggers lifecycle events for your view controller as it's
 presented within the app. When testing a `UIViewController`, however, you'll
-need to trigger these yourself. You can do so in one of two ways:
+need to trigger these yourself. You can do so in one of three ways:
 
 1. Accessing `UIViewController.view`, which triggers things like `UIViewController.viewDidLoad()`.
 2. Use `UIViewController.beginAppearanceTransition()` to trigger most lifecycle events.
