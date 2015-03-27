@@ -369,7 +369,7 @@ xit(@"is only emitted once", ^{
 ## Temporarily Running a Subset of Focused Examples
 
 Sometimes it helps to focus on only one or a few examples. Running one
-or two exmaples is faster than the entire suite, after all. You can
+or two examples is faster than the entire suite, after all. You can
 run only one or two by using the `fit` function. You can also focus a
 group of examples using `fdescribe` or `fcontext`:
 
