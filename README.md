@@ -32,6 +32,8 @@ class TableOfContentsSpec: QuickSpec {
   }
 }
 ```
+#### Nimble
+Quick comes together with [Nimble](https://github.com/Quick/Nimble) — a matcher framework for your tests. You can learn why `XCTAssert()` statements make your expectations unclear and how to fix that using Nimble assertions [here](./Documentation/NimbleAssertions.md).
 
 ## Documentation
 
