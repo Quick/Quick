@@ -97,6 +97,14 @@ target 'MyTests' do
 end
 ```
 
+If you want to use Quick and Nimble with Swift 1.2, you'll currently need to use Quick Version 0.3.0 and Nimble Version 0.4.0. To do so, extend these lines in your Podfile:
+
+```rb
+    pod 'Quick', :git => 'git@github.com:Quick/Quick.git', :tag => 'v0.3.0'
+    pod 'Nimble', :git => 'git@github.com:Quick/Nimble.git', :tag => 'v0.4.0'
+```
+
+
 Finally, download and link Quick and Nimble to your tests:
 
 ```sh
