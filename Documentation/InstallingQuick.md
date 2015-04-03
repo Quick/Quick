@@ -1,7 +1,10 @@
 # Installing Quick
 
-> The `master` branch of Quick supports Swift 1.2. For Swift 1.1 support,
-  use the `swift-1.1` branch.
+> **If you're using Xcode 6.2 & Swift 1.1,** use Quick `v0.2.*`.
+> New releases are developed on the `swift-1.1` branch.
+>
+> **If you're using Xcode 6.3 & Swift 1.2,** use the latest version of Quick--`v0.3.0` at the time of writing.
+> New releases are developed on the `master` branch.
 
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may use either one,
