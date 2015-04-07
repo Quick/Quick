@@ -24,8 +24,9 @@ you should be able to `import Quick` from within files in your test target.
 To link Quick and Nimble using Git submodules:
 
 1. Add submodules for Quick and Nimble.
-2. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your project's `.xcworkspace`.
-3. Link `Quick.framework` and `Nimble.framework` in your test target's
+2. If you don't already have a `.xcworkspace` for your project, create one. ([Here's how](https://developer.apple.com/library/ios/recipes/xcode_help-structure_navigator/articles/Adding_an_Existing_Project_to_a_Workspace.html))
+3. Add `Quick.xcodeproj` and `Nimble.xcodeproj` to your project's `.xcworkspace`.
+4. Link `Quick.framework` and `Nimble.framework` in your test target's
    "Link Binary with Libraries" build phase.
 
 First, if you don't already have one, create a directory for your Git submodules.
