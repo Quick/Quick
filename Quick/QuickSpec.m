@@ -52,9 +52,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray *)testInvocations {
-    NSArray *examples = [[World sharedWorld] rootExampleGroupForSpecClass:[self class]].examples;
+    NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
-
     for (Example *example in examples) {
         SEL selector = [self addInstanceMethodForExample:example];
         NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector

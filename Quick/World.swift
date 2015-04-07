@@ -88,7 +88,6 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
         isConfigurationFinalized = true
     }
 
-
     /**
         Returns an internally constructed root example group for the given
         QuickSpec class.
@@ -112,22 +111,38 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
         if let group = specs[name] {
             return group
         } else {
-            let group = ExampleGroup(description: "root example group",
-                                     isInternalRootExampleGroup: true)
+            let group = ExampleGroup(
+                description: "root example group",
+                flags: [:],
+                isInternalRootExampleGroup: true
+            )
             specs[name] = group
             return group
         }
     }
 
-    // MARK: Internal
+    /**
+        Returns all examples that should be run for a given spec class.
+        There are two filtering passes that occur when determining which examples should be run.
+        That is, these examples are the ones that are included by inclusion filters, and are
+        not excluded by exclusion filters.
 
-    internal var exampleCount: Int {
-        var count = 0
-        for (_, group) in specs {
-            group.walkDownExamples { _ in count += 1 }
+        :param: specClass The QuickSpec subclass for which examples are to be returned.
+        :returns: A list of examples to be run as test invocations.
+    */
+    @objc(examplesForSpecClass:)
+    public func examples(specClass: AnyClass) -> [Example] {
+        // 1. Grab all included examples.
+        let included = includedExamples
+        // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
+        let spec = rootExampleGroupForSpecClass(specClass).examples.filter { contains(included, $0) }
+        // 3. Remove all excluded examples.
+        return spec.filter { example in
+            !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
         }
-        return count
     }
+
+    // MARK: Internal
 
     internal func registerSharedExample(name: String, closure: SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
@@ -137,6 +152,31 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     internal func sharedExample(name: String) -> SharedExampleClosure {
         raiseIfSharedExampleNotRegistered(name)
         return sharedExamples[name]!
+    }
+
+    internal var exampleCount: Int {
+        return allExamples.count
+    }
+
+    private var allExamples: [Example] {
+        var all: [Example] = []
+        for (_, group) in specs {
+            group.walkDownExamples { all.append($0) }
+        }
+        return all
+    }
+
+    private var includedExamples: [Example] {
+        let all = allExamples
+        let included = all.filter { example in
+            return self.configuration.inclusionFilters.reduce(false) { $0 || $1(example: example) }
+        }
+
+        if included.isEmpty && configuration.runAllWhenEverythingFiltered {
+            return all
+        } else {
+            return included
+        }
     }
 
     private func raiseIfSharedExampleAlreadyRegistered(name: String) {

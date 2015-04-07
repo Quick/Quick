@@ -4,7 +4,7 @@ private var numberOfExamplesRun = 0
     Examples, defined with the `it` function, use assertions to
     demonstrate how code should behave. These are like "tests" in XCTest.
 */
-@objc final public class Example {
+@objc final public class Example: Equatable {
     /**
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
@@ -22,11 +22,13 @@ private var numberOfExamplesRun = 0
 
     private let description: String
     private let closure: () -> ()
+    private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, closure: () -> ()) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
         self.description = description
         self.closure = closure
         self.callsite = callsite
+        self.flags = flags
     }
 
     /**
@@ -76,4 +78,26 @@ private var numberOfExamplesRun = 0
             world.suiteHooks.executeAfters()
         }
     }
+
+    /**
+        Evaluates the filter flags set on this example and on the example groups
+        this example belongs to. Flags set on the example are trumped by flags on
+        the example group it belongs to. Flags on inner example groups are trumped
+        by flags on outer example groups.
+    */
+    internal var filterFlags: FilterFlags {
+        var aggregateFlags = flags
+        for (key, value) in group!.filterFlags {
+            aggregateFlags[key] = value
+        }
+        return aggregateFlags
+    }
+}
+
+/**
+    Returns a boolean indicating whether two Example objects are equal.
+    If two examples are defined at the exact same callsite, they must be equal.
+*/
+public func ==(lhs: Example, rhs: Example) -> Bool {
+    return lhs.callsite == rhs.callsite
 }
