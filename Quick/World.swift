@@ -141,6 +141,8 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
             !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
         }
     }
+    
+    public var reporter: TestObserver? { return configuration.reporter }
 
     // MARK: Internal
 

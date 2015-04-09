@@ -31,6 +31,8 @@ public typealias ExampleFilter = (example: Example) -> Bool
             return false
         }
     }]
+    
+    public var reporter: TestObserver?
 
     /**
         Run all examples if none match the configured filters. True by default.

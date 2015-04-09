@@ -13,6 +13,12 @@
 		2C741C4E1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */; };
 		2C741C501A56A26A00CB75CF /* XCTestObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */; };
 		2C741C511A56A26A00CB75CF /* XCTestObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */; };
+		2C7D61731AD39E7D00679C1C /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D61721AD39E7D00679C1C /* TestObserver.swift */; };
+		2C7D61741AD39E7D00679C1C /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D61721AD39E7D00679C1C /* TestObserver.swift */; };
+		2C7D61761AD39EB500679C1C /* TestObservationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D61751AD39EB500679C1C /* TestObservationCenter.swift */; };
+		2C7D61771AD39EB500679C1C /* TestObservationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D61751AD39EB500679C1C /* TestObservationCenter.swift */; };
+		2C7D61791AD3A04300679C1C /* DotTestReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D61781AD3A04300679C1C /* DotTestReporter.swift */; };
+		2C7D617A1AD3A04300679C1C /* DotTestReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D61781AD3A04300679C1C /* DotTestReporter.swift */; };
 		2CF3E44C1A591D7100005FC0 /* XCTestDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */; };
 		2CF3E44D1A591D7100005FC0 /* XCTestDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */; };
 		2CF3E44F1A591E3600005FC0 /* XCTestManager_IDEInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */; };
@@ -313,6 +319,9 @@
 		2C741C491A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestObservationCenter+Reporting.h"; path = "Reporting/XCTestObservationCenter+Reporting.h"; sourceTree = "<group>"; };
 		2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCTestObservationCenter+Reporting.m"; path = "Reporting/XCTestObservationCenter+Reporting.m"; sourceTree = "<group>"; };
 		2C741C4F1A56A26A00CB75CF /* XCTestObservationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTestObservationCenter.h; path = Reporting/XCTestObservationCenter.h; sourceTree = "<group>"; };
+		2C7D61721AD39E7D00679C1C /* TestObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestObserver.swift; path = Reporting/TestObserver.swift; sourceTree = "<group>"; };
+		2C7D61751AD39EB500679C1C /* TestObservationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestObservationCenter.swift; path = Reporting/TestObservationCenter.swift; sourceTree = "<group>"; };
+		2C7D61781AD3A04300679C1C /* DotTestReporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DotTestReporter.swift; path = Reporting/DotTestReporter.swift; sourceTree = "<group>"; };
 		2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTestDriver.h; path = Reporting/XCTestDriver.h; sourceTree = "<group>"; };
 		2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTestManager_IDEInterface.h; path = Reporting/XCTestManager_IDEInterface.h; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
@@ -439,6 +448,9 @@
 				2C741C4A1A56A1BE00CB75CF /* XCTestObservationCenter+Reporting.m */,
 				2CF3E44B1A591D7100005FC0 /* XCTestDriver.h */,
 				2CF3E44E1A591E3600005FC0 /* XCTestManager_IDEInterface.h */,
+				2C7D61721AD39E7D00679C1C /* TestObserver.swift */,
+				2C7D61751AD39EB500679C1C /* TestObservationCenter.swift */,
+				2C7D61781AD3A04300679C1C /* DotTestReporter.swift */,
 			);
 			name = Reporting;
 			sourceTree = "<group>";
@@ -931,7 +943,10 @@
 				DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
+				2C7D61741AD39E7D00679C1C /* TestObserver.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
+				2C7D61771AD39EB500679C1C /* TestObservationCenter.swift in Sources */,
+				2C7D617A1AD3A04300679C1C /* DotTestReporter.swift in Sources */,
 				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
@@ -1007,7 +1022,10 @@
 				DAE7150019FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
+				2C7D61731AD39E7D00679C1C /* TestObserver.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
+				2C7D61761AD39EB500679C1C /* TestObservationCenter.swift in Sources */,
+				2C7D61791AD3A04300679C1C /* DotTestReporter.swift in Sources */,
 				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
