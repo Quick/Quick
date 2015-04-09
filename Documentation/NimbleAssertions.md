@@ -1,9 +1,9 @@
 # Clearer Tests Using Nimble Assertions
 
-When code doesn't work the way its supposed to, unit tests should make it
+When code doesn't work the way it's supposed to, unit tests should make it
 **clear** exactly what's wrong.
 
-Take the following function, which given a bunch of monkeys, only returns
+Take the following function which, given a bunch of monkeys, only returns
 the silly monkeys in the bunch:
 
 ```swift
