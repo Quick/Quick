@@ -86,7 +86,7 @@ Is our `testPeel()` method clearly named? Let's make it clearer:
 The new name indicates:
 
 1. Is clear about what is being tested: `testPeel` indicates it's the `Banana.peel()` method.
-2. Is clear about when the test should pass: `makesTheBananaEdible` indicates it's when the
+2. Is clear about when the test should pass: `makesTheBananaEdible` indicates the
    banana is edible once the method has been called.
 
 ## Testing Conditions
@@ -156,7 +156,7 @@ exactly which test needs to be looked at.
 Both of our `OfferTests` tests contain the same "Arrange" code: they both
 create a banana. We should move that code into a single place. Why?
 
-1. As-is, if we change the `Banana` initializer, we'll have to every test that creates a banana.
+1. As-is, if we change the `Banana` initializer, we'll have to change every test that creates a banana.
 2. Our test methods will be shorter--which is a good thing if (and **only if**) that makes
    the tests easier to read.
 
