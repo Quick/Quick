@@ -176,7 +176,6 @@
 }
 
 - (BOOL)qck_isSuspended {
-    return NO;
     return (BOOL)[self valueForKey:@"_isSuspended"];
 }
 
