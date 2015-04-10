@@ -83,7 +83,7 @@ Is our `testPeel()` method clearly named? Let's make it clearer:
 }
 ```
 
-The new name indicates:
+The new name:
 
 1. Is clear about what is being tested: `testPeel` indicates it's the `Banana.peel()` method.
 2. Is clear about when the test should pass: `makesTheBananaEdible` indicates the
