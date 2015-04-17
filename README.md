@@ -37,8 +37,12 @@ Quick comes together with [Nimble](https://github.com/Quick/Nimble) — a matche
 
 ## Documentation
 
+
 Read the documentation [in the Documentation folder](https://github.com/Quick/Quick/tree/master/Documentation).
 
+##note: ensure at least one swift file is added to your test target to avoid xcode error: IDEBundleInjection.c: Error 3587 loading bundle
 ## License
 
 Apache 2.0 license. See the `LICENSE` file for details.
+
+
