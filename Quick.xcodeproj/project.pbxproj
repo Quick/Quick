@@ -45,6 +45,8 @@
 		5AFC594A195ED5B900D3E0A2 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC5948195ED5B900D3E0A2 /* Failure.swift */; };
 		CA16B0601AE2710000A708AF /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA16B05F1AE2710000A708AF /* Definitions.swift */; };
 		CA16B0611AE2710000A708AF /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA16B05F1AE2710000A708AF /* Definitions.swift */; };
+		CAA25A661AE27AD1009DCF0A /* DefinitionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25A651AE27AD1009DCF0A /* DefinitionsTests.swift */; };
+		CAA25A671AE27AD1009DCF0A /* DefinitionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA25A651AE27AD1009DCF0A /* DefinitionsTests.swift */; };
 		DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
@@ -322,6 +324,7 @@
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFC5948195ED5B900D3E0A2 /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 		CA16B05F1AE2710000A708AF /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
+		CAA25A651AE27AD1009DCF0A /* DefinitionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefinitionsTests.swift; sourceTree = "<group>"; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
 		DA169E4719FF5DF100619816 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -472,6 +475,7 @@
 				47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */,
 				DA05D60F19F73A3800771050 /* AfterEachTests.swift */,
 				470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */,
+				CAA25A651AE27AD1009DCF0A /* DefinitionsTests.swift */,
 				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
 				4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
@@ -924,6 +928,7 @@
 				DA8C00221A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */,
 				DAA63EA419F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DA8F91AC19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
+				CAA25A671AE27AD1009DCF0A /* DefinitionsTests.swift in Sources */,
 				DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */,
 				4748E8951A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
@@ -1000,6 +1005,7 @@
 				DA8C00211A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */,
 				DAA63EA319F7637300CD0A3B /* PendingTests.swift in Sources */,
 				DA8F91AB19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
+				CAA25A661AE27AD1009DCF0A /* DefinitionsTests.swift in Sources */,
 				DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */,
 				4748E8941A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
