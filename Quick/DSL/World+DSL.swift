@@ -55,6 +55,14 @@ extension World {
     public func afterEach(#closure: AfterExampleWithMetadataClosure) {
         currentExampleGroup!.hooks.appendAfter(closure)
     }
+    
+    public func define(name: String, closure: DefinitionClosure) {
+        currentExampleGroup!.defineVariable(name, closure: closure)
+    }
+    
+    public func fetch(name: String) -> AnyObject? {
+        return currentExampleGroup!.fetchVariable(name)
+    }
 
     @objc(itWithDescription:flags:file:line:closure:)
     public func it(description: String, flags: FilterFlags, file: String, line: Int, closure: () -> ()) {
