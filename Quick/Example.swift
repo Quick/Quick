@@ -72,7 +72,7 @@ private var numberOfExamplesRun = 0
         }
         world.exampleHooks.executeAfters(exampleMetadata)
         
-        group!.clearMemoizedValues()
+        world.definitions.clearMemoizedValues()
 
         ++numberOfExamplesRun
 

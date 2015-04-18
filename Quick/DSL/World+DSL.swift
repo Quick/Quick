@@ -57,11 +57,11 @@ extension World {
     }
     
     public func define(name: String, closure: DefinitionClosure) {
-        currentExampleGroup!.defineVariable(name, closure: closure)
+        definitions.define(name, closure: closure)
     }
     
     public func fetch(name: String) -> AnyObject? {
-        return currentExampleGroup!.fetchVariable(name)
+        return definitions.fetch(name)
     }
 
     @objc(itWithDescription:flags:file:line:closure:)

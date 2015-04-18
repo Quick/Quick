@@ -13,15 +13,15 @@ final internal class Definitions {
     }
     
     internal func fetch(name: String) -> AnyObject? {
-        if !contains(closures.keys, name) {
-            return nil
-        }
         if let memoizedValue: AnyObject = memoizedValues[name] {
             return memoizedValue
         }
-        let computedValue: AnyObject = closures[name]!()
-        memoizedValues[name] = computedValue
-        return computedValue
+        if let closure = closures[name] {
+            let computedValue: AnyObject = closure()
+            memoizedValues[name] = computedValue
+            return computedValue
+        }
+        return nil
     }
     
     internal func clearMemoizedValues() {

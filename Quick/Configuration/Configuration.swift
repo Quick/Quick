@@ -17,6 +17,7 @@ public typealias ExampleFilter = (example: Example) -> Bool
 @objc final public class Configuration {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
+    internal let definitions = Definitions()
     internal var exclusionFilters: [ExampleFilter] = [{ example in
         if let pending = example.filterFlags[Filter.pending] {
             return pending
