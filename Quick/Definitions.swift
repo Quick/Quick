@@ -1,12 +1,12 @@
-typealias DefinitionClosure = () -> AnyObject
+public typealias DefinitionClosure = () -> AnyObject
 
 /**
 A container for variable definitions in example groups
 */
 final internal class Definitions {
     
-    private let closures = [String: DefinitionClosure]()
-    private let memoizedValues = [String: AnyObject]()
+    private var closures = [String: DefinitionClosure]()
+    private var memoizedValues = [String: AnyObject]()
     
     internal func define(name: String, closure: DefinitionClosure) {
         closures[name] = closure
@@ -16,10 +16,10 @@ final internal class Definitions {
         if !contains(closures.keys, name) {
             return nil
         }
-        if let memoizedValue = memoizedValues[name] {
+        if let memoizedValue: AnyObject = memoizedValues[name] {
             return memoizedValue
         }
-        let computedValue = closures[name]()
+        let computedValue: AnyObject = closures[name]!()
         memoizedValues[name] = computedValue
         return computedValue
     }
