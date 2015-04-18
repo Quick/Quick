@@ -74,12 +74,12 @@
     }
     
     internal func fetchVariable(name: String) -> AnyObject? {
-        var group = self
-        while group {
-            if let value = group.definitions.fetch(name) {
+        var group: ExampleGroup? = self
+        while let currentGroup = group {
+            if let value: AnyObject = currentGroup.definitions.fetch(name) {
                 return value
             }
-            group = group.parent
+            group = currentGroup.parent
         }
         return nil
     }
