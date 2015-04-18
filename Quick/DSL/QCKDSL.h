@@ -46,6 +46,7 @@
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 typedef void (^QCKDSLEmptyBlock)(void);
+typedef NSObject* (^QCKDSLDefinitionBlock)(void);
 
 extern void qck_beforeSuite(QCKDSLEmptyBlock closure);
 extern void qck_afterSuite(QCKDSLEmptyBlock closure);
@@ -54,6 +55,8 @@ extern void qck_describe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_context(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_beforeEach(QCKDSLEmptyBlock closure);
 extern void qck_afterEach(QCKDSLEmptyBlock closure);
+extern void qck_define(NSString *name, QCKDSLDefinitionBlock closure);
+extern NSObject* qck_fetch(NSString *name);
 extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
@@ -144,6 +147,31 @@ static inline void beforeEach(QCKDSLEmptyBlock closure) {
  */
 static inline void afterEach(QCKDSLEmptyBlock closure) {
     qck_afterEach(closure);
+}
+
+/**
+ Defines a variable in the current example group using a closure which
+ will be evaluated the first being fetched in each example and memoized
+ until the end of the example.
+ 
+ @param name The name of the variable used to fetch it later on
+ @param closure The closure to evaluate when fetching the variable
+ */
+static inline void define(NSString *name, QCKDSLDefinitionBlock closure) {
+    qck_define(name, closure);
+}
+
+/**
+ Fetches the specified variable from the current example group's defintions.
+ This will evaluate the variable closure when first run in each example and
+ return the memoized value in later fetches until the end of each example.
+ 
+ @param name The name of the variable to fetch
+ 
+ @return The value of the specified variable
+ */
+static inline NSObject* fetch(NSString *name) {
+    return qck_fetch(name);
 }
 
 /**
