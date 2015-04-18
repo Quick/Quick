@@ -6,6 +6,7 @@
 @objc final public class ExampleGroup {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
+    internal let definitions = Definitions()
 
     private let description: String
     private let flags: FilterFlags
@@ -67,7 +68,29 @@
         }
         return closures
     }
-
+    
+    internal func defineVariable(name: String, closure: DefinitionClosure) {
+        definitions.define(name, closure: closure)
+    }
+    
+    internal func fetchVariable(name: String) -> AnyObject? {
+        var group = self
+        while group {
+            if let value = group.definitions.fetch(name) {
+                return value
+            }
+            group = group.parent
+        }
+        return nil
+    }
+    
+    internal func clearMemoizedValues() {
+        definitions.clearMemoizedValues()
+        walkUp { group in
+            group.definitions.clearMemoizedValues()
+        }
+    }
+    
     internal func walkDownExamples(callback: (example: Example) -> ()) {
         for example in childExamples {
             callback(example: example)
