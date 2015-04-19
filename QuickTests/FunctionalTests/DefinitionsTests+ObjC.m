@@ -20,7 +20,6 @@ __block NSNumber *mutatingNumber = @2;
 define(@"number", ^NSObject *{ return mutatingNumber; });
 
 it(@"should memoize the value of the first evaluation in each example", ^{
-    mutatingNumber = @2;
     NSNumber *firstFetch = (NSNumber *)fetch(@"number");
     [fetches addObject:firstFetch];
     mutatingNumber = @3;
