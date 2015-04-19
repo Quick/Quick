@@ -32,6 +32,7 @@ it.
 
 ## Building the Project
 
+- After cloning the repository, run `git submodule update --init` to pull the Nimble submodule.
 - Use `Quick.xcworkspace` to work on Quick. The workspace includes
   Nimble, which is used in Quick's tests.
 
