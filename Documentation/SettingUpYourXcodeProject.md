@@ -9,6 +9,9 @@ target's code from within your test target.
 In order to test code written in Swift, you'll need to do three things:
 
 1. Set "defines module" in your `.xcodeproj` to `YES`.
+
+  * To do this in Xcode: Choose your project, then "Build Settings" header, then "Defines Modules" line, then select "Yes".
+
 2. Mark any class/method/function you want to test `public`, since only
    `public` symbols are exported.
 3. `import YourAppModuleName` in your unit tests.
