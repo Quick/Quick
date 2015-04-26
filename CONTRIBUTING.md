@@ -32,6 +32,7 @@ it.
 
 ## Building the Project
 
+- After cloning the repository, run `git submodule update --init` to pull the Nimble submodule.
 - Use `Quick.xcworkspace` to work on Quick. The workspace includes
   Nimble, which is used in Quick's tests.
 
@@ -46,7 +47,7 @@ it.
   README or other documentation.
 - Be sure the unit tests for both the OS X and iOS targets of both Quick
   and Nimble pass before submitting your pull request. You can run all
-  the iOS and OS X unit tests using `rake test`.
+  the iOS and OS X unit tests using `rake`.
 - To make minor updates to old versions of Quick that support Swift
   1.1, issue a pull request against the `swift-1.1` branch. The master
   branch supports Swift 1.2. Travis CI will only pass for pull requests
