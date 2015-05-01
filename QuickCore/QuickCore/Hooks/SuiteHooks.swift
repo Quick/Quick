@@ -1,18 +1,18 @@
 /**
     A container for closures to be executed before and after all examples.
 */
-final public class SuiteHooks {
+final internal class SuiteHooks {
     internal var befores: [BeforeSuiteClosure] = []
     internal var beforesAlreadyExecuted = false
 
     internal var afters: [AfterSuiteClosure] = []
     internal var aftersAlreadyExecuted = false
 
-    public func appendBefore(closure: BeforeSuiteClosure) {
+    internal func appendBefore(closure: BeforeSuiteClosure) {
         befores.append(closure)
     }
 
-    public func appendAfter(closure: AfterSuiteClosure) {
+    internal func appendAfter(closure: AfterSuiteClosure) {
         afters.append(closure)
     }
 

@@ -52,7 +52,7 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     private var isConfigurationFinalized = false
 
     internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
-    public var suiteHooks: SuiteHooks { return configuration.suiteHooks }
+    internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
 
     // MARK: Singleton Constructor
 
