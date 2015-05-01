@@ -144,12 +144,12 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
 
     // MARK: Internal
 
-    public func registerSharedExample(name: String, closure: SharedExampleClosure) {
+    internal func registerSharedExample(name: String, closure: SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
         sharedExamples[name] = closure
     }
 
-    public func sharedExample(name: String) -> SharedExampleClosure {
+    internal func sharedExample(name: String) -> SharedExampleClosure {
         raiseIfSharedExampleNotRegistered(name)
         return sharedExamples[name]!
     }
