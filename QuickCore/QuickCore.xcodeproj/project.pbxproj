@@ -21,8 +21,6 @@
 		DA9738261AF1648F007DBF7D /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9738181AF1648F007DBF7D /* ExampleGroup.swift */; };
 		DA9738271AF1648F007DBF7D /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9738191AF1648F007DBF7D /* ExampleMetadata.swift */; };
 		DA9738281AF1648F007DBF7D /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9738191AF1648F007DBF7D /* ExampleMetadata.swift */; };
-		DA9738291AF1648F007DBF7D /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97381A1AF1648F007DBF7D /* Failure.swift */; };
-		DA97382A1AF1648F007DBF7D /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97381A1AF1648F007DBF7D /* Failure.swift */; };
 		DA97382B1AF1648F007DBF7D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97381B1AF1648F007DBF7D /* Filter.swift */; };
 		DA97382C1AF1648F007DBF7D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97381B1AF1648F007DBF7D /* Filter.swift */; };
 		DA97382D1AF1648F007DBF7D /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97381D1AF1648F007DBF7D /* Closures.swift */; };
@@ -69,7 +67,6 @@
 		DA9738171AF1648F007DBF7D /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		DA9738181AF1648F007DBF7D /* ExampleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
 		DA9738191AF1648F007DBF7D /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
-		DA97381A1AF1648F007DBF7D /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 		DA97381B1AF1648F007DBF7D /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		DA97381D1AF1648F007DBF7D /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		DA97381E1AF1648F007DBF7D /* ExampleHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleHooks.swift; sourceTree = "<group>"; };
@@ -145,7 +142,6 @@
 				DA9738171AF1648F007DBF7D /* Example.swift */,
 				DA9738191AF1648F007DBF7D /* ExampleMetadata.swift */,
 				DA9738181AF1648F007DBF7D /* ExampleGroup.swift */,
-				DA97381A1AF1648F007DBF7D /* Failure.swift */,
 				DA97381B1AF1648F007DBF7D /* Filter.swift */,
 				DA9738201AF1648F007DBF7D /* World.swift */,
 				DA9738761AF33A91007DBF7D /* World+DSL.swift */,
@@ -370,7 +366,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA9738291AF1648F007DBF7D /* Failure.swift in Sources */,
 				DA97382D1AF1648F007DBF7D /* Closures.swift in Sources */,
 				DA97382B1AF1648F007DBF7D /* Filter.swift in Sources */,
 				DA9738311AF1648F007DBF7D /* SuiteHooks.swift in Sources */,
@@ -397,7 +392,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA97382A1AF1648F007DBF7D /* Failure.swift in Sources */,
 				DA97382E1AF1648F007DBF7D /* Closures.swift in Sources */,
 				DA97382C1AF1648F007DBF7D /* Filter.swift in Sources */,
 				DA9738321AF1648F007DBF7D /* SuiteHooks.swift in Sources */,
