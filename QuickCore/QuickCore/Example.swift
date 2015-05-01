@@ -24,7 +24,7 @@ private var numberOfExamplesRun = 0
     private let closure: () -> ()
     private let flags: FilterFlags
 
-    public init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
         self.description = description
         self.closure = closure
         self.callsite = callsite
