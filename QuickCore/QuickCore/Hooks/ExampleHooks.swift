@@ -1,24 +1,24 @@
 /**
     A container for closures to be executed before and after each example.
 */
-final public class ExampleHooks {
+final internal class ExampleHooks {
 
     internal var befores: [BeforeExampleWithMetadataClosure] = []
     internal var afters: [AfterExampleWithMetadataClosure] = []
 
-    public func appendBefore(closure: BeforeExampleWithMetadataClosure) {
+    internal func appendBefore(closure: BeforeExampleWithMetadataClosure) {
         befores.append(closure)
     }
 
-    public func appendBefore(closure: BeforeExampleClosure) {
+    internal func appendBefore(closure: BeforeExampleClosure) {
         befores.append { (exampleMetadata: ExampleMetadata) in closure() }
     }
 
-    public func appendAfter(closure: AfterExampleWithMetadataClosure) {
+    internal func appendAfter(closure: AfterExampleWithMetadataClosure) {
         afters.append(closure)
     }
 
-    public func appendAfter(closure: AfterExampleClosure) {
+    internal func appendAfter(closure: AfterExampleClosure) {
         afters.append { (exampleMetadata: ExampleMetadata) in closure() }
     }
 

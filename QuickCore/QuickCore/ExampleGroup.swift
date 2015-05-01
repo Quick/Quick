@@ -5,7 +5,7 @@
 */
 @objc final public class ExampleGroup {
     weak public var parent: ExampleGroup?
-    public let hooks = ExampleHooks()
+    internal let hooks = ExampleHooks()
 
     private let description: String
     private let flags: FilterFlags
