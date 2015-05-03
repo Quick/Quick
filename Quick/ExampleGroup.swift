@@ -67,7 +67,7 @@
         }
         return closures
     }
-    
+
     internal func walkDownExamples(callback: (example: Example) -> ()) {
         for example in childExamples {
             callback(example: example)
