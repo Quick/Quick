@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FD0CFAD1AFA0B8C00874CC1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8100E901A1E4447007595ED /* Nimble.framework */; };
+		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
+		34F375A819515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
+		34F375AB19515CA700CE1B99 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
+		34F375AC19515CA700CE1B99 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
+		34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759F19515CA700CE1B99 /* ExampleGroup.swift */; };
+		34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759F19515CA700CE1B99 /* ExampleGroup.swift */; };
 		34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */; };
 		34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */; };
 		34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */; };
@@ -354,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5663EE1A4C8D8500193C88 /* Quick.framework in Frameworks */,
+				1FD0CFAD1AFA0B8C00874CC1 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

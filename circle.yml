@@ -1,0 +1,41 @@
+machine:
+  xcode:
+    version: "6.3.1"
+
+checkout:
+  post:
+    - git submodule update --init --recursive
+
+# despite what circle ci says, xctool 0.2.3 cannot run
+# ios simulator tests on iOS frameworks for whatever reason.
+#
+# See: https://github.com/facebook/xctool/issues/415
+test:
+  override:
+    - set -o pipefail &&
+      xcodebuild
+        -scheme "Quick-iOS"
+        -sdk iphonesimulator
+        -destination 'platform=iOS Simulator,OS=8.1,name=iPhone 6'
+        -workspace Quick.xcworkspace
+        -configuration Debug
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        clean test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_ios.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/ios-results.xml
+    - set -o pipefail &&
+      xcodebuild
+        -scheme "Quick-OSX"
+        -sdk macosx
+        -workspace Quick.xcworkspace
+        -configuration Debug
+        CODE_SIGNING_REQUIRED=NO
+        CODE_SIGN_IDENTITY=
+        PROVISIONING_PROFILE=
+        clean test |
+      tee $CIRCLE_ARTIFACTS/xcode_raw_osx.log |
+      xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/osx-results.xml
+
+

@@ -113,7 +113,7 @@ to copy them to the target's Frameworks destination.
 
  > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
 
-1. Add Quick to your `[Cartfile.private](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate)`:
+1. Add Quick to your [`Cartfile.private`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate):
 
     ```
     github "Quick/Quick"

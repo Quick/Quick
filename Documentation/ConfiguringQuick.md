@@ -9,7 +9,7 @@ overriding the `QuickConfiguration.Type.configure()` class method:
 import Quick
 
 class ProjectDataTestConfiguration: QuickConfiguration {
-  override class func configure(configuration : Configuration) {
+  override class func configure(configuration: Configuration) {
     // ...set options on the configuration object here.
   }
 }
