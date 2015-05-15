@@ -20,7 +20,7 @@ QuickSpecEnd
 
 QuickSpecBegin(FunctionalTests_SharedExamples_SameContextSpec)
 
-__block NSInteger counter;
+__block NSInteger counter = 0;
 
 afterEach(^{
     counter++;
