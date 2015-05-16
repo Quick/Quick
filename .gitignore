@@ -27,3 +27,6 @@ DerivedData
 
 # Mac OS X
 .DS_Store
+
+# Quick
+Quick.framework.zip
