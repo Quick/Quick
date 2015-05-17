@@ -2,19 +2,34 @@ def run(command)
   system(command) or raise "RAKE TASK FAILED: #{command}"
 end
 
-namespace "test" do
-  desc "Run unit tests for all iOS targets"
-  task :ios do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS clean test"
+namespace :test do
+  namespace :core do
+    desc "Run unit tests for all iOS targets"
+    task :ios do |t|
+      run "xcodebuild -project QuickCore/QuickCore.xcodeproj -scheme QuickCore-iOS clean build test"
+    end
+
+    desc "Run unit tests for all OS X targets"
+    task :osx do |t|
+      run "xcodebuild -project QuickCore/QuickCore.xcodeproj -scheme QuickCore-OSX clean build test"
+    end
+
   end
 
-  desc "Run unit tests for all OS X targets"
-  task :osx do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-OSX clean test"
+  namespace :dsl do
+    desc "Run unit tests for all iOS targets"
+    task :ios do |t|
+      run "xcodebuild -workspace Quick/Quick.xcworkspace -scheme Quick-iOS clean build test"
+    end
+
+    desc "Run unit tests for all OS X targets"
+    task :osx do |t|
+      run "xcodebuild -workspace Quick/Quick.xcworkspace -scheme Quick-OSX clean build test"
+    end
   end
 end
 
-namespace "templates" do
+namespace :templates do
   install_dir = File.expand_path("~/Library/Developer/Xcode/Templates/File Templates/Quick")
   src_dir = File.expand_path("../Quick Templates", __FILE__)
 
@@ -34,5 +49,5 @@ namespace "templates" do
   end
 end
 
-task default: ["test:ios", "test:osx"]
+task default: ["test:core:ios", "test:core:osx", "test:dsl:ios", "test:dsl:osx"]
 
