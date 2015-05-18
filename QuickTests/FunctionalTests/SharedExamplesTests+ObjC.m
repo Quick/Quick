@@ -37,15 +37,11 @@ sharedExamples(@"gets called with a different context from within the same spec 
 });
 
 itBehavesLike(@"gets called with a different context from within the same spec file", ^{
-    return @{
-             @"payload" : @"0"
-             };
+    return @{ @"payload" : @"0" };
 });
 
 itBehavesLike(@"gets called with a different context from within the same spec file", ^{
-    return @{
-             @"payload" : @"1"
-             };
+    return @{ @"payload" : @"1" };
 });
 
 QuickSpecEnd
