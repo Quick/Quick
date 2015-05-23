@@ -1,7 +1,9 @@
 #import "QCKSpecRunner.h"
 #import "XCTestObservationCenter.h"
-
+#import "World.h"
 #import <Quick/Quick.h>
+
+QuickWorldBridge
 
 XCTestRun *qck_runSuite(XCTestSuite *suite) {
     [World sharedWorld].isRunningAdditionalSuites = YES;

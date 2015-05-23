@@ -1,5 +1,10 @@
 #import "QCKDSL.h"
+#import "World.h"
+#import "World+DSL.h"
 #import <Quick/Quick-Swift.h>
+
+QuickWorldBridge
+QuickWorldDSLBridge
 
 void qck_beforeSuite(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] beforeSuite:closure];
