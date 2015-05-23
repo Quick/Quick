@@ -469,12 +469,20 @@ access to this metadata in `beforeEach` and `afterEach` closures.
 
 ```swift
 beforeEach { exampleMetadata in
-  println("This is example number \(exampleMetadata.exampleIndex)")
+  println("Example number \(exampleMetadata.exampleIndex) is about to be run.")
+}
+
+afterEach { exampleMetadata in
+  println("Example number \(exampleMetadata.exampleIndex) has run.")
 }
 ```
 
 ```objc
 beforeEachWithMetadata(^(ExampleMetadata *exampleMetadata){
-  NSLog(@"This is example number %l", (long)exampleMetadata.exampleIndex);
+  NSLog(@"Example number %l is about to be run.", (long)exampleMetadata.exampleIndex);
+});
+
+afterEachWithMetadata(^(ExampleMetadata *exampleMetadata){
+  NSLog(@"Example number %l has run.", (long)exampleMetadata.exampleIndex);
 });
 ```
