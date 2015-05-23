@@ -25,6 +25,10 @@ void qck_beforeEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] beforeEach:closure];
 }
 
+void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    [[World sharedWorld] beforeEachWithMetadata:closure];
+}
+
 void qck_afterEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] afterEach:closure];
 }

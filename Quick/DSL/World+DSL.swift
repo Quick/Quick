@@ -44,7 +44,8 @@ extension World {
         currentExampleGroup!.hooks.appendBefore(closure)
     }
 
-    public func beforeEach(#closure: BeforeExampleWithMetadataClosure) {
+    @objc(beforeEachWithMetadata:)
+    public func beforeEach(closure: BeforeExampleWithMetadataClosure) {
         currentExampleGroup!.hooks.appendBefore(closure)
     }
 

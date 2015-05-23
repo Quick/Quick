@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+@class ExampleMetadata;
+
 /**
  Provides a hook for Quick to be configured before any examples are run.
  Within this scope, override the +[QuickConfiguration configure:] method
@@ -46,6 +48,7 @@
 typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 typedef void (^QCKDSLEmptyBlock)(void);
+typedef void (^QCKDSLExampleMetadataBlock)(ExampleMetadata *exampleMetadata);
 
 extern void qck_beforeSuite(QCKDSLEmptyBlock closure);
 extern void qck_afterSuite(QCKDSLEmptyBlock closure);
@@ -53,6 +56,7 @@ extern void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure)
 extern void qck_describe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_context(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_beforeEach(QCKDSLEmptyBlock closure);
+extern void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 extern void qck_afterEach(QCKDSLEmptyBlock closure);
 extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
@@ -132,6 +136,10 @@ static inline void context(NSString *description, QCKDSLEmptyBlock closure) {
  */
 static inline void beforeEach(QCKDSLEmptyBlock closure) {
     qck_beforeEach(closure);
+}
+
+static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    qck_beforeEachWithMetadata(closure);
 }
 
 /**

@@ -93,7 +93,7 @@ public func beforeEach(closure: BeforeExampleClosure) {
     metadata on the example that the closure is being run prior to.
 */
 public func beforeEach(#closure: BeforeExampleWithMetadataClosure) {
-    World.sharedWorld().beforeEach(closure: closure)
+    World.sharedWorld().beforeEach(closure)
 }
 
 /**

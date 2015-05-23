@@ -460,3 +460,21 @@ You can specify as many `beforeSuite` and `afterSuite` as you like. All
 `beforeSuite` closures will be executed before any tests run, and all
 `afterSuite` closures will be executed after all the tests are finished.
 There is no guarantee as to what order these closures will be executed in.
+
+## Accessing Metadata for the Current Example
+
+There may be some cases in which you'd like the know the name of the example
+that is currently being run, or how many have been run so far. Quick provides
+access to this metadata in `beforeEach` and `afterEach` closures.
+
+```swift
+beforeEach { exampleMetadata in
+  println("This is example number \(exampleMetadata.exampleIndex)")
+}
+```
+
+```objc
+beforeEachWithMetadata(^(ExampleMetadata *exampleMetadata){
+  NSLog(@"This is example number %l", (long)exampleMetadata.exampleIndex);
+});
+```
