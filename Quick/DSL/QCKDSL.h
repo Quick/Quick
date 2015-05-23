@@ -138,6 +138,10 @@ static inline void beforeEach(QCKDSLEmptyBlock closure) {
     qck_beforeEach(closure);
 }
 
+/**
+    Identical to QCKDSL.beforeEach, except the closure is provided with
+    metadata on the example that the closure is being run prior to.
+ */
 static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_beforeEachWithMetadata(closure);
 }
