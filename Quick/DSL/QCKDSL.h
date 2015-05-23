@@ -58,6 +58,7 @@ extern void qck_context(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_beforeEach(QCKDSLEmptyBlock closure);
 extern void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 extern void qck_afterEach(QCKDSLEmptyBlock closure);
+extern void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
@@ -156,6 +157,14 @@ static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
  */
 static inline void afterEach(QCKDSLEmptyBlock closure) {
     qck_afterEach(closure);
+}
+
+/**
+    Identical to QCKDSL.afterEach, except the closure is provided with
+    metadata on the example that the closure is being run after.
+ */
+static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    qck_afterEachWithMetadata(closure);
 }
 
 /**

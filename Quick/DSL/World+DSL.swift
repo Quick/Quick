@@ -53,6 +53,7 @@ extension World {
         currentExampleGroup!.hooks.appendAfter(closure)
     }
 
+    @objc(afterEachWithMetadata:)
     public func afterEach(#closure: AfterExampleWithMetadataClosure) {
         currentExampleGroup!.hooks.appendAfter(closure)
     }

@@ -33,6 +33,10 @@ void qck_afterEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] afterEach:closure];
 }
 
+void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    [[World sharedWorld] afterEachWithMetadata:closure];
+}
+
 QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLEmptyBlock closure) {
         [[World sharedWorld] itWithDescription:description
