@@ -12,9 +12,9 @@ or both, in your tests.
 
 There are three recommended ways of linking Quick to your tests:
 
-1. Git Submodules
-2. CocoaPods
-3. Carthage
+1. [Git Submodules](#git-submodules)
+2. [CocoaPods](#cocoapods)
+3. [Carthage](#carthage)
 
 Choose one and follow the instructions below. Once you've completed them,
 you should be able to `import Quick` from within files in your test target.
