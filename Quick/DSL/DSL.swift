@@ -117,6 +117,31 @@ public func afterEach(#closure: AfterExampleWithMetadataClosure) {
 }
 
 /**
+    Defines a variable in the current example group using a closure which
+    will be evaluated the first being fetched in each example and memoized
+    until the end of the example.
+
+    :param: name The name of the variable used to fetch it later on
+    :param: closure The closure to evaluate when fetching the variable
+*/
+public func define(name: String, closure: DefinitionClosure) {
+    World.sharedWorld().define(name, closure: closure)
+}
+
+/**
+    Fetches the specified variable from the current example group's defintions.
+    This will evaluate the variable closure when first run in each example and
+    return the memoized value in later fetches until the end of each example.
+
+    :param: name The name of the variable to fetch
+
+    :returns: The value of the specified variable
+*/
+public func fetch(name: String) -> AnyObject? {
+    return World.sharedWorld().fetch(name)
+}
+
+/**
     Defines an example. Examples use assertions to demonstrate how code should
     behave. These are like "tests" in XCTest.
 

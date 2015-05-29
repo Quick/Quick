@@ -54,6 +54,8 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
     internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
 
+    internal var definitions: Definitions { return configuration.definitions }
+
     // MARK: Singleton Constructor
 
     private init() {}

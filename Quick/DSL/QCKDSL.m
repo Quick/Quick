@@ -29,6 +29,14 @@ void qck_afterEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] afterEach:closure];
 }
 
+void qck_define(NSString *name, QCKDSLDefinitionBlock closure) {
+    [[World sharedWorld] define:name closure:closure];
+}
+
+NSObject *qck_fetch(NSString *name) {
+    return [[World sharedWorld] fetch:name];
+}
+
 QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLEmptyBlock closure) {
         [[World sharedWorld] itWithDescription:description
