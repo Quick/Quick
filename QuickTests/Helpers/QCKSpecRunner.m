@@ -1,5 +1,5 @@
 #import "QCKSpecRunner.h"
-#import "XCTestObservationCenter.h"
+#import "XCTestObservationCenter+QCKSuspendObservation.h"
 
 #import <Quick/Quick.h>
 
@@ -7,7 +7,7 @@ XCTestRun *qck_runSuite(XCTestSuite *suite) {
     [World sharedWorld].isRunningAdditionalSuites = YES;
 
     __block XCTestRun *result = nil;
-    [[XCTestObservationCenter sharedObservationCenter] _suspendObservationForBlock:^{
+    [[XCTestObservationCenter sharedTestObservationCenter] _suspendObservationForBlock:^{
         result = [suite run];
     }];
     return result;
