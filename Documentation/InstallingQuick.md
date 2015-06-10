@@ -3,8 +3,13 @@
 > **If you're using Xcode 6.2 & Swift 1.1,** use Quick `v0.2.*`.
 > New releases are developed on the `swift-1.1` branch.
 >
-> **If you're using Xcode 6.3 & Swift 1.2,** use the latest version of Quick--`v0.3.0` at the time of writing.
+> **If you're using Xcode 6.3 & Swift 1.2,** use Quick `v0.3.*`.
 > New releases are developed on the `master` branch.
+>
+> **If you're using Xcode 7.0 & Swift 2.0,** use the latest version of Quick--`v0.4.0` at the time of writing.
+> New releases are developed on the `swift-2.0` branch.
+
+
 
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may use either one,
