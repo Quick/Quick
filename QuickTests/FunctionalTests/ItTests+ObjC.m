@@ -3,14 +3,12 @@
 #import <Nimble/Nimble.h>
 
 #import "QCKSpecRunner.h"
-#import "Quick/Quick-Swift.h"
 
 QuickSpecBegin(FunctionalTests_ItSpec)
 
 __block ExampleMetadata *exampleMetadata = nil;
-
-beforeEach(^{
-    exampleMetadata = [[World sharedWorld] currentExampleMetadata];
+beforeEachWithMetadata(^(ExampleMetadata *metadata) {
+    exampleMetadata = metadata;
 });
 
 it(@" ", ^{
