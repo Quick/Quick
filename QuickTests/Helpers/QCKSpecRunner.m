@@ -1,6 +1,6 @@
 #import "QCKSpecRunner.h"
 #import "XCTestObservationCenter+QCKSuspendObservation.h"
-
+#import "World.h"
 #import <Quick/Quick.h>
 
 XCTestRun *qck_runSuite(XCTestSuite *suite) {

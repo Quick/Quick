@@ -109,6 +109,10 @@
 		DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
+		DAED1EC41B1105BC006F61EC /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC21B1105BC006F61EC /* World.h */; };
+		DAED1EC51B1105BC006F61EC /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC21B1105BC006F61EC /* World.h */; };
+		DAED1ECA1B110699006F61EC /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC81B110699006F61EC /* World+DSL.h */; };
+		DAED1ECB1B110699006F61EC /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC81B110699006F61EC /* World+DSL.h */; };
 		DAF28BC31A4DB8EC00A5D9BF /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
 		DAF28BC41A4DB8EC00A5D9BF /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
 /* End PBXBuildFile section */
@@ -357,6 +361,8 @@
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
 		DAEB6B991943873100289F44 /* Quick-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B9F1943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAED1EC21B1105BC006F61EC /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		DAED1EC81B110699006F61EC /* World+DSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "World+DSL.h"; sourceTree = "<group>"; };
 		DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FocusedTests+ObjC.m"; sourceTree = "<group>"; };
 		F8100E901A1E4447007595ED /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -429,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3124E519FCAEE8002858A7 /* World+DSL.swift */,
+				DAED1EC81B110699006F61EC /* World+DSL.h */,
 				DA3124E219FCAEE8002858A7 /* DSL.swift */,
 				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
 				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
@@ -560,6 +567,7 @@
 				DA408BDE19FF5599005DF92A /* Hooks */,
 				DAEB6B931943873100289F44 /* Quick.h */,
 				34F375A619515CA700CE1B99 /* World.swift */,
+				DAED1EC21B1105BC006F61EC /* World.h */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
@@ -629,6 +637,8 @@
 				34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
+				DAED1ECB1B110699006F61EC /* World+DSL.h in Headers */,
+				DAED1EC51B1105BC006F61EC /* World.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
 			);
@@ -641,6 +651,8 @@
 				34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
+				DAED1ECA1B110699006F61EC /* World+DSL.h in Headers */,
+				DAED1EC41B1105BC006F61EC /* World.h in Headers */,
 				34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
 			);
