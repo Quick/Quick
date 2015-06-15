@@ -5,7 +5,7 @@ end
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS clean test"
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'platform=iOS Simulator,name=iPhone 6' clean test"
   end
 
   desc "Run unit tests for all OS X targets"
