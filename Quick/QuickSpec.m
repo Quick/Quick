@@ -2,10 +2,7 @@
 #import "QuickConfiguration.h"
 #import "NSString+QCKSelectorName.h"
 #import "World.h"
-#import <Quick/Quick-Swift.h>
 #import <objc/runtime.h>
-
-QuickWorldBridge
 
 const void * const QCKExampleKey = &QCKExampleKey;
 
