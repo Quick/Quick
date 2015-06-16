@@ -40,18 +40,6 @@ All documentation can be found in the [Documentation folder](./Documentation), i
 ```
 # Podfile
 
-target 'MyTests' do
-  use_frameworks!
-  pod 'Quick'
-  pod 'Nimble'
-end
-```
-
-For both Unit Testing and UI Testing, add the following to your Podfile:
-
-```
-# Podfile
-
 link_with 'MyTests', 'MyUITests'
 
 use_frameworks!
