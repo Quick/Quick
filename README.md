@@ -47,6 +47,18 @@ target 'MyTests' do
 end
 ```
 
+For both Unit Testing and UI Testing, add the following to your Podfile:
+
+```
+# Podfile
+
+link_with 'MyTests', 'MyUITests'
+
+use_frameworks!
+pod 'Quick'
+pod 'Nimble'
+```
+
 ## License
 
 Apache 2.0 license. See the `LICENSE` file for details.
