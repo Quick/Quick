@@ -4,9 +4,12 @@
 #import "World.h"
 #import <objc/runtime.h>
 
+static QuickSpec *currentSpec = nil;
+
 const void * const QCKExampleKey = &QCKExampleKey;
 
 @interface QuickSpec ()
+@property (nonatomic, strong) XCTestRun *testRun;
 @property (nonatomic, strong) Example *example;
 @end
 
@@ -74,6 +77,11 @@ const void * const QCKExampleKey = &QCKExampleKey;
     [super setInvocation:invocation];
 }
 
+- (void)performTest:(XCTestRun *)run {
+    self.testRun = run;
+    [super performTest:run];
+}
+
 #pragma mark - Public Interface
 
 - (void)spec { }
@@ -97,7 +105,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
  @return The selector of the newly defined instance method.
  */
 + (SEL)addInstanceMethodForExample:(Example *)example {
-    IMP implementation = imp_implementationWithBlock(^(id self){
+    IMP implementation = imp_implementationWithBlock(^(QuickSpec *self){
+        currentSpec = self;
         [example run];
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
@@ -133,10 +142,10 @@ const void * const QCKExampleKey = &QCKExampleKey;
         filePath = self.example.callsite.file;
         lineNumber = self.example.callsite.line;
     }
-    [super recordFailureWithDescription:description
-                                 inFile:filePath
-                                 atLine:lineNumber
-                               expected:expected];
+    [currentSpec.testRun recordFailureWithDescription:description
+                                               inFile:filePath
+                                               atLine:lineNumber
+                                             expected:expected];
 }
 
 @end
