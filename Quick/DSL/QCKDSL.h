@@ -50,20 +50,20 @@ typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 typedef void (^QCKDSLEmptyBlock)(void);
 typedef void (^QCKDSLExampleMetadataBlock)(ExampleMetadata *exampleMetadata);
 
-extern void qck_beforeSuite(QCKDSLEmptyBlock closure);
-extern void qck_afterSuite(QCKDSLEmptyBlock closure);
-extern void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure);
-extern void qck_describe(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_context(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_beforeEach(QCKDSLEmptyBlock closure);
-extern void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
-extern void qck_afterEach(QCKDSLEmptyBlock closure);
-extern void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
-extern void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure);
-extern void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_beforeSuite(QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_afterSuite(QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure);
+FOUNDATION_EXTERN void qck_describe(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_context(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_beforeEach(QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
+FOUNDATION_EXTERN void qck_afterEach(QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
+FOUNDATION_EXTERN void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure);
+FOUNDATION_EXTERN void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
 
 #ifndef QUICK_DISABLE_SHORT_SYNTAX
 /**
@@ -228,5 +228,5 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *description, QCKDSLSharedExampleContext context);
 
-extern QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line);
-extern QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line);
+FOUNDATION_EXTERN QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line);
+FOUNDATION_EXTERN QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line);
