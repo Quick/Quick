@@ -40,11 +40,11 @@ All documentation can be found in the [Documentation folder](./Documentation), i
 ```
 # Podfile
 
-target 'MyTests' do
-  use_frameworks!
-  pod 'Quick'
-  pod 'Nimble'
-end
+link_with 'MyTests', 'MyUITests'
+
+use_frameworks!
+pod 'Quick'
+pod 'Nimble'
 ```
 
 ## License

@@ -97,11 +97,11 @@ Then, add Quick and Nimble to your Podfile. Additionally, the ```use_frameworks!
 ```rb
 # Podfile
 
-target 'MyTests' do
-  use_frameworks!
-  pod 'Quick'
-  pod 'Nimble'
-end
+link_with 'MyTests', 'MyUITests'
+
+use_frameworks!
+pod 'Quick'
+pod 'Nimble'
 ```
 
 Finally, download and link Quick and Nimble to your tests:
