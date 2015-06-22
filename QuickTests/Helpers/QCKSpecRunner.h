@@ -1,5 +1,4 @@
 #import <XCTest/XCTest.h>
-#import <Quick/QCKDSL.h>
 
 /**
  Runs an XCTestSuite instance containing only the given XCTestCase subclass.
@@ -11,7 +10,7 @@
  @param specClass The class of the spec to be run.
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
-QUICK_EXPORT XCTestRun *qck_runSpec(Class specClass);
+extern XCTestRun *qck_runSpec(Class specClass);
 
 /**
  Runs an XCTestSuite instance containing the given XCTestCase subclasses, in the order provided.
@@ -20,4 +19,4 @@ QUICK_EXPORT XCTestRun *qck_runSpec(Class specClass);
  @param specClasses An array of QuickSpec classes, in the order they should be run.
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
-QUICK_EXPORT XCTestRun *qck_runSpecs(NSArray *specClasses);
+extern XCTestRun *qck_runSpecs(NSArray *specClasses);
