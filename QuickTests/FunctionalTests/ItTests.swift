@@ -5,7 +5,7 @@ import Nimble
 class FunctionalTests_ItSpec: QuickSpec {
     override func spec() {
         var exampleMetadata: ExampleMetadata?
-        beforeEach { (metadata: ExampleMetadata) in exampleMetadata = metadata }
+        beforeEach { metadata in exampleMetadata = metadata }
 
         it("") {
             expect(exampleMetadata!.example.name).to(equal(""))
