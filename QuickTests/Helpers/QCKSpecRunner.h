@@ -1,4 +1,5 @@
 #import <XCTest/XCTest.h>
+#import <Quick/QCKDSL.h>
 
 /**
  Runs an XCTestSuite instance containing only the given XCTestCase subclass.
