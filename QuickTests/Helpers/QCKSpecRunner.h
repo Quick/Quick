@@ -10,7 +10,7 @@
  @param specClass The class of the spec to be run.
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
-FOUNDATION_EXTERN XCTestRun *qck_runSpec(Class specClass);
+QUICK_EXPORT XCTestRun *qck_runSpec(Class specClass);
 
 /**
  Runs an XCTestSuite instance containing the given XCTestCase subclasses, in the order provided.
@@ -19,4 +19,4 @@ FOUNDATION_EXTERN XCTestRun *qck_runSpec(Class specClass);
  @param specClasses An array of QuickSpec classes, in the order they should be run.
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
-FOUNDATION_EXTERN XCTestRun *qck_runSpecs(NSArray *specClasses);
+QUICK_EXPORT XCTestRun *qck_runSpecs(NSArray *specClasses);
