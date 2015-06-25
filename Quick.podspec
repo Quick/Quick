@@ -17,10 +17,11 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Quick/Quick.git", :tag => "v#{s.version}" }
   s.source_files  = "Quick", "Quick/**/*.{swift,h,m}"
 
-  s.private_header_files = [
-    'Quick/World.h',
-    'Quick/DSL/World+DSL.h',
-    'Quick/NSString+QCKSelectorName.h',
+  s.public_header_files = [
+    'Quick/Configuration/QuickConfiguration.h',
+    'Quick/DSL/QCKDSL.h',
+    'Quick/Quick.h',
+    'Quick/QuickSpec.h',
   ]
 
   s.framework = "XCTest"
