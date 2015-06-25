@@ -71,7 +71,7 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
         so that it may be configured. This method must not be called outside of
         an overridden +[QuickConfiguration configure:] method.
 
-        :param: closure  A closure that takes a Configuration object that can
+        - parameter closure:  A closure that takes a Configuration object that can
                          be mutated to change Quick's behavior.
     */
     internal func configure(closure: QuickConfigurer) {
@@ -103,8 +103,8 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
                 it("is at the top level") {}
             }
 
-        :param: cls The QuickSpec class for which to retrieve the root example group.
-        :returns: The root example group for the class.
+        - parameter cls: The QuickSpec class for which to retrieve the root example group.
+        - returns: The root example group for the class.
     */
     internal func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
         let name = NSStringFromClass(cls)
@@ -127,8 +127,8 @@ public typealias SharedExampleClosure = (SharedExampleContext) -> ()
         That is, these examples are the ones that are included by inclusion filters, and are
         not excluded by exclusion filters.
 
-        :param: specClass The QuickSpec subclass for which examples are to be returned.
-        :returns: A list of examples to be run as test invocations.
+        - parameter specClass: The QuickSpec subclass for which examples are to be returned.
+        - returns: A list of examples to be run as test invocations.
     */
     @objc(examplesForSpecClass:)
     internal func examples(specClass: AnyClass) -> [Example] {
