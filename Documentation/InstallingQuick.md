@@ -105,6 +105,20 @@ Finally, download and link Quick and Nimble to your tests:
 pod install
 ```
 
+### Using Swift 1.2?
+
+The latest release of Quick (0.4.0) is for Swift 2 (Xcode 7), but the latest Nimble (1.0.0) is for Swift 1.2 (Xcode 6).
+
+If you want Xcode 6 do:
+
+```sh
+target 'MyTests' do
+  use_frameworks!
+  pod 'Quick', '~>0.3.0'
+  pod 'Nimble', '~>1.0.0'
+end
+```
+
 ## [Carthage](https://github.com/Carthage/Carthage)
 
 As test targets do not have the "Embedded Binaries" section, the frameworks must
