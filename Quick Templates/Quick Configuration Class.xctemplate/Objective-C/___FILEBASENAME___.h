@@ -1,4 +1,4 @@
-#import <Quick/Quick.h>
+@import Quick;
 
 @interface ___FILEBASENAMEASIDENTIFIER___ : QuickConfiguration
 

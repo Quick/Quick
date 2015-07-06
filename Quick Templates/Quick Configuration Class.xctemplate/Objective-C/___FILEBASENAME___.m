@@ -1,4 +1,3 @@
-#import <Quick/Quick-Swift.h>
 #import "___FILEBASENAMEASIDENTIFIER___.h"
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
