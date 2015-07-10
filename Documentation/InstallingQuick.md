@@ -6,7 +6,7 @@
 > **If you're using Xcode 6.3 & Swift 1.2,** use Quick `v0.3.*`.
 > New releases are developed on the `master` branch.
 >
-> **If you're using Xcode 7.0 & Swift 2.0,** use the latest version of Quick--`v0.4.0` at the time of writing.
+> **If you're using Xcode 7.0 & Swift 2.0,** use the latest version of Quick--`v0.5.0` at the time of writing.
 > New releases are developed on the `swift-2.0` branch.
 
 
