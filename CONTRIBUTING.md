@@ -89,3 +89,19 @@ some "ground rules":
   issues or pull requests submitted to the project. Please provide kind,
   constructive feedback. Please don't be sarcastic or snarky.
 
+## Creating a Release
+
+The process is relatively straight forward, but here's is a useful checklist for tagging:
+
+- Bump the version in `Quick.podspec` (update, commit, push to github)
+- Look a changes from the previously tagged release and write release notes: `git log v0.4.0...HEAD`
+- Tag the version: `git tag -s vA.B.C -F release-notes-file`
+- Push the tag: `git push origin head --tags`
+- Push the podspec file to trunk: `pod trunk push Quick.podspec`
+- Build the carthage pre-built binary:
+  - `carthage build --no-skip-current`
+  - `carthage archive Quick`
+- Go to [github releases](https://github.com/Quick/Quick/releases) and mark the tagged commit as a release.
+  - Use the same release notes you created for the tag, but tweak up formatting for github.
+  - Attach the carthage release `Quick.framework.zip` to the release.
+- Announce!
