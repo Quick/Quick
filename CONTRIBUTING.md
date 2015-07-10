@@ -95,8 +95,9 @@ The process is relatively straight forward, but here's is a useful checklist for
 
 - Bump the version in `Quick.podspec` (update, commit, push to github)
 - Look a changes from the previously tagged release and write release notes: `git log v0.4.0...HEAD`
+    - The release notes should include user-facing information (api breakages, new features, bug fixes)
 - Tag the version: `git tag -s vA.B.C -F release-notes-file`
-- Push the tag: `git push origin head --tags`
+- Push the tag: `git push origin vA.B.C`
 - Push the podspec file to trunk: `pod trunk push Quick.podspec`
 - Build the carthage pre-built binary:
   - `carthage build --no-skip-current`
