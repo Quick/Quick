@@ -98,7 +98,7 @@ Let's say we want to offer people bananas, using a function called `offer()`:
 
 /** Given a banana, returns a string that can be used to offer someone the banana. */
 public func offer(banana: Banana) -> String {
-  if banana.isPeeled {
+  if banana.isEdible {
     return "Hey, want a banana?"
   } else {
     return "Hey, want me to peel this banana for you?"
