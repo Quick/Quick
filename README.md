@@ -40,17 +40,27 @@ All documentation can be found in the [Documentation folder](./Documentation), i
 ```
 # Podfile
 
-link_with 'MyTests', 'MyUITests'
-
 use_frameworks!
 
-# If you're using Xcode 7 / Swift 2
-pod 'Quick', '0.5.0'
-pod 'Nimble', '2.0.0-rc.1'
+def testing_pods
 
-# If you're using Xcode 6 / Swift 1.2
-pod 'Quick', '0.3.0'
-pod 'Nimble', '1.0.0-rc.1'
+    # If you're using Xcode 7 / Swift 2
+    pod 'Quick', '0.5.0'
+    pod 'Nimble', '2.0.0-rc.1'
+    
+    # If you're using Xcode 6 / Swift 1.2
+    pod 'Quick', '0.3.0'
+    pod 'Nimble', '1.0.0-rc.1'
+end
+
+target 'MyTests' do
+    testing_pods
+end
+
+target 'MyUITests' do
+    testing_pods
+end
+
 ```
 
 ## License
