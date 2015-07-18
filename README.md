@@ -37,13 +37,13 @@ Quick comes together with [Nimble](https://github.com/Quick/Nimble) — a matche
 
 All documentation can be found in the [Documentation folder](./Documentation), including [detailed installation instructions](./Documentation/InstallingQuick.md) for CocoaPods, Carthage, Git submodules, and more. For example, you can install Quick and [Nimble](https://github.com/Quick/Nimble) using CocoaPods by adding the following to your Podfile:
 
-```
+```rb
 # Podfile
 
 use_frameworks!
 
 def testing_pods
-
+    
     # If you're using Xcode 7 / Swift 2
     pod 'Quick', '0.5.0'
     pod 'Nimble', '2.0.0-rc.1'
