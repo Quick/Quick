@@ -27,38 +27,34 @@ describe(@"a group of failing examples", ^{
 
 QuickSpecEnd
 
-#pragma mark - Test Helpers
-
-/**
- Run the functional tests within a context that causes two test failures
- and return the result.
- */
-static XCTestRun *qck_runFailureSpec(void) {
-    isRunningFunctionalTests = YES;
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
-    isRunningFunctionalTests = NO;
-
-    return result;
-}
-
 #pragma mark - Tests
 
 @interface FailureTests : XCTestCase; @end
 
 @implementation FailureTests
 
+- (void)setUp {
+    [super setUp];
+    isRunningFunctionalTests = YES;
+}
+
+- (void)tearDown {
+    isRunningFunctionalTests = NO;
+    [super tearDown];
+}
+
 - (void)testFailureSpecHasSucceededIsFalse {
-    XCTestRun *result = qck_runFailureSpec();
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
     XCTAssertFalse(result.hasSucceeded);
 }
 
 - (void)testFailureSpecExecutedAllExamples {
-    XCTestRun *result = qck_runFailureSpec();
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
     XCTAssertEqual(result.executionCount, 3);
 }
 
 - (void)testFailureSpecFailureCountIsEqualToTheNumberOfFailingExamples {
-    XCTestRun *result = qck_runFailureSpec();
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
     XCTAssertEqual(result.failureCount, 2);
 }
 

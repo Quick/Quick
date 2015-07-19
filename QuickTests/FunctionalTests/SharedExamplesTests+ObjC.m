@@ -18,6 +18,35 @@ itBehavesLike(@"shared examples that take a context", ^NSDictionary *{
 
 QuickSpecEnd
 
+QuickSpecBegin(FunctionalTests_SharedExamples_SameContextSpec)
+
+__block NSInteger counter = 0;
+
+afterEach(^{
+    counter++;
+});
+
+sharedExamples(@"gets called with a different context from within the same spec file", ^(QCKDSLSharedExampleContext exampleContext) {
+    
+    it(@"tracks correctly", ^{
+        NSString *payload = exampleContext()[@"payload"];
+        BOOL expected = [payload isEqualToString:[NSString stringWithFormat:@"%ld", (long)counter]];
+        expect(@(expected)).to(beTrue());
+    });
+    
+});
+
+itBehavesLike(@"gets called with a different context from within the same spec file", ^{
+    return @{ @"payload" : @"0" };
+});
+
+itBehavesLike(@"gets called with a different context from within the same spec file", ^{
+    return @{ @"payload" : @"1" };
+});
+
+QuickSpecEnd
+
+
 @interface SharedExamplesTests : XCTestCase; @end
 
 @implementation SharedExamplesTests
