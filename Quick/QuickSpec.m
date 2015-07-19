@@ -54,13 +54,18 @@ const void * const QCKExampleKey = &QCKExampleKey;
 + (NSArray *)testInvocations {
     NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
+    NSMutableDictionary *names = [[NSMutableDictionary alloc] init];
+
     for (Example *example in examples) {
-        SEL selector = [self addInstanceMethodForExample:example];
+        [names setObject:[NSNumber numberWithBool:names[example.name.qck_selectorName] != NULL] forKey:example.name.qck_selectorName];
+    }
+
+    for (Example *example in examples) {
+        SEL selector = [self addInstanceMethodForExample:example duplicate:[names[example.name.qck_selectorName] boolValue]];
         NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
                                                                          example:example];
         [invocations addObject:invocation];
     }
-
     return invocations;
 }
 
@@ -96,14 +101,20 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
  @return The selector of the newly defined instance method.
  */
-+ (SEL)addInstanceMethodForExample:(Example *)example {
++ (SEL)addInstanceMethodForExample:(Example *)example
+                         duplicate:(BOOL) duplicate {
     IMP implementation = imp_implementationWithBlock(^(id self){
         [example run];
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
-    SEL selector = NSSelectorFromString(example.name.qck_selectorName);
+    NSMutableString *selectorName = [example.name.qck_selectorName mutableCopy];
+    if (duplicate) {
+        [selectorName appendString:[NSString stringWithFormat:@"_%@_L%ld",
+                                    NSStringFromClass([self class]),
+                                    (long)example.callsite.line]];
+    }
+    SEL selector = NSSelectorFromString(selectorName);
     class_addMethod(self, selector, implementation, types);
-
     return selector;
 }
 
