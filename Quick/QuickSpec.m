@@ -9,7 +9,6 @@ static QuickSpec *currentSpec = nil;
 const void * const QCKExampleKey = &QCKExampleKey;
 
 @interface QuickSpec ()
-@property (nonatomic, strong) XCTestRun *testRun;
 @property (nonatomic, strong) Example *example;
 @end
 
@@ -75,11 +74,6 @@ const void * const QCKExampleKey = &QCKExampleKey;
 - (void)setInvocation:(NSInvocation *)invocation {
     self.example = objc_getAssociatedObject(invocation, QCKExampleKey);
     [super setInvocation:invocation];
-}
-
-- (void)performTest:(XCTestRun *)run {
-    self.testRun = run;
-    [super performTest:run];
 }
 
 #pragma mark - Public Interface
