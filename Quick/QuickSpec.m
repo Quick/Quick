@@ -110,7 +110,11 @@ const void * const QCKExampleKey = &QCKExampleKey;
         [example run];
     });
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
-    SEL selector = NSSelectorFromString(example.name.qck_selectorName);
+    NSString *selectorName = [NSString stringWithFormat:@"%@_%@_%ld",
+                              example.name.qck_selectorName,
+                              example.callsite.file,
+                              (long)example.callsite.line];
+    SEL selector = NSSelectorFromString(selectorName);
     class_addMethod(self, selector, implementation, types);
 
     return selector;
