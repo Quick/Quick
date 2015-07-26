@@ -158,10 +158,13 @@ to copy them to the target's Frameworks destination.
 3. From your `Carthage/Build/[platform]/` directory, add both Quick and Nimble to your test target's "Link Binary With Libraries" build phase:
     ![](http://i.imgur.com/pBkDDk5.png)
 
-4. For your test target, create a new build phase of type "Copy Files":
+4. Add `$(SRCROOT)/Carthage/Build/iOS` in recursive mode to the "Frameworks Search Path" in your Build Settings:
+    ![](http://i.imgur.com/jOxPhB4.png)
+
+5. For your test target, create a new build phase of type "Copy Files":
     ![](http://i.imgur.com/jZATIjQ.png)
 
-5. Set the "Destination" to "Frameworks", then add both frameworks:
+6. Set the "Destination" to "Frameworks", then add both frameworks:
     ![](http://i.imgur.com/rpnyWGH.png)
 
 This is not "the one and only way" to use Carthage to manage dependencies.
