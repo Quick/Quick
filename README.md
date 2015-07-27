@@ -23,7 +23,7 @@ class TableOfContentsSpec: QuickSpec {
       context("if it doesn't have what you're looking for") {
         it("needs to be updated") {
           let you = You(awesome: true)
-          expect{you.submittedAnIssue}.toEventually(beTruthy())
+          expect(you.submittedAnIssue).toEventually(beTruthy())
         }
       }
     }
@@ -44,7 +44,7 @@ use_frameworks!
 
 def testing_pods
     # If you're using Xcode 7 / Swift 2
-    pod 'Quick', '~> 0.5.0'
+    pod 'Quick', '~> 0.5.1'
     pod 'Nimble', '2.0.0-rc.2'
 
     # If you're using Xcode 6 / Swift 1.2
