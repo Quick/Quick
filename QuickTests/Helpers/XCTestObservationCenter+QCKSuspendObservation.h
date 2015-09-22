@@ -8,12 +8,7 @@
  with the message "Timed out waiting for IDE barrier message to complete", it is
  likely that this internal interface has been changed.
  */
-@interface XCTestObservationCenter : NSObject
-
-/**
- Returns the global instance of XCTestObservationCenter.
- */
-+ (instancetype)sharedObservationCenter;
+@interface XCTestObservationCenter (QCKSuspendObservation)
 
 /**
  Suspends test suite observation for the duration that the block is executing.

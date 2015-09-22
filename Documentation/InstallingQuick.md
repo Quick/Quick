@@ -3,8 +3,13 @@
 > **If you're using Xcode 6.2 & Swift 1.1,** use Quick `v0.2.*`.
 > New releases are developed on the `swift-1.1` branch.
 >
-> **If you're using Xcode 6.3 & Swift 1.2,** use the latest version of Quick--`v0.3.0` at the time of writing.
+> **If you're using Xcode 6.3 & Swift 1.2,** use Quick `v0.3.*`.
 > New releases are developed on the `master` branch.
+>
+> **If you're using Xcode 7.0 & Swift 2.0,** use the latest version of Quick--`v0.6.0` at the time of writing.
+> New releases are developed on the `swift-2.0` branch.
+
+
 
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may use either one,
@@ -90,12 +95,27 @@ First, update CocoaPods to Version 0.36.0 or newer, which is necessary to instal
 Then, add Quick and Nimble to your Podfile. Additionally, the ```use_frameworks!``` line is necessary for using Swift in CocoaPods:
 
 ```rb
+
 # Podfile
 
+use_frameworks!
+
+def testing_pods
+    # If you're using Xcode 7 / Swift 2
+    pod 'Quick', '~> 0.6.0'
+    pod 'Nimble', '2.0.0-rc.2'
+
+    # If you're using Xcode 6 / Swift 1.2
+    pod 'Quick', '~> 0.3.0'
+    pod 'Nimble', '~> 1.0.0'
+end
+
 target 'MyTests' do
-  use_frameworks!
-  pod 'Quick'
-  pod 'Nimble'
+    testing_pods
+end
+
+target 'MyUITests' do
+    testing_pods
 end
 ```
 

@@ -34,7 +34,7 @@ QuickSpecBegin(FunctionalTests_FocusedSpec_Unfocused)
 it(@"has an unfocused example thay fails, but is never run", ^{ XCTFail(); });
 
 describe(@"an unfocused example group that is never run", ^{
-    beforeEach(^{ [NSException raise:NSInternalInconsistencyException format:nil]; });
+    beforeEach(^{ [NSException raise:NSInternalInconsistencyException format:@""]; });
     it(@"has an example that fails, but is never run", ^{ XCTFail(); });
 });
 
