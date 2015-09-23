@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Quick"
-  s.version      = "0.5.1"
+  s.version      = "0.6.0"
   s.summary      = "The Swift (and Objective-C) testing framework."
 
   s.description  = <<-DESC
@@ -26,4 +26,5 @@ Pod::Spec.new do |s|
 
   s.framework = "XCTest"
   s.requires_arc = true
+  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 end

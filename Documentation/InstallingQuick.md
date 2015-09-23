@@ -6,7 +6,7 @@
 > **If you're using Xcode 6.3 & Swift 1.2,** use Quick `v0.3.*`.
 > New releases are developed on the `master` branch.
 >
-> **If you're using Xcode 7.0 & Swift 2.0,** use the latest version of Quick--`v0.5.1` at the time of writing.
+> **If you're using Xcode 7.0 & Swift 2.0,** use the latest version of Quick--`v0.6.0` at the time of writing.
 > New releases are developed on the `swift-2.0` branch.
 
 
@@ -102,7 +102,7 @@ use_frameworks!
 
 def testing_pods
     # If you're using Xcode 7 / Swift 2
-    pod 'Quick', '~> 0.5.0'
+    pod 'Quick', '~> 0.6.0'
     pod 'Nimble', '2.0.0-rc.2'
 
     # If you're using Xcode 6 / Swift 1.2
