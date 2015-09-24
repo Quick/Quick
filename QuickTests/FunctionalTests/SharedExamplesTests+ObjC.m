@@ -4,13 +4,13 @@
 
 #import "QCKSpecRunner.h"
 
-QuickSpecBegin(FunctionalTests_SharedExamples_Spec)
+QuickSpecBegin(FunctionalTests_SharedExamples_Spec_ObjC)
 
 itBehavesLike(@"a group of three shared examples", ^NSDictionary*{ return @{}; });
 
 QuickSpecEnd
 
-QuickSpecBegin(FunctionalTests_SharedExamples_ContextSpec)
+QuickSpecBegin(FunctionalTests_SharedExamples_ContextSpec_ObjC)
 
 itBehavesLike(@"shared examples that take a context", ^NSDictionary *{
     return @{ @"callsite": @"SharedExamplesSpec" };
@@ -18,7 +18,7 @@ itBehavesLike(@"shared examples that take a context", ^NSDictionary *{
 
 QuickSpecEnd
 
-QuickSpecBegin(FunctionalTests_SharedExamples_SameContextSpec)
+QuickSpecBegin(FunctionalTests_SharedExamples_SameContextSpec_ObjC)
 
 __block NSInteger counter = 0;
 
@@ -47,18 +47,18 @@ itBehavesLike(@"gets called with a different context from within the same spec f
 QuickSpecEnd
 
 
-@interface SharedExamplesTests : XCTestCase; @end
+@interface SharedExamplesTests_ObjC : XCTestCase; @end
 
-@implementation SharedExamplesTests
+@implementation SharedExamplesTests_ObjC
 
 - (void)testAGroupOfThreeSharedExamplesExecutesThreeExamples {
-    XCTestRun *result = qck_runSpec([FunctionalTests_SharedExamples_Spec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_SharedExamples_Spec_ObjC class]);
     XCTAssert(result.hasSucceeded);
     XCTAssertEqual(result.executionCount, 3);
 }
 
 - (void)testSharedExamplesWithContextPassContextToExamples {
-    XCTestRun *result = qck_runSpec([FunctionalTests_SharedExamples_ContextSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_SharedExamples_ContextSpec_ObjC class]);
     XCTAssert(result.hasSucceeded);
 }
 

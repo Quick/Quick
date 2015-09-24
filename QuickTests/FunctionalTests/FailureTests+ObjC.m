@@ -9,7 +9,7 @@ static BOOL isRunningFunctionalTests = NO;
 
 #pragma mark - Spec
 
-QuickSpecBegin(FunctionalTests_FailureSpec)
+QuickSpecBegin(FunctionalTests_FailureSpec_ObjC)
 
 describe(@"a group of failing examples", ^{
     it(@"passes", ^{
@@ -29,9 +29,9 @@ QuickSpecEnd
 
 #pragma mark - Tests
 
-@interface FailureTests : XCTestCase; @end
+@interface FailureTests_ObjC : XCTestCase; @end
 
-@implementation FailureTests
+@implementation FailureTests_ObjC
 
 - (void)setUp {
     [super setUp];
@@ -44,17 +44,17 @@ QuickSpecEnd
 }
 
 - (void)testFailureSpecHasSucceededIsFalse {
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec_ObjC class]);
     XCTAssertFalse(result.hasSucceeded);
 }
 
 - (void)testFailureSpecExecutedAllExamples {
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec_ObjC class]);
     XCTAssertEqual(result.executionCount, 3);
 }
 
 - (void)testFailureSpecFailureCountIsEqualToTheNumberOfFailingExamples {
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureSpec_ObjC class]);
     XCTAssertEqual(result.failureCount, 2);
 }
 

@@ -4,7 +4,7 @@
 
 #import "QCKSpecRunner.h"
 
-QuickConfigurationBegin(FunctionalTests_SharedExamplesConfiguration)
+QuickConfigurationBegin(FunctionalTests_SharedExamplesConfiguration_ObjC)
 
 + (void)configure:(Configuration *)configuration {
     sharedExamples(@"two passing shared examples (Objective-C)", ^(QCKDSLSharedExampleContext exampleContext) {
@@ -15,7 +15,7 @@ QuickConfigurationBegin(FunctionalTests_SharedExamplesConfiguration)
 
 QuickConfigurationEnd
 
-QuickSpecBegin(FunctionalTests_FocusedSpec_Focused)
+QuickSpecBegin(FunctionalTests_FocusedSpec_Focused_ObjC)
 
 it(@"has an unfocused example that fails, but is never run", ^{ XCTFail(); });
 fit(@"has a focused example that passes (1)", ^{});
@@ -29,7 +29,7 @@ fitBehavesLike(@"two passing shared examples (Objective-C)", ^NSDictionary *{ re
 
 QuickSpecEnd
 
-QuickSpecBegin(FunctionalTests_FocusedSpec_Unfocused)
+QuickSpecBegin(FunctionalTests_FocusedSpec_Unfocused_ObjC)
 
 it(@"has an unfocused example thay fails, but is never run", ^{ XCTFail(); });
 
@@ -40,15 +40,15 @@ describe(@"an unfocused example group that is never run", ^{
 
 QuickSpecEnd
 
-@interface FocusedTests: XCTestCase
+@interface FocusedTests_ObjC: XCTestCase
 @end
 
-@implementation FocusedTests
+@implementation FocusedTests_ObjC
 
 - (void)testOnlyFocusedExamplesAreExecuted {
     XCTestRun *result = qck_runSpecs(@[
-        [FunctionalTests_FocusedSpec_Focused class],
-        [FunctionalTests_FocusedSpec_Unfocused class]
+        [FunctionalTests_FocusedSpec_Focused_ObjC class],
+        [FunctionalTests_FocusedSpec_Unfocused_ObjC class]
     ]);
     XCTAssertEqual(result.executionCount, 5);
 }

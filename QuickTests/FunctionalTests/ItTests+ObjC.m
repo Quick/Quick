@@ -4,7 +4,7 @@
 
 #import "QCKSpecRunner.h"
 
-QuickSpecBegin(FunctionalTests_ItSpec)
+QuickSpecBegin(FunctionalTests_ItSpec_ObjC)
 
 __block ExampleMetadata *exampleMetadata = nil;
 beforeEachWithMetadata(^(ExampleMetadata *metadata) {
@@ -22,12 +22,12 @@ it(@"has a description with セレクター名に使えない文字が入って�
 
 QuickSpecEnd
 
-@interface ItTests : XCTestCase; @end
+@interface ItTests_ObjC : XCTestCase; @end
 
-@implementation ItTests
+@implementation ItTests_ObjC
 
 - (void)testAllExamplesAreExecuted {
-    XCTestRun *result = qck_runSpec([FunctionalTests_ItSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_ItSpec_ObjC class]);
     XCTAssertEqual(result.executionCount, 2);
 }
 

@@ -5,7 +5,7 @@
 
 static BOOL isRunningFunctionalTests = NO;
 
-QuickSpecBegin(FunctionalTests_FailureUsingXCTAssertSpec)
+QuickSpecBegin(FunctionalTests_FailureUsingXCTAssertSpec_ObjC)
 
 it(@"fails using an XCTAssert (but only when running the functional tests)", ^{
     XCTAssertFalse(isRunningFunctionalTests);
@@ -38,17 +38,17 @@ QuickSpecEnd
 }
 
 - (void)testFailureUsingXCTAssertSpecHasSucceededIsFalse {
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureUsingXCTAssertSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureUsingXCTAssertSpec_ObjC class]);
     XCTAssertFalse(result.hasSucceeded);
 }
 
 - (void)testFailureUsingXCTAssertSpecExecutedAllExamples {
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureUsingXCTAssertSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureUsingXCTAssertSpec_ObjC class]);
     XCTAssertEqual(result.executionCount, 3);
 }
 
 - (void)testFailureUsingXCTAssertSpecFailureCountIsEqualToTheNumberOfFailingExamples {
-    XCTestRun *result = qck_runSpec([FunctionalTests_FailureUsingXCTAssertSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_FailureUsingXCTAssertSpec_ObjC class]);
     XCTAssertEqual(result.failureCount, 2);
 }
 

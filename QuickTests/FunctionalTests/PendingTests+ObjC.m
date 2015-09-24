@@ -7,7 +7,7 @@
 static NSUInteger oneExampleBeforeEachExecutedCount = 0;
 static NSUInteger onlyPendingExamplesBeforeEachExecutedCount = 0;
 
-QuickSpecBegin(FunctionalTests_PendingSpec)
+QuickSpecBegin(FunctionalTests_PendingSpec_ObjC)
 
 pending(@"an example that will not run", ^{
     expect(@YES).to(beFalsy());
@@ -26,9 +26,9 @@ describe(@"a describe block containing only pending examples", ^{
 
 QuickSpecEnd
 
-@interface PendingTests : XCTestCase; @end
+@interface PendingTests_ObjC : XCTestCase; @end
 
-@implementation PendingTests
+@implementation PendingTests_ObjC
 
 - (void)setUp {
     [super setUp];
@@ -43,17 +43,17 @@ QuickSpecEnd
 }
 
 - (void)testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail {
-    XCTestRun *result = qck_runSpec([FunctionalTests_PendingSpec class]);
+    XCTestRun *result = qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
     XCTAssert(result.hasSucceeded);
 }
 
 - (void)testBeforeEachOnlyRunForEnabledExamples {
-    qck_runSpec([FunctionalTests_PendingSpec class]);
+    qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
     XCTAssertEqual(oneExampleBeforeEachExecutedCount, 1);
 }
 
 - (void)testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples {
-    qck_runSpec([FunctionalTests_PendingSpec class]);
+    qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
     XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0);
 }
 
