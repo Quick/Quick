@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, AfterEachType) {
 
 static NSMutableArray *afterEachOrder;
 
-QuickSpecBegin(FunctionalTests_AfterEachSpec)
+QuickSpecBegin(FunctionalTests_AfterEachSpec_ObjC)
 
 afterEach(^{ [afterEachOrder addObject:@(OuterOne)]; });
 afterEach(^{ [afterEachOrder addObject:@(OuterTwo)]; });
@@ -49,9 +49,9 @@ context(@"when there are nested afterEach without examples", ^{
 
 QuickSpecEnd
 
-@interface AfterEachTests : XCTestCase; @end
+@interface AfterEachTests_ObjC : XCTestCase; @end
 
-@implementation AfterEachTests
+@implementation AfterEachTests_ObjC
 
 - (void)setUp {
     [super setUp];
@@ -64,7 +64,7 @@ QuickSpecEnd
 }
 
 - (void)testAfterEachIsExecutedInTheCorrectOrder {
-    qck_runSpec([FunctionalTests_AfterEachSpec class]);
+    qck_runSpec([FunctionalTests_AfterEachSpec_ObjC class]);
     NSArray *expectedOrder = @[
         // [1] The outer afterEach closures are executed from top to bottom.
         @(OuterOne), @(OuterTwo), @(OuterThree),

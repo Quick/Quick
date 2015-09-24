@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, BeforeEachType) {
 
 static NSMutableArray *beforeEachOrder;
 
-QuickSpecBegin(FunctionalTests_BeforeEachSpec)
+QuickSpecBegin(FunctionalTests_BeforeEachSpec_ObjC)
 
 beforeEach(^{ [beforeEachOrder addObject:@(OuterOne)]; });
 beforeEach(^{ [beforeEachOrder addObject:@(OuterTwo)]; });
@@ -36,9 +36,9 @@ context(@"when there are nested beforeEach without examples", ^{
 
 QuickSpecEnd
 
-@interface BeforeEachTests : XCTestCase; @end
+@interface BeforeEachTests_ObjC : XCTestCase; @end
 
-@implementation BeforeEachTests
+@implementation BeforeEachTests_ObjC
 
 - (void)setUp {
     beforeEachOrder = [NSMutableArray array];
@@ -51,7 +51,7 @@ QuickSpecEnd
 }
 
 - (void)testBeforeEachIsExecutedInTheCorrectOrder {
-    qck_runSpec([FunctionalTests_BeforeEachSpec class]);
+    qck_runSpec([FunctionalTests_BeforeEachSpec_ObjC class]);
     NSArray *expectedOrder = @[
         // [1] The outer beforeEach closures are executed from top to bottom.
         @(OuterOne), @(OuterTwo),

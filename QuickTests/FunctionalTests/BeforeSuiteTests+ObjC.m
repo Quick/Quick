@@ -6,7 +6,7 @@
 
 static BOOL beforeSuiteWasExecuted = NO;
 
-QuickSpecBegin(FunctionalTests_BeforeSuite_BeforeSuiteSpec)
+QuickSpecBegin(FunctionalTests_BeforeSuite_BeforeSuiteSpec_ObjC)
 
 beforeSuite(^{
     beforeSuiteWasExecuted = YES;
@@ -14,7 +14,7 @@ beforeSuite(^{
 
 QuickSpecEnd
 
-QuickSpecBegin(FunctionalTests_BeforeSuite_Spec)
+QuickSpecBegin(FunctionalTests_BeforeSuite_Spec_ObjC)
 
 it(@"is executed after beforeSuite", ^{
     expect(@(beforeSuiteWasExecuted)).to(beTruthy());
@@ -22,15 +22,15 @@ it(@"is executed after beforeSuite", ^{
 
 QuickSpecEnd
 
-@interface BeforeSuiteTests : XCTestCase; @end
+@interface BeforeSuiteTests_ObjC : XCTestCase; @end
 
-@implementation BeforeSuiteTests
+@implementation BeforeSuiteTests_ObjC
 
 - (void)testBeforeSuiteIsExecutedBeforeAnyExamples {
     // Execute the spec with an assertion before the one with a beforeSuite
     NSArray *specs = @[
-        [FunctionalTests_BeforeSuite_Spec class],
-        [FunctionalTests_BeforeSuite_BeforeSuiteSpec class]
+        [FunctionalTests_BeforeSuite_Spec_ObjC class],
+        [FunctionalTests_BeforeSuite_BeforeSuiteSpec_ObjC class]
     ];
     XCTestRun *result = qck_runSpecs(specs);
     XCTAssert(result.hasSucceeded);
