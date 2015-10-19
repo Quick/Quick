@@ -32,6 +32,12 @@ it.
 - Went to the kitchen, only to forget why you went in the first place?
   Better submit an issue.
 
+Be sure to include in your issue:
+
+- Your Xcode version (eg - Xcode 7.0.1 7A1001)
+- Your version of Quick / Nimble (eg - v0.7.0 or git sha `7d0b8c21357839a8c5228863b77faecf709254a9`)
+- What are the steps to reproduce this issue?
+
 ## Building the Project
 
 - After cloning the repository, run `git submodule update --init` to pull the Nimble submodule.
