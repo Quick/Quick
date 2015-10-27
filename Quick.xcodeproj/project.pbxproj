@@ -7,6 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F118CDF1BDCA4AB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
+		1F118CF51BDCA4BB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
+		1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
+		1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
+		1F118CFD1BDCA536005013A2 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E519FCAEE8002858A7 /* World+DSL.swift */; };
+		1F118CFE1BDCA536005013A2 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
+		1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E419FCAEE8002858A7 /* QCKDSL.m */; };
+		1F118D001BDCA536005013A2 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BDF19FF5599005DF92A /* Closures.swift */; };
+		1F118D011BDCA536005013A2 /* ExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BE019FF5599005DF92A /* ExampleHooks.swift */; };
+		1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BE119FF5599005DF92A /* SuiteHooks.swift */; };
+		1F118D031BDCA536005013A2 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
+		1F118D041BDCA536005013A2 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
+		1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
+		1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759F19515CA700CE1B99 /* ExampleGroup.swift */; };
+		1F118D071BDCA536005013A2 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
+		1F118D081BDCA536005013A2 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B30171A4DB0D500FFB148 /* Filter.swift */; };
+		1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A519515CA700CE1B99 /* QuickSpec.m */; };
+		1F118D0A1BDCA536005013A2 /* NSString+QCKSelectorName.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */; };
+		1F118D0C1BDCA543005013A2 /* QuickConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */; };
+		1F118D0D1BDCA547005013A2 /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
+		1F118D0E1BDCA547005013A2 /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
+		1F118D0F1BDCA54B005013A2 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */; };
+		1F118D101BDCA556005013A2 /* Configuration+AfterEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */; };
+		1F118D111BDCA556005013A2 /* Configuration+AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */; };
+		1F118D121BDCA556005013A2 /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
+		1F118D131BDCA556005013A2 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
+		1F118D141BDCA556005013A2 /* FailureTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */; };
+		1F118D151BDCA556005013A2 /* FailureUsingXCTAssertTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8940EF1B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m */; };
+		1F118D161BDCA556005013A2 /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
+		1F118D171BDCA556005013A2 /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
+		1F118D181BDCA556005013A2 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
+		1F118D191BDCA556005013A2 /* AfterEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */; };
+		1F118D1A1BDCA556005013A2 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
+		1F118D1B1BDCA556005013A2 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */; };
+		1F118D1C1BDCA556005013A2 /* BeforeSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */; };
+		1F118D1D1BDCA556005013A2 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
+		1F118D1E1BDCA556005013A2 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */; };
+		1F118D1F1BDCA556005013A2 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 477217391A59C1B00022013E /* AfterSuiteTests+ObjC.m */; };
+		1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */; };
+		1F118D211BDCA556005013A2 /* SharedExamplesTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */; };
+		1F118D221BDCA556005013A2 /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
+		1F118D231BDCA556005013A2 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */; };
+		1F118D241BDCA561005013A2 /* FocusedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9876BF1A4C87200004AA17 /* FocusedTests.swift */; };
+		1F118D251BDCA561005013A2 /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
+		1F118D261BDCA5AF005013A2 /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC81B110699006F61EC /* World+DSL.h */; };
+		1F118D271BDCA5AF005013A2 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC21B1105BC006F61EC /* World.h */; };
+		1F118D281BDCA5AF005013A2 /* NSString+QCKSelectorName.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */; };
+		1F118D291BDCA5B6005013A2 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F118D2C1BDCA5B6005013A2 /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A419515CA700CE1B99 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F118D351BDCA657005013A2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118D341BDCA657005013A2 /* Nimble.framework */; };
+		1F118D371BDCA65C005013A2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118D361BDCA65C005013A2 /* Nimble.framework */; };
+		1F118D381BDCA6E1005013A2 /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
+		1F118D391BDCA6E6005013A2 /* Configuration+BeforeEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */; };
 		1FD0CFAD1AFA0B8C00874CC1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8100E901A1E4447007595ED /* Nimble.framework */; };
 		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
 		34F375A819515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
@@ -253,6 +308,20 @@
 			remoteGlobalIDString = DAEB6B8D1943873100289F44;
 			remoteInfo = Quick;
 		};
+		1F118CE01BDCA4AB005013A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F118CD41BDCA4AB005013A2;
+			remoteInfo = "Quick-tvOS";
+		};
+		1F118CF61BDCA4BB005013A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F118CD41BDCA4AB005013A2;
+			remoteInfo = "Quick-tvOS";
+		};
 		5A5D118819473F2100F6D13D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEB6B851943873100289F44 /* Project object */;
@@ -305,6 +374,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F118CD51BDCA4AB005013A2 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F118CDE1BDCA4AB005013A2 /* Quick-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F118CF01BDCA4BB005013A2 /* QuickFocused-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F118D341BDCA657005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
+		1F118D361BDCA65C005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		34F3759E19515CA700CE1B99 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		34F3759F19515CA700CE1B99 /* ExampleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
@@ -371,6 +445,31 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F118CD11BDCA4AB005013A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F118CDB1BDCA4AB005013A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F118CDF1BDCA4AB005013A2 /* Quick.framework in Frameworks */,
+				1F118D351BDCA657005013A2 /* Nimble.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F118CED1BDCA4BB005013A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F118CF51BDCA4BB005013A2 /* Quick.framework in Frameworks */,
+				1F118D371BDCA65C005013A2 /* Nimble.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A5D117819473F2100F6D13D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +523,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F118D331BDCA645005013A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F118D361BDCA65C005013A2 /* Nimble.framework */,
+				1F118D341BDCA657005013A2 /* Nimble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DA169E4619FF5DF100619816 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +653,7 @@
 				DAEB6B9D1943873100289F44 /* QuickTests */,
 				DA9876BE1A4C87200004AA17 /* QuickFocusedTests */,
 				DAEB6B8F1943873100289F44 /* Products */,
+				1F118D331BDCA645005013A2 /* Frameworks */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -559,6 +668,9 @@
 				5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */,
 				DA9876B21A4C70EB0004AA17 /* QuickFocused-iOSTests.xctest */,
 				DA5663E81A4C8D8500193C88 /* QuickFocused-OSXTests.xctest */,
+				1F118CD51BDCA4AB005013A2 /* Quick.framework */,
+				1F118CDE1BDCA4AB005013A2 /* Quick-tvOSTests.xctest */,
+				1F118CF01BDCA4BB005013A2 /* QuickFocused-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -634,6 +746,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1F118CD21BDCA4AB005013A2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */,
+				1F118D261BDCA5AF005013A2 /* World+DSL.h in Headers */,
+				1F118D271BDCA5AF005013A2 /* World.h in Headers */,
+				1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */,
+				1F118D2C1BDCA5B6005013A2 /* QuickSpec.h in Headers */,
+				1F118D281BDCA5AF005013A2 /* NSString+QCKSelectorName.h in Headers */,
+				1F118D291BDCA5B6005013A2 /* QuickConfiguration.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A5D117919473F2100F6D13D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +791,60 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1F118CD41BDCA4AB005013A2 /* Quick-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F118CE61BDCA4AB005013A2 /* Build configuration list for PBXNativeTarget "Quick-tvOS" */;
+			buildPhases = (
+				1F118CD01BDCA4AB005013A2 /* Sources */,
+				1F118CD11BDCA4AB005013A2 /* Frameworks */,
+				1F118CD21BDCA4AB005013A2 /* Headers */,
+				1F118CD31BDCA4AB005013A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Quick-tvOS";
+			productName = "Quick-tvOS";
+			productReference = 1F118CD51BDCA4AB005013A2 /* Quick.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1F118CDD1BDCA4AB005013A2 /* Quick-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F118CE91BDCA4AB005013A2 /* Build configuration list for PBXNativeTarget "Quick-tvOSTests" */;
+			buildPhases = (
+				1F118CDA1BDCA4AB005013A2 /* Sources */,
+				1F118CDB1BDCA4AB005013A2 /* Frameworks */,
+				1F118CDC1BDCA4AB005013A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F118CE11BDCA4AB005013A2 /* PBXTargetDependency */,
+			);
+			name = "Quick-tvOSTests";
+			productName = "Quick-tvOSTests";
+			productReference = 1F118CDE1BDCA4AB005013A2 /* Quick-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1F118CEF1BDCA4BB005013A2 /* QuickFocused-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F118CF81BDCA4BC005013A2 /* Build configuration list for PBXNativeTarget "QuickFocused-tvOSTests" */;
+			buildPhases = (
+				1F118CEC1BDCA4BB005013A2 /* Sources */,
+				1F118CED1BDCA4BB005013A2 /* Frameworks */,
+				1F118CEE1BDCA4BB005013A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F118CF71BDCA4BB005013A2 /* PBXTargetDependency */,
+			);
+			name = "QuickFocused-tvOSTests";
+			productName = "QuickFocused-tvOSTests";
+			productReference = 1F118CF01BDCA4BB005013A2 /* QuickFocused-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5A5D117B19473F2100F6D13D /* Quick-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A5D119319473F2100F6D13D /* Build configuration list for PBXNativeTarget "Quick-iOS" */;
@@ -801,10 +981,19 @@
 		DAEB6B851943873100289F44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Brian Ivan Gesiak";
 				TargetAttributes = {
+					1F118CD41BDCA4AB005013A2 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					1F118CDD1BDCA4AB005013A2 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					1F118CEF1BDCA4BB005013A2 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					5A5D117B19473F2100F6D13D = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -845,11 +1034,35 @@
 				5A5D117B19473F2100F6D13D /* Quick-iOS */,
 				5A5D118519473F2100F6D13D /* Quick-iOSTests */,
 				DA9876B11A4C70EB0004AA17 /* QuickFocused-iOSTests */,
+				1F118CD41BDCA4AB005013A2 /* Quick-tvOS */,
+				1F118CDD1BDCA4AB005013A2 /* Quick-tvOSTests */,
+				1F118CEF1BDCA4BB005013A2 /* QuickFocused-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F118CD31BDCA4AB005013A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F118CDC1BDCA4AB005013A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F118CEE1BDCA4BB005013A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A5D117A19473F2100F6D13D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -895,6 +1108,71 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F118CD01BDCA4AB005013A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F118D031BDCA536005013A2 /* World.swift in Sources */,
+				1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */,
+				1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */,
+				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
+				1F118D041BDCA536005013A2 /* Example.swift in Sources */,
+				1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */,
+				1F118D071BDCA536005013A2 /* Callsite.swift in Sources */,
+				1F118D081BDCA536005013A2 /* Filter.swift in Sources */,
+				1F118CFD1BDCA536005013A2 /* World+DSL.swift in Sources */,
+				1F118D0A1BDCA536005013A2 /* NSString+QCKSelectorName.m in Sources */,
+				1F118CFE1BDCA536005013A2 /* DSL.swift in Sources */,
+				1F118D001BDCA536005013A2 /* Closures.swift in Sources */,
+				1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */,
+				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
+				1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */,
+				1F118D011BDCA536005013A2 /* ExampleHooks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F118CDA1BDCA4AB005013A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F118D381BDCA6E1005013A2 /* Configuration+BeforeEachTests.swift in Sources */,
+				1F118D121BDCA556005013A2 /* ItTests.swift in Sources */,
+				1F118D1C1BDCA556005013A2 /* BeforeSuiteTests.swift in Sources */,
+				1F118D1D1BDCA556005013A2 /* BeforeSuiteTests+ObjC.m in Sources */,
+				1F118D0E1BDCA547005013A2 /* QCKSpecRunner.m in Sources */,
+				1F118D141BDCA556005013A2 /* FailureTests+ObjC.m in Sources */,
+				1F118D0F1BDCA54B005013A2 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
+				1F118D101BDCA556005013A2 /* Configuration+AfterEach.swift in Sources */,
+				1F118D1F1BDCA556005013A2 /* AfterSuiteTests+ObjC.m in Sources */,
+				1F118D1A1BDCA556005013A2 /* PendingTests.swift in Sources */,
+				1F118D171BDCA556005013A2 /* BeforeEachTests+ObjC.m in Sources */,
+				1F118D231BDCA556005013A2 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
+				1F118D151BDCA556005013A2 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
+				1F118D131BDCA556005013A2 /* ItTests+ObjC.m in Sources */,
+				1F118D191BDCA556005013A2 /* AfterEachTests+ObjC.m in Sources */,
+				1F118D221BDCA556005013A2 /* SharedExamples+BeforeEachTests.swift in Sources */,
+				1F118D211BDCA556005013A2 /* SharedExamplesTests+ObjC.m in Sources */,
+				1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */,
+				1F118D0C1BDCA543005013A2 /* QuickConfigurationTests.m in Sources */,
+				1F118D391BDCA6E6005013A2 /* Configuration+BeforeEach.swift in Sources */,
+				1F118D181BDCA556005013A2 /* AfterEachTests.swift in Sources */,
+				1F118D1B1BDCA556005013A2 /* PendingTests+ObjC.m in Sources */,
+				1F118D1E1BDCA556005013A2 /* AfterSuiteTests.swift in Sources */,
+				1F118D111BDCA556005013A2 /* Configuration+AfterEachTests.swift in Sources */,
+				1F118D161BDCA556005013A2 /* BeforeEachTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F118CEC1BDCA4BB005013A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F118D0D1BDCA547005013A2 /* QCKSpecRunner.m in Sources */,
+				1F118D241BDCA561005013A2 /* FocusedTests.swift in Sources */,
+				1F118D251BDCA561005013A2 /* FocusedTests+ObjC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A5D117719473F2100F6D13D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1123,6 +1401,16 @@
 			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
 			targetProxy = 04DC9808194B838B00CE00B6 /* PBXContainerItemProxy */;
 		};
+		1F118CE11BDCA4AB005013A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F118CD41BDCA4AB005013A2 /* Quick-tvOS */;
+			targetProxy = 1F118CE01BDCA4AB005013A2 /* PBXContainerItemProxy */;
+		};
+		1F118CF71BDCA4BB005013A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F118CD41BDCA4AB005013A2 /* Quick-tvOS */;
+			targetProxy = 1F118CF61BDCA4BB005013A2 /* PBXContainerItemProxy */;
+		};
 		5A5D118919473F2100F6D13D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5A5D117B19473F2100F6D13D /* Quick-iOS */;
@@ -1161,6 +1449,141 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1F118CE71BDCA4AB005013A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Quick/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Quick;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		1F118CE81BDCA4AB005013A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Quick/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Quick;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F118CEA1BDCA4AB005013A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		1F118CEB1BDCA4AB005013A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F118CF91BDCA4BC005013A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = QuickFocusedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		1F118CFA1BDCA4BC005013A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = QuickFocusedTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5A5D118F19473F2100F6D13D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1190,7 +1613,7 @@
 				PRODUCT_NAME = Quick;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvos appletvsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1220,7 +1643,7 @@
 				PRODUCT_NAME = Quick;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvos appletvsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -1540,6 +1963,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F118CE61BDCA4AB005013A2 /* Build configuration list for PBXNativeTarget "Quick-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F118CE71BDCA4AB005013A2 /* Debug */,
+				1F118CE81BDCA4AB005013A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F118CE91BDCA4AB005013A2 /* Build configuration list for PBXNativeTarget "Quick-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F118CEA1BDCA4AB005013A2 /* Debug */,
+				1F118CEB1BDCA4AB005013A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F118CF81BDCA4BC005013A2 /* Build configuration list for PBXNativeTarget "QuickFocused-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F118CF91BDCA4BC005013A2 /* Debug */,
+				1F118CFA1BDCA4BC005013A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5A5D119319473F2100F6D13D /* Build configuration list for PBXNativeTarget "Quick-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
