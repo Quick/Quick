@@ -10,10 +10,6 @@ dependencies:
   pre:
     - brew upgrade xctool
 
-# despite what circle ci says, xctool 0.2.3 cannot run
-# ios simulator tests on iOS frameworks for whatever reason.
-#
-# See: https://github.com/facebook/xctool/issues/415
 test:
   override:
     - rake test:ios
