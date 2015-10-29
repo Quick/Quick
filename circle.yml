@@ -19,5 +19,6 @@ test:
     - rake test:ios
     - rake test:osx
     - rake test:xctool_ios
+    - rake test:xctool_osx
 
 
