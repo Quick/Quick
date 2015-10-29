@@ -8,7 +8,8 @@ checkout:
 
 dependencies:
   pre:
-    - brew upgrade xctool
+    - brew update
+    - brew outdated xctool || brew upgrade xctool
 
 test:
   override:
