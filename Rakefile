@@ -12,6 +12,11 @@ namespace "test" do
   task :osx do |t|
     run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-OSX clean test"
   end
+
+  desc "Run unit tests for all iOS targets using xctool"
+  task :xctool_ios do |t|
+    run "xctool -workspace Quick.xcworkspace -scheme Quick-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' clean test"
+  end
 end
 
 namespace "templates" do
