@@ -3,7 +3,9 @@ language: objective-c
 
 before_install:
   - git submodule update --init --recursive
-  - brew update
+  # There is a bug in a formula resulting in update failing if run once, but not the second time
+  # See https://github.com/Homebrew/homebrew/issues/45616
+  - brew update || brew update
   - brew outdated xctool || brew upgrade xctool
 script:
   - rake test:ios
