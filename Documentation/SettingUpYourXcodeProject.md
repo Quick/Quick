@@ -1,6 +1,6 @@
 # Setting Up Tests in Your Xcode Project
 
-When you create a new project in Xcode 6, a unit test target is included
+When you create a new project in Xcode 7, a unit test target is included
 by default. To write unit tests, you'll need to be able to use your main
 target's code from within your test target.
 
@@ -12,15 +12,14 @@ In order to test code written in Swift, you'll need to do three things:
 
   * To do this in Xcode: Choose your project, then "Build Settings" header, then "Defines Modules" line, then select "Yes".
 
-2. Mark any class/method/function you want to test `public`, since only
-   `public` symbols are exported.
-3. `import YourAppModuleName` in your unit tests.
+2. `@testable import YourAppModuleName` in your unit tests. This will expose Any `public` and `internal` (the default)
+   symbols to your tests. `private` symbols are still unavailable.
 
 ```swift
 // MyAppTests.swift
 
 import XCTest
-import MyModule
+@testable import MyModule
 
 class MyClassTests: XCTestCase {
   // ...
