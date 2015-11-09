@@ -6,13 +6,23 @@ checkout:
   post:
     - git submodule update --init --recursive
 
-# despite what circle ci says, xctool 0.2.3 cannot run
-# ios simulator tests on iOS frameworks for whatever reason.
-#
-# See: https://github.com/facebook/xctool/issues/415
+dependencies:
+  pre:
+    # There is a bug in a formula resulting in update failing if run once, but not the second time
+    # See https://github.com/Homebrew/homebrew/issues/45616
+    - brew update || brew update
+    - brew outdated xctool || brew upgrade xctool
+
 test:
   override:
     - rake test:ios
     - rake test:osx
+    - rake test:xctool_ios
+    # Due to the `pending` specs using a `print` xctool fails generating the report,
+    # which in turn makes the tests fail.
+    # See https://github.com/facebook/xctool/issues/314#issuecomment-152988101 and comments
+    # for details.
+    # See https://circleci.com/gh/mokagio/Quick/12 for a proof that without `print` the test pass.
+    # - rake test:xctool_osx
 
 
