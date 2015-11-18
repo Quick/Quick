@@ -8,6 +8,27 @@ static QuickSpec *currentSpec = nil;
 
 const void * const QCKExampleKey = &QCKExampleKey;
 
+@interface Observer : NSObject <XCTestObservation>
+
+@end
+
+@implementation Observer
+
+- (void)testSuiteWillStart:(XCTestSuite *)testSuite {
+    Class k = NSClassFromString(@"XCTestCaseSuite");
+    if ([testSuite isKindOfClass:k]) {
+        Ivar ivar = class_getInstanceVariable([testSuite class], "_tests");
+        NSMutableArray *tests = object_getIvar(testSuite, ivar);
+        
+        XCTestCase *dummyCase = [QuickSpec testCaseWithSelector:@selector(dummyExample)];
+        [tests addObject:dummyCase];
+    }
+}
+
+@end
+
+static Observer *observer = nil;
+
 @interface QuickSpec ()
 @property (nonatomic, strong) Example *example;
 @end
@@ -47,6 +68,11 @@ const void * const QCKExampleKey = &QCKExampleKey;
     }
     [self testInvocations];
     world.currentExampleGroup = nil;
+    
+    if (!observer) {
+        observer = [Observer new];
+        [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:observer];
+    }
 }
 
 /**
@@ -155,6 +181,10 @@ const void * const QCKExampleKey = &QCKExampleKey;
                                                inFile:filePath
                                                atLine:lineNumber
                                              expected:expected];
+}
+
+- (void)dummyExample {
+    
 }
 
 @end
