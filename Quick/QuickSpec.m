@@ -10,19 +10,38 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
 @interface Observer : NSObject <XCTestObservation>
 
+@property (nonatomic) BOOL isDummyInjected;
+
 @end
 
 @implementation Observer
 
 - (void)testSuiteWillStart:(XCTestSuite *)testSuite {
-    Class k = NSClassFromString(@"XCTestCaseSuite");
-    if ([testSuite isKindOfClass:k]) {
+    if (!self.isDummyInjected) {
+        XCTestSuite *suite = [self findLastExecutedSuite:testSuite];
+        [self injectDummyToTestSuite:suite];
+        self.isDummyInjected = true;
+    }
+}
+
+- (XCTestSuite *)findLastExecutedSuite:(XCTestSuite *)testSuite {
+    Class XCTestCaseSuite = NSClassFromString(@"XCTestCaseSuite");
+    
+    if ([testSuite isKindOfClass:XCTestCaseSuite]) {
+        return testSuite;
+    } else {
         Ivar ivar = class_getInstanceVariable([testSuite class], "_tests");
         NSMutableArray *tests = object_getIvar(testSuite, ivar);
-        
-        XCTestCase *dummyCase = [QuickSpec testCaseWithSelector:@selector(dummyExample)];
-        [tests addObject:dummyCase];
+        return [self findLastExecutedSuite:tests.lastObject];
     }
+}
+
+- (void)injectDummyToTestSuite:(XCTestSuite *)testSuite {
+    Ivar ivar = class_getInstanceVariable([testSuite class], "_tests");
+    NSMutableArray *tests = object_getIvar(testSuite, ivar);
+    
+    XCTestCase *dummyCase = [QuickSpec testCaseWithSelector:@selector(dummyExample)];
+    [tests addObject:dummyCase];
 }
 
 @end
