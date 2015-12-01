@@ -17,6 +17,9 @@ extension World {
     }
 
     internal func describe(description: String, flags: FilterFlags, closure: () -> ()) {
+        guard currentExampleGroup != nil else {
+            fatalError("Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)")
+        }
         let group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
         currentExampleGroup = group
