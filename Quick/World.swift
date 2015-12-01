@@ -29,7 +29,7 @@ final internal class World: NSObject {
         The DSL requires that this group is correctly set in order to build a
         correct hierarchy of example groups and their examples.
     */
-    internal var currentExampleGroup: ExampleGroup?
+    internal var currentExampleGroup: ExampleGroup!
 
     /**
         The example metadata of the test that is currently being run.
@@ -57,12 +57,7 @@ final internal class World: NSObject {
     // MARK: Singleton Constructor
 
     private override init() {}
-    private struct Shared {
-        static let instance = World()
-    }
-    internal class func sharedWorld() -> World {
-        return Shared.instance
-    }
+    static let sharedWorld = World()
 
     // MARK: Public Interface
 
