@@ -46,6 +46,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
                            exception.name, exception.reason, exception.userInfo];
     }
     [self testInvocations];
+    world.currentExampleGroup = nil;
 }
 
 /**

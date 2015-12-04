@@ -55,7 +55,7 @@ final public class Example: NSObject {
         closures defined in the its surrounding example groups.
     */
     public func run() {
-        let world = World.sharedWorld()
+        let world = World.sharedWorld
 
         if numberOfExamplesRun == 0 {
             world.suiteHooks.executeBefores()
