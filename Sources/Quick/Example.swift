@@ -1,3 +1,5 @@
+import Foundation
+
 private var numberOfExamplesRun = 0
 
 /**

@@ -1,3 +1,5 @@
+import Foundation
+
 /**
     Example groups are logical groupings of examples, defined with
     the `describe` and `context` functions. Example groups can share

@@ -1,3 +1,5 @@
+import Foundation
+
 /**
     Adds methods to World to support top-level DSL functions (Swift) and
     macros (Objective-C). These functions map directly to the DSL that test
