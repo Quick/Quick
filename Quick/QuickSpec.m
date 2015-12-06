@@ -2,11 +2,45 @@
 #import "QuickConfiguration.h"
 #import "NSString+QCKSelectorName.h"
 #import "World.h"
-#import <objc/runtime.h>
 
 static QuickSpec *currentSpec = nil;
 
 const void * const QCKExampleKey = &QCKExampleKey;
+
+@interface Observer : NSObject <XCTestObservation>
+
+@property (nonatomic) BOOL isDummyInjected;
+
+@end
+
+@implementation Observer
+
+- (void)testSuiteWillStart:(XCTestSuite *)testSuite {
+    if (!self.isDummyInjected) {
+        XCTestSuite *suite = [self findLastExecutedSuite:testSuite];
+        [self injectDummyToTestSuite:suite];
+        self.isDummyInjected = true;
+    }
+}
+
+- (XCTestSuite *)findLastExecutedSuite:(XCTestSuite *)testSuite {
+    Class XCTestCaseSuite = NSClassFromString(@"XCTestCaseSuite");
+    
+    if ([testSuite isKindOfClass:XCTestCaseSuite]) {
+        return testSuite;
+    } else {
+        return [self findLastExecutedSuite:testSuite.tests.lastObject];
+    }
+}
+
+- (void)injectDummyToTestSuite:(XCTestSuite *)testSuite {
+    XCTestCase *dummyCase = [QuickSpec testCaseWithSelector:@selector(dummyExample)];
+    [testSuite addTest:dummyCase];
+}
+
+@end
+
+static Observer *observer = nil;
 
 @interface QuickSpec ()
 @property (nonatomic, strong) Example *example;
@@ -47,6 +81,11 @@ const void * const QCKExampleKey = &QCKExampleKey;
     }
     [self testInvocations];
     world.currentExampleGroup = nil;
+    
+    if (!observer) {
+        observer = [Observer new];
+        [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:observer];
+    }
 }
 
 /**
@@ -155,6 +194,10 @@ const void * const QCKExampleKey = &QCKExampleKey;
                                                inFile:filePath
                                                atLine:lineNumber
                                              expected:expected];
+}
+
+- (void)dummyExample {
+    
 }
 
 @end
