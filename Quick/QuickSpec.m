@@ -2,7 +2,6 @@
 #import "QuickConfiguration.h"
 #import "NSString+QCKSelectorName.h"
 #import "World.h"
-#import <objc/runtime.h>
 
 static QuickSpec *currentSpec = nil;
 
@@ -30,18 +29,13 @@ const void * const QCKExampleKey = &QCKExampleKey;
     if ([testSuite isKindOfClass:XCTestCaseSuite]) {
         return testSuite;
     } else {
-        Ivar ivar = class_getInstanceVariable([testSuite class], "_tests");
-        NSMutableArray *tests = object_getIvar(testSuite, ivar);
-        return [self findLastExecutedSuite:tests.lastObject];
+        return [self findLastExecutedSuite:testSuite.tests.lastObject];
     }
 }
 
 - (void)injectDummyToTestSuite:(XCTestSuite *)testSuite {
-    Ivar ivar = class_getInstanceVariable([testSuite class], "_tests");
-    NSMutableArray *tests = object_getIvar(testSuite, ivar);
-    
     XCTestCase *dummyCase = [QuickSpec testCaseWithSelector:@selector(dummyExample)];
-    [tests addObject:dummyCase];
+    [testSuite addTest:dummyCase];
 }
 
 @end
