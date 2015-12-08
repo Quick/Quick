@@ -17,7 +17,7 @@ test:
   override:
     - rake test:ios
     - rake test:osx
-    - rake test:xctool_ios
+    - rake test:xctool:ios
     # Due to the `pending` specs using a `print` xctool fails generating the report,
     # which in turn makes the tests fail.
     # See https://github.com/facebook/xctool/issues/314#issuecomment-152988101 and comments
