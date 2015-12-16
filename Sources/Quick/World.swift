@@ -102,7 +102,12 @@ final internal class World: NSObject {
         - returns: The root example group for the class.
     */
     internal func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
-        let name = NSStringFromClass(cls)
+        #if os(Linux)
+            let name = String(cls)
+        #else
+            let name = NSStringFromClass(cls)
+        #endif
+
         if let group = specs[name] {
             return group
         } else {
@@ -125,7 +130,6 @@ final internal class World: NSObject {
         - parameter specClass: The QuickSpec subclass for which examples are to be returned.
         - returns: A list of examples to be run as test invocations.
     */
-    @objc(examplesForSpecClass:)
     internal func examples(specClass: AnyClass) -> [Example] {
         // 1. Grab all included examples.
         let included = includedExamples
@@ -136,6 +140,13 @@ final internal class World: NSObject {
             !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
         }
     }
+
+#if !os(Linux)
+    @objc(examplesForSpecClass:)
+    private func objc_examples(specClass: AnyClass) -> [Example] {
+        return examples(specClass)
+    }
+#endif
 
     // MARK: Internal
 
@@ -176,17 +187,27 @@ final internal class World: NSObject {
 
     private func raiseIfSharedExampleAlreadyRegistered(name: String) {
         if sharedExamples[name] != nil {
-            NSException(name: NSInternalInconsistencyException,
-                reason: "A shared example named '\(name)' has already been registered.",
-                userInfo: nil).raise()
+            let error = "A shared example named '\(name)' has already been registered."
+            #if os(Linux)
+                fatalError(error)
+            #else
+                NSException(name: NSInternalInconsistencyException,
+                    reason: error,
+                    userInfo: nil).raise()
+            #endif
         }
     }
 
     private func raiseIfSharedExampleNotRegistered(name: String) {
         if sharedExamples[name] == nil {
-            NSException(name: NSInternalInconsistencyException,
-                reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'",
-                userInfo: nil).raise()
+            let error = "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'"
+            #if os(Linux)
+                fatalError(error)
+            #else
+                NSException(name: NSInternalInconsistencyException,
+                    reason: error,
+                    userInfo: nil).raise()
+            #endif
         }
     }
 }
