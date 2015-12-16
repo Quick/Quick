@@ -38,3 +38,6 @@ Carthage/Build
 
 # Quick
 Quick.framework.zip
+
+# Swift Package Manager
+.build
