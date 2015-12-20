@@ -6,7 +6,7 @@ target's code from within your test target.
 
 ## Testing Swift Code Using Swift
 
-In order to test code written in Swift, you'll need to do three things:
+In order to test code written in Swift, you'll need to do two things:
 
 1. Set "defines module" in your `.xcodeproj` to `YES`.
 
