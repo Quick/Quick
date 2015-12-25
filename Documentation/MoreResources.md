@@ -19,7 +19,7 @@ including [GitHub](https://github.com/github) and
 
 - **[Quality Coding](http://qualitycoding.org/)**:
   A blog on iOS development that focuses on unit testing.
-- **[OCMock Tutorials](http://ocmock.org/tutorials/)**:
+- **[OCMock Tutorials](http://ocmock.org/support/)**:
   Use OCMock when you need "fake objects" in your tests.
 - **[Nocilla: Stunning HTTP stubbing for iOS and Mac OS X](https://github.com/luisobo/Nocilla)**:
   Use this library to test code that sends requests to, and receives responses from, the Internet.
