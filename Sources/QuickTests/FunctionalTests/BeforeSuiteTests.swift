@@ -29,9 +29,10 @@ class BeforeSuiteTests: XCTestCase, XCTestCaseProvider {
 
     func testBeforeSuiteIsExecutedBeforeAnyExamples() {
         // Execute the spec with an assertion before the one with a beforeSuite
-        let specs = NSArray(objects: FunctionalTests_BeforeSuite_Spec.classForCoder(),
-                                     FunctionalTests_BeforeSuite_BeforeSuiteSpec.classForCoder())
-        let result = qck_runSpecs(specs as [AnyObject])
+        let result = qck_runSpecs([
+            FunctionalTests_BeforeSuite_Spec.classForCoder(),
+            FunctionalTests_BeforeSuite_BeforeSuiteSpec.classForCoder()
+            ])
 
         XCTAssert(result.hasSucceeded)
     }
