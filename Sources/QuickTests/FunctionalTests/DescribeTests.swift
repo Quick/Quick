@@ -10,6 +10,8 @@ import XCTest
 import Nimble
 import Quick
 
+#if !os(Linux)
+
 class DescribeTests: XCTestCase, XCTestCaseProvider {
     var allTests: [(String, () -> Void)] {
         return [
@@ -22,3 +24,5 @@ class DescribeTests: XCTestCase, XCTestCaseProvider {
     }
     
 }
+
+#endif
