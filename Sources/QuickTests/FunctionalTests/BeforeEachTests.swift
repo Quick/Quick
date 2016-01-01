@@ -42,17 +42,9 @@ class BeforeEachTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
-    override func setUp() {
-        super.setUp()
-        beforeEachOrder = []
-    }
-
-    override func tearDown() {
-        beforeEachOrder = []
-        super.tearDown()
-    }
-
     func testBeforeEachIsExecutedInTheCorrectOrder() {
+        beforeEachOrder = []
+
         qck_runSpec(FunctionalTests_BeforeEachSpec.classForCoder())
         let expectedOrder = [
             // [1] The outer beforeEach closures are executed from top to bottom.

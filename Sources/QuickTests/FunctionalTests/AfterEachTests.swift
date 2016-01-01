@@ -58,17 +58,9 @@ class AfterEachTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
-    override func setUp() {
-        super.setUp()
-        afterEachOrder = []
-    }
-
-    override func tearDown() {
-        afterEachOrder = []
-        super.tearDown()
-    }
-
     func testAfterEachIsExecutedInTheCorrectOrder() {
+        afterEachOrder = []
+
         qck_runSpec(FunctionalTests_AfterEachSpec.classForCoder())
         let expectedOrder = [
             // [1] The outer afterEach closures are executed from top to bottom.
@@ -81,5 +73,7 @@ class AfterEachTests: XCTestCase, XCTestCaseProvider {
                 AfterEachType.OuterOne, AfterEachType.OuterTwo, AfterEachType.OuterThree,
         ]
         XCTAssertEqual(afterEachOrder, expectedOrder)
+
+        afterEachOrder = []
     }
 }

@@ -17,18 +17,12 @@ class Configuration_BeforeEachTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
-    override func setUp() {
-        super.setUp()
-        FunctionalTests_Configuration_BeforeEachWasExecuted = false
-    }
-
-    override func tearDown() {
-        FunctionalTests_Configuration_BeforeEachWasExecuted = false
-        super.tearDown()
-    }
-
     func testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted() {
+        FunctionalTests_Configuration_BeforeEachWasExecuted = false
+
         qck_runSpec(Configuration_BeforeEachSpec.classForCoder())
         XCTAssert(FunctionalTests_Configuration_BeforeEachWasExecuted)
+
+        FunctionalTests_Configuration_BeforeEachWasExecuted = false
     }
 }

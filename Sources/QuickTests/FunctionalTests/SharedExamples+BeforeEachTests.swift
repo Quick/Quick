@@ -32,24 +32,16 @@ class SharedExamples_BeforeEachTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
-    override func setUp() {
-        super.setUp()
-        specBeforeEachExecutedCount = 0
-        sharedExamplesBeforeEachExecutedCount = 0
-    }
-
-    override func tearDown() {
-        specBeforeEachExecutedCount = 0
-        sharedExamplesBeforeEachExecutedCount = 0
-        super.tearDown()
-    }
-
     func testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample() {
+        specBeforeEachExecutedCount = 0
+
         qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.classForCoder())
         XCTAssertEqual(specBeforeEachExecutedCount, 4)
     }
 
     func testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample() {
+        sharedExamplesBeforeEachExecutedCount = 0
+
         qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.classForCoder())
         XCTAssertEqual(sharedExamplesBeforeEachExecutedCount, 3)
     }

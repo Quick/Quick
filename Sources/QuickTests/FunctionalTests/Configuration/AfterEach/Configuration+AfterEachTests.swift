@@ -20,18 +20,12 @@ class Configuration_AfterEachTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
-    override func setUp() {
-        super.setUp()
-        FunctionalTests_Configuration_AfterEachWasExecuted = false
-    }
-
-    override func tearDown() {
-        FunctionalTests_Configuration_AfterEachWasExecuted = false
-        super.tearDown()
-    }
-
     func testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted() {
+        FunctionalTests_Configuration_AfterEachWasExecuted = false
+
         qck_runSpec(Configuration_BeforeEachSpec.classForCoder())
         XCTAssert(FunctionalTests_Configuration_AfterEachWasExecuted)
+
+        FunctionalTests_Configuration_AfterEachWasExecuted = false
     }
 }
