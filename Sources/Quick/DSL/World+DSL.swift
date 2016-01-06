@@ -19,6 +19,10 @@ extension World {
     }
 
     internal func describe(description: String, flags: FilterFlags, closure: () -> ()) {
+        guard currentExampleMetadata == nil else {
+            NSException(name: "Invalid DSL Exception", reason: "'describe' cannot be used inside 'it', 'describe' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         guard currentExampleGroup != nil else {
             raiseError("Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)")
         }
