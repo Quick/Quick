@@ -54,6 +54,10 @@ extension World {
     }
 
     internal func beforeEach(closure: BeforeExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            NSException(name: "Invalid DSL Exception", reason: "'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         currentExampleGroup.hooks.appendBefore(closure)
     }
 
