@@ -73,6 +73,10 @@ extension World {
 #endif
 
     internal func afterEach(closure: AfterExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            NSException(name: "Invalid DSL Exception", reason: "'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         currentExampleGroup.hooks.appendAfter(closure)
     }
 
