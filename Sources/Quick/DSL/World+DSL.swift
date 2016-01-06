@@ -34,6 +34,10 @@ extension World {
     }
 
     internal func context(description: String, flags: FilterFlags, closure: () -> ()) {
+        guard currentExampleMetadata == nil else {
+            NSException(name: "Invalid DSL Exception", reason: "'context' cannot be used inside 'it', 'context' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         self.describe(description, flags: flags, closure: closure)
     }
 

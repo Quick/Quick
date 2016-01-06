@@ -106,6 +106,9 @@
 		47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
+		7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
+		7B5358D01C3D4FC000A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
 		8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
@@ -411,6 +414,7 @@
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
@@ -614,6 +618,7 @@
 				4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */,
 				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
 				4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */,
+				7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -1184,6 +1189,7 @@
 				1F118D1E1BDCA556005013A2 /* AfterSuiteTests.swift in Sources */,
 				1F118D111BDCA556005013A2 /* Configuration+AfterEachTests.swift in Sources */,
 				1F118D161BDCA556005013A2 /* BeforeEachTests.swift in Sources */,
+				7B5358D01C3D4FC000A23FAA /* ContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,6 +1259,7 @@
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
 				47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
+				7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1333,6 +1340,7 @@
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
 				47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
+				7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
