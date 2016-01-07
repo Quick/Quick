@@ -92,6 +92,10 @@ extension World {
 #endif
 
     internal func it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+        guard currentExampleMetadata == nil else {
+            NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         let callsite = Callsite(file: file, line: line)
         let example = Example(description: description, callsite: callsite, flags: flags, closure: closure)
         currentExampleGroup.appendExample(example)
