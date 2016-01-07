@@ -114,6 +114,10 @@ extension World {
     }
 
     internal func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+        guard currentExampleMetadata == nil else {
+            NSException(name: "Invalid DSL Exception", reason: "'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld.sharedExample(name)
 
