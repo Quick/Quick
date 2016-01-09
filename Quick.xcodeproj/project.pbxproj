@@ -98,9 +98,9 @@
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE57105B1C3FCB1D00FC314F /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */; };
-		CE57CEC31C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */; };
-		CE57CEC41C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */; };
-		CE57CEC51C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */; };
+		CE57CEC31C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
+		CE57CEC41C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
+		CE57CEC51C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
 		CE57CEC71C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEC81C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEC91C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
@@ -412,7 +412,7 @@
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuite.swift; sourceTree = "<group>"; };
+		CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		CE57CECA1C410D8D00D63004 /* String+fileName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+fileName.swift"; sourceTree = "<group>"; };
 		CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
@@ -712,7 +712,7 @@
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */,
-				CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */,
+				CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift */,
 				CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */,
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
 				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
@@ -1152,7 +1152,7 @@
 				CEE5DF4D1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
 				CE57CEC91C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				CEE7CC951C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */,
-				CE57CEC51C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */,
+				CE57CEC51C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				1F118D001BDCA536005013A2 /* Closures.swift in Sources */,
 				1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */,
 				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
@@ -1222,7 +1222,7 @@
 				CEE5DF4C1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
 				CE57CEC81C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				CEE7CC941C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */,
-				CE57CEC41C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */,
+				CE57CEC41C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
@@ -1302,7 +1302,7 @@
 				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
 				CE57CEC71C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				CEE7CC931C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */,
-				CE57CEC31C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */,
+				CE57CEC31C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,

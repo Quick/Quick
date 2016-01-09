@@ -33,7 +33,7 @@ public class QuickTestSuite: XCTestSuite {
      all subsequent calls should return `nil`.
      */
     public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuiteBuilder? {
-        return QuickSelectedTestSuite(forTestCaseWithName: name)
+        return QuickSelectedTestSuiteBuilder(forTestCaseWithName: name)
     }
 
 }

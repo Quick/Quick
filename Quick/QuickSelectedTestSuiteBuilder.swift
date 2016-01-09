@@ -1,4 +1,4 @@
-internal class QuickSelectedTestSuite: QuickTestSuite, QuickTestSuiteBuilder {
+internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
 
     let testCaseClass: AnyClass!
 
@@ -23,9 +23,8 @@ internal class QuickSelectedTestSuite: QuickTestSuite, QuickTestSuiteBuilder {
 
     // TODO: Move the tracking of "built test suites" up into `QuickTestSuite.selectedTestSuite(forTestCaseWithName:)`.
     init?(forTestCaseWithName name: String) {
-        guard let testCaseClass = QuickSelectedTestSuite.testCaseClass(forTestCaseWithName: name) else {
+        guard let testCaseClass = QuickSelectedTestSuiteBuilder.testCaseClass(forTestCaseWithName: name) else {
             self.testCaseClass = nil
-            super.init()
             return nil
         }
 
@@ -33,24 +32,15 @@ internal class QuickSelectedTestSuite: QuickTestSuite, QuickTestSuiteBuilder {
 
         let namespacedClassName = NSStringFromClass(testCaseClass)
 
-        guard !QuickSelectedTestSuite.builtTestSuites.contains(namespacedClassName) else {
-            super.init()
+        guard !QuickSelectedTestSuiteBuilder.builtTestSuites.contains(namespacedClassName) else {
             return nil
         }
 
-        QuickSelectedTestSuite.builtTestSuites.insert(namespacedClassName)
-
-        super.init(name: String(testCaseClass))
+        QuickSelectedTestSuiteBuilder.builtTestSuites.insert(namespacedClassName)
     }
 
-    func buildTestSuite() -> QuickTestSuite {
-        for invocation in testCaseClass.testInvocations() {
-            let testCase = (testCaseClass as AnyObject).performSelector("testCaseWithInvocation:", withObject: invocation)
-            if let testCase = testCase.takeUnretainedValue() as? XCTestCase {
-                addTest(testCase)
-            }
-        }
-        return self
+    @objc func buildTestSuite() -> QuickTestSuite {
+        return QuickTestSuite(forTestCaseClass: testCaseClass)
     }
 
 }
