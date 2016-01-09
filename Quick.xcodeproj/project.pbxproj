@@ -97,6 +97,21 @@
 		47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE57105B1C3FCB1D00FC314F /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */; };
+		CE57CEC31C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */; };
+		CE57CEC41C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */; };
+		CE57CEC51C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */; };
+		CE57CEC71C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
+		CE57CEC81C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
+		CE57CEC91C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
+		CE57CECB1C410D8D00D63004 /* String+fileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+fileName.swift */; };
+		CE57CECC1C410D8D00D63004 /* String+fileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+fileName.swift */; };
+		CE57CECD1C410D8D00D63004 /* String+fileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+fileName.swift */; };
+		CEE5DF4C1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */; };
+		CEE5DF4D1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */; };
+		CEE7CC931C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */; };
+		CEE7CC941C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */; };
+		CEE7CC951C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */; };
 		DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
@@ -397,6 +412,11 @@
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuite.swift; sourceTree = "<group>"; };
+		CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
+		CE57CECA1C410D8D00D63004 /* String+fileName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+fileName.swift"; sourceTree = "<group>"; };
+		CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
+		CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
 		DA169E4719FF5DF100619816 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -691,8 +711,13 @@
 				DA6B30171A4DB0D500FFB148 /* Filter.swift */,
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
+				CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */,
+				CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuite.swift */,
+				CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */,
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
 				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
+				CE57CECA1C410D8D00D63004 /* String+fileName.swift */,
+				CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
 			path = Quick;
@@ -1118,11 +1143,16 @@
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
 				1F118D041BDCA536005013A2 /* Example.swift in Sources */,
 				1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */,
+				CE57CECD1C410D8D00D63004 /* String+fileName.swift in Sources */,
 				1F118D071BDCA536005013A2 /* Callsite.swift in Sources */,
 				1F118D081BDCA536005013A2 /* Filter.swift in Sources */,
 				1F118CFD1BDCA536005013A2 /* World+DSL.swift in Sources */,
 				1F118D0A1BDCA536005013A2 /* NSString+QCKSelectorName.m in Sources */,
 				1F118CFE1BDCA536005013A2 /* DSL.swift in Sources */,
+				CEE5DF4D1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
+				CE57CEC91C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
+				CEE7CC951C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */,
+				CE57CEC51C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */,
 				1F118D001BDCA536005013A2 /* Closures.swift in Sources */,
 				1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */,
 				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
@@ -1183,11 +1213,16 @@
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
+				CE57CECC1C410D8D00D63004 /* String+fileName.swift in Sources */,
 				DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
 				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
+				CEE5DF4C1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
+				CE57CEC81C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
+				CEE7CC941C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */,
+				CE57CEC41C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
@@ -1258,11 +1293,16 @@
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
 				DA408BE619FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
+				CE57CECB1C410D8D00D63004 /* String+fileName.swift in Sources */,
 				DAE7150019FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
+				CE57105B1C3FCB1D00FC314F /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
 				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
+				CE57CEC71C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
+				CEE7CC931C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */,
+				CE57CEC31C410B4C00D63004 /* QuickSelectedTestSuite.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
