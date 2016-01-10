@@ -8,6 +8,8 @@ import Foundation
 final public class ExampleGroup: NSObject {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
+    internal var beforesStartedExecuting = false
+    internal var beforesAlreadyExecuted = false
 
     private let internalDescription: String
     private let flags: FilterFlags

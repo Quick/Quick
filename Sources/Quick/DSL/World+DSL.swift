@@ -92,6 +92,10 @@ extension World {
 #endif
 
     internal func it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+        if beforesCurrentlyExecuting() {
+            NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         guard currentExampleMetadata == nil else {
             NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
             return

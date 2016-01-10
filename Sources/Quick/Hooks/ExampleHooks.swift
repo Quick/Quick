@@ -4,6 +4,9 @@
 final internal class ExampleHooks {
 
     internal var befores: [BeforeExampleWithMetadataClosure] = []
+    internal var beforesStartedExecuting = false
+    internal var beforesAlreadyExecuted = false
+
     internal var afters: [AfterExampleWithMetadataClosure] = []
 
     internal func appendBefore(closure: BeforeExampleWithMetadataClosure) {
@@ -23,9 +26,12 @@ final internal class ExampleHooks {
     }
 
     internal func executeBefores(exampleMetadata: ExampleMetadata) {
+        beforesStartedExecuting = true
         for before in befores {
             before(exampleMetadata: exampleMetadata)
         }
+        
+        beforesAlreadyExecuted = true
     }
 
     internal func executeAfters(exampleMetadata: ExampleMetadata) {

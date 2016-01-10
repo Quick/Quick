@@ -3,6 +3,7 @@
 */
 final internal class SuiteHooks {
     internal var befores: [BeforeSuiteClosure] = []
+    internal var beforesStartedExecuting = false
     internal var beforesAlreadyExecuted = false
 
     internal var afters: [AfterSuiteClosure] = []
@@ -17,7 +18,7 @@ final internal class SuiteHooks {
     }
 
     internal func executeBefores() {
-        assert(!beforesAlreadyExecuted)
+        beforesStartedExecuting = true
         for before in befores {
             before()
         }
@@ -25,7 +26,6 @@ final internal class SuiteHooks {
     }
 
     internal func executeAfters() {
-        assert(!aftersAlreadyExecuted)
         for after in afters {
             after()
         }
