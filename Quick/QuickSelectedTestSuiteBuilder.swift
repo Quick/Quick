@@ -29,9 +29,7 @@ private func testCaseClassForTestCaseWithName(name: String) -> AnyClass? {
     guard let className = extractClassName(name) else { return nil }
     guard let bundle = NSBundle.currentTestBundle else { return nil }
 
-    if let testCaseClass = bundle.classNamed(className) {
-        return testCaseClass
-    }
+    if let testCaseClass = bundle.classNamed(className) { return testCaseClass }
 
     guard let moduleName = bundle.bundlePath.fileName else { return nil }
 
