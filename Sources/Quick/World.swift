@@ -174,6 +174,17 @@ final internal class World: NSObject {
         
         return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
     }
+    
+    internal func aftersCurrentlyExecuting() -> Bool {
+        let suiteAftersExecuting = (suiteHooks.aftersStartedExecuting && !(suiteHooks.aftersAlreadyExecuted))
+        let exampleAftersExecuting = (exampleHooks.aftersStartedExecuting && !(exampleHooks.aftersAlreadyExecuted))
+        var groupAftersExecuting = false
+        if let runningExampleGroup = currentExampleMetadata?.example.group {
+            groupAftersExecuting = (runningExampleGroup.aftersStartedExecuting && !(runningExampleGroup.aftersAlreadyExecuted))
+        }
+        
+        return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
+    }
 
     private var allExamples: [Example] {
         var all: [Example] = []

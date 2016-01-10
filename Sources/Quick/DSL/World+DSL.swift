@@ -96,6 +96,10 @@ extension World {
             NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
             return
         }
+        if aftersCurrentlyExecuting() {
+            NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
+            return
+        }
         guard currentExampleMetadata == nil else {
             NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
             return

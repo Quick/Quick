@@ -48,6 +48,25 @@ class FunctionalTests_ItSpec: QuickSpec {
                     expect(exception!.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. "))
                 }
             }
+            
+            describe("behavior with an 'it' inside an 'afterEach'") {
+                var exception: NSException?
+                
+                afterEach {
+                    let capture = NMBExceptionCapture(handler: ({ e in
+                        exception = e
+                        expect(exception).toNot(beNil())
+                        expect(exception!.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. "))
+                    }), finally: nil)
+                    
+                    capture.tryBlock {
+                        it("a rouge 'it' inside an 'afterEach'") { }
+                        return
+                    }
+                }
+                
+                it("should throw an exception with the correct message after this 'it' block executes") {  }
+            }
         }
     }
 }
@@ -61,6 +80,6 @@ class ItTests: XCTestCase, XCTestCaseProvider {
 
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
-        XCTAssertEqual(result.executionCount, 4 as UInt)
+        XCTAssertEqual(result.executionCount, 5 as UInt)
     }
 }

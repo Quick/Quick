@@ -75,9 +75,11 @@ final public class Example: NSObject {
 
         closure()
 
+        group!.aftersStartedExecuting = true
         for after in group!.afters {
             after(exampleMetadata: exampleMetadata)
         }
+        group!.aftersAlreadyExecuted = true
         world.exampleHooks.executeAfters(exampleMetadata)
 
         numberOfExamplesRun += 1

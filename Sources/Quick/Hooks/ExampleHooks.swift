@@ -8,6 +8,8 @@ final internal class ExampleHooks {
     internal var beforesAlreadyExecuted = false
 
     internal var afters: [AfterExampleWithMetadataClosure] = []
+    internal var aftersStartedExecuting = false
+    internal var aftersAlreadyExecuted = false
 
     internal func appendBefore(closure: BeforeExampleWithMetadataClosure) {
         befores.append(closure)
@@ -35,8 +37,11 @@ final internal class ExampleHooks {
     }
 
     internal func executeAfters(exampleMetadata: ExampleMetadata) {
+        aftersStartedExecuting = true
         for after in afters {
             after(exampleMetadata: exampleMetadata)
         }
+        
+        aftersAlreadyExecuted = true
     }
 }

@@ -7,6 +7,7 @@ final internal class SuiteHooks {
     internal var beforesAlreadyExecuted = false
 
     internal var afters: [AfterSuiteClosure] = []
+    internal var aftersStartedExecuting = false
     internal var aftersAlreadyExecuted = false
 
     internal func appendBefore(closure: BeforeSuiteClosure) {
@@ -26,6 +27,7 @@ final internal class SuiteHooks {
     }
 
     internal func executeAfters() {
+        aftersStartedExecuting = true
         for after in afters {
             after()
         }
