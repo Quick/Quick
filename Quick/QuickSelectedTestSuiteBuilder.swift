@@ -6,25 +6,8 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
         return NSStringFromClass(testCaseClass)
     }
 
-    private static func className(fromTestCaseWithName name: String) -> String? {
-        return name.characters.split("/").first.map(String.init)
-    }
-
-    private static func testCaseClass(forTestCaseWithName name: String) -> AnyClass? {
-        guard let className = className(fromTestCaseWithName: name) else { return nil }
-        guard let bundle = NSBundle.currentTestBundle else { return nil }
-
-        if let testCaseClass = bundle.classNamed(className) {
-            return testCaseClass
-        }
-
-        guard let moduleName = bundle.bundlePath.fileName else { return nil }
-
-        return NSClassFromString("\(moduleName).\(className)")
-    }
-
     init?(forTestCaseWithName name: String) {
-        guard let testCaseClass = QuickSelectedTestSuiteBuilder.testCaseClass(forTestCaseWithName: name) else {
+        guard let testCaseClass = testCaseClassForTestCaseWithName(name) else {
             self.testCaseClass = nil
             return nil
         }
@@ -36,4 +19,21 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
         return QuickTestSuite(forTestCaseClass: testCaseClass)
     }
 
+}
+
+private func testCaseClassForTestCaseWithName(name: String) -> AnyClass? {
+    func extractClassName(name: String) -> String? {
+        return name.characters.split("/").first.map(String.init)
+    }
+
+    guard let className = extractClassName(name) else { return nil }
+    guard let bundle = NSBundle.currentTestBundle else { return nil }
+
+    if let testCaseClass = bundle.classNamed(className) {
+        return testCaseClass
+    }
+
+    guard let moduleName = bundle.bundlePath.fileName else { return nil }
+
+    return NSClassFromString("\(moduleName).\(className)")
 }
