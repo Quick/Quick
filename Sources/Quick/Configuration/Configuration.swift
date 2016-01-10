@@ -1,3 +1,5 @@
+import Foundation
+
 /**
     A closure that temporarily exposes a Configuration object within
     the scope of the closure.

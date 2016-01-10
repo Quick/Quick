@@ -299,6 +299,9 @@ describe(@"a dolphin", ^{
 QuickSpecEnd
 ```
 
+Strictly speaking, the `context` keyword is a synonym for `describe`, 
+but thoughtful use will make your spec easier to understand.
+
 ### Test Readability: Quick and XCTest
 
 In [Effective Tests Using XCTest: Arrange, Act, and Assert](ArrangeActAssert.md),

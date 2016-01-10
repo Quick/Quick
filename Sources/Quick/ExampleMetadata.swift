@@ -1,3 +1,5 @@
+import Foundation
+
 /**
     A class that encapsulates information about an example,
     including the index at which the example was executed, as

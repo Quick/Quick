@@ -9,7 +9,7 @@
     - parameter closure: The closure to be run prior to any examples in the test suite.
 */
 public func beforeSuite(closure: BeforeSuiteClosure) {
-    World.sharedWorld().beforeSuite(closure)
+    World.sharedWorld.beforeSuite(closure)
 }
 
 /**
@@ -23,7 +23,7 @@ public func beforeSuite(closure: BeforeSuiteClosure) {
     - parameter closure: The closure to be run after all of the examples in the test suite.
 */
 public func afterSuite(closure: AfterSuiteClosure) {
-    World.sharedWorld().afterSuite(closure)
+    World.sharedWorld.afterSuite(closure)
 }
 
 /**
@@ -37,7 +37,7 @@ public func afterSuite(closure: AfterSuiteClosure) {
                     and `afterEach` closures, as well as any number of examples (defined using `it`).
 */
 public func sharedExamples(name: String, closure: () -> ()) {
-    World.sharedWorld().sharedExamples(name, closure: { (NSDictionary) in closure() })
+    World.sharedWorld.sharedExamples(name, closure: { (NSDictionary) in closure() })
 }
 
 /**
@@ -54,7 +54,7 @@ public func sharedExamples(name: String, closure: () -> ()) {
                     that can be executed to retrieve parameters passed in via an `itBehavesLike` function.
 */
 public func sharedExamples(name: String, closure: SharedExampleClosure) {
-    World.sharedWorld().sharedExamples(name, closure: closure)
+    World.sharedWorld.sharedExamples(name, closure: closure)
 }
 
 /**
@@ -66,7 +66,7 @@ public func sharedExamples(name: String, closure: SharedExampleClosure) {
     - parameter flags: A mapping of string keys to booleans that can be used to filter examples or example groups.
 */
 public func describe(description: String, flags: FilterFlags = [:], closure: () -> ()) {
-    World.sharedWorld().describe(description, flags: flags, closure: closure)
+    World.sharedWorld.describe(description, flags: flags, closure: closure)
 }
 
 /**
@@ -85,7 +85,7 @@ public func context(description: String, flags: FilterFlags = [:], closure: () -
     - parameter closure: The closure to be run prior to each example.
 */
 public func beforeEach(closure: BeforeExampleClosure) {
-    World.sharedWorld().beforeEach(closure)
+    World.sharedWorld.beforeEach(closure)
 }
 
 /**
@@ -93,7 +93,7 @@ public func beforeEach(closure: BeforeExampleClosure) {
     metadata on the example that the closure is being run prior to.
 */
 public func beforeEach(closure: BeforeExampleWithMetadataClosure) {
-    World.sharedWorld().beforeEach(closure: closure)
+    World.sharedWorld.beforeEach(closure: closure)
 }
 
 /**
@@ -105,7 +105,7 @@ public func beforeEach(closure: BeforeExampleWithMetadataClosure) {
     - parameter closure: The closure to be run after each example.
 */
 public func afterEach(closure: AfterExampleClosure) {
-    World.sharedWorld().afterEach(closure)
+    World.sharedWorld.afterEach(closure)
 }
 
 /**
@@ -113,7 +113,7 @@ public func afterEach(closure: AfterExampleClosure) {
     metadata on the example that the closure is being run after.
 */
 public func afterEach(closure: AfterExampleWithMetadataClosure) {
-    World.sharedWorld().afterEach(closure: closure)
+    World.sharedWorld.afterEach(closure: closure)
 }
 
 /**
@@ -128,7 +128,7 @@ public func afterEach(closure: AfterExampleWithMetadataClosure) {
     - parameter line: The line containing the example. A sensible default is provided.
 */
 public func it(description: String, flags: FilterFlags = [:], file: String = __FILE__, line: UInt = __LINE__, closure: () -> ()) {
-    World.sharedWorld().it(description, flags: flags, file: file, line: line, closure: closure)
+    World.sharedWorld.it(description, flags: flags, file: file, line: line, closure: closure)
 }
 
 /**
@@ -164,7 +164,7 @@ public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String =
     - parameter line: The line containing the current example group. A sensible default is provided.
 */
 public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String = __FILE__, line: UInt = __LINE__, sharedExampleContext: SharedExampleContext) {
-    World.sharedWorld().itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
+    World.sharedWorld.itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
 }
 
 /**
@@ -175,7 +175,7 @@ public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String =
     - parameter closure: A closure that will not be evaluated.
 */
 public func pending(description: String, closure: () -> ()) {
-    World.sharedWorld().pending(description, closure: closure)
+    World.sharedWorld.pending(description, closure: closure)
 }
 
 /**
@@ -183,7 +183,7 @@ public func pending(description: String, closure: () -> ()) {
     This disables all examples within the closure.
 */
 public func xdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
-    World.sharedWorld().xdescribe(description, flags: flags, closure: closure)
+    World.sharedWorld.xdescribe(description, flags: flags, closure: closure)
 }
 
 /**
@@ -199,7 +199,7 @@ public func xcontext(description: String, flags: FilterFlags, closure: () -> ())
     This disables the example and ensures the code within the closure is never run.
 */
 public func xit(description: String, flags: FilterFlags = [:], file: String = __FILE__, line: UInt = __LINE__, closure: () -> ()) {
-    World.sharedWorld().xit(description, flags: flags, file: file, line: line, closure: closure)
+    World.sharedWorld.xit(description, flags: flags, file: file, line: line, closure: closure)
 }
 
 /**
@@ -208,7 +208,7 @@ public func xit(description: String, flags: FilterFlags = [:], file: String = __
     This trumps any explicitly focused or unfocused examples within the closure--they are all treated as focused.
 */
 public func fdescribe(description: String, flags: FilterFlags = [:], closure: () -> ()) {
-    World.sharedWorld().fdescribe(description, flags: flags, closure: closure)
+    World.sharedWorld.fdescribe(description, flags: flags, closure: closure)
 }
 
 /**
@@ -223,5 +223,5 @@ public func fcontext(description: String, flags: FilterFlags = [:], closure: () 
     If any examples in the test suite are focused, only those examples are executed.
 */
 public func fit(description: String, flags: FilterFlags = [:], file: String = __FILE__, line: UInt = __LINE__, closure: () -> ()) {
-    World.sharedWorld().fit(description, flags: flags, file: file, line: line, closure: closure)
+    World.sharedWorld.fit(description, flags: flags, file: file, line: line, closure: closure)
 }
