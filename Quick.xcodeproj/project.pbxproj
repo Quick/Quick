@@ -104,9 +104,9 @@
 		CE57CEC71C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEC81C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEC91C410C6700D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */; };
-		CE57CECB1C410D8D00D63004 /* String+fileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+fileName.swift */; };
-		CE57CECC1C410D8D00D63004 /* String+fileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+fileName.swift */; };
-		CE57CECD1C410D8D00D63004 /* String+fileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+fileName.swift */; };
+		CE57CECB1C410D8D00D63004 /* String+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+FileName.swift */; };
+		CE57CECC1C410D8D00D63004 /* String+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+FileName.swift */; };
+		CE57CECD1C410D8D00D63004 /* String+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CECA1C410D8D00D63004 /* String+FileName.swift */; };
 		CEE5DF4C1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */; };
 		CEE5DF4D1C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */; };
 		CEE7CC931C3FBC0F00C74F8B /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */; };
@@ -414,7 +414,7 @@
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE57CEC21C410B4C00D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
-		CE57CECA1C410D8D00D63004 /* String+fileName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+fileName.swift"; sourceTree = "<group>"; };
+		CE57CECA1C410D8D00D63004 /* String+FileName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+FileName.swift"; sourceTree = "<group>"; };
 		CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
 		CEE7CC921C3FBC0F00C74F8B /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
@@ -716,7 +716,7 @@
 				CE57CEC61C410C6700D63004 /* NSBundle+CurrentTestBundle.swift */,
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
 				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
-				CE57CECA1C410D8D00D63004 /* String+fileName.swift */,
+				CE57CECA1C410D8D00D63004 /* String+FileName.swift */,
 				CEE5DF471C3F079A00C9FA7E /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
@@ -1143,7 +1143,7 @@
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
 				1F118D041BDCA536005013A2 /* Example.swift in Sources */,
 				1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */,
-				CE57CECD1C410D8D00D63004 /* String+fileName.swift in Sources */,
+				CE57CECD1C410D8D00D63004 /* String+FileName.swift in Sources */,
 				1F118D071BDCA536005013A2 /* Callsite.swift in Sources */,
 				1F118D081BDCA536005013A2 /* Filter.swift in Sources */,
 				1F118CFD1BDCA536005013A2 /* World+DSL.swift in Sources */,
@@ -1213,7 +1213,7 @@
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
-				CE57CECC1C410D8D00D63004 /* String+fileName.swift in Sources */,
+				CE57CECC1C410D8D00D63004 /* String+FileName.swift in Sources */,
 				DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A819515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
@@ -1293,7 +1293,7 @@
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
 				DA408BE619FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
-				CE57CECB1C410D8D00D63004 /* String+fileName.swift in Sources */,
+				CE57CECB1C410D8D00D63004 /* String+FileName.swift in Sources */,
 				DAE7150019FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				34F375A719515CA700CE1B99 /* Callsite.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
