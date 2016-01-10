@@ -3,7 +3,7 @@ import XCTest
 /**
  This protocol defines the role of an object that builds test suites.
  */
-@objc public protocol QuickTestSuiteBuilder {
+internal protocol QuickTestSuiteBuilder {
 
     /**
      Construct a `QuickTestSuite` instance with the appropriate test cases added as tests.
@@ -32,8 +32,8 @@ public class QuickTestSuite: XCTestSuite {
      It is expected that the first call should return a valid test suite, and
      all subsequent calls should return `nil`.
      */
-    public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuiteBuilder? {
-        return QuickSelectedTestSuiteBuilder(forTestCaseWithName: name)
+    public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuite? {
+        return QuickSelectedTestSuiteBuilder(forTestCaseWithName: name)?.buildTestSuite()
     }
 
 }

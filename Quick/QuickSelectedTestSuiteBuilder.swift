@@ -39,7 +39,7 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
         QuickSelectedTestSuiteBuilder.builtTestSuites.insert(namespacedClassName)
     }
 
-    @objc func buildTestSuite() -> QuickTestSuite {
+    func buildTestSuite() -> QuickTestSuite {
         return QuickTestSuite(forTestCaseClass: testCaseClass)
     }
 
