@@ -20,6 +20,8 @@ internal protocol QuickTestSuiteBuilder {
  */
 public class QuickTestSuite: XCTestSuite {
 
+    private static var builtTestSuites: Set<String> = Set()
+
     /**
      Construct a test suite for a specific, selected subset of test cases (rather
      than the default, which as all test cases).
@@ -33,7 +35,14 @@ public class QuickTestSuite: XCTestSuite {
      all subsequent calls should return `nil`.
      */
     public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuite? {
-        return QuickSelectedTestSuiteBuilder(forTestCaseWithName: name)?.buildTestSuite()
+        guard let builder = QuickSelectedTestSuiteBuilder(forTestCaseWithName: name) else { return nil }
+
+        if builtTestSuites.contains(builder.namespacedClassName) {
+            return nil
+        } else {
+            builtTestSuites.insert(builder.namespacedClassName)
+            return builder.buildTestSuite()
+        }
     }
 
 }

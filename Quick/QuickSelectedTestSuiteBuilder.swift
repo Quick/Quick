@@ -2,7 +2,9 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
 
     let testCaseClass: AnyClass!
 
-    private static var builtTestSuites: Set<String> = Set()
+    var namespacedClassName: String {
+        return NSStringFromClass(testCaseClass)
+    }
 
     private static func className(fromTestCaseWithName name: String) -> String? {
         return name.characters.split("/").first.map(String.init)
@@ -21,7 +23,6 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
         return NSClassFromString("\(moduleName).\(className)")
     }
 
-    // TODO: Move the tracking of "built test suites" up into `QuickTestSuite.selectedTestSuite(forTestCaseWithName:)`.
     init?(forTestCaseWithName name: String) {
         guard let testCaseClass = QuickSelectedTestSuiteBuilder.testCaseClass(forTestCaseWithName: name) else {
             self.testCaseClass = nil
@@ -29,14 +30,6 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
         }
 
         self.testCaseClass = testCaseClass
-
-        let namespacedClassName = NSStringFromClass(testCaseClass)
-
-        guard !QuickSelectedTestSuiteBuilder.builtTestSuites.contains(namespacedClassName) else {
-            return nil
-        }
-
-        QuickSelectedTestSuiteBuilder.builtTestSuites.insert(namespacedClassName)
     }
 
     func buildTestSuite() -> QuickTestSuite {
