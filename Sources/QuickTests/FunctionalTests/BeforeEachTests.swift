@@ -35,7 +35,13 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
     }
 }
 
-class BeforeEachTests: XCTestCase {
+class BeforeEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
+        ]
+    }
+
     override func setUp() {
         super.setUp()
         beforeEachOrder = []

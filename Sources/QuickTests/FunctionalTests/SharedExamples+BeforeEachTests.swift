@@ -24,7 +24,14 @@ class FunctionalTests_SharedExamples_BeforeEachSpec: QuickSpec {
     }
 }
 
-class SharedExamples_BeforeEachTests: XCTestCase {
+class SharedExamples_BeforeEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample", testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample),
+            ("testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample", testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample),
+        ]
+    }
+
     override func setUp() {
         super.setUp()
         specBeforeEachExecutedCount = 0

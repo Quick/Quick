@@ -18,7 +18,13 @@ class FunctionalTests_ItSpec: QuickSpec {
     }
 }
 
-class ItTests: XCTestCase {
+class ItTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
+        ]
+    }
+
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.classForCoder())
         XCTAssertEqual(result.executionCount, 2 as UInt)

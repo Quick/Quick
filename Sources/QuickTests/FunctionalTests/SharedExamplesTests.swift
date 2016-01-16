@@ -15,7 +15,14 @@ class FunctionalTests_SharedExamples_ContextSpec: QuickSpec {
 }
 
 // Shared examples are defined in QuickTests/Fixtures
-class SharedExamplesTests: XCTestCase {
+class SharedExamplesTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAGroupOfThreeSharedExamplesExecutesThreeExamples", testAGroupOfThreeSharedExamplesExecutesThreeExamples),
+            ("testSharedExamplesWithContextPassContextToExamples", testSharedExamplesWithContextPassContextToExamples),
+        ]
+    }
+
     func testAGroupOfThreeSharedExamplesExecutesThreeExamples() {
         let result = qck_runSpec(FunctionalTests_SharedExamples_Spec.classForCoder())
         XCTAssert(result.hasSucceeded)

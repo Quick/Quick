@@ -37,7 +37,13 @@ class FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
     }
 }
 
-class FocusedTests: XCTestCase {
+class FocusedTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testOnlyFocusedExamplesAreExecuted", testOnlyFocusedExamplesAreExecuted),
+        ]
+    }
+
     func testOnlyFocusedExamplesAreExecuted() {
         let result = qck_runSpecs([
             FunctionalTests_FocusedSpec_Focused.classForCoder(),

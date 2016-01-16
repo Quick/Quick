@@ -10,7 +10,13 @@ class Configuration_BeforeEachSpec: QuickSpec {
     }
 }
 
-class Configuration_BeforeEachTests: XCTestCase {
+class Configuration_BeforeEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted", testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted),
+        ]
+    }
+
     override func setUp() {
         super.setUp()
         FunctionalTests_Configuration_BeforeEachWasExecuted = false

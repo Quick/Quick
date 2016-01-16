@@ -20,7 +20,13 @@ class FunctionalTests_AfterSuite_Spec: QuickSpec {
     }
 }
 
-class AfterSuiteTests: XCTestCase {
+class AfterSuiteTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAfterSuiteIsNotExecutedBeforeAnyExamples", testAfterSuiteIsNotExecutedBeforeAnyExamples),
+        ]
+    }
+
     func testAfterSuiteIsNotExecutedBeforeAnyExamples() {
         // Execute the spec with an assertion after the one with an afterSuite.
         let specs = NSArray(objects: FunctionalTests_AfterSuite_AfterSuiteSpec.classForCoder(),

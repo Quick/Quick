@@ -20,7 +20,13 @@ class FunctionalTests_BeforeSuite_Spec: QuickSpec {
     }
 }
 
-class BeforeSuiteTests: XCTestCase {
+class BeforeSuiteTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testBeforeSuiteIsExecutedBeforeAnyExamples", testBeforeSuiteIsExecutedBeforeAnyExamples),
+        ]
+    }
+
     func testBeforeSuiteIsExecutedBeforeAnyExamples() {
         // Execute the spec with an assertion before the one with a beforeSuite
         let specs = NSArray(objects: FunctionalTests_BeforeSuite_Spec.classForCoder(),

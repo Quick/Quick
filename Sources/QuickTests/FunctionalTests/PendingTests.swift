@@ -24,7 +24,15 @@ class FunctionalTests_PendingSpec: QuickSpec {
     }
 }
 
-class PendingTests: XCTestCase {
+class PendingTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail", testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail),
+            ("testBeforeEachOnlyRunForEnabledExamples", testBeforeEachOnlyRunForEnabledExamples),
+            ("testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples", testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples),
+        ]
+    }
+
     override func setUp() {
         super.setUp()
         oneExampleBeforeEachExecutedCount = 0

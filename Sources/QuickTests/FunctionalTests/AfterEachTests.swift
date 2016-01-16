@@ -51,7 +51,13 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
     }
 }
 
-class AfterEachTests: XCTestCase {
+class AfterEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder),
+        ]
+    }
+
     override func setUp() {
         super.setUp()
         afterEachOrder = []
