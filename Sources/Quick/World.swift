@@ -187,27 +187,13 @@ final internal class World: NSObject {
 
     private func raiseIfSharedExampleAlreadyRegistered(name: String) {
         if sharedExamples[name] != nil {
-            let error = "A shared example named '\(name)' has already been registered."
-            #if os(Linux)
-                fatalError(error)
-            #else
-                NSException(name: NSInternalInconsistencyException,
-                    reason: error,
-                    userInfo: nil).raise()
-            #endif
+            raiseError("A shared example named '\(name)' has already been registered.")
         }
     }
 
     private func raiseIfSharedExampleNotRegistered(name: String) {
         if sharedExamples[name] == nil {
-            let error = "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'"
-            #if os(Linux)
-                fatalError(error)
-            #else
-                NSException(name: NSInternalInconsistencyException,
-                    reason: error,
-                    userInfo: nil).raise()
-            #endif
+            raiseError("No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'")
         }
     }
 }

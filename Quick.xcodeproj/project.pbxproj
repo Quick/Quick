@@ -69,6 +69,9 @@
 		34C586041C4ABD4000D4F057 /* XCTestCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */; };
 		34C586051C4ABD4100D4F057 /* XCTestCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */; };
 		34C586061C4ABD4100D4F057 /* XCTestCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */; };
+		34C586081C4AC5E500D4F057 /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C586071C4AC5E500D4F057 /* ErrorUtility.swift */; };
+		34C586091C4AC5E500D4F057 /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C586071C4AC5E500D4F057 /* ErrorUtility.swift */; };
+		34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C586071C4AC5E500D4F057 /* ErrorUtility.swift */; };
 		34F375A719515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
 		34F375A819515CA700CE1B99 /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
 		34F375AB19515CA700CE1B99 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
@@ -389,6 +392,7 @@
 		1F118D341BDCA657005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
 		1F118D361BDCA65C005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
 		34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCaseProvider.swift; sourceTree = "<group>"; };
+		34C586071C4AC5E500D4F057 /* ErrorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorUtility.swift; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		34F3759E19515CA700CE1B99 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		34F3759F19515CA700CE1B99 /* ExampleGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleGroup.swift; sourceTree = "<group>"; };
@@ -707,6 +711,7 @@
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
 				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
+				34C586071C4AC5E500D4F057 /* ErrorUtility.swift */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
 			name = Quick;
@@ -1132,6 +1137,7 @@
 				1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */,
 				1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */,
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
+				34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				1F118D041BDCA536005013A2 /* Example.swift in Sources */,
 				1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */,
 				1F118D071BDCA536005013A2 /* Callsite.swift in Sources */,
@@ -1200,6 +1206,7 @@
 				DA3124EB19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE319FF5599005DF92A /* Closures.swift in Sources */,
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
+				34C586091C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
 				DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */,
@@ -1279,6 +1286,7 @@
 				DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE219FF5599005DF92A /* Closures.swift in Sources */,
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
+				34C586081C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DA408BE619FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
 				DAE7150019FF6A62005905B8 /* QuickConfiguration.m in Sources */,

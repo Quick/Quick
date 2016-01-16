@@ -20,13 +20,7 @@ extension World {
 
     internal func describe(description: String, flags: FilterFlags, closure: () -> ()) {
         guard currentExampleGroup != nil else {
-            let error = "Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)"
-            #if os(Linux)
-                fatalError(error)
-            #else
-                NSException(name: NSInternalInconsistencyException, reason: error, userInfo: nil).raise()
-                return ()
-            #endif
+            raiseError("Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)")
         }
         let group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
