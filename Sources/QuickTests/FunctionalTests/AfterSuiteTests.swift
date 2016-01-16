@@ -33,8 +33,8 @@ class AfterSuiteTests: XCTestCase, XCTestCaseProvider {
     func testAfterSuiteIsNotExecutedBeforeAnyExamples() {
         // Execute the spec with an assertion after the one with an afterSuite.
         let result = qck_runSpecs([
-            FunctionalTests_AfterSuite_AfterSuiteSpec.classForCoder(),
-            FunctionalTests_AfterSuite_Spec.classForCoder()
+            FunctionalTests_AfterSuite_AfterSuiteSpec.self,
+            FunctionalTests_AfterSuite_Spec.self
             ])
 
         // Although this ensures that afterSuite is not called before any

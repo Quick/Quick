@@ -48,7 +48,7 @@ class BeforeEachTests: XCTestCase, XCTestCaseProvider {
     func testBeforeEachIsExecutedInTheCorrectOrder() {
         beforeEachOrder = []
 
-        qck_runSpec(FunctionalTests_BeforeEachSpec.classForCoder())
+        qck_runSpec(FunctionalTests_BeforeEachSpec.self)
         let expectedOrder = [
             // [1] The outer beforeEach closures are executed from top to bottom.
             BeforeEachType.OuterOne, BeforeEachType.OuterTwo,

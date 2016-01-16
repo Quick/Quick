@@ -23,7 +23,7 @@ class Configuration_BeforeEachTests: XCTestCase, XCTestCaseProvider {
     func testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted() {
         FunctionalTests_Configuration_BeforeEachWasExecuted = false
 
-        qck_runSpec(Configuration_BeforeEachSpec.classForCoder())
+        qck_runSpec(Configuration_BeforeEachSpec.self)
         XCTAssert(FunctionalTests_Configuration_BeforeEachWasExecuted)
 
         FunctionalTests_Configuration_BeforeEachWasExecuted = false

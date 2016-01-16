@@ -37,21 +37,21 @@ class PendingTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail() {
-        let result = qck_runSpec(FunctionalTests_PendingSpec.classForCoder())
+        let result = qck_runSpec(FunctionalTests_PendingSpec.self)
         XCTAssert(result.hasSucceeded)
     }
 
     func testBeforeEachOnlyRunForEnabledExamples() {
         oneExampleBeforeEachExecutedCount = 0
 
-        qck_runSpec(FunctionalTests_PendingSpec.classForCoder())
+        qck_runSpec(FunctionalTests_PendingSpec.self)
         XCTAssertEqual(oneExampleBeforeEachExecutedCount, 1)
     }
 
     func testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples() {
         onlyPendingExamplesBeforeEachExecutedCount = 0
 
-        qck_runSpec(FunctionalTests_PendingSpec.classForCoder())
+        qck_runSpec(FunctionalTests_PendingSpec.self)
         XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0)
     }
 }

@@ -38,14 +38,14 @@ class SharedExamples_BeforeEachTests: XCTestCase, XCTestCaseProvider {
     func testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample() {
         specBeforeEachExecutedCount = 0
 
-        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.classForCoder())
+        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.self)
         XCTAssertEqual(specBeforeEachExecutedCount, 4)
     }
 
     func testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample() {
         sharedExamplesBeforeEachExecutedCount = 0
 
-        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.classForCoder())
+        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.self)
         XCTAssertEqual(sharedExamplesBeforeEachExecutedCount, 3)
     }
 }

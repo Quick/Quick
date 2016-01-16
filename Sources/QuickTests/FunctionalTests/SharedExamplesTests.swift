@@ -28,13 +28,13 @@ class SharedExamplesTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testAGroupOfThreeSharedExamplesExecutesThreeExamples() {
-        let result = qck_runSpec(FunctionalTests_SharedExamples_Spec.classForCoder())
+        let result = qck_runSpec(FunctionalTests_SharedExamples_Spec.self)
         XCTAssert(result.hasSucceeded)
         XCTAssertEqual(result.executionCount, 3 as UInt)
     }
 
     func testSharedExamplesWithContextPassContextToExamples() {
-        let result = qck_runSpec(FunctionalTests_SharedExamples_ContextSpec.classForCoder())
+        let result = qck_runSpec(FunctionalTests_SharedExamples_ContextSpec.self)
         XCTAssert(result.hasSucceeded)
     }
 }

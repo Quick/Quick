@@ -33,8 +33,8 @@ class BeforeSuiteTests: XCTestCase, XCTestCaseProvider {
     func testBeforeSuiteIsExecutedBeforeAnyExamples() {
         // Execute the spec with an assertion before the one with a beforeSuite
         let result = qck_runSpecs([
-            FunctionalTests_BeforeSuite_Spec.classForCoder(),
-            FunctionalTests_BeforeSuite_BeforeSuiteSpec.classForCoder()
+            FunctionalTests_BeforeSuite_Spec.self,
+            FunctionalTests_BeforeSuite_BeforeSuiteSpec.self
             ])
 
         XCTAssert(result.hasSucceeded)

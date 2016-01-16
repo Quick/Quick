@@ -29,7 +29,7 @@ class ItTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testAllExamplesAreExecuted() {
-        let result = qck_runSpec(FunctionalTests_ItSpec.classForCoder())
+        let result = qck_runSpec(FunctionalTests_ItSpec.self)
         XCTAssertEqual(result.executionCount, 2 as UInt)
     }
 }
