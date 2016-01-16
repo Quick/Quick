@@ -49,7 +49,7 @@ extension World {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 
-#if !os(Linux)
+#if _runtime(_ObjC)
     @objc(beforeEachWithMetadata:)
     internal func beforeEach(closure closure: BeforeExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendBefore(closure)
@@ -64,7 +64,7 @@ extension World {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 
-#if !os(Linux)
+#if _runtime(_ObjC)
     @objc(afterEachWithMetadata:)
     internal func afterEach(closure closure: AfterExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendAfter(closure)
@@ -109,7 +109,7 @@ extension World {
         currentExampleGroup = group.parent
     }
 
-#if !os(Linux)
+#if _runtime(_ObjC)
     @objc(itWithDescription:flags:file:line:closure:)
     private func objc_it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
         it(description, flags: flags, file: file, line: line, closure: closure)

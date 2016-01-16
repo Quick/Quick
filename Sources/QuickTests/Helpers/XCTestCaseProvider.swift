@@ -1,12 +1,12 @@
 import Foundation
 import XCTest
 
-// XCTestCaseProvider is defined on Linux as part of swift-corelibs-xctest,
-// but is not available on OS X. By defining this protocol on OS X, we ensure
-// that the tests fail on OS X if they haven't been configured properly to
-// be run on Linux
+// XCTestCaseProvider is defined in swift-corelibs-xctest, but is not available
+// in the XCTest that ships with Xcode. By defining this protocol on Apple platforms,
+// we ensure that the tests fail in Xcode if they haven't been configured properly to
+// be run with the open-source tools.
 
-#if !os(Linux)
+#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
 
 public protocol XCTestCaseProvider {
     var allTests : [(String, () -> Void)] { get }

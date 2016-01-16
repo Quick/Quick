@@ -102,10 +102,10 @@ final internal class World: NSObject {
         - returns: The root example group for the class.
     */
     internal func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
-        #if os(Linux)
-            let name = String(cls)
-        #else
+        #if _runtime(_ObjC)
             let name = NSStringFromClass(cls)
+        #else
+            let name = String(cls)
         #endif
 
         if let group = specs[name] {
@@ -141,7 +141,7 @@ final internal class World: NSObject {
         }
     }
 
-#if !os(Linux)
+#if _runtime(_ObjC)
     @objc(examplesForSpecClass:)
     private func objc_examples(specClass: AnyClass) -> [Example] {
         return examples(specClass)

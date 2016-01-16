@@ -10,7 +10,7 @@ import XCTest
 import Nimble
 import Quick
 
-#if !os(Linux)
+#if _runtime(_ObjC)
 
 class DescribeTests: XCTestCase, XCTestCaseProvider {
     var allTests: [(String, () -> Void)] {
