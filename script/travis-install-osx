@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+set -e
+
+git submodule update --init --recursive
+
+# There is a bug in a formula resulting in update failing if run once, but not the second time
+# See https://github.com/Homebrew/homebrew/issues/45616
+brew update || brew update
+brew outdated xctool || brew upgrade xctool
