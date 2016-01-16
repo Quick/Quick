@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 var oneExampleBeforeEachExecutedCount = 0
 var onlyPendingExamplesBeforeEachExecutedCount = 0

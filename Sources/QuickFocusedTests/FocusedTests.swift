@@ -1,6 +1,9 @@
 import Quick
 import Nimble
 import XCTest
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 class FunctionalTests_FocusedSpec_SharedExamplesConfiguration: QuickConfiguration {
     override class func configure(configuration: Configuration) {
