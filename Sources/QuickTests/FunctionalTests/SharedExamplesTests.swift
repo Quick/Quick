@@ -1,3 +1,4 @@
+import Foundation
 import XCTest
 import Quick
 import Nimble
@@ -10,7 +11,7 @@ class FunctionalTests_SharedExamples_Spec: QuickSpec {
 
 class FunctionalTests_SharedExamples_ContextSpec: QuickSpec {
     override func spec() {
-        itBehavesLike("shared examples that take a context") { ["callsite": "SharedExamplesSpec"] }
+        itBehavesLike("shared examples that take a context") { [NSString(string: "callsite"): NSString(string: "SharedExamplesSpec")] }
     }
 }
 

@@ -1,3 +1,4 @@
+import Foundation
 import Quick
 import Nimble
 
@@ -11,7 +12,7 @@ class FunctionalTests_SharedExamplesTests_SharedExamples: QuickConfiguration {
 
         sharedExamples("shared examples that take a context") { (sharedExampleContext: SharedExampleContext) in
             it("is passed the correct parameters via the context") {
-                let callsite = sharedExampleContext()["callsite"] as! String
+                let callsite = sharedExampleContext()[NSString(string: "callsite")] as! NSString
                 expect(callsite).to(equal("SharedExamplesSpec"))
             }
         }
