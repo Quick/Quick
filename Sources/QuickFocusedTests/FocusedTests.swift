@@ -1,6 +1,9 @@
 import Quick
 import Nimble
 import XCTest
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 class FunctionalTests_FocusedSpec_SharedExamplesConfiguration: QuickConfiguration {
     override class func configure(configuration: Configuration) {
@@ -37,11 +40,17 @@ class FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
     }
 }
 
-class FocusedTests: XCTestCase {
+class FocusedTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testOnlyFocusedExamplesAreExecuted", testOnlyFocusedExamplesAreExecuted),
+        ]
+    }
+
     func testOnlyFocusedExamplesAreExecuted() {
         let result = qck_runSpecs([
-            FunctionalTests_FocusedSpec_Focused.classForCoder(),
-            FunctionalTests_FocusedSpec_Unfocused.classForCoder()
+            FunctionalTests_FocusedSpec_Focused.self,
+            FunctionalTests_FocusedSpec_Unfocused.self
         ])
         XCTAssertEqual(result.executionCount, 5 as UInt)
     }

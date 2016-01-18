@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 class Configuration_AfterEachSpec: QuickSpec {
     override func spec() {
@@ -13,19 +16,19 @@ class Configuration_AfterEachSpec: QuickSpec {
     }
 }
 
-class Configuration_AfterEachTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        FunctionalTests_Configuration_AfterEachWasExecuted = false
-    }
-
-    override func tearDown() {
-        FunctionalTests_Configuration_AfterEachWasExecuted = false
-        super.tearDown()
+class Configuration_AfterEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted", testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted),
+        ]
     }
 
     func testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted() {
-        qck_runSpec(Configuration_BeforeEachSpec.classForCoder())
+        FunctionalTests_Configuration_AfterEachWasExecuted = false
+
+        qck_runSpec(Configuration_BeforeEachSpec.self)
         XCTAssert(FunctionalTests_Configuration_AfterEachWasExecuted)
+
+        FunctionalTests_Configuration_AfterEachWasExecuted = false
     }
 }

@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 var specBeforeEachExecutedCount = 0
 var sharedExamplesBeforeEachExecutedCount = 0
@@ -24,26 +27,25 @@ class FunctionalTests_SharedExamples_BeforeEachSpec: QuickSpec {
     }
 }
 
-class SharedExamples_BeforeEachTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        specBeforeEachExecutedCount = 0
-        sharedExamplesBeforeEachExecutedCount = 0
-    }
-
-    override func tearDown() {
-        specBeforeEachExecutedCount = 0
-        sharedExamplesBeforeEachExecutedCount = 0
-        super.tearDown()
+class SharedExamples_BeforeEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample", testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample),
+            ("testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample", testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample),
+        ]
     }
 
     func testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample() {
-        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.classForCoder())
+        specBeforeEachExecutedCount = 0
+
+        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.self)
         XCTAssertEqual(specBeforeEachExecutedCount, 4)
     }
 
     func testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample() {
-        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.classForCoder())
+        sharedExamplesBeforeEachExecutedCount = 0
+
+        qck_runSpec(FunctionalTests_SharedExamples_BeforeEachSpec.self)
         XCTAssertEqual(sharedExamplesBeforeEachExecutedCount, 3)
     }
 }
