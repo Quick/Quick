@@ -5,6 +5,7 @@
 #import <objc/runtime.h>
 
 static QuickSpec *currentSpec = nil;
+static NSMutableSet<NSString *> *selectorNames;
 
 const void * const QCKExampleKey = &QCKExampleKey;
 
@@ -31,6 +32,8 @@ const void * const QCKExampleKey = &QCKExampleKey;
     world.currentExampleGroup = [world rootExampleGroupForSpecClass:[self class]];
     QuickSpec *spec = [self new];
 
+    selectorNames = [[NSMutableSet alloc] init];
+    
     @try {
         [spec spec];
     }
@@ -115,10 +118,15 @@ const void * const QCKExampleKey = &QCKExampleKey;
     }
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
-    NSString *selectorName = [NSString stringWithFormat:@"%@_%@_%ld",
-                              example.name.qck_selectorName,
-                              sanitizedFileName,
-                              (long)example.callsite.line];
+    NSString *selectorName = example.name.qck_selectorName;
+    NSUInteger i = 2;
+    
+    while ([selectorNames containsObject:selectorName]) {
+        selectorName = [NSString stringWithFormat:@"%@_%li", example.name.qck_selectorName, i++];
+    }
+    
+    [selectorNames addObject:selectorName];
+    
     SEL selector = NSSelectorFromString(selectorName);
     class_addMethod(self, selector, implementation, types);
 
