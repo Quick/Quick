@@ -72,10 +72,16 @@ final public class Configuration: NSObject {
         provided with metadata on the example that the closure is being run
         prior to.
     */
+#if _runtime(_ObjC)
     @objc(beforeEachWithMetadata:)
     public func beforeEach(closure: BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
     }
+#else
+    public func beforeEach(closure: BeforeExampleWithMetadataClosure) {
+        exampleHooks.appendBefore(closure)
+    }
+#endif
 
     /**
         Like Quick.DSL.beforeEach, this configures Quick to execute the
@@ -103,10 +109,16 @@ final public class Configuration: NSObject {
         is provided with metadata on the example that the closure is being
         run after.
     */
+#if _runtime(_ObjC)
     @objc(afterEachWithMetadata:)
     public func afterEach(closure: AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
     }
+#else
+    public func afterEach(closure: AfterExampleWithMetadataClosure) {
+        exampleHooks.appendAfter(closure)
+    }
+#endif
 
     /**
         Like Quick.DSL.afterEach, this configures Quick to execute the

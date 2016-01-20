@@ -2,6 +2,10 @@ def run(command)
   system(command) or raise "RAKE TASK FAILED: #{command}"
 end
 
+def has_xcodebuild
+  system "which xcodebuild >/dev/null"
+end
+
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
@@ -26,6 +30,13 @@ namespace "test" do
       run "xctool -workspace Quick.xcworkspace -scheme Quick-OSX clean test"
     end
   end
+
+  desc "Run unit tests for the current platform built by the Swift Package Manager"
+  task :swiftpm do |t|
+    run "swift build --clean && swift build"
+    run ".build/debug/QuickTests"
+    run ".build/debug/QuickFocusedTests"
+  end
 end
 
 namespace "templates" do
@@ -48,5 +59,8 @@ namespace "templates" do
   end
 end
 
-task default: ["test:ios", "test:osx"]
-
+if has_xcodebuild then
+  task default: ["test:ios", "test:osx"]
+else
+  task default: ["test:swiftpm"]
+end

@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 private enum BeforeEachType {
     case OuterOne
@@ -35,19 +38,17 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
     }
 }
 
-class BeforeEachTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        beforeEachOrder = []
-    }
-
-    override func tearDown() {
-        beforeEachOrder = []
-        super.tearDown()
+class BeforeEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
+        ]
     }
 
     func testBeforeEachIsExecutedInTheCorrectOrder() {
-        qck_runSpec(FunctionalTests_BeforeEachSpec.classForCoder())
+        beforeEachOrder = []
+
+        qck_runSpec(FunctionalTests_BeforeEachSpec.self)
         let expectedOrder = [
             // [1] The outer beforeEach closures are executed from top to bottom.
             BeforeEachType.OuterOne, BeforeEachType.OuterTwo,

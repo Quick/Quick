@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 class FunctionalTests_ItSpec: QuickSpec {
     override func spec() {
@@ -18,9 +21,15 @@ class FunctionalTests_ItSpec: QuickSpec {
     }
 }
 
-class ItTests: XCTestCase {
+class ItTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
+        ]
+    }
+
     func testAllExamplesAreExecuted() {
-        let result = qck_runSpec(FunctionalTests_ItSpec.classForCoder())
+        let result = qck_runSpec(FunctionalTests_ItSpec.self)
         XCTAssertEqual(result.executionCount, 2 as UInt)
     }
 }

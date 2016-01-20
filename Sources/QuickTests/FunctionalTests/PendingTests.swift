@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 var oneExampleBeforeEachExecutedCount = 0
 var onlyPendingExamplesBeforeEachExecutedCount = 0
@@ -24,31 +27,31 @@ class FunctionalTests_PendingSpec: QuickSpec {
     }
 }
 
-class PendingTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        oneExampleBeforeEachExecutedCount = 0
-        onlyPendingExamplesBeforeEachExecutedCount = 0
-    }
-
-    override func tearDown() {
-        oneExampleBeforeEachExecutedCount = 0
-        onlyPendingExamplesBeforeEachExecutedCount = 0
-        super.tearDown()
+class PendingTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail", testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail),
+            ("testBeforeEachOnlyRunForEnabledExamples", testBeforeEachOnlyRunForEnabledExamples),
+            ("testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples", testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples),
+        ]
     }
 
     func testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail() {
-        let result = qck_runSpec(FunctionalTests_PendingSpec.classForCoder())
+        let result = qck_runSpec(FunctionalTests_PendingSpec.self)
         XCTAssert(result.hasSucceeded)
     }
 
     func testBeforeEachOnlyRunForEnabledExamples() {
-        qck_runSpec(FunctionalTests_PendingSpec.classForCoder())
+        oneExampleBeforeEachExecutedCount = 0
+
+        qck_runSpec(FunctionalTests_PendingSpec.self)
         XCTAssertEqual(oneExampleBeforeEachExecutedCount, 1)
     }
 
     func testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples() {
-        qck_runSpec(FunctionalTests_PendingSpec.classForCoder())
+        onlyPendingExamplesBeforeEachExecutedCount = 0
+
+        qck_runSpec(FunctionalTests_PendingSpec.self)
         XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0)
     }
 }

@@ -78,8 +78,6 @@ If a few of your pull requests have been merged, and you'd like a
 controlling stake in the project, file an issue asking for write access
 to the repository.
 
-### Code of Conduct
-
 Your conduct as a core member is your own responsibility, but here are
 some "ground rules":
 

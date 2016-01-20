@@ -30,7 +30,7 @@ importing the Quick header.
 ## Your Test Target Must Include At Least One Swift File
 
 The Swift stdlib will not be linked into your test target, and thus
-Quick will fail to execute properly, if you test target does not contain
+Quick will fail to execute properly, if your test target does not contain
 *at least one* Swift file.
 
 Without at least one Swift file, your tests will exit prematurely with

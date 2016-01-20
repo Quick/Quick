@@ -1,6 +1,9 @@
 import XCTest
 import Quick
 import Nimble
+#if SWIFT_PACKAGE
+import QuickTestHelpers
+#endif
 
 private enum AfterEachType {
     case OuterOne
@@ -51,19 +54,17 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
     }
 }
 
-class AfterEachTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        afterEachOrder = []
-    }
-
-    override func tearDown() {
-        afterEachOrder = []
-        super.tearDown()
+class AfterEachTests: XCTestCase, XCTestCaseProvider {
+    var allTests: [(String, () -> Void)] {
+        return [
+            ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder),
+        ]
     }
 
     func testAfterEachIsExecutedInTheCorrectOrder() {
-        qck_runSpec(FunctionalTests_AfterEachSpec.classForCoder())
+        afterEachOrder = []
+
+        qck_runSpec(FunctionalTests_AfterEachSpec.self)
         let expectedOrder = [
             // [1] The outer afterEach closures are executed from top to bottom.
             AfterEachType.OuterOne, AfterEachType.OuterTwo, AfterEachType.OuterThree,
@@ -75,5 +76,7 @@ class AfterEachTests: XCTestCase {
                 AfterEachType.OuterOne, AfterEachType.OuterTwo, AfterEachType.OuterThree,
         ]
         XCTAssertEqual(afterEachOrder, expectedOrder)
+
+        afterEachOrder = []
     }
 }

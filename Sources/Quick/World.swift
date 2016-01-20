@@ -102,7 +102,12 @@ final internal class World: NSObject {
         - returns: The root example group for the class.
     */
     internal func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
-        let name = NSStringFromClass(cls)
+        #if _runtime(_ObjC)
+            let name = NSStringFromClass(cls)
+        #else
+            let name = String(cls)
+        #endif
+
         if let group = specs[name] {
             return group
         } else {
@@ -125,7 +130,6 @@ final internal class World: NSObject {
         - parameter specClass: The QuickSpec subclass for which examples are to be returned.
         - returns: A list of examples to be run as test invocations.
     */
-    @objc(examplesForSpecClass:)
     internal func examples(specClass: AnyClass) -> [Example] {
         // 1. Grab all included examples.
         let included = includedExamples
@@ -136,6 +140,13 @@ final internal class World: NSObject {
             !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
         }
     }
+
+#if _runtime(_ObjC)
+    @objc(examplesForSpecClass:)
+    private func objc_examples(specClass: AnyClass) -> [Example] {
+        return examples(specClass)
+    }
+#endif
 
     // MARK: Internal
 
@@ -176,17 +187,13 @@ final internal class World: NSObject {
 
     private func raiseIfSharedExampleAlreadyRegistered(name: String) {
         if sharedExamples[name] != nil {
-            NSException(name: NSInternalInconsistencyException,
-                reason: "A shared example named '\(name)' has already been registered.",
-                userInfo: nil).raise()
+            raiseError("A shared example named '\(name)' has already been registered.")
         }
     }
 
     private func raiseIfSharedExampleNotRegistered(name: String) {
         if sharedExamples[name] == nil {
-            NSException(name: NSInternalInconsistencyException,
-                reason: "No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'",
-                userInfo: nil).raise()
+            raiseError("No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'")
         }
     }
 }
