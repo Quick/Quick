@@ -20,9 +20,9 @@ class FunctionalTests_ItSpec: QuickSpec {
         }
         
         describe("error handling when misusing ordering") {
-            it("wraps another 'it' that will...") {
+            it("an it") {
                 expect {
-                    it("...throw an error") { }
+                    it("will throw an error when it is nested in another it") { }
                     }.to(raiseException { (exception: NSException) in
                         expect(exception.name).to(equal("Invalid DSL Exception"))
                         expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. "))
@@ -38,7 +38,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     }), finally: nil)
                     
                     capture.tryBlock {
-                        it("a rouge 'it' inside a 'beforeEach'") { }
+                        it("a rogue 'it' inside a 'beforeEach'") { }
                         return
                     }
                 }
@@ -60,7 +60,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     }), finally: nil)
                     
                     capture.tryBlock {
-                        it("a rouge 'it' inside an 'afterEach'") { }
+                        it("a rogue 'it' inside an 'afterEach'") { }
                         return
                     }
                 }
