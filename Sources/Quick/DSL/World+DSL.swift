@@ -92,11 +92,11 @@ extension World {
 #endif
 
     internal func it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
-        if beforesCurrentlyExecuting() {
+        if beforesCurrentlyExecuting {
             NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
             return
         }
-        if aftersCurrentlyExecuting() {
+        if aftersCurrentlyExecuting {
             NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
             return
         }

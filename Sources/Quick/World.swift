@@ -164,7 +164,7 @@ final internal class World: NSObject {
         return allExamples.count
     }
     
-    internal func beforesCurrentlyExecuting() -> Bool {
+    internal var beforesCurrentlyExecuting: Bool {
         let suiteBeforesExecuting = (suiteHooks.beforesStartedExecuting && !(suiteHooks.beforesAlreadyExecuted))
         let exampleBeforesExecuting = (exampleHooks.beforesStartedExecuting && !(exampleHooks.beforesAlreadyExecuted))
         var groupBeforesExecuting = false
@@ -175,7 +175,7 @@ final internal class World: NSObject {
         return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
     }
     
-    internal func aftersCurrentlyExecuting() -> Bool {
+    internal var aftersCurrentlyExecuting: Bool {
         let suiteAftersExecuting = (suiteHooks.aftersStartedExecuting && !(suiteHooks.aftersAlreadyExecuted))
         let exampleAftersExecuting = (exampleHooks.aftersStartedExecuting && !(exampleHooks.aftersAlreadyExecuted))
         var groupAftersExecuting = false
