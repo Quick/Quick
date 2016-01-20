@@ -19,12 +19,13 @@ class FunctionalTests_ItSpec: QuickSpec {
             expect(exampleMetadata!.example.name).to(equal(name))
         }
         
+#if _runtime(_ObjC)
         describe("error handling when misusing ordering") {
             it("an it") {
                 expect {
                     it("will throw an error when it is nested in another it") { }
                     }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal("Invalid DSL Exception"))
+                        expect(exception.name).to(equal(NSInternalInconsistencyException))
                         expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. "))
                         })
             }
@@ -68,6 +69,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                 it("should throw an exception with the correct message after this 'it' block executes") {  }
             }
         }
+#endif
     }
 }
 
@@ -78,8 +80,15 @@ class ItTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
+#if _runtime(_ObjC)
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
         XCTAssertEqual(result.executionCount, 5 as UInt)
     }
+#else
+    func testAllExamplesAreExecuted() {
+        let result = qck_runSpec(FunctionalTests_ItSpec.self)
+        XCTAssertEqual(result.executionCount, 2 as UInt)
+    }
+#endif
 }

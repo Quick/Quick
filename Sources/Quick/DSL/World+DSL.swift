@@ -20,8 +20,7 @@ extension World {
 
     internal func describe(description: String, flags: FilterFlags, closure: () -> ()) {
         guard currentExampleMetadata == nil else {
-            NSException(name: "Invalid DSL Exception", reason: "'describe' cannot be used inside 'it', 'describe' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'describe' cannot be used inside 'it', 'describe' may only be used inside 'context' or 'describe'. ")
         }
         guard currentExampleGroup != nil else {
             raiseError("Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)")
@@ -35,8 +34,7 @@ extension World {
 
     internal func context(description: String, flags: FilterFlags, closure: () -> ()) {
         guard currentExampleMetadata == nil else {
-            NSException(name: "Invalid DSL Exception", reason: "'context' cannot be used inside 'it', 'context' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'context' cannot be used inside 'it', 'context' may only be used inside 'context' or 'describe'. ")
         }
         self.describe(description, flags: flags, closure: closure)
     }
@@ -55,8 +53,7 @@ extension World {
 
     internal func beforeEach(closure: BeforeExampleClosure) {
         guard currentExampleMetadata == nil else {
-            NSException(name: "Invalid DSL Exception", reason: "'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'. ")
         }
         currentExampleGroup.hooks.appendBefore(closure)
     }
@@ -74,8 +71,7 @@ extension World {
 
     internal func afterEach(closure: AfterExampleClosure) {
         guard currentExampleMetadata == nil else {
-            NSException(name: "Invalid DSL Exception", reason: "'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'. ")
         }
         currentExampleGroup.hooks.appendAfter(closure)
     }
@@ -93,16 +89,13 @@ extension World {
 
     internal func it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
         if beforesCurrentlyExecuting {
-            NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ")
         }
         if aftersCurrentlyExecuting {
-            NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. ")
         }
         guard currentExampleMetadata == nil else {
-            NSException(name: "Invalid DSL Exception", reason: "'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. ")
         }
         let callsite = Callsite(file: file, line: line)
         let example = Example(description: description, callsite: callsite, flags: flags, closure: closure)
@@ -123,8 +116,7 @@ extension World {
 
     internal func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
         guard currentExampleMetadata == nil else {
-            NSException(name: "Invalid DSL Exception", reason: "'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'. ", userInfo: nil).raise()
-            return
+            raiseError("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'. ")
         }
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld.sharedExample(name)

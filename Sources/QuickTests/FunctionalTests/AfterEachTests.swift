@@ -53,17 +53,18 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
                 afterEach { afterEachOrder.append(AfterEachType.NoExamples) }
             }
         }
-        
+#if _runtime(_ObjC)
         describe("error handling when misusing ordering") {
             it("should throw an exception when including afterEach in it block") {
                 expect {
                     afterEach { }
                     }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal("Invalid DSL Exception"))
+                        expect(exception.name).to(equal(NSInternalInconsistencyException))
                         expect(exception.reason).to(equal("'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'. "))
                         })
             }
         }
+#endif
     }
 }
 

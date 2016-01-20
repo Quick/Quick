@@ -38,17 +38,18 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
                 beforeEach { beforeEachOrder.append(BeforeEachType.NoExamples) }
             }
         }
-        
+#if _runtime(_ObjC)
         describe("error handling when misusing ordering") {
             it("should throw an exception when including beforeEach in it block") {
                 expect {
                     beforeEach { }
                     }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal("Invalid DSL Exception"))
+                        expect(exception.name).to(equal(NSInternalInconsistencyException))
                         expect(exception.reason).to(equal("'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'. "))
                         })
             }
         }
+#endif
     }
 }
 
