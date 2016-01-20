@@ -14,7 +14,7 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
      an explicit Objective-C name, returns a module-namespaced class name
      (e.g., "FooTests.FooSpec").
      */
-    var namespacedClassName: String {
+    var testSuiteClassName: String {
         return NSStringFromClass(testCaseClass)
     }
 

@@ -37,10 +37,10 @@ public class QuickTestSuite: XCTestSuite {
     public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuite? {
         guard let builder = QuickSelectedTestSuiteBuilder(forTestCaseWithName: name) else { return nil }
 
-        if builtTestSuites.contains(builder.namespacedClassName) {
+        if builtTestSuites.contains(builder.testSuiteClassName) {
             return nil
         } else {
-            builtTestSuites.insert(builder.namespacedClassName)
+            builtTestSuites.insert(builder.testSuiteClassName)
             return builder.buildTestSuite()
         }
     }
