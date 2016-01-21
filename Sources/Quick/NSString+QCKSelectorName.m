@@ -4,8 +4,12 @@
 
 - (NSString *)qck_selectorName {
     static NSMutableCharacterSet *invalidCharacters = nil;
+    static NSString *separator = @"_";
+    static NSCharacterSet *separatorSet = nil;
     static dispatch_once_t onceToken;
+    
     dispatch_once(&onceToken, ^{
+        separatorSet = [NSCharacterSet characterSetWithCharactersInString:separator];
         invalidCharacters = [NSMutableCharacterSet new];
 
         NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
@@ -27,7 +31,13 @@
 
     NSArray *validComponents = [self componentsSeparatedByCharactersInSet:invalidCharacters];
 
-    return [validComponents componentsJoinedByString:@"_"];
+    NSString *selector = [validComponents componentsJoinedByString:separator];
+    selector = [selector stringByTrimmingCharactersInSet:separatorSet];
+    if ([selector length] == 0) {
+        selector = @"blank";
+    }
+
+    return selector;
 }
 
 @end
