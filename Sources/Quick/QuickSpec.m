@@ -119,7 +119,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
     NSString *selectorName = example.name.qck_selectorName;
-    NSUInteger i = 2;
+    unsigned long i = 2;
     
     while ([selectorNames containsObject:selectorName]) {
         selectorName = [NSString stringWithFormat:@"%@_%lu", example.name.qck_selectorName, i++];
