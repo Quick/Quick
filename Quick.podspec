@@ -16,13 +16,19 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.source       = { :git => "https://github.com/Quick/Quick.git", :tag => "v#{s.version}" }
-  s.source_files  = "Quick", "Quick/**/*.{swift,h,m}"
+  s.source_files = "Sources/Quick/**/*.{swift,h,m}"
 
   s.public_header_files = [
-    'Quick/Configuration/QuickConfiguration.h',
-    'Quick/DSL/QCKDSL.h',
-    'Quick/Quick.h',
-    'Quick/QuickSpec.h',
+    'Sources/Quick/Configuration/QuickConfiguration.h',
+    'Sources/Quick/DSL/QCKDSL.h',
+    'Sources/Quick/Quick.h',
+    'Sources/Quick/QuickSpec.h',
+  ]
+
+  s.exclude_files = [
+    'Sources/Quick/Configuration/QuickConfiguration.swift',
+    'Sources/Quick/QuickSpec.swift',
+    'Sources/Quick/QuickMain.swift',
   ]
 
   s.framework = "XCTest"
