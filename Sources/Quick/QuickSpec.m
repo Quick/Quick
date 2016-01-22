@@ -5,7 +5,6 @@
 #import <objc/runtime.h>
 
 static QuickSpec *currentSpec = nil;
-static NSMutableSet<NSString *> *selectorNames;
 
 const void * const QCKExampleKey = &QCKExampleKey;
 
@@ -32,8 +31,6 @@ const void * const QCKExampleKey = &QCKExampleKey;
     world.currentExampleGroup = [world rootExampleGroupForSpecClass:[self class]];
     QuickSpec *spec = [self new];
 
-    selectorNames = [[NSMutableSet alloc] init];
-    
     @try {
         [spec spec];
     }
@@ -122,6 +119,12 @@ const void * const QCKExampleKey = &QCKExampleKey;
     NSString *originalName = example.name.qck_selectorName;
     NSString *selectorName = originalName;
     unsigned int i = 2;
+    
+    static NSMutableSet<NSString *> *selectorNames;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        selectorNames = [[NSMutableSet alloc] init];
+    });
     
     while ([selectorNames containsObject:selectorName]) {
         selectorName = [NSString stringWithFormat:@"%@_%u", originalName, i++];
