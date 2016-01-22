@@ -1,3 +1,5 @@
+#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
+
 /**
  Responsible for building a "Selected tests" suite. This corresponds to a single
  spec, and all its examples.
@@ -67,3 +69,5 @@ private func testCaseClassForTestCaseWithName(name: String) -> AnyClass? {
 
     return NSClassFromString("\(moduleName).\(className)")
 }
+
+#endif

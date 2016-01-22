@@ -1,3 +1,5 @@
+#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
+
 import XCTest
 
 /**
@@ -46,3 +48,5 @@ public class QuickTestSuite: XCTestSuite {
     }
 
 }
+
+#endif

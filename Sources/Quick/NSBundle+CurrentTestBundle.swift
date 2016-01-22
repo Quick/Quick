@@ -1,3 +1,5 @@
+#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
+
 import Foundation
 
 extension NSBundle {
@@ -14,3 +16,5 @@ extension NSBundle {
     }
 
 }
+
+#endif
