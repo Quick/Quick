@@ -9,10 +9,7 @@ final public class ExampleGroup: NSObject {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
     
-    internal var beforesStartedExecuting = false
-    internal var beforesAlreadyExecuted = false
-    internal var aftersStartedExecuting = false
-    internal var aftersAlreadyExecuted = false
+    internal var phase: HooksPhase = .NothingExecuted
 
     private let internalDescription: String
     private let flags: FilterFlags
@@ -25,7 +22,7 @@ final public class ExampleGroup: NSObject {
         self.flags = flags
         self.isInternalRootExampleGroup = isInternalRootExampleGroup
     }
-    
+
     public override var description: String {
         return internalDescription
     }

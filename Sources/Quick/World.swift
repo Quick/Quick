@@ -165,22 +165,22 @@ final internal class World: NSObject {
     }
     
     internal var beforesCurrentlyExecuting: Bool {
-        let suiteBeforesExecuting = (suiteHooks.beforesStartedExecuting && !(suiteHooks.beforesAlreadyExecuted))
-        let exampleBeforesExecuting = (exampleHooks.beforesStartedExecuting && !(exampleHooks.beforesAlreadyExecuted))
+        let suiteBeforesExecuting = suiteHooks.phase == .BeforesExecuting
+        let exampleBeforesExecuting = exampleHooks.phase == .BeforesExecuting
         var groupBeforesExecuting = false
         if let runningExampleGroup = currentExampleMetadata?.example.group {
-            groupBeforesExecuting = (runningExampleGroup.beforesStartedExecuting && !(runningExampleGroup.beforesAlreadyExecuted))
+            groupBeforesExecuting = runningExampleGroup.phase == .BeforesExecuting
         }
         
         return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
     }
     
     internal var aftersCurrentlyExecuting: Bool {
-        let suiteAftersExecuting = (suiteHooks.aftersStartedExecuting && !(suiteHooks.aftersAlreadyExecuted))
-        let exampleAftersExecuting = (exampleHooks.aftersStartedExecuting && !(exampleHooks.aftersAlreadyExecuted))
+        let suiteAftersExecuting = suiteHooks.phase == .AftersExecuting
+        let exampleAftersExecuting = exampleHooks.phase == .AftersExecuting
         var groupAftersExecuting = false
         if let runningExampleGroup = currentExampleMetadata?.example.group {
-            groupAftersExecuting = (runningExampleGroup.aftersStartedExecuting && !(runningExampleGroup.aftersAlreadyExecuted))
+            groupAftersExecuting = runningExampleGroup.phase == .AftersExecuting
         }
         
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting

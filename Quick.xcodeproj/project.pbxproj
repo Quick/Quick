@@ -106,6 +106,9 @@
 		47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
+		7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
+		7B44ADC01C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
 		7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
 		7B5358D01C3D4FC000A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
@@ -414,6 +417,7 @@
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
@@ -579,6 +583,7 @@
 				DA408BDF19FF5599005DF92A /* Closures.swift */,
 				DA408BE019FF5599005DF92A /* ExampleHooks.swift */,
 				DA408BE119FF5599005DF92A /* SuiteHooks.swift */,
+				7B44ADBD1C5444940007AF2E /* HooksPhase.swift */,
 			);
 			path = Hooks;
 			sourceTree = "<group>";
@@ -1150,6 +1155,7 @@
 				1F118CFD1BDCA536005013A2 /* World+DSL.swift in Sources */,
 				1F118D0A1BDCA536005013A2 /* NSString+QCKSelectorName.m in Sources */,
 				1F118CFE1BDCA536005013A2 /* DSL.swift in Sources */,
+				7B44ADC01C5444940007AF2E /* HooksPhase.swift in Sources */,
 				1F118D001BDCA536005013A2 /* Closures.swift in Sources */,
 				1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */,
 				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
@@ -1220,6 +1226,7 @@
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
 				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
+				7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
@@ -1301,6 +1308,7 @@
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
 				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
+				7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
