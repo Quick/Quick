@@ -118,7 +118,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
     
     NSString *originalName = example.name.qck_selectorName;
     NSString *selectorName = originalName;
-    unsigned int i = 2;
+    NSUInteger i = 2;
     
     static NSMutableSet<NSString *> *selectorNames;
     static dispatch_once_t onceToken;
@@ -127,7 +127,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
     });
     
     while ([selectorNames containsObject:selectorName]) {
-        selectorName = [NSString stringWithFormat:@"%@_%u", originalName, i++];
+        selectorName = [NSString stringWithFormat:@"%@_%lu", originalName, (unsigned long)i++];
     }
     
     [selectorNames addObject:selectorName];
