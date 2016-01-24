@@ -127,7 +127,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
     });
     
     while ([selectorNames containsObject:selectorName]) {
-        selectorName = [NSString stringWithFormat:@"%@_%lu", originalName, (unsigned long)i++];
+        selectorName = [NSString stringWithFormat:@"%@_%tu", originalName, i++];
     }
     
     [selectorNames addObject:selectorName];
