@@ -163,6 +163,28 @@ final internal class World: NSObject {
     internal var exampleCount: Int {
         return allExamples.count
     }
+    
+    internal var beforesCurrentlyExecuting: Bool {
+        let suiteBeforesExecuting = suiteHooks.phase == .BeforesExecuting
+        let exampleBeforesExecuting = exampleHooks.phase == .BeforesExecuting
+        var groupBeforesExecuting = false
+        if let runningExampleGroup = currentExampleMetadata?.example.group {
+            groupBeforesExecuting = runningExampleGroup.phase == .BeforesExecuting
+        }
+        
+        return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
+    }
+    
+    internal var aftersCurrentlyExecuting: Bool {
+        let suiteAftersExecuting = suiteHooks.phase == .AftersExecuting
+        let exampleAftersExecuting = exampleHooks.phase == .AftersExecuting
+        var groupAftersExecuting = false
+        if let runningExampleGroup = currentExampleMetadata?.example.group {
+            groupAftersExecuting = runningExampleGroup.phase == .AftersExecuting
+        }
+        
+        return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
+    }
 
     private var allExamples: [Example] {
         var all: [Example] = []

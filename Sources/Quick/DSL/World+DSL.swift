@@ -19,6 +19,9 @@ extension World {
     }
 
     internal func describe(description: String, flags: FilterFlags, closure: () -> ()) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'describe' cannot be used inside '\(currentPhase)', 'describe' may only be used inside 'context' or 'describe'. ")
+        }
         guard currentExampleGroup != nil else {
             raiseError("Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)")
         }
@@ -30,6 +33,9 @@ extension World {
     }
 
     internal func context(description: String, flags: FilterFlags, closure: () -> ()) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'context' cannot be used inside '\(currentPhase)', 'context' may only be used inside 'context' or 'describe'. ")
+        }
         self.describe(description, flags: flags, closure: closure)
     }
 
@@ -46,6 +52,9 @@ extension World {
     }
 
     internal func beforeEach(closure: BeforeExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'. ")
+        }
         currentExampleGroup.hooks.appendBefore(closure)
     }
 
@@ -61,6 +70,9 @@ extension World {
 #endif
 
     internal func afterEach(closure: AfterExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'. ")
+        }
         currentExampleGroup.hooks.appendAfter(closure)
     }
 
@@ -76,6 +88,15 @@ extension World {
 #endif
 
     internal func it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+        if beforesCurrentlyExecuting {
+            raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ")
+        }
+        if aftersCurrentlyExecuting {
+            raiseError("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. ")
+        }
+        guard currentExampleMetadata == nil else {
+            raiseError("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. ")
+        }
         let callsite = Callsite(file: file, line: line)
         let example = Example(description: description, callsite: callsite, flags: flags, closure: closure)
         currentExampleGroup.appendExample(example)
@@ -94,6 +115,9 @@ extension World {
     }
 
     internal func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'itBehavesLike' cannot be used inside '\(currentPhase)', 'itBehavesLike' may only be used inside 'context' or 'describe'. ")
+        }
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld.sharedExample(name)
 
@@ -133,5 +157,19 @@ extension World {
 
     internal func pending(description: String, closure: () -> ()) {
         print("Pending: \(description)")
+    }
+
+    private var currentPhase: String {
+        if currentExampleMetadata != nil {
+            if beforesCurrentlyExecuting {
+                return "beforeEach"
+            } else if aftersCurrentlyExecuting {
+                return "afterEach"
+            }
+
+            return "it"
+        }
+
+        return ""
     }
 }

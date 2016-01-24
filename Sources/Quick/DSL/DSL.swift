@@ -73,7 +73,7 @@ public func describe(description: String, flags: FilterFlags = [:], closure: () 
     Defines an example group. Equivalent to `describe`.
 */
 public func context(description: String, flags: FilterFlags = [:], closure: () -> ()) {
-    describe(description, flags: flags, closure: closure)
+    World.sharedWorld.context(description, flags: flags, closure: closure)
 }
 
 /**
