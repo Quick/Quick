@@ -58,8 +58,11 @@ const void * const QCKExampleKey = &QCKExampleKey;
 + (NSArray *)testInvocations {
     NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
+    
+    NSMutableSet<NSString*> *selectorNames = [NSMutableSet set];
+    
     for (Example *example in examples) {
-        SEL selector = [self addInstanceMethodForExample:example];
+        SEL selector = [self addInstanceMethodForExample:example classSelectorNames:selectorNames];
         NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
                                                                          example:example];
         [invocations addObject:invocation];
@@ -100,7 +103,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
  @return The selector of the newly defined instance method.
  */
-+ (SEL)addInstanceMethodForExample:(Example *)example {
++ (SEL)addInstanceMethodForExample:(Example *)example classSelectorNames:(NSMutableSet<NSString*> *)selectorNames {
     IMP implementation = imp_implementationWithBlock(^(QuickSpec *self){
         currentSpec = self;
         [example run];
@@ -119,12 +122,6 @@ const void * const QCKExampleKey = &QCKExampleKey;
     NSString *originalName = example.name.qck_selectorName;
     NSString *selectorName = originalName;
     NSUInteger i = 2;
-    
-    static NSMutableSet<NSString *> *selectorNames;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        selectorNames = [[NSMutableSet alloc] init];
-    });
     
     while ([selectorNames containsObject:selectorName]) {
         selectorName = [NSString stringWithFormat:@"%@_%tu", originalName, i++];
