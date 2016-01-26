@@ -19,6 +19,7 @@ class FunctionalTests_ItSpec: QuickSpec {
             expect(exampleMetadata!.example.name).to(equal(name))
         }
         
+#if _runtime(_ObjC)
         it("is a test with a unique name") {
             let allSelectors: Set<String> = FunctionalTests_ItSpec.allSelectors();
             
@@ -26,7 +27,6 @@ class FunctionalTests_ItSpec: QuickSpec {
             expect(allSelectors).toNot(contain("is_a_test_with_a_unique_name_2"));
         }
 
-#if _runtime(_ObjC)
         describe("error handling when misusing ordering") {
             it("an it") {
                 expect {
@@ -95,7 +95,7 @@ class ItTests: XCTestCase, XCTestCaseProvider {
 #else
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
-        XCTAssertEqual(result.executionCount, 3 as UInt)
+        XCTAssertEqual(result.executionCount, 2 as UInt)
     }
 #endif
 }
