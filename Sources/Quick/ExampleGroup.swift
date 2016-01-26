@@ -8,6 +8,8 @@ import Foundation
 final public class ExampleGroup: NSObject {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
+    
+    internal var phase: HooksPhase = .NothingExecuted
 
     private let internalDescription: String
     private let flags: FilterFlags
@@ -20,7 +22,7 @@ final public class ExampleGroup: NSObject {
         self.flags = flags
         self.isInternalRootExampleGroup = isInternalRootExampleGroup
     }
-    
+
     public override var description: String {
         return internalDescription
     }

@@ -2,9 +2,9 @@
     A container for closures to be executed before and after each example.
 */
 final internal class ExampleHooks {
-
     internal var befores: [BeforeExampleWithMetadataClosure] = []
     internal var afters: [AfterExampleWithMetadataClosure] = []
+    internal var phase: HooksPhase = .NothingExecuted
 
     internal func appendBefore(closure: BeforeExampleWithMetadataClosure) {
         befores.append(closure)
@@ -23,14 +23,20 @@ final internal class ExampleHooks {
     }
 
     internal func executeBefores(exampleMetadata: ExampleMetadata) {
+        phase = .BeforesExecuting
         for before in befores {
             before(exampleMetadata: exampleMetadata)
         }
+        
+        phase = .BeforesFinished
     }
 
     internal func executeAfters(exampleMetadata: ExampleMetadata) {
+        phase = .AftersExecuting
         for after in afters {
             after(exampleMetadata: exampleMetadata)
         }
+
+        phase = .AftersFinished
     }
 }
