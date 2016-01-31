@@ -1,8 +1,8 @@
 # Setting Up Tests in Your Xcode Project
 
-When you create a new project in Xcode 7, a unit test target is included
-by default. To write unit tests, you'll need to be able to use your main
-target's code from within your test target.
+With the exception of the Command Line Tool project type, when you create a new project in Xcode 7, a unit test target is included
+by default. [See specific instructions for a Command Line Tool Project](#setting-up-a-test-target-for-a-command-line-tool-project). To write unit tests, you'll need to be able to use your main
+target's code from within your test target. 
 
 ## Testing Swift Code Using Swift
 
@@ -73,3 +73,11 @@ Import the file defining the code you'd like to test from within your test targe
 // ...
 @end
 ```
+
+### Setting Up a Test Target for a Command Line Tool Project
+
+1. Add a target to your project in the project pane.
+2. Select "OS X Unit Testing Bundle".
+3. Edit the scheme of your main target.
+4. Select the "Test" node, click the "+" under the "Info" heading, and select
+   your testing bundle.
