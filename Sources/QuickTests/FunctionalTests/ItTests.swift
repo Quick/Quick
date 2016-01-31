@@ -112,7 +112,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 }
 
 class ItTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () -> Void)] {
+    var allTests: [(String, () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
         ]

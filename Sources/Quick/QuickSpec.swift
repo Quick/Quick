@@ -8,7 +8,7 @@ public class QuickSpec: XCTestCase, XCTestCaseProvider {
 
     public required init() {}
 
-    public var allTests : [(String, () -> Void)] {
+    public var allTests : [(String, () throws -> Void)] {
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(self.dynamicType)

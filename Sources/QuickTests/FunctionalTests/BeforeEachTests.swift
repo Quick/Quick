@@ -54,7 +54,7 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
 }
 
 class BeforeEachTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () -> Void)] {
+    var allTests: [(String, () throws -> Void)] {
         return [
             ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
         ]
