@@ -14,8 +14,8 @@ class FunctionalTests_ItSpec: QuickSpec {
             expect(exampleMetadata!.example.name).to(equal(""))
         }
 
-        it("has a description with セレクター名に使えない文字が入っている ��") {
-            let name = "has a description with セレクター名に使えない文字が入っている ��"
+        it("has a description with セレクター名に使えない文字が入っている 👊💥") {
+            let name = "has a description with セレクター名に使えない文字が入っている 👊💥"
             expect(exampleMetadata!.example.name).to(equal(name))
         }
 
