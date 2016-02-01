@@ -5,13 +5,13 @@
 @implementation QuickSpec (QuickSpec_MethodList)
 
 + (NSSet<NSString*> *)allSelectors {
-    id t = [[[self class] alloc] init];
+    QuickSpec *specInstance = [[[self class] alloc] init];
     NSMutableSet<NSString*> *allSelectors = [NSMutableSet set];
     
     unsigned int methodCount = 0;
-    Method * mlist = class_copyMethodList(object_getClass(t), &methodCount);
+    Method *mlist = class_copyMethodList(object_getClass(specInstance), &methodCount);
 
-    for(int i = 0; i<methodCount; i++) {
+    for(unsigned int i = 0; i < methodCount; i++) {
         SEL selector = method_getName(mlist[i]);
         [allSelectors addObject:NSStringFromSelector(selector)];
     }
