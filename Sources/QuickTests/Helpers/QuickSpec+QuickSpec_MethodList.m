@@ -4,6 +4,14 @@
 
 @implementation QuickSpec (QuickSpec_MethodList)
 
+/**
+ *  This method will instantiate an instance of the class on which it is called,
+ *  returning a list of selector names for it.
+ *
+ *  @warning Only intended to be used in test assertions!
+ *
+ *  @return a set of NSStrings representing the list of selectors it contains
+ */
 + (NSSet<NSString*> *)allSelectors {
     QuickSpec *specInstance = [[[self class] alloc] init];
     NSMutableSet<NSString*> *allSelectors = [NSMutableSet set];
