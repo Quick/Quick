@@ -1,5 +1,5 @@
-#import <XCTest/XCTest.h>
-#import <Quick/Quick.h>
+@import XCTest;
+@import Quick;
 
 #import "QCKSpecRunner.h"
 
