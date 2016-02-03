@@ -115,6 +115,12 @@
 		8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
+		96327C631C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */ = {isa = PBXBuildFile; fileRef = 96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */; };
+		96327C641C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */ = {isa = PBXBuildFile; fileRef = 96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */; };
+		96327C651C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */ = {isa = PBXBuildFile; fileRef = 96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */; };
+		96327C661C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
+		96327C671C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
+		96327C681C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
 		CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
 		CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */; };
@@ -435,6 +441,8 @@
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
+		96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuickSpec+QuickSpec_MethodList.h"; sourceTree = "<group>"; };
+		96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QuickSpec+QuickSpec_MethodList.m"; sourceTree = "<group>"; };
 		CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
@@ -616,6 +624,8 @@
 				DA8F919619F31680006F6675 /* QCKSpecRunner.m */,
 				34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */,
 				DA8F919819F31680006F6675 /* XCTestObservationCenter+QCKSuspendObservation.h */,
+				96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */,
+				96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -808,6 +818,7 @@
 			files = (
 				1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */,
 				1F118D261BDCA5AF005013A2 /* World+DSL.h in Headers */,
+				96327C651C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */,
 				1F118D271BDCA5AF005013A2 /* World.h in Headers */,
 				1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */,
 				1F118D2C1BDCA5B6005013A2 /* QuickSpec.h in Headers */,
@@ -822,6 +833,7 @@
 			files = (
 				34F375B019515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
+				96327C641C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */,
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				DAED1ECB1B110699006F61EC /* World+DSL.h in Headers */,
 				DAED1EC51B1105BC006F61EC /* World.h in Headers */,
@@ -836,6 +848,7 @@
 			files = (
 				34F375AF19515CA700CE1B99 /* NSString+QCKSelectorName.h in Headers */,
 				DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
+				96327C631C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */,
 				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				DAED1ECA1B110699006F61EC /* World+DSL.h in Headers */,
 				DAED1EC41B1105BC006F61EC /* World.h in Headers */,
@@ -1168,6 +1181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96327C681C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				1F118D031BDCA536005013A2 /* World.swift in Sources */,
 				CE590E201C431FE400253D19 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */,
@@ -1244,6 +1258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96327C671C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				34F375B219515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
 				CE590E1B1C431FE300253D19 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124EB19FCAEE8002858A7 /* QCKDSL.m in Sources */,
@@ -1331,6 +1346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96327C661C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				34F375B119515CA700CE1B99 /* NSString+QCKSelectorName.m in Sources */,
 				CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */,

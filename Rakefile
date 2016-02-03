@@ -18,16 +18,23 @@ namespace "test" do
   end
 
   desc "Run unit tests for all iOS and OS X targets using xctool"
-  task xctool: %w[test:xctool:ios test:xctool:osx]
+  task xctool: %w[test:xctool:version test:xctool:ios test:xctool:osx]
   namespace :xctool do
     desc "Run unit tests for all iOS targets using xctool"
     task :ios do |t|
+      Rake::Task["test:xctool:version"].invoke
       run "xctool -workspace Quick.xcworkspace -scheme Quick-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' clean test"
     end
 
     desc "Run unit tests for all OS X targets using xctool"
     task :osx do |t|
+      Rake::Task["test:xctool:version"].invoke
       run "xctool -workspace Quick.xcworkspace -scheme Quick-OSX clean test"
+    end
+
+    desc "Print the version of xctool being used"
+    task :version do
+      run "echo Using xctool v`xctool -v`..."
     end
   end
 

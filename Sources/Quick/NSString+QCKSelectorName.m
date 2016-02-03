@@ -27,7 +27,11 @@
 
     NSArray *validComponents = [self componentsSeparatedByCharactersInSet:invalidCharacters];
 
-    return [validComponents componentsJoinedByString:@"_"];
+    NSString *result = [validComponents componentsJoinedByString:@"_"];
+    
+    return ([result length] == 0
+            ? @"_"
+            : result);
 }
 
 @end
