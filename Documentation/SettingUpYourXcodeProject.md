@@ -51,7 +51,7 @@ You can now use the code from `MyClass.h` in your Swift test files.
 2. Import your module's Swift headers in your unit tests.
 
 ```objc
-#import <XCTest/XCTest.h>
+@import XCTest;
 #import "MyModule-Swift.h"
 
 @interface MyClassTests: XCTestCase
@@ -66,7 +66,7 @@ Import the file defining the code you'd like to test from within your test targe
 ```objc
 // MyAppTests.m
 
-#import <XCTest/XCTest.h>
+@import XCTest;
 #import "MyClass.h"
 
 @interface MyClassTests: XCTestCase

@@ -1,4 +1,4 @@
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 /**
  Runs an XCTestSuite instance containing only the given XCTestCase subclass.

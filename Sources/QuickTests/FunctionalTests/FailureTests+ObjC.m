@@ -1,7 +1,7 @@
-#import <XCTest/XCTest.h>
+@import XCTest;
 
-#import <Quick/Quick.h>
-#import <Nimble/Nimble.h>
+@import Quick;
+@import Nimble;
 
 #import "QCKSpecRunner.h"
 

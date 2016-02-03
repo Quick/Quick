@@ -17,7 +17,7 @@ collision by turning off Quick's optional "shorthand" syntax:
 ```objc
 #define QUICK_DISABLE_SHORT_SYNTAX 1
 
-#import <Quick/Quick.h>
+@import Quick;
 
 QuickSpecBegin(DolphinSpec)
 // ...

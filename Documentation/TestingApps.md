@@ -68,8 +68,8 @@ class BananaViewControllerSpec: QuickSpec {
 ```objc
 // Objective-C
 
-#import <Quick/Quick.h>
-#import <Nimble/Nimble.h>
+@import Quick;
+@import Nimble;
 #import "BananaViewController.h"
 
 QuickSpecBegin(BananaViewControllerSpec)
