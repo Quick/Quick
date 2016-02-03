@@ -24,6 +24,7 @@
         [allSelectors addObject:NSStringFromSelector(selector)];
     }
     
+    free(mlist);
     return [allSelectors copy];
 }
 
