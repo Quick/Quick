@@ -1,6 +1,6 @@
 # Installing Quick
 
-> **If you're using Xcode 7.1,** use the latest version of Quick--`v0.8.0` at the time of writing.
+> **If you're using Xcode 7.1,** use the latest version of Quick--`v0.9.0` at the time of writing.
 > New releases are developed on the `swift-2.0` branch.
 
 
@@ -95,7 +95,7 @@ Then, add Quick and Nimble to your Podfile. Additionally, the ```use_frameworks!
 use_frameworks!
 
 def testing_pods
-    pod 'Quick', '~> 0.8.0'
+    pod 'Quick', '~> 0.9.0'
     pod 'Nimble', '3.0.0'
 end
 
