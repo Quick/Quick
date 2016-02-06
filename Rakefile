@@ -1,3 +1,5 @@
+require_relative "release.rb"
+
 def run(command)
   system(command) or raise "RAKE TASK FAILED: #{command}"
 end
@@ -70,4 +72,14 @@ if has_xcodebuild then
   task default: ["test:ios", "test:osx"]
 else
   task default: ["test:swiftpm"]
+end
+
+desc "Deploy a version of Quick for release"
+task :release, [:version, :release_notes_file_path] do |t, args|
+  ReleaseScript.run(args.version, args.release_notes_file_path)
+end
+
+desc "Deploy a version of Quick for release. Force releases even if version exists already."
+task :release_force, [:version, :release_notes_file_path] do |t, args|
+  ReleaseScript.run_force(args.version, args.release_notes_file_path)
 end
