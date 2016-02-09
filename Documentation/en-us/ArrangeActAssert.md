@@ -143,7 +143,7 @@ class OfferTests: XCTestCase {
 ```
 
 Our test names clearly indicate the **conditions** under which our tests should pass:
-in the case that `whenTheBananaIsntPeeled`, `offer()` should `offersTheBanana`. And if
+in the case that `whenTheBananaIsPeeled`, `offer()` should `offersTheBanana`. And if
 the banana isn't peeled? Well, we have a test for that, too!
 
 Notice that we have one test per `if` statement in our application code.
