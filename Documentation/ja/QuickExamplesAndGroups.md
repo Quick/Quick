@@ -13,7 +13,7 @@ Quick の examples(テスト) と example groups(テストグループ) は二�
 
 ## Examples の `it`
 
-Examples は 'it' という'コードがどのように動作すべきかを宣言する'関数を持ちます。
+Examples は 'it' という「コードがどのように動作すべきかを宣言する」関数を持ちます。
 これは XCTest の test methods のようなものです。
 
 'it' 関数は２つのパラメータ、example の名前と closure です。
@@ -291,7 +291,7 @@ describe(@"a dolphin", ^{
 QuickSpecEnd
 ```
 
-厳密には `context` キーワードは `describe`と同じですがテストを理解しやすくなるので使い分けるのとよいです。
+厳密には `context` キーワードは `describe`と同じですがテストを理解しやすくなるので使い分けるとよいです。
 
 ### テストの可読性: Quick と XCTest
 
