@@ -6,7 +6,7 @@ Quick では **examples** と **example groups** という特別な文法があ�
 良いテスト名をつけることがとても重要だということを学びました。
 テストが失敗した時、テスト名はアプリケーションコードを直すべきかテストを修正すべきかを判断する際の重要な材料になります。
 
-Quick の examples と example groups は二つの役に立ちます。
+Quick の examples(テスト) と example groups(テストグループ) は二つの役に立ちます。
 
 1. 記述的なテスト名を書くためことをサポートします
 2. テスト中の "環境構築" 部分におけるコードを簡略化します
@@ -59,8 +59,8 @@ it(@"is smart", ^{
 QuickSpecEnd
 ```
 
-Examples が何をテストしているかを明確にするために Descriptions を使います。
-Descriptions は文字数制限がなくどの文字でも(絵文字さえも！)使うことができます。
+Examples が何をテストしているかを明確にするために Description を使います。
+Description は文字数制限がなくどの文字でも(絵文字さえも！)使うことができます。
 :v: :sunglasses:
 
 ## Example Groups の `describe` と `context`
@@ -124,7 +124,7 @@ describe(@"a dolphin", ^{
 QuickSpecEnd
 ```
 
-Xcode でこれらの examples を実行すると`describe` と `it` の記述内容も表示されます。上記のテストでは下記のような出力になります。
+Xcode でこれらの examples を実行すると`describe` と `it` の記述内容も表示されます。上記のテストの場合、下記のような出力になります。
 
 1. `DolphinSpec.a_dolphin_its_click_is_loud`
 2. `DolphinSpec.a_dolphin_its_click_has_a_high_frequency`
@@ -204,10 +204,10 @@ describe(@"a dolphin", ^{
 QuickSpecEnd
 ```
 
-この例ほどで setup を共有することはあまりメリットがないように見えるかもしれませんが
+この例では setup を共有することはあまりメリットがないように見えるかもしれませんが
 複数の複雑なオブジェクトを生成する時などコード量を節約することができます。
 
-それぞれの Example を実行した後に実行したいコードについては`afterEach`.を使います。
+それぞれの Example を実行した後に実行したいコードについては`afterEach`を使います。
 
 ### 'context' を使ってある条件での動作を記述する
 
@@ -362,6 +362,7 @@ xit(@"is only emitted once", ^{
 一部の Example だけ実行できると便利なこともあります。
 そのような時は実行したい Example を 'fit' 関数を用いて指定します。
 特定の Example group だけ実行したい時は`fdescribe` か `fcontext` を記述します。
+※もともと書いてあるテストコードの先頭に 'f' を追記するだけです。
 
 ```swift
 fit("is loud") {
@@ -450,7 +451,7 @@ QuickSpecEnd
 
 複数の `beforeSuite`(`afterSuite`) の closure を記述した場合、これらの実行順序は記述した順序で実行されるかは保証されません。
 
-## 実行中の Example でメタデータにアクセスするAccessing Metadata for the Current Example
+## 実行中の Example でメタデータにアクセスする
 
 実行中の Example の中で、Example名を知りたいケース、これまでに何件の Example を実行したかを知りたいケースがあるかもしれません。 
 Quick ではこれらの情報に `beforeEach` と `afterEach` の closure の中からアクセスすることができます。
