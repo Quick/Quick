@@ -18,10 +18,10 @@ Quick は[GitHub](https://github.com/github)や[ReactiveCocoa](https://github.co
 ## OS X と iOS Apps のテストに関する参考資料
 
 - **[Quality Coding](http://qualitycoding.org/)**:
-  A blog on iOS development that focuses on unit testing.
+  ユニットテストにフォーカスした iOS 開発に関するブログ。
 - **[OCMock Tutorials](http://ocmock.org/support/)**:
-  Use OCMock when you need "fake objects" in your tests.
+  テストでモックが必要な時に使用する OCMock のチュートリアル。
 - **[Nocilla: Stunning HTTP stubbing for iOS and Mac OS X](https://github.com/luisobo/Nocilla)**:
-  Use this library to test code that sends requests to, and receives responses from, the Internet.
+  通信を行うコードをテストする時はこのライブラリを使用して下さい。
 - **[Pivotal Labs: Writing Beautiful Specs with Jasmine Custom Matchers](http://pivotallabs.com/writing-beautiful-specs-jasmine-custom-matchers/)**:
   Nimble の matcher の書き方に関するドキュメントはこちら([the Nimble documentation](https://github.com/Quick/Nimble))
