@@ -24,7 +24,7 @@ class FunctionalTests_BeforeSuite_Spec: QuickSpec {
 }
 
 class BeforeSuiteTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () -> Void)] {
+    var allTests: [(String, () throws -> Void)] {
         return [
             ("testBeforeSuiteIsExecutedBeforeAnyExamples", testBeforeSuiteIsExecutedBeforeAnyExamples),
         ]

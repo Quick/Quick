@@ -37,7 +37,7 @@ class FunctionalTests_SharedExamples_ErrorSpec: QuickSpec {
 
 // Shared examples are defined in QuickTests/Fixtures
 class SharedExamplesTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () -> Void)] {
+    var allTests: [(String, () throws -> Void)] {
         return [
             ("testAGroupOfThreeSharedExamplesExecutesThreeExamples", testAGroupOfThreeSharedExamplesExecutesThreeExamples),
             ("testSharedExamplesWithContextPassContextToExamples", testSharedExamplesWithContextPassContextToExamples),

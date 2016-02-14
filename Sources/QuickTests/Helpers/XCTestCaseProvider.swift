@@ -9,7 +9,7 @@ import XCTest
 #if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
 
 public protocol XCTestCaseProvider {
-    var allTests : [(String, () -> Void)] { get }
+    var allTests: [(String, () throws -> Void)] { get }
 }
 
 extension XCTestCase {
