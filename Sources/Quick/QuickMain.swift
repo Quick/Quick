@@ -9,7 +9,7 @@ import XCTest
 /// the specs and then terminate the process with an exit code of 0 if the tests
 /// passed, or 1 if there were any failures.
 ///
-/// Quick is known to work with the DEVELOPMENT-SNAPSHOT-2016-02-08-a Swift toolchain
+/// Quick is known to work with the DEVELOPMENT-SNAPSHOT-2016-02-08-a Swift toolchain.
 @noreturn public func QCKMain(specs: [XCTestCase], configurations: [QuickConfiguration.Type] = []) {
     // Perform all configuration (ensures that shared examples have been discovered)
     World.sharedWorld.configure { configuration in
