@@ -97,27 +97,26 @@ class ArticleViewController: UIViewController {
 テスト用に ArticleProviderProtocol を継承したクラス(モックとして使用します)をテストターゲット内に作成します。
 
 ```
-    class MockDataProvider: NSObject, ArticleProviderProtocol {
-        
-        var setupCalled = false
-        
-        var articles = [Article]()
-        weak var tableView: UITableView!
-        
-        func setup() {
-            setupCalled = true
-        }
-        
-        func fetch() {        }
-        
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return articles.count
-        }
-        
-        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            return UITableViewCell()
-        }
+class MockDataProvider: NSObject, ArticleProviderProtocol {        
+    var setupCalled = false
+    
+    var articles = [Article]()
+    weak var tableView: UITableView!
+    
+    func setup() {
+        setupCalled = true
     }
+    
+    func fetch() {        }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+}
 
 ```
 
@@ -127,21 +126,21 @@ class ArticleViewController: UIViewController {
 このモックを使ってテストをします。このテストで「ArticleViewController がロードされた時(viewDidLoad)に dataProvier プロパティを setup するか」という動作をテストしています。
 
 ```
-    override func spec() {
-        describe("view controller") {
-            it("setup with data provider when loaded") {
-                let mockProvier = MockDataProvider()
-                let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArticleViewController") as! ArticleViewController
-                viewController.dataProvier = mockProvier
-                
-                expect(mockProvier.setupCalled).to(equal(false))
+override func spec() {
+    describe("view controller") {
+        it("setup with data provider when loaded") {
+            let mockProvier = MockDataProvider()
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArticleViewController") as! ArticleViewController
+            viewController.dataProvier = mockProvier
+            
+            expect(mockProvier.setupCalled).to(equal(false))
 
-                let _ = viewController.view // triger viewDidLoad()
-                
-                expect(mockProvier.setupCalled).to(equal(true))
-            }
+            let _ = viewController.view // triger viewDidLoad()
+            
+            expect(mockProvier.setupCalled).to(equal(true))
         }
     }
+}
 ```
 
 このようにオブジェクトのモックを作ることで動作をテストしやすくなります。
