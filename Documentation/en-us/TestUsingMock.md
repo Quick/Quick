@@ -74,18 +74,18 @@ struct Article {
 ```swift
 class ArticleViewController: UIViewController {
 
-    var dataProvier: ArticleProviderProtocol?
+    var dataProvider: ArticleProviderProtocol?
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataProvier = dataProvier ?? ArticleDataProvider() // if dataProvier is nil, assign ArticleDataProvider instance
+        dataProvider = dataProvider ?? ArticleDataProvider() // if dataProvider is nil, assign ArticleDataProvider instance
 
-        dataProvier?.tableView = tableView
-        dataProvier?.setup()
+        dataProvider?.tableView = tableView
+        dataProvider?.setup()
 
-        dataProvier?.fetch()
+        dataProvider?.fetch()
     }
 
 }
@@ -130,7 +130,7 @@ override func spec() {
         it("setup with data provider when loaded") {
             let mockProvier = MockDataProvider()
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArticleViewController") as! ArticleViewController
-            viewController.dataProvier = mockProvier
+            viewController.dataProvider = mockProvier
             
             expect(mockProvier.setupCalled).to(equal(false))
 
