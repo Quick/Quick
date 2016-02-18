@@ -16,6 +16,7 @@
 ここで ArticleProviderProtocol を定義します。
 
 ```swift
+// Swift
 protocol ArticleProviderProtocol: UITableViewDataSource {
     var articles: [Article] { get }
     weak var tableView: UITableView! { get set }
@@ -28,7 +29,8 @@ ArticleProviderProtocol で UITableViewDataSource を継承し、Article を保�
 
 ここで ArticleProviderProtocol を実装する ArticleDataProvider クラスを定義します。
 
-```
+```swift
+// Swift
 class ArticleDataProvider: NSObject, ArticleProviderProtocol {
     var articles = [Article]()
     weak var tableView: UITableView!
@@ -63,6 +65,7 @@ ArticleDataProvider を ArticleViewController の viewDidLoad 中にセットア
 コードはこのようになります。
 
 ```swift
+// Swift
 struct Article {
     var title: String
     
@@ -73,6 +76,7 @@ struct Article {
 ```
 
 ```swift
+// Swift
 class ArticleViewController: UIViewController {
 
     var dataProvider: ArticleProviderProtocol?
@@ -96,7 +100,8 @@ class ArticleViewController: UIViewController {
 
 テスト用に ArticleProviderProtocol を継承したクラス(モックとして使用します)をテストターゲット内に作成します。
 
-```
+```swift
+// Swift
 class MockDataProvider: NSObject, ArticleProviderProtocol {        
     var setupCalled = false
     
@@ -125,7 +130,8 @@ class MockDataProvider: NSObject, ArticleProviderProtocol {
 
 このモックを使ってテストをします。このテストで「ArticleViewController がロードされた時(viewDidLoad)に dataProvider プロパティを setup するか」という動作をテストしています。
 
-```
+```swift
+// Swift
 override func spec() {
     describe("view controller") {
         it("setup with data provider when loaded") {

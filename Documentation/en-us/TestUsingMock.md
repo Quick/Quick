@@ -17,6 +17,7 @@ For example, we show an app which has UITableview like rss reader.
 ArticleProviderProtocol is defined as follows,
 
 ```swift
+// Swift
 protocol ArticleProviderProtocol: UITableViewDataSource {
     var articles: [Article] { get }
     weak var tableView: UITableView! { get set }
@@ -27,7 +28,8 @@ protocol ArticleProviderProtocol: UITableViewDataSource {
 
 ArticleProviderProtocol inherits UITableViewDataSource, define property for Articles and method of getting Articles.
 
-```
+```swift
+// Swift
 class ArticleDataProvider: NSObject, ArticleProviderProtocol {
     var articles = [Article]()
     weak var tableView: UITableView!
@@ -62,6 +64,7 @@ In our scenario, `setup()` and `fetch()` are called in `viewDidLoad()` of Articl
 Code is below.
 
 ```swift
+// Swift
 struct Article {
     var title: String
 
@@ -72,6 +75,7 @@ struct Article {
 ```
 
 ```swift
+// Swift
 class ArticleViewController: UIViewController {
 
     var dataProvider: ArticleProviderProtocol?
@@ -95,7 +99,8 @@ class ArticleViewController: UIViewController {
 
 Create Mock which inherits ArticleProviderProtocol in Test Targets.
 
-```
+```swift
+// Swift
 class MockDataProvider: NSObject, ArticleProviderProtocol {
     var setupCalled = false
 
@@ -124,7 +129,8 @@ Ready to run test!
 
 This test verifies that `When ArticleViewController is loaded, ArticleViewController calls dataProvider.setup()`.
 
-```
+```swift
+// Swift
 override func spec() {
     describe("view controller") {
         it("setup with data provider when loaded") {
