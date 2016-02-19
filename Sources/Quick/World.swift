@@ -160,8 +160,8 @@ final internal class World: NSObject {
         return sharedExamples[name]!
     }
 
-    internal var exampleCount: Int {
-        return allExamples.count
+    internal var includedExampleCount: Int {
+        return includedExamples.count
     }
     
     internal var beforesCurrentlyExecuting: Bool {
