@@ -26,12 +26,11 @@ Here, we explain using `Mock` next section.
 
 ## Mock
 
-Mock is object(class, struct) used for verifying test object works with other objects.
-Mock simulated other objects.
+Mock is object(class, struct) used for verifying test object works with other objects from point of view of test target's output.
 
-## Writing test with Mock in Swift
+### Writing test with Mock in Swift
 
-### Sample app
+#### Sample app
 
 For example, we show an app which retrieves data from internet.
 
@@ -87,7 +86,7 @@ class ViewController: UIViewController {
 }
 ```
 
-## Writing test with Mock of DataProviderProtocol
+#### Writing test with Mock of DataProviderProtocol
 
 ArticleViewController depends on DataProviderProtocol.
 Here, create Mock which inherits DataProviderProtocol in Test Targets in order to test ViewController.
