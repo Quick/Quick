@@ -1,4 +1,28 @@
-# モックを使ったテスト
+# Test doubles を使ったテスト
+
+## Test doubles
+
+テストを書いているとしばしば次のような問題にぶつかります。 `Bクラス`が`Aクラス`を使用している(依存している)とします。
+
+![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesA.png)
+
+ここで BTests という (Aに依存している)B のテストを用意します。ここで A にバグがあった場合、Bに問題なくても BTests は失敗します。
+このような事が頻繁に起こるとバグの究明が難しくなります。
+
+この問題を回避するには、BTests において Aの 代わりになるクラス`A' class`(Stand-in)を用意する、という方法があります。
+
+![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesAmock.png)
+
+この`A'`は実装は異なりますが`A`と同じメソッド、プロパティを持ちます。そのため BTests において `A` を `A'` と入れ替えることができます。
+
+A'クラスのような差し替え可能なオブジェクトのことを一般に'test doubles(テストダブル)'と呼びます。
+'test doubles' にはいくつか種類があります。
+
+- Mock object: テスト対象のクラスの出力の検証に用いる
+- Stub object: テスト対象のクラスにデータを渡す(入力)際に用いる
+- Fake object: 差し替え前のオブジェクトと近い振る舞いをする(実装がより簡単になっている)
+
+ここではモックを使ったテストの方法を紹介します。
 
 ## モックとは
 
@@ -6,148 +30,106 @@
 
 ## Swift でモックを使ったテストを書く
 
-### サンプルアプリケーション	
+### サンプルアプリケーション
 
-ここでは例として RSS reader のような記事の一覧を UITableView　で表示アプリケーションを考えます。
+ここでは例としてインターネット経由で取得したデータを表示するアプリケーションを考えます。
 
-* Article という構造体(struct)を ArticleViewController の UITableView で表示する
-* データ(Article)の取得や保持、UITableViewDataSource の処理は ArticleProviderProtocol を実装したクラスが行う
+* DataProviderProtocolというプロトコルを実装したクラスがインターネット経由でデータを取得する
+* 取得したデータをViewControllerで表示する
 
-ここで ArticleProviderProtocol を定義します。
+ここで DataProviderProtocol を定義します。
 
 ```swift
 // Swift
-protocol ArticleProviderProtocol: UITableViewDataSource {
-    var articles: [Article] { get }
-    weak var tableView: UITableView! { get set }
-    func setup()
-    func fetch()
+protocol DataProviderProtocol: class {
+    func fetch(callback: (data: String) -> Void)
 }
 ```
 
-ArticleProviderProtocol で UITableViewDataSource を継承し、Article を保持するプロパティ、Article を取得する関数などを定義しています。
+DataProviderProtocol の `fetch()`関数でデータを取得し、callbackブロックでデータを渡します。
 
-ここで ArticleProviderProtocol を実装する ArticleDataProvider クラスを定義します。
+ここで DataProviderProtocol を実装する DataProvider クラスを定義します。
 
 ```swift
 // Swift
-class ArticleDataProvider: NSObject, ArticleProviderProtocol {
-    var articles = [Article]()
-    weak var tableView: UITableView!
-    
-    func setup() {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.dataSource = self
-    }
-    
-    func fetch() { // 例のためテスト実装。本来はネットワーク経由などで Article を取得します
-        articles.append(Article(title: "news title 1"))
-        articles.append(Article(title: "news title 2"))
-        articles.append(Article(title: "news title 3"))
-        tableView.reloadData()
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let article = articles[indexPath.row]
-        cell.textLabel!.text = article.title
-        return cell
+class DataProvider: NSObject, DataProviderProtocol {
+    func fetch(callback: (data: String) -> Void) {
+        let url  = NSURL(string: "http://example.com/")!
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        let task    = session.dataTaskWithURL(url, completionHandler: {
+            (data, resp, err) in
+            let string = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
+            callback(data: string)
+        })
+        task.resume()
     }
 }
 ```
 
-ArticleDataProvider を ArticleViewController の viewDidLoad 中にセットアップ、Articleの取得(fetch)を行います。
+ViewController の viewDidLoad 中にデータの取得(fetch()の呼び出し)を行います。
 
 コードはこのようになります。
 
 ```swift
 // Swift
-struct Article {
-    var title: String
-    
-    init(title: String) {
-        self.title = title
-    }
-}
-```
+class ViewController: UIViewController {
+    @IBOutlet weak var resultLabel: UILabel!
+    private var dataProvider: DataProviderProtocol?
 
-```swift
-// Swift
-class ArticleViewController: UIViewController {
-
-    var dataProvider: ArticleProviderProtocol?
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataProvider = dataProvider ?? ArticleDataProvider() // if dataProvider is nil, assign ArticleDataProvider instance
+        dataProvider = dataProvider ?? DataProvider()
 
-        dataProvider?.tableView = tableView
-        dataProvider?.setup()
-        
-        dataProvider?.fetch()
+        dataProvider?.fetch({ [unowned self] (data) -> Void in
+            self.resultLabel.text = data
+        })
     }
-
 }
 ```
 
-## ArticleProviderProtocol のモックを使ったテストを書く
+## DataProviderProtocol のモックを使ったテストを書く
 
-テスト用に ArticleProviderProtocol を継承したクラス(モックとして使用します)をテストターゲット内に作成します。
+この例では ViewController は DataProviderProtocol に依存しています。
+テスト用に DataProviderProtocol を継承したクラス(モックとして使用します)をテストターゲット内に作成します。
 
 ```swift
 // Swift
-class MockDataProvider: NSObject, ArticleProviderProtocol {        
-    var setupCalled = false
-    
-    var articles = [Article]()
-    weak var tableView: UITableView!
-    
-    func setup() {
-        setupCalled = true
-    }
-    
-    func fetch() {        }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+class MockDataProvider: NSObject, DataProviderProtocol {
+    var fetchCalled = false
+    func fetch(callback: (data: String) -> Void) {
+        fetchCalled = true
+        callback(data: "foobar")
     }
 }
-
 ```
 
-このモックの中で setupCalled プロパティを定義しています。setupCalled は setup関数が呼ばれたら true になります。
+このモックの中で fetchCalled プロパティを定義しています。 fetchCalled は fetch 関数が呼ばれたら true になります。
 これで準備は完了です。
 
-このモックを使ってテストをします。このテストで「ArticleViewController がロードされた時(viewDidLoad)に dataProvider プロパティを setup するか」という動作をテストしています。
+このモックを使ってテストをします。このテストで「 ViewController がロードされた時(viewDidLoad)に dataProvider を使って fetch() を実行するか」という動作をテストしています。
 
 ```swift
 // Swift
 override func spec() {
     describe("view controller") {
-        it("setup with data provider when loaded") {
+        it("fetch data with data provider") {
             let mockProvier = MockDataProvider()
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ArticleViewController") as! ArticleViewController
-            viewController.dataProvider = mockProvier
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            viewController.dataProvier = mockProvier
             
-            expect(mockProvier.setupCalled).to(equal(false))
+            expect(mockProvier.fetchCalled).to(equal(false))
 
-            let _ = viewController.view // triger viewDidLoad()
+            let _ = viewController.view
             
-            expect(mockProvier.setupCalled).to(equal(true))
+            expect(mockProvier.fetchCalled).to(equal(true))
         }
     }
 }
 ```
 
 このようにオブジェクトのモックを作ることで動作をテストしやすくなります。
+
+テストの書き方について、更に詳細を知りたい方はこちらのビデオを参考にしてください。 https://realm.io/jp/news/testing-in-swift/ 。
+
 
