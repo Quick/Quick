@@ -59,7 +59,7 @@ QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *f
 }
 
 void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] pending:description closure:closure];
+    [[World sharedWorld] pending:description flags:@{} file: @__FILE__ line: __LINE__ closure:closure];
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {

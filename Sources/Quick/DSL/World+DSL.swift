@@ -155,10 +155,12 @@ extension World {
     }
 #endif
 
-    internal func pending(description: String, closure: () -> ()) {
-        print("Pending: \(description)")
+    internal func pending(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+        var pendingFlags = flags
+        pendingFlags[Filter.pending] = true
+        self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
-
+    
     private var currentPhase: String {
         if beforesCurrentlyExecuting {
             return "beforeEach"

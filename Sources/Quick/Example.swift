@@ -73,8 +73,12 @@ final public class Example: NSObject {
         }
         group!.phase = .BeforesFinished
 
-        closure()
-
+        if let _ = flags[Filter.pending] {
+            print("Pending test case: \(name)")
+        } else {
+            closure()
+        }
+        
         group!.phase = .AftersExecuting
         for after in group!.afters {
             after(exampleMetadata: exampleMetadata)

@@ -172,10 +172,13 @@ public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String =
     examples or groups that should not be run yet.
 
     - parameter description: An arbitrary string describing the example or example group.
+    - parameter flags: A mapping of string keys to booleans that can be used to filter examples or example groups. Empty by default.
+    - parameter file: The absolute path to the file containing the example. A sensible default is provided.
+    - parameter line: The line containing the example. A sensible default is provided.
     - parameter closure: A closure that will not be evaluated.
 */
-public func pending(description: String, closure: () -> ()) {
-    World.sharedWorld.pending(description, closure: closure)
+public func pending(description: String, flags: FilterFlags, file: String = __FILE__, line: UInt = __LINE__, closure: () -> ()) {
+    World.sharedWorld.pending(description, flags: flags, file: file, line: line, closure: closure)
 }
 
 /**
