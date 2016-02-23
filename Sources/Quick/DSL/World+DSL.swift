@@ -46,9 +46,9 @@ extension World {
     }
 
     internal func xdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
-        var pendingFlags = flags
-        pendingFlags[Filter.pending] = true
-        self.describe(description, flags: pendingFlags, closure: closure)
+        var excludedFlags = flags
+        excludedFlags[Filter.excluded] = true
+        self.describe(description, flags: excludedFlags, closure: closure)
     }
 
     internal func beforeEach(closure: BeforeExampleClosure) {
@@ -109,9 +109,9 @@ extension World {
     }
 
     internal func xit(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
-        var pendingFlags = flags
-        pendingFlags[Filter.pending] = true
-        self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
+        var excludedFlags = flags
+        excludedFlags[Filter.excluded] = true
+        self.it(description, flags: excludedFlags, file: file, line: line, closure: closure)
     }
 
     internal func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {

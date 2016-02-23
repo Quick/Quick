@@ -22,10 +22,10 @@ final public class Filter: NSObject {
     }
 
     /**
-        Example and example groups with [Pending: true] are excluded from test runs.
+        Example and example groups with [Excluded: true] are excluded from test runs.
         Use this to temporarily suspend examples that you know do not pass yet.
     */
-    public class var pending: String {
-        return "pending"
+    public class var excluded: String {
+        return "excluded"
     }
 }

@@ -221,10 +221,10 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 #endif
 
 #define qck_it qck_it_builder(@{}, @(__FILE__), __LINE__)
-#define qck_xit qck_it_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_xit qck_it_builder(@{Filter.excluded: @YES}, @(__FILE__), __LINE__)
 #define qck_fit qck_it_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
 #define qck_itBehavesLike qck_itBehavesLike_builder(@{}, @(__FILE__), __LINE__)
-#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.excluded: @YES}, @(__FILE__), __LINE__)
 #define qck_fitBehavesLike qck_itBehavesLike_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
 
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
