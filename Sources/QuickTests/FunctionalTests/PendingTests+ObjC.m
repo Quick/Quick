@@ -49,12 +49,12 @@ QuickSpecEnd
 
 - (void)testBeforeEachOnlyRunForEnabledExamples {
     qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
-    XCTAssertEqual(oneExampleBeforeEachExecutedCount, 1);
+    XCTAssertEqual(oneExampleBeforeEachExecutedCount, 2);
 }
 
 - (void)testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples {
     qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
-    XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0);
+    XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 1);
 }
 
 @end

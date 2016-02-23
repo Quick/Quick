@@ -45,13 +45,13 @@ class PendingTests: XCTestCase, XCTestCaseProvider {
         oneExampleBeforeEachExecutedCount = 0
 
         qck_runSpec(FunctionalTests_PendingSpec.self)
-        XCTAssertEqual(oneExampleBeforeEachExecutedCount, 1)
+        XCTAssertEqual(oneExampleBeforeEachExecutedCount, 2)
     }
 
     func testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples() {
         onlyPendingExamplesBeforeEachExecutedCount = 0
 
         qck_runSpec(FunctionalTests_PendingSpec.self)
-        XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0)
+        XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 1)
     }
 }
