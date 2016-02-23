@@ -28,4 +28,12 @@ final public class Filter: NSObject {
     public class var excluded: String {
         return "excluded"
     }
+
+    /**
+     Example and example groups with [Pending: true] are pending from test runs.
+     Use this to temporarily suspend examples that you know do not pass yet.
+     */
+    public class var pending: String {
+        return "pending"
+    }
 }
