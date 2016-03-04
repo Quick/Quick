@@ -1,5 +1,7 @@
 ![](http://f.cl.ly/items/0r1E192C1R0b2g2Q3h2w/QuickLogo_Color.png)
 
+[![codebeat](https://codebeat.co/badges/ba1caf9d-12d1-4072-b02a-7e9ee81eac34)](https://codebeat.co/projects/github-com-quick-quick)
+
 Quick is a behavior-driven development framework for Swift and Objective-C.
 Inspired by [RSpec](https://github.com/rspec/rspec), [Specta](https://github.com/specta/specta), and [Ginkgo](https://github.com/onsi/ginkgo).
 
