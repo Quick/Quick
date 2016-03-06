@@ -3,26 +3,26 @@ import XCTest
 // NOTE: This file is not intended to be included in the Xcode project or CocoaPods.
 //       It is picked up by the Swift Package Manager during its build process.
 
-public class QuickSpec: XCTestCase, XCTestCaseProvider {
+public class QuickSpec: XCTestCase {
     public func spec() {}
 
     public required init() {}
 
-    public var allTests : [(String, () throws -> Void)] {
+    public class var allTests : [(String, XCTestCase throws -> Void)] {
         gatherExamplesIfNeeded()
 
-        let examples = World.sharedWorld.examples(self.dynamicType)
-        return examples.map({ example -> (String, () -> Void) in
-            return (example.name, { example.run() })
+        let examples = World.sharedWorld.examples(self)
+        return examples.map({ example -> (String, XCTestCase throws -> Void) in
+            return (example.name, { _ in example.run() })
         })
     }
 
-    internal func gatherExamplesIfNeeded() {
+    internal static func gatherExamplesIfNeeded() {
         let world = World.sharedWorld
-        let rootExampleGroup = world.rootExampleGroupForSpecClass(self.dynamicType)
+        let rootExampleGroup = world.rootExampleGroupForSpecClass(self)
         if rootExampleGroup.examples.isEmpty {
             world.currentExampleGroup =  rootExampleGroup
-            spec()
+            self.init().spec()
             world.currentExampleGroup = nil
         }
     }

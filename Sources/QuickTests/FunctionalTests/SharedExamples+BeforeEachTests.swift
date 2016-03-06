@@ -27,8 +27,8 @@ class FunctionalTests_SharedExamples_BeforeEachSpec: QuickSpec {
     }
 }
 
-class SharedExamples_BeforeEachTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () throws -> Void)] {
+final class SharedExamples_BeforeEachTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, SharedExamples_BeforeEachTests -> () throws -> Void)] {
         return [
             ("testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample", testBeforeEachOutsideOfSharedExamplesExecutedOnceBeforeEachExample),
             ("testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample", testBeforeEachInSharedExamplesExecutedOnceBeforeEachSharedExample),
