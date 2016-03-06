@@ -111,8 +111,8 @@ class FunctionalTests_ItSpec: QuickSpec {
     }
 }
 
-class ItTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () throws -> Void)] {
+final class ItTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, ItTests -> () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
         ]

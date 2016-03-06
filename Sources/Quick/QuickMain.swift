@@ -10,7 +10,16 @@ import XCTest
 /// passed, or 1 if there were any failures.
 ///
 /// Quick is known to work with the DEVELOPMENT-SNAPSHOT-2016-02-08-a Swift toolchain.
-@noreturn public func QCKMain(specs: [XCTestCase], configurations: [QuickConfiguration.Type] = []) {
+///
+/// - parameter specs: An array of QuickSpec subclasses to run
+/// - parameter configurations: An array QuickConfiguration subclasses for setting up
+//                              global suite configuration (optional)
+/// - parameter testCases: An array of XCTestCase test cases, just as would be passed
+///                        info `XCTMain` if you were using swift-corelibs-xctest directly.
+///                        This allows for mixing Quick specs and XCTestCase tests in one run.
+@noreturn public func QCKMain(specs: [QuickSpec.Type],
+                              configurations: [QuickConfiguration.Type] = [],
+                              testCases: [XCTestCaseEntry] = []) {
     // Perform all configuration (ensures that shared examples have been discovered)
     World.sharedWorld.configure { configuration in
         for configurationClass in configurations {
@@ -20,9 +29,9 @@ import XCTest
     World.sharedWorld.finalizeConfiguration()
 
     // Gather all examples (ensures suite hooks have been discovered)
-    for case let spec as QuickSpec in specs {
-        spec.gatherExamplesIfNeeded()
+    for case let specClass in specs {
+        specClass.gatherExamplesIfNeeded()
     }
 
-    XCTMain(specs)
+    XCTMain(specs.map({ ($0, $0.allTests) }) + testCases)
 }

@@ -4,8 +4,8 @@ import Quick
 
 #if _runtime(_ObjC)
 
-class DescribeTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () throws -> Void)] {
+final class DescribeTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, DescribeTests -> () throws -> Void)] {
         return [
             ("testDescribeThrowsIfUsedOutsideOfQuickSpec", testDescribeThrowsIfUsedOutsideOfQuickSpec),
         ]

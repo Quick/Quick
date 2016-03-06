@@ -68,8 +68,8 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
     }
 }
 
-class AfterEachTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () throws -> Void)] {
+final class AfterEachTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, AfterEachTests -> () throws -> Void)] {
         return [
             ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder),
         ]

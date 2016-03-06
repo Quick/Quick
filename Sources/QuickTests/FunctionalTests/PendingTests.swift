@@ -27,8 +27,8 @@ class FunctionalTests_PendingSpec: QuickSpec {
     }
 }
 
-class PendingTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () throws -> Void)] {
+final class PendingTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, PendingTests -> () throws -> Void)] {
         return [
             ("testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail", testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail),
             ("testBeforeEachOnlyRunForEnabledExamples", testBeforeEachOnlyRunForEnabledExamples),
