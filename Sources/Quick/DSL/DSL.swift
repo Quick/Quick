@@ -177,7 +177,7 @@ public func itBehavesLike(name: String, flags: FilterFlags = [:], file: String =
     - parameter line: The line containing the example. A sensible default is provided.
     - parameter closure: A closure that will not be evaluated.
 */
-public func pending(description: String, flags: FilterFlags, file: String = __FILE__, line: UInt = __LINE__, closure: () -> ()) {
+public func pending(description: String, flags: FilterFlags = [:], file: String = __FILE__, line: UInt = __LINE__, closure: () -> ()) {
     World.sharedWorld.pending(description, flags: flags, file: file, line: line, closure: closure)
 }
 
