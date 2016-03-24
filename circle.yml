@@ -1,6 +1,6 @@
 machine:
   xcode:
-    version: "7.0"
+    version: "7.3"
 
 checkout:
   post:
@@ -9,7 +9,7 @@ checkout:
 dependencies:
   pre:
     - brew update
-    - brew outdated xctool || brew upgrade xctool
+    - brew uninstall xctool && brew install --HEAD xctool
 
 test:
   override:
@@ -17,5 +17,3 @@ test:
     - rake test:osx
     - rake test:xctool:ios
     - rake test:xctool:osx
-
-
