@@ -34,17 +34,15 @@ final public class ExampleGroup: NSObject {
     public var examples: [Example] {
         var examples = childExamples
         for group in childGroups {
-            examples.appendContentsOf(group.examples)
+            examples.append(contentsOf: group.examples)
         }
         return examples
     }
 
     internal var name: String? {
         if let parent = parent {
-            switch(parent.name) {
-            case .Some(let name): return "\(name), \(description)"
-            case .None: return description
-            }
+            guard let name = parent.name else { return description }
+            return "\(name), \(description)"
         } else {
             return isInternalRootExampleGroup ? nil : description
         }
@@ -61,17 +59,17 @@ final public class ExampleGroup: NSObject {
     }
 
     internal var befores: [BeforeExampleWithMetadataClosure] {
-        var closures = Array(hooks.befores.reverse())
+        var closures = Array(hooks.befores.reversed())
         walkUp() { (group: ExampleGroup) -> () in
-            closures.appendContentsOf(Array(group.hooks.befores.reverse()))
+            closures.append(contentsOf: Array(group.hooks.befores.reversed()))
         }
-        return Array(closures.reverse())
+        return Array(closures.reversed())
     }
 
     internal var afters: [AfterExampleWithMetadataClosure] {
         var closures = hooks.afters
         walkUp() { (group: ExampleGroup) -> () in
-            closures.appendContentsOf(group.hooks.afters)
+            closures.append(contentsOf: group.hooks.afters)
         }
         return closures
     }
