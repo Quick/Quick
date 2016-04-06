@@ -1,9 +1,6 @@
 import XCTest
 import Quick
 import Nimble
-#if SWIFT_PACKAGE
-import QuickTestHelpers
-#endif
 
 var beforeSuiteWasExecuted = false
 
