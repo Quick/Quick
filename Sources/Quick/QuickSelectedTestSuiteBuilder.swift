@@ -1,4 +1,5 @@
 #if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
+import Foundation
 
 /**
  Responsible for building a "Selected tests" suite. This corresponds to a single

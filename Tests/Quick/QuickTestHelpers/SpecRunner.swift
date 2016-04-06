@@ -6,7 +6,7 @@ public func qck_runSpec(specClass: QuickSpec.Type) -> TestRun {
 }
 
 public func qck_runSpecs(specClasses: [QuickSpec.Type]) -> TestRun {
-    World.sharedWorld.isRunningAdditionalSuites = true
+    Quick.World.sharedWorld.isRunningAdditionalSuites = true
 
     var executionCount: UInt = 0
     var hadUnexpectedFailure = false

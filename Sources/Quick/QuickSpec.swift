@@ -6,7 +6,13 @@ import XCTest
 public class QuickSpec: XCTestCase {
     public func spec() {}
 
+#if os(Linux)
     public required init() {}
+#else
+    public required override init() {
+        super.init()
+    }
+#endif
 
     public class var allTests : [(String, XCTestCase throws -> Void)] {
         gatherExamplesIfNeeded()

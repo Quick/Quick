@@ -15,7 +15,7 @@ class FunctionalTests_SharedExamples_ContextSpec: QuickSpec {
     }
 }
 
-#if _runtime(_ObjC)
+#if _runtime(_ObjC) && !SWIFT_PACKAGE
 class FunctionalTests_SharedExamples_ErrorSpec: QuickSpec {
     override func spec() {
         describe("error handling when misusing ordering") {
