@@ -33,7 +33,7 @@
  Override this method in your spec to define a set of example groups
  and examples.
 
-     override class func spec() {
+     override func spec() {
          describe("winter") {
              it("is coming") {
                  // ...
