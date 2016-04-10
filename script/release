@@ -141,7 +141,7 @@ git fetch origin || die "Failed to fetch origin"
 git diff --quiet HEAD "origin/$REMOTE_BRANCH" || die "HEAD is not aligned to origin/$REMOTE_BRANCH. Cannot update version safely"
 
 echo "-> Building Carthage release"
-$CARTHAGE build --no-skip-current || die "Failed to build framework for carthage"
+$CARTHAGE build --no-skip-current --platform Mac,iOS || die "Failed to build framework for carthage"
 
 echo "-> Setting podspec version"
 cat "$PODSPEC" | grep 's.version' | grep -q "\"$VERSION\""
@@ -178,7 +178,7 @@ fi
 
 echo
 echo "---------------- Released as $VERSION_TAG ----------------"
-echo 
+echo
 echo "Archiving carthage release..."
 
 $CARTHAGE archive "$CARTHAGE_FRAMEWORK_NAME" || die "Failed to archive framework for carthage"
