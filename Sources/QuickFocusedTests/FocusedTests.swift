@@ -40,8 +40,8 @@ class FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
     }
 }
 
-class FocusedTests: XCTestCase, XCTestCaseProvider {
-    var allTests: [(String, () throws -> Void)] {
+final class FocusedTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, FocusedTests -> () throws -> Void)] {
         return [
             ("testOnlyFocusedExamplesAreExecuted", testOnlyFocusedExamplesAreExecuted),
         ]

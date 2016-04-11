@@ -13,10 +13,9 @@ public func qck_runSpecs(specClasses: [QuickSpec.Type]) -> TestRun {
 
     let fails = gatherFailingExpectations(silently: true) {
         for specClass in specClasses {
-            let spec = specClass.init()
-            for (_, test) in spec.allTests {
+            for (_, test) in specClass.allTests {
                 do {
-                    try test()
+                    try test(specClass.init())
                 } catch {
                     hadUnexpectedFailure = true
                 }
