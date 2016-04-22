@@ -96,8 +96,8 @@ Then, add Quick and Nimble to your Podfile. Additionally, the ```use_frameworks!
 use_frameworks!
 
 def testing_pods
-    pod 'Quick', '~> 0.9.0'
-    pod 'Nimble', '3.0.0'
+    pod 'Quick'
+    pod 'Nimble'
 end
 
 target 'MyTests' do
