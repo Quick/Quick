@@ -186,6 +186,15 @@ final internal class World: NSObject {
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
+    internal func performWithCurrentExampleGroup(group: ExampleGroup, closure: () -> Void) {
+        let previousExampleGroup = currentExampleGroup
+        currentExampleGroup = group
+
+        closure()
+
+        currentExampleGroup = previousExampleGroup
+    }
+
     private var allExamples: [Example] {
         var all: [Example] = []
         for (_, group) in specs {
