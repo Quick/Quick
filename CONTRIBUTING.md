@@ -104,7 +104,6 @@ The process is relatively straight forward, but here's is a useful checklist for
 
 - Look at changes from the previously tagged release and write release notes: `git log v0.4.0...HEAD`
 - Run the release script: `./script/release A.B.C release-notes-file`
-- Go to [github releases](https://github.com/Quick/Quick/releases) and mark the tagged commit as a release.
-  - Use the same release notes you created for the tag, but tweak up formatting for github.
-  - Attach the carthage release `Quick.framework.zip` to the release.
+- The script will prompt you to create a new [GitHub release](https://github.com/Quick/Quick/releases).
+  - Use the same release notes you created for the tag, but tweak up formatting for GitHub.
 - Announce!
