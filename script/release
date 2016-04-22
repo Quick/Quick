@@ -2,7 +2,6 @@
 REMOTE_BRANCH=master
 POD_NAME=Quick
 PODSPEC=Quick.podspec
-GITHUB_TAGS_URL=https://github.com/Quick/Quick/tags
 CARTHAGE_FRAMEWORK_NAME=Quick
 
 CARTHAGE=${CARTHAGE:-carthage}
@@ -191,9 +190,10 @@ $POD trunk push "$PODSPEC"
 echo
 echo "================ Finalizing the Release ================"
 echo
-echo " - Go to $GITHUB_TAGS_URL and mark this as a release."
+echo " - Opening GitHub to mark this as a release..."
 echo "   - Paste the contents of $RELEASE_NOTES into the release notes. Tweak for Github styling."
-echo "   - Attach ${CARTHAGE_FRAMEWORK_NAME}.framework.zip to it."
 echo " - Announce!"
+
+open "https://github.com/Quick/Quick/releases/new?tag=$VERSION_TAG"
 
 rm ${PODSPEC}.backup
