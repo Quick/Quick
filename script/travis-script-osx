@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-rake test:ios
-rake test:osx
-rake test:xctool:ios
-rake test:xctool:osx
+TASK="test"
+if [ "$XCTOOL" ]; then TASK="$TASK:xctool"; fi
+TASK="$TASK:$PLATFORM"
+
+echo "Executing rake task: $TASK"
+rake "$TASK"
