@@ -2,10 +2,7 @@
 REMOTE_BRANCH=master
 POD_NAME=Quick
 PODSPEC=Quick.podspec
-GITHUB_TAGS_URL=https://github.com/Quick/Quick/tags
-CARTHAGE_FRAMEWORK_NAME=Quick
 
-CARTHAGE=${CARTHAGE:-carthage}
 POD=${COCOAPODS:-pod}
 
 function help {
@@ -42,11 +39,6 @@ FORCE_TAG=$3
 VERSION_TAG="v$VERSION"
 
 echo "-> Verifying Local Directory for Release"
-
-if [ -z "`which $CARTHAGE`" ]; then
-    die "Carthage is required to produce a release. Aborting."
-fi
-echo " > Carthage is installed"
 
 if [ -z "`which $POD`" ]; then
     die "Cocoapods is required to produce a release. Aborting."
@@ -140,9 +132,6 @@ echo "-> Ensuring no differences to origin/$REMOTE_BRANCH"
 git fetch origin || die "Failed to fetch origin"
 git diff --quiet HEAD "origin/$REMOTE_BRANCH" || die "HEAD is not aligned to origin/$REMOTE_BRANCH. Cannot update version safely"
 
-echo "-> Building Carthage release"
-$CARTHAGE build --no-skip-current --platform Mac,iOS || die "Failed to build framework for carthage"
-
 echo "-> Setting podspec version"
 cat "$PODSPEC" | grep 's.version' | grep -q "\"$VERSION\""
 SET_PODSPEC_VERSION=$?
@@ -177,13 +166,6 @@ if [ $SET_PODSPEC_VERSION -ne 0 ]; then
 fi
 
 echo
-echo "---------------- Released as $VERSION_TAG ----------------"
-echo
-echo "Archiving carthage release..."
-
-$CARTHAGE archive "$CARTHAGE_FRAMEWORK_NAME" || die "Failed to archive framework for carthage"
-
-echo
 echo "Pushing to pod trunk..."
 
 $POD trunk push "$PODSPEC"
@@ -191,9 +173,10 @@ $POD trunk push "$PODSPEC"
 echo
 echo "================ Finalizing the Release ================"
 echo
-echo " - Go to $GITHUB_TAGS_URL and mark this as a release."
+echo " - Opening GitHub to mark this as a release..."
 echo "   - Paste the contents of $RELEASE_NOTES into the release notes. Tweak for Github styling."
-echo "   - Attach ${CARTHAGE_FRAMEWORK_NAME}.framework.zip to it."
 echo " - Announce!"
+
+open "https://github.com/Quick/Quick/releases/new?tag=$VERSION_TAG"
 
 rm ${PODSPEC}.backup
