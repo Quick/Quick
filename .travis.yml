@@ -1,10 +1,26 @@
-os:
-  - osx
-  - linux
-language: generic
 osx_image: xcode7.3
-sudo: required
-dist: trusty
+language: generic
+matrix:
+  include:
+    - os: osx
+      env:
+        - PLATFORM=osx
+    - os: osx
+      env:
+        - PLATFORM=ios
+    - os: osx
+      env: 
+        - XCTOOL=1
+        - PLATFORM=osx
+    - os: osx
+      env: 
+        - XCTOOL=1
+        - PLATFORM=ios
+    - os: linux
+      env:
+        - PLATFORM=linux
+      sudo: required
+      dist: trusty
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-osx;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
