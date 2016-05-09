@@ -56,8 +56,8 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
 
  Returns `nil` if a bundle or test case class cannot be found.
  */
-private func testCaseClassForTestCaseWithName(name: String) -> AnyClass? {
-    func extractClassName(name: String) -> String? {
+private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
+    func extractClassName(_ name: String) -> String? {
         return name.characters.split(separator: "/").first.map(String.init)
     }
 

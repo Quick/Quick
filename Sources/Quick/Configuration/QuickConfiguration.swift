@@ -4,5 +4,5 @@ import XCTest
 //       It is picked up by the Swift Package Manager during its build process.
 
 public class QuickConfiguration {
-    public class func configure(configuration: Configuration) {}
+    public class func configure(_ configuration: Configuration) {}
 }

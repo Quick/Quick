@@ -75,7 +75,7 @@ final internal class World: NSObject {
         - parameter closure:  A closure that takes a Configuration object that can
                          be mutated to change Quick's behavior.
     */
-    internal func configure(closure: QuickConfigurer) {
+    internal func configure(_ closure: QuickConfigurer) {
         assert(!isConfigurationFinalized,
                "Quick cannot be configured outside of a +[QuickConfiguration configure:] method. You should not call -[World configure:] directly. Instead, subclass QuickConfiguration and override the +[QuickConfiguration configure:] method.")
         closure(configuration: configuration)
@@ -107,7 +107,7 @@ final internal class World: NSObject {
         - parameter cls: The QuickSpec class for which to retrieve the root example group.
         - returns: The root example group for the class.
     */
-    internal func rootExampleGroupForSpecClass(cls: AnyClass) -> ExampleGroup {
+    internal func rootExampleGroupForSpecClass(_ cls: AnyClass) -> ExampleGroup {
         #if _runtime(_ObjC)
             let name = NSStringFromClass(cls)
         #else
@@ -136,7 +136,7 @@ final internal class World: NSObject {
         - parameter specClass: The QuickSpec subclass for which examples are to be returned.
         - returns: A list of examples to be run as test invocations.
     */
-    internal func examples(specClass: AnyClass) -> [Example] {
+    internal func examples(_ specClass: AnyClass) -> [Example] {
         // 1. Grab all included examples.
         let included = includedExamples
         // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
@@ -149,19 +149,19 @@ final internal class World: NSObject {
 
 #if _runtime(_ObjC)
     @objc(examplesForSpecClass:)
-    private func objc_examples(specClass: AnyClass) -> [Example] {
+    private func objc_examples(_ specClass: AnyClass) -> [Example] {
         return examples(specClass)
     }
 #endif
 
     // MARK: Internal
 
-    internal func registerSharedExample(name: String, closure: SharedExampleClosure) {
+    internal func registerSharedExample(_ name: String, closure: SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
         sharedExamples[name] = closure
     }
 
-    internal func sharedExample(name: String) -> SharedExampleClosure {
+    internal func sharedExample(_ name: String) -> SharedExampleClosure {
         raiseIfSharedExampleNotRegistered(name)
         return sharedExamples[name]!
     }
@@ -192,7 +192,7 @@ final internal class World: NSObject {
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
-    internal func performWithCurrentExampleGroup(group: ExampleGroup, closure: () -> Void) {
+    internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
         let previousExampleGroup = currentExampleGroup
         currentExampleGroup = group
 
@@ -222,13 +222,13 @@ final internal class World: NSObject {
         }
     }
 
-    private func raiseIfSharedExampleAlreadyRegistered(name: String) {
+    private func raiseIfSharedExampleAlreadyRegistered(_ name: String) {
         if sharedExamples[name] != nil {
             raiseError("A shared example named '\(name)' has already been registered.")
         }
     }
 
-    private func raiseIfSharedExampleNotRegistered(name: String) {
+    private func raiseIfSharedExampleNotRegistered(_ name: String) {
         if sharedExamples[name] == nil {
             raiseError("No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'")
         }

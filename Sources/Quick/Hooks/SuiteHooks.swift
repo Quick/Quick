@@ -6,11 +6,11 @@ final internal class SuiteHooks {
     internal var afters: [AfterSuiteClosure] = []
     internal var phase: HooksPhase = .NothingExecuted
 
-    internal func appendBefore(closure: BeforeSuiteClosure) {
+    internal func appendBefore(_ closure: BeforeSuiteClosure) {
         befores.append(closure)
     }
 
-    internal func appendAfter(closure: AfterSuiteClosure) {
+    internal func appendAfter(_ closure: AfterSuiteClosure) {
         afters.append(closure)
     }
 
