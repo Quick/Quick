@@ -6,6 +6,10 @@ matrix:
       env:
         - PLATFORM=osx
     - os: osx
+      sudo: required
+      env:
+        - PODSPEC=1
+    - os: osx
       env:
         - PLATFORM=ios
     - os: osx
@@ -24,6 +28,7 @@ matrix:
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-osx;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
+  - if [[ "$PODSPEC" ]]; then sudo gem install bundler; bundle install; fi
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-osx;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-script-linux; fi
