@@ -33,6 +33,6 @@ Pod::Spec.new do |s|
 
   s.framework = "XCTest"
   s.requires_arc = true
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PLATFORM_DIR)/Developer/Library/Frameworks' }
+  s.user_target_xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PLATFORM_DIR)/Developer/Library/Frameworks' }
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 end
