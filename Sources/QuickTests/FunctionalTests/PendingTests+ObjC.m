@@ -4,24 +4,35 @@
 
 #import "QCKSpecRunner.h"
 
-static NSUInteger oneExampleBeforeEachExecutedCount = 0;
-static NSUInteger onlyPendingExamplesBeforeEachExecutedCount = 0;
+static BOOL isBeforeSuiteCalled = NO;
+static BOOL isAfterSuiteCalled = NO;
+static BOOL isBeforeEachCalled = NO;
+static BOOL isAfterEachCalled = NO;
 
 QuickSpecBegin(FunctionalTests_PendingSpec_ObjC)
 
-pending(@"an example that will not run", ^{
-    expect(@YES).to(beFalsy());
-});
-
-describe(@"a describe block containing only one enabled example", ^{
-    beforeEach(^{ oneExampleBeforeEachExecutedCount += 1; });
-    it(@"an example that will run", ^{});
-    pending(@"an example that will not run", ^{});
-});
-
 describe(@"a describe block containing only pending examples", ^{
-    beforeEach(^{ onlyPendingExamplesBeforeEachExecutedCount += 1; });
+    beforeSuite(^{ isBeforeSuiteCalled = YES; });
+    beforeEach(^{ isBeforeEachCalled = YES; });
     pending(@"an example that will not run", ^{});
+    afterEach(^{ isAfterEachCalled = YES; });
+    afterSuite(^{ isAfterSuiteCalled = YES; });
+});
+
+QuickSpecEnd
+
+QuickSpecBegin(FunctionalTests_PendingBeforeSuite_Spec_ObjC)
+
+it(@"is executed after beforeSuite", ^{
+    expect(@(isBeforeSuiteCalled)).to(beTruthy());
+});
+
+QuickSpecEnd
+
+QuickSpecBegin(FunctionalTests_PendingAfterSuite_Spec_ObjC)
+
+it(@"is executed before afterSuite", ^{
+    expect(@(isAfterSuiteCalled)).to(beFalsy());
 });
 
 QuickSpecEnd
@@ -32,13 +43,9 @@ QuickSpecEnd
 
 - (void)setUp {
     [super setUp];
-    oneExampleBeforeEachExecutedCount = 0;
-    onlyPendingExamplesBeforeEachExecutedCount = 0;
 }
 
 - (void)tearDown {
-    oneExampleBeforeEachExecutedCount = 0;
-    onlyPendingExamplesBeforeEachExecutedCount = 0;
     [super tearDown];
 }
 
@@ -47,14 +54,19 @@ QuickSpecEnd
     XCTAssert(result.hasSucceeded);
 }
 
-- (void)testBeforeEachOnlyRunForEnabledExamples {
-    qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
-    XCTAssertEqual(oneExampleBeforeEachExecutedCount, 2);
-}
+- (void)testBeforeEachAfterEachAlwaysRunForPendingExamples {
+    isBeforeEachCalled = NO;
+    isAfterEachCalled = NO;
+    
+    NSArray *specs = @[
+                       [FunctionalTests_PendingSpec_ObjC class],
+                       [FunctionalTests_PendingBeforeSuite_Spec_ObjC class],
+                       [FunctionalTests_PendingAfterSuite_Spec_ObjC class]
+                       ];
+    qck_runSpecs(specs);
 
-- (void)testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples {
-    qck_runSpec([FunctionalTests_PendingSpec_ObjC class]);
-    XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 1);
+    XCTAssertEqual(isBeforeEachCalled, YES);
+    XCTAssertEqual(isAfterEachCalled, YES);
 }
 
 @end

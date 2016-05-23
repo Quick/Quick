@@ -5,24 +5,35 @@ import Nimble
 import QuickTestHelpers
 #endif
 
-var oneExampleBeforeEachExecutedCount = 0
-var onlyPendingExamplesBeforeEachExecutedCount = 0
+var isBeforeSuiteCalled = false
+var isAfterSuiteCalled = false
+var isBeforeEachCalled = false
+var isAfterEachCalled = false
 
 class FunctionalTests_PendingSpec: QuickSpec {
     override func spec() {
-        xit("an example that will not run") {
-            expect(true).to(beFalsy())
-        }
-
-        describe("a describe block containing only one enabled example") {
-            beforeEach { oneExampleBeforeEachExecutedCount += 1 }
-            it("an example that will run") {}
-            pending("an example that will not run") {}
-        }
-
         describe("a describe block containing only pending examples") {
-            beforeEach { onlyPendingExamplesBeforeEachExecutedCount += 1 }
+            beforeSuite { isBeforeSuiteCalled = true }
+            beforeEach { isBeforeEachCalled = true }
             pending("an example that will not run") {}
+            afterEach { isAfterEachCalled = true }
+            afterSuite { isAfterSuiteCalled = true }
+        }
+    }
+}
+
+class FunctionalTests_PendingBeforeSuite_Spec: QuickSpec {
+    override func spec() {
+        it("is executed after beforeSuite") {
+            expect(isBeforeSuiteCalled).to(beTruthy())
+        }
+    }
+}
+
+class FunctionalTests_PendingAfterSuite_Spec: QuickSpec {
+    override func spec() {
+        it("is executed before afterSuite") {
+            expect(isAfterSuiteCalled).to(beFalsy())
         }
     }
 }
@@ -31,9 +42,8 @@ class PendingTests: XCTestCase, XCTestCaseProvider {
     var allTests: [(String, () throws -> Void)] {
         return [
             ("testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail", testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail),
-            ("testBeforeEachOnlyRunForEnabledExamples", testBeforeEachOnlyRunForEnabledExamples),
-            ("testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples", testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples),
-        ]
+            ("testBeforeEachAfterEachAlwaysRunForPendingExamples", testBeforeEachAfterEachAlwaysRunForPendingExamples),
+            ]
     }
 
     func testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail() {
@@ -41,17 +51,17 @@ class PendingTests: XCTestCase, XCTestCaseProvider {
         XCTAssert(result.hasSucceeded)
     }
 
-    func testBeforeEachOnlyRunForEnabledExamples() {
-        oneExampleBeforeEachExecutedCount = 0
+    func testBeforeEachAfterEachAlwaysRunForPendingExamples() {
+        isBeforeEachCalled = false
+        isAfterEachCalled = false
 
-        qck_runSpec(FunctionalTests_PendingSpec.self)
-        XCTAssertEqual(oneExampleBeforeEachExecutedCount, 2)
-    }
+        qck_runSpecs([
+            FunctionalTests_PendingSpec.self,
+            FunctionalTests_PendingAfterSuite_Spec.self,
+            FunctionalTests_PendingAfterSuite_Spec.self
+            ])
 
-    func testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples() {
-        onlyPendingExamplesBeforeEachExecutedCount = 0
-
-        qck_runSpec(FunctionalTests_PendingSpec.self)
-        XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 1)
+        XCTAssertEqual(isBeforeEachCalled, true)
+        XCTAssertEqual(isAfterEachCalled, true)
     }
 }
