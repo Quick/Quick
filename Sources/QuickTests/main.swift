@@ -25,6 +25,8 @@ QCKMain([
     Configuration_AfterEachTests(),
     Configuration_BeforeEachSpec(),
     Configuration_BeforeEachTests(),
+    FunctionalTests_CrossReferencingSpecA(),
+    FunctionalTests_CrossReferencingSpecB(),
 ],
 configurations: [
     FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples.self,

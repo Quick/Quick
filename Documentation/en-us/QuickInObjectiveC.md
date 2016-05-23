@@ -27,6 +27,10 @@ QuickSpecEnd
 You must define the `QUICK_DISABLE_SHORT_SYNTAX` macro *before*
 importing the Quick header.
 
+Alternatively, you may define the macro in your test target's build configuration:
+
+![](http://d.twobitlabs.com/VFEamhvixX.png)
+
 ## Your Test Target Must Include At Least One Swift File
 
 The Swift stdlib will not be linked into your test target, and thus

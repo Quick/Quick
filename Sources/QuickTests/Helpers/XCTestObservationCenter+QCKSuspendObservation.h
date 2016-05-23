@@ -1,24 +1,20 @@
 #import <XCTest/XCTest.h>
 
 /**
- Expose internal XCTest class and methods in order to run isolated XCTestSuite
- instances while the QuickTests test suite is running.
-
- If an Xcode upgrade causes QuickTests to crash when executing, or for tests to fail
- with the message "Timed out waiting for IDE barrier message to complete", it is
- likely that this internal interface has been changed.
+ Add the ability to temporarily disable internal XCTest execution observation in
+ order to run isolated XCTestSuite instances while the QuickTests test suite is running.
  */
 @interface XCTestObservationCenter (QCKSuspendObservation)
 
 /**
- Suspends test suite observation for the duration that the block is executing.
- Any test suites that are executed within the block do not generate any log output.
- Failures are still reported.
+ Suspends test suite observation for XCTest-provided observers for the duration that
+ the block is executing. Any test suites that are executed within the block do not 
+ generate any log output. Failures are still reported.
 
  Use this method to run XCTestSuite objects while another XCTestSuite is running.
  Without this method, tests fail with the message: "Timed out waiting for IDE
- barrier message to complete".
+ barrier message to complete" or "Unexpected TestSuiteDidStart".
  */
-- (void)_suspendObservationForBlock:(void (^)(void))block;
+- (void)qck_suspendObservationForBlock:(void (^)(void))block;
 
 @end

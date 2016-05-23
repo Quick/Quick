@@ -37,7 +37,7 @@ testing, consider reading them in the order they're introduced below:
   Read this if you experience trouble using Quick in Objective-C.
 - **[Installing Quick](InstallingQuick.md)**:
   Read this for instructions on how to add Quick to your project, using
-  Git submodules, CocoaPods, or Carthage.
+  Git submodules, CocoaPods, Carthage, or the Swift Package Manager.
 - **[Installing Quick File Templates](InstallingFileTemplates.md)**:
   Read this to learn how to install file templates that make writing Quick specs faster.
 - **[More Resources](MoreResources.md)**
