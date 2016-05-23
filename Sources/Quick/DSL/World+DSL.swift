@@ -160,7 +160,7 @@ extension World {
         pendingFlags[Filter.pending] = true
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
-    
+
     private var currentPhase: String {
         if beforesCurrentlyExecuting {
             return "beforeEach"
