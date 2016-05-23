@@ -16,5 +16,5 @@
 - (void)fitWithDescription:(NSString * __nonnull)description flags:(NSDictionary * __nonnull)flags file:(NSString * __nonnull)file line:(NSUInteger)line closure:(void (^ __nonnull)(void))closure;
 - (void)xitWithDescription:(NSString * __nonnull)description flags:(NSDictionary * __nonnull)flags file:(NSString * __nonnull)file line:(NSUInteger)line closure:(void (^ __nonnull)(void))closure;
 - (void)itBehavesLikeSharedExampleNamed:(NSString * __nonnull)name sharedExampleContext:(NSDictionary * __nonnull (^ __nonnull)(void))sharedExampleContext flags:(NSDictionary * __nonnull)flags file:(NSString * __nonnull)file line:(NSUInteger)line;
-- (void)pending:(NSString * __nonnull)description flags:(NSDictionary * __nonnull)flags file:(NSString * __nonnull)file line:(NSUInteger)line closure:(void (^ __nonnull)(void))closure;
+- (void)pending:(NSString * __nonnull)description flags:(NSDictionary * __nonnull)flags file:(NSString * __nonnull)file line:(NSUInteger)line closure:(void (^ __nonnull)(void)) __unused closure;
 @end
