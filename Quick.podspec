@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Quick"
-  s.version      = "0.9.1"
+  s.version      = "0.9.2"
   s.summary      = "The Swift (and Objective-C) testing framework."
 
   s.description  = <<-DESC
@@ -33,5 +33,6 @@ Pod::Spec.new do |s|
 
   s.framework = "XCTest"
   s.requires_arc = true
+  s.user_target_xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PLATFORM_DIR)/Developer/Library/Frameworks' }
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 end

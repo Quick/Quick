@@ -45,7 +45,7 @@ func testSave_savesTheBananaToTheDatabase() {
 ここで `GorillaDB` のソースコードを変更したとします。データベースからの読み出しを速くするためにもっとも頻繁に使用するバナナをキャッシュに保持するようにします。
 `GorillaDB.size` はキャッシュのサイズに合わせて大きくなります。この場合ディスクに保存しなくなるため上記のテストは失敗します。
 
-![](http://cl.ly/image/0G2s3B3d2F3O/Screen%20Shot%202015-02-23%20at%204.07.32%20PM.png)
+![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/Screenshot_database_size_fail.png)
 
 ## 動作テスト(Behavioral Tests)
 

@@ -28,25 +28,25 @@ const void * const QCKExampleKey = &QCKExampleKey;
     [QuickConfiguration initialize];
 
     World *world = [World sharedWorld];
-    world.currentExampleGroup = [world rootExampleGroupForSpecClass:[self class]];
-    QuickSpec *spec = [self new];
+    [world performWithCurrentExampleGroup:[world rootExampleGroupForSpecClass:self] closure:^{
+        QuickSpec *spec = [self new];
 
-    @try {
-        [spec spec];
-    }
-    @catch (NSException *exception) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"An exception occurred when building Quick's example groups.\n"
-                           @"Some possible reasons this might happen include:\n\n"
-                           @"- An 'expect(...).to' expectation was evaluated outside of "
-                           @"an 'it', 'context', or 'describe' block\n"
-                           @"- 'sharedExamples' was called twice with the same name\n"
-                           @"- 'itBehavesLike' was called with a name that is not registered as a shared example\n\n"
-                           @"Here's the original exception: '%@', reason: '%@', userInfo: '%@'",
-                           exception.name, exception.reason, exception.userInfo];
-    }
-    [self testInvocations];
-    world.currentExampleGroup = nil;
+        @try {
+            [spec spec];
+        }
+        @catch (NSException *exception) {
+            [NSException raise:NSInternalInconsistencyException
+                        format:@"An exception occurred when building Quick's example groups.\n"
+             @"Some possible reasons this might happen include:\n\n"
+             @"- An 'expect(...).to' expectation was evaluated outside of "
+             @"an 'it', 'context', or 'describe' block\n"
+             @"- 'sharedExamples' was called twice with the same name\n"
+             @"- 'itBehavesLike' was called with a name that is not registered as a shared example\n\n"
+             @"Here's the original exception: '%@', reason: '%@', userInfo: '%@'",
+             exception.name, exception.reason, exception.userInfo];
+        }
+        [self testInvocations];
+    }];
 }
 
 /**
