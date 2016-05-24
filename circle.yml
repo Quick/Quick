@@ -1,6 +1,6 @@
 machine:
   xcode:
-    version: "7.3"
+    version: "7.0"
 
 checkout:
   post:
@@ -17,3 +17,5 @@ test:
     - rake test:osx
     - rake test:xctool:ios
     - rake test:xctool:osx
+
+

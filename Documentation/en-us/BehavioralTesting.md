@@ -49,7 +49,7 @@ Imagine, however, that the source code of `GorillaDB` changes. In order to make
 reading bananas from the database faster, it maintains a cache of the most frequently
 used bananas. `GorillaDB.size` grows as the size of the cache grows, and our test fails:
 
-![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/Screenshot_database_size_fail.png)
+![](http://cl.ly/image/0G2s3B3d2F3O/Screen%20Shot%202015-02-23%20at%204.07.32%20PM.png)
 
 ## Behavioral Tests
 

@@ -14,7 +14,6 @@ There are three recommended ways of linking Quick to your tests:
 1. [Git Submodules](#git-submodules)
 2. [CocoaPods](#cocoapods)
 3. [Carthage](#carthage)
-4. [Swift Package Manager (experimental)](#swift-package-manager)
 
 Choose one and follow the instructions below. Once you've completed them,
 you should be able to `import Quick` from within files in your test target.
@@ -96,8 +95,8 @@ Then, add Quick and Nimble to your Podfile. Additionally, the ```use_frameworks!
 use_frameworks!
 
 def testing_pods
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'Quick', '~> 0.9.0'
+    pod 'Nimble', '3.0.0'
 end
 
 target 'MyTests' do
@@ -156,13 +155,6 @@ to copy them to the target's Frameworks destination.
 
 This is not "the one and only way" to use Carthage to manage dependencies.
 For further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md).
-
-## [Swift Package Manager](https://github.com/apple/swift-package-manager)
-With the advent of the [swift.org](https://swift.org) open-source project, Swift now has an official, though nascent, package manager tool. Notably, this provides the possibility of using Quick on non-Apple platforms for the first time. Initial steps have been taken to allow using Quick to test projects using the Swift Package Manager, although frequent breakage is expected at this point since the tool is still under heavy development.
-
-Until further documentation has been written, the following repository may be useful as an example of how Quick can be declared as a dependency in a `Package.swift` file for SwiftPM:
-
-https://github.com/Quick/QuickOnLinuxExample
 
 ### (Not Recommended) Running Quick Specs on a Physical iOS Device
 

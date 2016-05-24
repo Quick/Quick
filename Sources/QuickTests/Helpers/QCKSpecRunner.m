@@ -8,7 +8,7 @@ XCTestRun *qck_runSuite(XCTestSuite *suite) {
     [World sharedWorld].isRunningAdditionalSuites = YES;
 
     __block XCTestRun *result = nil;
-    [[XCTestObservationCenter sharedTestObservationCenter] qck_suspendObservationForBlock:^{
+    [[XCTestObservationCenter sharedTestObservationCenter] _suspendObservationForBlock:^{
         if ([suite respondsToSelector:@selector(runTest)]) {
             [suite runTest];
             result = suite.testRun;

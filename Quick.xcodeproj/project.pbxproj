@@ -138,18 +138,6 @@
 		AC1108981CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
 		AC1108991CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
 		AC11089A1CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
-		AC4E68FF1CF3461200BEA337 /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AC4E69001CF3461300BEA337 /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AC4E69011CF3461400BEA337 /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AE4E58131C73097A00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AE4E58141C73097A00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AE4E58151C73097C00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AE4E58161C73097C00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AE4E58171C73097E00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AE4E58181C73097E00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
-		AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
-		AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
-		AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
 		CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */; };
@@ -650,8 +638,6 @@
 		AC11088E1CF3368300C56292 /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
 		AC11088F1CF3368300C56292 /* PendingTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PendingTests+ObjC.m"; sourceTree = "<group>"; };
 		AC1108971CF33C1A00C56292 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestObservationCenter+QCKSuspendObservation.m"; sourceTree = "<group>"; };
-		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
 		CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
@@ -880,7 +866,6 @@
 				DA8F919819F31680006F6675 /* XCTestObservationCenter+QCKSuspendObservation.h */,
 				96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */,
 				96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */,
-				AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -907,7 +892,6 @@
 				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
 				4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */,
 				7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */,
-				AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -1588,8 +1572,6 @@
 				1F118D131BDCA556005013A2 /* ItTests+ObjC.m in Sources */,
 				1F118D191BDCA556005013A2 /* AfterEachTests+ObjC.m in Sources */,
 				1F118D221BDCA556005013A2 /* SharedExamples+BeforeEachTests.swift in Sources */,
-				AE4E58171C73097E00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
-				AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				1F118D211BDCA556005013A2 /* SharedExamplesTests+ObjC.m in Sources */,
 				1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */,
 				1F118D0C1BDCA543005013A2 /* QuickConfigurationTests.m in Sources */,
@@ -1612,7 +1594,6 @@
 				34C586061C4ABD4100D4F057 /* XCTestCaseProvider.swift in Sources */,
 				1F118D241BDCA561005013A2 /* FocusedTests.swift in Sources */,
 				1F118D251BDCA561005013A2 /* FocusedTests+ObjC.m in Sources */,
-				AE4E58181C73097E00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1666,8 +1647,6 @@
 				4748E8951A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAE714FB19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
-				AE4E58151C73097C00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
-				AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				DA8F919E19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
 				DAE714F419FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
 				DA8F91A919F32556006F6675 /* AfterSuiteTests.swift in Sources */,
@@ -1690,7 +1669,6 @@
 				AC1108931CF3368300C56292 /* PendingTests+ObjC.m in Sources */,
 				AC1108901CF3368300C56292 /* PendingTests.swift in Sources */,
 				AC1108191CF3361B00C56292 /* XCTestCaseProvider.swift in Sources */,
-				AC4E68FF1CF3461200BEA337 /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1702,7 +1680,6 @@
 				AC1108941CF3368300C56292 /* PendingTests+ObjC.m in Sources */,
 				AC1108911CF3368300C56292 /* PendingTests.swift in Sources */,
 				AC1108561CF3362E00C56292 /* XCTestCaseProvider.swift in Sources */,
-				AC4E69001CF3461300BEA337 /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1714,7 +1691,6 @@
 				AC11086D1CF3363C00C56292 /* QCKSpecRunner.m in Sources */,
 				AC1108921CF3368300C56292 /* PendingTests.swift in Sources */,
 				AC11087F1CF3363C00C56292 /* XCTestCaseProvider.swift in Sources */,
-				AC4E69011CF3461400BEA337 /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1726,7 +1702,6 @@
 				34C586021C4ABD3F00D4F057 /* XCTestCaseProvider.swift in Sources */,
 				DA5663F41A4C8D9A00193C88 /* FocusedTests.swift in Sources */,
 				DAF28BC31A4DB8EC00A5D9BF /* FocusedTests+ObjC.m in Sources */,
-				AE4E58141C73097A00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1738,7 +1713,6 @@
 				34C586041C4ABD4000D4F057 /* XCTestCaseProvider.swift in Sources */,
 				DA9876C11A4C87200004AA17 /* FocusedTests.swift in Sources */,
 				DAF28BC41A4DB8EC00A5D9BF /* FocusedTests+ObjC.m in Sources */,
-				AE4E58161C73097C00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1792,8 +1766,6 @@
 				4748E8941A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				DAE714FA19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
-				AE4E58131C73097A00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
-				AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
 				DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
 				DA8F91A819F32556006F6675 /* AfterSuiteTests.swift in Sources */,
@@ -2087,7 +2059,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2099,7 +2070,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Quick;
-				SDKROOT = appletvsimulator;
+				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -2114,7 +2085,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2126,7 +2096,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Quick;
-				SDKROOT = appletvsimulator;
+				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -2579,7 +2549,6 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -2619,7 +2588,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;

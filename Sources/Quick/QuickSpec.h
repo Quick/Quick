@@ -33,15 +33,13 @@
  Override this method in your spec to define a set of example groups
  and examples.
 
- @code
- override func spec() {
-     describe("winter") {
-         it("is coming") {
-             // ...
+     override class func spec() {
+         describe("winter") {
+             it("is coming") {
+                 // ...
+             }
          }
      }
- }
- @endcode
 
  See DSL.swift for more information on what syntax is available.
  */

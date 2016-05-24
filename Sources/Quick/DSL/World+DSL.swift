@@ -27,7 +27,9 @@ extension World {
         }
         let group = ExampleGroup(description: description, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
-        performWithCurrentExampleGroup(group, closure: closure)
+        currentExampleGroup = group
+        closure()
+        currentExampleGroup = group.parent
     }
 
     internal func context(description: String, flags: FilterFlags, closure: () -> ()) {
@@ -121,14 +123,14 @@ extension World {
 
         let group = ExampleGroup(description: name, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
-        performWithCurrentExampleGroup(group) {
-            closure(sharedExampleContext)
-        }
-
-        group.walkDownExamples { (example: Example) in
+        currentExampleGroup = group
+        closure(sharedExampleContext)
+        currentExampleGroup.walkDownExamples { (example: Example) in
             example.isSharedExample = true
             example.callsite = callsite
         }
+
+        currentExampleGroup = group.parent
     }
 
 #if _runtime(_ObjC)

@@ -43,8 +43,8 @@ All documentation can be found in the [Documentation folder](./Documentation), i
 use_frameworks!
 
 def testing_pods
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'Quick', '~> 0.9.0'
+    pod 'Nimble', '3.0.0'
 end
 
 target 'MyTests' do

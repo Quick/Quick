@@ -88,7 +88,7 @@ final public class Example: NSObject {
 
         numberOfExamplesRun += 1
 
-        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.includedExampleCount {
+        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.exampleCount {
             world.suiteHooks.executeAfters()
         }
     }
