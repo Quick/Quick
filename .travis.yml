@@ -1,13 +1,34 @@
-os:
-  - osx
-  - linux
+osx_image: xcode7.3
 language: generic
-osx_image: xcode7.2
-sudo: required
-dist: trusty
+matrix:
+  include:
+    - os: osx
+      env:
+        - PLATFORM=osx
+    - os: osx
+      sudo: required
+      env:
+        - PODSPEC=1
+    - os: osx
+      env:
+        - PLATFORM=ios
+    - os: osx
+      env: 
+        - XCTOOL=1
+        - PLATFORM=osx
+    - os: osx
+      env: 
+        - XCTOOL=1
+        - PLATFORM=ios
+    - os: linux
+      env:
+        - PLATFORM=linux
+      sudo: required
+      dist: trusty
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-osx;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
+  - if [[ "$PODSPEC" ]]; then sudo gem install bundler; bundle install; fi
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-osx;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-script-linux; fi

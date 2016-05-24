@@ -160,8 +160,8 @@ final internal class World: NSObject {
         return sharedExamples[name]!
     }
 
-    internal var exampleCount: Int {
-        return allExamples.count
+    internal var includedExampleCount: Int {
+        return includedExamples.count
     }
     
     internal var beforesCurrentlyExecuting: Bool {
@@ -184,6 +184,15 @@ final internal class World: NSObject {
         }
         
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
+    }
+
+    internal func performWithCurrentExampleGroup(group: ExampleGroup, closure: () -> Void) {
+        let previousExampleGroup = currentExampleGroup
+        currentExampleGroup = group
+
+        closure()
+
+        currentExampleGroup = previousExampleGroup
     }
 
     private var allExamples: [Example] {

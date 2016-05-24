@@ -6,6 +6,13 @@ def has_xcodebuild
   system "which xcodebuild >/dev/null"
 end
 
+namespace "podspec" do
+  desc "Run lint for podspec"
+  task :lint do
+    run "bundle exec pod lib lint"
+  end
+end
+
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
