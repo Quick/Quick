@@ -135,9 +135,6 @@
 		AC1108931CF3368300C56292 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC11088F1CF3368300C56292 /* PendingTests+ObjC.m */; };
 		AC1108941CF3368300C56292 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC11088F1CF3368300C56292 /* PendingTests+ObjC.m */; };
 		AC1108951CF3368300C56292 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC11088F1CF3368300C56292 /* PendingTests+ObjC.m */; };
-		AC1108981CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
-		AC1108991CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
-		AC11089A1CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
 		AC4E69071CF3D94200BEA337 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69051CF3D94200BEA337 /* PendingTests.swift */; };
 		AC4E69081CF3D94200BEA337 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69051CF3D94200BEA337 /* PendingTests.swift */; };
 		AC4E69091CF3D94200BEA337 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69051CF3D94200BEA337 /* PendingTests.swift */; };
@@ -1481,7 +1478,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1108981CF33C1A00C56292 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,7 +1485,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC1108991CF33C1A00C56292 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1497,7 +1492,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC11089A1CF33C1A00C56292 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
