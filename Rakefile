@@ -50,6 +50,7 @@ namespace "test" do
     run "swift build --clean && swift build"
     run ".build/debug/QuickTests"
     run ".build/debug/QuickFocusedTests"
+    run ".build/debug/QuickPendingTests"
   end
 end
 
