@@ -138,6 +138,12 @@
 		AC1108981CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
 		AC1108991CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
 		AC11089A1CF33C1A00C56292 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1108971CF33C1A00C56292 /* Info.plist */; };
+		AC4E69071CF3D94200BEA337 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69051CF3D94200BEA337 /* PendingTests.swift */; };
+		AC4E69081CF3D94200BEA337 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69051CF3D94200BEA337 /* PendingTests.swift */; };
+		AC4E69091CF3D94200BEA337 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69051CF3D94200BEA337 /* PendingTests.swift */; };
+		AC4E690A1CF3D94200BEA337 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69061CF3D94200BEA337 /* PendingTests+ObjC.m */; };
+		AC4E690B1CF3D94200BEA337 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69061CF3D94200BEA337 /* PendingTests+ObjC.m */; };
+		AC4E690C1CF3D94200BEA337 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4E69061CF3D94200BEA337 /* PendingTests+ObjC.m */; };
 		CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
 		CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */; };
@@ -638,6 +644,8 @@
 		AC11088E1CF3368300C56292 /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
 		AC11088F1CF3368300C56292 /* PendingTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PendingTests+ObjC.m"; sourceTree = "<group>"; };
 		AC1108971CF33C1A00C56292 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC4E69051CF3D94200BEA337 /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
+		AC4E69061CF3D94200BEA337 /* PendingTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PendingTests+ObjC.m"; sourceTree = "<group>"; };
 		CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
@@ -885,6 +893,8 @@
 				470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
 				47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */,
+				AC4E69051CF3D94200BEA337 /* PendingTests.swift */,
+				AC4E69061CF3D94200BEA337 /* PendingTests+ObjC.m */,
 				DA8F91A719F32556006F6675 /* AfterSuiteTests.swift */,
 				477217391A59C1B00022013E /* AfterSuiteTests+ObjC.m */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
@@ -1560,12 +1570,14 @@
 				1F118D381BDCA6E1005013A2 /* Configuration+BeforeEachTests.swift in Sources */,
 				1F118D121BDCA556005013A2 /* ItTests.swift in Sources */,
 				1F118D1C1BDCA556005013A2 /* BeforeSuiteTests.swift in Sources */,
+				AC4E690C1CF3D94200BEA337 /* PendingTests+ObjC.m in Sources */,
 				1F118D1D1BDCA556005013A2 /* BeforeSuiteTests+ObjC.m in Sources */,
 				1F118D0E1BDCA547005013A2 /* QCKSpecRunner.m in Sources */,
 				1F118D141BDCA556005013A2 /* FailureTests+ObjC.m in Sources */,
 				1F118D0F1BDCA54B005013A2 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
 				1F118D101BDCA556005013A2 /* Configuration+AfterEach.swift in Sources */,
 				1F118D1F1BDCA556005013A2 /* AfterSuiteTests+ObjC.m in Sources */,
+				AC4E69091CF3D94200BEA337 /* PendingTests.swift in Sources */,
 				1F118D171BDCA556005013A2 /* BeforeEachTests+ObjC.m in Sources */,
 				1F118D231BDCA556005013A2 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				1F118D151BDCA556005013A2 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
@@ -1635,12 +1647,14 @@
 				DAE714F819FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */,
 				DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */,
+				AC4E690B1CF3D94200BEA337 /* PendingTests+ObjC.m in Sources */,
 				DA8940F11B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
 				4728253C1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m in Sources */,
 				DAE714F119FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A619F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
+				AC4E69081CF3D94200BEA337 /* PendingTests.swift in Sources */,
 				DA8C00221A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */,
 				DA8F91AC19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
 				DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */,
@@ -1754,12 +1768,14 @@
 				DAE714F719FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */,
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
+				AC4E690A1CF3D94200BEA337 /* PendingTests+ObjC.m in Sources */,
 				DA8940F01B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
 				4728253B1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m in Sources */,
 				DAE714F019FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
 				DAB0136F19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A519F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
+				AC4E69071CF3D94200BEA337 /* PendingTests.swift in Sources */,
 				DA8C00211A01E4B900CE58A6 /* QuickConfigurationTests.m in Sources */,
 				DA8F91AB19F3299E006F6675 /* SharedExamplesTests.swift in Sources */,
 				DA7AE6F119FC493F000AFDCE /* ItTests.swift in Sources */,
