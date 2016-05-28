@@ -102,11 +102,11 @@ Shared examples は `it`, `context` や `describe` のブロックをいくつ�
 これは異なる種類の対象についてテストをする際のコードを節約することができます。
 
 あるケースでは context を追加する必要もありません。
-Swift では `sharedExampleFor` closure を使って共有できるテストを定義することができます。
+Swift では `sharedExamples` closure を使って共有できるテストを定義することができます。
 このテクニックはある時点での状態をテストしたい時などに役に立つかもしれません。
 
 In some cases, you won't need any additional context. In Swift, you can
-simply use `sharedExampleFor` closures that take no parameters. This
+simply use `sharedExamples` closures that take no parameters. This
 might be useful when testing some sort of global state:
 
 ```swift
@@ -114,7 +114,7 @@ might be useful when testing some sort of global state:
 
 import Quick
 
-sharedExamplesFor("everything under the sea") {
+sharedExamples("everything under the sea") {
   // ...
 }
 
