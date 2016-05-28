@@ -110,7 +110,7 @@ might be useful when testing some sort of global state:
 
 import Quick
 
-sharedExamplesFor("everything under the sea") {
+sharedExamples("everything under the sea") {
   // ...
 }
 
