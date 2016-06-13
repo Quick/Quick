@@ -104,7 +104,6 @@ public func offer(banana: Banana) -> String {
 }
 ```
 
-Our application code does one of two things:
 私達のアプリケーションコードは２つのうちどちらかを実行します：
 
 1. 食べられる(すでに皮がむかれている)バナナを注文するか

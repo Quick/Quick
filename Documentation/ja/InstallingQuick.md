@@ -71,7 +71,7 @@ git commit -m "Updated Quick submodule"
 git submodule update --init --recursive
 ```
 
-git submodules に詳細な情報はこちら [here](http://git-scm.com/book/en/Git-Tools-Submodules).
+git submodules に詳細な情報は[こちら](http://git-scm.com/book/en/Git-Tools-Submodules).
 
 ## CocoaPods
 
