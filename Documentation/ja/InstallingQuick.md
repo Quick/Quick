@@ -50,7 +50,7 @@ git submodule update --init --recursive
 
 `Nimble.framework` も同様に追加してください。これで完了です！
 
-** Submodules をアップデートする:** Quick と Nimble を最新バージョンにアップデートしたい場合は Quick ディレクトリに入って master リポジトリから pull してください。
+**Submodules をアップデートする:** Quick と Nimble を最新バージョンにアップデートしたい場合は Quick ディレクトリに入って master リポジトリから pull してください。
 
 ```sh
 cd /path/to/your/project/Vendor/Quick
@@ -71,7 +71,7 @@ git commit -m "Updated Quick submodule"
 git submodule update --init --recursive
 ```
 
-git submodules に詳細な情報はこちら [here](http://git-scm.com/book/en/Git-Tools-Submodules).
+git submodules に詳細な情報は[こちら](http://git-scm.com/book/en/Git-Tools-Submodules).
 
 ## CocoaPods
 
