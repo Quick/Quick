@@ -36,7 +36,7 @@ matrix:
         - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
         - swiftenv install 2.2.1 && swiftenv local 2.2.1
         - export SWIFT_EXEC="$(swiftenv which swiftc)"
-        - export SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2016-05-31-a
+        - export SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2016-05-09-a
         - swiftenv install $SWIFT_VERSION && swiftenv local $SWIFT_VERSION
 
 install:
