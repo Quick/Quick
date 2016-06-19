@@ -6,15 +6,27 @@ matrix:
       env:
         - PLATFORM=osx
     - os: osx
-      sudo: required
-      env:
-        - PODSPEC=1
-    - os: osx
       env:
         - PLATFORM=ios
     - os: osx
       env:
         - PLATFORM=tvos
+    - os: osx
+      osx_image: xcode8
+      env:
+        - PLATFORM=osx
+    - os: osx
+      osx_image: xcode8
+      env:
+        - PLATFORM=ios
+    - os: osx
+      osx_image: xcode8
+      env:
+        - PLATFORM=tvos
+    - os: osx
+      sudo: required
+      env:
+        - PODSPEC=1
     - os: osx
       env: 
         - XCTOOL=1
