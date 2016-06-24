@@ -36,6 +36,6 @@ final class AfterSuiteTests: XCTestCase, XCTestCaseProvider {
 
         // Although this ensures that afterSuite is not called before any
         // examples, it doesn't test that it's ever called in the first place.
-        XCTAssert(result.hasSucceeded)
+        XCTAssert(result!.hasSucceeded)
     }
 }
