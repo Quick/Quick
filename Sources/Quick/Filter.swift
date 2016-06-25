@@ -17,27 +17,15 @@ final public class Filter: NSObject {
         excluding all other examples without this flag. Use this to only run one or
         two tests that you're currently focusing on.
     */
-    @nonobjc // SeeAlso: https://bugs.swift.org/browse/SR-1442
     public class var focused: String {
         return "focused"
-    }
-    // workaround for SR-1442
-    @objc(focused)
-    public class func _focused() -> String {
-        return focused
     }
 
     /**
         Example and example groups with [Pending: true] are excluded from test runs.
         Use this to temporarily suspend examples that you know do not pass yet.
     */
-    @nonobjc // SeeAlso: https://bugs.swift.org/browse/SR-1442
     public class var pending: String {
         return "pending"
-    }
-    // workaround for SR-1442
-    @objc(pending)
-    public class func _pending() -> String {
-        return pending
     }
 }
