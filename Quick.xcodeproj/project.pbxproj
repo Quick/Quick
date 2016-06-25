@@ -106,9 +106,9 @@
 		47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
 		5A5D118719473F2100F6D13D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		5A5D11A7194740E000F6D13D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6CB91EEC1CAF671C0063A000 /* Swift3to22.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91EEB1CAF671C0063A000 /* Swift3to22.swift */; };
-		6CB91EED1CAF671C0063A000 /* Swift3to22.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91EEB1CAF671C0063A000 /* Swift3to22.swift */; };
-		6CB91EEE1CAF671C0063A000 /* Swift3to22.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91EEB1CAF671C0063A000 /* Swift3to22.swift */; };
+		6CB91EEC1CAF671C0063A000 /* LinuxSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91EEB1CAF671C0063A000 /* LinuxSupport.swift */; };
+		6CB91EED1CAF671C0063A000 /* LinuxSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91EEB1CAF671C0063A000 /* LinuxSupport.swift */; };
+		6CB91EEE1CAF671C0063A000 /* LinuxSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB91EEB1CAF671C0063A000 /* LinuxSupport.swift */; };
 		7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B44ADC01C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
@@ -451,7 +451,7 @@
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CB91EEB1CAF671C0063A000 /* Swift3to22.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swift3to22.swift; sourceTree = "<group>"; };
+		6CB91EEB1CAF671C0063A000 /* LinuxSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinuxSupport.swift; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
@@ -800,7 +800,7 @@
 				CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */,
 				CE57CEDB1C430BD200D63004 /* String+FileName.swift */,
 				34C586071C4AC5E500D4F057 /* ErrorUtility.swift */,
-				6CB91EEB1CAF671C0063A000 /* Swift3to22.swift */,
+				6CB91EEB1CAF671C0063A000 /* LinuxSupport.swift */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
 			name = Quick;
@@ -1244,7 +1244,7 @@
 				1F118CFE1BDCA536005013A2 /* DSL.swift in Sources */,
 				7B44ADC01C5444940007AF2E /* HooksPhase.swift in Sources */,
 				1F118D001BDCA536005013A2 /* Closures.swift in Sources */,
-				6CB91EEE1CAF671C0063A000 /* Swift3to22.swift in Sources */,
+				6CB91EEE1CAF671C0063A000 /* LinuxSupport.swift in Sources */,
 				1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */,
 				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
 				CE590E1F1C431FE400253D19 /* QuickTestSuite.swift in Sources */,
@@ -1325,7 +1325,7 @@
 				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
 				7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
-				6CB91EED1CAF671C0063A000 /* Swift3to22.swift in Sources */,
+				6CB91EED1CAF671C0063A000 /* LinuxSupport.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
 				CE590E1A1C431FE300253D19 /* QuickTestSuite.swift in Sources */,
@@ -1419,7 +1419,7 @@
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
 				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
 				7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */,
-				6CB91EEC1CAF671C0063A000 /* Swift3to22.swift in Sources */,
+				6CB91EEC1CAF671C0063A000 /* LinuxSupport.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
