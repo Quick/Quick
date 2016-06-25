@@ -599,11 +599,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DA169E4619FF5DF100619816 /* Configuration */ = {
+		6C3983EE1D1E930D00637469 /* QuickObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				6C3983EF1D1E93B700637469 /* Configuration */,
+				6C3983F01D1E93CE00637469 /* DSL */,
+				DAEB6B931943873100289F44 /* Quick.h */,
+				DAED1EC21B1105BC006F61EC /* World.h */,
+				34F375A419515CA700CE1B99 /* QuickSpec.h */,
+				34F375A519515CA700CE1B99 /* QuickSpec.m */,
+				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
+				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
+				CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */,
+			);
+			name = QuickObjectiveC;
+			path = Sources/QuickObjectiveC;
+			sourceTree = "<group>";
+		};
+		6C3983EF1D1E93B700637469 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */,
 				DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		6C3983F01D1E93CE00637469 /* DSL */ = {
+			isa = PBXGroup;
+			children = (
+				DAED1EC81B110699006F61EC /* World+DSL.h */,
+				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
+				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
+			);
+			path = DSL;
+			sourceTree = "<group>";
+		};
+		DA169E4619FF5DF100619816 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
 				DA169E4719FF5DF100619816 /* Configuration.swift */,
 			);
 			path = Configuration;
@@ -613,10 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3124E519FCAEE8002858A7 /* World+DSL.swift */,
-				DAED1EC81B110699006F61EC /* World+DSL.h */,
 				DA3124E219FCAEE8002858A7 /* DSL.swift */,
-				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
-				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
 			);
 			path = DSL;
 			sourceTree = "<group>";
@@ -726,6 +757,7 @@
 			isa = PBXGroup;
 			children = (
 				DAEB6B901943873100289F44 /* Quick */,
+				6C3983EE1D1E930D00637469 /* QuickObjectiveC */,
 				DAEB6B9D1943873100289F44 /* QuickTests */,
 				DA9876BE1A4C87200004AA17 /* QuickFocusedTests */,
 				DAEB6B8F1943873100289F44 /* Products */,
@@ -757,23 +789,16 @@
 				DA169E4619FF5DF100619816 /* Configuration */,
 				DA3124E119FCAEE8002858A7 /* DSL */,
 				DA408BDE19FF5599005DF92A /* Hooks */,
-				DAEB6B931943873100289F44 /* Quick.h */,
 				34F375A619515CA700CE1B99 /* World.swift */,
-				DAED1EC21B1105BC006F61EC /* World.h */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				DA6B30171A4DB0D500FFB148 /* Filter.swift */,
-				34F375A419515CA700CE1B99 /* QuickSpec.h */,
-				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */,
 				CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */,
 				CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */,
-				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
-				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
 				CE57CEDB1C430BD200D63004 /* String+FileName.swift */,
-				CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				34C586071C4AC5E500D4F057 /* ErrorUtility.swift */,
 				6CB91EEB1CAF671C0063A000 /* Swift3to22.swift */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
