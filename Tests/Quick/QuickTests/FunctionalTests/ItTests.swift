@@ -123,7 +123,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
 #else
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
-        XCTAssertEqual(result.executionCount, 2 as UInt)
+        XCTAssertEqual(result?.executionCount, 2 as UInt)
     }
 #endif
 }

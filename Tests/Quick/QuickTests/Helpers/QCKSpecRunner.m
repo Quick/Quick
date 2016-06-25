@@ -4,7 +4,7 @@
 #import "XCTestObservationCenter+QCKSuspendObservation.h"
 #import "World.h"
 
-XCTestRun *qck_runSuite(XCTestSuite *suite) {
+XCTestRun * _Nullable qck_runSuite(XCTestSuite * _Nonnull suite) {
     [World sharedWorld].isRunningAdditionalSuites = YES;
 
     __block XCTestRun *result = nil;
@@ -19,7 +19,7 @@ XCTestRun *qck_runSpec(Class specClass) {
     return qck_runSuite([XCTestSuite testSuiteForTestCaseClass:specClass]);
 }
 
-XCTestRun *qck_runSpecs(NSArray *specClasses) {
+XCTestRun * _Nullable qck_runSpecs(NSArray * _Nonnull specClasses) {
     XCTestSuite *suite = [XCTestSuite testSuiteWithName:@"MySpecs"];
     for (Class specClass in specClasses) {
         [suite addTest:[XCTestSuite testSuiteForTestCaseClass:specClass]];

@@ -1,11 +1,11 @@
 @testable import Quick
 import Nimble
 
-public func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun {
+public func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
     return qck_runSpecs([specClass])
 }
 
-public func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun {
+public func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
     Quick.World.sharedWorld.isRunningAdditionalSuites = true
 
     var executionCount: UInt = 0
