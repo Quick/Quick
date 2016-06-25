@@ -5,7 +5,7 @@ import Quick
 #if _runtime(_ObjC) && !SWIFT_PACKAGE
 
 final class DescribeTests: XCTestCase, XCTestCaseProvider {
-    static var allTests: [(String, DescribeTests -> () throws -> Void)] {
+    static var allTests: [(String, (DescribeTests) -> () throws -> Void)] {
         return [
             ("testDescribeThrowsIfUsedOutsideOfQuickSpec", testDescribeThrowsIfUsedOutsideOfQuickSpec),
         ]

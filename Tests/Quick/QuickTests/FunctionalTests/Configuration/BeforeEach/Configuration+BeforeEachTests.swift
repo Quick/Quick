@@ -11,7 +11,7 @@ class Configuration_BeforeEachSpec: QuickSpec {
 }
 
 final class Configuration_BeforeEachTests: XCTestCase, XCTestCaseProvider {
-    static var allTests: [(String, Configuration_BeforeEachTests -> () throws -> Void)] {
+    static var allTests: [(String, (Configuration_BeforeEachTests) -> () throws -> Void)] {
         return [
             ("testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted", testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted),
         ]

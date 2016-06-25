@@ -14,11 +14,11 @@ public class QuickSpec: XCTestCase {
     }
 #endif
 
-    public class var allTests : [(String, XCTestCase throws -> Void)] {
+    public class var allTests : [(String, (XCTestCase) throws -> Void)] {
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(self)
-        return examples.map({ example -> (String, XCTestCase throws -> Void) in
+        return examples.map({ example -> (String, (XCTestCase) throws -> Void) in
             return (example.name, { _ in example.run() })
         })
     }
