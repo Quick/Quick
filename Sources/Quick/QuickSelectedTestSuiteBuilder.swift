@@ -51,7 +51,7 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
 }
 
 /**
- Searches `NSBundle.allBundles()` for an xctest bundle, then looks up the named
+ Searches `Bundle.allBundles()` for an xctest bundle, then looks up the named
  test case class in that bundle.
 
  Returns `nil` if a bundle or test case class cannot be found.
@@ -62,7 +62,7 @@ private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
     }
 
     guard let className = extractClassName(name) else { return nil }
-    guard let bundle = NSBundle.currentTestBundle else { return nil }
+    guard let bundle = Bundle.currentTestBundle else { return nil }
 
     if let testCaseClass = bundle.classNamed(className) { return testCaseClass }
 

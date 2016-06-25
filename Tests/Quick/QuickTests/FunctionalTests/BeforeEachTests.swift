@@ -41,7 +41,7 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
                 expect {
                     beforeEach { }
                     }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal(NSInternalInconsistencyException))
+                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
                         expect(exception.reason).to(equal("'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'. "))
                         })
             }
@@ -51,7 +51,7 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
 }
 
 final class BeforeEachTests: XCTestCase, XCTestCaseProvider {
-    static var allTests: [(String, BeforeEachTests -> () throws -> Void)] {
+    static var allTests: [(String, (BeforeEachTests) -> () throws -> Void)] {
         return [
             ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
         ]

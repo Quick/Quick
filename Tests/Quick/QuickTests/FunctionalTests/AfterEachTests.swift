@@ -56,7 +56,7 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
                 expect {
                     afterEach { }
                     }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal(NSInternalInconsistencyException))
+                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
                         expect(exception.reason).to(equal("'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'. "))
                         })
             }
@@ -66,7 +66,7 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
 }
 
 final class AfterEachTests: XCTestCase, XCTestCaseProvider {
-    static var allTests: [(String, AfterEachTests -> () throws -> Void)] {
+    static var allTests: [(String, (AfterEachTests) -> () throws -> Void)] {
         return [
             ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder),
         ]

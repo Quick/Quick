@@ -1,5 +1,5 @@
 import XCTest
-import Quick
+@testable import Quick
 import Nimble
 
 class FunctionalTests_ItSpec: QuickSpec {
@@ -60,7 +60,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                 expect {
                     it("will throw an error when it is nested in another it") { }
                     }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal(NSInternalInconsistencyException))
+                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
                         expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. "))
                         })
             }
@@ -118,7 +118,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
 #if _runtime(_ObjC) && !SWIFT_PACKAGE
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
-        XCTAssertEqual(result.executionCount, 10 as UInt)
+        XCTAssertEqual(result?.executionCount, 10 as UInt)
     }
 #else
     func testAllExamplesAreExecuted() {
