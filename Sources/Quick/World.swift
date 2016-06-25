@@ -44,7 +44,7 @@ final internal class World: NSObject {
         within this test suite. This is only true within the context of Quick
         functional tests.
     */
-#if swift(>=3) && _runtime(_ObjC)
+#if _runtime(_ObjC)
     // Convention of generating Objective-C selector has been changed on Swift 3
     @objc(isRunningAdditionalSuites)
     internal var isRunningAdditionalSuites = false
