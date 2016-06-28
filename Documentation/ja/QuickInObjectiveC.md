@@ -6,7 +6,7 @@ Quick は Swift でも Objective-C でも問題なく動作します。
 
 ## 簡略記法
 
-Objective-C で Quick を import すると 'it' と `itShouldBehaveLike` というマクロが定義されます。
+Objective-C で Quick を import すると `it` と `itShouldBehaveLike` というマクロが定義されます。
 また、`context()` and `describe()`といった関数も同様に定義されます。
 
 もしプロジェクトですでに同じ名前のシンボルを定義していた場合、重複のためビルドエラーになります。
@@ -37,7 +37,6 @@ loaded for some other reason, such as a problem with a library it
 depends on or a code signature/entitlements mismatch.
 ```
 
-To fix the problem, add a blank file called `SwiftSpec.swift` to your test target:
 修正するためには `SwiftSpec.swift` という名前の空のファイルをテストターゲットに追加してください。
 
 ```swift

@@ -1,6 +1,6 @@
 # Quickの挙動をカスタマイズしましょう
 
-QuickConfiguration を継承したクラスを作成し、`QuickConfiguration.Type.configure()` をオーバーライドすることで Quick の挙動をカスラマイズすることができます。
+`QuickConfiguration` を継承したクラスを作成し、`QuickConfiguration.Type.configure()` をオーバーライドすることで Quick の挙動をカスラマイズすることができます。
 
 ```swift
 // Swift
