@@ -1069,31 +1069,40 @@
 				TargetAttributes = {
 					1F118CD41BDCA4AB005013A2 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					1F118CDD1BDCA4AB005013A2 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					1F118CEF1BDCA4BB005013A2 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					5A5D117B19473F2100F6D13D = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					5A5D118519473F2100F6D13D = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 5A5D117B19473F2100F6D13D;
 					};
 					DA5663E71A4C8D8500193C88 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 					};
 					DA9876B11A4C70EB0004AA17 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 					};
 					DAEB6B8D1943873100289F44 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					DAEB6B981943873100289F44 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = DAEB6B8D1943873100289F44;
 					};
 				};
