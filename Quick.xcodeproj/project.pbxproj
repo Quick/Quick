@@ -1806,7 +1806,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsos appletvsimulator";
 				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1828,7 +1827,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsos appletvsimulator";
 				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				VALIDATE_PRODUCT = YES;
 			};
