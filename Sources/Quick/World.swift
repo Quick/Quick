@@ -171,22 +171,22 @@ final internal class World: NSObject {
     }
     
     internal var beforesCurrentlyExecuting: Bool {
-        let suiteBeforesExecuting = suiteHooks.phase == .BeforesExecuting
-        let exampleBeforesExecuting = exampleHooks.phase == .BeforesExecuting
+        let suiteBeforesExecuting = suiteHooks.phase == .beforesExecuting
+        let exampleBeforesExecuting = exampleHooks.phase == .beforesExecuting
         var groupBeforesExecuting = false
         if let runningExampleGroup = currentExampleMetadata?.example.group {
-            groupBeforesExecuting = runningExampleGroup.phase == .BeforesExecuting
+            groupBeforesExecuting = runningExampleGroup.phase == .beforesExecuting
         }
         
         return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
     }
     
     internal var aftersCurrentlyExecuting: Bool {
-        let suiteAftersExecuting = suiteHooks.phase == .AftersExecuting
-        let exampleAftersExecuting = exampleHooks.phase == .AftersExecuting
+        let suiteAftersExecuting = suiteHooks.phase == .aftersExecuting
+        let exampleAftersExecuting = exampleHooks.phase == .aftersExecuting
         var groupAftersExecuting = false
         if let runningExampleGroup = currentExampleMetadata?.example.group {
-            groupAftersExecuting = runningExampleGroup.phase == .AftersExecuting
+            groupAftersExecuting = runningExampleGroup.phase == .aftersExecuting
         }
         
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting

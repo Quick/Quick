@@ -4,7 +4,7 @@
 final internal class ExampleHooks {
     internal var befores: [BeforeExampleWithMetadataClosure] = []
     internal var afters: [AfterExampleWithMetadataClosure] = []
-    internal var phase: HooksPhase = .NothingExecuted
+    internal var phase: HooksPhase = .nothingExecuted
 
     internal func appendBefore(_ closure: BeforeExampleWithMetadataClosure) {
         befores.append(closure)
@@ -23,20 +23,20 @@ final internal class ExampleHooks {
     }
 
     internal func executeBefores(_ exampleMetadata: ExampleMetadata) {
-        phase = .BeforesExecuting
+        phase = .beforesExecuting
         for before in befores {
             before(exampleMetadata: exampleMetadata)
         }
         
-        phase = .BeforesFinished
+        phase = .beforesFinished
     }
 
     internal func executeAfters(_ exampleMetadata: ExampleMetadata) {
-        phase = .AftersExecuting
+        phase = .aftersExecuting
         for after in afters {
             after(exampleMetadata: exampleMetadata)
         }
 
-        phase = .AftersFinished
+        phase = .aftersFinished
     }
 }
