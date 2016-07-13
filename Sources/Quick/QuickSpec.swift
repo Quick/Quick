@@ -7,19 +7,24 @@ public class QuickSpec: XCTestCase {
     public func spec() {}
 
 #if os(Linux)
-    public required init() {}
+    public required init() {
+        super.init(name: "", testClosure: { _ in })
+    }
+    public required init(name: String, testClosure: (XCTestCase) throws -> Swift.Void) {
+        super.init(name: name, testClosure: testClosure)
+    }
 #else
     public required override init() {
         super.init()
     }
 #endif
 
-    public class var allTests : [(String, (XCTestCase) throws -> Void)] {
+    public class var allTests : [(String, (XCTestCase) -> () throws -> Void)] {
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(self)
-        return examples.map({ example -> (String, (XCTestCase) throws -> Void) in
-            return (example.name, { _ in example.run() })
+        return examples.map({ example -> (String, (XCTestCase) -> () throws -> Void) in
+            return (example.name, { _ in { example.run() }})
         })
     }
 

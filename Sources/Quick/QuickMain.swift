@@ -17,7 +17,7 @@ import XCTest
 /// - parameter testCases: An array of XCTestCase test cases, just as would be passed
 ///                        info `XCTMain` if you were using swift-corelibs-xctest directly.
 ///                        This allows for mixing Quick specs and XCTestCase tests in one run.
-@noreturn public func QCKMain(specs: [QuickSpec.Type],
+@noreturn public func QCKMain(_ specs: [QuickSpec.Type],
                               configurations: [QuickConfiguration.Type] = [],
                               testCases: [XCTestCaseEntry] = []) {
     // Perform all configuration (ensures that shared examples have been discovered)
@@ -33,6 +33,6 @@ import XCTest
         specClass.gatherExamplesIfNeeded()
     }
 
-    XCTMain(specs.map({ ($0, $0.allTests) }) + testCases)
+    XCTMain(specs.flatMap({ testCase($0.allTests) }) + testCases)
 }
 #endif
