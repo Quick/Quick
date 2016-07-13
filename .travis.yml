@@ -13,6 +13,9 @@ matrix:
       env:
         - PLATFORM=ios
     - os: osx
+      env:
+        - PLATFORM=tvos
+    - os: osx
       env: 
         - XCTOOL=1
         - PLATFORM=osx
@@ -20,6 +23,10 @@ matrix:
       env: 
         - XCTOOL=1
         - PLATFORM=ios
+    - os: osx
+      env: 
+        - XCTOOL=1
+        - PLATFORM=tvos
     # - os: linux
     #   env:
     #     - PLATFORM=linux
