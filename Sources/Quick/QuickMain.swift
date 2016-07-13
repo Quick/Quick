@@ -28,11 +28,6 @@ import XCTest
     }
     World.sharedWorld.finalizeConfiguration()
 
-    // Gather all examples (ensures suite hooks have been discovered)
-    for case let specClass in specs {
-        specClass.gatherExamplesIfNeeded()
-    }
-
     XCTMain(specs.flatMap({ testCase($0.allTests) }) + testCases)
 }
 #endif

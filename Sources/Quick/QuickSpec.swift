@@ -19,13 +19,21 @@ public class QuickSpec: XCTestCase {
     }
 #endif
 
+    static var allTestsCache = [String : [(String, (XCTestCase) -> () throws -> Void)]]()
+
     public class var allTests : [(String, (XCTestCase) -> () throws -> Void)] {
+        if let cached = allTestsCache[String(self)] {
+            return cached
+        }
+
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(self)
-        return examples.map({ example -> (String, (XCTestCase) -> () throws -> Void) in
+        let result = examples.map({ example -> (String, (XCTestCase) -> () throws -> Void) in
             return (example.name, { _ in { example.run() }})
         })
+        allTestsCache[String(self)] = result
+        return result
     }
 
     internal static func gatherExamplesIfNeeded() {
