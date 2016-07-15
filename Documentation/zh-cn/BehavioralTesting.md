@@ -48,7 +48,7 @@ XCTAssertEqual(database.size, originalSize + 1)
 
 编写行为测试的关键，就是准确的定位你想让你的程序代码做什么。
 
-在我们的`testSave_savesTheBananaToTheDatabase`的测试中：当我们在数据库中储存一个香蕉时，我们所希望程序完成的是一个怎样的行为呢？应该是保存香蕉，即之后可以取回香蕉。因此，我们不该测试数据库大小的增加，而应该测试我们能不能从数据库里取回香蕉。
+在我们的`testSave_savesTheBananaToTheDatabase`的测试中：当我们在数据库中储存一根香蕉时，我们所希望程序完成的是一个怎样的行为呢？应该是保存香蕉，即之后可以取回香蕉。因此，我们不该测试数据库大小的增加，而应该测试我们能不能从数据库里取回香蕉。
 
 ```diff
 // GorillaDBTests.swift
@@ -69,7 +69,7 @@ database.save(banana: banana, key: "test-banana")
 }
 ```
 
-编写行为测试的关键，就在与思考这些问题：
+编写行为测试的关键，就在于思考这些问题：
 
 - 这段程序代码是用来做什么的？
 - 我的测试只验证了程序的行为吗？它可能因为代码运行的其他原因而不通过吗？
