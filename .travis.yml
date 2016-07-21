@@ -15,14 +15,17 @@ matrix:
       osx_image: xcode8
       env:
         - PLATFORM=osx
+        - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
       osx_image: xcode8
       env:
         - PLATFORM=ios
+        - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
       osx_image: xcode8
       env:
         - PLATFORM=tvos
+        - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
       sudo: required
       env:
