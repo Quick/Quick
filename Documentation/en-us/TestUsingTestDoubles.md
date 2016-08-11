@@ -91,6 +91,11 @@ class ViewController: UIViewController {
 ArticleViewController depends on DataProviderProtocol.
 Here, create Mock which inherits DataProviderProtocol in Test Targets in order to test ViewController.
 
+If you create mocks, you can,
+- run much faster.
+- run correctly whether you're connected to the Internet or not.
+- focus on testing ViewController. (Test will not fail because of errors in your actual DataProvider).
+
 ```swift
 // Swift
 class MockDataProvider: NSObject, DataProviderProtocol {

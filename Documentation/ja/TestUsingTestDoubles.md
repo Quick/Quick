@@ -93,6 +93,11 @@ class ViewController: UIViewController {
 この例では ViewController は DataProviderProtocol に依存しています。
 テスト用に DataProviderProtocol を継承したクラス(モックとして使用します)をテストターゲット内に作成します。
 
+モックを作成することで、
+- テストを速く実行できる
+- インターネットに接続していなくてもテストができるようになる
+- ViewController の動作のテストにフォーカスできる（実際のDataProviderをテスト対象から外すことが出来る）
+
 ```swift
 // Swift
 class MockDataProvider: NSObject, DataProviderProtocol {
