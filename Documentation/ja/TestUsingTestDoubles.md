@@ -66,7 +66,7 @@ class DataProvider: NSObject, DataProviderProtocol {
 }
 ```
 
-ViewController の viewDidLoad 中にデータの取得(fetch()の呼び出し)を行います。
+ViewController の `viewDidLoad` 中にデータの取得(`fetch()`の呼び出し)を行います。
 
 コードはこのようになります。
 
@@ -117,11 +117,11 @@ override func spec() {
             let mockProvier = MockDataProvider()
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             viewController.dataProvier = mockProvier
-            
+
             expect(mockProvier.fetchCalled).to(equal(false))
 
             let _ = viewController.view
-            
+
             expect(mockProvier.fetchCalled).to(equal(true))
         }
     }
@@ -131,5 +131,3 @@ override func spec() {
 このようにオブジェクトのモックを作ることで動作をテストしやすくなります。
 
 テストの書き方について、更に詳細を知りたい方はこちらのビデオを参考にしてください。 https://realm.io/jp/news/testing-in-swift/ 。
-
-

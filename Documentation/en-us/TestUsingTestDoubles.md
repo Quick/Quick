@@ -2,21 +2,21 @@
 
 ## Test doubles
 
-Following problem comes up often when writing tests. Here, `B` Class uses(depends on) `A Class`.
+The following problem comes up often when writing tests. Here, `Car` Class uses(depends on) `Tire` Class.
 
 ![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesA.png)
 
-Here's one example: BTests tests B, which uses A. Now bugs in A cause BTests to fail, even though B is fine! 
+Here's one example: CarTests test `Car`, which uses `Tire`. Now bugs in `Tire` cause CarTests to fail, even though `Car` is fine!
 All the failures are confusing--it's hard to answer the question "what's broken?"
 
-To avoid this problem, we can use a stand-in for A in Btests. In this case, we call stand-in for A `A' class`.
+To avoid this problem, we can use a stand-in for `Tire` in Cartests. In this case, we call stand-in for Tire `PerfectTire class`.
 
 ![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesAmock.png)
 
-`A' class` has same methods--however implementation might be different, and properties as `A Class`. So we can replace `A Class` with `A' Class` in BTests.
+`PerfectTire class` has same methods and properties as `A Class` (although its implementation of thos methods and properties might be different). So we can replace `Tire` class with `PerfectTire` class in CarTests.
 
-Objects like `A' Class` are called 'test doubles'. 'test doubles' are used as stand-in for tests.
-There are some kinds of 'test doubles'.
+Objects like `PerfectTire` class are called 'test doubles'. 'test doubles' are used as stand-in for tests.
+There are several kinds of 'test doubles'.
 
 - Mock object: used for receiving output from test class
 - Stub object: used for providing input to test class
@@ -26,7 +26,7 @@ Here, we explain using `Mock` next section.
 
 ## Mock
 
-Mock is object(class, struct) used for verifying test object works with other objects from point of view of test target's output.
+A mock is a class or struct used for verifying test objects work with other objects from point of view of test target's output.
 
 ### Writing test with Mock in Swift
 
@@ -53,9 +53,9 @@ Here's DataProvider which implements DataProviderProtocol.
 // Swift
 class DataProvider: NSObject, DataProviderProtocol {
     func fetch(callback: (data: String) -> Void) {
-        let url  = NSURL(string: "http://example.com/")!
+        let url = NSURL(string: "http://example.com/")!
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        let task    = session.dataTaskWithURL(url, completionHandler: {
+        let task = session.dataTaskWithURL(url, completionHandler: {
             (data, resp, err) in
             let string = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
             callback(data: string)
@@ -115,11 +115,11 @@ override func spec() {
             let mockProvier = MockDataProvider()
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             viewController.dataProvier = mockProvier
-            
+
             expect(mockProvier.fetchCalled).to(equal(false))
 
             let _ = viewController.view
-            
+
             expect(mockProvier.fetchCalled).to(equal(true))
         }
     }
