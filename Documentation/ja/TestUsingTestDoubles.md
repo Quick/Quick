@@ -2,20 +2,20 @@
 
 ## Test doubles
 
-テストを書いているとしばしば次のような問題にぶつかります。 `Bクラス`が`Aクラス`を使用している(依存している)とします。
+テストを書いているとしばしば次のような問題にぶつかります。 `車`クラスが`タイヤ`クラスを使用している(依存している)とします。
 
 ![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesA.png)
 
-ここで BTests という (Aに依存している)B のテストを用意します。ここで A にバグがあった場合、Bに問題なくても BTests は失敗します。
+ここで 車Tests という (`タイヤ`に依存している)`車` のテストを用意します。ここで `タイヤ` にバグがあった場合、`車`に問題なくても 車Tests は失敗します。
 このような事が頻繁に起こるとバグの究明が難しくなります。
 
-この問題を回避するには、BTests において Aの 代わりになるクラス`A' class`(Stand-in)を用意する、という方法があります。
+この問題を回避するには、`車`Tests において `タイヤ`の 代わりになるクラス`完璧タイヤ` クラス(代理、英語で `Stand-in`といいます)を用意する、という方法があります。
 
 ![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesAmock.png)
 
-この`A'`は実装は異なりますが`A`と同じメソッド、プロパティを持ちます。そのため BTests において `A` を `A'` と入れ替えることができます。
+この`完璧タイヤ`は実装は異なりますが`タイヤ`と同じメソッド、プロパティを持ちます。そのため 車Tests において `タイヤ` を `完璧タイヤ` と入れ替えることができます。
 
-A'クラスのような差し替え可能なオブジェクトのことを一般に'test doubles(テストダブル)'と呼びます。
+`完璧タイヤ`クラスのような差し替え可能なオブジェクトのことを一般に'test doubles(テストダブル)'と呼びます。
 'test doubles' にはいくつか種類があります。
 
 - Mock object: テスト対象のクラスの出力の検証に用いる
@@ -66,7 +66,7 @@ class DataProvider: NSObject, DataProviderProtocol {
 }
 ```
 
-ViewController の viewDidLoad 中にデータの取得(fetch()の呼び出し)を行います。
+ViewController の `viewDidLoad` 中にデータの取得(`fetch()`の呼び出し)を行います。
 
 コードはこのようになります。
 
@@ -93,6 +93,11 @@ class ViewController: UIViewController {
 この例では ViewController は DataProviderProtocol に依存しています。
 テスト用に DataProviderProtocol を継承したクラス(モックとして使用します)をテストターゲット内に作成します。
 
+モックを作成することで、
+- テストを速く実行できる
+- インターネットに接続していなくてもテストができるようになる
+- ViewController の動作のテストにフォーカスできる（実際のDataProviderをテスト対象から外すことが出来る）
+
 ```swift
 // Swift
 class MockDataProvider: NSObject, DataProviderProtocol {
@@ -117,11 +122,11 @@ override func spec() {
             let mockProvier = MockDataProvider()
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             viewController.dataProvier = mockProvier
-            
+
             expect(mockProvier.fetchCalled).to(equal(false))
 
             let _ = viewController.view
-            
+
             expect(mockProvier.fetchCalled).to(equal(true))
         }
     }
@@ -131,5 +136,3 @@ override func spec() {
 このようにオブジェクトのモックを作ることで動作をテストしやすくなります。
 
 テストの書き方について、更に詳細を知りたい方はこちらのビデオを参考にしてください。 https://realm.io/jp/news/testing-in-swift/ 。
-
-
