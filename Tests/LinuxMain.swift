@@ -1,7 +1,7 @@
 import XCTest
 import Quick
 
-@testable import QuickTestSuite
+@testable import QuickTests
 
 Quick.QCKMain([
     FunctionalTests_AfterEachSpec.self,
