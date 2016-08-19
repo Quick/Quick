@@ -50,12 +50,10 @@ func testSave_savesTheBananaToTheDatabase() {
 ## 動作テスト(Behavioral Tests)
 
 動作のテストの重要なポイントは アプリケーションコードに期待する動作を明確にすることです。
-The key to writing behavioral tests is determining exactly what you're expecting
-your application code to do.
 
 `testSave_savesTheBananaToTheDatabase` というテストで期待する動作は バナナをデータベースに "保存する" ことでしょうか？
 "保存する"というのは 後から読み出すことができる、という意味です。そのためデータベースのサイズが大きくなることをテストするのではなく、
-バナナを読みだすことができるかをテストすべきです。
+バナナを読み出すことができるかをテストすべきです。
 
 
 ```diff

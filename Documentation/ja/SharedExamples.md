@@ -3,8 +3,8 @@
 複数のオブジェクトに対象して同じ内容のテストを行いたい場合があります。
 
 例えば `Edible` という protocol があるとします。
-イルカ(dolphin)が何か食べられる(`Edible`)なものを食べるとイルカが幸せになります。
-サバ(Mackerel)とタラ(Cod)は食べられる(Edibleな)ものです。
+イルカ(dolphin)が何か食べられる(`Edible`な)ものを食べるとイルカが幸せになります。
+サバ(`Mackerel`)とタラ(`Cod`)は食べられる(`Edible`な)ものです。
 
 Quick は「イルカがどちらかを食べて幸せになる」ということを簡単にテストすることできます。
 
@@ -102,19 +102,15 @@ Shared examples は `it`, `context` や `describe` のブロックをいくつ�
 これは異なる種類の対象についてテストをする際のコードを節約することができます。
 
 あるケースでは context を追加する必要もありません。
-Swift では `sharedExampleFor` closure を使って共有できるテストを定義することができます。
+Swift では `sharedExamples` closure を使って共有できるテストを定義することができます。
 このテクニックはある時点での状態をテストしたい時などに役に立つかもしれません。
-
-In some cases, you won't need any additional context. In Swift, you can
-simply use `sharedExampleFor` closures that take no parameters. This
-might be useful when testing some sort of global state:
 
 ```swift
 // Swift
 
 import Quick
 
-sharedExamplesFor("everything under the sea") {
+sharedExamples("everything under the sea") {
   // ...
 }
 
@@ -123,4 +119,4 @@ itBehavesLike("everything under the sea")
 
 > Objective-Cでは, `QCKDSLSharedExampleContext` を引数に取る block を渡すことができます。※QCKDSLSharedExampleContext を使う予定がなくても引数に取る block を用意してください。めんどくさくても。世の中そんなもんです。  :cookie: :bomb:
 
-'itBehavesLike' の先頭に 'f' を加えて(`fitBehavesLike`) として共有できるテストのみ実行することもできます。
+`itBehavesLike` の先頭に `f` を加えて(`fitBehavesLike`) として共有できるテストのみ実行することもできます。

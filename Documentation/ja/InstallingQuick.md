@@ -30,7 +30,7 @@ Git submodules を使って Quick と Nimble をリンクします。手順の�
 もしまだ git submodules 用のディレクトリを作っていなかったら、まず始めにディレクトリを作成します。
 `Vendor` という名前のディレクトリを用意しましょう。
 
-**Step One:** Quick と Nimble を Git submodules としてダウンロードする
+**Step 1:** Quick と Nimble を Git submodules としてダウンロードする
 
 ```sh
 git submodule add git@github.com:Quick/Quick.git Vendor/Quick
@@ -38,19 +38,19 @@ git submodule add git@github.com:Quick/Nimble.git Vendor/Nimble
 git submodule update --init --recursive
 ```
 
-**Step Two:** `Quick.xcodeproj` と `Nimble.xcodeproj` をプロジェクトの `.xcworkspace` に追加してください。
+**Step 2:** `Quick.xcodeproj` と `Nimble.xcodeproj` をプロジェクトの `.xcworkspace` に追加してください。
 例として `Guanaco.xcworkspace` という workspace に Quick と Nimble を追加します。
 
 ![](http://f.cl.ly/items/2b2R0e1h09003u2f0Z3U/Screen%20Shot%202015-02-27%20at%202.19.37%20PM.png)
 
-**Step Three:** build phase の `Link Binary with Libraries` に `Quick.framework` を追加してください。
+**Step 3:** build phase の `Link Binary with Libraries` に `Quick.framework` を追加してください。
 2種類の `Quick.frameworks` が表示されますが 1 つは OS X 用で、もう 1 つが iOS 用です。
 
 ![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
 
 `Nimble.framework` も同様に追加してください。これで完了です！
 
-** Submodules をアップデートする:** Quick と Nimble を最新バージョンにアップデートしたい場合は Quick ディレクトリに入って master リポジトリから pull してください。
+**Submodules をアップデートする:** Quick と Nimble を最新バージョンにアップデートしたい場合は Quick ディレクトリに入って master リポジトリから pull してください。
 
 ```sh
 cd /path/to/your/project/Vendor/Quick
@@ -71,7 +71,7 @@ git commit -m "Updated Quick submodule"
 git submodule update --init --recursive
 ```
 
-git submodules に詳細な情報はこちら [here](http://git-scm.com/book/en/Git-Tools-Submodules).
+git submodules に詳細な情報は[こちら](http://git-scm.com/book/en/Git-Tools-Submodules)です。
 
 ## CocoaPods
 

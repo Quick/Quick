@@ -27,6 +27,8 @@ testing, consider reading them in the order they're introduced below:
   *examples* and *example groups*.
 - **[Testing OS X and iOS Applications](TestingApps.md)**:
   Read this to learn more about testing code that uses the AppKit and UIKit frameworks.
+- **[Testing with test doubles](TestUsingTestDoubles.md)**:
+  Read this to learn what test doubles are and how to use them.
 - **[Reducing Test Boilerplate with Shared Assertions](SharedExamples.md)**:
   Read this to learn how to share sets of assertions among your tests.
 - **[Configuring How Quick Behaves](ConfiguringQuick.md)**:

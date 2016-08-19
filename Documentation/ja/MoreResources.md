@@ -11,7 +11,7 @@ Quick は[GitHub](https://github.com/github)や[ReactiveCocoa](https://github.co
 - https://github.com/libgit2/objective-git
 - https://github.com/jspahrsummers/RXSwift
 - https://github.com/artsy/eidolon
-- https://github.com/AshFurrow/Moya
+- https://github.com/Moya/Moya
 - https://github.com/nerdyc/Squeal
 - https://github.com/pepibumur/SugarRecord
 

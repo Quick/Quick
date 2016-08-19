@@ -1,6 +1,6 @@
 # テストの準備をする
 
-Xcode7 では Command Line Tool プロジェクトを除き、デフォルトで Unit test target が生成されます。 [参照：コマンドラインツールプロジェクトでテストの準備をする](#コマンドラインツールプロジェクトでテストの準備をする).
+Xcode7 では Command Line Tool プロジェクトを除き、デフォルトで Unit test target が生成されます。 [参照：コマンドラインツールプロジェクトでテストの準備をする](#コマンドラインツールプロジェクトでテストの準備をする)。
 テストを書くためには Unit test targetから Main target のコードが使用できる必要があります。
 
 ## Swift のコードを Swift でテストする
@@ -38,7 +38,7 @@ errors](https://github.com/Quick/Quick/issues/91)) ことがあるためお勧�
 #import "MyClass.h"
 ```
 
-これで `MyClass.h' のコードを Swift のテストコードから使用できるようになります。
+これで `MyClass.h` のコードを Swift のテストコードから使用できるようになります。
 
 ## Swift のコードを Objective-C でテストする
 
