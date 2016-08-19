@@ -25,7 +25,7 @@ final internal class ExampleHooks {
     internal func executeBefores(_ exampleMetadata: ExampleMetadata) {
         phase = .beforesExecuting
         for before in befores {
-            before(exampleMetadata: exampleMetadata)
+            before(exampleMetadata)
         }
         
         phase = .beforesFinished
@@ -34,7 +34,7 @@ final internal class ExampleHooks {
     internal func executeAfters(_ exampleMetadata: ExampleMetadata) {
         phase = .aftersExecuting
         for after in afters {
-            after(exampleMetadata: exampleMetadata)
+            after(exampleMetadata)
         }
 
         phase = .aftersFinished

@@ -78,7 +78,7 @@ final internal class World: NSObject {
     internal func configure(_ closure: QuickConfigurer) {
         assert(!isConfigurationFinalized,
                "Quick cannot be configured outside of a +[QuickConfiguration configure:] method. You should not call -[World configure:] directly. Instead, subclass QuickConfiguration and override the +[QuickConfiguration configure:] method.")
-        closure(configuration: configuration)
+        closure(configuration)
     }
 
     /**
@@ -143,7 +143,7 @@ final internal class World: NSObject {
         let spec = rootExampleGroupForSpecClass(specClass).examples.filter { included.contains($0) }
         // 3. Remove all excluded examples.
         return spec.filter { example in
-            !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example: example) }
+            !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example) }
         }
     }
 
@@ -212,7 +212,7 @@ final internal class World: NSObject {
     private var includedExamples: [Example] {
         let all = allExamples
         let included = all.filter { example in
-            return self.configuration.inclusionFilters.reduce(false) { $0 || $1(example: example) }
+            return self.configuration.inclusionFilters.reduce(false) { $0 || $1(example) }
         }
 
         if included.isEmpty && configuration.runAllWhenEverythingFiltered {
