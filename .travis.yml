@@ -5,24 +5,12 @@ matrix:
     - os: osx
       env:
         - PLATFORM=osx
-    - os: osx
-      env:
-        - PLATFORM=ios
-    - os: osx
-      env:
-        - PLATFORM=tvos
-    - os: osx
-      osx_image: xcode8
-      env:
-        - PLATFORM=osx
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
-      osx_image: xcode8
       env:
         - PLATFORM=ios
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
-      osx_image: xcode8
       env:
         - PLATFORM=tvos
         - XCODE_ACTION="build-for-testing test-without-building"
