@@ -14,10 +14,10 @@ matrix:
       env:
         - PLATFORM=tvos
         - XCODE_ACTION="build-for-testing test-without-building"
-    - os: osx
-      sudo: required
-      env:
-        - PODSPEC=1
+#     - os: osx
+#       sudo: required
+#       env:
+#         - PODSPEC=1
     - os: linux
       env:
         - PLATFORM=linux
