@@ -56,6 +56,12 @@ target 'MyUITests' do
 end
 ```
 
+## Projects using Quick
+
+Many apps use both Quick and Nimble however, as they are not included in the app binary, neither appear in “Top Used Libraries” blog posts. Therefore, it would be greatly appreciated to remind contributors that their efforts are valued by compiling a list of organizations and projects that use them. 
+
+Does your organization or project use Quick and Nimble? If yes, [please add your project to the list](https://github.com/Quick/Quick/wiki/Projects-using-Quick).
+
 ## License
 
-Apache 2.0 license. See the `LICENSE` file for details.
+Apache 2.0 license. See the [`LICENSE`](LICENSE) file for details.

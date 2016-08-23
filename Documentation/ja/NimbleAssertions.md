@@ -75,7 +75,7 @@ expected to contain <Monkey(name: Kiki, sillines: ExtremelySilly)>,
 ![](http://f.cl.ly/items/3N2e3g2K3W123b1L1J0G/Screen%20Shot%202015-02-26%20at%2011.27.02%20AM.png)
 
 失敗メッセージは何が問題かを明確にします：ここでは `kiki` が `silliest()` の戻り値に含まれることを期待していますが
-このテストでは 'jane' しか含まれていません。Nimble からのメッセージで何が問題かが分かりやすく伝えられるので、簡単に直すことができます。
+このテストでは `jane` しか含まれていません。Nimble からのメッセージで何が問題かが分かりやすく伝えられるので、簡単に直すことができます。
 
 ```diff
 public func silliest(monkeys: [Monkey]) -> [Monkey] {

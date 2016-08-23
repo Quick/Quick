@@ -4,6 +4,10 @@
 #import "XCTestObservationCenter+QCKSuspendObservation.h"
 #import "World.h"
 
+@interface XCTest (Redeclaration)
+- (XCTestRun *)run;
+@end
+
 XCTestRun * _Nullable qck_runSuite(XCTestSuite * _Nonnull suite) {
     [World sharedWorld].isRunningAdditionalSuites = YES;
 

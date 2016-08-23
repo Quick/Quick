@@ -3,8 +3,7 @@
 *[Xcodeでテストを用意しましょう](SettingUpYourXcodeProject.md)*では Objective-C や Swift の関数やクラスを
 テストするために必要なことを述べました。ここでは `UIViewController` のサブクラスなどをテストする際のポイントを述べます。
 
-> 関連する LT がありますのでこちらも参考にしてください。
-  [here](https://vimeo.com/115671189#t=37m50s) (37'50" から始まる部分です)。
+> 関連する LT がありますので[こちら](https://vimeo.com/115671189#t=37m50s)も参考にしてください。 (37'50" から始まる部分です)。
 
 ## `UIViewController` のライフサイクルイベントを発火させる
 
@@ -148,7 +147,7 @@ beforeEach(^{
 
 ## ボタンをタップされた、などの UIControl Events を発火させる
 
-ボタンや他の UIControl を継承したクラスは UIControl イベントを発火させる関数を持っています。
+ボタンや他の `UIControl` を継承したクラスは Control イベントを発火させる関数を持っています。
 ボタンをタップされた時の動作をテストするにはこのように書くことができます：
 
 ```swift

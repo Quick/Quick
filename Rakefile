@@ -6,6 +6,10 @@ def has_xcodebuild
   system "which xcodebuild >/dev/null"
 end
 
+def xcode_action
+  ENV["XCODE_ACTION"] || "build test"
+end
+
 namespace "podspec" do
   desc "Run lint for podspec"
   task :lint do
@@ -16,44 +20,17 @@ end
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'platform=iOS Simulator,name=iPhone 6' clean test"
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'platform=iOS Simulator,name=iPhone 6' clean #{xcode_action}"
   end
 
   desc "Run unit tests for all tvOS targets"
   task :tvos do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' clean test"
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' clean #{xcode_action}"
   end
 
   desc "Run unit tests for all OS X targets"
   task :osx do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-OSX clean test"
-  end
-
-  desc "Run unit tests for all iOS, tvOS and OS X targets using xctool"
-  task xctool: %w[test:xctool:version test:xctool:ios test:xctool:tvos test:xctool:osx]
-  namespace :xctool do
-    desc "Run unit tests for all iOS targets using xctool"
-    task :ios do |t|
-      Rake::Task["test:xctool:version"].invoke
-      run "xctool -workspace Quick.xcworkspace -scheme Quick-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' clean test"
-    end
-
-    desc "Run unit tests for all tvOS targets using xctool"
-    task :tvos do |t|
-      Rake::Task["test:xctool:version"].invoke
-      run "xctool -workspace Quick.xcworkspace -scheme Quick-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV 1080p' clean test"
-    end
-
-    desc "Run unit tests for all OS X targets using xctool"
-    task :osx do |t|
-      Rake::Task["test:xctool:version"].invoke
-      run "xctool -workspace Quick.xcworkspace -scheme Quick-OSX clean test"
-    end
-
-    desc "Print the version of xctool being used"
-    task :version do
-      run "echo Using xctool v`xctool -v`..."
-    end
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-OSX clean #{xcode_action}"
   end
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
