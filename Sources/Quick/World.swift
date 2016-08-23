@@ -108,11 +108,7 @@ final internal class World: NSObject {
         - returns: The root example group for the class.
     */
     internal func rootExampleGroupForSpecClass(_ cls: AnyClass) -> ExampleGroup {
-        #if _runtime(_ObjC)
-            let name = NSStringFromClass(cls)
-        #else
-            let name = String(cls)
-        #endif
+        let name = String(describing: cls)
 
         if let group = specs[name] {
             return group
