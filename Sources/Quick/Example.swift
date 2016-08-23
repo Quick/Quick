@@ -26,7 +26,7 @@ final public class Example: NSObject {
     private let closure: () -> ()
     private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: () -> ()) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () -> ()) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
@@ -67,7 +67,7 @@ final public class Example: NSObject {
         world.exampleHooks.executeBefores(exampleMetadata)
         group!.phase = .beforesExecuting
         for before in group!.befores {
-            before(exampleMetadata: exampleMetadata)
+            before(exampleMetadata)
         }
         group!.phase = .beforesFinished
 
@@ -75,7 +75,7 @@ final public class Example: NSObject {
 
         group!.phase = .aftersExecuting
         for after in group!.afters {
-            after(exampleMetadata: exampleMetadata)
+            after(exampleMetadata)
         }
         group!.phase = .aftersFinished
         world.exampleHooks.executeAfters(exampleMetadata)

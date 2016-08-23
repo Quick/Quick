@@ -85,7 +85,7 @@ extension World {
     }
 #endif
 
-    internal func it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    internal func it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ")
         }
@@ -100,13 +100,13 @@ extension World {
         currentExampleGroup.appendExample(example)
     }
 
-    internal func fit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    internal func fit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
         self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
     }
 
-    internal func xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    internal func xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
@@ -133,17 +133,17 @@ extension World {
 
 #if _runtime(_ObjC)
     @objc(itWithDescription:flags:file:line:closure:)
-    private func objc_it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    private func objc_it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         it(description, flags: flags, file: file, line: line, closure: closure)
     }
 
     @objc(fitWithDescription:flags:file:line:closure:)
-    private func objc_fit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    private func objc_fit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         fit(description, flags: flags, file: file, line: line, closure: closure)
     }
 
     @objc(xitWithDescription:flags:file:line:closure:)
-    private func objc_xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    private func objc_xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         xit(description, flags: flags, file: file, line: line, closure: closure)
     }
 

@@ -74,9 +74,9 @@ final public class ExampleGroup: NSObject {
         return closures
     }
 
-    internal func walkDownExamples(_ callback: (example: Example) -> ()) {
+    internal func walkDownExamples(_ callback: (_ example: Example) -> ()) {
         for example in childExamples {
-            callback(example: example)
+            callback(example)
         }
         for group in childGroups {
             group.walkDownExamples(callback)
@@ -93,10 +93,10 @@ final public class ExampleGroup: NSObject {
         childExamples.append(example)
     }
 
-    private func walkUp(_ callback: (group: ExampleGroup) -> ()) {
+    private func walkUp(_ callback: (_ group: ExampleGroup) -> ()) {
         var group = self
         while let parent = group.parent {
-            callback(group: parent)
+            callback(parent)
             group = parent
         }
     }

@@ -24,7 +24,7 @@ public protocol XCTestCaseProvider: XCTestCaseProviderStatic, XCTestCaseNameProv
 
 public extension XCTestCaseProvider where Self: XCTestCaseProviderStatic {
     var allTestNames: [String] {
-        return self.dynamicType.allTests.map({ name, test in
+        return type(of: self).allTests.map({ name, test in
             return name
         })
     }
@@ -33,7 +33,7 @@ public extension XCTestCaseProvider where Self: XCTestCaseProviderStatic {
 #if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
 
     extension XCTestCase {
-        override public func tearDown() {
+        override open func tearDown() {
             if let provider = self as? XCTestCaseNameProvider {
                 provider.assertContainsTest(invocation!.selector.description)
             }
@@ -43,7 +43,7 @@ public extension XCTestCaseProvider where Self: XCTestCaseProviderStatic {
     }
 
     extension XCTestCaseNameProvider {
-        private func assertContainsTest(_ name: String) {
+        fileprivate func assertContainsTest(_ name: String) {
             let contains = self.allTestNames.contains(name)
             XCTAssert(contains, "Test '\(name)' is missing from the allTests array")
         }

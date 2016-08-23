@@ -4,13 +4,13 @@ import Foundation
     A closure that temporarily exposes a Configuration object within
     the scope of the closure.
 */
-public typealias QuickConfigurer = (configuration: Configuration) -> ()
+public typealias QuickConfigurer = (_ configuration: Configuration) -> ()
 
 /**
     A closure that, given metadata about an example, returns a boolean value
     indicating whether that example should be run.
 */
-public typealias ExampleFilter = (example: Example) -> Bool
+public typealias ExampleFilter = (_ example: Example) -> Bool
 
 /**
     A configuration encapsulates various options you can use

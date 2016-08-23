@@ -1,6 +1,6 @@
 import Foundation
 
-@noreturn internal func raiseError(_ message: String) {
+internal func raiseError(_ message: String) -> Never {
 #if _runtime(_ObjC)
     NSException(name: .internalInconsistencyException, reason: message, userInfo: nil).raise()
 #endif

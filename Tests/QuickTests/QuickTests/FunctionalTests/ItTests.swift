@@ -26,7 +26,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     FunctionalTests_ItSpec.allSelectors()
                         .filter { $0.hasPrefix("when_an_example_has_a_unique_name__") }
                     )
-                    .sorted(isOrderedBefore: <)
+                    .sorted(by: <)
                 
                 expect(allSelectors) == [
                     "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it",
@@ -44,7 +44,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     FunctionalTests_ItSpec.allSelectors()
                         .filter { $0.hasPrefix("when_two_examples_have_the_exact_name__") }
                     )
-                    .sorted(isOrderedBefore: <)
+                    .sorted(by: <)
                 
                 expect(allSelectors) == [
                     "when_two_examples_have_the_exact_name__has_exactly_the_same_name",
