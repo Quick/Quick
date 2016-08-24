@@ -6,9 +6,13 @@ let package = Package(
     // be `testDependencies:` instead. For now it has to be done like this for the library to get linked with the test targets.
     // See: https://github.com/apple/swift-evolution/blob/master/proposals/0019-package-manager-testing.md
     dependencies: [
-        .Package(url: "https://github.com/norio-nomura/Nimble", "5.0.0-alpha.30p2")
+        .Package(url: "https://github.com/norio-nomura/Nimble", "5.0.0-alpha.30p6")
     ],
     exclude: [
-      "Sources/QuickObjectiveC"
+      "Sources/QuickObjectiveC",
+      "Tests/QuickTests/QuickFocusedTests/FocusedTests+ObjC.m",
+      "Tests/QuickTests/QuickTests/FunctionalTests/ObjC",
+      "Tests/QuickTests/QuickTests/Helpers",
+      "Tests/QuickTests/QuickTests/QuickConfigurationTests.m",
     ]
 )
