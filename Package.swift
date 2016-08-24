@@ -2,6 +2,7 @@ import PackageDescription
 
 let package = Package(
     name: "Quick",
+    exclude: ["Sources/QuickAfterSuiteTests"],
     targets: [
         Target(name: "QuickTests", dependencies: [.Target(name: "Quick"), .Target(name: "QuickTestHelpers")]),
         Target(name: "QuickFocusedTests", dependencies: [.Target(name: "Quick"), .Target(name: "QuickTestHelpers")]),
