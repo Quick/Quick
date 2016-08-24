@@ -1,6 +1,6 @@
 # 在项目中添加测试
 
-除了命令行项目以外，当你在 Xcode 7 中创建新项目时，单元测试 Target 默认是包含的。[为命令行项目设置测试 Target](#setting-up-a-test-target-for-a-command-line-tool-project) 要编写单元测试, 你需要能够在测试 Target 中使用主 target 代码。
+除了命令行项目以外，当你在 Xcode 7 中创建新项目时，单元测试 Target 默认是包含的。[为命令行项目设置测试 Target](#setting-up-a-test-target-for-a-command-line-tool-project) 要编写单元测试，你需要能够在测试 Target 中使用主 target 代码。
 
 ## 用 Swift 测试 Swift 项目代码
 
