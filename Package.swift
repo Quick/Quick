@@ -5,6 +5,7 @@ let package = Package(
     targets: [
         Target(name: "QuickTests", dependencies: [.Target(name: "Quick"), .Target(name: "QuickTestHelpers")]),
         Target(name: "QuickFocusedTests", dependencies: [.Target(name: "Quick"), .Target(name: "QuickTestHelpers")]),
+        Target(name: "QuickAfterSuiteTests", dependencies: [.Target(name: "Quick"), .Target(name: "QuickTestHelpers")]),
         Target(name: "QuickTestHelpers", dependencies: [.Target(name: "Quick")]),
     ],
     // TODO: Once the `test` command has been implemented in the Swift Package Manager, this should be changed to
