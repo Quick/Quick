@@ -5,7 +5,6 @@ QCKMain([
     AfterEachTests(),
     FunctionalTests_AfterSuite_AfterSuiteSpec(),
     FunctionalTests_AfterSuite_Spec(),
-    AfterSuiteTests(),
     FunctionalTests_BeforeEachSpec(),
     BeforeEachTests(),
     FunctionalTests_BeforeSuite_BeforeSuiteSpec(),
