@@ -3,8 +3,6 @@ import Quick
 QCKMain([
     FunctionalTests_AfterEachSpec(),
     AfterEachTests(),
-    FunctionalTests_AfterSuite_AfterSuiteSpec(),
-    FunctionalTests_AfterSuite_Spec(),
     FunctionalTests_BeforeEachSpec(),
     BeforeEachTests(),
     FunctionalTests_BeforeSuite_BeforeSuiteSpec(),
