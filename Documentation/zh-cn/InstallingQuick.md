@@ -1,4 +1,4 @@
-# Installing Quick
+# 安装 Quick
 
 > **如果你的 Xcode 版本是7.1,** 请使用新的 Quick--`v0.9.0` 写测试代码。
 > 新发布的版本是基于 `swift-2.0` 这个分支开发的。
