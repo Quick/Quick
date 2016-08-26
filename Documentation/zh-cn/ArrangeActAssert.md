@@ -1,4 +1,4 @@
-# 使用 XCTest 的 Arrange，Act 和 Assert 编写高效的测试
+# 编写高效的 XCTest 测试: Arrange，Act 和 Assert
 
 当你使用 XCTest，Quick 或者其他测试框架时，你可以遵循下面的模式来编写有效的单元测试：
 
