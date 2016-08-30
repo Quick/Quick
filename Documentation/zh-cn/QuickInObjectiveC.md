@@ -1,4 +1,4 @@
-# 在Objective-C中使用Quick
+# 在 Objective-C 中使用 Quick
 
 Quick 既支持 Swift ，也支持 Objective-C 。
 
@@ -29,7 +29,7 @@ QuickSpecEnd
 
 ## 你的测试目标必需至少包含一个 Swift 文件
 
-如果你的测试目标没有*至少包含一个 Swift 文件*，那么 Swift 标准库就不会连接到你的测试目标，因而会导致 Quick 无法正常编译。
+如果你的测试目标没有*至少包含一个 Swift 文件*，那么 Swift 标准库就不会链接到你的测试目标，因而会导致 Quick 无法正常编译。
 
 当没有至少包含一个 Swift 文件时，测试运行后就会终止并且返回以下错误：
 
