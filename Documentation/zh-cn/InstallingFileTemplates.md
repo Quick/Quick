@@ -1,6 +1,6 @@
-# 安装 Quick 文件模版
+# 安装 Quick 文件模板
 
-Quick 仓库包含了 Swift 和 Objective-C 规范的文件模版。
+Quick 仓库包含了 Swift 和 Objective-C 规范的文件模板。
 
 ## Alcatraz
 
@@ -10,14 +10,14 @@ Quick 模板可以通过 [Alcatraz](https://github.com/supermarin/Alcatraz) 安�
 
 ## 使用 Rakefile 手动安装
 
-如果想手动安装模版，那么只需克隆仓库并运行rake命令  `templates:install` ：
+如果想手动安装模板，那么只需克隆仓库并运行 rake 命令  `templates:install` ：
 
 ```sh
 $ git clone git@github.com:Quick/Quick.git
 $ rake templates:install
 ```
 
-可以通过下面的命令卸载模版：
+若要卸载模板，可以运行命令：
 
 ```sh
 $ rake templates:uninstall
