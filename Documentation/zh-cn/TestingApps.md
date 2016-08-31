@@ -3,14 +3,14 @@
 *[在项目中添加测试](SettingUpYourXcodeProject.md)* 这篇文章详细介绍了有关如何测试 Objective-C 和 Swift 的函数和类的内容。
 本文将介绍一些额外的技巧，用来测试**类**，如 `UIViewController` 及其子类。
 
-> 你可以参考这个简短的[闪电演讲（lightning talk）](https://vimeo.com/115671189#t=37m50s)(从37分50秒开始)，它涵盖了绝大多数这方面的话题。
+> 你可以参考这个简短的 [Lightning Talk](https://vimeo.com/115671189#t=37m50s)（从37分50秒开始），它涵盖了绝大多数这方面的话题。
 
 ## 触发 `UIViewController` 生命周期事件
 
 通常，当你的视图控制器（view controller）呈现在应用中，UIKit 会自动触发生命周期事件。然而，在测试 `UIViewController` 的时候，你需要自己手动触发这些事件。你可以通过以下任意一种方法来实现它：
 
 1. 通过访问 `UIViewController.view` 来触发事件，如： `UIViewController.viewDidLoad()` 。
-2. 使用 `UIViewController.beginAppearanceTransition()` 来触发大多数生存周期事件。
+2. 使用 `UIViewController.beginAppearanceTransition()` 来触发大多数生命周期事件。
 3. 直接调用方法，如：`UIViewController.viewDidLoad()` 或  `UIViewController.viewWillAppear()` 。
 
 ```swift
