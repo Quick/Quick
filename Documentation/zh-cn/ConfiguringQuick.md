@@ -33,7 +33,7 @@ QuickConfigurationEnd
 
 ## 添加全局闭包 `beforeEach` 和 `afterEach`
 
-你可以通过使用 `QuickConfiguration.beforeEach` 和 `QuickConfiguration.afterEach` ，实现在整个测试中的每一个例子运行前或运行后执行特定的闭包代码：
+你可以通过使用 `QuickConfiguration.beforeEach` 和 `QuickConfiguration.afterEach` ，执行测试中每个例子运行前或运行后特定的闭包代码：
 
 ```swift
 // Swift
@@ -67,7 +67,7 @@ QuickConfigurationBegin(FinConfiguration)
 QuickConfigurationEnd
 ```
 
-另外，Quick 允许你无视当前正在运行的例子，访问中继数据：
+另外，Quick 允许你根据当前正在运行的例子，访问元数据：
 
 ```swift
 // Swift
