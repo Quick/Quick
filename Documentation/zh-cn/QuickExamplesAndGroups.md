@@ -434,9 +434,9 @@ QuickSpecEnd
 `afterSuite` 闭包都会在其它测试运行结束后执行。
 但是这些闭包并不一定按先后顺序执行。
 
-## 访问当前例子的中继数据
+## 访问当前例子的元数据
 
-在某些情况下，你会想知道当前运行的例子的名称，或者目前已经运行了多少例子。Quick 提供了闭包 `beforeEach` 和 `afterEach` ，通过这些闭包，可以访问中继数据。
+在某些情况下，你会想知道当前运行的例子的名称，或者目前已经运行了多少例子。Quick 提供了闭包 `beforeEach` 和 `afterEach` ，通过这些闭包，可以访问元数据。
 
 ```swift
 beforeEach { exampleMetadata in
