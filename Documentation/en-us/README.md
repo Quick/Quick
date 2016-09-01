@@ -42,3 +42,5 @@ testing, consider reading them in the order they're introduced below:
   Read this to learn how to install file templates that make writing Quick specs faster.
 - **[More Resources](MoreResources.md)**
   A list of additional resources on OS X and iOS testing.
+- **[Troubleshooting](Troubleshooting.md)**
+  Read this when you experience other troubles.
