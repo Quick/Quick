@@ -11,7 +11,7 @@
 
 1. 通过访问 `UIViewController.view` 来触发事件，如： `UIViewController.viewDidLoad()` 。
 2. 使用 `UIViewController.beginAppearanceTransition()` 来触发大多数生命周期事件。
-3. 直接调用方法，如：`UIViewController.viewDidLoad()` 或  `UIViewController.viewWillAppear()` 。
+3. 直接调用方法，如：`UIViewController.viewDidLoad()` 或 `UIViewController.viewWillAppear()` 。
 
 ```swift
 // Swift
