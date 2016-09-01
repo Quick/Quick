@@ -44,8 +44,7 @@ Quickでテストを書くと、SwiftとObjective-Cで書かれたプログラ�
   CocoaPods、Carthage、全部サポートしています！
 - **[Quickファイル・テンプレートのインストール方法](InstallingFileTemplates.md)**:
   Quickテストをすばやく作成するためのファイル・テンプレートをインストールする方法を説明します。
-- **[その他の参考資料](MoreResources.md)**
+- **[その他の参考資料](MoreResources.md)**:
   OS X・iOSのテストに関しての資料集を用意しています。
-- **[トラブルシューティング](Troubleshooting.md)**
+- **[トラブルシューティング](Troubleshooting.md)**:
   その他の不具合に遭遇した場合にこれを読んでください。
-  
