@@ -3,9 +3,9 @@
  respect to the hooks of that example.
  */
 internal enum HooksPhase: Int {
-    case NothingExecuted = 0
-    case BeforesExecuting
-    case BeforesFinished
-    case AftersExecuting
-    case AftersFinished
+    case nothingExecuted = 0
+    case beforesExecuting
+    case beforesFinished
+    case aftersExecuting
+    case aftersFinished
 }
