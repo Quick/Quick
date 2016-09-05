@@ -5,6 +5,6 @@
       location = "group:Quick.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Externals/Nimble/Nimble.xcodeproj">
+      location = "group:Carthage/Checkouts/Nimble/Nimble.xcodeproj">
    </FileRef>
 </Workspace>
