@@ -58,7 +58,7 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
  */
 private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
     func extractClassName(_ name: String) -> String? {
-        return name.characters.split(separator: "/").first.map(String.init)
+        return name.components(separatedBy: "/").first
     }
 
     guard let className = extractClassName(name) else { return nil }
