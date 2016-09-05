@@ -1,8 +1,6 @@
 @import XCTest;
 #import <objc/runtime.h>
 
-static void *kObserversKey = &kObserversKey;
-
 @interface XCTestObservationCenter (Redeclaration)
 - (id)observers;
 - (void)removeTestObserver:(id<XCTestObservation>)testObserver;
