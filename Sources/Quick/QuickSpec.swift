@@ -29,9 +29,9 @@ open class QuickSpec: XCTestCase {
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(self)
-        let result = examples.map({ example -> (String, (XCTestCase) -> () throws -> Void) in
-            return (example.name, { _ in { example.run() }})
-        })
+        let result = examples.map { example -> (String, (XCTestCase) -> () throws -> Void) in
+            return (example.name, { _ in { example.run() } })
+        }
         allTestsCache[String(describing: self)] = result
         return result
     }

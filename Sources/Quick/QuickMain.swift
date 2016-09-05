@@ -28,6 +28,6 @@ public func QCKMain(_ specs: [QuickSpec.Type],
     }
     World.sharedWorld.finalizeConfiguration()
 
-    XCTMain(specs.flatMap({ testCase($0.allTests) }) + testCases)
+    XCTMain(specs.flatMap { testCase($0.allTests) } + testCases)
 }
 #endif
