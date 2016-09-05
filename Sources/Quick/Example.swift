@@ -46,7 +46,7 @@ final public class Example: NSObject {
         to be displayed in Xcode's test navigator.
     */
     public var name: String {
-        guard let groupName = group!.name else { return description }
+        guard let groupName = group?.name else { return description }
         return "\(groupName), \(description)"
     }
 
