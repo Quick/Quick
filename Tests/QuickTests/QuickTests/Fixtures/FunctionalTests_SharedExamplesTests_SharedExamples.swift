@@ -10,7 +10,7 @@ class FunctionalTests_SharedExamplesTests_SharedExamples: QuickConfiguration {
             it("passes three times") { expect(true).to(beTruthy()) }
         }
 
-        sharedExamples("shared examples that take a context") { (sharedExampleContext: SharedExampleContext) in
+        sharedExamples("shared examples that take a context") { (sharedExampleContext: @escaping SharedExampleContext) in
             it("is passed the correct parameters via the context") {
                 let callsite = sharedExampleContext()[NSString(string: "callsite")] as! NSString
                 expect(callsite).to(equal("SharedExamplesSpec"))

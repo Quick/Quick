@@ -6,15 +6,15 @@ import Foundation
     writers use in their specs.
 */
 extension World {
-    internal func beforeSuite(_ closure: BeforeSuiteClosure) {
+    internal func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
         suiteHooks.appendBefore(closure)
     }
 
-    internal func afterSuite(_ closure: AfterSuiteClosure) {
+    internal func afterSuite(_ closure: @escaping AfterSuiteClosure) {
         suiteHooks.appendAfter(closure)
     }
 
-    internal func sharedExamples(_ name: String, closure: SharedExampleClosure) {
+    internal func sharedExamples(_ name: String, closure: @escaping SharedExampleClosure) {
         registerSharedExample(name, closure: closure)
     }
 
@@ -49,7 +49,7 @@ extension World {
         self.describe(description, flags: pendingFlags, closure: closure)
     }
 
-    internal func beforeEach(_ closure: BeforeExampleClosure) {
+    internal func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'. ")
         }
@@ -58,16 +58,16 @@ extension World {
 
 #if _runtime(_ObjC)
     @objc(beforeEachWithMetadata:)
-    internal func beforeEach(closure: BeforeExampleWithMetadataClosure) {
+    internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 #else
-    internal func beforeEach(closure: BeforeExampleWithMetadataClosure) {
+    internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 #endif
 
-    internal func afterEach(_ closure: AfterExampleClosure) {
+    internal func afterEach(_ closure: @escaping AfterExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'. ")
         }
@@ -76,11 +76,11 @@ extension World {
 
 #if _runtime(_ObjC)
     @objc(afterEachWithMetadata:)
-    internal func afterEach(closure: AfterExampleWithMetadataClosure) {
+    internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 #else
-    internal func afterEach(closure: AfterExampleWithMetadataClosure) {
+    internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 #endif
@@ -112,7 +112,7 @@ extension World {
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
 
-    internal func itBehavesLike(_ name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+    internal func itBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
         guard currentExampleMetadata == nil else {
             raiseError("'itBehavesLike' cannot be used inside '\(currentPhase)', 'itBehavesLike' may only be used inside 'context' or 'describe'. ")
         }
@@ -148,7 +148,7 @@ extension World {
     }
 
     @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:flags:file:line:)
-    private func objc_itBehavesLike(_ name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+    private func objc_itBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
         itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
     }
 #endif

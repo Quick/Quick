@@ -10,7 +10,7 @@ public typealias SharedExampleContext = () -> (NSDictionary)
     A closure that is used to define a group of shared examples. This
     closure may contain any number of example and example groups.
 */
-public typealias SharedExampleClosure = (SharedExampleContext) -> ()
+public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> ()
 
 /**
     A collection of state Quick builds up in order to work its magic.
@@ -152,7 +152,7 @@ final internal class World: NSObject {
 
     // MARK: Internal
 
-    internal func registerSharedExample(_ name: String, closure: SharedExampleClosure) {
+    internal func registerSharedExample(_ name: String, closure: @escaping SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
         sharedExamples[name] = closure
     }

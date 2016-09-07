@@ -6,19 +6,19 @@ final internal class ExampleHooks {
     internal var afters: [AfterExampleWithMetadataClosure] = []
     internal var phase: HooksPhase = .nothingExecuted
 
-    internal func appendBefore(_ closure: BeforeExampleWithMetadataClosure) {
+    internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         befores.append(closure)
     }
 
-    internal func appendBefore(_ closure: BeforeExampleClosure) {
+    internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
         befores.append { (exampleMetadata: ExampleMetadata) in closure() }
     }
 
-    internal func appendAfter(_ closure: AfterExampleWithMetadataClosure) {
+    internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
         afters.append(closure)
     }
 
-    internal func appendAfter(_ closure: AfterExampleClosure) {
+    internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
         afters.append { (exampleMetadata: ExampleMetadata) in closure() }
     }
 

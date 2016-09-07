@@ -49,7 +49,7 @@ final public class Configuration: NSObject {
                        whether that example should be included in the examples
                        that are run.
     */
-    public func include(_ filter: ExampleFilter) {
+    public func include(_ filter: @escaping ExampleFilter) {
         inclusionFilters.append(filter)
     }
 
@@ -63,7 +63,7 @@ final public class Configuration: NSObject {
                        whether that example should be excluded from the examples
                        that are run.
     */
-    public func exclude(_ filter: ExampleFilter) {
+    public func exclude(_ filter: @escaping ExampleFilter) {
         exclusionFilters.append(filter)
     }
 
@@ -74,11 +74,11 @@ final public class Configuration: NSObject {
     */
 #if _runtime(_ObjC)
     @objc(beforeEachWithMetadata:)
-    public func beforeEach(_ closure: BeforeExampleWithMetadataClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
     }
 #else
-    public func beforeEach(_ closure: BeforeExampleWithMetadataClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
     }
 #endif
@@ -100,7 +100,7 @@ final public class Configuration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func beforeEach(_ closure: BeforeExampleClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         exampleHooks.appendBefore(closure)
     }
 
@@ -111,11 +111,11 @@ final public class Configuration: NSObject {
     */
 #if _runtime(_ObjC)
     @objc(afterEachWithMetadata:)
-    public func afterEach(_ closure: AfterExampleWithMetadataClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
     }
 #else
-    public func afterEach(_ closure: AfterExampleWithMetadataClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
     }
 #endif
@@ -137,7 +137,7 @@ final public class Configuration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func afterEach(_ closure: AfterExampleClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleClosure) {
         exampleHooks.appendAfter(closure)
     }
 
@@ -146,7 +146,7 @@ final public class Configuration: NSObject {
         the given closure prior to any and all examples that are run.
         The two methods are functionally equivalent.
     */
-    public func beforeSuite(_ closure: BeforeSuiteClosure) {
+    public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
         suiteHooks.appendBefore(closure)
     }
 
@@ -155,7 +155,7 @@ final public class Configuration: NSObject {
         the given closure after all examples have been run.
         The two methods are functionally equivalent.
     */
-    public func afterSuite(_ closure: AfterSuiteClosure) {
+    public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
         suiteHooks.appendAfter(closure)
     }
 }

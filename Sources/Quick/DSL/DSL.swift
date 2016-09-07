@@ -8,7 +8,7 @@
 
     - parameter closure: The closure to be run prior to any examples in the test suite.
 */
-public func beforeSuite(_ closure: BeforeSuiteClosure) {
+public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
     World.sharedWorld.beforeSuite(closure)
 }
 
@@ -22,7 +22,7 @@ public func beforeSuite(_ closure: BeforeSuiteClosure) {
 
     - parameter closure: The closure to be run after all of the examples in the test suite.
 */
-public func afterSuite(_ closure: AfterSuiteClosure) {
+public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
     World.sharedWorld.afterSuite(closure)
 }
 
@@ -53,7 +53,7 @@ public func sharedExamples(_ name: String, closure: @escaping () -> ()) {
                     The closure takes a SharedExampleContext as an argument. This context is a function
                     that can be executed to retrieve parameters passed in via an `itBehavesLike` function.
 */
-public func sharedExamples(_ name: String, closure: SharedExampleClosure) {
+public func sharedExamples(_ name: String, closure: @escaping SharedExampleClosure) {
     World.sharedWorld.sharedExamples(name, closure: closure)
 }
 
@@ -84,7 +84,7 @@ public func context(_ description: String, flags: FilterFlags = [:], closure: ()
 
     - parameter closure: The closure to be run prior to each example.
 */
-public func beforeEach(_ closure: BeforeExampleClosure) {
+public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
     World.sharedWorld.beforeEach(closure)
 }
 
@@ -92,7 +92,7 @@ public func beforeEach(_ closure: BeforeExampleClosure) {
     Identical to Quick.DSL.beforeEach, except the closure is provided with
     metadata on the example that the closure is being run prior to.
 */
-public func beforeEach(_ closure: BeforeExampleWithMetadataClosure) {
+public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
     World.sharedWorld.beforeEach(closure: closure)
 }
 
@@ -104,7 +104,7 @@ public func beforeEach(_ closure: BeforeExampleWithMetadataClosure) {
 
     - parameter closure: The closure to be run after each example.
 */
-public func afterEach(_ closure: AfterExampleClosure) {
+public func afterEach(_ closure: @escaping AfterExampleClosure) {
     World.sharedWorld.afterEach(closure)
 }
 
@@ -112,7 +112,7 @@ public func afterEach(_ closure: AfterExampleClosure) {
     Identical to Quick.DSL.afterEach, except the closure is provided with
     metadata on the example that the closure is being run after.
 */
-public func afterEach(_ closure: AfterExampleWithMetadataClosure) {
+public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     World.sharedWorld.afterEach(closure: closure)
 }
 
@@ -163,7 +163,7 @@ public func itBehavesLike(_ name: String, flags: FilterFlags = [:], file: String
     - parameter file: The absolute path to the file containing the current example group. A sensible default is provided.
     - parameter line: The line containing the current example group. A sensible default is provided.
 */
-public func itBehavesLike(_ name: String, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, sharedExampleContext: SharedExampleContext) {
+public func itBehavesLike(_ name: String, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, sharedExampleContext: @escaping SharedExampleContext) {
     World.sharedWorld.itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
 }
 
