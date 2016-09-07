@@ -40,5 +40,7 @@ testing, consider reading them in the order they're introduced below:
   Git submodules, CocoaPods, Carthage, or the Swift Package Manager.
 - **[Installing Quick File Templates](InstallingFileTemplates.md)**:
   Read this to learn how to install file templates that make writing Quick specs faster.
-- **[More Resources](MoreResources.md)**
+- **[More Resources](MoreResources.md)**:
   A list of additional resources on OS X and iOS testing.
+- **[Troubleshooting](Troubleshooting.md)**:
+  Read this when you experience other troubles.
