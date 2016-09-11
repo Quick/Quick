@@ -11,7 +11,7 @@ class FunctionalTests_SharedExamples_Spec: QuickSpec {
 
 class FunctionalTests_SharedExamples_ContextSpec: QuickSpec {
     override func spec() {
-        itBehavesLike("shared examples that take a context") { [NSString(string: "callsite"): NSString(string: "SharedExamplesSpec")] }
+        itBehavesLike("shared examples that take a context") { ["callsite": "SharedExamplesSpec"] }
     }
 }
 
