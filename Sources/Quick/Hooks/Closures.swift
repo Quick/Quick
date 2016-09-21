@@ -9,7 +9,7 @@ public typealias BeforeExampleClosure = () -> ()
     A closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
 */
-public typealias BeforeExampleWithMetadataClosure = (exampleMetadata: ExampleMetadata) -> ()
+public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) -> ()
 
 /**
     A closure executed after an example is run.
