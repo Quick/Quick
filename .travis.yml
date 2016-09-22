@@ -4,7 +4,7 @@ matrix:
   include:
     - os: osx
       env:
-        - PLATFORM=osx
+        - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
       env:

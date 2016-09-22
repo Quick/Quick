@@ -29,7 +29,7 @@ namespace "test" do
   end
 
   desc "Run unit tests for all macOS targets"
-  task :macOS do |t|
+  task :macos do |t|
     run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS clean #{xcode_action}"
   end
 
@@ -60,7 +60,7 @@ namespace "templates" do
 end
 
 if has_xcodebuild then
-  task default: ["test:ios", "test:tvos", "test:macOS"]
+  task default: ["test:ios", "test:tvos", "test:macos"]
 else
   task default: ["test:swiftpm"]
 end
