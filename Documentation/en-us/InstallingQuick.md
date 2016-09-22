@@ -49,7 +49,7 @@ workspace for a project that is tested using Quick and Nimble:
 
 **Step Three:** Link the `Quick.framework` during your test target's
 `Link Binary with Libraries` build phase. You should see two
-`Quick.frameworks`; one is for OS X, and the other is for iOS.
+`Quick.frameworks`; one is for macOS, and the other is for iOS.
 
 ![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
 
