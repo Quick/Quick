@@ -6,19 +6,19 @@ import Foundation
     writers use in their specs.
 */
 extension World {
-    internal func beforeSuite(closure: BeforeSuiteClosure) {
+    internal func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
         suiteHooks.appendBefore(closure)
     }
 
-    internal func afterSuite(closure: AfterSuiteClosure) {
+    internal func afterSuite(_ closure: @escaping AfterSuiteClosure) {
         suiteHooks.appendAfter(closure)
     }
 
-    internal func sharedExamples(name: String, closure: SharedExampleClosure) {
+    internal func sharedExamples(_ name: String, closure: @escaping SharedExampleClosure) {
         registerSharedExample(name, closure: closure)
     }
 
-    internal func describe(description: String, flags: FilterFlags, closure: () -> ()) {
+    internal func describe(_ description: String, flags: FilterFlags, closure: () -> ()) {
         guard currentExampleMetadata == nil else {
             raiseError("'describe' cannot be used inside '\(currentPhase)', 'describe' may only be used inside 'context' or 'describe'. ")
         }
@@ -30,26 +30,26 @@ extension World {
         performWithCurrentExampleGroup(group, closure: closure)
     }
 
-    internal func context(description: String, flags: FilterFlags, closure: () -> ()) {
+    internal func context(_ description: String, flags: FilterFlags, closure: () -> ()) {
         guard currentExampleMetadata == nil else {
             raiseError("'context' cannot be used inside '\(currentPhase)', 'context' may only be used inside 'context' or 'describe'. ")
         }
         self.describe(description, flags: flags, closure: closure)
     }
 
-    internal func fdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
+    internal func fdescribe(_ description: String, flags: FilterFlags, closure: () -> ()) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
         self.describe(description, flags: focusedFlags, closure: closure)
     }
 
-    internal func xdescribe(description: String, flags: FilterFlags, closure: () -> ()) {
+    internal func xdescribe(_ description: String, flags: FilterFlags, closure: () -> ()) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true
         self.describe(description, flags: pendingFlags, closure: closure)
     }
 
-    internal func beforeEach(closure: BeforeExampleClosure) {
+    internal func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'. ")
         }
@@ -58,16 +58,16 @@ extension World {
 
 #if _runtime(_ObjC)
     @objc(beforeEachWithMetadata:)
-    internal func beforeEach(closure closure: BeforeExampleWithMetadataClosure) {
+    internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 #else
-    internal func beforeEach(closure closure: BeforeExampleWithMetadataClosure) {
+    internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 #endif
 
-    internal func afterEach(closure: AfterExampleClosure) {
+    internal func afterEach(_ closure: @escaping AfterExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'. ")
         }
@@ -76,16 +76,16 @@ extension World {
 
 #if _runtime(_ObjC)
     @objc(afterEachWithMetadata:)
-    internal func afterEach(closure closure: AfterExampleWithMetadataClosure) {
+    internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 #else
-    internal func afterEach(closure closure: AfterExampleWithMetadataClosure) {
+    internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 #endif
 
-    internal func it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    internal func it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. ")
         }
@@ -100,19 +100,19 @@ extension World {
         currentExampleGroup.appendExample(example)
     }
 
-    internal func fit(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    internal func fit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
         self.it(description, flags: focusedFlags, file: file, line: line, closure: closure)
     }
 
-    internal func xit(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    internal func xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
     }
 
-    internal func itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+    internal func itBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
         guard currentExampleMetadata == nil else {
             raiseError("'itBehavesLike' cannot be used inside '\(currentPhase)', 'itBehavesLike' may only be used inside 'context' or 'describe'. ")
         }
@@ -133,27 +133,27 @@ extension World {
 
 #if _runtime(_ObjC)
     @objc(itWithDescription:flags:file:line:closure:)
-    private func objc_it(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    private func objc_it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         it(description, flags: flags, file: file, line: line, closure: closure)
     }
 
     @objc(fitWithDescription:flags:file:line:closure:)
-    private func objc_fit(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    private func objc_fit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         fit(description, flags: flags, file: file, line: line, closure: closure)
     }
 
     @objc(xitWithDescription:flags:file:line:closure:)
-    private func objc_xit(description: String, flags: FilterFlags, file: String, line: UInt, closure: () -> ()) {
+    private func objc_xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
         xit(description, flags: flags, file: file, line: line, closure: closure)
     }
 
     @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:flags:file:line:)
-    private func objc_itBehavesLike(name: String, sharedExampleContext: SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+    private func objc_itBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
         itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
     }
 #endif
 
-    internal func pending(description: String, closure: () -> ()) {
+    internal func pending(_ description: String, closure: () -> ()) {
         print("Pending: \(description)")
     }
 
