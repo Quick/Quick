@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B8D1943873100289F44"
                BuildableName = "Quick.framework"
-               BlueprintName = "Quick-OSX"
+               BlueprintName = "Quick-macOS"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B981943873100289F44"
-               BuildableName = "Quick-OSXTests.xctest"
-               BlueprintName = "Quick-OSXTests"
+               BuildableName = "Quick-macOSTests.xctest"
+               BlueprintName = "Quick-macOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA5663E71A4C8D8500193C88"
-               BuildableName = "QuickFocused-OSXTests.xctest"
-               BlueprintName = "QuickFocused-OSXTests"
+               BuildableName = "QuickFocused-macOSTests.xctest"
+               BlueprintName = "QuickFocused-macOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -54,7 +54,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick-OSX"
+            BlueprintName = "Quick-macOS"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,7 +76,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick-OSX"
+            BlueprintName = "Quick-macOS"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -94,7 +94,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick-OSX"
+            BlueprintName = "Quick-macOS"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
