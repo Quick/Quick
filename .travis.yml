@@ -26,7 +26,7 @@ matrix:
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
-  - if [[ "$PODSPEC" ]]; then sudo gem install bundler; bundle install; fi
+  - if [[ "$PODSPEC" ]]; then rvm system; sudo gem install bundler; bundle install; fi
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-macos;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-script-linux; fi
