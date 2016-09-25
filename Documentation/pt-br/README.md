@@ -2,7 +2,7 @@
 
 Quick te ajuda a verificar como programas em Swift e Objective-C se comportam.
 
-Fazê-lo de forma eficaz não é apenas questão de saber como usar Quick, no entanto. Os guias nesse diretório podem te ajudar a escrever testes eficazes --não apenas usando Quick, até mesmo XCTest ou outros framework de teste.
+Fazê-lo de forma eficaz não é apenas questão de saber como usar Quick. Os guias nesse diretório podem te ajudar a escrever testes eficazes --não apenas usando Quick, mas até mesmo XCTest ou outros framework de teste.
 
 Cada guia cobre um tópico em particular. Se você é completamente novo a teste unitário, considere lê-los na ordem que são introduzidos abaixo:
 
@@ -10,15 +10,15 @@ Cada guia cobre um tópico em particular. Se você é completamente novo a teste
   Leia isto se você esta com problemas para usar o código da sua aplicação de dentro dos seus arquivos de teste.
 - **[Testes Eficazes Usando XCTest: Arrange, Act e Assert](ArrangeActAssert.md)**:
   Leia isto para aprender como escrever `XCTestcase` testes que o ajudarão a escrever código mais rápido e mais eficaz.
-- **[Não Teste o Código, ao Invés Verifique Comportamento](BehavioralTesting.md)**:
-  Leia isto para aprender que tipos de testes de deixam mais rápido e quais os que só vão acabar te deixando mais devagar.
+- **[Não Teste o Código, Verifique Comportamento](BehavioralTesting.md)**:
+  Leia isto para aprender que tipos de testes te deixam mais rápido e quais os que só vão acabar te deixando mais devagar.
 - **[Testes Limpos Usando Nimble Assertions](NimbleAssertions.md)**:
   Leia isto para aprender a usar Nimble para gerar melhores mensagens de falha.
-  Melhores mensagens de falha ajudam a se mover mais rápido,  gastando menos tempo tentando descobrir por que
+  Melhores mensagens de falha ajudam a se mover mais rápido, gastando menos tempo tentando descobrir por que
      um teste falhou.
-- **[Testes Organizados com Exemplos Quick e Grupos de  Exemplo](QuickExamplesAndGroups.md)**:
-  Leia isto para aprender como Quick pode ajudar ainda mais a   escrever testes eficazes, usando *exemplos* e *grupos de  exemplos*  
-- **[Testando Applicações OS X e iOS](TestingApps.md)**:
+- **[Testes Organizados com Exemplos Quick e Grupos de Exemplo](QuickExamplesAndGroups.md)**:
+  Leia isto para aprender como Quick pode ajudar ainda mais a escrever testes eficazes, usando *exemplos* e *grupos de  exemplos*  
+- **[Testando Aplicações OS X e iOS](TestingApps.md)**:
   Leia isto para aprender mais sobre testar código que utiliza
   AppKit e UIKit frameworks.
 - **[Testando com testes dublês](TestUsingTestDoubles.md)**:
