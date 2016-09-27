@@ -43,7 +43,7 @@ func testSave_savesTheBananaToTheDatabase() {
 ```
 
 
-Imagine, no entanto, que o código fonte da `GorillaDB` mude. Para que a operação de leitura de bananas da database seja mais rápida, é mantido um cache com as bananas lidas com maior frequência. `GorillaDB.size` cresce conforme o tamanho do cache cresce, e nosso teste falha:
+Imagine, no entanto, que o código fonte da `GorillaDB` mude. Para que a operação de leitura de bananas da database seja mais rápida, é mantido um cache com as bananas lidas com maior frequência. `GorillaDB.size` aumenta conforme o tamanho do cache aumenta, e nosso teste falha:
 
 ![](https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/Screenshot_database_size_fail.png)
 
@@ -51,7 +51,7 @@ Imagine, no entanto, que o código fonte da `GorillaDB` mude. Para que a operaç
 
 O segredo para escrever testes de comportamento é determinar exatamente o que se espera que o código da aplicação faça.
 
-No contexto do teste `testSave_savesTheBananaToTheDatabase`: qual é o comportamento esperado quando uma banana é salva na database? "Salvar" implica que essa banana pode ser lida mais tarde. Então, ao invés de testar que o tamanho da database cresce, nós devemos testar que é possível ler uma banana.
+No contexto do teste `testSave_savesTheBananaToTheDatabase`: qual é o comportamento esperado quando uma banana é salva na database? "Salvar" implica que essa banana pode ser lida mais tarde. Então, ao invés de testar que o tamanho da database aumenta, nós devemos testar que é possível ler uma banana.
 
 ```diff
 // GorillaDBTests.swift
@@ -72,7 +72,7 @@ func testSave_savesTheBananaToTheDatabase() {
 }
 ```
 
-O segredo para escrever testes de comportamento é se perguntar:
+O segredo para escrever testes de comportamento é perguntar:
 
-- O que exatamente o código da aplicação deve fazer?
+- O que exatamente o código dessa aplicação deve fazer?
 - O meu teste está verificando *apenas* esse comportamento? Ou o teste pode falhar devido à forma como o código funciona?
