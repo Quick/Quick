@@ -39,9 +39,9 @@ Quick comes together with [Nimble](https://github.com/Quick/Nimble) — a matche
 
 | Swift version | Quick version  | Nimble version  |
 | :-------------|:-------------  |:-------------- |
-|Swift3         |v0.10.0 or later|v5.0.0 or later|
-|Swift2.3       |v0.9.3          |v4.1.0|
-|Swift2.2       |v0.9.2          |v4.0.1|
+|Swift 3        |v0.10.0 or later|v5.0.0 or later|
+|Swift 2.3      |v0.9.3          |v4.1.0|
+|Swift 2.2      |v0.9.2          |v4.0.1|
 
 ## Documentation
 
