@@ -1,9 +1,6 @@
 # Installing Quick
 
-> **If you're using Xcode 7.1,** use the latest version of Quick--`v0.9.0` at the time of writing.
-> New releases are developed on the `swift-2.0` branch.
-
-
+>Before starting, check [here](../../README.md#swift-version) which versions of Quick and Nimble are compatible with your version of Swift.
 
 Quick provides the syntax to define examples and example groups. Nimble
 provides the `expect(...).to` assertion syntax. You may use either one,
