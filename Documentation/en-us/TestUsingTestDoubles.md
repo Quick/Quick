@@ -116,11 +116,11 @@ override func spec() {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
             viewController.dataProvider = mockProvider
 
-            expect(mockProvider.fetchCalled).to(equal(false))
+            expect(mockProvider.fetchCalled).to(beFalse())
 
             let _ = viewController.view
 
-            expect(mockProvider.fetchCalled).to(equal(true))
+            expect(mockProvider.fetchCalled).to(beTrue())
         }
     }
 }
