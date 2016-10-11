@@ -126,4 +126,4 @@ override func spec() {
 }
 ```
 
-If you're interested in learning more about writing tests, continue on to https://realm.io/news/testing-in-swift/.
+If you're interested in learning more about writing tests, continue on to <https://realm.io/news/testing-in-swift/>.
