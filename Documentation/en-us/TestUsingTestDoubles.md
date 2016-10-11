@@ -26,6 +26,12 @@ Let's start with how to use mock objects.
 
 A mock object focuses on fully specifying what the correct interaction is supposed to be with other objects and detecting when something goes awry. The mock object should know (in advance) what is supposed to happen during the test and how the mock object is supposed to react.
 
+Mock objects are great because you can:
+
+- Run tests a lot quicker.
+- Run tests even if you're not connected to the Internet.
+- Focus on testing classes in isolation from their dependencies.
+
 ### Writing Tests with Mock Objects in Swift
 
 #### Sample app
@@ -87,12 +93,6 @@ class ViewController: UIViewController {
 #### Testing using a Mock of `DataProviderProtocol`
 
 `ViewController` depends on `DataProviderProtocol`. Create a mock object which conforms to `DataProviderProtocol` in order to test the view controller.
-
-Mock objects are great because you can:
-
-- Run tests a lot quicker.
-- Run tests even if you're not connected to the Internet.
-- Focus on testing `ViewController` in isolation.
 
 ```swift
 class MockDataProvider: NSObject, DataProviderProtocol {
