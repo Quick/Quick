@@ -1,24 +1,24 @@
-# Testing with Mock
+# Testing with Mocks
 
 ## Test doubles
 
-The following problem occurs frequently when writing tests. In example, `Car` depends on/uses `Tire`.
+The following problem occurs frequently when writing tests. For example, `Car` depends on/uses `Tire`.
 
 ![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesA.png)
 
-`CarTests` test `Car` which calls `Tire`. Now bugs in `Tire` could cause `CarTests` to fail (even though `Car` is okay).
+`CarTests` tests `Car`, which calls `Tire`. Now bugs in `Tire` could cause `CarTests` to fail (even though `Car` is okay).
 
 It can be hard to answer the question: "What's broken?". To avoid this problem, one can use a stand-in object for `Tire` in `CarTests`. In this case, we'll create a stand-in object for `Tire` called `PerfectTire`.
 
 ![](https://github.com/Quick/Assets/blob/master/Screenshots/TestUsingMock_BusesAmock.png)
 
-`PerfectTire` would have all of the same functions and properties as `Tire`. However, the implementation of those functions and properties may differ.
+`PerfectTire` will have all of the same functions and properties as `Tire`. However, the implementation of those functions and properties may differ.
 
-Objects like `PerfectTire` are called "test doubles". Test doubles are used as "stand-in objects" for testing functionality of related objects in isolation. There are several kinds of test doubles:
+Objects like `PerfectTire` are called "test doubles". Test doubles are used as "stand-in objects" for testing the functionality of related objects in isolation. There are several kinds of test doubles:
 
 - Mock object: Used for receiving output from a test class.
 - Stub object: Used for providing input to a test class.
-- Fake object: Behaves similar to the original class.
+- Fake object: Behaves similarly to the original class.
 
 Let's start with how to use mock objects.
 
@@ -26,14 +26,14 @@ Let's start with how to use mock objects.
 
 A mock object focuses on fully specifying what the correct interaction is supposed to be with other objects and detecting when something goes awry. The mock object should know (in advance) what is supposed to happen during the test and how the mock object is supposed to react.
 
-### Writing test with Mock in Swift
+### Writing Tests with Mock Objects in Swift
 
 #### Sample app
 
-For example, we will provide an app which retrieves data from the internet.
+For example, we will provide an app which retrieves data from the Internet.
 
-* Displays the data from the internet in `ViewController`.
-* Custom class implements `DataProviderProtocol`, which is responsible for fetching data.
+* Displays the data from the Internet in `ViewController`.
+* A custom class implements the `DataProviderProtocol`, which is responsible for fetching data.
 
 `DataProviderProtocol` is defined as follows:
 
@@ -43,9 +43,9 @@ protocol DataProviderProtocol: class {
 }
 ```
 
-`fetch()` gets data from the internet and returns it using a `callback` closure.
+`fetch()` gets data from the Internet and returns it using a `callback` closure.
 
-Here is `DataProvider` which implements the `DataProviderProtocol` protocol.
+Here is the `DataProvider` class, which implements the `DataProviderProtocol` protocol.
 
 ```swift
 class DataProvider: NSObject, DataProviderProtocol {
@@ -62,7 +62,7 @@ class DataProvider: NSObject, DataProviderProtocol {
 }
 ```
 
-In our scenario, `fetch()` is called in `viewDidLoad()` of `ViewController`.
+In our scenario, `fetch()` is called in the `viewDidLoad()` method of `ViewController`.
 
 ```swift
 class ViewController: UIViewController {
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
 Mock objects are great because you can:
 
 - Run tests a lot quicker.
-- Run tests even if you're not connected to the internet.
+- Run tests even if you're not connected to the Internet.
 - Focus on testing `ViewController` in isolation.
 
 ```swift
@@ -106,21 +106,21 @@ class MockDataProvider: NSObject, DataProviderProtocol {
 
 The `fetchCalled` property is set to `true` when `fetch()` is called. This helps the test determine if the object is ready to test.
 
-The following test verifies that when `ViewController` is loaded, the view controller should call `dataProvider.fetch()`.
+The following test verifies that when `ViewController` is loaded, the view controller calls `dataProvider.fetch()`.
 
 ```swift
 override func spec() {
     describe("view controller") {
         it("fetch data with data provider") {
-            let mockProvier = MockDataProvider()
+            let mockProvider = MockDataProvider()
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-            viewController.dataProvier = mockProvier
+            viewController.dataProvider = mockProvider
 
-            expect(mockProvier.fetchCalled).to(equal(false))
+            expect(mockProvider.fetchCalled).to(equal(false))
 
             let _ = viewController.view
 
-            expect(mockProvier.fetchCalled).to(equal(true))
+            expect(mockProvider.fetchCalled).to(equal(true))
         }
     }
 }
