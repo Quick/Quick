@@ -56,13 +56,13 @@ Here is the `DataProvider` class, which conforms to the `DataProviderProtocol` p
 ```swift
 class DataProvider: NSObject, DataProviderProtocol {
     func fetch(callback: (data: String) -> Void) {
-        let url = NSURL(string: "http://example.com/")!
-        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        let task = session.dataTaskWithURL(url, completionHandler: {
+        let url = URL(string: "http://example.com/")!
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) {
             (data, resp, err) in
-            let string = NSString(data:data!, encoding:NSUTF8StringEncoding) as! String
+            let string = String(data: data!, encoding: .utf8)
             callback(data: string)
-        })
+        }
         task.resume()
     }
 }
