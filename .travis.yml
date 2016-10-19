@@ -19,8 +19,6 @@ matrix:
       env:
         - PODSPEC=1
     - os: linux
-      env:
-        - PLATFORM=linux
       sudo: required
       dist: trusty
 install:
