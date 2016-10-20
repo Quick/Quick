@@ -35,7 +35,7 @@ namespace "test" do
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
-    run "swift build --clean && swift build && swift test"
+    run "swift build --clean && swift build -c release && swift test"
   end
 end
 
