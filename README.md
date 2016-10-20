@@ -73,6 +73,13 @@ Many apps use both Quick and Nimble however, as they are not included in the app
 
 Does your organization or project use Quick and Nimble? If yes, [please add your project to the list](https://github.com/Quick/Quick/wiki/Projects-using-Quick).
 
+## Who uses Quick
+
+Similar to projects using Quick, it would be nice to hear why people use Quick and Nimble. Are there features you love? Are there features that are just okay? Are there some features we have that no one uses?
+
+Have something positive to say about Quick (or Nimble)? If yes, [provide a testimonial here](https://github.com/Quick/Quick/wiki/Who-uses-Quick).
+
+
 ## License
 
 Apache 2.0 license. See the [`LICENSE`](LICENSE) file for details.
