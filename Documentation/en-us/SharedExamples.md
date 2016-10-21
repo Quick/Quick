@@ -17,7 +17,7 @@ import Quick
 import Nimble
 
 class EdibleSharedExamplesConfiguration: QuickConfiguration {
-  override class func configure(configuration: Configuration) {
+  override class func configure(_ configuration: Configuration) {
     sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
       it("makes dolphins happy") {
         let dolphin = Dolphin(happy: false)
