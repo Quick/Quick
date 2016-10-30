@@ -10,7 +10,7 @@ In order to test code written in Swift, you'll need to do two things:
 
 1. Set "Defines Module" in your `.xcodeproj` to `YES`.
 
-  * To do this in Xcode: Choose your project, then "Packaging" header,
+  * To do this in Xcode: Choose your project, then "Build Settings", then "Packaging" header,
     then "Defines Module" line, then select "Yes". Note: you may have 
     to choose "All" (Build Settings) instead of "Basic" to see the
     "Packaging" section.
