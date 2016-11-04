@@ -1,0 +1,8 @@
+#!/bin/bash --login
+
+if [[ "$TRAVIS_OS_NAME" == "linux" ]]
+then
+	rvm install 2.0.0 && rvm use 2.0.0 && gem install danger -v 4.0 && danger
+else
+	sudo gem install danger -v 4.0 && danger
+fi
