@@ -95,7 +95,7 @@ QuickSpecEnd
 
 共享用例可以包括任意数量的 `it`， `context` 和 `describe` 代码块。当使用它们来测试不同对象的相同行为时，你可以少写*很多*不必要的重复代码。
 
-一般来说，你使用共享用例进行测试时不需要依赖其他额外的对象。在 Swift 中，你可以简单地用一个不带参数的 `sharedExample` 闭包来使用共享用例。在你需要对全局状态进行测试时，它能帮上你的忙。
+一般来说，你使用共享用例进行测试时不需要依赖其他额外的对象。在 Swift 中，你可以简单地用一个不带参数的 `sharedExample` 闭包来使用共享用例。当你需要进行全局测试时，这很有用。
 
 ```swift
 // Swift
@@ -110,4 +110,4 @@ itBehavesLike("everything under the sea")
 ```
 > 如果你使用 Objective-C 的话，你需要传入一个带 `QCKDSLSharedExampleContext` 参数的 block，即使你并不打算使用它。不好意思，你只能这样做，人生有时就是这么的无奈。:cookie: :bomb:
 
-你也可以使用 `fitBehavesLike` 函数来关注共享用例的使用。
+你也可以使用 `fitBehavesLike` 函数来单独测试共享用例。
