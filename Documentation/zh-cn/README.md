@@ -9,6 +9,7 @@ Quick 能够帮助你验证你的 Swift 和 Objective-C 程序的行为。然而
 - **[不要测试代码，而应该测试行为](BehavioralTesting.md)**：通过这份指南你能学习到哪些是好的测试，哪些是不好的测试。
 - **[测试 OS X 和 iOS 应用](TestingApps.md)**：了解如何为使用 AppKit 和 UIKit 框架的代码编写测试。
 - **[使用测试替身进行测试](TestUsingTestDoubles.md)**：阅读这份指南来了解什么是测试替身，以及如何使用它们。
+- **[使用 Shared Assertion 来复用测试模板代码](SharedExamples.md)**：学习如何在测试中共享测试代码。
 - **[配置 Quick 的行为](ConfiguringQuick.md)**：阅读这份指南来了解如何在运行测试代码时改变 Quick 的行为。
 - **[在 Objective-C 中使用 Quick](QuickInObjectiveC.md)**：如果你在 Objective-C 项目使用 Quick 的过程中遇到了困难，请阅读这份指南。
 - **[安装 Quick](InstallingQuick.md)**：通过这份指南了解在项目中添加 Quick 的方法：Git submodules，CocoaPods，Carthage 和 Swift Package Manager 。
