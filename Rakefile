@@ -28,16 +28,16 @@ namespace "test" do
     run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' clean #{xcode_action}"
   end
 
-  desc "Run unit tests for all OS X targets"
-  task :osx do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-OSX clean #{xcode_action}"
+  desc "Run unit tests for all macOS targets"
+  task :macos do |t|
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS clean #{xcode_action}"
   end
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
-    run "swift build --clean && swift build"
-    run ".build/debug/QuickTests"
-    run ".build/debug/QuickFocusedTests"
+    run "mv Package.swift .Package.swift && cp .Package.test.swift Package.swift"
+    run "swift build --clean && swift build && swift test"
+    run "mv .Package.swift Package.swift"
   end
 end
 
@@ -62,7 +62,7 @@ namespace "templates" do
 end
 
 if has_xcodebuild then
-  task default: ["test:ios", "test:tvos", "test:osx"]
+  task default: ["test:ios", "test:tvos", "test:macos"]
 else
   task default: ["test:swiftpm"]
 end

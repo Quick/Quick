@@ -4,39 +4,39 @@
 final internal class ExampleHooks {
     internal var befores: [BeforeExampleWithMetadataClosure] = []
     internal var afters: [AfterExampleWithMetadataClosure] = []
-    internal var phase: HooksPhase = .NothingExecuted
+    internal var phase: HooksPhase = .nothingExecuted
 
-    internal func appendBefore(closure: BeforeExampleWithMetadataClosure) {
+    internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         befores.append(closure)
     }
 
-    internal func appendBefore(closure: BeforeExampleClosure) {
+    internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
         befores.append { (exampleMetadata: ExampleMetadata) in closure() }
     }
 
-    internal func appendAfter(closure: AfterExampleWithMetadataClosure) {
+    internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
         afters.append(closure)
     }
 
-    internal func appendAfter(closure: AfterExampleClosure) {
+    internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
         afters.append { (exampleMetadata: ExampleMetadata) in closure() }
     }
 
-    internal func executeBefores(exampleMetadata: ExampleMetadata) {
-        phase = .BeforesExecuting
+    internal func executeBefores(_ exampleMetadata: ExampleMetadata) {
+        phase = .beforesExecuting
         for before in befores {
-            before(exampleMetadata: exampleMetadata)
+            before(exampleMetadata)
         }
         
-        phase = .BeforesFinished
+        phase = .beforesFinished
     }
 
-    internal func executeAfters(exampleMetadata: ExampleMetadata) {
-        phase = .AftersExecuting
+    internal func executeAfters(_ exampleMetadata: ExampleMetadata) {
+        phase = .aftersExecuting
         for after in afters {
-            after(exampleMetadata: exampleMetadata)
+            after(exampleMetadata)
         }
 
-        phase = .AftersFinished
+        phase = .aftersFinished
     }
 }

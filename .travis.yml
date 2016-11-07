@@ -1,28 +1,16 @@
-osx_image: xcode7.3
+osx_image: xcode8
 language: generic
 matrix:
   include:
     - os: osx
       env:
-        - PLATFORM=osx
-    - os: osx
-      env:
-        - PLATFORM=ios
-    - os: osx
-      env:
-        - PLATFORM=tvos
-    - os: osx
-      osx_image: xcode8
-      env:
-        - PLATFORM=osx
+        - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
-      osx_image: xcode8
       env:
         - PLATFORM=ios
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
-      osx_image: xcode8
       env:
         - PLATFORM=tvos
         - XCODE_ACTION="build-for-testing test-without-building"
@@ -31,14 +19,12 @@ matrix:
       env:
         - PODSPEC=1
     - os: linux
-      env:
-        - PLATFORM=linux
       sudo: required
       dist: trusty
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-osx;   fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
-  - if [[ "$PODSPEC" ]]; then sudo gem install bundler; bundle install; fi
+  - if [[ "$PODSPEC" ]]; then rvm system; sudo gem install bundler; bundle install; fi
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-osx;   fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-macos;   fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-script-linux; fi

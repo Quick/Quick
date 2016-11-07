@@ -2,15 +2,18 @@
 
 With the exception of the Command Line Tool project type, when you create a new project in Xcode 7, a unit test target is included
 by default. [See specific instructions for a Command Line Tool Project](#setting-up-a-test-target-for-a-command-line-tool-project). To write unit tests, you'll need to be able to use your main
-target's code from within your test target. 
+target's code from within your test target.
 
 ## Testing Swift Code Using Swift
 
 In order to test code written in Swift, you'll need to do two things:
 
-1. Set "defines module" in your `.xcodeproj` to `YES`.
+1. Set "Defines Module" in your `.xcodeproj` to `YES`.
 
-  * To do this in Xcode: Choose your project, then "Build Settings" header, then "Defines Modules" line, then select "Yes".
+  * To do this in Xcode: Choose your project, then "Build Settings", then "Packaging" header,
+    then "Defines Module" line, then select "Yes". Note: you may have 
+    to choose "All" (Build Settings) instead of "Basic" to see the
+    "Packaging" section.
 
 2. `@testable import YourAppModuleName` in your unit tests. This will expose Any `public` and `internal` (the default)
    symbols to your tests. `private` symbols are still unavailable.

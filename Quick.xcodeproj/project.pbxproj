@@ -42,7 +42,6 @@
 		1F118D1A1BDCA556005013A2 /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
 		1F118D1B1BDCA556005013A2 /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */; };
 		1F118D1C1BDCA556005013A2 /* BeforeSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */; };
-		1F118D1D1BDCA556005013A2 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
 		1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */; };
 		1F118D211BDCA556005013A2 /* SharedExamplesTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */; };
 		1F118D221BDCA556005013A2 /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
@@ -94,8 +93,6 @@
 		4728253C1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */; };
 		4748E8941A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */; };
 		4748E8951A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */; };
-		47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
-		47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
 		479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
 		479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
 		47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
@@ -114,6 +111,9 @@
 		64076D251D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		64076D261D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		64076D271D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
+		647987E61DD06D3200FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */; };
+		647987E71DD06D3300FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */; };
+		647987E81DD06D3400FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */; };
 		7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B44ADC01C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
@@ -454,7 +454,7 @@
 		1F118CF01BDCA4BB005013A2 /* QuickFocused-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F118D341BDCA657005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
 		1F118D361BDCA65C005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
-		34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCaseProvider.swift; sourceTree = "<group>"; };
+		34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XCTestCaseProvider.swift; path = ../../QuickTestHelpers/XCTestCaseProvider.swift; sourceTree = "<group>"; };
 		34C586071C4AC5E500D4F057 /* ErrorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorUtility.swift; sourceTree = "<group>"; };
 		34F3759C19515CA700CE1B99 /* Callsite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callsite.swift; sourceTree = "<group>"; };
 		34F3759E19515CA700CE1B99 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
@@ -468,17 +468,17 @@
 		4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PendingTests+ObjC.m"; sourceTree = "<group>"; };
 		4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SharedExamplesTests+ObjC.m"; sourceTree = "<group>"; };
 		4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SharedExamples+BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
-		47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeSuiteTests+ObjC.m"; sourceTree = "<group>"; };
 		479C31E11A36156E00DA8718 /* ItTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ItTests+ObjC.m"; sourceTree = "<group>"; };
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64076CF51D6D7C2000E2B499 /* QuickAfterSuite-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64076CF51D6D7C2000E2B499 /* QuickAfterSuite-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D081D6D7CD600E2B499 /* QuickAfterSuite-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSuiteTests.swift; sourceTree = "<group>"; };
 		64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterSuiteTests+ObjC.m"; sourceTree = "<group>"; };
 		64076D281D6D848C00E2B499 /* AfterSuiteTestsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AfterSuiteTestsHeader.h; sourceTree = "<group>"; };
+		647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BeforeSuiteTests+ObjC.m"; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 		DA408BDF19FF5599005DF92A /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		DA408BE019FF5599005DF92A /* ExampleHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleHooks.swift; sourceTree = "<group>"; };
 		DA408BE119FF5599005DF92A /* SuiteHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuiteHooks.swift; sourceTree = "<group>"; };
-		DA5663E81A4C8D8500193C88 /* QuickFocused-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5663E81A4C8D8500193C88 /* QuickFocused-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6B30171A4DB0D500FFB148 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		DA7AE6F019FC493F000AFDCE /* ItTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItTests.swift; sourceTree = "<group>"; };
 		DA87078219F48775008C04AC /* BeforeEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachTests.swift; sourceTree = "<group>"; };
@@ -529,7 +529,7 @@
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
-		DAEB6B991943873100289F44 /* Quick-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAEB6B991943873100289F44 /* Quick-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B9F1943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAED1EC21B1105BC006F61EC /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
 		DAED1EC81B110699006F61EC /* World+DSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "World+DSL.h"; sourceTree = "<group>"; };
@@ -663,11 +663,61 @@
 			path = Sources/QuickAfterSuiteTests;
 			sourceTree = "<group>";
 		};
-		DA169E4619FF5DF100619816 /* Configuration */ = {
+		6C3983EE1D1E930D00637469 /* QuickObjectiveC */ = {
+			isa = PBXGroup;
+			children = (
+				6C3983EF1D1E93B700637469 /* Configuration */,
+				6C3983F01D1E93CE00637469 /* DSL */,
+				DAEB6B931943873100289F44 /* Quick.h */,
+				DAED1EC21B1105BC006F61EC /* World.h */,
+				34F375A419515CA700CE1B99 /* QuickSpec.h */,
+				34F375A519515CA700CE1B99 /* QuickSpec.m */,
+				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
+				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
+				CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */,
+			);
+			name = QuickObjectiveC;
+			path = Sources/QuickObjectiveC;
+			sourceTree = "<group>";
+		};
+		6C3983EF1D1E93B700637469 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */,
 				DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		6C3983F01D1E93CE00637469 /* DSL */ = {
+			isa = PBXGroup;
+			children = (
+				DAED1EC81B110699006F61EC /* World+DSL.h */,
+				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
+				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
+			);
+			path = DSL;
+			sourceTree = "<group>";
+		};
+		CDB2AA5E1D6C84CF005600C3 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */,
+				47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */,
+				647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */,
+				DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */,
+				DA8940EF1B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m */,
+				479C31E11A36156E00DA8718 /* ItTests+ObjC.m */,
+				4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */,
+				4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */,
+				4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		DA169E4619FF5DF100619816 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
 				DA169E4719FF5DF100619816 /* Configuration.swift */,
 			);
 			path = Configuration;
@@ -677,10 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				DA3124E519FCAEE8002858A7 /* World+DSL.swift */,
-				DAED1EC81B110699006F61EC /* World+DSL.h */,
 				DA3124E219FCAEE8002858A7 /* DSL.swift */,
-				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
-				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
 			);
 			path = DSL;
 			sourceTree = "<group>";
@@ -715,23 +762,15 @@
 			isa = PBXGroup;
 			children = (
 				DAE714E919FF65A6005905B8 /* Configuration */,
+				CDB2AA5E1D6C84CF005600C3 /* ObjC */,
 				DA7AE6F019FC493F000AFDCE /* ItTests.swift */,
-				479C31E11A36156E00DA8718 /* ItTests+ObjC.m */,
 				8D010A561C11726F00633E2B /* DescribeTests.swift */,
-				DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */,
-				DA8940EF1B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m */,
 				DA87078219F48775008C04AC /* BeforeEachTests.swift */,
-				47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */,
 				DA05D60F19F73A3800771050 /* AfterEachTests.swift */,
-				470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */,
 				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
-				4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
-				47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
-				4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */,
 				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
-				4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */,
 				7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */,
 				AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */,
 			);
@@ -746,7 +785,7 @@
 				DA9876C31A4C87310004AA17 /* Supporting Files */,
 			);
 			name = QuickFocusedTests;
-			path = Sources/QuickFocusedTests;
+			path = Tests/QuickTests/QuickFocusedTests;
 			sourceTree = "<group>";
 		};
 		DA9876C31A4C87310004AA17 /* Supporting Files */ = {
@@ -788,6 +827,7 @@
 			isa = PBXGroup;
 			children = (
 				DAEB6B901943873100289F44 /* Quick */,
+				6C3983EE1D1E930D00637469 /* QuickObjectiveC */,
 				DAEB6B9D1943873100289F44 /* QuickTests */,
 				DA9876BE1A4C87200004AA17 /* QuickFocusedTests */,
 				64076D1C1D6D7D0B00E2B499 /* QuickAfterSuiteTests */,
@@ -802,15 +842,15 @@
 			isa = PBXGroup;
 			children = (
 				DAEB6B8E1943873100289F44 /* Quick.framework */,
-				DAEB6B991943873100289F44 /* Quick-OSXTests.xctest */,
+				DAEB6B991943873100289F44 /* Quick-macOSTests.xctest */,
 				5A5D117C19473F2100F6D13D /* Quick.framework */,
 				5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */,
 				DA9876B21A4C70EB0004AA17 /* QuickFocused-iOSTests.xctest */,
-				DA5663E81A4C8D8500193C88 /* QuickFocused-OSXTests.xctest */,
+				DA5663E81A4C8D8500193C88 /* QuickFocused-macOSTests.xctest */,
 				1F118CD51BDCA4AB005013A2 /* Quick.framework */,
 				1F118CDE1BDCA4AB005013A2 /* Quick-tvOSTests.xctest */,
 				1F118CF01BDCA4BB005013A2 /* QuickFocused-tvOSTests.xctest */,
-				64076CF51D6D7C2000E2B499 /* QuickAfterSuite-OSXTests.xctest */,
+				64076CF51D6D7C2000E2B499 /* QuickAfterSuite-macOSTests.xctest */,
 				64076D081D6D7CD600E2B499 /* QuickAfterSuite-iOSTests.xctest */,
 				64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite-tvOSTests.xctest */,
 			);
@@ -823,23 +863,16 @@
 				DA169E4619FF5DF100619816 /* Configuration */,
 				DA3124E119FCAEE8002858A7 /* DSL */,
 				DA408BDE19FF5599005DF92A /* Hooks */,
-				DAEB6B931943873100289F44 /* Quick.h */,
 				34F375A619515CA700CE1B99 /* World.swift */,
-				DAED1EC21B1105BC006F61EC /* World.h */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				34F3759F19515CA700CE1B99 /* ExampleGroup.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
 				DA6B30171A4DB0D500FFB148 /* Filter.swift */,
-				34F375A419515CA700CE1B99 /* QuickSpec.h */,
-				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */,
 				CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */,
 				CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */,
-				34F375A019515CA700CE1B99 /* NSString+QCKSelectorName.h */,
-				34F375A119515CA700CE1B99 /* NSString+QCKSelectorName.m */,
 				CE57CEDB1C430BD200D63004 /* String+FileName.swift */,
-				CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				34C586071C4AC5E500D4F057 /* ErrorUtility.swift */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 			);
@@ -866,7 +899,7 @@
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
 			);
 			name = QuickTests;
-			path = Sources/QuickTests;
+			path = Tests/QuickTests/QuickTests;
 			sourceTree = "<group>";
 		};
 		DAEB6B9E1943873100289F44 /* Supporting Files */ = {
@@ -1044,9 +1077,9 @@
 			productReference = 5A5D118619473F2100F6D13D /* Quick-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		64076CE51D6D7C2000E2B499 /* QuickAfterSuite-OSXTests */ = {
+		64076CE51D6D7C2000E2B499 /* QuickAfterSuite-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64076CF21D6D7C2000E2B499 /* Build configuration list for PBXNativeTarget "QuickAfterSuite-OSXTests" */;
+			buildConfigurationList = 64076CF21D6D7C2000E2B499 /* Build configuration list for PBXNativeTarget "QuickAfterSuite-macOSTests" */;
 			buildPhases = (
 				64076CE81D6D7C2000E2B499 /* Sources */,
 				64076CEE1D6D7C2000E2B499 /* Frameworks */,
@@ -1057,9 +1090,9 @@
 			dependencies = (
 				64076CE61D6D7C2000E2B499 /* PBXTargetDependency */,
 			);
-			name = "QuickAfterSuite-OSXTests";
-			productName = "QuickFocused-OSXTests";
-			productReference = 64076CF51D6D7C2000E2B499 /* QuickAfterSuite-OSXTests.xctest */;
+			name = "QuickAfterSuite-macOSTests";
+			productName = "QuickFocused-macOSTests";
+			productReference = 64076CF51D6D7C2000E2B499 /* QuickAfterSuite-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		64076CF81D6D7CD600E2B499 /* QuickAfterSuite-iOSTests */ = {
@@ -1098,9 +1131,9 @@
 			productReference = 64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DA5663E71A4C8D8500193C88 /* QuickFocused-OSXTests */ = {
+		DA5663E71A4C8D8500193C88 /* QuickFocused-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused-OSXTests" */;
+			buildConfigurationList = DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused-macOSTests" */;
 			buildPhases = (
 				DA5663E41A4C8D8500193C88 /* Sources */,
 				DA5663E51A4C8D8500193C88 /* Frameworks */,
@@ -1111,9 +1144,9 @@
 			dependencies = (
 				DA5663F01A4C8D8500193C88 /* PBXTargetDependency */,
 			);
-			name = "QuickFocused-OSXTests";
-			productName = "QuickFocused-OSXTests";
-			productReference = DA5663E81A4C8D8500193C88 /* QuickFocused-OSXTests.xctest */;
+			name = "QuickFocused-macOSTests";
+			productName = "QuickFocused-macOSTests";
+			productReference = DA5663E81A4C8D8500193C88 /* QuickFocused-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DA9876B11A4C70EB0004AA17 /* QuickFocused-iOSTests */ = {
@@ -1134,9 +1167,9 @@
 			productReference = DA9876B21A4C70EB0004AA17 /* QuickFocused-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DAEB6B8D1943873100289F44 /* Quick-OSX */ = {
+		DAEB6B8D1943873100289F44 /* Quick-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAEB6BA41943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-OSX" */;
+			buildConfigurationList = DAEB6BA41943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-macOS" */;
 			buildPhases = (
 				DAEB6B891943873100289F44 /* Sources */,
 				DAEB6B8A1943873100289F44 /* Frameworks */,
@@ -1147,14 +1180,14 @@
 			);
 			dependencies = (
 			);
-			name = "Quick-OSX";
+			name = "Quick-macOS";
 			productName = Quick;
 			productReference = DAEB6B8E1943873100289F44 /* Quick.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DAEB6B981943873100289F44 /* Quick-OSXTests */ = {
+		DAEB6B981943873100289F44 /* Quick-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DAEB6BA71943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-OSXTests" */;
+			buildConfigurationList = DAEB6BA71943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-macOSTests" */;
 			buildPhases = (
 				DAEB6B951943873100289F44 /* Sources */,
 				DAEB6B961943873100289F44 /* Frameworks */,
@@ -1177,9 +1210,9 @@
 				04DC9809194B838B00CE00B6 /* PBXTargetDependency */,
 				93625F391951DDC8006B1FE1 /* PBXTargetDependency */,
 			);
-			name = "Quick-OSXTests";
+			name = "Quick-macOSTests";
 			productName = QuickTests;
-			productReference = DAEB6B991943873100289F44 /* Quick-OSXTests.xctest */;
+			productReference = DAEB6B991943873100289F44 /* Quick-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1244,10 +1277,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DAEB6B8D1943873100289F44 /* Quick-OSX */,
-				DAEB6B981943873100289F44 /* Quick-OSXTests */,
-				DA5663E71A4C8D8500193C88 /* QuickFocused-OSXTests */,
-				64076CE51D6D7C2000E2B499 /* QuickAfterSuite-OSXTests */,
+				DAEB6B8D1943873100289F44 /* Quick-macOS */,
+				DAEB6B981943873100289F44 /* Quick-macOSTests */,
+				DA5663E71A4C8D8500193C88 /* QuickFocused-macOSTests */,
+				64076CE51D6D7C2000E2B499 /* QuickAfterSuite-macOSTests */,
 				5A5D117B19473F2100F6D13D /* Quick-iOS */,
 				5A5D118519473F2100F6D13D /* Quick-iOSTests */,
 				DA9876B11A4C70EB0004AA17 /* QuickFocused-iOSTests */,
@@ -1386,7 +1419,6 @@
 				1F118D381BDCA6E1005013A2 /* Configuration+BeforeEachTests.swift in Sources */,
 				1F118D121BDCA556005013A2 /* ItTests.swift in Sources */,
 				1F118D1C1BDCA556005013A2 /* BeforeSuiteTests.swift in Sources */,
-				1F118D1D1BDCA556005013A2 /* BeforeSuiteTests+ObjC.m in Sources */,
 				1F118D0E1BDCA547005013A2 /* QCKSpecRunner.m in Sources */,
 				1F118D141BDCA556005013A2 /* FailureTests+ObjC.m in Sources */,
 				1F118D0F1BDCA54B005013A2 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
@@ -1399,6 +1431,7 @@
 				1F118D191BDCA556005013A2 /* AfterEachTests+ObjC.m in Sources */,
 				1F118D221BDCA556005013A2 /* SharedExamples+BeforeEachTests.swift in Sources */,
 				AE4E58171C73097E00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
+				647987E81DD06D3400FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				1F118D211BDCA556005013A2 /* SharedExamplesTests+ObjC.m in Sources */,
 				1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */,
@@ -1476,6 +1509,7 @@
 				DA7AE6F219FC493F000AFDCE /* ItTests.swift in Sources */,
 				4748E8951A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
+				647987E71DD06D3300FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				DAE714FB19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
 				AE4E58151C73097C00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */,
 				AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
@@ -1487,7 +1521,6 @@
 				8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */,
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
-				47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1598,13 +1631,13 @@
 				AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				471590401A488F3F00FBA644 /* PendingTests+ObjC.m in Sources */,
 				DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
+				647987E61DD06D3200FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
 				479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */,
 				34C586011C4ABD3F00D4F057 /* XCTestCaseProvider.swift in Sources */,
 				8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */,
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
-				47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1614,27 +1647,27 @@
 /* Begin PBXTargetDependency section */
 		047655521949F4CB00B288BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 047655511949F4CB00B288BB /* PBXContainerItemProxy */;
 		};
 		047655541949F4CB00B288BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 047655531949F4CB00B288BB /* PBXContainerItemProxy */;
 		};
 		04765556194A327000B288BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04765555194A327000B288BB /* PBXContainerItemProxy */;
 		};
 		04DC97E5194B4A6000CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC97E4194B4A6000CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC97E7194B4A6000CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC97E6194B4A6000CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC97E9194B4B7E00CE00B6 /* PBXTargetDependency */ = {
@@ -1649,7 +1682,7 @@
 		};
 		04DC97F1194B82DB00CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC97F0194B82DB00CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC97F3194B82DE00CE00B6 /* PBXTargetDependency */ = {
@@ -1664,7 +1697,7 @@
 		};
 		04DC97F9194B834000CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC97F8194B834000CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC97FB194B834100CE00B6 /* PBXTargetDependency */ = {
@@ -1674,7 +1707,7 @@
 		};
 		04DC97FD194B834B00CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC97FC194B834B00CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC97FF194B835E00CE00B6 /* PBXTargetDependency */ = {
@@ -1684,7 +1717,7 @@
 		};
 		04DC9801194B836100CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC9800194B836100CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC9803194B836300CE00B6 /* PBXTargetDependency */ = {
@@ -1694,7 +1727,7 @@
 		};
 		04DC9805194B838400CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC9804194B838400CE00B6 /* PBXContainerItemProxy */;
 		};
 		04DC9807194B838700CE00B6 /* PBXTargetDependency */ = {
@@ -1704,7 +1737,7 @@
 		};
 		04DC9809194B838B00CE00B6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 04DC9808194B838B00CE00B6 /* PBXContainerItemProxy */;
 		};
 		1F118CE11BDCA4AB005013A2 /* PBXTargetDependency */ = {
@@ -1734,7 +1767,7 @@
 		};
 		64076CE61D6D7C2000E2B499 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 64076CE71D6D7C2000E2B499 /* PBXContainerItemProxy */;
 		};
 		64076CF91D6D7CD600E2B499 /* PBXTargetDependency */ = {
@@ -1749,12 +1782,12 @@
 		};
 		93625F391951DDC8006B1FE1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = 93625F381951DDC8006B1FE1 /* PBXContainerItemProxy */;
 		};
 		DA5663F01A4C8D8500193C88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = DA5663EF1A4C8D8500193C88 /* PBXContainerItemProxy */;
 		};
 		DA9876BA1A4C70EB0004AA17 /* PBXTargetDependency */ = {
@@ -1764,7 +1797,7 @@
 		};
 		DAEB6B9C1943873100289F44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DAEB6B8D1943873100289F44 /* Quick-OSX */;
+			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = DAEB6B9B1943873100289F44 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1835,13 +1868,13 @@
 					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/QuickTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -1855,13 +1888,13 @@
 					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/QuickTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -1877,13 +1910,13 @@
 					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/QuickFocusedTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -1897,13 +1930,13 @@
 					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/QuickFocusedTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -1929,7 +1962,7 @@
 				);
 				INFOPLIST_FILE = Sources/Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -1959,7 +1992,7 @@
 				);
 				INFOPLIST_FILE = Sources/Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
@@ -1987,15 +2020,15 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2008,15 +2041,15 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2041,7 +2074,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2061,7 +2094,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
@@ -2079,14 +2112,14 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2100,14 +2133,14 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2128,7 +2161,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -2148,7 +2181,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -2168,13 +2201,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickFocusedTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2188,13 +2221,13 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickFocusedTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
@@ -2211,15 +2244,15 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickFocusedTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2232,15 +2265,15 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickFocusedTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2290,7 +2323,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2332,7 +2365,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -2355,6 +2388,7 @@
 				INFOPLIST_FILE = Sources/Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Quick;
 				PRODUCT_NAME = Quick;
@@ -2380,6 +2414,7 @@
 				INFOPLIST_FILE = Sources/Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Quick;
 				PRODUCT_NAME = Quick;
@@ -2402,12 +2437,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2421,12 +2457,13 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = Sources/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
@@ -2479,7 +2516,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64076CF21D6D7C2000E2B499 /* Build configuration list for PBXNativeTarget "QuickAfterSuite-OSXTests" */ = {
+		64076CF21D6D7C2000E2B499 /* Build configuration list for PBXNativeTarget "QuickAfterSuite-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64076CF31D6D7C2000E2B499 /* Debug */,
@@ -2506,7 +2543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused-OSXTests" */ = {
+		DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA5663F11A4C8D8500193C88 /* Debug */,
@@ -2533,7 +2570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAEB6BA41943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-OSX" */ = {
+		DAEB6BA41943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAEB6BA51943873200289F44 /* Debug */,
@@ -2542,7 +2579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DAEB6BA71943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-OSXTests" */ = {
+		DAEB6BA71943873200289F44 /* Build configuration list for PBXNativeTarget "Quick-macOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAEB6BA81943873200289F44 /* Debug */,
