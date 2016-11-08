@@ -4,6 +4,15 @@
 # set the files to watch and fail if there are changes
 @SDM_DANGER_IMMUTABLE_FILES = ['LICENSE', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md']
 
+# Sometimes it's a README fix, or something like that which is trivial
+not_declared_trivial = !(github.pr_title.include? "#trivial")
+has_app_changes = !git.modified_files.grep(/Sources/).empty?
+
+# Warns when changing source files
+if has_app_changes && not_declared_trivial
+  warn("Need to add an unit test if you're modifying swift source")
+end
+
 # determine if any of the files were modified
 def didModify(files_array)
   did_modify_files = false
