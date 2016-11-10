@@ -66,8 +66,9 @@ private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
 
     if let testCaseClass = bundle.classNamed(className) { return testCaseClass }
 
-    guard let moduleName = bundle.bundlePath.fileName else { return nil }
-
+    let bundleFileName = bundle.bundleURL.fileName
+    let moduleName = bundleFileName.replacingOccurrences(of: " ", with: "_")
+    
     return NSClassFromString("\(moduleName).\(className)")
 }
 
