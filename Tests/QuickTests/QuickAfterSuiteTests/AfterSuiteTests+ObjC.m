@@ -1,16 +1,9 @@
-//
-//  AfterSuiteTests+ObjC.m
-//  Quick
-//
-//  Created by Fujiki Takeshi on 2016/08/24.
-//  Copyright © 2016年 Brian Ivan Gesiak. All rights reserved.
-//
-
 @import XCTest;
 @import Quick;
 @import Nimble;
 
-#import "AfterSuiteTestsHeader.h"
+static BOOL afterSuiteFirstTestExecuted = NO;
+static BOOL afterSuiteTestsWasExecuted = NO;
 
 @interface AfterSuiteTests_ObjC : QuickSpec
 
@@ -20,18 +13,17 @@
 
 - (void)spec {
     it(@"is executed before afterSuite", ^{
-        expect(@(afterSuiteTestsWasExecuted_ObjC)).to(beFalsy());
+        expect(@(afterSuiteTestsWasExecuted)).to(beFalsy());
     });
 
     afterSuite(^{
-        afterSuiteTestsWasExecuted_ObjC = YES;
+        afterSuiteTestsWasExecuted = YES;
     });
 }
 
 + (void)tearDown {
     if (afterSuiteFirstTestExecuted) {
         assert(afterSuiteTestsWasExecuted);
-        assert(afterSuiteTestsWasExecuted_ObjC);
     } else {
         afterSuiteFirstTestExecuted = true;
     }

@@ -108,7 +108,6 @@
 		64076D211D6D7E4D00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
 		64076D221D6D7E5B00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
 		64076D231D6D7E6B00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
-		64076D251D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		64076D261D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		64076D271D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		647987E61DD06D3200FE48E7 /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */; };
@@ -138,6 +137,7 @@
 		AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
+		CD264DBD1DDA147A0038B0EB /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
 		CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */; };
@@ -477,7 +477,6 @@
 		64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSuiteTests.swift; sourceTree = "<group>"; };
 		64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterSuiteTests+ObjC.m"; sourceTree = "<group>"; };
-		64076D281D6D848C00E2B499 /* AfterSuiteTestsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AfterSuiteTestsHeader.h; sourceTree = "<group>"; };
 		647987E41DD06D1B00FE48E7 /* BeforeSuiteTests+ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BeforeSuiteTests+ObjC.m"; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
@@ -657,10 +656,9 @@
 			children = (
 				64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */,
 				64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */,
-				64076D281D6D848C00E2B499 /* AfterSuiteTestsHeader.h */,
 			);
 			name = QuickAfterSuiteTests;
-			path = Sources/QuickAfterSuiteTests;
+			path = Tests/QuickTests/QuickAfterSuiteTests;
 			sourceTree = "<group>";
 		};
 		6C3983EE1D1E930D00637469 /* QuickObjectiveC */ = {
@@ -1530,6 +1528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64076D211D6D7E4D00E2B499 /* AfterSuiteTests.swift in Sources */,
+				CD264DBD1DDA147A0038B0EB /* AfterSuiteTests+ObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1612,7 +1611,6 @@
 			files = (
 				DAE714F719FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */,
-				64076D251D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */,
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA8940F01B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
 				4728253B1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m in Sources */,
@@ -2068,7 +2066,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2088,7 +2086,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -2111,7 +2109,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2132,7 +2130,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -2155,7 +2153,7 @@
 					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
@@ -2175,7 +2173,7 @@
 					"$(PROJECT_DIR)/Externals/Nimble/build/Debug-appletvos",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/QuickAfterSuiteTests/Info.plist;
+				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
