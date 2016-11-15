@@ -5,8 +5,7 @@ import Quick
 
 Quick.QCKMain([
     FunctionalTests_AfterEachSpec.self,
-    FunctionalTests_AfterSuite_AfterSuiteSpec.self,
-    FunctionalTests_AfterSuite_Spec.self,
+    AfterSuiteTests.self,
     FunctionalTests_BeforeEachSpec.self,
     FunctionalTests_BeforeSuite_BeforeSuiteSpec.self,
     FunctionalTests_BeforeSuite_Spec.self,
@@ -31,7 +30,6 @@ configurations: [
 ],
 testCases: [
     testCase(AfterEachTests.allTests),
-    testCase(AfterSuiteTests.allTests),
     testCase(BeforeEachTests.allTests),
     testCase(BeforeSuiteTests.allTests),
     // testCase(DescribeTests.allTests),

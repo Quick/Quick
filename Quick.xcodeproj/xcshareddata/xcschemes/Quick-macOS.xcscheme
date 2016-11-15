@@ -48,6 +48,16 @@
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "64076CE51D6D7C2000E2B499"
+               BuildableName = "QuickAfterSuite-macOSTests.xctest"
+               BlueprintName = "QuickAfterSuite-macOSTests"
+               ReferencedContainer = "container:Quick.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -4,6 +4,7 @@ let package = Package(
     name: "Quick",
     exclude: [
       "Sources/QuickObjectiveC",
+      "Tests/QuickTests/QuickAfterSuiteTests/AfterSuiteTests+ObjC.m",
       "Tests/QuickTests/QuickFocusedTests/FocusedTests+ObjC.m",
       "Tests/QuickTests/QuickTests/FunctionalTests/ObjC",
       "Tests/QuickTests/QuickTests/Helpers",
