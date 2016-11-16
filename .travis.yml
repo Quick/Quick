@@ -20,7 +20,7 @@ matrix:
         - PODSPEC=1
     - os: linux
       sudo: required
-      dist: 
+      dist: trusty
       install:
         - brew install swiftlint
 install:
