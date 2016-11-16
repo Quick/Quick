@@ -1,0 +1,13 @@
+
+disabled_rules:
+  - line_length
+  - type_name
+  - valid_docs
+
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+
+included:
+  - Sources
+  - Tests
