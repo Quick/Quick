@@ -68,7 +68,7 @@ private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
 
     let bundleFileName = bundle.bundleURL.fileName
     let moduleName = bundleFileName.replacingOccurrences(of: " ", with: "_")
-    
+
     return NSClassFromString("\(moduleName).\(className)")
 }
 

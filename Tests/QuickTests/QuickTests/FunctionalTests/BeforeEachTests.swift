@@ -15,22 +15,22 @@ private var beforeEachOrder = [BeforeEachType]()
 
 class FunctionalTests_BeforeEachSpec: QuickSpec {
     override func spec() {
-        
+
         describe("beforeEach ordering") {
             beforeEach { beforeEachOrder.append(BeforeEachType.OuterOne) }
             beforeEach { beforeEachOrder.append(BeforeEachType.OuterTwo) }
-            
+
             it("executes the outer beforeEach closures once [1]") {}
             it("executes the outer beforeEach closures a second time [2]") {}
-            
+
             context("when there are nested beforeEach") {
                 beforeEach { beforeEachOrder.append(BeforeEachType.InnerOne) }
                 beforeEach { beforeEachOrder.append(BeforeEachType.InnerTwo) }
                 beforeEach { beforeEachOrder.append(BeforeEachType.InnerThree) }
-                
+
                 it("executes the outer and inner beforeEach closures [3]") {}
             }
-            
+
             context("when there are nested beforeEach without examples") {
                 beforeEach { beforeEachOrder.append(BeforeEachType.NoExamples) }
             }

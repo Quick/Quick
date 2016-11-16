@@ -8,7 +8,7 @@ import Foundation
 final public class ExampleGroup: NSObject {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
-    
+
     internal var phase: HooksPhase = .nothingExecuted
 
     private let internalDescription: String

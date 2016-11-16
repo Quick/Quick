@@ -32,7 +32,7 @@ final public class Example: NSObject {
         self.callsite = callsite
         self.flags = flags
     }
-    
+
     public override var description: String {
         return internalDescription
     }
