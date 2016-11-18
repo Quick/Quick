@@ -1,4 +1,3 @@
-
 public struct TestRun {
     public var executionCount: UInt
     public var hasSucceeded: Bool
