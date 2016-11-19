@@ -48,5 +48,5 @@ public extension XCTestCaseProvider where Self: XCTestCaseProviderStatic {
             XCTAssert(contains, "Test '\(name)' is missing from the allTests array")
         }
     }
-    
+
 #endif

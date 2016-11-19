@@ -21,7 +21,6 @@ class FunctionalTests_FocusedSpec_Focused: QuickSpec {
             fit("has a focused example that passes (3)") {}
         }
 
-        // TODO: Port fitBehavesLike to Swift.
         itBehavesLike("two passing shared examples", flags: [Filter.focused: true])
     }
 }

@@ -25,6 +25,6 @@ final public class Callsite: NSObject {
     Returns a boolean indicating whether two Callsite objects are equal.
     If two callsites are in the same file and on the same line, they must be equal.
 */
-public func ==(lhs: Callsite, rhs: Callsite) -> Bool {
+public func == (lhs: Callsite, rhs: Callsite) -> Bool {
     return lhs.file == rhs.file && lhs.line == rhs.line
 }

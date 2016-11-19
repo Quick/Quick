@@ -27,7 +27,7 @@ final internal class ExampleHooks {
         for before in befores {
             before(exampleMetadata)
         }
-        
+
         phase = .beforesFinished
     }
 

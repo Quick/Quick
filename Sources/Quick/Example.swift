@@ -32,7 +32,7 @@ final public class Example: NSObject {
         self.callsite = callsite
         self.flags = flags
     }
-    
+
     public override var description: String {
         return internalDescription
     }
@@ -106,6 +106,6 @@ final public class Example: NSObject {
     Returns a boolean indicating whether two Example objects are equal.
     If two examples are defined at the exact same callsite, they must be equal.
 */
-public func ==(lhs: Example, rhs: Example) -> Bool {
+public func == (lhs: Example, rhs: Example) -> Bool {
     return lhs.callsite == rhs.callsite
 }

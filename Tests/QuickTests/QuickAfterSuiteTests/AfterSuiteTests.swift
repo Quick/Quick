@@ -6,8 +6,8 @@ var afterSuiteFirstTestExecuted = false
 var afterSuiteTestsWasExecuted = false
 
 class AfterSuiteTests: QuickSpec {
-    override func spec(){
-        afterSuite { 
+    override func spec() {
+        afterSuite {
             afterSuiteTestsWasExecuted = true
         }
 

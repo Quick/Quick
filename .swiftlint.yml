@@ -1,0 +1,12 @@
+
+disabled_rules:
+  - line_length
+  - type_name
+  - valid_docs
+  - empty_count
+  - force_unwrapping
+  - function_body_length
+  - variable_name
+included:
+  - Sources
+  - Tests

@@ -165,7 +165,7 @@ final internal class World: NSObject {
     internal var includedExampleCount: Int {
         return includedExamples.count
     }
-    
+
     internal var beforesCurrentlyExecuting: Bool {
         let suiteBeforesExecuting = suiteHooks.phase == .beforesExecuting
         let exampleBeforesExecuting = exampleHooks.phase == .beforesExecuting
@@ -173,10 +173,10 @@ final internal class World: NSObject {
         if let runningExampleGroup = currentExampleMetadata?.example.group {
             groupBeforesExecuting = runningExampleGroup.phase == .beforesExecuting
         }
-        
+
         return suiteBeforesExecuting || exampleBeforesExecuting || groupBeforesExecuting
     }
-    
+
     internal var aftersCurrentlyExecuting: Bool {
         let suiteAftersExecuting = suiteHooks.phase == .aftersExecuting
         let exampleAftersExecuting = exampleHooks.phase == .aftersExecuting
@@ -184,7 +184,7 @@ final internal class World: NSObject {
         if let runningExampleGroup = currentExampleMetadata?.example.group {
             groupAftersExecuting = runningExampleGroup.phase == .aftersExecuting
         }
-        
+
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
