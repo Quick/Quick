@@ -225,3 +225,17 @@ public func fcontext(_ description: String, flags: FilterFlags = [:], closure: (
 public func fit(_ description: String, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, closure: @escaping () -> ()) {
     World.sharedWorld.fit(description, flags: flags, file: file, line: line, closure: closure)
 }
+
+/**
+    Use this to quickly focus an `itBehavesLike` closure.
+*/
+public func fitBehavesLike(_ name: String, flags: FilterFlags = [:], file: String = #file, line: UInt = #line) {
+    fitBehavesLike(name, flags: flags, file: file, line: line, sharedExampleContext: { return [:] })
+}
+
+/**
+    Use this to quickly focus an `itBehavesLike` closure.
+*/
+public func fitBehavesLike(_ name: String, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, sharedExampleContext: @escaping SharedExampleContext) {
+    World.sharedWorld.fitBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
+}

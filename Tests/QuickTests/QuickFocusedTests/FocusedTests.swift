@@ -21,7 +21,7 @@ class FunctionalTests_FocusedSpec_Focused: QuickSpec {
             fit("has a focused example that passes (3)") {}
         }
 
-        itBehavesLike("two passing shared examples", flags: [Filter.focused: true])
+        fitBehavesLike("two passing shared examples")
     }
 }
 
