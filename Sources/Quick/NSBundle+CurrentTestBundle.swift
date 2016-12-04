@@ -11,6 +11,16 @@ extension Bundle {
         return allBundles.first { $0.bundlePath.hasSuffix(".xctest") }
     }
 
+    /**
+     Return the module name of the bundle.
+     Uses the bundle filename and transform it to match Xcode's transformation.
+     Module name has to be a valid "C99 extended identifier".
+     */
+    internal var moduleName: String {
+        return bundleURL.fileName
+            .replacingOccurrences(of: " ", with: "_")
+            .replacingOccurrences(of: "-", with: "_")
+    }
 }
 
 #endif
