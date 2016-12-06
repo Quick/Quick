@@ -1,8 +1,8 @@
 #import "QuickSpec.h"
 #import "QuickConfiguration.h"
-#import "NSString+QCKSelectorName.h"
 #import "World.h"
 #import <objc/runtime.h>
+#import <Quick/Quick-Swift.h>
 
 static QuickSpec *currentSpec = nil;
 
@@ -119,7 +119,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
     
-    NSString *originalName = example.name.qck_selectorName;
+    NSString *originalName = example.name.qck_c99ExtendedIdentifier;
     NSString *selectorName = originalName;
     NSUInteger i = 2;
     

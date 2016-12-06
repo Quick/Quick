@@ -67,7 +67,7 @@ private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
     if let testCaseClass = bundle.classNamed(className) { return testCaseClass }
 
     let moduleName = bundle.moduleName
-    
+
     return NSClassFromString("\(moduleName).\(className)")
 }
 
