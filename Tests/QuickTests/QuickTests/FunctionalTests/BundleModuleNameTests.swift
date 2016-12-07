@@ -1,3 +1,4 @@
+#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
 import XCTest
 @testable import Quick
 import Nimble
@@ -24,3 +25,4 @@ class BundleModuleNameSpecs: QuickSpec {
         }
     }
 }
+#endif

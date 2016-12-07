@@ -1,11 +1,4 @@
-//
-//  NSString+C99ExtendedIdentifier.swift
-//  Quick
-//
-//  Created by Alex Manzella on 06/12/16.
-//  Copyright © 2016 Brian Ivan Gesiak. All rights reserved.
-//
-
+#if os(OSX) || os(iOS) || os(watchOS) || os(tvOS)
 import Foundation
 
 public extension NSString {
@@ -38,3 +31,4 @@ public extension NSString {
         return result.characters.count == 0 ? "_" : result
     }
 }
+#endif
