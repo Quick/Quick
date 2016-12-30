@@ -19,14 +19,14 @@ Quick.QCKMain([
     FunctionalTests_CrossReferencingSpecA.self,
     FunctionalTests_CrossReferencingSpecB.self,
     FunctionalTests_FocusedSpec_Focused.self,
-    FunctionalTests_FocusedSpec_Unfocused.self,
+    FunctionalTests_FocusedSpec_Unfocused.self
 ],
 configurations: [
     FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples.self,
     FunctionalTests_SharedExamplesTests_SharedExamples.self,
     FunctionalTests_Configuration_AfterEach.self,
     FunctionalTests_Configuration_BeforeEach.self,
-    FunctionalTests_FocusedSpec_SharedExamplesConfiguration.self,
+    FunctionalTests_FocusedSpec_SharedExamplesConfiguration.self
 ],
 testCases: [
     testCase(AfterEachTests.allTests),
@@ -41,5 +41,5 @@ testCases: [
     testCase(Configuration_BeforeEachTests.allTests),
     testCase(FocusedTests.allTests),
     testCase(FunctionalTests_CrossReferencingSpecA.allTests),
-    testCase(FunctionalTests_CrossReferencingSpecB.allTests),
+    testCase(FunctionalTests_CrossReferencingSpecB.allTests)
 ])
