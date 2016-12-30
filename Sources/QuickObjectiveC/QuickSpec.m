@@ -108,14 +108,6 @@ const void * const QCKExampleKey = &QCKExampleKey;
         currentSpec = self;
         [example run];
     });
-    NSCharacterSet *characterSet = [NSCharacterSet alphanumericCharacterSet];
-    NSMutableString *sanitizedFileName = [NSMutableString string];
-    for (NSUInteger i = 0; i < example.callsite.file.length; i++) {
-        unichar ch = [example.callsite.file characterAtIndex:i];
-        if ([characterSet characterIsMember:ch]) {
-            [sanitizedFileName appendFormat:@"%c", ch];
-        }
-    }
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
     
