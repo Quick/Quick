@@ -117,7 +117,7 @@ const void * const QCKExampleKey = &QCKExampleKey;
         }
     }
 
-    const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(id), @encode(id), @encode(SEL)] UTF8String];
+    const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];
     
     NSString *originalName = example.name.qck_selectorName;
     NSString *selectorName = originalName;
