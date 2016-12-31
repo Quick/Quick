@@ -102,10 +102,12 @@ final public class Example: NSObject {
     }
 }
 
-/**
-    Returns a boolean indicating whether two Example objects are equal.
-    If two examples are defined at the exact same callsite, they must be equal.
-*/
-public func == (lhs: Example, rhs: Example) -> Bool {
-    return lhs.callsite == rhs.callsite
+extension Example {
+    /**
+        Returns a boolean indicating whether two Example objects are equal.
+        If two examples are defined at the exact same callsite, they must be equal.
+    */
+    public static func == (lhs: Example, rhs: Example) -> Bool {
+        return lhs.callsite == rhs.callsite
+    }
 }
