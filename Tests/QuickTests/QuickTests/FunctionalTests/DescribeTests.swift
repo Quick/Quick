@@ -7,7 +7,7 @@ import Quick
 final class DescribeTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (DescribeTests) -> () throws -> Void)] {
         return [
-            ("testDescribeThrowsIfUsedOutsideOfQuickSpec", testDescribeThrowsIfUsedOutsideOfQuickSpec),
+            ("testDescribeThrowsIfUsedOutsideOfQuickSpec", testDescribeThrowsIfUsedOutsideOfQuickSpec)
         ]
     }
 

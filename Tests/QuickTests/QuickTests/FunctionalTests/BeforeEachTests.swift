@@ -53,7 +53,7 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
 final class BeforeEachTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (BeforeEachTests) -> () throws -> Void)] {
         return [
-            ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
+            ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder)
         ]
     }
 
@@ -69,7 +69,7 @@ final class BeforeEachTests: XCTestCase, XCTestCaseProvider {
             // [3] The outer beforeEach closures are executed from top to bottom,
             //     then the inner beforeEach closures are executed from top to bottom.
             BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
-                BeforeEachType.InnerOne, BeforeEachType.InnerTwo, BeforeEachType.InnerThree,
+                BeforeEachType.InnerOne, BeforeEachType.InnerTwo, BeforeEachType.InnerThree
         ]
         XCTAssertEqual(beforeEachOrder, expectedOrder)
     }

@@ -52,7 +52,7 @@ final internal class World: NSObject {
     internal var isRunningAdditionalSuites = false
 #endif
 
-    private var specs: Dictionary<String, ExampleGroup> = [:]
+    private var specs: [String: ExampleGroup] = [:]
     private var sharedExamples: [String: SharedExampleClosure] = [:]
     private let configuration = Configuration()
     private var isConfigurationFinalized = false
