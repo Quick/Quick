@@ -131,6 +131,12 @@ extension World {
         }
     }
 
+    internal func fitBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
+        var focusedFlags = flags
+        focusedFlags[Filter.focused] = true
+        self.itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: focusedFlags, file: file, line: line)
+    }
+
 #if _runtime(_ObjC)
     @objc(itWithDescription:flags:file:line:closure:)
     private func objc_it(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> ()) {
