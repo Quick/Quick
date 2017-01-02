@@ -1,3 +1,0 @@
-#!/bin/bash --login
-
-rvm install 2.0.0 && rvm use 2.0.0 && gem install danger --no-ri --no-doc && danger
