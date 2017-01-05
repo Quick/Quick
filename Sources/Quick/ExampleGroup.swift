@@ -50,7 +50,7 @@ final public class ExampleGroup: NSObject {
 
     internal var filterFlags: FilterFlags {
         var aggregateFlags = flags
-        walkUp() { group in
+        walkUp { group in
             for (key, value) in group.flags {
                 aggregateFlags[key] = value
             }
@@ -60,7 +60,7 @@ final public class ExampleGroup: NSObject {
 
     internal var befores: [BeforeExampleWithMetadataClosure] {
         var closures = Array(hooks.befores.reversed())
-        walkUp() { group in
+        walkUp { group in
             closures.append(contentsOf: Array(group.hooks.befores.reversed()))
         }
         return Array(closures.reversed())
@@ -68,7 +68,7 @@ final public class ExampleGroup: NSObject {
 
     internal var afters: [AfterExampleWithMetadataClosure] {
         var closures = hooks.afters
-        walkUp() { group in
+        walkUp { group in
             closures.append(contentsOf: group.hooks.afters)
         }
         return closures
