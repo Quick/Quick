@@ -4,7 +4,7 @@ import Foundation
     A closure that temporarily exposes a Configuration object within
     the scope of the closure.
 */
-public typealias QuickConfigurer = (_ configuration: Configuration) -> ()
+public typealias QuickConfigurer = (_ configuration: Configuration) -> Void
 
 /**
     A closure that, given metadata about an example, returns a boolean value
