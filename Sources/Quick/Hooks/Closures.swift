@@ -3,13 +3,13 @@
 /**
     A closure executed before an example is run.
 */
-public typealias BeforeExampleClosure = () -> ()
+public typealias BeforeExampleClosure = () -> Void
 
 /**
     A closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
 */
-public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) -> ()
+public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
     A closure executed after an example is run.
@@ -27,7 +27,7 @@ public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClos
 /**
     A closure executed before any examples are run.
 */
-public typealias BeforeSuiteClosure = () -> ()
+public typealias BeforeSuiteClosure = () -> Void
 
 /**
     A closure executed after all examples have finished running.

@@ -10,7 +10,7 @@ public typealias SharedExampleContext = () -> [String: Any]
     A closure that is used to define a group of shared examples. This
     closure may contain any number of example and example groups.
 */
-public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> ()
+public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
 
 /**
     A collection of state Quick builds up in order to work its magic.

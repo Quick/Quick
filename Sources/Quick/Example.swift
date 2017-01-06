@@ -23,10 +23,10 @@ final public class Example: NSObject {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: () -> ()
+    private let closure: () -> Void
     private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () -> ()) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () -> Void) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
