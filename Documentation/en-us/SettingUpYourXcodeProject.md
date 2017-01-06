@@ -29,6 +29,8 @@ class MyClassTests: XCTestCase {
 }
 ```
 
+> Quick integration in the Xcode Test Navigator suffers from some limitations (open [issue](https://github.com/Quick/Quick/issues/219)). Quick tests will not show up in the navigator until they've been run, repeat runs tend to reset the list in unpredictable ways and the tests cannot be run from the gutter next to the source code.
+
 > Some developers advocate adding Swift source files to your test target.
 However, this leads to [subtle, hard-to-diagnose
 errors](https://github.com/Quick/Quick/issues/91), and is not
