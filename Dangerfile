@@ -15,7 +15,7 @@ if has_app_changes && not_declared_trivial && no_test_modify
 end
 
 # determine if any of the files were modified
-def didModify(files_array)
+def did_modify(files_array)
   did_modify_files = false
   files_array.each do |file_name|
 	if git.modified_files.include?(file_name) || git.deleted_files.include?(file_name)
@@ -26,7 +26,7 @@ def didModify(files_array)
 end
 
 # Fail if changes to immutable files, such as License or CoC
-fail('Do not modify the license or Code of Conduct') if didModify(@SDM_DANGER_IMMUTABLE_FILES)
+fail('Do not modify the license or Code of Conduct') if did_modify(@SDM_DANGER_IMMUTABLE_FILES)
 
 # Make it more obvious that a PR is a work in progress and shouldn't be merged yet
 warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
