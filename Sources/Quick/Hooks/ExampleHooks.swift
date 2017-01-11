@@ -11,7 +11,7 @@ final internal class ExampleHooks {
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
-        befores.append { (exampleMetadata: ExampleMetadata) in closure() }
+        befores.append { (_: ExampleMetadata) in closure() }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
@@ -19,7 +19,7 @@ final internal class ExampleHooks {
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
-        afters.append { (exampleMetadata: ExampleMetadata) in closure() }
+        afters.append { (_: ExampleMetadata) in closure() }
     }
 
     internal func executeBefores(_ exampleMetadata: ExampleMetadata) {

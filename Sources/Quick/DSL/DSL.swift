@@ -37,7 +37,7 @@ public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
                     and `afterEach` closures, as well as any number of examples (defined using `it`).
 */
 public func sharedExamples(_ name: String, closure: @escaping () -> Void) {
-    World.sharedWorld.sharedExamples(name, closure: { (NSDictionary) in closure() })
+    World.sharedWorld.sharedExamples(name, closure: { (_) in closure() })
 }
 
 /**
