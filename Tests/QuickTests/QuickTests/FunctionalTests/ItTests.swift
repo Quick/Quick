@@ -101,6 +101,26 @@ class FunctionalTests_ItSpec: QuickSpec {
 
                 it("should throw an exception with the correct message after this 'it' block executes") {  }
             }
+
+            describe("implicit error handling") {
+                enum ExampleError: Error {
+                    case error
+                }
+
+                func nonThrowingFunc() throws { }
+
+                func throwingFunc() throws {
+                    throw ExampleError.error
+                }
+
+                it("supports calling functions marked as throws") {
+                    try nonThrowingFunc()
+                }
+
+                it("supports calling functions that actually throws") {
+                    try throwingFunc()
+                }
+            }
         }
 #endif
 #endif
