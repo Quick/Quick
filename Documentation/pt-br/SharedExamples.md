@@ -111,6 +111,6 @@ sharedExamples("everything under the sea") {
 itBehavesLike("everything under the sea")
 ```
 
-> Em Objective-C, é necessário passar um bloco que recebe um `QCKDSLSharedExampleContext, mesmo se esse argumento não for usado. Desculpe, mas é assim que a banda toca! :trumpet: :notes:
+> Em Objective-C, é necessário passar um bloco que recebe um `QCKDSLSharedExampleContext`, mesmo se esse argumento não for usado. Desculpe, mas é assim que a banda toca! :trumpet: :notes:
 
 Também é possível "focar" exemplos compartilhados usando a função `fitBehavesLike`.
