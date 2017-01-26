@@ -18,8 +18,8 @@ import XCTest
 ///                        info `XCTMain` if you were using swift-corelibs-xctest directly.
 ///                        This allows for mixing Quick specs and XCTestCase tests in one run.
 public func QCKMain(_ specs: [QuickSpec.Type],
-                              configurations: [QuickConfiguration.Type] = [],
-                              testCases: [XCTestCaseEntry] = []) -> Never {
+                    configurations: [QuickConfiguration.Type] = [],
+                    testCases: [XCTestCaseEntry] = []) -> Never {
     // Perform all configuration (ensures that shared examples have been discovered)
     World.sharedWorld.configure { configuration in
         for configurationClass in configurations {
