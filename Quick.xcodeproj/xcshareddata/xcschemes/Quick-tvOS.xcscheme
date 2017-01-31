@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F118CDD1BDCA4AB005013A2"
-               BuildableName = "Quick-tvOSTests.xctest"
-               BlueprintName = "Quick-tvOSTests"
+               BuildableName = "Quick - tvOSTests.xctest"
+               BlueprintName = "Quick - tvOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F118CEF1BDCA4BB005013A2"
-               BuildableName = "QuickFocused-tvOSTests.xctest"
-               BlueprintName = "QuickFocused-tvOSTests"
+               BuildableName = "QuickFocused - tvOSTests.xctest"
+               BlueprintName = "QuickFocused - tvOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -53,8 +53,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64076D0A1D6D7CEA00E2B499"
-               BuildableName = "QuickAfterSuite-tvOSTests.xctest"
-               BlueprintName = "QuickAfterSuite-tvOSTests"
+               BuildableName = "QuickAfterSuite - tvOSTests.xctest"
+               BlueprintName = "QuickAfterSuite - tvOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>

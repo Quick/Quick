@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A5D118519473F2100F6D13D"
-               BuildableName = "Quick-iOSTests.xctest"
-               BlueprintName = "Quick-iOSTests"
+               BuildableName = "Quick - iOSTests.xctest"
+               BlueprintName = "Quick - iOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA9876B11A4C70EB0004AA17"
-               BuildableName = "QuickFocused-iOSTests.xctest"
-               BlueprintName = "QuickFocused-iOSTests"
+               BuildableName = "QuickFocused - iOSTests.xctest"
+               BlueprintName = "QuickFocused - iOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -53,8 +53,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64076CF81D6D7CD600E2B499"
-               BuildableName = "QuickAfterSuite-iOSTests.xctest"
-               BlueprintName = "QuickAfterSuite-iOSTests"
+               BuildableName = "QuickAfterSuite - iOSTests.xctest"
+               BlueprintName = "QuickAfterSuite - iOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
