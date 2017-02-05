@@ -18,8 +18,8 @@ Quick.QCKMain([
     Configuration_BeforeEachSpec.self,
     FunctionalTests_CrossReferencingSpecA.self,
     FunctionalTests_CrossReferencingSpecB.self,
-    FunctionalTests_FocusedSpec_Focused.self,
-    FunctionalTests_FocusedSpec_Unfocused.self
+    _FunctionalTests_FocusedSpec_Focused.self,
+    _FunctionalTests_FocusedSpec_Unfocused.self
 ],
 configurations: [
     FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples.self,

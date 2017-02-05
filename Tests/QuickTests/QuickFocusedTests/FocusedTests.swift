@@ -11,7 +11,13 @@ class FunctionalTests_FocusedSpec_SharedExamplesConfiguration: QuickConfiguratio
     }
 }
 
-class FunctionalTests_FocusedSpec_Focused: QuickSpec {
+// The following `QuickSpec`s will be run in a same test suite with other specs
+// on SwiftPM. We must avoid that the focused flags below affect other specs, so
+// the examples of the two specs must be gathered lastly. That is the reason why
+// the two specs have underscore prefix (and are listed at the bottom of `QCKMain`s
+// `specs` array).
+
+class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
     override func spec() {
         it("has an unfocused example that fails, but is never run") { fail() }
         fit("has a focused example that passes (1)") {}
@@ -25,7 +31,7 @@ class FunctionalTests_FocusedSpec_Focused: QuickSpec {
     }
 }
 
-class FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
+class _FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
     override func spec() {
         it("has an unfocused example that fails, but is never run") { fail() }
 
@@ -45,8 +51,8 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
 
     func testOnlyFocusedExamplesAreExecuted() {
         let result = qck_runSpecs([
-            FunctionalTests_FocusedSpec_Focused.self,
-            FunctionalTests_FocusedSpec_Unfocused.self
+            _FunctionalTests_FocusedSpec_Focused.self,
+            _FunctionalTests_FocusedSpec_Unfocused.self
         ])
         XCTAssertEqual(result?.executionCount, 5 as UInt)
     }

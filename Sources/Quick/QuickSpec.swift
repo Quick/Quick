@@ -3,10 +3,20 @@ import XCTest
 // NOTE: This file is not intended to be included in the Xcode project or CocoaPods.
 //       It is picked up by the Swift Package Manager during its build process.
 
-open class QuickSpec: XCTestCase {
+#if SWIFT_PACKAGE
+
+#if _runtime(_ObjC)
+import QuickSpecBase
+
+public typealias QuickSpecBase = _QuickSpecBase
+#else
+public typealias QuickSpecBase = XCTestCase
+#endif
+
+open class QuickSpec: QuickSpecBase {
     open func spec() {}
 
-#if os(Linux)
+#if !_runtime(_ObjC)
     public required init() {
         super.init(name: "", testClosure: { _ in })
     }
@@ -16,6 +26,68 @@ open class QuickSpec: XCTestCase {
 #else
     public required override init() {
         super.init()
+    }
+
+    /// This method is used as a hook for the following two purposes
+    ///
+    /// 1. Performing all configurations
+    /// 2. Gathering examples for each spec classes
+    ///
+    /// On Linux, those are done in `LinuxMain.swift` and `Quick.QCKMain`. But
+    /// SwiftPM on macOS does not have the mechanism (test cases are automatically
+    /// discovered powered by Objective-C runtime), so we needed the alternative
+    /// way.
+    override open class func defaultTestSuite() -> XCTestSuite {
+        let world = World.sharedWorld
+
+        if !world.isConfigurationFinalized {
+            // Perform all configurations (ensures that shared examples have been discovered)
+            world.configure { configuration in
+                qck_enumerateSubclasses(QuickConfiguration.self) { configurationClass in
+                    configurationClass.configure(configuration)
+                }
+            }
+            world.finalizeConfiguration()
+        }
+
+        // Let's gather examples for each spec classes. This has the same effect
+        // as listing spec classes in `LinuxMain.swift` on Linux.
+        _ = allTests
+
+        return super.defaultTestSuite()
+    }
+
+    override open class func _testMethodSelectors() -> [_SelectorWrapper] {
+        let examples = World.sharedWorld.examples(self)
+
+        var selectorNames = Set<String>()
+        return examples.map { example in
+            let selector = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
+            return _SelectorWrapper(selector: selector)
+        }
+    }
+
+    private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames : inout Set<String>) -> Selector {
+        let block: @convention(block) (QuickSpec) -> Void = { _ in
+            example.run()
+        }
+        let implementation = imp_implementationWithBlock(block as Any)
+
+        let originalName = example.name
+        var selectorName = originalName
+        var i: UInt = 2
+
+        while selectorNames.contains(selectorName) {
+            selectorName = String(format: "%@_%tu", originalName, i)
+            i += 1
+        }
+
+        selectorNames.insert(selectorName)
+
+        let selector = NSSelectorFromString(selectorName)
+        class_addMethod(self, selector, implementation, "v@:")
+
+        return selector
     }
 #endif
 
@@ -46,3 +118,5 @@ open class QuickSpec: XCTestCase {
         }
     }
 }
+
+#endif
