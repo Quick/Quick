@@ -1,12 +1,12 @@
 #import "QuickSpecBase.h"
 
-#pragma mark - _SelectorWrapper
+#pragma mark - _QuickSelectorWrapper
 
-@interface _SelectorWrapper ()
+@interface _QuickSelectorWrapper ()
 @property(nonatomic, assign) SEL selector;
 @end
 
-@implementation _SelectorWrapper
+@implementation _QuickSelectorWrapper
 
 - (instancetype)initWithSelector:(SEL)selector {
     self = [super init];
@@ -33,10 +33,10 @@
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray<NSInvocation *> *)testInvocations {
-    NSArray<_SelectorWrapper *> *wrappers = [self _testMethodSelectors];
+    NSArray<_QuickSelectorWrapper *> *wrappers = [self _qck_testMethodSelectors];
     NSMutableArray<NSInvocation *> *invocations = [NSMutableArray arrayWithCapacity:wrappers.count];
 
-    for (_SelectorWrapper *wrapper in wrappers) {
+    for (_QuickSelectorWrapper *wrapper in wrappers) {
         SEL selector = wrapper.selector;
         NSMethodSignature *signature = [self instanceMethodSignatureForSelector:selector];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
@@ -48,7 +48,7 @@
     return invocations;
 }
 
-+ (NSArray<_SelectorWrapper *> *)_testMethodSelectors {
++ (NSArray<_QuickSelectorWrapper *> *)_qck_testMethodSelectors {
     return @[];
 }
 
