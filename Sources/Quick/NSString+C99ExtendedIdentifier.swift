@@ -6,14 +6,13 @@ public extension NSString {
     private static var invalidCharacters: CharacterSet = {
         var invalidCharacters = CharacterSet()
 
-        let invalidCharacterSets = [
-            CharacterSet.whitespaces,
-            CharacterSet.newlines,
-            CharacterSet.illegalCharacters,
-            CharacterSet.controlCharacters,
-            CharacterSet.punctuationCharacters,
-            CharacterSet.nonBaseCharacters,
-            CharacterSet.symbols,
+        let invalidCharacterSets: [CharacterSet] = [
+            .whitespacesAndNewlines,
+            .illegalCharacters,
+            .controlCharacters,
+            .punctuationCharacters,
+            .nonBaseCharacters,
+            .symbols,
         ]
 
         for invalidSet in invalidCharacterSets {
@@ -25,10 +24,10 @@ public extension NSString {
 
     @objc(qck_c99ExtendedIdentifier)
     var c99ExtendedIdentifier: String {
-        let validComponents = components(separatedBy: NSString.invalidCharacters) as NSArray
-        let result = validComponents.componentsJoined(by: "_")
+        let validComponents = components(separatedBy: NSString.invalidCharacters)
+        let result = validComponents.joined(separator: "_")
 
-        return result.characters.count == 0 ? "_" : result
+        return result.isEmpty ? "_" : result
     }
 }
 #endif
