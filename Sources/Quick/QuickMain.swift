@@ -1,7 +1,9 @@
 import XCTest
-#if os(Linux)
+
 // NOTE: This file is not intended to be included in the Xcode project or CocoaPods.
 //       It is picked up by the Swift Package Manager during its build process.
+
+#if SWIFT_PACKAGE && os(Linux)
 
 /// When using Quick with swift-corelibs-xctest, automatic discovery of specs and
 /// configurations is not available. Instead, you should create a standalone
@@ -20,14 +22,17 @@ import XCTest
 public func QCKMain(_ specs: [QuickSpec.Type],
                     configurations: [QuickConfiguration.Type] = [],
                     testCases: [XCTestCaseEntry] = []) -> Never {
-    // Perform all configuration (ensures that shared examples have been discovered)
-    World.sharedWorld.configure { configuration in
+    let world = World.sharedWorld
+
+    // Perform all configurations (ensures that shared examples have been discovered)
+    world.configure { configuration in
         for configurationClass in configurations {
             configurationClass.configure(configuration)
         }
     }
-    World.sharedWorld.finalizeConfiguration()
+    world.finalizeConfiguration()
 
     XCTMain(specs.flatMap { testCase($0.allTests) } + testCases)
 }
+
 #endif

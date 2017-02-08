@@ -483,6 +483,9 @@
 		96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QuickSpec+QuickSpec_MethodList.m"; sourceTree = "<group>"; };
 		AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestObservationCenter+QCKSuspendObservation.m"; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
+		CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
+		CD3451461E4703D4000C8633 /* QuickMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickMain.swift; sourceTree = "<group>"; };
+		CD3451471E4703D4000C8633 /* QuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSpec.swift; sourceTree = "<group>"; };
 		CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
@@ -715,6 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				DA169E4719FF5DF100619816 /* Configuration.swift */,
+				CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -860,6 +864,8 @@
 				DA169E4619FF5DF100619816 /* Configuration */,
 				DA3124E119FCAEE8002858A7 /* DSL */,
 				DA408BDE19FF5599005DF92A /* Hooks */,
+				CD3451461E4703D4000C8633 /* QuickMain.swift */,
+				CD3451471E4703D4000C8633 /* QuickSpec.swift */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
