@@ -60,8 +60,11 @@ static QuickSpec *currentSpec = nil;
     
     for (Example *example in examples) {
         SEL selector = [self addInstanceMethodForExample:example classSelectorNames:selectorNames];
-        NSInvocation *invocation = [self invocationForInstanceMethodWithSelector:selector
-                                                                         example:example];
+
+        NSMethodSignature *signature = [self instanceMethodSignatureForSelector:selector];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        invocation.selector = selector;
+
         [invocations addObject:invocation];
     }
 
@@ -113,14 +116,6 @@ static QuickSpec *currentSpec = nil;
     class_addMethod(self, selector, implementation, types);
 
     return selector;
-}
-
-+ (NSInvocation *)invocationForInstanceMethodWithSelector:(SEL)selector
-                                                  example:(Example *)example {
-    NSMethodSignature *signature = [self instanceMethodSignatureForSelector:selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    invocation.selector = selector;
-    return invocation;
 }
 
 /**
