@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		732D8D691E516780008558BD /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 732D8D6A1E516780008558BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+				732D8D6D1E516789008558BD /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1F118CDF1BDCA4AB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
 		1F118CF51BDCA4BB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
@@ -1223,7 +1237,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Brian Ivan Gesiak";
 				TargetAttributes = {
 					1F118CD41BDCA4AB005013A2 = {
@@ -1246,6 +1260,10 @@
 						CreatedOnToolsVersion = 6.0;
 						LastSwiftMigration = 0800;
 						TestTargetID = 5A5D117B19473F2100F6D13D;
+					};
+					732D8D691E516780008558BD = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
 					};
 					DA5663E71A4C8D8500193C88 = {
 						CreatedOnToolsVersion = 6.2;
@@ -1290,6 +1308,7 @@
 				1F118CDD1BDCA4AB005013A2 /* Quick - tvOSTests */,
 				1F118CEF1BDCA4BB005013A2 /* QuickFocused - tvOSTests */,
 				64076D0A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests */,
+				732D8D691E516780008558BD /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -1380,6 +1399,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		732D8D6D1E516789008558BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F118CD01BDCA4AB005013A2 /* Sources */ = {
@@ -2192,6 +2227,20 @@
 			};
 			name = Release;
 		};
+		732D8D6B1E516780008558BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		732D8D6C1E516780008558BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		DA5663F11A4C8D8500193C88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2552,6 +2601,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		732D8D6A1E516780008558BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				732D8D6B1E516780008558BD /* Debug */,
+				732D8D6C1E516780008558BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused - macOSTests" */ = {
 			isa = XCConfigurationList;
