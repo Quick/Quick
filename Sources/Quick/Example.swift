@@ -1,6 +1,7 @@
 import Foundation
 
 private var numberOfExamplesRun = 0
+private var numberOfIncludedExamples = 0
 
 /**
     Examples, defined with the `it` function, use assertions to
@@ -57,6 +58,10 @@ final public class Example: NSObject {
     public func run() {
         let world = World.sharedWorld
 
+        if numberOfIncludedExamples == 0 {
+            numberOfIncludedExamples = world.includedExampleCount
+        }
+
         if numberOfExamplesRun == 0 {
             world.suiteHooks.executeBefores()
         }
@@ -82,7 +87,7 @@ final public class Example: NSObject {
 
         numberOfExamplesRun += 1
 
-        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= world.includedExampleCount {
+        if !world.isRunningAdditionalSuites && numberOfExamplesRun >= numberOfIncludedExamples {
             world.suiteHooks.executeAfters()
         }
     }
