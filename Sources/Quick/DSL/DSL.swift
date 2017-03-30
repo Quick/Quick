@@ -167,6 +167,18 @@ public func itBehavesLike(_ name: String, flags: FilterFlags = [:], file: String
     World.sharedWorld.itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
 }
 
+public func itBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, context: @escaping () -> C) {
+    World.sharedWorld.itBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
+}
+
+public func fitBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, context: @escaping () -> C) {
+    World.sharedWorld.fitBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
+}
+
+public func xitBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: String = #file, line: UInt = #line, context: @escaping () -> C) {
+    World.sharedWorld.xitBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
+}
+
 /**
     Defines an example or example group that should not be executed. Use `pending` to temporarily disable
     examples or groups that should not be run yet.

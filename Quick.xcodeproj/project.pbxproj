@@ -146,6 +146,9 @@
 		AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		CD264DBD1DDA147A0038B0EB /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
+		CE175D4E1E8D6B4900EB5E84 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
+		CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
+		CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
 		CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
 		CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */; };
@@ -500,6 +503,7 @@
 		CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
 		CD3451461E4703D4000C8633 /* QuickMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickMain.swift; sourceTree = "<group>"; };
 		CD3451471E4703D4000C8633 /* QuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSpec.swift; sourceTree = "<group>"; };
+		CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
 		CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+CurrentTestBundle.swift"; sourceTree = "<group>"; };
 		CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSelectedTestSuiteBuilder.swift; sourceTree = "<group>"; };
 		CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
@@ -893,6 +897,7 @@
 				CE57CEDB1C430BD200D63004 /* URL+FileName.swift */,
 				34C586071C4AC5E500D4F057 /* ErrorUtility.swift */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
+				CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */,
 			);
 			name = Quick;
 			path = Sources/Quick;
@@ -1442,6 +1447,7 @@
 				1F118D001BDCA536005013A2 /* Closures.swift in Sources */,
 				1F118D051BDCA536005013A2 /* ExampleMetadata.swift in Sources */,
 				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
+				CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1F1C431FE400253D19 /* QuickTestSuite.swift in Sources */,
 				1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */,
 				1F118D011BDCA536005013A2 /* ExampleHooks.swift in Sources */,
@@ -1521,6 +1527,7 @@
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				34F375AC19515CA700CE1B99 /* Example.swift in Sources */,
+				CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1A1C431FE300253D19 /* QuickTestSuite.swift in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
 				DA6B30191A4DB0D500FFB148 /* Filter.swift in Sources */,
@@ -1639,6 +1646,7 @@
 				7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
+				CE175D4E1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
 				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,
 				DA6B30181A4DB0D500FFB148 /* Filter.swift in Sources */,
@@ -2609,6 +2617,7 @@
 				732D8D6C1E516780008558BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused - macOSTests" */ = {
 			isa = XCConfigurationList;
