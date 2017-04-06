@@ -11,7 +11,7 @@ open class Behavior<Context> {
      This behaves just like an example group defines using `describe` or `context`--it may contain any number of `beforeEach`
      and `afterEach` closures, as well as any number of examples (defined using `it`).
 
-     - parameter context: A closure that, when evaluated, returns a `Context` instance that provide the information on the subject.
+     - parameter aContext: A closure that, when evaluated, returns a `Context` instance that provide the information on the subject.
     */
-    open class func spec(_ context: @escaping () -> Context) {}
+    open class func spec(_ aContext: @escaping () -> Context) {}
 }
