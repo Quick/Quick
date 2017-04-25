@@ -1,6 +1,8 @@
 import Quick
 import Nimble
 
+#if !SWIFT_PACKAGE
+
 class CurrentSpecTests: QuickSpec {
     override func spec() {
         it("returns the currently executing spec") {
@@ -19,3 +21,5 @@ class CurrentSpecTests: QuickSpec {
         }
     }
 }
+
+#endif
