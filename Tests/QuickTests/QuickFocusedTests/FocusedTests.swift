@@ -11,6 +11,14 @@ class FunctionalTests_FocusedSpec_SharedExamplesConfiguration: QuickConfiguratio
     }
 }
 
+class FunctionalTests_FocusedSpec_Behavior: Behavior<Void> {
+    override static func spec(_ aContext: @escaping () -> Void) {
+        it("pass once") { expect(true).to(beTruthy()) }
+        it("pass twice") { expect(true).to(beTruthy()) }
+        it("pass three times") { expect(true).to(beTruthy()) }
+    }
+}
+
 // The following `QuickSpec`s will be run in a same test suite with other specs
 // on SwiftPM. We must avoid that the focused flags below affect other specs, so
 // the examples of the two specs must be gathered lastly. That is the reason why
@@ -28,6 +36,7 @@ class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
         }
 
         fitBehavesLike("two passing shared examples")
+        fitBehavesLike(FunctionalTests_FocusedSpec_Behavior.self) {_ in ()}
     }
 }
 
@@ -54,6 +63,6 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
             _FunctionalTests_FocusedSpec_Focused.self,
             _FunctionalTests_FocusedSpec_Unfocused.self
         ])
-        XCTAssertEqual(result?.executionCount, 5 as UInt)
+        XCTAssertEqual(result?.executionCount, 8 as UInt)
     }
 }
