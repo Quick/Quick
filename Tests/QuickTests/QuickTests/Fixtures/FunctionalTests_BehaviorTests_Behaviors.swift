@@ -1,11 +1,3 @@
-//
-//  FunctionalTests_BehaviorTests_Behaviors.swift
-//  Quick
-//
-//  Created by Mostafa Amer on 19.04.17.
-//  Copyright © 2017 Brian Ivan Gesiak. All rights reserved.
-//
-
 import Foundation
 import Quick
 import Nimble
