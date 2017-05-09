@@ -5,12 +5,19 @@ import Nimble
 var oneExampleBeforeEachExecutedCount = 0
 var onlyPendingExamplesBeforeEachExecutedCount = 0
 
+class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
+    override static func spec(_ aContext: @escaping () -> Void) {
+        it("an example that will not run") {
+            expect(true).to(beFalsy())
+        }
+    }
+}
 class FunctionalTests_PendingSpec: QuickSpec {
     override func spec() {
         xit("an example that will not run") {
             expect(true).to(beFalsy())
         }
-
+        xitBehavesLike(FunctionalTests_PendingSpec_Behavior.self) {_ in }
         describe("a describe block containing only one enabled example") {
             beforeEach { oneExampleBeforeEachExecutedCount += 1 }
             it("an example that will run") {}
