@@ -63,3 +63,6 @@ fastlane/screenshots
 
 # Quick
 Quick.framework.zip
+
+# Swift Package Manager
+.build
