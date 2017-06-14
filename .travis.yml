@@ -1,4 +1,4 @@
-osx_image: xcode8.2
+osx_image: xcode8.3
 language: generic
 matrix:
   include:
