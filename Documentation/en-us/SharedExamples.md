@@ -18,10 +18,16 @@ import Nimble
 
 class EdibleSharedExamplesConfiguration: QuickConfiguration {
   override class func configure(_ configuration: Configuration) {
-    sharedExamples("something edible") { (sharedExampleContext: SharedExampleContext) in
+    sharedExamples("something edible") { (sharedExampleContext: @escaping SharedExampleContext) in
+
+      var dolphin: Dolpin!
+      var edible: Edible!
+      beforeEach {
+        dolphin = Dolphin(happy: false)
+        edible = sharedExampleContext()["edible"] as! Edible
+      }
+
       it("makes dolphins happy") {
-        let dolphin = Dolphin(happy: false)
-        let edible = sharedExampleContext()["edible"]
         dolphin.eat(edible)
         expect(dolphin.isHappy).to(beTruthy())
       }
@@ -36,7 +42,7 @@ class MackerelSpec: QuickSpec {
       mackerel = Mackerel()
     }
 
-    itBehavesLike("something edible") { ["edible": mackerel] }
+    itBehavesLike("something edible") { ["edible": mackerel!] }
   }
 }
 
@@ -47,7 +53,7 @@ class CodSpec: QuickSpec {
       cod = Cod()
     }
 
-    itBehavesLike("something edible") { ["edible": cod] }
+    itBehavesLike("something edible") { ["edible": cod!] }
   }
 }
 ```
