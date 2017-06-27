@@ -68,6 +68,9 @@ final public class Example: NSObject {
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: numberOfExamplesRun)
         world.currentExampleMetadata = exampleMetadata
+        defer {
+            world.currentExampleMetadata = nil
+        }
 
         world.exampleHooks.executeBefores(exampleMetadata)
         group!.phase = .beforesExecuting
