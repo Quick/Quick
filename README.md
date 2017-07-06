@@ -52,21 +52,22 @@ Certain versions of Quick and Nimble only support certain versions of Swift. Dep
 All documentation can be found in the [Documentation folder](./Documentation), including [detailed installation instructions](./Documentation/en-us/InstallingQuick.md) for CocoaPods, Carthage, Git submodules, and more. For example, you can install Quick and [Nimble](https://github.com/Quick/Nimble) using CocoaPods by adding the following to your Podfile:
 
 ```rb
+
 # Podfile
 
 use_frameworks!
 
-target "MyApp" do
-  # Normal libraries
-
-  abstract_target 'Tests' do
-    inherit! :search_paths
-    target "MyAppTests"
-    target "MyAppUITests"
-
+def testing_pods
     pod 'Quick'
     pod 'Nimble'
-  end
+end
+
+target 'MyTests' do
+    testing_pods
+end
+
+target 'MyUITests' do
+    testing_pods
 end
 ```
 
