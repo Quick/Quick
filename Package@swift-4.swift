@@ -5,13 +5,25 @@ import PackageDescription
 let package = Package(
     name: "Quick",
     products: [
+        .executable(name: "qck", targets: ["qck"]),
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/kylef/Commander.git", from: "0.6.0"),
+        .package(url: "https://github.com/kylef/PathKit.git", from: "0.8.0"),
         .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.1"),
     ],
     targets: {
         var targets: [Target] = [
+            .target(
+                name: "qck",
+                dependencies: [
+                    "Commander",
+                    "Cpaths",
+                    "PathKit",
+                ]
+            ),
+            .target(name: "Cpaths", dependencies: []),
             .testTarget(
                 name: "QuickTests",
                 dependencies: [ "Quick", "Nimble" ],
