@@ -28,8 +28,20 @@ func generateMain() throws {
     throw QckError.badEncoding(expected: .utf8)
   }
 
+  let testModules = try testRoot.children().filter { path in
+    path.isDirectory && path.lastComponent.hasSuffix("Tests")
+  }
+
   print("import Quick")
   print()
+
+  if testModules.count > 0 {
+    for module in testModules {
+      print("@testable import \(module.lastComponent)")
+    }
+    print()
+  }
+
   print("QCKMain([")
   for spec in output.lines.sorted() {
     print("  \(spec).self,")
