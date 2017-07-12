@@ -1,5 +1,5 @@
-def run(command)
-  system(command) or raise "RAKE TASK FAILED: #{command}"
+def run(env = {}, command)
+  system(env, command) or raise "RAKE TASK FAILED: #{command}"
 end
 
 def has_xcodebuild
@@ -35,9 +35,8 @@ namespace "test" do
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
-    run "mv Package.swift .Package.swift && cp .Package.test.swift Package.swift"
-    run "swift build --clean && swift build && swift test"
-    run "mv .Package.swift Package.swift"
+    env = { "SWIFT_PACKAGE_TEST_Quick" => "true" }
+    run env, "swift package clean && swift test"
   end
 end
 
