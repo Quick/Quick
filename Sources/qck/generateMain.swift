@@ -19,6 +19,11 @@ func generateMain() throws {
   ])
 
   let data = io.output.readDataToEndOfFile()
+
+  guard io.process.terminationStatus == 0 else {
+    throw QckError.internalError
+  }
+
   guard let output = String(data: data, encoding: .utf8) else {
     throw QckError.badEncoding(expected: .utf8)
   }

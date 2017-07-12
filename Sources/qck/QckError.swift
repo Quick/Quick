@@ -17,5 +17,6 @@ extension QckError {
     return QckError(message: "\(name): Command not found.")
   }
 
+  static let internalError = QckError(message: "Unexpected error.")
   static let notAPackage = QckError(message: "The current directory is not a Swift package.")
 }
