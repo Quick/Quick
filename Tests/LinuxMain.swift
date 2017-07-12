@@ -1,45 +1,51 @@
-import XCTest
 import Quick
+import XCTest
 
 @testable import QuickTests
 
 Quick.QCKMain([
-    FunctionalTests_AfterEachSpec.self,
     AfterSuiteTests.self,
+    BundleModuleNameSpecs.self,
+    Configuration_AfterEachSpec.self,
+    Configuration_BeforeEachSpec.self,
+    FunctionalTests_AfterEachSpec.self,
     FunctionalTests_BeforeEachSpec.self,
     FunctionalTests_BeforeSuite_BeforeSuiteSpec.self,
     FunctionalTests_BeforeSuite_Spec.self,
+    FunctionalTests_BehaviorTests_ContextSpec.self,
+    FunctionalTests_BehaviorTests_ErrorSpec.self,
+    FunctionalTests_BehaviorTests_Spec.self,
+    FunctionalTests_CrossReferencingSpecA.self,
+    FunctionalTests_CrossReferencingSpecB.self,
     FunctionalTests_ItSpec.self,
     FunctionalTests_PendingSpec.self,
     FunctionalTests_SharedExamples_BeforeEachSpec.self,
-    FunctionalTests_SharedExamples_Spec.self,
     FunctionalTests_SharedExamples_ContextSpec.self,
-    Configuration_AfterEachSpec.self,
-    Configuration_BeforeEachSpec.self,
-    FunctionalTests_CrossReferencingSpecA.self,
-    FunctionalTests_CrossReferencingSpecB.self,
+    FunctionalTests_SharedExamples_ErrorSpec.self,
+    FunctionalTests_SharedExamples_Spec.self,
+    QuickContextTests.self,
+    QuickDescribeTests.self,
     _FunctionalTests_FocusedSpec_Focused.self,
-    _FunctionalTests_FocusedSpec_Unfocused.self
+    _FunctionalTests_FocusedSpec_Unfocused.self,
 ],
 configurations: [
-    FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples.self,
-    FunctionalTests_SharedExamplesTests_SharedExamples.self,
     FunctionalTests_Configuration_AfterEach.self,
     FunctionalTests_Configuration_BeforeEach.self,
-    FunctionalTests_FocusedSpec_SharedExamplesConfiguration.self
+    FunctionalTests_FocusedSpec_SharedExamplesConfiguration.self,
+    FunctionalTests_SharedExamplesTests_SharedExamples.self,
+    FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples.self,
 ],
 testCases: [
     testCase(AfterEachTests.allTests),
     testCase(BeforeEachTests.allTests),
     testCase(BeforeSuiteTests.allTests),
-    // testCase(DescribeTests.allTests),
-    testCase(ItTests.allTests),
-    testCase(PendingTests.allTests),
-    testCase(SharedExamples_BeforeEachTests.allTests),
-    testCase(SharedExamplesTests.allTests),
+    testCase(BehaviorTests.allTests),
     testCase(Configuration_AfterEachTests.allTests),
     testCase(Configuration_BeforeEachTests.allTests),
+    testCase(DescribeTests.allTests),
     testCase(FocusedTests.allTests),
-    testCase(FunctionalTests_CrossReferencingSpecA.allTests),
-    testCase(FunctionalTests_CrossReferencingSpecB.allTests)
+    testCase(ItTests.allTests),
+    testCase(PendingTests.allTests),
+    testCase(SharedExamplesTests.allTests),
+    testCase(SharedExamples_BeforeEachTests.allTests),
 ])
