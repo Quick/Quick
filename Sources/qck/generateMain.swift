@@ -1,5 +1,13 @@
 import PathKit
 
+private enum Pattern {
+  static let space = "[[:space:]]"
+  static let identifier = "[[:alnum:]_]+"
+  static let className = "class\(space)+(\(identifier))"
+  static let baseClass = "(\(identifier)(Configuration|Spec|TestCase))"
+  static let testClassDeclaration = "\(className)\(space)*:\(space)*\(baseClass)"
+}
+
 func generateMain() throws {
   let testRoot = try packageRoot() + "Tests"
 
@@ -7,7 +15,7 @@ func generateMain() throws {
     "find",
     testRoot.string,
     "-name", "*.swift",
-    "-exec", "sed", "-nE", "s/^.*class[[:space:]]+([[:alnum:]_]+(Spec|Tests))[[:>:]].*/\\1/p", "{}", ";",
+    "-exec", "sed", "-nE", "s/^.*\(Pattern.testClassDeclaration).*$/\\1/p", "{}", ";",
   ])
 
   let data = io.output.readDataToEndOfFile()
