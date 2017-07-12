@@ -15,7 +15,7 @@ func generateMain() throws {
     "find",
     testRoot.string,
     "-name", "*.swift",
-    "-exec", "sed", "-nE", "s/^.*\(Pattern.testClassDeclaration).*$/\\1/p", "{}", ";",
+    "-exec", "sed", "-nE", "s/^.*\(Pattern.testClassDeclaration).*$/\\2 \\1/p", "{}", ";",
   ])
 
   let data = io.output.readDataToEndOfFile()
@@ -32,7 +32,21 @@ func generateMain() throws {
     path.isDirectory && path.lastComponent.hasSuffix("Tests")
   }
 
+  let testCases = output.lines
+    .sorted()
+    .map { line -> (key: TestCaseGroup, value: String) in
+      let components = line.split(separator: " ").map { String($0) }
+      return (TestCaseGroup(baseClass: components[0])!, components[1])
+    }
+    .grouped()
+
+  let descriptions: [String] = TestCaseGroup.all.flatMap { group -> String? in
+    guard let classes = testCases[group] else { return nil }
+    return group.description(for: classes)
+  }
+
   print("import Quick")
+  print("import XCTest")
   print()
 
   if testModules.count > 0 {
@@ -42,9 +56,8 @@ func generateMain() throws {
     print()
   }
 
-  print("QCKMain([")
-  for spec in output.lines.sorted() {
-    print("  \(spec).self,")
-  }
-  print("])")
+  print("Quick.QCKMain(", terminator: "")
+  let parameters = descriptions.joined(separator: ",\n")
+  print(parameters, terminator: "")
+  print(")")
 }
