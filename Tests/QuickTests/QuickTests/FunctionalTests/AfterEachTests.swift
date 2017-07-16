@@ -76,7 +76,7 @@ final class AfterEachTests: XCTestCase, XCTestCaseProvider {
         afterEachOrder = []
 
         qck_runSpec(FunctionalTests_AfterEachSpec.self)
-		let expectedOrder: [AfterEachType] = [
+        let expectedOrder: [AfterEachType] = [
             // [1] The outer afterEach closures are executed from top to bottom.
             .outerOne, .outerTwo, .outerThree,
             // [2] The outer afterEach closures are executed from top to bottom.
