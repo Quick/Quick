@@ -3,12 +3,12 @@ import Quick
 import Nimble
 
 private enum BeforeEachType {
-    case OuterOne
-    case OuterTwo
-    case InnerOne
-    case InnerTwo
-    case InnerThree
-    case NoExamples
+    case outerOne
+    case outerTwo
+    case innerOne
+    case innerTwo
+    case innerThree
+    case noExamples
 }
 
 private var beforeEachOrder = [BeforeEachType]()
@@ -17,22 +17,22 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
     override func spec() {
 
         describe("beforeEach ordering") {
-            beforeEach { beforeEachOrder.append(BeforeEachType.OuterOne) }
-            beforeEach { beforeEachOrder.append(BeforeEachType.OuterTwo) }
+            beforeEach { beforeEachOrder.append(.outerOne) }
+            beforeEach { beforeEachOrder.append(.outerTwo) }
 
             it("executes the outer beforeEach closures once [1]") {}
             it("executes the outer beforeEach closures a second time [2]") {}
 
             context("when there are nested beforeEach") {
-                beforeEach { beforeEachOrder.append(BeforeEachType.InnerOne) }
-                beforeEach { beforeEachOrder.append(BeforeEachType.InnerTwo) }
-                beforeEach { beforeEachOrder.append(BeforeEachType.InnerThree) }
+                beforeEach { beforeEachOrder.append(.innerOne) }
+                beforeEach { beforeEachOrder.append(.innerTwo) }
+                beforeEach { beforeEachOrder.append(.innerThree) }
 
                 it("executes the outer and inner beforeEach closures [3]") {}
             }
 
             context("when there are nested beforeEach without examples") {
-                beforeEach { beforeEachOrder.append(BeforeEachType.NoExamples) }
+                beforeEach { beforeEachOrder.append(.noExamples) }
             }
         }
 #if _runtime(_ObjC) && !SWIFT_PACKAGE
@@ -61,15 +61,14 @@ final class BeforeEachTests: XCTestCase, XCTestCaseProvider {
         beforeEachOrder = []
 
         qck_runSpec(FunctionalTests_BeforeEachSpec.self)
-        let expectedOrder = [
+		let expectedOrder: [BeforeEachType] = [
             // [1] The outer beforeEach closures are executed from top to bottom.
-            BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
+            .outerOne, .outerTwo,
             // [2] The outer beforeEach closures are executed from top to bottom.
-            BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
+            .outerOne, .outerTwo,
             // [3] The outer beforeEach closures are executed from top to bottom,
             //     then the inner beforeEach closures are executed from top to bottom.
-            BeforeEachType.OuterOne, BeforeEachType.OuterTwo,
-                BeforeEachType.InnerOne, BeforeEachType.InnerTwo, BeforeEachType.InnerThree
+            .outerOne, .outerTwo, .innerOne, .innerTwo, .innerThree
         ]
         XCTAssertEqual(beforeEachOrder, expectedOrder)
     }
