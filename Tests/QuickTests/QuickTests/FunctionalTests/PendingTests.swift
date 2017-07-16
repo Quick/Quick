@@ -3,7 +3,7 @@ import Quick
 import Nimble
 
 var oneExampleBeforeEachExecutedCount = 0
-var onlyPendingExamplesBeforeEachExecutedCount = 0
+var pendingExamplesBeforeEachExecutedCount = 0
 
 class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
     override static func spec(_ aContext: @escaping () -> Void) {
@@ -25,7 +25,7 @@ class FunctionalTests_PendingSpec: QuickSpec {
         }
 
         describe("a describe block containing only pending examples") {
-            beforeEach { onlyPendingExamplesBeforeEachExecutedCount += 1 }
+            beforeEach { pendingExamplesBeforeEachExecutedCount += 1 }
             pending("an example that will not run") {}
         }
     }
@@ -53,9 +53,9 @@ final class PendingTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples() {
-        onlyPendingExamplesBeforeEachExecutedCount = 0
+        pendingExamplesBeforeEachExecutedCount = 0
 
         qck_runSpec(FunctionalTests_PendingSpec.self)
-        XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0)
+        XCTAssertEqual(pendingExamplesBeforeEachExecutedCount, 0)
     }
 }
