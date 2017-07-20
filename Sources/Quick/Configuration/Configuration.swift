@@ -72,7 +72,7 @@ final public class Configuration: NSObject {
         provided with metadata on the example that the closure is being run
         prior to.
     */
-#if _runtime(_ObjC)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc(beforeEachWithMetadata:)
     public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
@@ -109,7 +109,7 @@ final public class Configuration: NSObject {
         is provided with metadata on the example that the closure is being
         run after.
     */
-#if _runtime(_ObjC)
+#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc(afterEachWithMetadata:)
     public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
