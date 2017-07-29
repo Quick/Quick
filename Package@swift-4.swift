@@ -24,7 +24,7 @@ let package = Package(
                 ]
             ),
         ]
-#if _runtime(_ObjC)
+#if os(macOS)
         targets.append(contentsOf: [
             .target(name: "QuickSpecBase", dependencies: []),
             .target(name: "Quick", dependencies: [ "QuickSpecBase" ]),

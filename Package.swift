@@ -11,7 +11,7 @@ var isTesting: Bool {
 var package = Package(
     name: "Quick",
     targets: {
-#if _runtime(_ObjC)
+#if os(macOS)
         return [
             Target(name: "QuickSpecBase"),
             Target(name: "Quick", dependencies: [ "QuickSpecBase" ]),
@@ -33,7 +33,7 @@ var package = Package(
             "Tests/QuickTests/QuickTests/Helpers",
             "Tests/QuickTests/QuickTests/QuickConfigurationTests.m",
         ]
-#if !_runtime(_ObjC)
+#if !os(macOS)
         excludes.append("Sources/QuickSpecBase")
 #endif
         return excludes
