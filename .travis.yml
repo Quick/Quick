@@ -7,6 +7,11 @@ matrix:
         - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
+      osx_image: xcode9
+      env:
+        - PLATFORM=macos
+        - XCODE_ACTION="build-for-testing test-without-building"
+    - os: osx
       env:
         - PLATFORM=ios
         - XCODE_ACTION="build-for-testing test-without-building"
@@ -15,6 +20,10 @@ matrix:
         - PLATFORM=tvos
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
+      env:
+        - PLATFORM=swiftpm
+    - os: osx
+      osx_image: xcode9
       env:
         - PLATFORM=swiftpm
     - os: osx
