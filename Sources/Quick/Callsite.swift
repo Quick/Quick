@@ -8,12 +8,12 @@ final public class Callsite: NSObject {
     /**
         The absolute path of the file in which an example is defined.
     */
-    public let file: String
+    @objc public let file: String
 
     /**
         The line number on which an example is defined.
     */
-    public let line: UInt
+    @objc public let line: UInt
 
     internal init(file: String, line: UInt) {
         self.file = file
