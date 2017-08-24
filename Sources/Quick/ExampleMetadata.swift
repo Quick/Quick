@@ -9,13 +9,23 @@ final public class ExampleMetadata: NSObject {
     /**
         The example for which this metadata was collected.
     */
+    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    @objc
     public let example: Example
+    #else
+    public let example: Example
+    #endif
 
     /**
         The index at which this example was executed in the
         test suite.
     */
+    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    @objc
     public let exampleIndex: Int
+    #else
+    public let exampleIndex: Int
+    #endif
 
     internal init(example: Example, exampleIndex: Int) {
         self.example = example
