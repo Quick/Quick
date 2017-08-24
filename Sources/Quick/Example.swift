@@ -12,14 +12,14 @@ final public class Example: NSObject {
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
     */
-    public var isSharedExample = false
+    @objc public var isSharedExample = false
 
     /**
         The site at which the example is defined.
         This must be set correctly in order for Xcode to highlight
         the correct line in red when reporting a failure.
     */
-    public var callsite: Callsite
+    @objc public var callsite: Callsite
 
     weak internal var group: ExampleGroup?
 
@@ -46,7 +46,7 @@ final public class Example: NSObject {
         The example name is used to generate a test method selector
         to be displayed in Xcode's test navigator.
     */
-    public var name: String {
+    @objc public var name: String {
         guard let groupName = group?.name else { return description }
         return "\(groupName), \(description)"
     }
@@ -55,7 +55,7 @@ final public class Example: NSObject {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    public func run() {
+    @objc public func run() {
         let world = World.sharedWorld
 
         if numberOfIncludedExamples == 0 {
