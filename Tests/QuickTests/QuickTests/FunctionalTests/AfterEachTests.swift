@@ -50,7 +50,7 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
                 afterEach { afterEachOrder.append(AfterEachType.NoExamples) }
             }
         }
-#if !SWIFT_PACKAGE
+#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including afterEach in it block") {
                 expect {

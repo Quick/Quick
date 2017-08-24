@@ -16,7 +16,8 @@ class FunctionalTests_ItSpec: QuickSpec {
             expect(exampleMetadata!.example.name).to(equal(name))
         }
 
-#if !SWIFT_PACKAGE
+#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+
         describe("when an example has a unique name") {
             it("has a unique name") {}
 
@@ -112,7 +113,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         ]
     }
 
-#if !SWIFT_PACKAGE
+#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
         XCTAssertEqual(result?.executionCount, 10 as UInt)
