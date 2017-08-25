@@ -64,6 +64,7 @@ final internal class World: NSObject {
     // MARK: Singleton Constructor
 
     private override init() {}
+	@objc(sharedWorld)
     static let sharedWorld = World()
 
     // MARK: Public Interface
@@ -86,6 +87,7 @@ final internal class World: NSObject {
         Finalizes the World's configuration.
         Any subsequent calls to World.configure() will raise.
     */
+	@objc(finalizeConfiguration)
     internal func finalizeConfiguration() {
         isConfigurationFinalized = true
     }
@@ -108,6 +110,7 @@ final internal class World: NSObject {
         - parameter cls: The QuickSpec class for which to retrieve the root example group.
         - returns: The root example group for the class.
     */
+	@objc(rootExampleGroupForSpecClass:)
     internal func rootExampleGroupForSpecClass(_ cls: AnyClass) -> ExampleGroup {
         let name = String(describing: cls)
 
@@ -189,6 +192,7 @@ final internal class World: NSObject {
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
+	@objc(performWithCurrentExampleGroup:closure:)
     internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
         let previousExampleGroup = currentExampleGroup
         currentExampleGroup = group
