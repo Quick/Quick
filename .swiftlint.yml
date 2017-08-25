@@ -1,9 +1,8 @@
 disabled_rules:
   - line_length
   - type_name
-  - valid_docs
   - function_body_length
-  - variable_name
+  - identifier_name
 included:
   - Sources
   - Tests
