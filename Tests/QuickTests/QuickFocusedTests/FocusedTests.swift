@@ -36,7 +36,7 @@ class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
         }
 
         fitBehavesLike("two passing shared examples")
-        fitBehavesLike(FunctionalTests_FocusedSpec_Behavior.self) {_ in ()}
+        fitBehavesLike(FunctionalTests_FocusedSpec_Behavior.self) { () -> Void in }
     }
 }
 
@@ -63,6 +63,6 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
             _FunctionalTests_FocusedSpec_Focused.self,
             _FunctionalTests_FocusedSpec_Unfocused.self
         ])
-        XCTAssertEqual(result?.executionCount, 8 as UInt)
+        XCTAssertEqual(result?.executionCount, 8)
     }
 }
