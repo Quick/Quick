@@ -1,11 +1,10 @@
 import Quick
 
-public var FunctionalTests_Configuration_BeforeEachWasExecuted = false
-
-class FunctionalTests_Configuration_BeforeEach: QuickConfiguration {
+class FunctionalTestsConfigurationBeforeEach: QuickConfiguration {
+    static var wasExecuted = false
     override class func configure(_ configuration: Configuration) {
         configuration.beforeEach {
-            FunctionalTests_Configuration_BeforeEachWasExecuted = true
+            wasExecuted = true
         }
     }
 }

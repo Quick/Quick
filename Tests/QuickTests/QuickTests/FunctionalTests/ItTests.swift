@@ -67,8 +67,8 @@ class FunctionalTests_ItSpec: QuickSpec {
                 var exception: NSException?
 
                 beforeEach {
-                    let capture = NMBExceptionCapture(handler: ({ e in
-                        exception = e
+                    let capture = NMBExceptionCapture(handler: ({ capturedException in
+                        exception = capturedException
                     }), finally: nil)
 
                     capture.tryBlock {
@@ -87,8 +87,8 @@ class FunctionalTests_ItSpec: QuickSpec {
                 var exception: NSException?
 
                 afterEach {
-                    let capture = NMBExceptionCapture(handler: ({ e in
-                        exception = e
+                    let capture = NMBExceptionCapture(handler: ({ capturedException in
+                        exception = capturedException
                         expect(exception).toNot(beNil())
                         expect(exception!.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. "))
                     }), finally: nil)

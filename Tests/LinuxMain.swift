@@ -24,8 +24,8 @@ Quick.QCKMain([
 configurations: [
     FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples.self,
     FunctionalTests_SharedExamplesTests_SharedExamples.self,
-    FunctionalTests_Configuration_AfterEach.self,
-    FunctionalTests_Configuration_BeforeEach.self,
+    FunctionalTestsConfigurationAfterEach.self,
+    FunctionalTestsConfigurationBeforeEach.self,
     FunctionalTests_FocusedSpec_SharedExamplesConfiguration.self
 ],
 testCases: [

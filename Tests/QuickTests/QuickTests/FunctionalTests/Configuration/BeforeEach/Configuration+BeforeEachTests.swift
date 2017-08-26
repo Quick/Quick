@@ -5,7 +5,7 @@ import Nimble
 class Configuration_BeforeEachSpec: QuickSpec {
     override func spec() {
         it("is executed after the configuration beforeEach") {
-            expect(FunctionalTests_Configuration_BeforeEachWasExecuted).to(beTruthy())
+            expect(FunctionalTestsConfigurationBeforeEach.wasExecuted).to(beTruthy())
         }
     }
 }
@@ -18,11 +18,11 @@ final class Configuration_BeforeEachTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted() {
-        FunctionalTests_Configuration_BeforeEachWasExecuted = false
+        FunctionalTestsConfigurationBeforeEach.wasExecuted = false
 
         qck_runSpec(Configuration_BeforeEachSpec.self)
-        XCTAssert(FunctionalTests_Configuration_BeforeEachWasExecuted)
+        XCTAssert(FunctionalTestsConfigurationBeforeEach.wasExecuted)
 
-        FunctionalTests_Configuration_BeforeEachWasExecuted = false
+        FunctionalTestsConfigurationBeforeEach.wasExecuted = false
     }
 }
