@@ -9,7 +9,7 @@ final public class ExampleMetadata: NSObject {
     /**
         The example for which this metadata was collected.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public let example: Example
     #else
@@ -20,7 +20,7 @@ final public class ExampleMetadata: NSObject {
         The index at which this example was executed in the
         test suite.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public let exampleIndex: Int
     #else

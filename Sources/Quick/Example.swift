@@ -12,7 +12,7 @@ final public class Example: NSObject {
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public var isSharedExample = false
     #else
@@ -24,7 +24,7 @@ final public class Example: NSObject {
         This must be set correctly in order for Xcode to highlight
         the correct line in red when reporting a failure.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public var callsite: Callsite
     #else
@@ -56,7 +56,7 @@ final public class Example: NSObject {
         The example name is used to generate a test method selector
         to be displayed in Xcode's test navigator.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public var name: String { return _name }
     #else
@@ -72,7 +72,7 @@ final public class Example: NSObject {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public func run() { _run() }
     #else

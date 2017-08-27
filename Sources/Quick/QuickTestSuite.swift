@@ -36,18 +36,8 @@ public class QuickTestSuite: XCTestSuite {
      It is expected that the first call should return a valid test suite, and
      all subsequent calls should return `nil`.
      */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc
     public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuite? {
-        return _selectedTestSuite(forTestCaseWithName: name)
-    }
-    #else
-    public static func selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuite? {
-        return _selectedTestSuite(forTestCaseWithName: name)
-    }
-    #endif
-
-    private static func _selectedTestSuite(forTestCaseWithName name: String) -> QuickTestSuite? {
         guard let builder = QuickSelectedTestSuiteBuilder(forTestCaseWithName: name) else { return nil }
 
         let (inserted, _) = builtTestSuites.insert(builder.testSuiteClassName)

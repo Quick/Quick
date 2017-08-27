@@ -8,7 +8,7 @@ final public class Callsite: NSObject {
     /**
         The absolute path of the file in which an example is defined.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public let file: String
     #else
@@ -18,7 +18,7 @@ final public class Callsite: NSObject {
     /**
         The line number on which an example is defined.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public let line: UInt
     #else

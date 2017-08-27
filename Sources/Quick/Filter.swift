@@ -17,7 +17,7 @@ final public class Filter: NSObject {
         excluding all other examples without this flag. Use this to only run one or
         two tests that you're currently focusing on.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public class var focused: String { return "focused" }
     #else
@@ -28,7 +28,7 @@ final public class Filter: NSObject {
         Example and example groups with [Pending: true] are excluded from test runs.
         Use this to temporarily suspend examples that you know do not pass yet.
     */
-    #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
     @objc
     public class var pending: String { return "pending" }
     #else
