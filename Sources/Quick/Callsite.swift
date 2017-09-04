@@ -1,29 +1,26 @@
 import Foundation
 
+#if swift(>=3.2) && (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+@objcMembers
+public class _CallsiteBase: NSObject {}
+#else
+public class _CallsiteBase: NSObject {}
+#endif
+
 /**
     An object encapsulating the file and line number at which
     a particular example is defined.
 */
-final public class Callsite: NSObject {
+final public class Callsite: _CallsiteBase {
     /**
         The absolute path of the file in which an example is defined.
     */
-    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     public let file: String
-    #else
-    public let file: String
-    #endif
 
     /**
         The line number on which an example is defined.
     */
-    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     public let line: UInt
-    #else
-    public let line: UInt
-    #endif
 
     internal init(file: String, line: UInt) {
         self.file = file
