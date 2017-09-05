@@ -12,6 +12,19 @@ public typealias SharedExampleContext = () -> [String: Any]
 */
 public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
 
+// `#if swift(>=3.2) && (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE`
+// does not work as expected.
+#if swift(>=3.2)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+    @objcMembers
+    internal class _WorldBase: NSObject {}
+    #else
+    internal class _WorldBase: NSObject {}
+    #endif
+#else
+internal class _WorldBase: NSObject {}
+#endif
+
 /**
     A collection of state Quick builds up in order to work its magic.
     World is primarily responsible for maintaining a mapping of QuickSpec
@@ -23,7 +36,7 @@ public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
     You may configure how Quick behaves by calling the -[World configure:]
     method from within an overridden +[QuickConfiguration configure:] method.
 */
-final internal class World: NSObject {
+final internal class World: _WorldBase {
     /**
         The example group that is currently being run.
         The DSL requires that this group is correctly set in order to build a
@@ -65,12 +78,7 @@ final internal class World: NSObject {
 
     private override init() {}
 
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     static let sharedWorld = World()
-#else
-    static let sharedWorld = World()
-#endif
 
     // MARK: Public Interface
 
@@ -82,17 +90,7 @@ final internal class World: NSObject {
         - parameter closure:  A closure that takes a Configuration object that can
                          be mutated to change Quick's behavior.
     */
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     internal func configure(_ closure: QuickConfigurer) {
-        _configure(closure)
-    }
-#else
-    internal func configure(_ closure: QuickConfigurer) {
-        _configure(closure)
-    }
-#endif
-    private func _configure(_ closure: QuickConfigurer) {
         assert(!isConfigurationFinalized,
                "Quick cannot be configured outside of a +[QuickConfiguration configure:] method. You should not call -[World configure:] directly. Instead, subclass QuickConfiguration and override the +[QuickConfiguration configure:] method.")
         closure(configuration)
@@ -102,12 +100,9 @@ final internal class World: NSObject {
         Finalizes the World's configuration.
         Any subsequent calls to World.configure() will raise.
     */
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
-    internal func finalizeConfiguration() { isConfigurationFinalized = true }
-#else
-    internal func finalizeConfiguration() { isConfigurationFinalized = true }
-#endif
+    internal func finalizeConfiguration() {
+        isConfigurationFinalized = true
+    }
 
     /**
         Returns an internally constructed root example group for the given
@@ -127,17 +122,7 @@ final internal class World: NSObject {
         - parameter cls: The QuickSpec class for which to retrieve the root example group.
         - returns: The root example group for the class.
     */
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     internal func rootExampleGroupForSpecClass(_ cls: AnyClass) -> ExampleGroup {
-        return _rootExampleGroupForSpecClass(cls)
-    }
-#else
-    internal func rootExampleGroupForSpecClass(_ cls: AnyClass) -> ExampleGroup {
-        return _rootExampleGroupForSpecClass(cls)
-    }
-#endif
-    private func _rootExampleGroupForSpecClass(_ cls: AnyClass) -> ExampleGroup {
         let name = String(describing: cls)
 
         if let group = specs[name] {
@@ -218,17 +203,7 @@ final internal class World: NSObject {
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
-        _performWithCurrentExampleGroup(group, closure: closure)
-    }
-#else
-    internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
-        _performWithCurrentExampleGroup(group, closure: closure)
-    }
-#endif
-    private func _performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
         let previousExampleGroup = currentExampleGroup
         currentExampleGroup = group
 
