@@ -3,33 +3,36 @@ import Foundation
 private var numberOfExamplesRun = 0
 private var numberOfIncludedExamples = 0
 
+// `#if swift(>=3.2) && (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE`
+// does not work as expected.
+#if swift(>=3.2)
+    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+    @objcMembers
+    public class _ExampleBase: NSObject {}
+    #else
+    public class _ExampleBase: NSObject {}
+    #endif
+#else
+public class _ExampleBase: NSObject {}
+#endif
+
 /**
     Examples, defined with the `it` function, use assertions to
     demonstrate how code should behave. These are like "tests" in XCTest.
 */
-final public class Example: NSObject {
+final public class Example: _ExampleBase {
     /**
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
     */
-    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     public var isSharedExample = false
-    #else
-    public var isSharedExample = false
-    #endif
 
     /**
         The site at which the example is defined.
         This must be set correctly in order for Xcode to highlight
         the correct line in red when reporting a failure.
     */
-    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
     public var callsite: Callsite
-    #else
-    public var callsite: Callsite
-    #endif
 
     weak internal var group: ExampleGroup?
 
@@ -56,14 +59,7 @@ final public class Example: NSObject {
         The example name is used to generate a test method selector
         to be displayed in Xcode's test navigator.
     */
-    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
-    public var name: String { return _name }
-    #else
-    public var name: String { return _name }
-    #endif
-
-    private var _name: String {
+    public var name: String {
         guard let groupName = group?.name else { return description }
         return "\(groupName), \(description)"
     }
@@ -72,14 +68,7 @@ final public class Example: NSObject {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    #if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
-    @objc
-    public func run() { _run() }
-    #else
-    public func run() { _run() }
-    #endif
-
-    private func _run() {
+    public func run() {
         let world = World.sharedWorld
 
         if numberOfIncludedExamples == 0 {
