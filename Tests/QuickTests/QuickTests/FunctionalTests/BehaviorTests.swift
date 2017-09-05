@@ -5,7 +5,7 @@ import XCTest
 
 class FunctionalTests_BehaviorTests_Spec: QuickSpec {
     override func spec() {
-        itBehavesLike(FunctionalTests_BehaviorTests_Behavior2.self) {_ in ()}
+        itBehavesLike(FunctionalTests_BehaviorTests_Behavior2.self) { () -> Void in }
     }
 }
 
@@ -49,7 +49,7 @@ final class BehaviorTests: XCTestCase, XCTestCaseProvider {
     func testBehaviorExecutesThreeExamples() {
         let result = qck_runSpec(FunctionalTests_BehaviorTests_Spec.self)
         XCTAssert(result!.hasSucceeded)
-        XCTAssertEqual(result!.executionCount, 3 as UInt)
+        XCTAssertEqual(result!.executionCount, 3)
     }
 
     func testBehaviorPassContextToExamples() {

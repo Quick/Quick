@@ -44,7 +44,7 @@ final class SharedExamplesTests: XCTestCase, XCTestCaseProvider {
     func testAGroupOfThreeSharedExamplesExecutesThreeExamples() {
         let result = qck_runSpec(FunctionalTests_SharedExamples_Spec.self)
         XCTAssert(result!.hasSucceeded)
-        XCTAssertEqual(result!.executionCount, 3 as UInt)
+        XCTAssertEqual(result!.executionCount, 3)
     }
 
     func testSharedExamplesWithContextPassContextToExamples() {

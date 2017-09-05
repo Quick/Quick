@@ -37,7 +37,7 @@ matrix:
       sudo: required
       dist: trusty
       env:
-        - SWIFT_VERSION=4.0-DEVELOPMENT-SNAPSHOT-2017-07-25-a
+        - SWIFT_VERSION=4.0-DEVELOPMENT-SNAPSHOT-2017-09-04-a
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi

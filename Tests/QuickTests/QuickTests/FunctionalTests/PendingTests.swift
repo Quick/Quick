@@ -17,7 +17,7 @@ class FunctionalTests_PendingSpec: QuickSpec {
         xit("an example that will not run") {
             expect(true).to(beFalsy())
         }
-        xitBehavesLike(FunctionalTests_PendingSpec_Behavior.self) {_ in }
+        xitBehavesLike(FunctionalTests_PendingSpec_Behavior.self) { () -> Void in }
         describe("a describe block containing only one enabled example") {
             beforeEach { oneExampleBeforeEachExecutedCount += 1 }
             it("an example that will run") {}
