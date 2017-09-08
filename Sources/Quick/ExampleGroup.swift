@@ -32,20 +32,16 @@ final public class ExampleGroup: NSObject {
         or to any of its descendant example groups.
     */
     public var examples: [Example] {
-        var examples = childExamples
-        for group in childGroups {
-            examples.append(contentsOf: group.examples)
-        }
-        return examples
+        return childExamples + childGroups.flatMap { $0.examples }
     }
 
     internal var name: String? {
-        if let parent = parent {
-            guard let name = parent.name else { return description }
-            return "\(name), \(description)"
-        } else {
+        guard let parent = parent else {
             return isInternalRootExampleGroup ? nil : description
         }
+
+        guard let name = parent.name else { return description }
+        return "\(name), \(description)"
     }
 
     internal var filterFlags: FilterFlags {
