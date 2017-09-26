@@ -22,7 +22,7 @@ internal func qck_enumerateSubclasses<T: AnyObject>(_ klass: T.Type, block: (T.T
     let classes = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(classesCount))
     classesCount = objc_getClassList(AutoreleasingUnsafeMutablePointer(classes), classesCount)
 
-    var subclass, superclass: AnyClass!
+    var subclass: AnyClass!
     for i in 0..<classesCount {
         subclass = classes[Int(i)]
 
