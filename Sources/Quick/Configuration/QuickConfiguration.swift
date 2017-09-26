@@ -25,10 +25,11 @@ internal func qck_enumerateSubclasses<T: AnyObject>(_ klass: T.Type, block: (T.T
     var subclass, superclass: AnyClass!
     for i in 0..<classesCount {
         subclass = classes[Int(i)]
-        superclass = class_getSuperclass(subclass)
-        if superclass === klass {
-            block(subclass as! T.Type) // swiftlint:disable:this force_cast
-        }
+
+        guard let superclass = class_getSuperclass(subclass),
+            superclass === klass else { return }
+
+        block(subclass as! T.Type) // swiftlint:disable:this force_cast
     }
 
     free(classes)
