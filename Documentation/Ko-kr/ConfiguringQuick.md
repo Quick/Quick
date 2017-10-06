@@ -1,4 +1,4 @@
-# Configuring How Quick Behaves
+# Quick의 동작 방식 설정하기
 
 `QuickConfiguration` 을 서브클래싱하거나 `QuickConfiguration.Type.configure()` 클래스 메소드를 오버라이드해서 퀵의 동작 방식을 커스터마이징 할 수 있습니다:
 

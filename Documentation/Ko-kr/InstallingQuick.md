@@ -6,7 +6,7 @@ Quick은 예제들과 예제 그룹을 정의하는 구문을 제공합니다. N
 
 여기에 Quick을 테스트에 연결 할 수 있는 3가지 권장 방법이 있습니다:
 
-1. [Git 서브 모듈](#Git 서브 모듈)
+1. [Git 서브 모듈](#Git-서브-모듈)
 2. [CocoaPods](#cocoapods)
 3. [Carthage](#carthage)
 4. [Swift 패키지 매니저 (실험적)](#swift-package-manager)

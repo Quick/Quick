@@ -16,7 +16,7 @@ Quick은 [GitHub](https://github.com/github)와 [ReactiveCocoa](https://github.c
 ## OS X와 iOS 앱 용 유닛 테스트에 대한 추가 정보
 
 - **[Quality Coding](http://qualitycoding.org/)**:
-  유닛 테스트에 초점을 둔 iOS 개발 관련  블로그
+  유닛 테스트에 초점을 둔 iOS 개발 관련 블로그
 - **[OCMock Tutorials](http://ocmock.org/support/)**:
   테스트에 가짜 개체가 필요할 때 OCMock를 사용하세요.
 - **[Nocilla: iOS와 Mac OS X용 놀라운 Http stubbing](https://github.com/luisobo/Nocilla)**:
