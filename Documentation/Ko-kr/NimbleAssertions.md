@@ -1,8 +1,8 @@
-# Nimble Assertions를 사용하여 테스트를 보다 간결하게 하기
+# Nimble Assertions를 사용하여 테스트를 더욱 간결하게 하기
 
 코드가 예상한 대로 작동하지 않을 때, 단위 테스트는 무엇이 문제인가를 **명확하게** 만들어야 합니다.
 
-원숭이 들의 무리가 주어진다면 오직 멍청한 원숭이 무리만 반환하는 함수를 작성해 보세요 :
+원숭이들의 무리가 주어진다면 오직 멍청한 원숭이 무리만 반환하는 함수를 작성해 보세요 :
 
 ```swift
 public func silliest(monkeys: [Monkey]) -> [Monkey] {
@@ -82,10 +82,10 @@ public func silliest(monkeys: [Monkey]) -> [Monkey] {
 }
 ```
 
-Nimble은 많은 다른 종류의 assertion을 제공하며, 각각은 큰 실패 메시지를 가지고 있습니다. `XCTAssert` 와는 달리 매번 사용자 임의 실패 메시지를 지정할 필요가 없습니다. 
+Nimble은 많은 다른 assertion을 제공하며, 각각은 큰 실패 메시지를 가지고 있습니다. `XCTAssert` 와는 달리 매번 사용자 임의 실패 메시지를 지정할 필요가 없습니다. 
 
 Nimble assertion의 모든 리스트를 보려면, [Nimble README](https://github.com/Quick/Nimble) 을 확인하세요.
-아래는 궁금해하실까봐 준비한 예제입니다.
+아래는 궁금해하실까 봐 준비한 예제입니다.
 
 ```swift
 expect(1 + 1).to(equal(2))

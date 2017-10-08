@@ -9,7 +9,7 @@ import Quick
 
 class ProjectDataTestConfiguration: QuickConfiguration {
   override class func configure(configuration: Configuration) {
-    // ...configuration 객체에서 옵션을 여기서 지정하세요.
+    // ...set options on the configuration object here.
   }
 }
 ```
@@ -22,7 +22,7 @@ class ProjectDataTestConfiguration: QuickConfiguration {
 QuickConfigurationBegin(ProjectDataTestConfiguration)
 
 + (void)configure:(Configuration *configuration) {
-  // ...configuration 객체에서 옵션을 여기서 지정하세요.
+  // ...set options on the configuration object here.
 }
 
 QuickConfigurationEnd
@@ -32,7 +32,7 @@ QuickConfigurationEnd
 
 ## 글로벌 `beforeEach` 와 `afterEach` 클로저 추가하기
 
-`QuickConfiguration.beforeEach` 와 `QuickConfiguration.afterEach`, 를 사용하여 테스트 슈트의 모든 예제 앞이나 뒤에 실행될 클로저를 지정할 수 있습니다 :
+`QuickConfiguration.beforeEach` 와 `QuickConfiguration.afterEach`를 사용하여 테스트 슈트의 모든 예제 앞이나 뒤에 실행될 클로저를 지정할 수 있습니다 :
 
 ```swift
 // Swift
@@ -66,7 +66,7 @@ QuickConfigurationBegin(FinConfiguration)
 QuickConfigurationEnd
 ```
 
-또한, Quick은 현재 실행중인 예제와 관련된 메타데이터에 접근하는 것을 허용합니다 :
+또한, Quick은 현재 실행 중인 예제와 관련된 메타데이터에 접근하는 것을 허용합니다 :
 
 ```swift
 // Swift
@@ -76,7 +76,7 @@ import Quick
 class SeaConfiguration: QuickConfiguration {
   override class func configure(configuration: Configuration) {
     configuration.beforeEach { exampleMetadata in
-      // ...예제 메타데이터 객체를 사용하여 현재 예제 이름 등에 엑세스 하십시오.
+      // ...use the example metadata object to access the current example name, and more.
     }
   }
 }
@@ -91,7 +91,7 @@ QuickConfigurationBegin(SeaConfiguration)
 
 + (void)configure:(Configuration *)configuration {
   [configuration beforeEachWithMetadata:^(ExampleMetadata *data) {
-    // ...예제 메타데이터 객체를 사용하여 현재 예제 이름 등에 엑세스 하십시오.
+    // ...use the example metadata object to access the current example name, and more.
   }];
 }
 

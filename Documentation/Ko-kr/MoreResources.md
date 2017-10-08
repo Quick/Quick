@@ -21,5 +21,5 @@ Quick은 [GitHub](https://github.com/github)와 [ReactiveCocoa](https://github.c
   테스트에 가짜 개체가 필요할 때 OCMock를 사용하세요.
 - **[Nocilla: iOS와 Mac OS X용 놀라운 Http stubbing](https://github.com/luisobo/Nocilla)**:
   이 라이브러리를 사용하여 인터넷에 요청을 보내고 응답을 받는 코드를 테스트하세요.
-- **[Pivotal Labs: Jasmine Custom Matchers 로 아름다운 Specs 작성하기 ](http://pivotallabs.com/writing-beautiful-specs-jasmine-custom-matchers/)**:
-  Nimble에서 사용자 정의 matcher를 작성하는 방법은  [Nimble 문서](https://github.com/Quick/Nimble)를 참조하세요.
+- **[Pivotal Labs: Jasmine Custom Matchers로 아름다운 Specs 작성하기 ](http://pivotallabs.com/writing-beautiful-specs-jasmine-custom-matchers/)**:
+  Nimble에서 사용자 정의 matcher를 작성하는 방법은 [Nimble 문서](https://github.com/Quick/Nimble)를 참조하세요.
