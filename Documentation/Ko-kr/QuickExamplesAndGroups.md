@@ -2,7 +2,7 @@
 
 Quick에는 **examples**와 **example groups**를 정의하기 위한 특별한 문법이 있습니다.
 
-*[XCTest를 사용한 효과적인 테스트 : Arrange, Act, 그리고 Assert](ArrangeActAssert.md)*에서,
+*[XCTest를 사용한 효과적인 테스트 : Arrange, Act, 그리고 Assert](ArrangeActAssert.md)* 에서,
 좋은 테스트 메소드 이름을 붙이는 것이 매우 중요하다는 것을 배웠습니다. — 테스트가 실패했을 때, 테스트 이름은 응용 프로그램 코드를 수정할지, 테스트 코드를 업데이트할지를 결정하는 데 중요한 자료가 됩니다.
 
 Quick examples과 example그룹은 두 가지 용도로 사용됩니다:
@@ -27,11 +27,11 @@ import Sea
 
 class DolphinSpec: QuickSpec {
   override func spec() {
-    it("친절한가") {
+    it("is friendly") {
       expect(Dolphin().isFriendly).to(beTruthy())
     }
 
-    it("영리한가") {
+    it("is smart") {
       expect(Dolphin().isSmart).to(beTruthy())
     }
   }
@@ -46,11 +46,11 @@ class DolphinSpec: QuickSpec {
 
 QuickSpecBegin(DolphinSpec)
 
-it(@"친절한가", ^{
+it(@"is friendly", ^{
   expect(@([[Dolphin new] isFriendly])).to(beTruthy());
 });
 
-it(@"영리한가", ^{
+it(@"is smart", ^{
   expect(@([[Dolphin new] isSmart])).to(beTruthy());
 });
 

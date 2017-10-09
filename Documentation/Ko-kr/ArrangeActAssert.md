@@ -149,7 +149,7 @@ class OfferTests: XCTestCase {
 
 `바나나` 초기화 코드를 모든 테스트 메소드 전에 한 번 실행되는  `XCTestCase.setUp()` 안으로 옮기세요.
 
-```swift
+```diff
 // OfferTests.swift
 
 class OfferTests: XCTestCase {
