@@ -75,6 +75,10 @@ static QuickSpec *currentSpec = nil;
 
 - (void)spec { }
 
++ (QuickSpec*) current {
+    return currentSpec;
+}
+
 #pragma mark - Internal Methods
 
 /**

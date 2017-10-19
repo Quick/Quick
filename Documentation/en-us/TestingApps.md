@@ -177,3 +177,78 @@ describe(@"the 'more bananas' button", ^{
   });
 });
 ```
+
+## Waiting for Asynchronous Operations with XCTestExpectation
+
+Tests sometimes need to wait for apps to complete operations such as animations and network calls that run asynchronously, either on a background queue or on a separate turn of the main run loop. (Aside: note that in most cases, tests should stub network calls and not actually use the network.)
+
+The standard XCTest way of handling asynchronous operations is to use [expectations](https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/04-writing_tests.html#//apple_ref/doc/uid/TP40014132-CH4-SW6). Quick supports these, but be careful! **Do not use `self` to get an instance of `XCTest`**. This includes creating or waiting for XCTest expectations:
+
+```swift
+it("makes a network call") {
+    // 🛑 WRONG: don’t use self.expectation in Quick
+    let expectation = self.expectation(description: "network call")
+    URLSession.shared.dataTask(with: URL(string: "https://example.com")!) {
+        _ in expectation.fulfill()
+    }.resume()
+    // 🛑 WRONG: don’t use self.waitForExpectations in Quick
+    self.waitForExpectations(timeout: 1)
+}
+```
+
+Why is this bad? Because when Quick runs your `spec()` function, it runs it on a dummy instance of `XCTest`. The real `XCTest` does not appear until those `it` closures actually run. In your `it` closures, `self` captures that dummy instance. Using this dummy instance to work with expectations is broken in two ways:
+
+- It sometimes fails with a “Questionable API usage” or “API violation” error.
+- Sometimes it _appears_ to work, but even then it bypasses XCTest’s checks for common mistakes such as forgetting to call `waitForExpectations()`.
+
+The solution is to use `QuickSpec.current`, which returns the currently executing instance of XCTest:
+
+```swift
+// Swift
+
+it("makes a network call") {
+    let expectation = QuickSpec.current.expectation(description: "network call")
+    URLSession.shared.dataTask(with: URL(string: "https://example.com")!) {
+        _ in expectation.fulfill()
+    }.resume()
+    QuickSpec.current.waitForExpectations(timeout: 1)
+}
+```
+
+```objc
+// Objective-C
+
+it(@"makes a network call", ^{
+    XCTestExpectation *expectation = [QuickSpec.current expectationWithDescription:@"network call"];
+    NSURLSessionTask *task = [NSURLSession.sharedSession
+        dataTaskWithURL: [NSURL URLWithString:@"https://example.com"]
+        completionHandler: ^(NSData *data, NSURLResponse *response, NSError *error) {
+            [expectation fulfill];
+        }];
+    [task resume];
+    [QuickSpec.current waitForExpectationsWithTimeout:1 handler:NULL];
+});
+```
+
+### Nimble Alternative
+
+Nimble’s `expect(…).toEventually(…)` can also help test asynchronous operations:
+
+```swift
+it("makes a network call") {
+  var networkCallCompleted = false
+  URLSession.shared.dataTask(with: URL(string: "https://example.com")!) {
+      _ in networkCallCompleted = true
+  }.resume()
+  expect(networkCallCompleted).toEventually(beTrue())
+}
+```
+
+This approach has several drawbacks:
+
+- It is not thread safe. You have to do your own synchronization if the condition you’re testing for isn’t fulfilled on the main thread.
+- It provides no sanity checking for unwaited conditions.
+- It can’t aggregate multiple expectations in a single wait.
+- It is slower, because `fulfill` immediately triggers success whereas `toEventually()` polls for it.
+
+However, `toEventually()` can lead to simpler test code, and may be a better choice when these concerns do not apply.
