@@ -101,29 +101,33 @@ class FunctionalTests_ItSpec: QuickSpec {
 
                 it("should throw an exception with the correct message after this 'it' block executes") {  }
             }
-
-            describe("implicit error handling") {
-                enum ExampleError: Error {
-                    case error
-                }
-
-                func nonThrowingFunc() throws { }
-
-                func throwingFunc() throws {
-                    throw ExampleError.error
-                }
-
-                it("supports calling functions marked as throws") {
-                    try nonThrowingFunc()
-                }
-
-                it("supports calling functions that actually throws") {
-                    try throwingFunc()
-                }
-            }
         }
 #endif
 #endif
+    }
+}
+
+class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
+    override func spec() {
+        describe("implicit error handling") {
+            enum ExampleError: Error {
+                case error
+            }
+
+            func nonThrowingFunc() throws { }
+
+            func throwingFunc() throws {
+                throw ExampleError.error
+            }
+
+            it("supports calling functions marked as throws") {
+                try nonThrowingFunc()
+            }
+
+            it("supports calling functions that actually throws") {
+                try throwingFunc()
+            }
+        }
     }
 }
 
@@ -131,6 +135,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
+            ("testImplicitErrorHandling", testAllExamplesAreExecuted),
         ]
     }
 
@@ -145,5 +150,11 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         #else
         XCTAssertEqual(result?.executionCount, 2)
         #endif
+    }
+
+    func testImplicitErrorHandling() {
+        let result = qck_runSpec(FunctionalTests_ImplicitErrorItSpec.self)
+        XCTAssertEqual(result?.executionCount, 2)
+        XCTAssertEqual(result?.totalFailureCount, 1)
     }
 }

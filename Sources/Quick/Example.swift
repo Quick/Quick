@@ -84,7 +84,8 @@ final public class Example: _ExampleBase {
         do {
             try closure()
         } catch {
-            print("Test \(name) threw unexpected error: \(error.localizedDescription)")
+            let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
+            QuickSpec.current.recordFailure(withDescription: description, inFile: callsite.file, atLine: callsite.line, expected: false)
         }
 
         group!.phase = .aftersExecuting
