@@ -31,8 +31,8 @@ xcuserdata
 #
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 .build/
-Package.pins
-Package.resolved
+# Package.pins
+# Package.resolved
 
 # CocoaPods
 #
