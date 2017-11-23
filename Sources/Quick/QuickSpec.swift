@@ -38,7 +38,7 @@ open class QuickSpec: QuickSpecBase {
     /// discovered powered by Objective-C runtime), so we needed the alternative
     /// way.
     #if swift(>=4)
-    override open static var defaultTestSuite: XCTestSuite {
+    override open class var defaultTestSuite: XCTestSuite {
         configureDefaultTestSuite()
 
         return super.defaultTestSuite
