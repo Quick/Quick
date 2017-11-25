@@ -23,7 +23,7 @@ matrix:
       env:
         - PLATFORM=swiftpm
     - os: osx
-      osx_image: xcode9
+      osx_image: xcode9.1
       env:
         - PLATFORM=swiftpm
     - os: osx
@@ -37,7 +37,7 @@ matrix:
       sudo: required
       dist: trusty
       env:
-        - SWIFT_VERSION=4.0-DEVELOPMENT-SNAPSHOT-2017-09-04-a
+        - SWIFT_VERSION=4.0.2
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
