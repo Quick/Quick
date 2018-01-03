@@ -223,7 +223,7 @@ class DolphinSpec: QuickSpec {
       describe("its click") {
         context("when the dolphin is not near anything interesting") {
           it("is only emitted once") {
-            expect(dolphin!.click().count).to(equal(1))
+            expect(dolphin.click().count).to(equal(1))
           }
         }
 

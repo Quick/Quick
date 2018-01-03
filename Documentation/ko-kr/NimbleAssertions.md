@@ -6,7 +6,7 @@
 
 ```swift
 public func silliest(monkeys: [Monkey]) -> [Monkey] {
-  return monkeys.filter { $0.silliness == .VerySilly }
+  return monkeys.filter { $0.silliness == .verySilly }
 }
 ```
 
@@ -14,9 +14,9 @@ public func silliest(monkeys: [Monkey]) -> [Monkey] {
 
 ```swift
 func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
-  let kiki = Monkey(name: "Kiki", silliness: .ExtremelySilly)
-  let carl = Monkey(name: "Carl", silliness: .NotSilly)
-  let jane = Monkey(name: "Jane", silliness: .VerySilly)
+  let kiki = Monkey(name: "Kiki", silliness: .extremelySilly)
+  let carl = Monkey(name: "Carl", silliness: .notSilly)
+  let jane = Monkey(name: "Jane", silliness: .verySilly)
   let sillyMonkeys = silliest([kiki, carl, jane])
   XCTAssertTrue(contains(sillyMonkeys, kiki))
 }
@@ -38,9 +38,9 @@ XCTAssertTrue failed
 
 ```diff
 func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
-  let kiki = Monkey(name: "Kiki", silliness: .ExtremelySilly)
-  let carl = Monkey(name: "Carl", silliness: .NotSilly)
-  let jane = Monkey(name: "Jane", silliness: .VerySilly)
+  let kiki = Monkey(name: "Kiki", silliness: .extremelySilly)
+  let carl = Monkey(name: "Carl", silliness: .notSilly)
+  let jane = Monkey(name: "Jane", silliness: .verySilly)
   let sillyMonkeys = silliest([kiki, carl, jane])
 -  XCTAssertTrue(contains(sillyMonkeys, kiki))
 +  XCTAssertTrue(contains(sillyMonkeys, kiki), "Expected sillyMonkeys to contain 'Kiki'")
@@ -55,9 +55,9 @@ Nimble은 테스트 assertions를 만들고, 실패 메시지를 읽기 쉽게 �
 
 ```diff
 func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
-  let kiki = Monkey(name: "Kiki", silliness: .ExtremelySilly)
-  let carl = Monkey(name: "Carl", silliness: .NotSilly)
-  let jane = Monkey(name: "Jane", silliness: .VerySilly)
+  let kiki = Monkey(name: "Kiki", silliness: .extremelySilly)
+  let carl = Monkey(name: "Carl", silliness: .notSilly)
+  let jane = Monkey(name: "Jane", silliness: .verySilly)
   let sillyMonkeys = silliest([kiki, carl, jane])
 -  XCTAssertTrue(contains(sillyMonkeys, kiki), "Expected sillyMonkeys to contain 'Kiki'")
 +  expect(sillyMonkeys).to(contain(kiki))
@@ -77,8 +77,8 @@ expected to contain <Monkey(name: Kiki, sillines: ExtremelySilly)>,
 
 ```diff
 public func silliest(monkeys: [Monkey]) -> [Monkey] {
--  return monkeys.filter { $0.silliness == .VerySilly }
-+  return monkeys.filter { $0.silliness == .VerySilly || $0.silliness == .ExtremelySilly }
+-  return monkeys.filter { $0.silliness == .verySilly }
++  return monkeys.filter { $0.silliness == .verySilly || $0.silliness == .extremelySilly }
 }
 ```
 

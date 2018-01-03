@@ -6,7 +6,7 @@
 
 ```swift
 public func silliest(monkeys: [Monkey]) -> [Monkey] {
-  return monkeys.filter { $0.silliness == .VerySilly }
+  return monkeys.filter { $0.silliness == .verySilly }
 }
 ```
 
@@ -14,9 +14,9 @@ public func silliest(monkeys: [Monkey]) -> [Monkey] {
 
 ```swift
 func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
-  let kiki = Monkey(name: "Kiki", silliness: .ExtremelySilly)
-  let carl = Monkey(name: "Carl", silliness: .NotSilly)
-  let jane = Monkey(name: "Jane", silliness: .VerySilly)
+  let kiki = Monkey(name: "Kiki", silliness: .extremelySilly)
+  let carl = Monkey(name: "Carl", silliness: .notSilly)
+  let jane = Monkey(name: "Jane", silliness: .verySilly)
   let sillyMonkeys = silliest([kiki, carl, jane])
   XCTAssertTrue(contains(sillyMonkeys, kiki))
 }
@@ -39,9 +39,9 @@ true や false だけではそれがなにか分かりません。このまま�
 
 ```diff
 func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
-  let kiki = Monkey(name: "Kiki", silliness: .ExtremelySilly)
-  let carl = Monkey(name: "Carl", silliness: .NotSilly)
-  let jane = Monkey(name: "Jane", silliness: .VerySilly)
+  let kiki = Monkey(name: "Kiki", silliness: .extremelySilly)
+  let carl = Monkey(name: "Carl", silliness: .notSilly)
+  let jane = Monkey(name: "Jane", silliness: .verySilly)
   let sillyMonkeys = silliest([kiki, carl, jane])
 -  XCTAssertTrue(contains(sillyMonkeys, kiki))
 +  XCTAssertTrue(contains(sillyMonkeys, kiki), "Expected sillyMonkeys to contain 'Kiki'")
@@ -56,9 +56,9 @@ Nimble は Assert, 失敗時のメッセージを読みやすくしてくれま�
 
 ```diff
 func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
-  let kiki = Monkey(name: "Kiki", silliness: .ExtremelySilly)
-  let carl = Monkey(name: "Carl", silliness: .NotSilly)
-  let jane = Monkey(name: "Jane", silliness: .VerySilly)
+  let kiki = Monkey(name: "Kiki", silliness: .extremelySilly)
+  let carl = Monkey(name: "Carl", silliness: .notSilly)
+  let jane = Monkey(name: "Jane", silliness: .verySilly)
   let sillyMonkeys = silliest([kiki, carl, jane])
 -  XCTAssertTrue(contains(sillyMonkeys, kiki), "Expected sillyMonkeys to contain 'Kiki'")
 +  expect(sillyMonkeys).to(contain(kiki))
@@ -68,8 +68,8 @@ func testSilliest_whenMonkeysContainSillyMonkeys_theyreIncludedInTheResult() {
 Nimble では自分でメッセージを指定しなくても Nimble がとても読みやすいメッセージを返してくれます。
 
 ```
-expected to contain <Monkey(name: Kiki, sillines: ExtremelySilly)>,
-                got <[Monkey(name: Jane, silliness: VerySilly)]>
+expected to contain <Monkey(name: Kiki, sillines: extremelySilly)>,
+                got <[Monkey(name: Jane, silliness: verySilly)]>
 ```
 
 ![](http://f.cl.ly/items/3N2e3g2K3W123b1L1J0G/Screen%20Shot%202015-02-26%20at%2011.27.02%20AM.png)
@@ -79,8 +79,8 @@ expected to contain <Monkey(name: Kiki, sillines: ExtremelySilly)>,
 
 ```diff
 public func silliest(monkeys: [Monkey]) -> [Monkey] {
--  return monkeys.filter { $0.silliness == .VerySilly }
-+  return monkeys.filter { $0.silliness == .VerySilly || $0.silliness == .ExtremelySilly }
+-  return monkeys.filter { $0.silliness == .verySilly }
++  return monkeys.filter { $0.silliness == .verySilly || $0.silliness == .extremelySilly }
 }
 ```
 
