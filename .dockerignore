@@ -1,0 +1,5 @@
+.git/
+.build/
+!.build/checkouts/
+!.build/repositories/
+!.build/workspace-state.json

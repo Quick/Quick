@@ -2,14 +2,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-- [Welcome to Quick!](#welcome-to-quick!)
+- [Welcome to Quick!](#welcome-to-quick)
   - [Reporting Bugs](#reporting-bugs)
   - [Building the Project](#building-the-project)
   - [Pull Requests](#pull-requests)
     - [Style Conventions](#style-conventions)
   - [Core Members](#core-members)
-    - [Code of Conduct](#code-of-conduct)
   - [Creating a Release](#creating-a-release)
+  - [Testing for Linux from MacOS](#testing-for-linux-from-macos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -109,3 +109,18 @@ The process is relatively straight forward, but here's is a useful checklist for
 - The script will prompt you to create a new [GitHub release](https://github.com/Quick/Quick/releases).
   - Use the same release notes you created for the tag, but tweak up formatting for GitHub.
 - Announce!
+
+## Testing for Linux from MacOS
+
+If you develop on a Mac, it can prove difficult to run Quick tests against Linux. This can result in 
+the temptation to engage in an unpleasant and expensive cycle where you push to CI, watch your stuff fail
+on Linux, try to fix it, then push again and cross your fingers. 
+
+We'd like to make it easier for you to test your PR contents on Linux before pushing, so Quick provides a
+script that uses Docker to create a Linux container and run Quick's tests on it. To run it, simply execute 
+the following command from the root directory:
+
+```
+./script/test-linux-on-macos
+```
+

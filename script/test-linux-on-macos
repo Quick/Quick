@@ -1,0 +1,8 @@
+printerror () {
+  RED='\033[0;31m'
+  echo -e "${RED}$1"
+}
+
+command -v docker >/dev/null 2>&1 || { printerror "Error: Docker For Mac is required to run tests in a Linux container" ; exit 1; }
+docker build --tag test-quick-linux .
+docker run --rm test-quick-linux
