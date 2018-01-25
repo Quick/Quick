@@ -13,12 +13,15 @@ final public class ExampleGroup: NSObject {
 
     private let internalDescription: String
     private let flags: FilterFlags
+    private let order: Order
     private let isInternalRootExampleGroup: Bool
     private var childGroups = [ExampleGroup]()
     private var childExamples = [Example]()
+    private var groupUnits = [Any]()
 
-    internal init(description: String, flags: FilterFlags, isInternalRootExampleGroup: Bool = false) {
+    internal init(description: String, order: Order, flags: FilterFlags, isInternalRootExampleGroup: Bool = false) {
         self.internalDescription = description
+        self.order = order
         self.flags = flags
         self.isInternalRootExampleGroup = isInternalRootExampleGroup
     }
@@ -28,17 +31,64 @@ final public class ExampleGroup: NSObject {
     }
 
     /**
-        Returns a list of examples that belong to this example group,
-        or to any of its descendant example groups.
-    */
+     Returns an ordered list of examples that belong to this example group,
+     or to any of its descendant example groups.
+
+     The ordering of these examples is determined by the value of `order`
+     passed into the `ExampleGroup`'s constructor. (defaults to Order.defined)
+     */
     #if canImport(Darwin)
     @objc
     public var examples: [Example] {
-        return childExamples + childGroups.flatMap { $0.examples }
+        switch order {
+        case .defined:
+            return examplesAsDefined
+        case .random:
+            return randomizedExamples
+        }
     }
     #else
     public var examples: [Example] {
-        return childExamples + childGroups.flatMap { $0.examples }
+        switch order {
+        case .defined:
+            return examplesAsDefined
+        case .random:
+            return randomizedExamples
+        }
+    }
+    #endif
+
+    private var examplesAsDefined: [Example] {
+        var result = [Example]()
+        groupUnits.forEach { unit in
+            if let example = unit as? Example {
+                result.append(example)
+            } else if let exampleGroup = unit as? ExampleGroup {
+                result.append(contentsOf: exampleGroup.examples)
+            }
+        }
+
+        return result
+    }
+
+    private var randomizedExamples: [Example] {
+        var randomized = Array(groupUnits)
+        for (firstUnshuffled, unshuffledCount) in zip(randomized.indices, stride(from: randomized.count, to: 1, by: -1)) {
+            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = randomized.index(firstUnshuffled, offsetBy: d)
+            randomized.swapAt(firstUnshuffled, i)
+        }
+
+        var result = [Example]()
+        randomized.forEach { unit in
+            if let example = unit as? Example {
+                result.append(example)
+            } else if let exampleGroup = unit as? ExampleGroup {
+                result.append(contentsOf: exampleGroup.examples)
+            }
+        }
+
+        return result
     }
     #endif
 
@@ -89,11 +139,13 @@ final public class ExampleGroup: NSObject {
     internal func appendExampleGroup(_ group: ExampleGroup) {
         group.parent = self
         childGroups.append(group)
+        groupUnits.append(group)
     }
 
     internal func appendExample(_ example: Example) {
         example.group = self
         childExamples.append(example)
+        groupUnits.append(example)
     }
 
     private func walkUp(_ callback: (_ group: ExampleGroup) -> Void) {

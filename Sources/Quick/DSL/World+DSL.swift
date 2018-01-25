@@ -18,35 +18,35 @@ extension World {
         registerSharedExample(name, closure: closure)
     }
 
-    internal func describe(_ description: String, flags: FilterFlags, closure: () -> Void) {
+    internal func describe(_ description: String, order: Order, flags: FilterFlags, closure: () -> Void) {
         guard currentExampleMetadata == nil else {
             raiseError("'describe' cannot be used inside '\(currentPhase)', 'describe' may only be used inside 'context' or 'describe'. ")
         }
         guard currentExampleGroup != nil else {
             raiseError("Error: example group was not created by its parent QuickSpec spec. Check that describe() or context() was used in QuickSpec.spec() and not a more general context (i.e. an XCTestCase test)")
         }
-        let group = ExampleGroup(description: description, flags: flags)
+        let group = ExampleGroup(description: description, order: order, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
         performWithCurrentExampleGroup(group, closure: closure)
     }
 
-    internal func context(_ description: String, flags: FilterFlags, closure: () -> Void) {
+    internal func context(_ description: String, order: Order, flags: FilterFlags, closure: () -> Void) {
         guard currentExampleMetadata == nil else {
             raiseError("'context' cannot be used inside '\(currentPhase)', 'context' may only be used inside 'context' or 'describe'. ")
         }
-        self.describe(description, flags: flags, closure: closure)
+        self.describe(description, order: order, flags: flags, closure: closure)
     }
 
-    internal func fdescribe(_ description: String, flags: FilterFlags, closure: () -> Void) {
+    internal func fdescribe(_ description: String, order: Order, flags: FilterFlags, closure: () -> Void) {
         var focusedFlags = flags
         focusedFlags[Filter.focused] = true
-        self.describe(description, flags: focusedFlags, closure: closure)
+        self.describe(description, order: order, flags: focusedFlags, closure: closure)
     }
 
-    internal func xdescribe(_ description: String, flags: FilterFlags, closure: () -> Void) {
+    internal func xdescribe(_ description: String, order: Order, flags: FilterFlags, closure: () -> Void) {
         var pendingFlags = flags
         pendingFlags[Filter.pending] = true
-        self.describe(description, flags: pendingFlags, closure: closure)
+        self.describe(description, order: order, flags: pendingFlags, closure: closure)
     }
 
     internal func beforeEach(_ closure: @escaping BeforeExampleClosure) {
@@ -123,7 +123,7 @@ extension World {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld.sharedExample(name)
 
-        let group = ExampleGroup(description: name, flags: flags)
+        let group = ExampleGroup(description: name, order: Order.defined, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
         performWithCurrentExampleGroup(group) {
             closure(sharedExampleContext)
@@ -148,7 +148,7 @@ extension World {
         }
         let callsite = Callsite(file: file, line: line)
         let closure = behavior.spec
-        let group = ExampleGroup(description: behavior.name, flags: flags)
+        let group = ExampleGroup(description: behavior.name, order: Order.defined, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
         performWithCurrentExampleGroup(group) {
             closure(context)
