@@ -74,7 +74,12 @@ final public class ExampleGroup: NSObject {
     private var randomizedExamples: [Example] {
         var randomized = Array(groupUnits)
         for (firstUnshuffled, unshuffledCount) in zip(randomized.indices, stride(from: randomized.count, to: 1, by: -1)) {
-            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            #if os(Linux)
+                srandom(UInt32(time(nil)))
+                let d: Int = Int(random() % (unshuffledCount + 1))
+            #else
+                let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            #endif
             let i = randomized.index(firstUnshuffled, offsetBy: d)
             randomized.swapAt(firstUnshuffled, i)
         }
