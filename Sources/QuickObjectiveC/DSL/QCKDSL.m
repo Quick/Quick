@@ -19,7 +19,8 @@ void qck_sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
 }
 
 void qck_describe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] describe:description order: OrderDefined flags:@{} closure:closure];
+    int orderDefined = 1;
+    [[World sharedWorld] describe:description order: orderDefined flags:@{} closure:closure];
 }
 
 void qck_context(NSString *description, QCKDSLEmptyBlock closure) {
@@ -67,7 +68,8 @@ void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] xdescribe:description order: OrderDefined flags:@{} closure:closure];
+    int orderDefined = 1;
+    [[World sharedWorld] xdescribe:description order: orderDefined flags:@{} closure:closure];
 }
 
 void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
@@ -75,7 +77,8 @@ void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] fdescribe:description order: OrderDefined flags:@{} closure:closure];
+    int orderDefined = 1;
+    [[World sharedWorld] fdescribe:description order: orderDefined flags:@{} closure:closure];
 }
 
 void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure) {
