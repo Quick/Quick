@@ -81,7 +81,12 @@ final public class ExampleGroup: NSObject {
                 let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             #endif
             let i = randomized.index(firstUnshuffled, offsetBy: d)
-            randomized.swapAt(firstUnshuffled, i)
+
+            #if swift(>=4.0)
+                randomized.swapAt(firstUnshuffled, i)
+            #else
+                swap(&randomized[firstUnshuffled], &randomized[i])
+            #endif
         }
 
         var result = [Example]()
