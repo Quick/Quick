@@ -123,7 +123,7 @@ extension World {
         let callsite = Callsite(file: file, line: line)
         let closure = World.sharedWorld.sharedExample(name)
 
-        let group = ExampleGroup(description: name, order: Order.defined, flags: flags)
+        let group = ExampleGroup(description: name, order: .defined, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
         performWithCurrentExampleGroup(group) {
             closure(sharedExampleContext)
@@ -148,7 +148,7 @@ extension World {
         }
         let callsite = Callsite(file: file, line: line)
         let closure = behavior.spec
-        let group = ExampleGroup(description: behavior.name, order: Order.defined, flags: flags)
+        let group = ExampleGroup(description: behavior.name, order: .defined, flags: flags)
         currentExampleGroup.appendExampleGroup(group)
         performWithCurrentExampleGroup(group) {
             closure(context)

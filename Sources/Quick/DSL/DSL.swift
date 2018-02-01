@@ -65,14 +65,14 @@ public func sharedExamples(_ name: String, closure: @escaping SharedExampleClosu
     - parameter closure: A closure that can contain other examples.
     - parameter flags: A mapping of string keys to booleans that can be used to filter examples or example groups.
 */
-public func describe(_ description: String, order: Order = Order.defined, flags: FilterFlags = [:], closure: () -> Void) {
+public func describe(_ description: String, order: Order = .defined, flags: FilterFlags = [:], closure: () -> Void) {
     World.sharedWorld.describe(description, order: order, flags: flags, closure: closure)
 }
 
 /**
     Defines an example group. Equivalent to `describe`.
 */
-public func context(_ description: String, order: Order = Order.defined, flags: FilterFlags = [:], closure: () -> Void) {
+public func context(_ description: String, order: Order = .defined, flags: FilterFlags = [:], closure: () -> Void) {
     World.sharedWorld.context(description, order: order, flags: flags, closure: closure)
 }
 
@@ -198,7 +198,7 @@ public func pending(_ description: String, closure: () -> Void) {
     Use this to quickly mark a `describe` closure as pending.
     This disables all examples within the closure.
 */
-public func xdescribe(_ description: String, order: Order = Order.defined, flags: FilterFlags, closure: () -> Void) {
+public func xdescribe(_ description: String, order: Order = .defined, flags: FilterFlags, closure: () -> Void) {
     World.sharedWorld.xdescribe(description, order: order, flags: flags, closure: closure)
 }
 
@@ -230,7 +230,7 @@ public func xitBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags =
     If any examples in the test suite are focused, only those examples are executed.
     This trumps any explicitly focused or unfocused examples within the closure--they are all treated as focused.
 */
-public func fdescribe(_ description: String, order: Order = Order.defined, flags: FilterFlags = [:], closure: () -> Void) {
+public func fdescribe(_ description: String, order: Order = .defined, flags: FilterFlags = [:], closure: () -> Void) {
     World.sharedWorld.fdescribe(description, order: order, flags: flags, closure: closure)
 }
 
