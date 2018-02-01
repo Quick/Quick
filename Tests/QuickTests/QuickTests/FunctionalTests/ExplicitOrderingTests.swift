@@ -54,6 +54,18 @@ class ExplicitOrderingTests: QuickSpec {
                     expect(testRunCount).to(equal(9))
                 }
             }
+
+            context("n works for contexts too", order: Order.defined) {
+                it("c should run this one tenth") {
+                    testRunCount += 1
+                    expect(testRunCount).to(equal(10))
+                }
+
+                it("j should run this one eleventh") {
+                    testRunCount += 1
+                    expect(testRunCount).to(equal(11))
+                }
+            }
         }
     }
 }
