@@ -1,3 +1,4 @@
+import XCTest
 @testable import Quick
 import Nimble
 
