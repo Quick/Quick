@@ -217,7 +217,7 @@ extension World {
     }
 
     @objc(pendingWithDescription:file:line:closure:)
-    private func objc_pending(_ description: String, file: String, line: UInt, closure: @escaping () -> Void) {
+    internal func objc_pending(_ description: String, file: String, line: UInt, closure: @escaping () -> Void) {
         pending(description, file: file, line: line, closure: closure)
     }
 #endif

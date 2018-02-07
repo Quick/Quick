@@ -125,7 +125,7 @@ final public class Example: _ExampleBase {
 
     internal var uniqueIdentifier: String {
         guard let uniqueIdentifier = group?.uniqueIdentifier(forExample: self) else {
-            return (description as NSString).c99ExtendedIdentifier
+            return description.c99ExtendedIdentifier
         }
 
         return uniqueIdentifier

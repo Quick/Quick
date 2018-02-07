@@ -1,7 +1,6 @@
-#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
 import Foundation
 
-extension NSString {
+extension String {
     private static var invalidCharacters: CharacterSet = {
         var invalidCharacters = CharacterSet()
 
@@ -21,14 +20,19 @@ extension NSString {
         return invalidCharacters
     }()
 
-    /// This API is not meant to be used outside Quick, so will be unavailable in
-    /// a next major version.
-    @objc(qck_c99ExtendedIdentifier)
-    public var c99ExtendedIdentifier: String {
-        let validComponents = components(separatedBy: NSString.invalidCharacters)
+    var c99ExtendedIdentifier: String {
+        let validComponents = components(separatedBy: String.invalidCharacters)
         let result = validComponents.joined(separator: "_")
 
         return result.isEmpty ? "_" : result
+    }
+}
+
+#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
+public extension NSString {
+    @objc(qck_c99ExtendedIdentifier)
+    public var c99ExtendedIdentifier: String {
+        return (self as String).c99ExtendedIdentifier
     }
 }
 

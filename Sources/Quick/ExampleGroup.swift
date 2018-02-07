@@ -141,7 +141,7 @@ final public class ExampleGroup: NSObject {
     }
 
     private func deduplicateIdentifier(_ identifier: String) -> String {
-        var uniqueIdentifier = (identifier as NSString).c99ExtendedIdentifier
+        var uniqueIdentifier = identifier.c99ExtendedIdentifier
         let baseUniqueIdentifier = uniqueIdentifier
         var identifyingTag = 2
         while allExampleUniqueIdentifiers.contains(uniqueIdentifier) {
