@@ -127,15 +127,7 @@ final public class ExampleGroup: NSObject {
 
     private func generateUniqueIdentifier(givenIdentifierSuffix suffix: String) -> String {
         if isInternalRootExampleGroup {
-            var uniqueIdentifier = (suffix as NSString).c99ExtendedIdentifier
-            let baseUniqueIdentifier = uniqueIdentifier
-            var identifyingTag = 2
-            while allExampleUniqueIdentifiers.contains(uniqueIdentifier) {
-                uniqueIdentifier = baseUniqueIdentifier + "_\(identifyingTag)"
-                identifyingTag += 1
-            }
-
-            return uniqueIdentifier
+            return deduplicateIdentifier(suffix)
         }
 
         if let parent = parent {
@@ -145,7 +137,11 @@ final public class ExampleGroup: NSObject {
         }
 
         let unformatted = self.description + " " + suffix
-        var uniqueIdentifier = (unformatted as NSString).c99ExtendedIdentifier
+        return deduplicateIdentifier(unformatted)
+    }
+
+    private func deduplicateIdentifier(_ identifier: String) -> String {
+        var uniqueIdentifier = (identifier as NSString).c99ExtendedIdentifier
         let baseUniqueIdentifier = uniqueIdentifier
         var identifyingTag = 2
         while allExampleUniqueIdentifiers.contains(uniqueIdentifier) {
