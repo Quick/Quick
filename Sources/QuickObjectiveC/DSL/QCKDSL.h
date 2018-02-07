@@ -61,7 +61,6 @@ QUICK_EXPORT void qck_beforeEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 QUICK_EXPORT void qck_afterEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
-QUICK_EXPORT void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure);
@@ -170,17 +169,6 @@ static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
 }
 
 /**
-    Defines an example or example group that should not be executed. Use `pending` to temporarily disable
-    examples or groups that should not be run yet.
- 
-    @param description An arbitrary string describing the example or example group.
-    @param closure A closure that will not be evaluated.
- */
-static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
-}
-
-/**
     Use this to quickly mark a `describe` block as pending.
     This disables all examples within the block.
  */
@@ -215,20 +203,24 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 #define it qck_it
 #define xit qck_xit
 #define fit qck_fit
+#define pending qck_pending
 #define itBehavesLike qck_itBehavesLike
 #define xitBehavesLike qck_xitBehavesLike
 #define fitBehavesLike qck_fitBehavesLike
 #endif
 
 #define qck_it qck_it_builder(@{}, @(__FILE__), __LINE__)
-#define qck_xit qck_it_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_xit qck_it_builder(@{Filter.excluded: @YES}, @(__FILE__), __LINE__)
 #define qck_fit qck_it_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
+#define qck_pending qck_pending_builder(@(__FILE__), __LINE__)
 #define qck_itBehavesLike qck_itBehavesLike_builder(@{}, @(__FILE__), __LINE__)
-#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
+#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.excluded: @YES}, @(__FILE__), __LINE__)
 #define qck_fitBehavesLike qck_itBehavesLike_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
 
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
+typedef void (^QCKPendingBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *description, QCKDSLSharedExampleContext context);
 
 QUICK_EXPORT QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line);
+QUICK_EXPORT QCKPendingBlock qck_pending_builder(NSString *file, NSUInteger line);
 QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line);

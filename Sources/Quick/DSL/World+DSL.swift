@@ -45,7 +45,7 @@ extension World {
 
     internal func xdescribe(_ description: String, flags: FilterFlags, closure: () -> Void) {
         var pendingFlags = flags
-        pendingFlags[Filter.pending] = true
+        pendingFlags[Filter.excluded] = true
         self.describe(description, flags: pendingFlags, closure: closure)
     }
 
@@ -111,8 +111,31 @@ extension World {
     @nonobjc
     internal func xit(_ description: String, flags: FilterFlags, file: String, line: UInt, closure: @escaping () -> Void) {
         var pendingFlags = flags
-        pendingFlags[Filter.pending] = true
+        pendingFlags[Filter.excluded] = true
         self.it(description, flags: pendingFlags, file: file, line: line, closure: closure)
+    }
+
+    @nonobjc
+    internal func pending(_ description: String, file: String, line: UInt, closure: @escaping () -> Void) {
+        if beforesCurrentlyExecuting {
+            raiseError("'pending' cannot be used inside 'beforeEach', 'pending' may only be used inside 'context' or 'describe'. ")
+        }
+        if aftersCurrentlyExecuting {
+            raiseError("'pending' cannot be used inside 'afterEach', 'pending' may only be used inside 'context' or 'describe'. ")
+        }
+        guard currentExampleMetadata == nil else {
+            raiseError("'pending' cannot be used inside 'it', 'pending' may only be used inside 'context' or 'describe'. ")
+        }
+        let callsite = Callsite(file: file, line: line)
+        let example = Example(
+            description: description,
+            callsite: callsite,
+            flags: [:],
+            closure: closure
+        )
+
+        example.isPending = true
+        currentExampleGroup.appendExample(example)
     }
 
     @nonobjc
@@ -168,7 +191,7 @@ extension World {
 
     internal func xitBehavesLike<C>(_ behavior: Behavior<C>.Type, context: @escaping () -> C, flags: FilterFlags, file: String, line: UInt) {
         var pendingFlags = flags
-        pendingFlags[Filter.pending] = true
+        pendingFlags[Filter.excluded] = true
         self.itBehavesLike(behavior, context: context, flags: pendingFlags, file: file, line: line)
     }
 
@@ -192,11 +215,12 @@ extension World {
     internal func objc_itBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags, file: String, line: UInt) {
         itBehavesLike(name, sharedExampleContext: sharedExampleContext, flags: flags, file: file, line: line)
     }
-#endif
 
-    internal func pending(_ description: String, closure: () -> Void) {
-        print("Pending: \(description)")
+    @objc(pendingWithDescription:file:line:closure:)
+    private func objc_pending(_ description: String, file: String, line: UInt, closure: @escaping () -> Void) {
+        pending(description, file: file, line: line, closure: closure)
     }
+#endif
 
     private var currentPhase: String {
         if beforesCurrentlyExecuting {

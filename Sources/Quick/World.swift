@@ -144,9 +144,13 @@ final internal class World: _WorldBase {
     internal func examples(_ specClass: AnyClass) -> [Example] {
         // 1. Grab all included examples.
         let included = includedExamples
+
         // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
-        let spec = rootExampleGroupForSpecClass(specClass).examples.filter { included.contains($0) }
-        // 3. Remove all excluded examples.
+        let rootExampleGroup = rootExampleGroupForSpecClass(specClass)
+        rootExampleGroup.assignUniqueIdentifiersToExamples()
+        let spec = rootExampleGroup.examples.filter { included.contains($0) }
+
+        // 3. Remove excluded examples.
         return spec.filter { example in
             !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example) }
         }

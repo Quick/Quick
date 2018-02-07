@@ -34,6 +34,8 @@ final public class Example: _ExampleBase {
     private let closure: () -> Void
     private let flags: FilterFlags
 
+    internal var isPending = false
+
     internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () -> Void) {
         self.internalDescription = description
         self.closure = closure
@@ -63,6 +65,11 @@ final public class Example: _ExampleBase {
         closures defined in the its surrounding example groups.
     */
     public func run() {
+        if isPending {
+            print("Pending: \(uniqueIdentifier)")
+            return
+        }
+
         let world = World.sharedWorld
 
         if numberOfIncludedExamples == 0 {
@@ -114,6 +121,14 @@ final public class Example: _ExampleBase {
             aggregateFlags[key] = value
         }
         return aggregateFlags
+    }
+
+    internal var uniqueIdentifier: String {
+        guard let uniqueIdentifier = group?.uniqueIdentifier(forExample: self) else {
+            return (description as NSString).c99ExtendedIdentifier
+        }
+
+        return uniqueIdentifier
     }
 }
 

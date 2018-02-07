@@ -16,8 +16,11 @@ final public class ExampleGroup: NSObject {
     private let isInternalRootExampleGroup: Bool
     private var childGroups = [ExampleGroup]()
     private var childExamples = [Example]()
+    private var examplesToUniqueIdentifiers = [Example: String]()
 
-    internal init(description: String, flags: FilterFlags, isInternalRootExampleGroup: Bool = false) {
+    internal init(description: String,
+                  flags: FilterFlags,
+                  isInternalRootExampleGroup: Bool = false) {
         self.internalDescription = description
         self.flags = flags
         self.isInternalRootExampleGroup = isInternalRootExampleGroup
@@ -87,6 +90,79 @@ final public class ExampleGroup: NSObject {
     internal func appendExample(_ example: Example) {
         example.group = self
         childExamples.append(example)
+    }
+
+    internal func uniqueIdentifier(forExample example: Example) -> String? {
+        return examplesToUniqueIdentifiers[example]
+    }
+
+    internal func assignUniqueIdentifiersToExamples() {
+        if !isInternalRootExampleGroup && parent != nil {
+            parent!.assignUniqueIdentifiersToExamples()
+            return
+        }
+
+        for group in childGroups {
+            group.clearUniqueExampleIdentifiers()
+        }
+
+        for group in childGroups {
+            group.generateUniqueIdentifiersForExamples()
+        }
+    }
+
+    private func clearUniqueExampleIdentifiers() {
+        examplesToUniqueIdentifiers.removeAll()
+    }
+
+    private func generateUniqueIdentifiersForExamples() {
+        for example in childExamples {
+            let uniqueIdentifier = generateUniqueIdentifier(
+                givenIdentifierSuffix: example.description
+            )
+
+            examplesToUniqueIdentifiers[example] = uniqueIdentifier
+        }
+    }
+
+    private func generateUniqueIdentifier(givenIdentifierSuffix suffix: String) -> String {
+        if isInternalRootExampleGroup {
+            var uniqueIdentifier = (suffix as NSString).c99ExtendedIdentifier
+            let baseUniqueIdentifier = uniqueIdentifier
+            var identifyingTag = 2
+            while allExampleUniqueIdentifiers.contains(uniqueIdentifier) {
+                uniqueIdentifier = baseUniqueIdentifier + "_\(identifyingTag)"
+                identifyingTag += 1
+            }
+
+            return uniqueIdentifier
+        }
+
+        if let parent = parent {
+            return parent.generateUniqueIdentifier(
+                givenIdentifierSuffix: self.description + " " + suffix
+            )
+        }
+
+        let unformatted = self.description + " " + suffix
+        var uniqueIdentifier = (unformatted as NSString).c99ExtendedIdentifier
+        let baseUniqueIdentifier = uniqueIdentifier
+        var identifyingTag = 2
+        while allExampleUniqueIdentifiers.contains(uniqueIdentifier) {
+            uniqueIdentifier = baseUniqueIdentifier + "_\(identifyingTag)"
+            identifyingTag += 1
+        }
+
+        return uniqueIdentifier
+    }
+
+    private var allExampleUniqueIdentifiers: [String] {
+        var allIdentifiers = Array(examplesToUniqueIdentifiers.values)
+        for group in childGroups {
+            allIdentifiers.append(contentsOf: group.allExampleUniqueIdentifiers)
+        }
+
+        return allIdentifiers
     }
 
     private func walkUp(_ callback: (_ group: ExampleGroup) -> Void) {

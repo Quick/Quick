@@ -20,8 +20,8 @@ final public class Configuration: NSObject {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
     internal var exclusionFilters: [ExampleFilter] = [ { example in
-        if let pending = example.filterFlags[Filter.pending] {
-            return pending
+        if let excluded = example.filterFlags[Filter.excluded] {
+            return excluded
         } else {
             return false
         }

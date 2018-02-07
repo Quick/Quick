@@ -21,7 +21,15 @@ class FunctionalTests_PendingSpec: QuickSpec {
         describe("a describe block containing only one enabled example") {
             beforeEach { oneExampleBeforeEachExecutedCount += 1 }
             it("an example that will run") {}
-            pending("an example that will not run") {}
+            pending("an example that will not run") {
+                expect(true).to(beFalsy())
+            }
+            pending("uniquely prints when descriptions are identical") {
+                expect(true).to(beFalsy())
+            }
+            pending("uniquely prints when descriptions are identical") {
+                expect(true).to(beFalsy())
+            }
         }
 
         describe("a describe block containing only pending examples") {

@@ -20,7 +20,7 @@ public typealias FilterFlags = [String: Bool]
 */
 final public class Filter: _FilterBase {
     /**
-        Example and example groups with [Focused: true] are included in test runs,
+        Example and example groups with [focused: true] are included in test runs,
         excluding all other examples without this flag. Use this to only run one or
         two tests that you're currently focusing on.
     */
@@ -29,10 +29,10 @@ final public class Filter: _FilterBase {
     }
 
     /**
-        Example and example groups with [Pending: true] are excluded from test runs.
-        Use this to temporarily suspend examples that you know do not pass yet.
-    */
-    public class var pending: String {
-        return "pending"
+     Example and example groups with [excluded: true] are excluded from test runs.
+     Use this to temporarily suspend examples that you know do not pass yet.
+     */
+    public class var excluded: String {
+        return "excluded"
     }
 }
