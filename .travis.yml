@@ -27,7 +27,6 @@ matrix:
       env:
         - PLATFORM=swiftpm
     - os: osx
-      sudo: required
       env:
         - PODSPEC=1
     - os: linux
@@ -41,7 +40,7 @@ matrix:
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
-  - if [[ "$PODSPEC" ]]; then rvm system; sudo gem install bundler; bundle install; fi
+  - if [[ "$PODSPEC" ]]; then gem install bundler; bundle install --jobs=3 --retry=3; fi
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-script-linux; fi
