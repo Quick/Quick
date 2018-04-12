@@ -7,7 +7,7 @@ matrix:
         - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
-      osx_image: xcode9
+      osx_image: xcode9.3
       env:
         - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
@@ -23,11 +23,10 @@ matrix:
       env:
         - PLATFORM=swiftpm
     - os: osx
-      osx_image: xcode9.2
+      osx_image: xcode9.3
       env:
         - PLATFORM=swiftpm
     - os: osx
-      sudo: required
       env:
         - PODSPEC=1
     - os: linux
@@ -37,11 +36,11 @@ matrix:
       sudo: required
       dist: trusty
       env:
-        - SWIFT_VERSION=4.0.3
+        - SWIFT_VERSION=4.1
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
-  - if [[ "$PODSPEC" ]]; then rvm system; sudo gem install bundler; bundle install; fi
+  - if [[ "$PODSPEC" ]]; then gem install bundler; bundle install; fi
 script:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-script-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-script-linux; fi
