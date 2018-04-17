@@ -1,4 +1,9 @@
+#if __has_include("Quick-Swift.h")
+#import "Quick-Swift.h"
+#else
 #import <Quick/Quick-Swift.h>
+#endif
+
 
 @interface World (SWIFT_EXTENSION(Quick))
 - (void)beforeSuite:(void (^ __nonnull)(void))closure;
