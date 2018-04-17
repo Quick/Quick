@@ -1,4 +1,8 @@
+#if __has_include("Quick-Swift.h")
+#import "Quick-Swift.h"
+#else
 #import <Quick/Quick-Swift.h>
+#endif
 
 @class ExampleGroup;
 @class ExampleMetadata;
