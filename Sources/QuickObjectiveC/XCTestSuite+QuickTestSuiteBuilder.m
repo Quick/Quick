@@ -6,7 +6,6 @@
 #import <Quick/Quick-Swift.h>
 #endif
 
-
 @interface XCTestSuite (QuickTestSuiteBuilder)
 @end
 

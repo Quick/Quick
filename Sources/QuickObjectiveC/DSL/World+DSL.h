@@ -4,7 +4,6 @@
 #import <Quick/Quick-Swift.h>
 #endif
 
-
 @interface World (SWIFT_EXTENSION(Quick))
 - (void)beforeSuite:(void (^ __nonnull)(void))closure;
 - (void)afterSuite:(void (^ __nonnull)(void))closure;

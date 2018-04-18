@@ -7,7 +7,6 @@
 #import <Quick/Quick-Swift.h>
 #endif
 
-
 static QuickSpec *currentSpec = nil;
 
 @interface QuickSpec ()
