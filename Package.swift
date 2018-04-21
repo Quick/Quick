@@ -40,8 +40,17 @@ var package = Package(
     }()
 )
 
-if isTesting {
-  package.dependencies.append(contentsOf: [
-    .Package(url: "https://github.com/Quick/Nimble.git", majorVersion: 7),
-  ])
+var downloadNimble = false
+
+#if os(macOS)
+    downloadNimble = isTesting
+
+#else 
+    downloadNimble = true
+#endif
+
+if(downloadNimble) {
+    package.dependencies.append(contentsOf: [
+        .Package(url: "https://github.com/Quick/Nimble.git", majorVersion: 7),
+    ])
 }
