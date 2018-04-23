@@ -25,7 +25,7 @@ namespace "test" do
 
   desc "Run unit tests for all tvOS targets"
   task :tvos do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' clean #{xcode_action}"
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' clean #{xcode_action}"
   end
 
   desc "Run unit tests for all macOS targets"
@@ -35,8 +35,7 @@ namespace "test" do
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
-    env = { "SWIFT_PACKAGE_TEST_Quick" => "true" }
-    run env, "swift package clean && swift test"
+    run "swift package clean && swift test"
   end
 end
 
