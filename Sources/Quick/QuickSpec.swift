@@ -37,19 +37,11 @@ open class QuickSpec: QuickSpecBase {
     /// SwiftPM on macOS does not have the mechanism (test cases are automatically
     /// discovered powered by Objective-C runtime), so we needed the alternative
     /// way.
-    #if swift(>=4)
     override open class var defaultTestSuite: XCTestSuite {
         configureDefaultTestSuite()
 
         return super.defaultTestSuite
     }
-    #else
-    override open class func defaultTestSuite() -> XCTestSuite {
-        configureDefaultTestSuite()
-
-        return super.defaultTestSuite()
-    }
-    #endif
 
     private static func configureDefaultTestSuite() {
         let world = World.sharedWorld

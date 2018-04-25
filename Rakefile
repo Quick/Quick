@@ -13,7 +13,11 @@ end
 namespace "podspec" do
   desc "Run lint for podspec"
   task :lint do
+    # To work around the lint error: "ERROR | swift: Specification `Nimble` specifies an inconsistent `swift_version` (`4.0`) compared to the one present in your `.swift-version` file (`4.1`). Please remove the `.swift-version` file which is now deprecated and only use the `swift_version` attribute within your podspec."
+    # `.swift-version` is for swiftenv, not for CocoaPods, so we can't remove the file as suggested.
+    run "mv .swift-version .swift-version.backup"
     run "bundle exec pod lib lint"
+    run "mv .swift-version.backup .swift-version"
   end
 end
 
@@ -25,7 +29,7 @@ namespace "test" do
 
   desc "Run unit tests for all tvOS targets"
   task :tvos do |t|
-    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' clean #{xcode_action}"
+    run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' clean #{xcode_action}"
   end
 
   desc "Run unit tests for all macOS targets"
@@ -35,8 +39,7 @@ namespace "test" do
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
-    env = { "SWIFT_PACKAGE_TEST_Quick" => "true" }
-    run env, "swift package clean && swift test"
+    run "swift package clean && swift test"
   end
 end
 
