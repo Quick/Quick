@@ -130,12 +130,6 @@
 		8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
-		96327C631C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */ = {isa = PBXBuildFile; fileRef = 96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */; };
-		96327C641C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */ = {isa = PBXBuildFile; fileRef = 96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */; };
-		96327C651C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */ = {isa = PBXBuildFile; fileRef = 96327C611C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h */; };
-		96327C661C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
-		96327C671C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
-		96327C681C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
 		AE4E58131C73097A00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
 		AE4E58141C73097A00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
 		AE4E58151C73097C00420A2E /* XCTestObservationCenter+QCKSuspendObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB080BB1C72F028004917D3 /* XCTestObservationCenter+QCKSuspendObservation.m */; };
@@ -146,6 +140,9 @@
 		AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		CD264DBD1DDA147A0038B0EB /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
+		CD564DA020B5B09C00C15E6B /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
+		CD564DA120B5B09D00C15E6B /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
+		CD564DA220B5B09E00C15E6B /* QuickSpec+QuickSpec_MethodList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96327C621C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m */; };
 		CE175D4E1E8D6B4900EB5E84 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
 		CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
 		CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
@@ -973,7 +970,6 @@
 			files = (
 				1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */,
 				1F118D261BDCA5AF005013A2 /* World+DSL.h in Headers */,
-				96327C651C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */,
 				1F118D271BDCA5AF005013A2 /* World.h in Headers */,
 				1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */,
 				1F118D2C1BDCA5B6005013A2 /* QuickSpec.h in Headers */,
@@ -986,7 +982,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
-				96327C641C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */,
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				DAED1ECB1B110699006F61EC /* World+DSL.h in Headers */,
 				DAED1EC51B1105BC006F61EC /* World.h in Headers */,
@@ -1000,7 +995,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
-				96327C631C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.h in Headers */,
 				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				DAED1ECA1B110699006F61EC /* World+DSL.h in Headers */,
 				DAED1EC41B1105BC006F61EC /* World.h in Headers */,
@@ -1441,7 +1435,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96327C681C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				1F118D031BDCA536005013A2 /* World.swift in Sources */,
 				CE590E201C431FE400253D19 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */,
@@ -1497,6 +1490,7 @@
 				1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */,
 				1F118D0C1BDCA543005013A2 /* QuickConfigurationTests.m in Sources */,
 				1F118D391BDCA6E6005013A2 /* Configuration+BeforeEach.swift in Sources */,
+				CD564DA220B5B09E00C15E6B /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				1F118D181BDCA556005013A2 /* AfterEachTests.swift in Sources */,
 				1F118D1B1BDCA556005013A2 /* PendingTests+ObjC.m in Sources */,
 				34C586051C4ABD4100D4F057 /* XCTestCaseProvider.swift in Sources */,
@@ -1524,7 +1518,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96327C671C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				CE590E1B1C431FE300253D19 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124EB19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE319FF5599005DF92A /* Closures.swift in Sources */,
@@ -1580,6 +1573,7 @@
 				471590411A488F3F00FBA644 /* PendingTests+ObjC.m in Sources */,
 				DA8F919E19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
 				DAE714F419FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
+				CD564DA120B5B09D00C15E6B /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */,
 				34C586031C4ABD4000D4F057 /* XCTestCaseProvider.swift in Sources */,
 				8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */,
@@ -1646,7 +1640,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96327C661C56E90C00405AB3 /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE219FF5599005DF92A /* Closures.swift in Sources */,
@@ -1702,6 +1695,7 @@
 				471590401A488F3F00FBA644 /* PendingTests+ObjC.m in Sources */,
 				DA8F919D19F31921006F6675 /* FailureTests+ObjC.m in Sources */,
 				DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
+				CD564DA020B5B09C00C15E6B /* QuickSpec+QuickSpec_MethodList.m in Sources */,
 				479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */,
 				34C586011C4ABD3F00D4F057 /* XCTestCaseProvider.swift in Sources */,
 				8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */,
