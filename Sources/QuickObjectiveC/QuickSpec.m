@@ -26,28 +26,35 @@ static QuickSpec *currentSpec = nil;
  included an expectation outside of a "it", "describe", or "context" block.
  */
 + (void)initialize {
-    [QuickConfiguration initialize];
+    // Workaround for running parallel tests on Xcode 10 (https://github.com/Quick/Quick/issues/801)
+    // From Xcode 10 Beta 2 release notes:
+    // "Tests using a third-party testing framework that integrates with XCTest may experience test
+    // failures when running tests in parallel due to a test case class’s +initialize method being
+    // called on a non-main thread. (40939090)"
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [QuickConfiguration initialize];
 
-    World *world = [World sharedWorld];
-    [world performWithCurrentExampleGroup:[world rootExampleGroupForSpecClass:self] closure:^{
-        QuickSpec *spec = [self new];
+        World *world = [World sharedWorld];
+        [world performWithCurrentExampleGroup:[world rootExampleGroupForSpecClass:self] closure:^{
+            QuickSpec *spec = [self new];
 
-        @try {
-            [spec spec];
-        }
-        @catch (NSException *exception) {
-            [NSException raise:NSInternalInconsistencyException
-                        format:@"An exception occurred when building Quick's example groups.\n"
-             @"Some possible reasons this might happen include:\n\n"
-             @"- An 'expect(...).to' expectation was evaluated outside of "
-             @"an 'it', 'context', or 'describe' block\n"
-             @"- 'sharedExamples' was called twice with the same name\n"
-             @"- 'itBehavesLike' was called with a name that is not registered as a shared example\n\n"
-             @"Here's the original exception: '%@', reason: '%@', userInfo: '%@'",
-             exception.name, exception.reason, exception.userInfo];
-        }
-        [self testInvocations];
-    }];
+            @try {
+                [spec spec];
+            }
+            @catch (NSException *exception) {
+                [NSException raise:NSInternalInconsistencyException
+                            format:@"An exception occurred when building Quick's example groups.\n"
+                 @"Some possible reasons this might happen include:\n\n"
+                 @"- An 'expect(...).to' expectation was evaluated outside of "
+                 @"an 'it', 'context', or 'describe' block\n"
+                 @"- 'sharedExamples' was called twice with the same name\n"
+                 @"- 'itBehavesLike' was called with a name that is not registered as a shared example\n\n"
+                 @"Here's the original exception: '%@', reason: '%@', userInfo: '%@'",
+                 exception.name, exception.reason, exception.userInfo];
+            }
+            [self testInvocations];
+        }];
+    });
 }
 
 /**
