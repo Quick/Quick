@@ -62,8 +62,6 @@
 		1F118D231BDCA556005013A2 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */; };
 		1F118D241BDCA561005013A2 /* FocusedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9876BF1A4C87200004AA17 /* FocusedTests.swift */; };
 		1F118D251BDCA561005013A2 /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
-		1F118D261BDCA5AF005013A2 /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC81B110699006F61EC /* World+DSL.h */; };
-		1F118D271BDCA5AF005013A2 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC21B1105BC006F61EC /* World.h */; };
 		1F118D291BDCA5B6005013A2 /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -237,10 +235,6 @@
 		DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
 		DAEB6B941943873100289F44 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAEB6B9A1943873100289F44 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAEB6B8E1943873100289F44 /* Quick.framework */; };
-		DAED1EC41B1105BC006F61EC /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC21B1105BC006F61EC /* World.h */; };
-		DAED1EC51B1105BC006F61EC /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC21B1105BC006F61EC /* World.h */; };
-		DAED1ECA1B110699006F61EC /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC81B110699006F61EC /* World+DSL.h */; };
-		DAED1ECB1B110699006F61EC /* World+DSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DAED1EC81B110699006F61EC /* World+DSL.h */; };
 		DAF28BC31A4DB8EC00A5D9BF /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
 		DAF28BC41A4DB8EC00A5D9BF /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
 		DED3036B1DF6C66B0041394E /* NSString+C99ExtendedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3036A1DF6C66B0041394E /* NSString+C99ExtendedIdentifier.swift */; };
@@ -558,8 +552,6 @@
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
 		DAEB6B991943873100289F44 /* Quick - macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B9F1943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAED1EC21B1105BC006F61EC /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
-		DAED1EC81B110699006F61EC /* World+DSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "World+DSL.h"; sourceTree = "<group>"; };
 		DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FocusedTests+ObjC.m"; sourceTree = "<group>"; };
 		DED3036A1DF6C66B0041394E /* NSString+C99ExtendedIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+C99ExtendedIdentifier.swift"; sourceTree = "<group>"; };
 		DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleModuleNameTests.swift; sourceTree = "<group>"; };
@@ -697,7 +689,6 @@
 				6C3983EF1D1E93B700637469 /* Configuration */,
 				6C3983F01D1E93CE00637469 /* DSL */,
 				DAEB6B931943873100289F44 /* Quick.h */,
-				DAED1EC21B1105BC006F61EC /* World.h */,
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */,
@@ -718,7 +709,6 @@
 		6C3983F01D1E93CE00637469 /* DSL */ = {
 			isa = PBXGroup;
 			children = (
-				DAED1EC81B110699006F61EC /* World+DSL.h */,
 				DA3124E319FCAEE8002858A7 /* QCKDSL.h */,
 				DA3124E419FCAEE8002858A7 /* QCKDSL.m */,
 			);
@@ -969,8 +959,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */,
-				1F118D261BDCA5AF005013A2 /* World+DSL.h in Headers */,
-				1F118D271BDCA5AF005013A2 /* World.h in Headers */,
 				1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */,
 				1F118D2C1BDCA5B6005013A2 /* QuickSpec.h in Headers */,
 				1F118D291BDCA5B6005013A2 /* QuickConfiguration.h in Headers */,
@@ -983,8 +971,6 @@
 			files = (
 				DAE714FF19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
-				DAED1ECB1B110699006F61EC /* World+DSL.h in Headers */,
-				DAED1EC51B1105BC006F61EC /* World.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
 			);
@@ -996,8 +982,6 @@
 			files = (
 				DAE714FE19FF6A62005905B8 /* QuickConfiguration.h in Headers */,
 				DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */,
-				DAED1ECA1B110699006F61EC /* World+DSL.h in Headers */,
-				DAED1EC41B1105BC006F61EC /* World.h in Headers */,
 				34F375B719515CA700CE1B99 /* QuickSpec.h in Headers */,
 				DAEB6B941943873100289F44 /* Quick.h in Headers */,
 			);
@@ -1871,6 +1855,7 @@
 		1F118CE71BDCA4AB005013A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1886,6 +1871,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-no_application_extension",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Quick;
 				SDKROOT = appletvos;
@@ -1898,6 +1888,7 @@
 		1F118CE81BDCA4AB005013A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1913,6 +1904,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-no_application_extension",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Quick;
 				SDKROOT = appletvos;
@@ -2011,7 +2007,7 @@
 		5A5D118F19473F2100F6D13D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2031,6 +2027,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-no_application_extension",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Quick;
 				PRODUCT_NAME = Quick;
@@ -2045,7 +2046,7 @@
 		5A5D119019473F2100F6D13D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2060,6 +2061,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-no_application_extension",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Quick;
 				PRODUCT_NAME = Quick;
@@ -2476,7 +2482,7 @@
 		DAEB6BA51943873200289F44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2491,6 +2497,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-no_application_extension",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Quick;
 				PRODUCT_NAME = Quick;
@@ -2503,7 +2514,7 @@
 		DAEB6BA61943873200289F44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2518,6 +2529,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-no_application_extension",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_MODULE_NAME = Quick;
 				PRODUCT_NAME = Quick;

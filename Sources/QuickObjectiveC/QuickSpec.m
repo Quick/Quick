@@ -1,6 +1,6 @@
 #import "QuickSpec.h"
 #import "QuickConfiguration.h"
-#import "World.h"
+
 #if __has_include("Quick-Swift.h")
 #import "Quick-Swift.h"
 #else

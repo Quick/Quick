@@ -160,7 +160,7 @@ final internal class World: _WorldBase {
 
 #if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
     @objc(examplesForSpecClass:)
-    private func objc_examples(_ specClass: AnyClass) -> [Example] {
+    internal func objc_examples(_ specClass: AnyClass) -> [Example] {
         return examples(specClass)
     }
 #endif
