@@ -21,7 +21,8 @@ extension NSString {
         return invalidCharacters
     }()
 
-    var c99ExtendedIdentifier: String {
+    @objc(qck_c99ExtendedIdentifier)
+    public var c99ExtendedIdentifier: String {
         let validComponents = components(separatedBy: NSString.invalidCharacters)
         let result = validComponents.joined(separator: "_")
 
