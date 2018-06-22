@@ -34,7 +34,7 @@ extension NSString {
 ///
 /// See: https://github.com/Quick/Quick/issues/785
 @objc
-public class ObjCStringUtils: NSObject {
+public class QCKObjCStringUtils: NSObject {
     override private init() {}
 
     @objc
