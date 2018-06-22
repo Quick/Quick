@@ -12,6 +12,11 @@ matrix:
         - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
+      osx_image: xcode9.3
+      env:
+        - PLATFORM=macos_static
+        - XCODE_ACTION="build-for-testing test-without-building"
+    - os: osx
       env:
         - PLATFORM=ios
         - XCODE_ACTION="build-for-testing test-without-building"
