@@ -35,11 +35,11 @@ extension NSString {
 ///
 /// See: https://github.com/Quick/Quick/issues/785
 @objc
-public class QCKObjCStringUtils: NSObject {
+class QCKObjCStringUtils: NSObject {
     override private init() {}
 
     @objc
-    public static func c99ExtendedIdentifier(from string: String) -> String {
+    static func c99ExtendedIdentifier(from string: String) -> String {
         return string.c99ExtendedIdentifier
     }
 }
