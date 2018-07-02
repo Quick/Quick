@@ -2,7 +2,7 @@
 @SDM_DANGER_BIG_PR_LINES = 50
 
 # set the files to watch and fail if there are changes
-@SDM_DANGER_IMMUTABLE_FILES = ['LICENSE', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md']
+@SDM_DANGER_IMMUTABLE_FILES = ['LICENSE', 'CODE_OF_CONDUCT.md']
 
 # Sometimes it's a README fix, or something like that which is trivial
 not_declared_trivial = !(github.pr_title.include? "#trivial")
