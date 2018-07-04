@@ -81,6 +81,9 @@ final public class Example: _ExampleBase {
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: numberOfExamplesRun)
         world.currentExampleMetadata = exampleMetadata
+        defer {
+            world.currentExampleMetadata = nil
+        }
 
         world.exampleHooks.executeBefores(exampleMetadata)
         group!.phase = .beforesExecuting
