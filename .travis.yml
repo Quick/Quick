@@ -8,6 +8,10 @@ matrix:
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx
       env:
+        - PLATFORM=macos_static
+        - XCODE_ACTION="build-for-testing test-without-building"
+    - os: osx
+      env:
         - PLATFORM=ios
         - XCODE_ACTION="build-for-testing test-without-building"
     - os: osx

@@ -37,6 +37,11 @@ namespace "test" do
     run "xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS clean #{xcode_action}"
   end
 
+  desc "Run unit tests for all macOS targets using static linking"
+  task :macos_static do |t|
+    run " MACH_O_TYPE=staticlib xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS clean #{xcode_action}"
+  end
+
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
     run "swift package clean && swift test"

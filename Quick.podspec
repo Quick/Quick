@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Quick"
-  s.version      = "1.3.0"
+  s.version      = "1.3.1"
   s.summary      = "The Swift (and Objective-C) testing framework."
 
   s.description  = <<-DESC
@@ -34,7 +34,11 @@ Pod::Spec.new do |s|
   s.framework = "XCTest"
   s.requires_arc = true
   s.user_target_xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PLATFORM_DIR)/Developer/Library/Frameworks' }
-  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+  s.pod_target_xcconfig = {
+    'APPLICATION_EXTENSION_API_ONLY' => 'YES',
+    'ENABLE_BITCODE' => 'NO',
+    'OTHER_LDFLAGS' => '$(inherited) -Xlinker -no_application_extension',
+  }
   
   s.swift_version = '4.0'
   s.cocoapods_version = '>= 1.4.0'
