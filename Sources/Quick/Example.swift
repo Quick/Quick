@@ -81,7 +81,7 @@ final public class Example: _ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
-        let allWrappers = group!.arounds + world.exampleHooks.arounds
+        let allWrappers = group!.wrappers + world.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(runExample) {
             closure, wrapper in
             { wrapper(exampleMetadata, closure) }

@@ -61,10 +61,10 @@ final public class ExampleGroup: NSObject {
         return aggregateFlags
     }
 
-    internal var arounds: [AroundExampleWithMetadataClosure] {
-        var closures = Array(hooks.arounds.reversed())
+    internal var wrappers: [AroundExampleWithMetadataClosure] {
+        var closures = Array(hooks.wrappers.reversed())
         walkUp { group in
-            closures.append(contentsOf: group.hooks.arounds.reversed())
+            closures.append(contentsOf: group.hooks.wrappers.reversed())
         }
         return closures
     }
