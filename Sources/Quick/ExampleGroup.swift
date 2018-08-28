@@ -61,28 +61,12 @@ final public class ExampleGroup: NSObject {
         return aggregateFlags
     }
 
-    internal var befores: [BeforeExampleWithMetadataClosure] {
-        var closures = Array(hooks.befores.reversed())
-        walkUp { group in
-            closures.append(contentsOf: Array(group.hooks.befores.reversed()))
-        }
-        return Array(closures.reversed())
-    }
-
-    internal var afters: [AfterExampleWithMetadataClosure] {
-        var closures = hooks.afters
-        walkUp { group in
-            closures.append(contentsOf: group.hooks.afters)
-        }
-        return closures
-    }
-
     internal var arounds: [AroundExampleWithMetadataClosure] {
-        var closures = hooks.arounds
+        var closures = Array(hooks.arounds.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.arounds.reversed())
         }
-        return closures.reversed()
+        return closures
     }
 
     internal func walkDownExamples(_ callback: (_ example: Example) -> Void) {
