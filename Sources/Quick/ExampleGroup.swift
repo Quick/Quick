@@ -77,6 +77,14 @@ final public class ExampleGroup: NSObject {
         return closures
     }
 
+    internal var arounds: [AroundExampleWithMetadataClosure] {
+        var closures = hooks.arounds
+        walkUp { group in
+            closures.append(contentsOf: group.hooks.arounds.reversed())
+        }
+        return closures.reversed()
+    }
+
     internal func walkDownExamples(_ callback: (_ example: Example) -> Void) {
         for example in childExamples {
             callback(example)

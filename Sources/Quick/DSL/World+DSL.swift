@@ -85,6 +85,15 @@ extension World {
     }
 #endif
 
+    @objc(aroundEachWithMetadata:)
+    internal func aroundEach(_ closure: @escaping AroundExampleClosure) {
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+
+    internal func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+
     @nonobjc
     internal func it(_ description: String, flags: FilterFlags, file: FileString, line: UInt, closure: @escaping () -> Void) {
         if beforesCurrentlyExecuting {

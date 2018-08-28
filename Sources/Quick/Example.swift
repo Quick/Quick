@@ -79,7 +79,11 @@ final public class Example: _ExampleBase {
         }
         group!.phase = .beforesFinished
 
-        closure()
+        let wrappedClosure = group!.arounds.reduce(closure) {
+            closure, wrapper in
+            { wrapper(exampleMetadata, closure) }
+        }
+        wrappedClosure()
 
         group!.phase = .aftersExecuting
         for after in group!.afters {

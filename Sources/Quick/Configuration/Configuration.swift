@@ -141,6 +141,14 @@ final public class Configuration: NSObject {
         exampleHooks.appendAfter(closure)
     }
 
+    public func aroundEach(_ closure: @escaping AroundExampleClosure) {
+        exampleHooks.appendAround(closure)
+    }
+
+    public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
+        exampleHooks.appendAround(closure)
+    }
+
     /**
         Like Quick.DSL.beforeSuite, this configures Quick to execute
         the given closure prior to any and all examples that are run.
