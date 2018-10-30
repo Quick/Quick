@@ -6,7 +6,7 @@
 
 # Sometimes it's a README fix, or something like that which is trivial
 not_declared_trivial = !(github.pr_title.include? "#trivial")
-has_app_changes = !git.modified_files.grep(/Sources/).empty?
+has_app_changes = git.modified_files.grep(/Sources/).any? { |file| file.end_with?(".swift") || file.end_with?(".h") }
 no_test_modify = git.modified_files.grep(/Tests/).empty?
 
 # Warns when changing source files
