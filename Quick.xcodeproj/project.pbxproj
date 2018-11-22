@@ -1252,7 +1252,7 @@
 					};
 					5A5D117B19473F2100F6D13D = {
 						CreatedOnToolsVersion = 6.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0940;
 					};
 					5A5D118519473F2100F6D13D = {
 						CreatedOnToolsVersion = 6.0;
