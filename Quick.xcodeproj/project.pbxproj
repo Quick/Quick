@@ -247,7 +247,6 @@
 		FD57E77821D3812200873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77621D37F1F00873BF8 /* XCTest.framework */; };
 		FD57E77921D3812A00873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77621D37F1F00873BF8 /* XCTest.framework */; };
 		FD57E77A21D3813200873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77621D37F1F00873BF8 /* XCTest.framework */; };
-		FD57E77C21D3814500873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77B21D3814500873BF8 /* XCTest.framework */; };
 		FD57E77D21D3814F00873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77B21D3814500873BF8 /* XCTest.framework */; };
 		FD57E77F21D3816C00873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77E21D3816C00873BF8 /* XCTest.framework */; };
 		FD57E78021D3817500873BF8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD57E77E21D3816C00873BF8 /* XCTest.framework */; };
@@ -604,7 +603,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD57E77C21D3814500873BF8 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
