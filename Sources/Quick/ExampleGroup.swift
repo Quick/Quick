@@ -76,14 +76,14 @@ final public class ExampleGroup: NSObject {
         for (firstUnshuffled, unshuffledCount) in zip(randomized.indices, stride(from: randomized.count, to: 1, by: -1)) {
             #if os(Linux)
                 srandom(UInt32(time(nil)))
-                let d: Int = Int(random() % (unshuffledCount + 1))
+                let offset: Int = Int(random() % (unshuffledCount + 1))
             #else
-                let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+                let offset: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             #endif
-            let i = randomized.index(firstUnshuffled, offsetBy: d)
+            let item = randomized.index(firstUnshuffled, offsetBy: offset)
 
             #if swift(>=4.0)
-                randomized.swapAt(firstUnshuffled, i)
+                randomized.swapAt(firstUnshuffled, item)
             #else
                 swap(&randomized[firstUnshuffled], &randomized[i])
             #endif
