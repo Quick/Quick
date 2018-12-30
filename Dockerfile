@@ -1,8 +1,9 @@
-FROM swift:4.0.3
+ARG swift_version
+FROM swift:${swift_version}
+
+ENV SWIFT_VERSION=$swift_version
 
 WORKDIR /package
-
-ENV SWIFT_VERSION=4.0.3
 
 COPY . ./
 

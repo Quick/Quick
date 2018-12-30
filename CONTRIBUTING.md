@@ -123,4 +123,8 @@ the following command from the root directory:
 ```
 ./script/test-linux-on-macos
 ```
+or, if you'd like to run with a specific version of Swift:
 
+```
+./script/test-linux-on-macos 4.0.3
+```
