@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 
 import PackageDescription
 
@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", from: "7.0.1"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "7.3.1"),
     ],
     targets: {
         var targets: [Target] = [
@@ -36,5 +36,5 @@ let package = Package(
 #endif
         return targets
     }(),
-    swiftLanguageVersions: [4]
+    swiftLanguageVersions: [.v4_2]
 )

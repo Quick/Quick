@@ -40,6 +40,6 @@ Pod::Spec.new do |s|
     'OTHER_LDFLAGS' => '$(inherited) -Xlinker -no_application_extension',
   }
   
-  s.swift_version = '4.0'
   s.cocoapods_version = '>= 1.4.0'
+  s.swift_version = '4.2'
 end
