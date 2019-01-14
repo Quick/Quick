@@ -32,7 +32,7 @@ public func QCKMain(_ specs: [QuickSpec.Type],
     }
     world.finalizeConfiguration()
 
-    XCTMain(specs.flatMap { testCase($0.allTests) } + testCases)
+    XCTMain(specs.compactMap { testCase($0.allTests) } + testCases)
 }
 
 #endif
