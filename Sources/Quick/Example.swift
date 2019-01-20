@@ -3,7 +3,7 @@ import Foundation
 private var numberOfExamplesRun = 0
 private var numberOfIncludedExamples = 0
 
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+#if canImport(Darwin) && !SWIFT_PACKAGE
 @objcMembers
 public class _ExampleBase: NSObject {}
 #else
