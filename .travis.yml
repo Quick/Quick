@@ -5,64 +5,35 @@ matrix:
       env:
         - PLATFORM=macos
         - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode9.4
+      osx_image: xcode10.1
     - os: osx
       env:
         - PLATFORM=macos_static
         - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode9.4
+      osx_image: xcode10.1
     - os: osx
       env:
         - PLATFORM=ios
         - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode9.4
+      osx_image: xcode10.1
     - os: osx
       env:
         - PLATFORM=tvos
         - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode9.4
-    - os: osx
-      env:
-        - PLATFORM=swiftpm
-      osx_image: xcode9.4
+      osx_image: xcode10.1
     - os: osx
       env:
         - PODSPEC=1
-      osx_image: xcode9.4
-    - os: osx
-      env:
-        - PLATFORM=macos
-        - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode10
-    - os: osx
-      env:
-        - PLATFORM=macos_static
-        - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode10
-    - os: osx
-      env:
-        - PLATFORM=ios
-        - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode10
-    - os: osx
-      env:
-        - PLATFORM=tvos
-        - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode10
+      osx_image: xcode10.1
     - os: osx
       env:
         - PLATFORM=swiftpm
-      osx_image: xcode10
+      osx_image: xcode10.1
     - os: linux
       sudo: required
       dist: trusty
       env:
-        - SWIFT_VERSION=4.1
-    - os: linux
-      sudo: required
-      dist: trusty
-      env:
-        - SWIFT_VERSION=4.2
+        - SWIFT_VERSION=4.2.1
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then ./script/travis-install-macos; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./script/travis-install-linux; fi
