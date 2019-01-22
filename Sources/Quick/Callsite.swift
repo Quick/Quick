@@ -1,6 +1,6 @@
 import Foundation
 
-#if (os(macOS) || os(iOS) || os(tvOS) || os(watchOS)) && !SWIFT_PACKAGE
+#if canImport(Darwin) && !SWIFT_PACKAGE
 @objcMembers
 public class _CallsiteBase: NSObject {}
 #else

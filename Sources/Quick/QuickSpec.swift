@@ -5,7 +5,7 @@ import XCTest
 
 #if SWIFT_PACKAGE
 
-#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
+#if canImport(Darwin)
 import QuickSpecBase
 
 public typealias QuickSpecBase = _QuickSpecBase
@@ -16,7 +16,7 @@ public typealias QuickSpecBase = XCTestCase
 open class QuickSpec: QuickSpecBase {
     open func spec() {}
 
-#if !(os(macOS) || os(iOS) || os(tvOS) || os(watchOS))
+#if !canImport(Darwin)
     public required init() {
         super.init(name: "", testClosure: { _ in })
     }
