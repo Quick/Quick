@@ -36,5 +36,5 @@ let package = Package(
 #endif
         return targets
     }(),
-    swiftLanguageVersions: [3]
+    swiftLanguageVersions: [4]
 )
