@@ -107,6 +107,8 @@ class FunctionalTests_ItSpec: QuickSpec {
     }
 }
 
+private var isRunningFunctionalTests = false
+
 class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
     override func spec() {
         describe("implicit error handling") {
@@ -114,10 +116,12 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
                 case error
             }
 
-            func nonThrowingFunc() throws { }
+            func nonThrowingFunc() throws {}
 
-            func throwingFunc() throws {
-                throw ExampleError.error
+            func throwingFunc(shouldThrow: Bool) throws {
+                if shouldThrow {
+                    throw ExampleError.error
+                }
             }
 
             it("supports calling functions marked as throws") {
@@ -125,7 +129,7 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
             }
 
             it("supports calling functions that actually throws") {
-                try throwingFunc()
+                try throwingFunc(shouldThrow: isRunningFunctionalTests)
             }
         }
     }
@@ -137,6 +141,16 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
             ("testImplicitErrorHandling", testAllExamplesAreExecuted),
         ]
+    }
+
+    override func setUp() {
+        super.setUp()
+        isRunningFunctionalTests = true
+    }
+
+    override func tearDown() {
+        isRunningFunctionalTests = false
+        super.tearDown()
     }
 
     func testAllExamplesAreExecuted() {
