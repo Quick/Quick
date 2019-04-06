@@ -5,7 +5,7 @@ import XCTest
 
 #if SWIFT_PACKAGE
 
-#if canImport(Darwin)
+#if canImport(QuickSpecBase)
 import QuickSpecBase
 
 public typealias QuickSpecBase = _QuickSpecBase
@@ -14,6 +14,18 @@ public typealias QuickSpecBase = XCTestCase
 #endif
 
 open class QuickSpec: QuickSpecBase {
+#if canImport(Darwin)
+    /// Returns the currently executing spec. Use in specs that require XCTestCase
+    /// methods, e.g. expectation(description:).
+    public private(set) static var current: QuickSpec!
+
+    private var example: Example? {
+        didSet {
+            QuickSpec.current = self
+        }
+    }
+#endif
+
     open func spec() {}
 
 #if !canImport(Darwin)
@@ -72,12 +84,13 @@ open class QuickSpec: QuickSpecBase {
     }
 
     private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames : inout Set<String>) -> Selector {
-        let block: @convention(block) (QuickSpec) -> Void = { _ in
+        let block: @convention(block) (QuickSpec) -> Void = { spec in
+            spec.example = example
             example.run()
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        let originalName = example.name
+        let originalName = example.name.c99ExtendedIdentifier
         var selectorName = originalName
         var i: UInt = 2
 

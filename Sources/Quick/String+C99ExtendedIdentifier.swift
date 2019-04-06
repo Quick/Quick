@@ -1,7 +1,7 @@
 #if canImport(Darwin)
 import Foundation
 
-extension NSString {
+extension String {
     private static var invalidCharacters: CharacterSet = {
         var invalidCharacters = CharacterSet()
 
@@ -21,11 +21,8 @@ extension NSString {
         return invalidCharacters
     }()
 
-    /// This API is not meant to be used outside Quick, so will be unavailable in
-    /// a next major version.
-    @objc(qck_c99ExtendedIdentifier)
-    public var c99ExtendedIdentifier: String {
-        let validComponents = components(separatedBy: NSString.invalidCharacters)
+    internal var c99ExtendedIdentifier: String {
+        let validComponents = components(separatedBy: String.invalidCharacters)
         let result = validComponents.joined(separator: "_")
 
         return result.isEmpty ? "_" : result
