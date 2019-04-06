@@ -1,12 +1,13 @@
 import Quick
 import Nimble
+import Dispatch
 
-#if !SWIFT_PACKAGE
+#if canImport(Darwin)
 
 class CurrentSpecTests: QuickSpec {
     override func spec() {
         it("returns the currently executing spec") {
-            expect(QuickSpec.current?.name).to(match("currently_executing_spec"))
+            expect(QuickSpec.current.name).to(match("currently_executing_spec"))
         }
 
         let currentSpecDuringSpecSetup = QuickSpec.current
