@@ -14,7 +14,6 @@ public typealias QuickSpecBase = XCTestCase
 #endif
 
 open class QuickSpec: QuickSpecBase {
-#if canImport(Darwin)
     /// Returns the currently executing spec. Use in specs that require XCTestCase
     /// methods, e.g. expectation(description:).
     public private(set) static var current: QuickSpec!
@@ -24,7 +23,6 @@ open class QuickSpec: QuickSpecBase {
             QuickSpec.current = self
         }
     }
-#endif
 
     open func spec() {}
 
@@ -108,9 +106,9 @@ open class QuickSpec: QuickSpecBase {
     }
 #endif
 
-    static var allTestsCache = [String: [(String, (XCTestCase) -> () throws -> Void)]]()
+    static var allTestsCache = [String: [(String, (QuickSpec) -> () throws -> Void)]]()
 
-    public class var allTests: [(String, (XCTestCase) -> () throws -> Void)] {
+    public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
         if let cached = allTestsCache[String(describing: self)] {
             return cached
         }
@@ -118,8 +116,13 @@ open class QuickSpec: QuickSpecBase {
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(self)
-        let result = examples.map { example -> (String, (XCTestCase) -> () throws -> Void) in
-            return (example.name, { _ in { example.run() } })
+        let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
+            return (example.name, { spec in
+                return {
+                    spec.example = example
+                    example.run()
+                }
+            })
         }
         allTestsCache[String(describing: self)] = result
         return result
