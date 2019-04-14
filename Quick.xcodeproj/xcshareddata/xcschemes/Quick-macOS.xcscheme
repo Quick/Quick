@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DAEB6B981943873100289F44"
-               BuildableName = "Quick - macOSTests.xctest"
+               BuildableName = "QuickTests.xctest"
                BlueprintName = "Quick - macOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DA5663E71A4C8D8500193C88"
-               BuildableName = "QuickFocused - macOSTests.xctest"
+               BuildableName = "QuickFocusedTests.xctest"
                BlueprintName = "QuickFocused - macOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
@@ -67,7 +67,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64076CE51D6D7C2000E2B499"
-               BuildableName = "QuickAfterSuite - macOSTests.xctest"
+               BuildableName = "QuickAfterSuiteTests.xctest"
                BlueprintName = "QuickAfterSuite - macOSTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>

@@ -467,8 +467,8 @@
 
 /* Begin PBXFileReference section */
 		1F118CD51BDCA4AB005013A2 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F118CDE1BDCA4AB005013A2 /* Quick - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F118CF01BDCA4BB005013A2 /* QuickFocused - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F118CDE1BDCA4AB005013A2 /* QuickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F118CF01BDCA4BB005013A2 /* QuickFocusedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickFocusedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F118D341BDCA657005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
 		1F118D361BDCA65C005013A2 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Externals/Nimble/build/Debug-appletvos/Nimble.framework"; sourceTree = "<group>"; };
 		34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XCTestCaseProvider.swift; path = ../../QuickTestHelpers/XCTestCaseProvider.swift; sourceTree = "<group>"; };
@@ -487,10 +487,10 @@
 		479C31E11A36156E00DA8718 /* ItTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ItTests+ObjC.m"; sourceTree = "<group>"; };
 		47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BeforeEachTests+ObjC.m"; sourceTree = "<group>"; };
 		5A5D117C19473F2100F6D13D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A5D118619473F2100F6D13D /* Quick - iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64076CF51D6D7C2000E2B499 /* QuickAfterSuite - macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite - macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64076D081D6D7CD600E2B499 /* QuickAfterSuite - iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite - iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5D118619473F2100F6D13D /* QuickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64076CF51D6D7C2000E2B499 /* QuickAfterSuiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickAfterSuiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64076D081D6D7CD600E2B499 /* QuickAfterSuiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickAfterSuiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64076D1A1D6D7CEA00E2B499 /* QuickAfterSuiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickAfterSuiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSuiteTests.swift; sourceTree = "<group>"; };
 		64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterSuiteTests+ObjC.m"; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
@@ -522,7 +522,7 @@
 		DA408BDF19FF5599005DF92A /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		DA408BE019FF5599005DF92A /* ExampleHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleHooks.swift; sourceTree = "<group>"; };
 		DA408BE119FF5599005DF92A /* SuiteHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuiteHooks.swift; sourceTree = "<group>"; };
-		DA5663E81A4C8D8500193C88 /* QuickFocused - macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused - macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5663E81A4C8D8500193C88 /* QuickFocusedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickFocusedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5CBB471EAFA55800297C9E /* CurrentSpecTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSpecTests.swift; sourceTree = "<group>"; };
 		DA6B30171A4DB0D500FFB148 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		DA7AE6F019FC493F000AFDCE /* ItTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItTests.swift; sourceTree = "<group>"; };
@@ -537,7 +537,7 @@
 		DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeSuiteTests.swift; sourceTree = "<group>"; };
 		DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExamplesTests.swift; sourceTree = "<group>"; };
 		DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionalTests_SharedExamplesTests_SharedExamples.swift; sourceTree = "<group>"; };
-		DA9876B21A4C70EB0004AA17 /* QuickFocused - iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused - iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9876B21A4C70EB0004AA17 /* QuickFocusedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickFocusedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9876BF1A4C87200004AA17 /* FocusedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusedTests.swift; sourceTree = "<group>"; };
 		DA9876C01A4C87200004AA17 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAA63EA219F7637300CD0A3B /* PendingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingTests.swift; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
-		DAEB6B991943873100289F44 /* Quick - macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAEB6B991943873100289F44 /* QuickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B9F1943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FocusedTests+ObjC.m"; sourceTree = "<group>"; };
 		DED3036A1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+C99ExtendedIdentifier.swift"; sourceTree = "<group>"; };
@@ -863,17 +863,17 @@
 			isa = PBXGroup;
 			children = (
 				DAEB6B8E1943873100289F44 /* Quick.framework */,
-				DAEB6B991943873100289F44 /* Quick - macOSTests.xctest */,
+				DAEB6B991943873100289F44 /* QuickTests.xctest */,
 				5A5D117C19473F2100F6D13D /* Quick.framework */,
-				5A5D118619473F2100F6D13D /* Quick - iOSTests.xctest */,
-				DA9876B21A4C70EB0004AA17 /* QuickFocused - iOSTests.xctest */,
-				DA5663E81A4C8D8500193C88 /* QuickFocused - macOSTests.xctest */,
+				5A5D118619473F2100F6D13D /* QuickTests.xctest */,
+				DA9876B21A4C70EB0004AA17 /* QuickFocusedTests.xctest */,
+				DA5663E81A4C8D8500193C88 /* QuickFocusedTests.xctest */,
 				1F118CD51BDCA4AB005013A2 /* Quick.framework */,
-				1F118CDE1BDCA4AB005013A2 /* Quick - tvOSTests.xctest */,
-				1F118CF01BDCA4BB005013A2 /* QuickFocused - tvOSTests.xctest */,
-				64076CF51D6D7C2000E2B499 /* QuickAfterSuite - macOSTests.xctest */,
-				64076D081D6D7CD600E2B499 /* QuickAfterSuite - iOSTests.xctest */,
-				64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests.xctest */,
+				1F118CDE1BDCA4AB005013A2 /* QuickTests.xctest */,
+				1F118CF01BDCA4BB005013A2 /* QuickFocusedTests.xctest */,
+				64076CF51D6D7C2000E2B499 /* QuickAfterSuiteTests.xctest */,
+				64076D081D6D7CD600E2B499 /* QuickAfterSuiteTests.xctest */,
+				64076D1A1D6D7CEA00E2B499 /* QuickAfterSuiteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1025,7 +1025,7 @@
 			);
 			name = "Quick - tvOSTests";
 			productName = "Quick-tvOSTests";
-			productReference = 1F118CDE1BDCA4AB005013A2 /* Quick - tvOSTests.xctest */;
+			productReference = 1F118CDE1BDCA4AB005013A2 /* QuickTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		1F118CEF1BDCA4BB005013A2 /* QuickFocused - tvOSTests */ = {
@@ -1043,7 +1043,7 @@
 			);
 			name = "QuickFocused - tvOSTests";
 			productName = "QuickFocused-tvOSTests";
-			productReference = 1F118CF01BDCA4BB005013A2 /* QuickFocused - tvOSTests.xctest */;
+			productReference = 1F118CF01BDCA4BB005013A2 /* QuickFocusedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5A5D117B19473F2100F6D13D /* Quick-iOS */ = {
@@ -1089,7 +1089,7 @@
 			);
 			name = "Quick - iOSTests";
 			productName = "Quick-iOSTests";
-			productReference = 5A5D118619473F2100F6D13D /* Quick - iOSTests.xctest */;
+			productReference = 5A5D118619473F2100F6D13D /* QuickTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		64076CE51D6D7C2000E2B499 /* QuickAfterSuite - macOSTests */ = {
@@ -1107,7 +1107,7 @@
 			);
 			name = "QuickAfterSuite - macOSTests";
 			productName = "QuickFocused-macOSTests";
-			productReference = 64076CF51D6D7C2000E2B499 /* QuickAfterSuite - macOSTests.xctest */;
+			productReference = 64076CF51D6D7C2000E2B499 /* QuickAfterSuiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		64076CF81D6D7CD600E2B499 /* QuickAfterSuite - iOSTests */ = {
@@ -1125,7 +1125,7 @@
 			);
 			name = "QuickAfterSuite - iOSTests";
 			productName = "QuickFocused-iOSTests";
-			productReference = 64076D081D6D7CD600E2B499 /* QuickAfterSuite - iOSTests.xctest */;
+			productReference = 64076D081D6D7CD600E2B499 /* QuickAfterSuiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		64076D0A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests */ = {
@@ -1143,7 +1143,7 @@
 			);
 			name = "QuickAfterSuite - tvOSTests";
 			productName = "QuickFocused-tvOSTests";
-			productReference = 64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests.xctest */;
+			productReference = 64076D1A1D6D7CEA00E2B499 /* QuickAfterSuiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DA5663E71A4C8D8500193C88 /* QuickFocused - macOSTests */ = {
@@ -1161,7 +1161,7 @@
 			);
 			name = "QuickFocused - macOSTests";
 			productName = "QuickFocused-macOSTests";
-			productReference = DA5663E81A4C8D8500193C88 /* QuickFocused - macOSTests.xctest */;
+			productReference = DA5663E81A4C8D8500193C88 /* QuickFocusedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DA9876B11A4C70EB0004AA17 /* QuickFocused - iOSTests */ = {
@@ -1179,7 +1179,7 @@
 			);
 			name = "QuickFocused - iOSTests";
 			productName = "QuickFocused-iOSTests";
-			productReference = DA9876B21A4C70EB0004AA17 /* QuickFocused - iOSTests.xctest */;
+			productReference = DA9876B21A4C70EB0004AA17 /* QuickFocusedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		DAEB6B8D1943873100289F44 /* Quick-macOS */ = {
@@ -1227,7 +1227,7 @@
 			);
 			name = "Quick - macOSTests";
 			productName = QuickTests;
-			productReference = DAEB6B991943873100289F44 /* Quick - macOSTests.xctest */;
+			productReference = DAEB6B991943873100289F44 /* QuickTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1936,7 +1936,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTests;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1956,7 +1956,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTests;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1978,7 +1978,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickFocusedTests;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -1998,7 +1998,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickFocusedTests;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2100,7 +2100,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2121,7 +2121,7 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2147,7 +2147,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickAfterSuiteTests;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2167,7 +2167,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickAfterSuiteTests;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
@@ -2191,7 +2191,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickAfterSuiteTests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2212,7 +2212,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickAfterSuiteTests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2233,7 +2233,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickAfterSuiteTests;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -2253,7 +2253,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickAfterSuiteTests;
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2294,7 +2294,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickFocusedTests;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2314,7 +2314,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickFocusedTests;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
@@ -2338,7 +2338,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickFocusedTests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2359,7 +2359,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickFocusedTests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2567,7 +2567,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTests;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2587,7 +2587,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuickTests;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
