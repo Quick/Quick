@@ -7,7 +7,6 @@
 #endif
 
 #import "QCKSpecRunner.h"
-#import "XCTestObservationCenter+QCKSuspendObservation.h"
 
 @interface XCTest (Redeclaration)
 - (XCTestRun *)run;
@@ -16,11 +15,11 @@
 XCTestRun * _Nullable qck_runSuite(XCTestSuite * _Nonnull suite) {
     [World sharedWorld].isRunningAdditionalSuites = YES;
 
-    __block XCTestRun *result = nil;
-    [[XCTestObservationCenter sharedTestObservationCenter] qck_suspendObservationForBlock:^{
-        [suite runTest];
-        result = suite.testRun;
-    }];
+    XCTestRun *result = [[XCTestObservationCenter sharedTestObservationCenter]
+                         qck_suspendObservationForBlock:^XCTestRun * _Nullable{
+                             [suite runTest];
+                             return suite.testRun;
+                         }];
     return result;
 }
 

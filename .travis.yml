@@ -1,3 +1,7 @@
+branches:
+  only:
+    - master
+
 language: generic
 matrix:
   include:
