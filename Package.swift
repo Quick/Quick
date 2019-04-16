@@ -22,7 +22,9 @@ let package = Package(
                     "QuickAfterSuiteTests/AfterSuiteTests+ObjC.m",
                     "QuickFocusedTests/FocusedTests+ObjC.m",
                     "QuickTests/FunctionalTests/ObjC",
-                    "QuickTests/Helpers",
+                    "QuickTests/Helpers/QCKSpecRunner.h",
+                    "QuickTests/Helpers/QCKSpecRunner.m",
+                    "QuickTests/Helpers/QuickTestsBridgingHeader.h",
                     "QuickTests/QuickConfigurationTests.m",
                 ]
             ),

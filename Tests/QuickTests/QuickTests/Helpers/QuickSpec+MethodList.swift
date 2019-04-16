@@ -1,3 +1,4 @@
+#if canImport(Darwin) && !SWIFT_PACKAGE
 import Foundation
 import Quick
 
@@ -20,3 +21,4 @@ extension QuickSpec {
         return allSelectors
     }
 }
+#endif

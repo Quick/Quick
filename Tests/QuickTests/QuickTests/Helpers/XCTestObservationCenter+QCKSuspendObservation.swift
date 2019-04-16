@@ -1,3 +1,4 @@
+#if canImport(Darwin) && !SWIFT_PACKAGE
 import Foundation
 import XCTest
 
@@ -43,3 +44,4 @@ extension XCTestObservationCenter {
         return block()
     }
 }
+#endif
