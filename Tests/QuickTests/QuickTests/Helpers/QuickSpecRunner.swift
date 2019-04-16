@@ -3,17 +3,6 @@ import Foundation
 import XCTest
 @testable import Quick
 
-private func qck_runSuite(_ suite: XCTestSuite) -> XCTestRun? {
-    World.sharedWorld.isRunningAdditionalSuites = true
-    defer { World.sharedWorld.isRunningAdditionalSuites = false }
-
-    let result = XCTestObservationCenter.shared.qck_suspendObservation {
-        suite.run()
-        return suite.testRun
-    }
-    return result
-}
-
 /**
  Runs an XCTestSuite instance containing only the given QuickSpec subclass.
  Use this to run QuickSpec subclasses from within a set of unit tests.
@@ -38,13 +27,20 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
  */
 @discardableResult
 func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
+    World.sharedWorld.isRunningAdditionalSuites = true
+    defer { World.sharedWorld.isRunningAdditionalSuites = false }
+
     let suite = XCTestSuite(name: "MySpecs")
     for specClass in specClasses {
         let test = XCTestSuite(forTestCaseClass: specClass)
         suite.addTest(test)
     }
 
-    return qck_runSuite(suite)
+    let result = XCTestObservationCenter.shared.qck_suspendObservation {
+        suite.run()
+        return suite.testRun
+    }
+    return result
 }
 
 @objc(QCKSpecRunner)
