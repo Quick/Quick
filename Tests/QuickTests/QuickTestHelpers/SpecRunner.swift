@@ -9,6 +9,7 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
 @discardableResult
 func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
     Quick.World.sharedWorld.isRunningAdditionalSuites = true
+    defer { Quick.World.sharedWorld.isRunningAdditionalSuites = false }
 
     var executionCount: UInt = 0
     var hadUnexpectedFailure = false
