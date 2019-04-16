@@ -5,6 +5,7 @@ import XCTest
 
 private func qck_runSuite(_ suite: XCTestSuite) -> XCTestRun? {
     World.sharedWorld.isRunningAdditionalSuites = true
+    defer { World.sharedWorld.isRunningAdditionalSuites = false }
 
     let result = XCTestObservationCenter.shared.qck_suspendObservation {
         suite.run()
@@ -14,7 +15,7 @@ private func qck_runSuite(_ suite: XCTestSuite) -> XCTestRun? {
 }
 
 /**
- Runs an XCTestSuite instance containing only the given XCTestCase subclass.
+ Runs an XCTestSuite instance containing only the given QuickSpec subclass.
  Use this to run QuickSpec subclasses from within a set of unit tests.
 
  Due to implicit dependencies in _XCTFailureHandler, this function raises an
@@ -24,20 +25,19 @@ private func qck_runSuite(_ suite: XCTestSuite) -> XCTestRun? {
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpec(_ specClass: XCTest.Type) -> XCTestRun? {
-    let suite = XCTestSuite(forTestCaseClass: specClass)
-    return qck_runSuite(suite)
+func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
+    return qck_runSpecs([specClass])
 }
 
 /**
- Runs an XCTestSuite instance containing the given XCTestCase subclasses, in the order provided.
+ Runs an XCTestSuite instance containing the given QuickSpec subclasses, in the order provided.
  See the documentation for `qck_runSpec` for more details.
 
  @param specClasses An array of QuickSpec classes, in the order they should be run.
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpecs(_ specClasses: [XCTest.Type]) -> XCTestRun? {
+func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
     let suite = XCTestSuite(name: "MySpecs")
     for specClass in specClasses {
         let test = XCTestSuite(forTestCaseClass: specClass)
@@ -50,11 +50,11 @@ func qck_runSpecs(_ specClasses: [XCTest.Type]) -> XCTestRun? {
 @objc(QCKSpecRunner)
 @objcMembers
 class QuickSpecRunner: NSObject {
-    static func runSpec(_ specClass: XCTest.Type) -> XCTestRun? {
+    static func runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
         return qck_runSpec(specClass)
     }
 
-    static func runSpecs(_ specClasses: [XCTest.Type]) -> XCTestRun? {
+    static func runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
         return qck_runSpecs(specClasses)
     }
 }
