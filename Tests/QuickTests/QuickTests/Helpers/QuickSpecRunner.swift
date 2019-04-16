@@ -1,3 +1,4 @@
+#if canImport(Darwin) && !SWIFT_PACKAGE
 import Foundation
 import XCTest
 @testable import Quick
@@ -57,3 +58,4 @@ class QuickSpecRunner: NSObject {
         return qck_runSpecs(specClasses)
     }
 }
+#endif
