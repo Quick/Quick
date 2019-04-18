@@ -56,7 +56,7 @@ extension World {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 
-#if canImport(Darwin) && !SWIFT_PACKAGE
+#if canImport(Darwin)
     @objc(beforeEachWithMetadata:)
     internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendBefore(closure)
@@ -74,7 +74,7 @@ extension World {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 
-#if canImport(Darwin) && !SWIFT_PACKAGE
+#if canImport(Darwin)
     @objc(afterEachWithMetadata:)
     internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
         currentExampleGroup.hooks.appendAfter(closure)

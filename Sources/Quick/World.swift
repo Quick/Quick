@@ -12,7 +12,7 @@ public typealias SharedExampleContext = () -> [String: Any]
 */
 public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
 
-#if canImport(Darwin) && !SWIFT_PACKAGE
+#if canImport(Darwin)
 @objcMembers
 internal class _WorldBase: NSObject {}
 #else
