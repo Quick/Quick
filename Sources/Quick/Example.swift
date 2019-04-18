@@ -3,7 +3,7 @@ import Foundation
 private var numberOfExamplesRun = 0
 private var numberOfIncludedExamples = 0
 
-#if canImport(Darwin) && !SWIFT_PACKAGE
+#if canImport(Darwin)
 @objcMembers
 public class _ExampleBase: NSObject {}
 #else
