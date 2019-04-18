@@ -59,7 +59,7 @@ open class QuickSpec: QuickSpecBase {
         if !world.isConfigurationFinalized {
             // Perform all configurations (ensures that shared examples have been discovered)
             world.configure { configuration in
-                qck_enumerateSubclasses(QuickConfiguration.self) { configurationClass in
+                QuickConfiguration.enumerateSubclasses { configurationClass in
                     configurationClass.configure(configuration)
                 }
             }

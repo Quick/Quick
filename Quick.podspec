@@ -26,7 +26,6 @@ Pod::Spec.new do |s|
   ]
 
   s.exclude_files = [
-    'Sources/Quick/Configuration/QuickConfiguration.swift',
     'Sources/Quick/QuickSpec.swift',
     'Sources/Quick/QuickMain.swift',
   ]
