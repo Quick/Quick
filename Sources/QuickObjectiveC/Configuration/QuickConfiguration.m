@@ -35,19 +35,12 @@
 + (void)initialize {
     // Only enumerate over the subclasses of QuickConfiguration, not any of its subclasses.
     if ([self class] == [QuickConfiguration class]) {
-
-        // Only enumerate over subclasses once, even if +[QuickConfiguration initialize]
-        // were to be called several times. This is necessary because +[QuickSpec initialize]
-        // manually calls +[QuickConfiguration initialize].
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            [QuickConfiguration enumerateSubclasses:^(Class _Nonnull __unsafe_unretained klass) {
-                [[World sharedWorld] configure:^(Configuration *configuration) {
-                    [klass configure:configuration];
-                }];
+        [QuickConfiguration enumerateSubclasses:^(Class _Nonnull __unsafe_unretained klass) {
+            [[World sharedWorld] configure:^(Configuration *configuration) {
+                [klass configure:configuration];
             }];
-            [[World sharedWorld] finalizeConfiguration];
-        });
+        }];
+        [[World sharedWorld] finalizeConfiguration];
     }
 }
 

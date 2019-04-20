@@ -26,7 +26,7 @@ static QuickSpec *currentSpec = nil;
  included an expectation outside of a "it", "describe", or "context" block.
  */
 + (void)initialize {
-    [QuickConfiguration initialize];
+    [QuickConfiguration class];
 
     World *world = [World sharedWorld];
     [world performWithCurrentExampleGroup:[world rootExampleGroupForSpecClass:self] closure:^{
