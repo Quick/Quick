@@ -132,9 +132,9 @@ open class QuickSpec: QuickSpecBase {
         let world = World.sharedWorld
         let rootExampleGroup = world.rootExampleGroupForSpecClass(self)
         if rootExampleGroup.examples.isEmpty {
-            world.currentExampleGroup =  rootExampleGroup
-            self.init().spec()
-            world.currentExampleGroup = nil
+            world.performWithCurrentExampleGroup(rootExampleGroup) {
+                self.init().spec()
+            }
         }
     }
 }
