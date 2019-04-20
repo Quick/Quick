@@ -71,13 +71,13 @@ open class QuickSpec: QuickSpecBase {
         _ = allTests
     }
 
-    override open class func _qck_testMethodSelectors() -> [_QuickSelectorWrapper] {
+    override open class func _qck_testMethodSelectors() -> [String] {
         let examples = World.sharedWorld.examples(self)
 
         var selectorNames = Set<String>()
         return examples.map { example in
             let selector = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
-            return _QuickSelectorWrapper(selector: selector)
+            return NSStringFromSelector(selector)
         }
     }
 
