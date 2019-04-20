@@ -72,7 +72,7 @@ open class QuickSpec: QuickSpecBase {
     }
 
     override open class func _qck_testMethodSelectors() -> [String] {
-        let examples = World.sharedWorld.examples(self)
+        let examples = World.sharedWorld.examples(forSpecClass: self)
 
         var selectorNames = Set<String>()
         return examples.map { example in
@@ -115,7 +115,7 @@ open class QuickSpec: QuickSpecBase {
 
         gatherExamplesIfNeeded()
 
-        let examples = World.sharedWorld.examples(self)
+        let examples = World.sharedWorld.examples(forSpecClass: self)
         let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
             return (example.name, { spec in
                 return {
@@ -130,7 +130,7 @@ open class QuickSpec: QuickSpecBase {
 
     internal static func gatherExamplesIfNeeded() {
         let world = World.sharedWorld
-        let rootExampleGroup = world.rootExampleGroupForSpecClass(self)
+        let rootExampleGroup = world.rootExampleGroup(forSpecClass: self)
         if rootExampleGroup.examples.isEmpty {
             world.performWithCurrentExampleGroup(rootExampleGroup) {
                 self.init().spec()
