@@ -11,7 +11,7 @@ matrix:
       language: ruby
       script:
         - PODSPEC=1 ./script/travis-script-macos
-        # - bundle exec danger
+        - bundle exec danger
     - &xcode
       name: Xcode 10.1 / Swift 4.2
       os: osx
