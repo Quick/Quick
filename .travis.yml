@@ -5,9 +5,18 @@ branches:
 language: generic
 matrix:
   include:
+    - name: CocoaPods Lint & Danger
+      os: osx
+      osx_image: xcode10.1
+      language: ruby
+      script:
+        - PODSPEC=1 ./script/travis-script-macos
+        - bundle exec danger
     - &xcode
       name: Xcode 10.1 / Swift 4.2
       os: osx
+      env:
+        - XCODE_ACTION="build-for-testing test-without-building"
       osx_image: xcode10.1
       script:
         - PLATFORM=macos ./script/travis-script-macos

@@ -7,7 +7,7 @@ def has_xcodebuild
 end
 
 def xcode_action
-  "build-for-testing"
+  ENV["XCODE_ACTION"] || "build test"
 end
 
 namespace "podspec" do
@@ -24,26 +24,22 @@ end
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
-    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
-    run "xctool -workspace Quick.xcworkspace -scheme Quick-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' run-tests"
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'platform=iOS Simulator,name=iPhone 6' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
   end
 
   desc "Run unit tests for all tvOS targets"
   task :tvos do |t|
-    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
-    run "xctool -workspace Quick.xcworkspace -scheme Quick-tvOS -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV' run-tests"
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
   end
 
   desc "Run unit tests for all macOS targets"
   task :macos do |t|
     run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
-    run "xctool -workspace Quick.xcworkspace -scheme Quick-macOS run-tests"
   end
 
   desc "Run unit tests for all macOS targets using static linking"
   task :macos_static do |t|
     run "set -o pipefail && MACH_O_TYPE=staticlib xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
-    run "xctool -workspace Quick.xcworkspace -scheme Quick-macOS run-tests"
   end
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
