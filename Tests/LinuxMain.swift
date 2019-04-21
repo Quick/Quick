@@ -19,6 +19,8 @@ Quick.QCKMain([
     FunctionalTests_SharedExamples_BeforeEachSpec.self,
     FunctionalTests_SharedExamples_ContextSpec.self,
     FunctionalTests_SharedExamples_Spec.self,
+    FunctionalTests_SubclassSpec.self,
+    FunctionalTests_SubclassOfSubclassWithStructPropertySpec.self,
     _FunctionalTests_FocusedSpec_Focused.self,
     _FunctionalTests_FocusedSpec_Unfocused.self
 ],

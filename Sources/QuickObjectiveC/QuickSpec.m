@@ -18,15 +18,13 @@ static QuickSpec *currentSpec = nil;
 #pragma mark - XCTestCase Overrides
 
 /**
- The runtime sends initialize to each class in a program just before the class, or any class
- that inherits from it, is sent its first message from within the program. QuickSpec hooks into
- this event to compile the example groups for this spec subclass.
+ QuickSpec hooks into this event to compile the example groups for this spec subclass.
 
  If an exception occurs when compiling the examples, report it to the user. Chances are they
  included an expectation outside of a "it", "describe", or "context" block.
  */
-+ (void)initialize {
-    [QuickConfiguration initialize];
++ (XCTestSuite *)defaultTestSuite {
+    [QuickConfiguration class];
 
     World *world = [World sharedWorld];
     [world performWithCurrentExampleGroup:[world rootExampleGroupForSpecClass:self] closure:^{
@@ -48,6 +46,8 @@ static QuickSpec *currentSpec = nil;
         }
         [self testInvocations];
     }];
+
+    return [super defaultTestSuite];
 }
 
 /**
