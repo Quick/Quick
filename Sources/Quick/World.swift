@@ -46,6 +46,8 @@ final internal class World: _WorldBase {
 
     internal var currentExampleMetadata: ExampleMetadata?
 
+    internal var numberOfExamplesRun = 0
+
     /**
         A flag that indicates whether additional test suites are being run
         within this test suite. This is only true within the context of Quick
@@ -167,6 +169,8 @@ final internal class World: _WorldBase {
     internal var includedExampleCount: Int {
         return includedExamples.count
     }
+
+    internal lazy var cachedIncludedExampleCount: Int = self.includedExampleCount
 
     internal var beforesCurrentlyExecuting: Bool {
         let suiteBeforesExecuting = suiteHooks.phase == .beforesExecuting
