@@ -18,7 +18,7 @@ extension QuickConfiguration {
     ///
     /// - parameter block: A block that takes a QuickConfiguration.Type.
     ///                    This block will be executed once for each subclass of QuickConfiguration.
-    @objc static func enumerateSubclasses(_ block: (QuickConfiguration.Type) -> Void) {
+    private static func enumerateSubclasses(_ block: (QuickConfiguration.Type) -> Void) {
         var classesCount = objc_getClassList(nil, 0)
 
         guard classesCount > 0 else {
@@ -40,6 +40,18 @@ extension QuickConfiguration {
             // swiftlint:disable:next force_cast
             block(subclass as! QuickConfiguration.Type)
         }
+    }
+
+    @objc static func configureSubclassesIfNeeded(world: World) {
+        if world.isConfigurationFinalized { return }
+
+        // Perform all configurations (ensures that shared examples have been discovered)
+        world.configure { configuration in
+            enumerateSubclasses { configurationClass in
+                configurationClass.configure(configuration)
+            }
+        }
+        world.finalizeConfiguration()
     }
 }
 

@@ -54,17 +54,7 @@ open class QuickSpec: QuickSpecBase {
     }
 
     private static func configureDefaultTestSuite() {
-        let world = World.sharedWorld
-
-        if !world.isConfigurationFinalized {
-            // Perform all configurations (ensures that shared examples have been discovered)
-            world.configure { configuration in
-                QuickConfiguration.enumerateSubclasses { configurationClass in
-                    configurationClass.configure(configuration)
-                }
-            }
-            world.finalizeConfiguration()
-        }
+        QuickConfiguration.configureSubclassesIfNeeded(world: World.sharedWorld)
 
         // Let's gather examples for each spec classes. This has the same effect
         // as listing spec classes in `LinuxMain.swift` on Linux.

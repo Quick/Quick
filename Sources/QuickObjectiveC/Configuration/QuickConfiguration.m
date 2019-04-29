@@ -35,12 +35,8 @@
 + (void)initialize {
     // Only enumerate over the subclasses of QuickConfiguration, not any of its subclasses.
     if ([self class] == [QuickConfiguration class]) {
-        [QuickConfiguration enumerateSubclasses:^(Class _Nonnull __unsafe_unretained klass) {
-            [[World sharedWorld] configure:^(Configuration *configuration) {
-                [klass configure:configuration];
-            }];
-        }];
-        [[World sharedWorld] finalizeConfiguration];
+        World *world = [World sharedWorld];
+        [self configureSubclassesIfNeededWithWorld:world];
     }
 }
 
