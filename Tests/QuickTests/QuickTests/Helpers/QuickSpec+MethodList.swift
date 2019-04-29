@@ -1,4 +1,4 @@
-#if canImport(Darwin) && !SWIFT_PACKAGE
+#if canImport(Darwin)
 import Foundation
 import Quick
 
