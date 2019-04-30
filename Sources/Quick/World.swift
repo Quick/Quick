@@ -74,7 +74,16 @@ final internal class World: _WorldBase {
 
     private override init() {}
 
-    static let sharedWorld = World()
+    static private(set) var sharedWorld = World()
+
+    static func anotherWorld<T>(block: (World) -> T) -> T {
+        let previous = sharedWorld
+        defer { sharedWorld = previous }
+
+        let newWorld = World()
+        sharedWorld = newWorld
+        return block(newWorld)
+    }
 
     // MARK: Public Interface
 

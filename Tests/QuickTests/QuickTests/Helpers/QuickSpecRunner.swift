@@ -27,20 +27,25 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
  */
 @discardableResult
 func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
-    World.sharedWorld.isRunningAdditionalSuites = true
-    defer { World.sharedWorld.isRunningAdditionalSuites = false }
+    return World.anotherWorld { world -> XCTestRun? in
+        QuickConfiguration.configureSubclassesIfNeeded(world: world)
 
-    let suite = XCTestSuite(name: "MySpecs")
-    for specClass in specClasses {
-        let test = XCTestSuite(forTestCaseClass: specClass)
-        suite.addTest(test)
-    }
+        world.isRunningAdditionalSuites = true
+        defer { world.isRunningAdditionalSuites = false }
 
-    let result = XCTestObservationCenter.shared.qck_suspendObservation {
-        suite.run()
-        return suite.testRun
+        let suite = XCTestSuite(name: "MySpecs")
+        for specClass in specClasses {
+            let test = specClass.defaultTestSuite
+            suite.addTest(test)
+        }
+
+        let result = XCTestObservationCenter.shared.qck_suspendObservation {
+            suite.run()
+            return suite.testRun
+        }
+        return result
+
     }
-    return result
 }
 
 @objc(QCKSpecRunner)
