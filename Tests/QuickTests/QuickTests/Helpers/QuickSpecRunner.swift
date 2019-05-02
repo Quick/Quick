@@ -1,7 +1,16 @@
-#if canImport(Darwin) && !SWIFT_PACKAGE
 import Foundation
 import XCTest
 @testable import Quick
+import Nimble
+
+#if canImport(Darwin) && !SWIFT_PACKAGE
+typealias TestRun = XCTestRun
+#else
+struct TestRun {
+    var executionCount: UInt
+    var hasSucceeded: Bool
+}
+#endif
 
 /**
  Runs an XCTestSuite instance containing only the given QuickSpec subclass.
@@ -14,7 +23,7 @@ import XCTest
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
+func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
     return qck_runSpecs([specClass])
 }
 
@@ -26,7 +35,8 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
+func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
+    #if canImport(Darwin) && !SWIFT_PACKAGE
     return World.anotherWorld { world -> XCTestRun? in
         QuickConfiguration.configureSubclassesIfNeeded(world: world)
 
@@ -46,16 +56,40 @@ func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
         return result
 
     }
+    #else
+    let world = Quick.World.sharedWorld
+    world.isRunningAdditionalSuites = true
+    defer { world.isRunningAdditionalSuites = false }
+
+    var executionCount: UInt = 0
+    var hadUnexpectedFailure = false
+
+    let fails = gatherFailingExpectations(silently: true) {
+        for specClass in specClasses {
+            for (_, test) in specClass.allTests {
+                do {
+                    try test(specClass.init())()
+                } catch {
+                    hadUnexpectedFailure = true
+                }
+                executionCount += 1
+            }
+        }
+    }
+
+    return TestRun(executionCount: executionCount, hasSucceeded: fails.isEmpty && !hadUnexpectedFailure)
+    #endif
 }
 
+#if canImport(Darwin) && !SWIFT_PACKAGE
 @objc(QCKSpecRunner)
 @objcMembers
 class QuickSpecRunner: NSObject {
-    static func runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
+    static func runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
         return qck_runSpec(specClass)
     }
 
-    static func runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
+    static func runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
         return qck_runSpecs(specClasses)
     }
 }
