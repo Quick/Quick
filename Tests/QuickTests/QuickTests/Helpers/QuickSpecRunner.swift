@@ -3,7 +3,7 @@ import XCTest
 @testable import Quick
 import Nimble
 
-#if canImport(Darwin) && !SWIFT_PACKAGE
+#if canImport(Darwin)
 typealias TestRun = XCTestRun
 #else
 struct TestRun {
@@ -36,7 +36,7 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
  */
 @discardableResult
 func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
-    #if canImport(Darwin) && !SWIFT_PACKAGE
+    #if canImport(Darwin)
     return World.anotherWorld { world -> XCTestRun? in
         QuickConfiguration.configureSubclassesIfNeeded(world: world)
 

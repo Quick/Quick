@@ -48,17 +48,13 @@ open class QuickSpec: QuickSpecBase {
     /// discovered powered by Objective-C runtime), so we needed the alternative
     /// way.
     override open class var defaultTestSuite: XCTestSuite {
-        configureDefaultTestSuite()
-
-        return super.defaultTestSuite
-    }
-
-    private static func configureDefaultTestSuite() {
         QuickConfiguration.configureSubclassesIfNeeded(world: World.sharedWorld)
 
         // Let's gather examples for each spec classes. This has the same effect
         // as listing spec classes in `LinuxMain.swift` on Linux.
-        _ = allTests
+        gatherExamplesIfNeeded()
+
+        return super.defaultTestSuite
     }
 
     override open class func _qck_testMethodSelectors() -> [String] {
@@ -96,6 +92,7 @@ open class QuickSpec: QuickSpecBase {
     }
 #endif
 
+#if !canImport(Darwin)
     static var allTestsCache = [String: [(String, (QuickSpec) -> () throws -> Void)]]()
 
     public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
@@ -117,14 +114,17 @@ open class QuickSpec: QuickSpecBase {
         allTestsCache[String(describing: self)] = result
         return result
     }
+#endif
 
     internal static func gatherExamplesIfNeeded() {
         let world = World.sharedWorld
         let rootExampleGroup = world.rootExampleGroup(forSpecClass: self)
-        if rootExampleGroup.examples.isEmpty {
-            world.performWithCurrentExampleGroup(rootExampleGroup) {
-                self.init().spec()
-            }
+        guard rootExampleGroup.examples.isEmpty else {
+            return
+        }
+
+        world.performWithCurrentExampleGroup(rootExampleGroup) {
+            self.init().spec()
         }
     }
 }

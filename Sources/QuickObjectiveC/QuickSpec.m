@@ -27,7 +27,8 @@ static QuickSpec *currentSpec = nil;
     [QuickConfiguration class];
 
     World *world = [World sharedWorld];
-    [world performWithCurrentExampleGroup:[world rootExampleGroupForSpecClass:self] closure:^{
+    ExampleGroup *rootExampleGroup = [world rootExampleGroupForSpecClass:self];
+    [world performWithCurrentExampleGroup:rootExampleGroup closure:^{
         QuickSpec *spec = [self new];
 
         @try {
