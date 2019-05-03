@@ -1,4 +1,3 @@
-#if canImport(Darwin)
 import Foundation
 import XCTest
 
@@ -7,10 +6,16 @@ import XCTest
 /// suspend the observer added by Nimble, otherwise it is unable to properly
 /// report assertion failures.
 private func isFromApple(observer: XCTestObservation) -> Bool {
+    #if canImport(Darwin)
     guard let bundleIdentifier = Bundle(for: type(of: observer)).bundleIdentifier else {
         return false
     }
     return bundleIdentifier.contains("com.apple.dt.XCTest")
+    #else
+    // https://github.com/apple/swift-corelibs-xctest/blob/swift-5.0.1-RELEASE/Sources/XCTest/Public/XCTestMain.swift#L91-L93
+    return String(describing: observer) == "XCTest.PrintObserver"
+        || String(describing: type(of: observer)) == "PrintObserver"
+    #endif
 }
 
 /**
@@ -27,8 +32,21 @@ extension XCTestObservationCenter {
      Without this method, tests fail with the message: "Timed out waiting for IDE
      barrier message to complete" or "Unexpected TestSuiteDidStart".
      */
-    @objc func qck_suspendObservation(forBlock block: () -> XCTestRun?) -> XCTestRun? {
+    func qck_suspendObservation<T>(forBlock block: () -> T) -> T {
+        #if canImport(Darwin)
         let originalObservers = value(forKey: "observers") as? [XCTestObservation] ?? []
+        #else
+        let originalObservers: [XCTestObservation] = {
+            // https://github.com/apple/swift-corelibs-xctest/blob/swift-5.0.1-RELEASE/Sources/XCTest/Public/XCTestObservationCenter.swift#L20-L22
+            let mirror = Mirror(reflecting: self)
+            let observers = mirror.descendant("observers") as? Set<AnyHashable> ?? []
+            return observers.compactMap { hashable in
+                // https://github.com/apple/swift-corelibs-xctest/blob/swift-5.0.1-RELEASE/Sources/XCTest/Private/ObjectWrapper.swift#L16-L17
+                let wrapperMirror = Mirror(reflecting: hashable.base)
+                return wrapperMirror.descendant("object") as? XCTestObservation
+            }
+        }()
+        #endif
         var suspendedObservers = [XCTestObservation]()
 
         for observer in originalObservers where isFromApple(observer: observer) {
@@ -44,4 +62,3 @@ extension XCTestObservationCenter {
         return block()
     }
 }
-#endif
