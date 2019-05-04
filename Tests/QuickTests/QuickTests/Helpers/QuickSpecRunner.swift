@@ -49,7 +49,7 @@ func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
             suite.addTest(test)
         }
 
-        let result = XCTestObservationCenter.shared.qck_suspendObservation {
+        let result: XCTestRun? = XCTestObservationCenter.shared.qck_suspendObservation {
             suite.run()
             return suite.testRun
         }
@@ -61,23 +61,26 @@ func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
     world.isRunningAdditionalSuites = true
     defer { world.isRunningAdditionalSuites = false }
 
-    var executionCount: UInt = 0
-    var hadUnexpectedFailure = false
+    let result: TestRun = XCTestObservationCenter.shared.qck_suspendObservation {
+        var executionCount: UInt = 0
+        var hadUnexpectedFailure = false
 
-    let fails = gatherFailingExpectations(silently: true) {
-        for specClass in specClasses {
-            for (_, test) in specClass.allTests {
-                do {
-                    try test(specClass.init())()
-                } catch {
-                    hadUnexpectedFailure = true
+        let fails = gatherFailingExpectations(silently: true) {
+            for specClass in specClasses {
+                for (_, test) in specClass.allTests {
+                    do {
+                        try test(specClass.init())()
+                    } catch {
+                        hadUnexpectedFailure = true
+                    }
+                    executionCount += 1
                 }
-                executionCount += 1
             }
         }
-    }
 
-    return TestRun(executionCount: executionCount, hasSucceeded: fails.isEmpty && !hadUnexpectedFailure)
+        return TestRun(executionCount: executionCount, hasSucceeded: fails.isEmpty && !hadUnexpectedFailure)
+    }
+    return result
     #endif
 }
 
