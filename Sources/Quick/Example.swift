@@ -85,7 +85,17 @@ final public class Example: _ExampleBase {
             try closure()
         } catch {
             let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
-            QuickSpec.current.recordFailure(withDescription: description, inFile: callsite.file, atLine: Int(callsite.line), expected: false)
+            #if SWIFT_PACKAGE
+            let file = callsite.file.description
+            #else
+            let file = callsite.file
+            #endif
+            QuickSpec.current.recordFailure(
+                withDescription: description,
+                inFile: file,
+                atLine: Int(callsite.line),
+                expected: false
+            )
         }
 
         group!.phase = .aftersExecuting
