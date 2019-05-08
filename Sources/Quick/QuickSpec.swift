@@ -93,13 +93,7 @@ open class QuickSpec: QuickSpecBase {
 #endif
 
 #if !canImport(Darwin)
-    static var allTestsCache = [String: [(String, (QuickSpec) -> () throws -> Void)]]()
-
     public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
-        if let cached = allTestsCache[String(describing: self)] {
-            return cached
-        }
-
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(forSpecClass: self)
@@ -111,7 +105,6 @@ open class QuickSpec: QuickSpecBase {
                 }
             })
         }
-        allTestsCache[String(describing: self)] = result
         return result
     }
 #endif

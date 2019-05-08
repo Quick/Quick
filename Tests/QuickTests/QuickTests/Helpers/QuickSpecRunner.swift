@@ -36,52 +36,47 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
  */
 @discardableResult
 func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
-    #if canImport(Darwin)
-    return World.anotherWorld { world -> XCTestRun? in
+    return World.anotherWorld { world -> TestRun? in
         QuickConfiguration.configureSubclassesIfNeeded(world: world)
 
         world.isRunningAdditionalSuites = true
         defer { world.isRunningAdditionalSuites = false }
 
+        #if canImport(Darwin)
         let suite = XCTestSuite(name: "MySpecs")
         for specClass in specClasses {
             let test = specClass.defaultTestSuite
             suite.addTest(test)
         }
 
-        let result: XCTestRun? = XCTestObservationCenter.shared.qck_suspendObservation {
+        let result: TestRun? = XCTestObservationCenter.shared.qck_suspendObservation {
             suite.run()
             return suite.testRun
         }
         return result
+        #else
+        let result: TestRun = XCTestObservationCenter.shared.qck_suspendObservation {
+            var executionCount: UInt = 0
+            var hadUnexpectedFailure = false
 
-    }
-    #else
-    let world = Quick.World.sharedWorld
-    world.isRunningAdditionalSuites = true
-    defer { world.isRunningAdditionalSuites = false }
-
-    let result: TestRun = XCTestObservationCenter.shared.qck_suspendObservation {
-        var executionCount: UInt = 0
-        var hadUnexpectedFailure = false
-
-        let fails = gatherFailingExpectations(silently: true) {
-            for specClass in specClasses {
-                for (_, test) in specClass.allTests {
-                    do {
-                        try test(specClass.init())()
-                    } catch {
-                        hadUnexpectedFailure = true
+            let fails = gatherFailingExpectations(silently: true) {
+                for specClass in specClasses {
+                    for (_, test) in specClass.allTests {
+                        do {
+                            try test(specClass.init())()
+                        } catch {
+                            hadUnexpectedFailure = true
+                        }
+                        executionCount += 1
                     }
-                    executionCount += 1
                 }
             }
-        }
 
-        return TestRun(executionCount: executionCount, hasSucceeded: fails.isEmpty && !hadUnexpectedFailure)
+            return TestRun(executionCount: executionCount, hasSucceeded: fails.isEmpty && !hadUnexpectedFailure)
+        }
+        return result
+        #endif
     }
-    return result
-    #endif
 }
 
 #if canImport(Darwin) && !SWIFT_PACKAGE
