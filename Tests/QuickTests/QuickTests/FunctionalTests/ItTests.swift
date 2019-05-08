@@ -139,7 +139,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
-            ("testImplicitErrorHandling", testAllExamplesAreExecuted),
+            ("testImplicitErrorHandling", testImplicitErrorHandling),
         ]
     }
 
@@ -167,8 +167,11 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testImplicitErrorHandling() {
-        let result = qck_runSpec(FunctionalTests_ImplicitErrorItSpec.self)
-        XCTAssertEqual(result?.executionCount, 2)
-        XCTAssertEqual(result?.totalFailureCount, 1)
+        let result = qck_runSpec(FunctionalTests_ImplicitErrorItSpec.self)!
+        XCTAssertFalse(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 2)
+        XCTAssertEqual(result.failureCount, 0)
+        XCTAssertEqual(result.unexpectedExceptionCount, 1)
+        XCTAssertEqual(result.totalFailureCount, 1)
     }
 }
