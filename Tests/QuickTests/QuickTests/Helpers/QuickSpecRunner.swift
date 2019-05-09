@@ -1,14 +1,32 @@
 import Foundation
 import XCTest
 @testable import Quick
-import Nimble
 
-#if canImport(Darwin)
-typealias TestRun = XCTestRun
-#else
-struct TestRun {
-    var executionCount: UInt
-    var hasSucceeded: Bool
+#if !canImport(Darwin)
+// Based on https://github.com/apple/swift-corelibs-xctest/blob/51afda0bc782b2d6a2f00fbdca58943faf6ccecd/Sources/XCTest/Private/XCTestCaseSuite.swift#L14-L42
+private final class TestCaseSuite: XCTestSuite {
+    let specClass: QuickSpec.Type
+
+    init(specClass: QuickSpec.Type) {
+        self.specClass = specClass
+        super.init(name: String(describing: specClass))
+
+        for (testName, testClosure) in specClass.allTests {
+            let testCase = specClass.init(name: testName, testClosure: { testCase in
+                // swiftlint:disable:next force_cast
+                try testClosure(testCase as! QuickSpec)()
+            })
+            addTest(testCase)
+        }
+    }
+
+    override func setUp() {
+        specClass.setUp()
+    }
+
+    override func tearDown() {
+        specClass.tearDown()
+    }
 }
 #endif
 
@@ -23,7 +41,7 @@ struct TestRun {
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
+func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
     return qck_runSpecs([specClass])
 }
 
@@ -35,47 +53,28 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
-    return World.anotherWorld { world -> TestRun? in
+func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
+    return World.anotherWorld { world -> XCTestRun? in
         QuickConfiguration.configureSubclassesIfNeeded(world: world)
 
         world.isRunningAdditionalSuites = true
         defer { world.isRunningAdditionalSuites = false }
 
-        #if canImport(Darwin)
         let suite = XCTestSuite(name: "MySpecs")
         for specClass in specClasses {
+            #if canImport(Darwin)
             let test = specClass.defaultTestSuite
+            #else
+            let test = TestCaseSuite(specClass: specClass)
+            #endif
             suite.addTest(test)
         }
 
-        let result: TestRun? = XCTestObservationCenter.shared.qck_suspendObservation {
+        let result: XCTestRun? = XCTestObservationCenter.shared.qck_suspendObservation {
             suite.run()
             return suite.testRun
         }
         return result
-        #else
-        let result: TestRun = XCTestObservationCenter.shared.qck_suspendObservation {
-            var executionCount: UInt = 0
-            var hadUnexpectedFailure = false
-
-            let fails = gatherFailingExpectations(silently: true) {
-                for specClass in specClasses {
-                    for (_, test) in specClass.allTests {
-                        do {
-                            try test(specClass.init())()
-                        } catch {
-                            hadUnexpectedFailure = true
-                        }
-                        executionCount += 1
-                    }
-                }
-            }
-
-            return TestRun(executionCount: executionCount, hasSucceeded: fails.isEmpty && !hadUnexpectedFailure)
-        }
-        return result
-        #endif
     }
 }
 
@@ -83,11 +82,11 @@ func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
 @objc(QCKSpecRunner)
 @objcMembers
 class QuickSpecRunner: NSObject {
-    static func runSpec(_ specClass: QuickSpec.Type) -> TestRun? {
+    static func runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
         return qck_runSpec(specClass)
     }
 
-    static func runSpecs(_ specClasses: [QuickSpec.Type]) -> TestRun? {
+    static func runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
         return qck_runSpecs(specClasses)
     }
 }
