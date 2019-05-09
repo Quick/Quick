@@ -72,6 +72,10 @@ final public class Example: _ExampleBase {
             world.currentExampleMetadata = nil
         }
 
+        for beforePool in group!.autoreleasepoolBefores {
+            beforePool(exampleMetadata)
+        }
+
         autoreleasepool {
             world.exampleHooks.executeBefores(exampleMetadata)
             group!.phase = .beforesExecuting

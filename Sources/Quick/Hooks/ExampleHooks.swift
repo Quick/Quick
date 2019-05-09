@@ -4,6 +4,7 @@
 final internal class ExampleHooks {
     internal var befores: [BeforeExampleWithMetadataClosure] = []
     internal var afters: [AfterExampleWithMetadataClosure] = []
+    internal var autoreleasepoolBefores: [BeforeExampleWithMetadataClosure] = []
     internal var phase: HooksPhase = .nothingExecuted
 
     internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
@@ -20,6 +21,14 @@ final internal class ExampleHooks {
 
     internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
         afters.append { (_: ExampleMetadata) in closure() }
+    }
+
+    internal func appendBeforeAutoreleasepool(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+        autoreleasepoolBefores.append(closure)
+    }
+
+    internal func appendBeforeAutoreleasepool(_ closure: @escaping BeforeExampleClosure) {
+        autoreleasepoolBefores.append { (_: ExampleMetadata) in closure() }
     }
 
     internal func executeBefores(_ exampleMetadata: ExampleMetadata) {

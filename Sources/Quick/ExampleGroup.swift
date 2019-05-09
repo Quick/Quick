@@ -70,6 +70,14 @@ final public class ExampleGroup: NSObject {
         return closures
     }
 
+    internal var autoreleasepoolBefores: [BeforeExampleWithMetadataClosure] {
+        var closures = Array(hooks.autoreleasepoolBefores.reversed())
+        walkUp { group in
+            closures.append(contentsOf: Array(group.hooks.autoreleasepoolBefores.reversed()))
+        }
+        return Array(closures.reversed())
+    }
+
     internal func walkDownExamples(_ callback: (_ example: Example) -> Void) {
         for example in childExamples {
             callback(example)

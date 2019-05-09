@@ -97,6 +97,27 @@ public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
 }
 
 /**
+    Defines a closure to be run prior the creation of the autorelease pool for each
+    example in the current example group. This closure is not run for pending
+    or otherwise disabled examples. An example group may contain an unlimited
+    number of beforeEachAutoreleasepool. They'll be run in the order they're defined,
+    but you shouldn't rely on that behavior.
+
+     - parameter closure: The closure to be run prior to each example.
+ */
+public func beforeEachAutoreleasepool(_ closure: @escaping BeforeExampleClosure) {
+    World.sharedWorld.beforeEachAutoreleasepool(closure)
+}
+
+/**
+    Identical to Quick.DSL.beforeEachAutoreleasepool, except the closure is provided with
+    metadata on the example that the closure is being run prior to.
+ */
+public func beforeEachAutoreleasepool(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+    World.sharedWorld.beforeEachAutoreleasepool(closure: closure)
+}
+
+/**
     Defines a closure to be run after each example in the current example
     group. This closure is not run for pending or otherwise disabled examples.
     An example group may contain an unlimited number of afterEach. They'll be

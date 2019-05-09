@@ -67,6 +67,24 @@ extension World {
     }
 #endif
 
+    internal func beforeEachAutoreleasepool(_ closure: @escaping BeforeExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'beforeEachAutoreleasepool' cannot be used inside '\(currentPhase)', 'beforeEachAutoreleasepool' may only be used inside 'context' or 'describe'. ")
+        }
+        currentExampleGroup.hooks.appendBeforeAutoreleasepool(closure)
+    }
+
+#if canImport(Darwin)
+    @objc(beforeEachAutoreleasepoolWithMetadata:)
+    internal func beforeEachAutoreleasepool(closure: @escaping BeforeExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendBeforeAutoreleasepool(closure)
+    }
+#else
+    internal func beforeEachAutoreleasepool(closure: @escaping BeforeExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendBeforeAutoreleasepool(closure)
+    }
+#endif
+
     internal func afterEach(_ closure: @escaping AfterExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'. ")
