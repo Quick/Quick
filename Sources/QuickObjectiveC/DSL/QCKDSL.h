@@ -59,8 +59,12 @@ QUICK_EXPORT void qck_describe(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_context(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_beforeEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
+QUICK_EXPORT void qck_beforeEachAutoreleasepool(QCKDSLEmptyBlock closure);
+QUICK_EXPORT void qck_beforeEachAutoreleasepoolWithMetadata(QCKDSLExampleMetadataBlock closure);
 QUICK_EXPORT void qck_afterEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
+QUICK_EXPORT void qck_afterEachAutoreleasepool(QCKDSLEmptyBlock closure);
+QUICK_EXPORT void qck_afterEachAutoreleasepoolWithMetadata(QCKDSLExampleMetadataBlock closure);
 QUICK_EXPORT void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
@@ -150,6 +154,27 @@ static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
 }
 
 /**
+    Defines a closure to be run prior the creation of the autorelease pool for each
+    example in the current example group. This closure is not run for pending
+    or otherwise disabled examples. An example group may contain an unlimited
+    number of beforeEachAutoreleasepool. They'll be run in the order they're defined,
+    but you shouldn't rely on that behavior.
+
+    @param closure The closure to be run prior to each example.
+ */
+static inline void beforeEachAutoreleasepool(QCKDSLEmptyBlock closure) {
+    qck_beforeEachAutoreleasepool(closure);
+}
+
+/**
+    Identical to QCKDSL.beforeEachAutoreleasepool, except the closure is provided with
+    metadata on the example that the closure is being run prior to.
+ */
+static inline void beforeEachAutoreleasepoolWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    qck_beforeEachAutoreleasepoolWithMetadata(closure);
+}
+
+/**
     Defines a closure to be run after each example in the current example
     group. This closure is not run for pending or otherwise disabled examples.
     An example group may contain an unlimited number of afterEach. They'll be
@@ -167,6 +192,26 @@ static inline void afterEach(QCKDSLEmptyBlock closure) {
  */
 static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
+}
+
+/**
+    Defines a closure to be run after each example's autoreleasepool in the current
+    example group is released. This closure is not run for pending or otherwise
+    disabled examples. An example group may contain an unlimited number of afterEach.
+    They'll be run in the order they're defined, but you shouldn't rely on that behavior.
+
+    @param closure The closure to be run after each example.
+ */
+static inline void afterEachAutoreleasepool(QCKDSLEmptyBlock closure) {
+    qck_afterEachAutoreleasepool(closure);
+}
+
+/**
+    Identical to QCKDSL.afterEachAutoreleasepool, except the closure is provided with
+    metadata on the example that the closure is being run after.
+ */
+static inline void afterEachAutoreleasepoolWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    qck_afterEachAutoreleasepoolWithMetadata(closure);
 }
 
 /**

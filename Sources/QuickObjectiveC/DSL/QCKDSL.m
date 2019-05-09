@@ -34,12 +34,28 @@ void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     [[World sharedWorld] beforeEachWithMetadata:closure];
 }
 
+void qck_beforeEachAutoreleasepool(QCKDSLEmptyBlock closure) {
+    [[World sharedWorld] beforeEachAutoreleasepool:closure];
+}
+
+void qck_beforeEachAutoreleasepoolWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    [[World sharedWorld] beforeEachAutoreleasepoolWithMetadata:closure];
+}
+
 void qck_afterEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] afterEach:closure];
 }
 
 void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     [[World sharedWorld] afterEachWithMetadata:closure];
+}
+
+void qck_afterEachAutoreleasepool(QCKDSLEmptyBlock closure) {
+    [[World sharedWorld] afterEachAutoreleasepool:closure];
+}
+
+void qck_afterEachAutoreleasepoolWithMetadata(QCKDSLExampleMetadataBlock closure) {
+    [[World sharedWorld] afterEachAutoreleasepoolWithMetadata:closure];
 }
 
 QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line) {

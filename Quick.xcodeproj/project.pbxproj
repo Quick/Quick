@@ -24,6 +24,9 @@
 		1B77503622844254002C6143 /* AutoreleasepoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77503522844254002C6143 /* AutoreleasepoolTests.swift */; };
 		1B77503722844254002C6143 /* AutoreleasepoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77503522844254002C6143 /* AutoreleasepoolTests.swift */; };
 		1B77503822844254002C6143 /* AutoreleasepoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77503522844254002C6143 /* AutoreleasepoolTests.swift */; };
+		1BDDC5FC228461500060F8E2 /* AutoreleasepoolTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDDC5FA228461380060F8E2 /* AutoreleasepoolTests+ObjC.m */; };
+		1BDDC5FD228461510060F8E2 /* AutoreleasepoolTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDDC5FA228461380060F8E2 /* AutoreleasepoolTests+ObjC.m */; };
+		1BDDC5FE228461520060F8E2 /* AutoreleasepoolTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDDC5FA228461380060F8E2 /* AutoreleasepoolTests+ObjC.m */; };
 		1F118CDF1BDCA4AB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
 		1F118CF51BDCA4BB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
 		1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
@@ -482,6 +485,7 @@
 
 /* Begin PBXFileReference section */
 		1B77503522844254002C6143 /* AutoreleasepoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoreleasepoolTests.swift; sourceTree = "<group>"; };
+		1BDDC5FA228461380060F8E2 /* AutoreleasepoolTests+ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AutoreleasepoolTests+ObjC.m"; sourceTree = "<group>"; };
 		1F118CD51BDCA4AB005013A2 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F118CDE1BDCA4AB005013A2 /* Quick - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F118CF01BDCA4BB005013A2 /* QuickFocused - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -736,6 +740,7 @@
 			isa = PBXGroup;
 			children = (
 				470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */,
+				1BDDC5FA228461380060F8E2 /* AutoreleasepoolTests+ObjC.m */,
 				47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */,
 				47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */,
 				DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */,
@@ -1501,6 +1506,7 @@
 				1F118D181BDCA556005013A2 /* AfterEachTests.swift in Sources */,
 				CD582D772264C137008F7CE6 /* QuickSpecRunner.swift in Sources */,
 				1F118D1B1BDCA556005013A2 /* PendingTests+ObjC.m in Sources */,
+				1BDDC5FE228461520060F8E2 /* AutoreleasepoolTests+ObjC.m in Sources */,
 				34C586051C4ABD4100D4F057 /* XCTestCaseProvider.swift in Sources */,
 				8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */,
 				1F118D111BDCA556005013A2 /* Configuration+AfterEachTests.swift in Sources */,
@@ -1589,6 +1595,7 @@
 				479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */,
 				CD582D752264C137008F7CE6 /* QuickSpecRunner.swift in Sources */,
 				34C586031C4ABD4000D4F057 /* XCTestCaseProvider.swift in Sources */,
+				1BDDC5FD228461510060F8E2 /* AutoreleasepoolTests+ObjC.m in Sources */,
 				8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */,
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
@@ -1717,6 +1724,7 @@
 				479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */,
 				CD582D732264C137008F7CE6 /* QuickSpecRunner.swift in Sources */,
 				34C586011C4ABD3F00D4F057 /* XCTestCaseProvider.swift in Sources */,
+				1BDDC5FC228461500060F8E2 /* AutoreleasepoolTests+ObjC.m in Sources */,
 				8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */,
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
