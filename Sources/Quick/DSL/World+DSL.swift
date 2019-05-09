@@ -103,6 +103,24 @@ extension World {
     }
 #endif
 
+    internal func afterEachAutoreleasepool(_ closure: @escaping AfterExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'afterEachAutoreleasepool' cannot be used inside '\(currentPhase)', 'afterEachAutoreleasepool' may only be used inside 'context' or 'describe'. ")
+        }
+        currentExampleGroup.hooks.appendAfterAutoreleasepool(closure)
+    }
+
+#if canImport(Darwin)
+    @objc(afterEachAutoreleasepoolWithMetadata:)
+    internal func afterEachAutoreleasepool(closure: @escaping AfterExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendAfterAutoreleasepool(closure)
+    }
+#else
+    internal func afterEachAutoreleasepool(closure: @escaping AfterExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendAfterAutoreleasepool(closure)
+    }
+#endif
+
     @nonobjc
     internal func it(_ description: String, flags: FilterFlags, file: FileString, line: UInt, closure: @escaping () -> Void) {
         if beforesCurrentlyExecuting {

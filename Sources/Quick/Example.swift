@@ -94,6 +94,10 @@ final public class Example: _ExampleBase {
             world.exampleHooks.executeAfters(exampleMetadata)
         }
 
+        for afterPool in group!.autoreleasepoolAfters {
+            afterPool(exampleMetadata)
+        }
+
         world.numberOfExamplesRun += 1
 
         if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {

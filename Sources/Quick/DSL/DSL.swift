@@ -138,6 +138,26 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
 }
 
 /**
+     Defines a closure to be run after each example's autoreleasepool in the current
+     example group is released. This closure is not run for pending or otherwise
+     disabled examples. An example group may contain an unlimited number of afterEach.
+     They'll be run in the order they're defined, but you shouldn't rely on that behavior.
+
+     - parameter closure: The closure to be run after each example.
+ */
+public func afterEachAutoreleasepool(_ closure: @escaping AfterExampleClosure) {
+    World.sharedWorld.afterEachAutoreleasepool(closure)
+}
+
+/**
+ Identical to Quick.DSL.afterEach, except the closure is provided with
+ metadata on the example that the closure is being run after.
+ */
+public func afterEachAutoreleasepool(_ closure: @escaping AfterExampleWithMetadataClosure) {
+    World.sharedWorld.afterEachAutoreleasepool(closure: closure)
+}
+
+/**
     Defines an example. Examples use assertions to demonstrate how code should
     behave. These are like "tests" in XCTest.
 
