@@ -48,9 +48,9 @@ matrix:
       env:
         - SWIFT_VERSION=5.0
     - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift Trunk Development
+      name: SwiftPM / Linux / Swift 5.1 Development
       env:
-        - SWIFT_VERSION=DEVELOPMENT-SNAPSHOT-2019-04-04-a
+        - SWIFT_VERSION=5.1-DEVELOPMENT-SNAPSHOT-2019-05-28-a
 
 notifications:
   email: false
