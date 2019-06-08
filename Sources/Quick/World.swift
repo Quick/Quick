@@ -159,7 +159,7 @@ final internal class World: _WorldBase {
         let spec = rootExampleGroup(forSpecClass: specClass).examples.filter { included.contains($0) }
         // 3. Remove all excluded examples.
         return spec.filter { example in
-            !self.configuration.exclusionFilters.reduce(false) { $0 || $1(example) }
+            !self.configuration.exclusionFilters.contains { $0(example) }
         }
     }
 
@@ -223,7 +223,7 @@ final internal class World: _WorldBase {
     private var includedExamples: [Example] {
         let all = allExamples
         let included = all.filter { example in
-            return self.configuration.inclusionFilters.reduce(false) { $0 || $1(example) }
+            return self.configuration.inclusionFilters.contains { $0(example) }
         }
 
         if included.isEmpty && configuration.runAllWhenEverythingFiltered {
