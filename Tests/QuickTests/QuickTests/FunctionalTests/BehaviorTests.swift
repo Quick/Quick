@@ -9,6 +9,12 @@ class FunctionalTests_BehaviorTests_Spec: QuickSpec {
     }
 }
 
+class FunctionalTests_ItBehaviorTests_Spec: QuickSpec {
+    override func spec() {
+        it(FunctionalTests_BehaviorTests_Behavior3.self) { () }
+    }
+}
+
 class FunctionalTests_BehaviorTests_ContextSpec: QuickSpec {
     override func spec() {
         itBehavesLike(FunctionalTests_BehaviorTests_Behavior.self) {
@@ -42,7 +48,9 @@ final class BehaviorTests: XCTestCase, XCTestCaseProvider {
             ("testBehaviorPassContextToExamples",
              testBehaviorPassContextToExamples),
             ("testBehaviorExecutesThreeExamples",
-             testBehaviorExecutesThreeExamples)
+             testBehaviorExecutesThreeExamples),
+             ("testItOverloadWithBehavior",
+              testItOverloadWithBehavior)
         ]
     }
 
@@ -55,5 +63,11 @@ final class BehaviorTests: XCTestCase, XCTestCaseProvider {
     func testBehaviorPassContextToExamples() {
         let result = qck_runSpec(FunctionalTests_BehaviorTests_ContextSpec.self)
         XCTAssert(result!.hasSucceeded)
+    }
+
+    func testItOverloadWithBehavior() {
+        let result = qck_runSpec(FunctionalTests_ItBehaviorTests_Spec.self)
+        XCTAssert(result!.hasSucceeded)
+        XCTAssertEqual(result!.executionCount, 3)
     }
 }

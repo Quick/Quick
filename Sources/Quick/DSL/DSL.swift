@@ -132,6 +132,22 @@ public func it(_ description: String, flags: FilterFlags = [:], file: FileString
 }
 
 /**
+    Inserts the examples defined using a `Behavior` into the current example group.
+    The shared examples are executed at this location, as if they were written out manually.
+    This function also passes a strongly-typed context that can be evaluated to give the shared examples extra information on the subject of the example.
+
+    - parameter behavior: The type of `Behavior` class defining the example group to be executed.
+    - parameter context: A closure that, when evaluated, returns an instance of `Behavior`'s context type to provide its example group with extra information on the subject of the example.
+    - parameter flags: A mapping of string keys to booleans that can be used to filter examples or example groups.
+    Empty by default.
+    - parameter file: The absolute path to the file containing the current example group. A sensible default is provided.
+    - parameter line: The line containing the current example group. A sensible default is provided.
+ */
+public func it<C>(_ behavior: Quick.Behavior<C>.Type, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, context: @escaping () -> C) {
+    itBehavesLike(behavior, flags: flags, file: file, line: line, context: context)
+}
+
+/**
     Inserts the examples defined using a `sharedExamples` function into the current example group.
     The shared examples are executed at this location, as if they were written out manually.
 
@@ -219,6 +235,14 @@ public func xit(_ description: String, flags: FilterFlags = [:], file: FileStrin
 }
 
 /**
+ Use this to quickly mark an `it` closure as pending.
+ This disables the example group defined by this behavior and ensures the code within is never run.
+ */
+public func xit<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, context: @escaping () -> C) {
+    World.sharedWorld.xitBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
+}
+
+/**
     Use this to quickly mark an `itBehavesLike` closure as pending.
     This disables the example group defined by this behavior and ensures the code within is never run.
 */
@@ -247,6 +271,13 @@ public func fcontext(_ description: String, flags: FilterFlags = [:], closure: (
 */
 public func fit(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () -> Void) {
     World.sharedWorld.fit(description, flags: flags, file: file, line: line, closure: closure)
+}
+
+/**
+ Use this to quickly focus on `it` closure.
+ */
+public func fit<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, context: @escaping () -> C) {
+    World.sharedWorld.fitBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
 }
 
 /**
