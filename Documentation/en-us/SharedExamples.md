@@ -1,4 +1,4 @@
-# Reducing Test Boilerplate with Shared Assertions
+# Reducing Test Boilerplate
 
 In some cases, the same set of specifications apply to multiple objects.
 
@@ -6,6 +6,72 @@ For example, consider a protocol called `Edible`. When a dolphin
 eats something `Edible`, the dolphin becomes happy. `Mackerel` and
 `Cod` are both edible. Quick allows you to easily test that a dolphin is
 happy to eat either one.
+
+```swift
+protocol Edible { }
+
+class Dolphin {
+  private(set) var isHappy: Bool
+
+  init(happy: Bool) {
+    self.isHappy = happy
+  }
+
+  /// Makes Doplhin happy
+  func eat(_ edible: Edible) {
+    isHappy = true
+  }
+}
+
+class Mackerel: Edible { }
+class Cod: Edible { }
+```
+
+## Behavior<Context>
+
+The code below defines a `Behavior` object with a set of reusable
+examples. It also specifies that both mackerel and cod behave 
+like `SomethingEdible`:
+
+```swift
+class SomethingEdible: Behavior<Edible> {
+  override class func spec(_ context: @escaping () -> Edible) {
+    var edible: Edible!
+    beforeEach {
+      edible = context()
+    }
+    it("makes dolphins happy") {
+      let dolphin = Dolphin(happy: false)
+      dolphin.eat(edible)
+      expect(dolphin.isHappy).to(beTruthy())
+    }
+  }
+}
+
+class MackerelSpec: QuickSpec {
+  override func spec() {
+    var mackerel: Mackerel!
+    beforeEach {
+      mackerel = Mackerel()
+    }
+    itBehavesLike(SomethingEdible.self) { mackerel }
+  }
+}
+
+class CodSpec: QuickSpec {
+  override func spec() {
+    var cod: Cod!
+    beforeEach {
+      cod = Cod()
+    }
+    itBehavesLike(SomethingEdible.self) { cod }
+  }
+}
+```
+
+Because `Behavior<Context>` uses Swift generics, it's not possible to use it from Objective-C.
+
+ ## Shared Assertions
 
 The example below defines a set of  "shared examples" for "something edible",
 and specifies that both mackerel and cod behave like "something edible":
