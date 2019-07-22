@@ -18,3 +18,11 @@ class FunctionalTests_BehaviorTests_Behavior2: Behavior<Void> {
         it("passes three times") { expect(true).to(beTruthy()) }
     }
 }
+
+class FunctionalTests_BehaviorTests_Behavior3: Behavior<Void> {
+    override static func spec(_ aContext: @escaping () -> Void) {
+        it("passes once") { expect(true).to(beTruthy()) }
+        it("passes twice") { expect(true).to(beTruthy()) }
+        it("passes three times") { expect(true).to(beTruthy()) }
+    }
+}
