@@ -219,7 +219,7 @@ public func xit(_ description: String, flags: FilterFlags = [:], file: FileStrin
 }
 
 /**
-    Use this to quicklu mark an `itBehavesLike` closure as pending.
+    Use this to quickly mark an `itBehavesLike` closure as pending.
     This disables the example group defined by this behavior and ensures the code within is never run.
 */
 public func xitBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, context: @escaping () -> C) {
