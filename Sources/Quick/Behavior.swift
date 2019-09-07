@@ -4,7 +4,11 @@
 
 open class Behavior<Context> {
 
-    public static var name: String { return String(describing: self) }
+    /**
+     Override this variable if you want to provide custom name for this example group.
+    */
+    open class var name: String { return String(describing: self) }
+
     /**
      override this method in your behavior to define a set of reusable examples.
 
