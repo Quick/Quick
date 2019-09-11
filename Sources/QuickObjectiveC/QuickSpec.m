@@ -84,7 +84,7 @@ static QuickSpec *currentSpec = nil;
     [QuickConfiguration class];
     World *world = [World sharedWorld];
 
-    NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
+    NSArray *examples = [world examplesForSpecClass:[self class]];
     if (examples.count > 0) {
         // The examples fot this subclass have been already built. Skipping.
         return;
