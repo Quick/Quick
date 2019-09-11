@@ -7,7 +7,7 @@ def has_xcodebuild
 end
 
 def xcode_action
-  ENV["XCODE_ACTION"] || "build test"
+  ENV["XCODE_ACTION"] || "build-for-testing test-without-building"
 end
 
 namespace "podspec" do
