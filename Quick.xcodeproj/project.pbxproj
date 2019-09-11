@@ -119,6 +119,9 @@
 		64076D231D6D7E6B00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
 		64076D261D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		64076D271D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
+		79FE27DF22DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
+		79FE27E022DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
+		79FE27E122DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
 		7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
 		7B44ADC01C5444940007AF2E /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
@@ -505,6 +508,7 @@
 		64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSuiteTests.swift; sourceTree = "<group>"; };
 		64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterSuiteTests+ObjC.m"; sourceTree = "<group>"; };
+		79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSpec_SelectedTests.swift; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
@@ -806,6 +810,7 @@
 				CE4A57891EA5DC270063C0D4 /* BehaviorTests.swift */,
 				DA5CBB471EAFA55800297C9E /* CurrentSpecTests.swift */,
 				CDB2A956226B714400C0F199 /* SubclassOfSubclassWithStructPropertyTests.swift */,
+				79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -1468,6 +1473,7 @@
 			files = (
 				1F118D381BDCA6E1005013A2 /* Configuration+BeforeEachTests.swift in Sources */,
 				1F118D121BDCA556005013A2 /* ItTests.swift in Sources */,
+				79FE27E122DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */,
 				1F118D1C1BDCA556005013A2 /* BeforeSuiteTests.swift in Sources */,
 				1F118D1D1BDCA556005013A2 /* BeforeSuiteTests+ObjC.m in Sources */,
 				1F118D0E1BDCA547005013A2 /* QCKSpecRunner.m in Sources */,
@@ -1555,6 +1561,7 @@
 			files = (
 				DAE714F819FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAA7C0D719F777EB0093D1D9 /* BeforeEachTests.swift in Sources */,
+				79FE27E022DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */,
 				DA8F919A19F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA8940F11B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
 				4728253C1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m in Sources */,
@@ -1682,6 +1689,7 @@
 			files = (
 				DAE714F719FF6812005905B8 /* Configuration+AfterEach.swift in Sources */,
 				DAB067E919F7801C00F970AC /* BeforeEachTests.swift in Sources */,
+				79FE27DF22DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */,
 				DA8F919919F31680006F6675 /* QCKSpecRunner.m in Sources */,
 				DA8940F01B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
 				4728253B1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m in Sources */,
