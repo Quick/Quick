@@ -33,7 +33,7 @@ class QuickSpec_SelectedTests: XCTestCase {
     func testQuickSpecTestInvocationsForAllTests() {
         // Simulate running 'All tests'
         let invocations = SimulareAllTests_TestCase.testInvocations
-        expect(invocations.count) == 3
+        expect(invocations).to(haveCount(3))
 
         let selectorNames = invocations.map { $0.selector.description }
         expect(selectorNames).to(contain(["example1", "example2", "example3"]))
@@ -42,7 +42,7 @@ class QuickSpec_SelectedTests: XCTestCase {
     func testQuickSpecTestInvocationsForSelectedTests() {
         // Simulate running 'Selected tests'
         let invocations = SimulateSelectedTests_TestCase.testInvocations
-        expect(invocations.count) == 3
+        expect(invocations).to(haveCount(3))
 
         let selectorNames = invocations.map { $0.selector.description }
         expect(selectorNames).to(contain(["example1", "example2", "example3"]))
