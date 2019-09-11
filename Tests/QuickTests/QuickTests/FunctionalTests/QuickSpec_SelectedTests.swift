@@ -1,4 +1,4 @@
-#if canImport(Darwin)
+#if canImport(Darwin) && !SWIFT_PACKAGE
 
 import Nimble
 import Quick
