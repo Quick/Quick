@@ -28,7 +28,7 @@ class SimulareAllTests_TestCase: QuickSpec {
     }
 }
 
-class QuickSpec_SelectedTests: QuickSpec {
+class QuickSpec_SelectedTests: XCTestCase {
 
     func testQuickSpecTestInvocationsForAllTests() {
         // Simulate running 'All tests'
