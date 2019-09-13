@@ -84,13 +84,13 @@ static QuickSpec *currentSpec = nil;
     [QuickConfiguration class];
     World *world = [World sharedWorld];
 
-    NSArray *examples = [world examplesForSpecClass:[self class]];
-    if (examples.count > 0) {
+    ExampleGroup *rootExampleGroup = [world rootExampleGroupForSpecClass:self];
+
+    if ([rootExampleGroup examples].count > 0) {
         // The examples fot this subclass have been already built. Skipping.
         return;
     }
 
-    ExampleGroup *rootExampleGroup = [world rootExampleGroupForSpecClass:self];
     [world performWithCurrentExampleGroup:rootExampleGroup closure:^{
         QuickSpec *spec = [self new];
 
