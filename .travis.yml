@@ -7,7 +7,7 @@ matrix:
   include:
     - name: CocoaPods Lint & Danger
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.3
       language: ruby
       script:
         - PODSPEC=1 ./script/travis-script-macos
