@@ -29,7 +29,7 @@ testing, consider reading them in the order they're introduced below:
   Read this to learn more about testing code that uses the AppKit and UIKit frameworks.
 - **[Testing with test doubles](TestUsingTestDoubles.md)**:
   Read this to learn what test doubles are and how to use them.
-- **[Reducing Test Boilerplate with Behaviors and Shared Assertions](SharedExamples.md)**:
+- **[Reducing Test Boilerplate with Shared Assertions](SharedExamples.md)**:
   Read this to learn how to share sets of assertions among your tests.
 - **[Configuring How Quick Behaves](ConfiguringQuick.md)**:
   Read this to learn how you can change how Quick behaves when running your test suite.

@@ -1,4 +1,4 @@
-# Reducing Test Boilerplate
+# Reducing Test Boilerplate with Shared Assertions
 
 In some cases, the same set of specifications apply to multiple objects.
 
@@ -40,6 +40,7 @@ class SomethingEdible: Behavior<Edible> {
     beforeEach {
       edible = context()
     }
+
     it("makes dolphins happy") {
       let dolphin = Dolphin(happy: false)
       dolphin.eat(edible)
@@ -54,6 +55,7 @@ class MackerelSpec: QuickSpec {
     beforeEach {
       mackerel = Mackerel()
     }
+
     itBehavesLike(SomethingEdible.self) { mackerel }
   }
 }
@@ -64,6 +66,7 @@ class CodSpec: QuickSpec {
     beforeEach {
       cod = Cod()
     }
+
     itBehavesLike(SomethingEdible.self) { cod }
   }
 }
@@ -71,7 +74,7 @@ class CodSpec: QuickSpec {
 
 Because `Behavior<Context>` uses Swift generics, it's not possible to use it from Objective-C.
 
- ## Shared Assertions
+## Shared Examples
 
 The example below defines a set of  "shared examples" for "something edible",
 and specifies that both mackerel and cod behave like "something edible":
