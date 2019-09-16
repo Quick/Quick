@@ -110,6 +110,17 @@ final internal class World: _WorldBase {
     }
 
     /**
+     Returns `true` if the root example group for the given spec class has been already initialized.
+
+     - parameter specClass: The QuickSpec class for which is checked for the existing root example group.
+     - returns: Whether the root example group for the given spec class has been already initialized or not.
+     */
+    internal func isRootExampleGroupInitialized(forSpecClass specClass: QuickSpec.Type) -> Bool {
+        let name = String(describing: specClass)
+        return specs.keys.contains(name)
+    }
+
+    /**
         Returns an internally constructed root example group for the given
         QuickSpec class.
 
