@@ -100,7 +100,6 @@ final public class ExampleGroup: NSObject {
 
         return result
     }
-    #endif
 
     internal var name: String? {
         guard let parent = parent else {
