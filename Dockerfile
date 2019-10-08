@@ -12,6 +12,4 @@ RUN apt-get -q update && \
     lsb-release \
     rake
 
-RUN ./script/travis-install-linux
-
 ENTRYPOINT ./script/travis-script-linux
