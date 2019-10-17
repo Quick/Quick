@@ -88,13 +88,13 @@ final public class Configuration: NSObject {
         given closure before each example that is run. The closure
         passed to this method is executed before each example Quick runs,
         globally across the test suite. You may call this method multiple
-        times across mulitple +[QuickConfigure configure:] methods in order
+        times across multiple +[QuickConfigure configure:] methods in order
         to define several closures to run before each example.
 
         Note that, since Quick makes no guarantee as to the order in which
         +[QuickConfiguration configure:] methods are evaluated, there is no
         guarantee as to the order in which beforeEach closures are evaluated
-        either. Mulitple beforeEach defined on a single configuration, however,
+        either. Multiple beforeEach defined on a single configuration, however,
         will be executed in the order they're defined.
 
         - parameter closure: The closure to be executed before each example
@@ -125,13 +125,13 @@ final public class Configuration: NSObject {
         given closure after each example that is run. The closure
         passed to this method is executed after each example Quick runs,
         globally across the test suite. You may call this method multiple
-        times across mulitple +[QuickConfigure configure:] methods in order
+        times across multiple +[QuickConfigure configure:] methods in order
         to define several closures to run after each example.
 
         Note that, since Quick makes no guarantee as to the order in which
         +[QuickConfiguration configure:] methods are evaluated, there is no
         guarantee as to the order in which afterEach closures are evaluated
-        either. Mulitple afterEach defined on a single configuration, however,
+        either. Multiple afterEach defined on a single configuration, however,
         will be executed in the order they're defined.
 
         - parameter closure: The closure to be executed before each example
