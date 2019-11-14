@@ -39,7 +39,8 @@
     FooSpec/testBar
  */
 + (nullable instancetype)qck_hooked_testSuiteForTestCaseWithName:(nonnull NSString *)name {
-    return [QuickTestSuite selectedTestSuiteForTestCaseWithName:name];
+    // If the desired test case is a Quick case, create the suite, otherwise use the non-swizzled version of this method.
+    return [QuickTestSuite selectedTestSuiteForTestCaseWithName:name] ?: [self qck_hooked_testSuiteForTestCaseWithName:name];
 }
 
 @end
