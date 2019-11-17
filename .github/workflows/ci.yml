@@ -11,10 +11,10 @@ on:
 jobs:
   xcode:
     name: Xcode ${{ matrix.xcode }}
-    runs-on: macOS-10.14
+    runs-on: macOS-latest
     strategy:
       matrix:
-        xcode: [10.1, 10.3, 11]
+        xcode: [11, 11.1, 11.2]
     steps:
     - uses: actions/checkout@v1
       with:
@@ -27,10 +27,10 @@ jobs:
 
   swiftpm_darwin:
     name: SwiftPM, Darwin, Xcode ${{ matrix.xcode }}
-    runs-on: macOS-10.14
+    runs-on: macOS-latest
     strategy:
       matrix:
-        xcode: [10.1, 10.3, 11]
+        xcode: [11, 11.1, 11.2]
     steps:
     - uses: actions/checkout@v1
     - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
