@@ -25,7 +25,7 @@ namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
     run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'generic/platform=iOS' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean build | xcpretty"
-    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'platform=iOS Simulator,name=iPhone 6' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-iOS -destination 'platform=iOS Simulator,name=iPhone 8' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
   end
 
   desc "Run unit tests for all tvOS targets"
