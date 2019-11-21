@@ -12,6 +12,28 @@ matrix:
       script:
         - PODSPEC=1 ./script/travis-script-macos
         - bundle exec danger
+    - &xcode
+      name: Xcode 10.1 / Swift 4.2
+      os: osx
+      env:
+        - XCODE_ACTION="build-for-testing test-without-building"
+      osx_image: xcode10.1
+      script:
+        - PLATFORM=macos ./script/travis-script-macos
+        - PLATFORM=macos_static ./script/travis-script-macos
+        - PLATFORM=ios ./script/travis-script-macos
+        - PLATFORM=tvos ./script/travis-script-macos
+    - <<: *xcode
+      name: Xcode 10.3 / Swift 5.0
+      osx_image: xcode10.3
+    - &swiftpm_darwin
+      name: SwiftPM / Darwin / Swift 4.2
+      os: osx
+      osx_image: xcode10.1
+      script: PLATFORM=swiftpm ./script/travis-script-macos
+    - <<: *swiftpm_darwin
+      name: SwiftPM / Darwin / Swift 5.0
+      osx_image: xcode10.3
     - &swiftpm_linux
       name: SwiftPM / Linux / Swift 4.2.4
       os: linux
