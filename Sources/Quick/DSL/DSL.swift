@@ -198,7 +198,7 @@ public func pending(_ description: String, closure: () -> Void) {
     Use this to quickly mark a `describe` closure as pending.
     This disables all examples within the closure.
 */
-public func xdescribe(_ description: String, flags: FilterFlags, closure: () -> Void) {
+public func xdescribe(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
     World.sharedWorld.xdescribe(description, flags: flags, closure: closure)
 }
 
@@ -206,7 +206,7 @@ public func xdescribe(_ description: String, flags: FilterFlags, closure: () -> 
     Use this to quickly mark a `context` closure as pending.
     This disables all examples within the closure.
 */
-public func xcontext(_ description: String, flags: FilterFlags, closure: () -> Void) {
+public func xcontext(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
     xdescribe(description, flags: flags, closure: closure)
 }
 
