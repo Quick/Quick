@@ -38,7 +38,6 @@ matrix:
       name: SwiftPM / Linux / Swift 4.2.4
       os: linux
       sudo: required
-      dist: trusty
       env:
         - SWIFT_VERSION=4.2.4
       install: ./script/travis-install-linux
@@ -48,9 +47,13 @@ matrix:
       env:
         - SWIFT_VERSION=5.0.3
     - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift 5.1 Development
+      name: SwiftPM / Linux / Swift 5.1.4
       env:
-        - SWIFT_VERSION=5.1-DEVELOPMENT-SNAPSHOT-2019-09-09-a
-
+        - SWIFT_VERSION=5.1.4
+    - <<: *swiftpm_linux
+      name: SwiftPM / Linux / Swift 5.2 Development
+      env:
+        - SWIFT_VERSION=5.2-DEVELOPMENT-SNAPSHOT-2020-02-09-a
+  
 notifications:
   email: false
