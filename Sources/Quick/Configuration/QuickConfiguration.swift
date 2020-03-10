@@ -30,7 +30,7 @@ extension QuickConfiguration {
         let classes = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(classesCount))
         defer { free(classes) }
 
-        classesCount = objc_getClassList(AutoreleasingUnsafeMutablePointer(classes), classesCount)
+        _ = objc_getClassList(AutoreleasingUnsafeMutablePointer(classes), classesCount)
 
         var configurationSubclasses: [QuickConfiguration.Type] = []
         for i in 0..<classesCount {
