@@ -6,8 +6,8 @@
 //  ___COPYRIGHT___
 //
 
-@import Nimble
-@import Quick
+@import Nimble;
+@import Quick;
 
 QuickSpecBegin(___FILEBASENAMEASIDENTIFIER___)
 
