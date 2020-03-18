@@ -6,8 +6,8 @@
 //  ___COPYRIGHT___
 //
 
-#import <Quick/Quick.h>
-#import <Nimble/Nimble.h>
+@import Nimble
+@import Quick
 
 QuickSpecBegin(___FILEBASENAMEASIDENTIFIER___)
 
