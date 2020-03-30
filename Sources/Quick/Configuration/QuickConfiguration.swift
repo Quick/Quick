@@ -21,7 +21,7 @@ extension QuickConfiguration {
     ///                    This block will be executed once for each subclass of QuickConfiguration.
     private static func enumerateSubclasses(_ block: (QuickConfiguration.Type) -> Void) {
         #if canImport(Darwin)
-        var classesCount = objc_getClassList(nil, 0)
+        let classesCount = objc_getClassList(nil, 0)
 
         guard classesCount > 0 else {
             return
@@ -30,7 +30,7 @@ extension QuickConfiguration {
         let classes = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(classesCount))
         defer { free(classes) }
 
-        _ = objc_getClassList(AutoreleasingUnsafeMutablePointer(classes), classesCount)
+        objc_getClassList(AutoreleasingUnsafeMutablePointer(classes), classesCount)
 
         var configurationSubclasses: [QuickConfiguration.Type] = []
         for i in 0..<classesCount {
