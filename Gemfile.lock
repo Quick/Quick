@@ -65,8 +65,6 @@ GEM
       no_proxy_fix
       octokit (~> 4.7)
       terminal-table (~> 1)
-    danger-swiftlint (0.2.1)
-      danger
     escape (0.0.4)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
@@ -115,7 +113,6 @@ PLATFORMS
 DEPENDENCIES
   cocoapods (~> 1.7)
   danger
-  danger-swiftlint
 
 BUNDLED WITH
    1.17.3
