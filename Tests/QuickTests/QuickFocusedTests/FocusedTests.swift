@@ -21,9 +21,18 @@ class FunctionalTests_FocusedSpec_Behavior: Behavior<Void> {
 
 // The following `QuickSpec`s will be run in a same test suite with other specs
 // on SwiftPM. We must avoid that the focused flags below affect other specs, so
-// the examples of the two specs must be gathered lastly. That is the reason why
-// the two specs have underscore prefix (and are listed at the bottom of `QCKMain`s
+// the examples of the three specs must be gathered lastly. That is the reason why
+// the three specs have underscore prefix (and are listed at the bottom of `QCKMain`s
 // `specs` array).
+
+// https://github.com/Quick/Quick/issues/886
+class _FunctionalTests_FocusedSpec_0_Unfocused: QuickSpec {
+    override func spec() {
+        it("has an unfocused example that fails, but is never run") {
+            fail()
+        }
+    }
+}
 
 class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
     override func spec() {
@@ -64,6 +73,7 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
 
     func testOnlyFocusedExamplesAreExecuted() {
         let result = qck_runSpecs([
+            _FunctionalTests_FocusedSpec_0_Unfocused.self,
             _FunctionalTests_FocusedSpec_Focused.self,
             _FunctionalTests_FocusedSpec_Unfocused.self
         ])
