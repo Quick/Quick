@@ -13,7 +13,7 @@ final internal class ExampleHooks {
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
-        wrappers.append { exampleMetadata, runExample in
+        wrappers.append { _, runExample in
             closure()
             runExample()
         }
@@ -27,7 +27,7 @@ final internal class ExampleHooks {
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
-        wrappers.prepend { exampleMetadata, runExample in
+        wrappers.prepend { _, runExample in
             runExample()
             closure()
         }

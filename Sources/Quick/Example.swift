@@ -72,7 +72,6 @@ final public class Example: _ExampleBase {
             world.currentExampleMetadata = nil
         }
 
-
         group!.phase = .beforesExecuting
 
         let runExample = {
@@ -82,9 +81,8 @@ final public class Example: _ExampleBase {
         }
 
         let allWrappers = group!.wrappers + world.exampleHooks.wrappers
-        let wrappedExample = allWrappers.reduce(runExample) {
-            closure, wrapper in
-            { wrapper(exampleMetadata, closure) }
+        let wrappedExample = allWrappers.reduce(runExample) { closure, wrapper in
+            return { wrapper(exampleMetadata, closure) }
         }
         wrappedExample()
 
