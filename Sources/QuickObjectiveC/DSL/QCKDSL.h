@@ -49,6 +49,8 @@ typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 typedef void (^QCKDSLEmptyBlock)(void);
 typedef void (^QCKDSLExampleMetadataBlock)(ExampleMetadata *exampleMetadata);
+typedef void (^QCKDSLAroundExampleBlock)(QCKDSLEmptyBlock runExample);
+typedef void (^QCKDSLAroundExampleMetadataBlock)(ExampleMetadata *exampleMetadata, QCKDSLEmptyBlock runExample);
 
 #define QUICK_EXPORT FOUNDATION_EXPORT
 
@@ -61,6 +63,8 @@ QUICK_EXPORT void qck_beforeEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 QUICK_EXPORT void qck_afterEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
+QUICK_EXPORT void qck_aroundEach(QCKDSLAroundExampleBlock closure);
+QUICK_EXPORT void qck_aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure);
 QUICK_EXPORT void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
@@ -167,6 +171,14 @@ static inline void afterEach(QCKDSLEmptyBlock closure) {
  */
 static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
+}
+
+static inline void aroundEach(QCKDSLAroundExampleBlock closure) {
+    qck_aroundEach(closure);
+}
+
+static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
+    qck_aroundEachWithMetadata(closure);
 }
 
 /**
