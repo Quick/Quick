@@ -116,10 +116,47 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     World.sharedWorld.afterEach(closure: closure)
 }
 
+/**
+    Defines a closure to that wraps each example in the current example
+    group. This closure is not run for pending or otherwise disabled examples.
+
+    The closure you pass to aroundEach receives a callback as its argument, which
+    it MUST call exactly one for the example to run properly:
+
+        aroundEach { runExample in
+            doSomeSetup()
+            runExample()
+            doSomeCleanup()
+        }
+
+    This callback is particularly useful for test decartions that can’t split
+    into a separate beforeEach and afterEach. For example, running each example
+    in its own autorelease pool requires aroundEach:
+
+        aroundEach { runExample in
+            autoreleasepool {
+                runExample()
+            }
+            checkObjectsNoLongerRetained()
+        }
+
+    You can also use aroundEach to guarantee proper nesting of setup and cleanup
+    operations in situations where their relative order matters.
+
+    An example group may contain an unlimited number of aroundEach callbacks.
+    They will nest inside each other, with the first declared in the group
+    nested at the outermost level.
+
+    - parameter closure: The closure that wraps around each example.
+*/
 public func aroundEach(_ closure: @escaping AroundExampleClosure) {
     World.sharedWorld.aroundEach(closure)
 }
 
+/**
+    Identical to Quick.DSL.aroundEach, except the closure receives metadata
+    about the example that the closure wraps.
+*/
 public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
     World.sharedWorld.aroundEach(closure)
 }
