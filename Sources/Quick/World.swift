@@ -13,10 +13,12 @@ public typealias SharedExampleContext = () -> [String: Any]
 public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
 
 #if canImport(Darwin)
+// swiftlint:disable type_name
 @objcMembers
 internal class _WorldBase: NSObject {}
 #else
 internal class _WorldBase: NSObject {}
+// swiftlint:enable type_name
 #endif
 
 /**
