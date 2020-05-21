@@ -1,5 +1,8 @@
 disabled_rules:
-  - line_length
 included:
   - Sources
   - Tests
+
+line_length:
+  warning: 160
+  error: 240

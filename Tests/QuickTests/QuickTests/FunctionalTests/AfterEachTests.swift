@@ -57,7 +57,7 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
                     afterEach { }
                     }.to(raiseException { (exception: NSException) in
                         expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                        expect(exception.reason).to(equal("'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'. "))
+                        expect(exception.reason).to(equal("'afterEach' cannot be used inside 'it', 'afterEach' may only be used inside 'context' or 'describe'."))
                         })
             }
         }

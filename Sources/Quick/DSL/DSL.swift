@@ -1,3 +1,5 @@
+// swiftlint:disable line_length
+
 /**
     Defines a closure to be run prior to any examples in the test suite.
     You may define an unlimited number of these closures, but there is no
@@ -269,3 +271,5 @@ public func fitBehavesLike(_ name: String, flags: FilterFlags = [:], file: FileS
 public func fitBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, context: @escaping () -> C) {
     World.sharedWorld.fitBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
 }
+
+// swiftlint:enable line_length

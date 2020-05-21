@@ -27,7 +27,7 @@ class FunctionalTests_BehaviorTests_ErrorSpec: QuickSpec {
                 }
                     .to(raiseException {(exception: NSException) in
                         expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                        expect(exception.reason).to(equal("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'. "))
+                        expect(exception.reason).to(equal("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'."))
                 })
             }
         }
