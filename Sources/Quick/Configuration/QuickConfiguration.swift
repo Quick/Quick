@@ -33,9 +33,9 @@ extension QuickConfiguration {
         objc_getClassList(AutoreleasingUnsafeMutablePointer(classes), classesCount)
 
         var configurationSubclasses: [QuickConfiguration.Type] = []
-        for i in 0..<classesCount {
+        for index in 0..<classesCount {
             guard
-                let subclass = classes[Int(i)],
+                let subclass = classes[Int(index)],
                 let superclass = class_getSuperclass(subclass),
                 superclass == QuickConfiguration.self
                 else { continue }

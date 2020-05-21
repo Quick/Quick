@@ -1,7 +1,6 @@
 disabled_rules:
   - line_length
   - function_body_length
-  - identifier_name
 included:
   - Sources
   - Tests

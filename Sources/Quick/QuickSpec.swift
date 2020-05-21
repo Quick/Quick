@@ -76,11 +76,11 @@ open class QuickSpec: QuickSpecBase {
 
         let originalName = example.name.c99ExtendedIdentifier
         var selectorName = originalName
-        var i: UInt = 2
+        var index: UInt = 2
 
         while selectorNames.contains(selectorName) {
-            selectorName = String(format: "%@_%tu", originalName, i)
-            i += 1
+            selectorName = String(format: "%@_%tu", originalName, index)
+            index += 1
         }
 
         selectorNames.insert(selectorName)
