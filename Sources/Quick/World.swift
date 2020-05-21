@@ -98,8 +98,11 @@ final internal class World: _WorldBase {
                          be mutated to change Quick's behavior.
     */
     internal func configure(_ closure: QuickConfigurer) {
-        assert(!isConfigurationFinalized,
-               "Quick cannot be configured outside of a +[QuickConfiguration configure:] method. You should not call -[World configure:] directly. Instead, subclass QuickConfiguration and override the +[QuickConfiguration configure:] method.")
+        assert(
+            !isConfigurationFinalized,
+            // swiftlint:disable:next line_length
+            "Quick cannot be configured outside of a +[QuickConfiguration configure:] method. You should not call -[World configure:] directly. Instead, subclass QuickConfiguration and override the +[QuickConfiguration configure:] method."
+        )
         closure(configuration)
     }
 

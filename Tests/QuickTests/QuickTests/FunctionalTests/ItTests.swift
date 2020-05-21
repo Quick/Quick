@@ -59,7 +59,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     it("will throw an error when it is nested in another it") { }
                     }.to(raiseException { (exception: NSException) in
                         expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                        expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'. "))
+                        expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'."))
                         })
             }
 
@@ -79,7 +79,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
                 it("should have thrown an exception with the correct error message") {
                     expect(exception).toNot(beNil())
-                    expect(exception!.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'. "))
+                    expect(exception!.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
                 }
             }
 
@@ -90,7 +90,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     let capture = NMBExceptionCapture(handler: ({ e in
                         exception = e
                         expect(exception).toNot(beNil())
-                        expect(exception!.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'. "))
+                        expect(exception!.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'."))
                     }), finally: nil)
 
                     capture.tryBlock {
