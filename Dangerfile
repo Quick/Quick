@@ -1,5 +1,5 @@
 # set the number of lines that must be changed before this classifies as a 'Big PR'
-@SDM_DANGER_BIG_PR_LINES = 50
+@SDM_DANGER_BIG_PR_LINES = 200
 
 # set the files to watch and fail if there are changes
 @SDM_DANGER_IMMUTABLE_FILES = ['LICENSE', 'CODE_OF_CONDUCT.md']
