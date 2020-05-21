@@ -3,15 +3,8 @@ branches:
     - master
 
 language: generic
-matrix:
+jobs:
   include:
-    - name: CocoaPods Lint & Danger
-      os: osx
-      osx_image: xcode10.3
-      language: ruby
-      script:
-        - PODSPEC=1 ./script/travis-script-macos
-        - bundle exec danger
     - &xcode
       name: Xcode 10.1 / Swift 4.2
       os: osx
@@ -23,9 +16,6 @@ matrix:
         - PLATFORM=macos_static ./script/travis-script-macos
         - PLATFORM=ios ./script/travis-script-macos
         - PLATFORM=tvos ./script/travis-script-macos
-    - <<: *xcode
-      name: Xcode 10.3 / Swift 5.0
-      osx_image: xcode10.3
     - &swiftpm_darwin
       name: SwiftPM / Darwin / Swift 4.2
       os: osx
@@ -37,7 +27,6 @@ matrix:
     - &swiftpm_linux
       name: SwiftPM / Linux / Swift 4.2.4
       os: linux
-      sudo: required
       env:
         - SWIFT_VERSION=4.2.4
       install: ./script/travis-install-linux
@@ -47,13 +36,17 @@ matrix:
       env:
         - SWIFT_VERSION=5.0.3
     - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift 5.1.4
+      name: SwiftPM / Linux / Swift 5.1.5
       env:
-        - SWIFT_VERSION=5.1.4
+        - SWIFT_VERSION=5.1.5
     - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift 5.2 Development
+      name: SwiftPM / Linux / Swift 5.2.3
       env:
-        - SWIFT_VERSION=5.2-DEVELOPMENT-SNAPSHOT-2020-02-09-a
-  
+        - SWIFT_VERSION=5.2.3
+    - <<: *swiftpm_linux
+      name: SwiftPM / Linux / Swift 5.3 Development
+      env:
+        - SWIFT_VERSION=5.3-DEVELOPMENT-SNAPSHOT-2020-05-11-a
+
 notifications:
   email: false
