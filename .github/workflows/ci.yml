@@ -14,11 +14,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: gem install bundler:1.17.3 && bundle install
-      - run: PODSPEC=1 ./script/travis-script-macos
+      - run: bundle install
       - run: bundle exec danger
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: PODSPEC=1 ./script/travis-script-macos
 
   xcode:
     name: Xcode ${{ matrix.xcode }}
