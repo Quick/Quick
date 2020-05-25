@@ -28,6 +28,10 @@ let package = Package(
                     "QuickTests/QuickConfigurationTests.m",
                 ]
             ),
+            .testTarget(
+                name: "QuickIssue853RegressionTests",
+                dependencies: [ "Quick" ]
+            ),
         ]
 #if os(macOS)
         targets.append(contentsOf: [
