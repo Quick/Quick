@@ -28,7 +28,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
                 expect(allSelectors) == [
                     "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it",
-                    "when_an_example_has_a_unique_name__has_a_unique_name"
+                    "when_an_example_has_a_unique_name__has_a_unique_name",
                 ]
             }
         }
@@ -46,7 +46,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                 expect(allSelectors) == [
                     "when_two_examples_have_the_exact_name__has_exactly_the_same_name",
                     "when_two_examples_have_the_exact_name__has_exactly_the_same_name_2",
-                    "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above"
+                    "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above",
                 ]
             }
 
@@ -110,7 +110,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
-            ("testAllExamplesAreExecuted", testAllExamplesAreExecuted)
+            ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
         ]
     }
 
