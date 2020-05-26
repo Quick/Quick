@@ -39,10 +39,8 @@ final class BehaviorTests: XCTestCase, XCTestCaseProvider {
 
     static var allTests: [(String, (BehaviorTests) -> () throws -> Void)] {
         return [
-            ("testBehaviorPassContextToExamples",
-             testBehaviorPassContextToExamples),
-            ("testBehaviorExecutesThreeExamples",
-             testBehaviorExecutesThreeExamples)
+            ("testBehaviorPassContextToExamples", testBehaviorPassContextToExamples),
+            ("testBehaviorExecutesThreeExamples", testBehaviorExecutesThreeExamples),
         ]
     }
 

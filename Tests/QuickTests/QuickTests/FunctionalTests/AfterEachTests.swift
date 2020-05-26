@@ -41,8 +41,8 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
                     // The list should contain the afterEach for those example, executed from top to bottom.
                     expect(afterEachOrder).to(equal([
                         .outerOne, .outerTwo, .outerThree,
-                        .outerOne, .outerTwo, .outerThree
-                        ]))
+                        .outerOne, .outerTwo, .outerThree,
+                    ]))
                 }
             }
 
@@ -68,7 +68,7 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
 final class AfterEachTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (AfterEachTests) -> () throws -> Void)] {
         return [
-            ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder)
+            ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder),
         ]
     }
 
@@ -83,7 +83,7 @@ final class AfterEachTests: XCTestCase, XCTestCaseProvider {
             .outerOne, .outerTwo, .outerThree,
             // [3] The inner afterEach closures are executed from top to bottom,
             //     then the outer afterEach closures are executed from top to bottom.
-            .innerOne, .innerTwo, .outerOne, .outerTwo, .outerThree
+            .innerOne, .innerTwo, .outerOne, .outerTwo, .outerThree,
         ]
         XCTAssertEqual(afterEachOrder, expectedOrder)
 

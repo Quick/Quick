@@ -6,3 +6,6 @@ included:
 line_length:
   warning: 160
   error: 240
+
+trailing_comma:
+  mandatory_comma: true
