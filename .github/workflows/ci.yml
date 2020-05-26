@@ -26,11 +26,13 @@ jobs:
     strategy:
       matrix:
         xcode: [10.3, 11.3.1, 11.4.1]
+      fail-fast: false
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
       - run: PLATFORM=macos ./script/travis-script-macos
       - run: PLATFORM=macos_static ./script/travis-script-macos
       - run: PLATFORM=ios ./script/travis-script-macos
@@ -42,7 +44,9 @@ jobs:
     strategy:
       matrix:
         xcode: [11.3.1, 11.4.1]
+      fail-fast: false
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
       - uses: actions/checkout@v2
-      - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
       - run: PLATFORM=swiftpm ./script/travis-script-macos
