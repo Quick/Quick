@@ -63,10 +63,17 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testOnlyFocusedExamplesAreExecuted() {
+        #if SWIFT_PACKAGE
         let result = qck_runSpecs([
             _FunctionalTests_FocusedSpec_Focused.self,
             _FunctionalTests_FocusedSpec_Unfocused.self,
         ])
+        #else
+        let result = qck_runSpecs([
+            _FunctionalTests_FocusedSpec_Unfocused.self,
+            _FunctionalTests_FocusedSpec_Focused.self,
+        ])
+        #endif
         XCTAssertEqual(result?.executionCount, 8)
     }
 }

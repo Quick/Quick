@@ -140,6 +140,9 @@
 		CD1F6506226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
 		CD1F6507226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
 		CD1F6508226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
+		CD21A026247C1385002C4762 /* QuickTestObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21A025247C1385002C4762 /* QuickTestObservation.swift */; };
+		CD21A027247C1385002C4762 /* QuickTestObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21A025247C1385002C4762 /* QuickTestObservation.swift */; };
+		CD21A028247C1385002C4762 /* QuickTestObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21A025247C1385002C4762 /* QuickTestObservation.swift */; };
 		CD264DBD1DDA147A0038B0EB /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		CD582D6F2264B371008F7CE6 /* QuickSpec+MethodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD582D6E2264B371008F7CE6 /* QuickSpec+MethodList.swift */; };
 		CD582D702264B371008F7CE6 /* QuickSpec+MethodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD582D6E2264B371008F7CE6 /* QuickSpec+MethodList.swift */; };
@@ -367,6 +370,7 @@
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
+		CD21A025247C1385002C4762 /* QuickTestObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTestObservation.swift; sourceTree = "<group>"; };
 		CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
 		CD3451461E4703D4000C8633 /* QuickMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickMain.swift; sourceTree = "<group>"; };
 		CD3451471E4703D4000C8633 /* QuickSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSpec.swift; sourceTree = "<group>"; };
@@ -776,6 +780,7 @@
 				DA408BDE19FF5599005DF92A /* Hooks */,
 				CD3451461E4703D4000C8633 /* QuickMain.swift */,
 				CD3451471E4703D4000C8633 /* QuickSpec.swift */,
+				CD21A025247C1385002C4762 /* QuickTestObservation.swift */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
@@ -1339,6 +1344,7 @@
 				CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1F1C431FE400253D19 /* QuickTestSuite.swift in Sources */,
 				1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */,
+				CD21A028247C1385002C4762 /* QuickTestObservation.swift in Sources */,
 				CDE5BDFF2268CE97006E2F66 /* QuickConfiguration.swift in Sources */,
 				1F118D011BDCA536005013A2 /* ExampleHooks.swift in Sources */,
 			);
@@ -1426,6 +1432,7 @@
 				CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1A1C431FE300253D19 /* QuickTestSuite.swift in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
+				CD21A027247C1385002C4762 /* QuickTestObservation.swift in Sources */,
 				CDE5BDFE2268CE96006E2F66 /* QuickConfiguration.swift in Sources */,
 				DA6B30191A4DB0D500FFB148 /* Filter.swift in Sources */,
 			);
@@ -1561,6 +1568,7 @@
 				CE175D4E1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				34F375AB19515CA700CE1B99 /* Example.swift in Sources */,
 				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,
+				CD21A026247C1385002C4762 /* QuickTestObservation.swift in Sources */,
 				CDE5BDFD2268CE95006E2F66 /* QuickConfiguration.swift in Sources */,
 				DA6B30181A4DB0D500FFB148 /* Filter.swift in Sources */,
 			);
