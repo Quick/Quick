@@ -46,7 +46,7 @@ namespace "test" do
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
   task :swiftpm do |t|
-    run "swift package clean && swift test"
+    run "swift package clean && swift test -Xswiftc -suppress-warnings"
   end
 end
 
