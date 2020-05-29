@@ -12,9 +12,10 @@ let package = Package(
     ],
     targets: {
         var targets: [Target] = [
+            .target(name: "QuickTestHelpers", dependencies: []),
             .testTarget(
                 name: "QuickTests",
-                dependencies: [ "Quick", "Nimble" ],
+                dependencies: [ "Quick", "QuickTestHelpers", "Nimble" ],
                 exclude: [
                     "QuickAfterSuiteTests/AfterSuiteTests+ObjC.m",
                     "QuickFocusedTests/FocusedTests+ObjC.m",
