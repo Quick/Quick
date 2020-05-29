@@ -5,8 +5,8 @@ import XCTest
 
 #if SWIFT_PACKAGE
 
-#if canImport(QuickSpecBase)
-import QuickSpecBase
+#if canImport(QuickObjCRuntime)
+import QuickObjCRuntime
 
 public typealias QuickSpecBase = _QuickSpecBase
 #else

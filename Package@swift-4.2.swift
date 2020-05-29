@@ -32,8 +32,8 @@ let package = Package(
         ]
 #if os(macOS)
         targets.append(contentsOf: [
-            .target(name: "QuickSpecBase", dependencies: []),
-            .target(name: "Quick", dependencies: [ "QuickSpecBase" ]),
+            .target(name: "QuickObjCRuntime", dependencies: []),
+            .target(name: "Quick", dependencies: [ "QuickObjCRuntime" ]),
         ])
 #else
         targets.append(contentsOf: [
