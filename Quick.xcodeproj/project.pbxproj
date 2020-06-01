@@ -66,8 +66,6 @@
 		1F118D2A1BDCA5B6005013A2 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F118D2B1BDCA5B6005013A2 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F118D2C1BDCA5B6005013A2 /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A419515CA700CE1B99 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F118D351BDCA657005013A2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118D341BDCA657005013A2 /* Nimble.framework */; };
-		1F118D371BDCA65C005013A2 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118D361BDCA65C005013A2 /* Nimble.framework */; };
 		1F118D381BDCA6E1005013A2 /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
 		1F118D391BDCA6E6005013A2 /* Configuration+BeforeEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */; };
 		1FD0CFAD1AFA0B8C00874CC1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8100E901A1E4447007595ED /* Nimble.framework */; };
@@ -113,7 +111,6 @@
 		64076D021D6D7CD600E2B499 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5D117C19473F2100F6D13D /* Quick.framework */; };
 		64076D031D6D7CD600E2B499 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8100E901A1E4447007595ED /* Nimble.framework */; };
 		64076D141D6D7CEA00E2B499 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
-		64076D151D6D7CEA00E2B499 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118D361BDCA65C005013A2 /* Nimble.framework */; };
 		64076D211D6D7E4D00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
 		64076D221D6D7E5B00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
 		64076D231D6D7E6B00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
@@ -134,6 +131,9 @@
 		AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
+		CD008DF42484F07900F27458 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD008DF32484F07900F27458 /* Nimble.framework */; };
+		CD008DF52484F0B100F27458 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD008DF32484F07900F27458 /* Nimble.framework */; };
+		CD008DF62484F0B400F27458 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD008DF32484F07900F27458 /* Nimble.framework */; };
 		CD1F6503226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
 		CD1F6504226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
 		CD1F6505226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
@@ -369,6 +369,7 @@
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
+		CD008DF32484F07900F27458 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
 		CD21A025247C1385002C4762 /* QuickTestObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTestObservation.swift; sourceTree = "<group>"; };
 		CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
@@ -446,7 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F118CDF1BDCA4AB005013A2 /* Quick.framework in Frameworks */,
-				1F118D351BDCA657005013A2 /* Nimble.framework in Frameworks */,
+				CD008DF42484F07900F27458 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F118CF51BDCA4BB005013A2 /* Quick.framework in Frameworks */,
-				1F118D371BDCA65C005013A2 /* Nimble.framework in Frameworks */,
+				CD008DF52484F0B100F27458 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64076D141D6D7CEA00E2B499 /* Quick.framework in Frameworks */,
-				64076D151D6D7CEA00E2B499 /* Nimble.framework in Frameworks */,
+				CD008DF62484F0B400F27458 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +552,7 @@
 		1F118D331BDCA645005013A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD008DF32484F07900F27458 /* Nimble.framework */,
 				1F118D361BDCA65C005013A2 /* Nimble.framework */,
 				1F118D341BDCA657005013A2 /* Nimble.framework */,
 			);
