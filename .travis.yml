@@ -5,48 +5,33 @@ branches:
 language: generic
 jobs:
   include:
-    - &xcode
-      name: Xcode 10.1 / Swift 4.2
-      os: osx
-      env:
-        - XCODE_ACTION="build-for-testing test-without-building"
-      osx_image: xcode10.1
-      script:
-        - PLATFORM=macos ./script/travis-script-macos
-        - PLATFORM=macos_static ./script/travis-script-macos
-        - PLATFORM=ios ./script/travis-script-macos
-        - PLATFORM=tvos ./script/travis-script-macos
-    - &swiftpm_darwin
-      name: SwiftPM / Darwin / Swift 4.2
-      os: osx
-      osx_image: xcode10.1
-      script: PLATFORM=swiftpm ./script/travis-script-macos
-    - <<: *swiftpm_darwin
-      name: SwiftPM / Darwin / Swift 5.0
-      osx_image: xcode10.3
+    # - &xcode
+    #   name: Xcode 10.1 / Swift 4.2
+    #   os: osx
+    #   env:
+    #     - XCODE_ACTION="build-for-testing test-without-building"
+    #   osx_image: xcode10.1
+    #   script:
+    #     - PLATFORM=macos ./script/travis-script-macos
+    #     - PLATFORM=macos_static ./script/travis-script-macos
+    #     - PLATFORM=ios ./script/travis-script-macos
+    #     - PLATFORM=tvos ./script/travis-script-macos
+    # - &swiftpm_darwin
+    #   name: SwiftPM / Darwin / Swift 4.2
+    #   os: osx
+    #   osx_image: xcode10.1
+    #   script: PLATFORM=swiftpm ./script/travis-script-macos
     - &swiftpm_linux
-      name: SwiftPM / Linux / Swift 4.2.4
+      name: SwiftPM / Linux / Swift 5.2.4
       os: linux
       env:
-        - SWIFT_VERSION=4.2.4
-      install: ./script/travis-install-linux
-      script: ./script/travis-script-linux
-    - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift 5.0.3
-      env:
-        - SWIFT_VERSION=5.0.3
-    - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift 5.1.5
-      env:
-        - SWIFT_VERSION=5.1.5
-    - <<: *swiftpm_linux
-      name: SwiftPM / Linux / Swift 5.2.3
-      env:
-        - SWIFT_VERSION=5.2.3
+        - SWIFT_VERSION=5.2.4
+      install: eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+      script: rake test:swiftpm
     - <<: *swiftpm_linux
       name: SwiftPM / Linux / Swift 5.3 Development
       env:
-        - SWIFT_VERSION=5.3-DEVELOPMENT-SNAPSHOT-2020-05-11-a
+        - SWIFT_VERSION=5.3-DEVELOPMENT-SNAPSHOT-2020-05-19-a
 
 notifications:
   email: false

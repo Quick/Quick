@@ -130,7 +130,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods (~> 1.7)
+  cocoapods (~> 1.9)
   danger
 
 BUNDLED WITH

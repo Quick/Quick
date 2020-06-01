@@ -45,7 +45,8 @@ Certain versions of Quick and Nimble only support certain versions of Swift. Dep
 
 |Swift version        |Quick version   |Nimble version |
 |:--------------------|:---------------|:--------------|
-|Swift 4.2            |v1.3.2 or later |v7.3.2 or later|
+|Swift 5.2            |v3.0.0 or later |v9.0.0 or later|
+|Swift 4.2 / Swift 5  |v1.3.2 or later |v7.3.2 or later|
 |Swift 3 / Swift 4    |v1.0.0 or later |v5.0.0 or later|
 |Swift 2.2 / Swift 2.3|v0.9.3          |v4.1.0         |
 
