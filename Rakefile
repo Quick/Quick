@@ -13,11 +13,7 @@ end
 namespace "podspec" do
   desc "Run lint for podspec"
   task :lint do
-    # To work around the lint error: "ERROR | swift: Specification `Nimble` specifies an inconsistent `swift_version` (`4.0`) compared to the one present in your `.swift-version` file (`4.1`). Please remove the `.swift-version` file which is now deprecated and only use the `swift_version` attribute within your podspec."
-    # `.swift-version` is for swiftenv, not for CocoaPods, so we can't remove the file as suggested.
-    run "mv .swift-version .swift-version.backup"
     run "bundle exec pod lib lint"
-    run "mv .swift-version.backup .swift-version"
   end
 end
 
