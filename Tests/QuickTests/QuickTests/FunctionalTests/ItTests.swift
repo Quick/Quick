@@ -107,11 +107,50 @@ class FunctionalTests_ItSpec: QuickSpec {
     }
 }
 
+private var isRunningFunctionalTests = false
+
+class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
+    override func spec() {
+        describe("implicit error handling") {
+            enum ExampleError: Error {
+                case error
+            }
+
+            func nonThrowingFunc() throws {}
+
+            func throwingFunc(shouldThrow: Bool) throws {
+                if shouldThrow {
+                    throw ExampleError.error
+                }
+            }
+
+            it("supports calling functions marked as throws") {
+                try nonThrowingFunc()
+            }
+
+            it("supports calling functions that actually throws") {
+                try throwingFunc(shouldThrow: isRunningFunctionalTests)
+            }
+        }
+    }
+}
+
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
+            ("testImplicitErrorHandling", testImplicitErrorHandling),
         ]
+    }
+
+    override func setUp() {
+        super.setUp()
+        isRunningFunctionalTests = true
+    }
+
+    override func tearDown() {
+        isRunningFunctionalTests = false
+        super.tearDown()
     }
 
     func testAllExamplesAreExecuted() {
@@ -125,5 +164,14 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         #else
         XCTAssertEqual(result?.executionCount, 2)
         #endif
+    }
+
+    func testImplicitErrorHandling() {
+        let result = qck_runSpec(FunctionalTests_ImplicitErrorItSpec.self)!
+        XCTAssertFalse(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 2)
+        XCTAssertEqual(result.failureCount, 0)
+        XCTAssertEqual(result.unexpectedExceptionCount, 1)
+        XCTAssertEqual(result.totalFailureCount, 1)
     }
 }
