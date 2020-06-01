@@ -120,6 +120,32 @@ open class QuickSpec: QuickSpecBase {
             self.init().spec()
         }
     }
+
+    // MARK: Delegation to `QuickSpec.current`.
+
+    override public func recordFailure(
+        withDescription description: String,
+        inFile filePath: String,
+        atLine lineNumber: Int,
+        expected: Bool
+    ) {
+        guard self === Self.current else {
+            Self.current.recordFailure(
+                withDescription: description,
+                inFile: filePath,
+                atLine: lineNumber,
+                expected: expected
+            )
+            return
+        }
+
+        super.recordFailure(
+            withDescription: description,
+            inFile: filePath,
+            atLine: lineNumber,
+            expected: expected
+        )
+    }
 }
 
 #endif
