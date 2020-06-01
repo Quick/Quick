@@ -22,6 +22,11 @@ public typealias AfterExampleClosure = BeforeExampleClosure
 */
 public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClosure
 
+public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> Void
+
+public typealias AroundExampleWithMetadataClosure =
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
+
 // MARK: Suite Hooks
 
 /**

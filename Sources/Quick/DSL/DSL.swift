@@ -118,6 +118,14 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     World.sharedWorld.afterEach(closure: closure)
 }
 
+public func aroundEach(_ closure: @escaping AroundExampleClosure) {
+    World.sharedWorld.aroundEach(closure)
+}
+
+public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
+    World.sharedWorld.aroundEach(closure)
+}
+
 /**
     Defines an example. Examples use assertions to demonstrate how code should
     behave. These are like "tests" in XCTest.

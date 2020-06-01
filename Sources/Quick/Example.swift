@@ -74,36 +74,43 @@ final public class Example: _ExampleBase {
             world.currentExampleMetadata = nil
         }
 
-        world.exampleHooks.executeBefores(exampleMetadata)
-        group!.phase = .beforesExecuting
-        for before in group!.befores {
-            before(exampleMetadata)
-        }
-        group!.phase = .beforesFinished
+        func _run() {
+            world.exampleHooks.executeBefores(exampleMetadata)
+            group!.phase = .beforesExecuting
+            for before in group!.befores {
+                before(exampleMetadata)
+            }
+            group!.phase = .beforesFinished
 
-        do {
-            try closure()
-        } catch {
-            let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
-            #if SWIFT_PACKAGE
-            let file = callsite.file.description
-            #else
-            let file = callsite.file
-            #endif
-            QuickSpec.current.recordFailure(
-                withDescription: description,
-                inFile: file,
-                atLine: Int(callsite.line),
-                expected: false
-            )
+            do {
+                try closure()
+            } catch {
+                let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
+                #if SWIFT_PACKAGE
+                let file = callsite.file.description
+                #else
+                let file = callsite.file
+                #endif
+                QuickSpec.current.recordFailure(
+                    withDescription: description,
+                    inFile: file,
+                    atLine: Int(callsite.line),
+                    expected: false
+                )
+            }
+
+            group!.phase = .aftersExecuting
+            for after in group!.afters {
+                after(exampleMetadata)
+            }
+            group!.phase = .aftersFinished
+            world.exampleHooks.executeAfters(exampleMetadata)
         }
 
-        group!.phase = .aftersExecuting
-        for after in group!.afters {
-            after(exampleMetadata)
+        let wrappedExample = group!.arounds.reduce(_run) { result, element in
+            return { element(exampleMetadata, result) }
         }
-        group!.phase = .aftersFinished
-        world.exampleHooks.executeAfters(exampleMetadata)
+        wrappedExample()
 
         world.numberOfExamplesRun += 1
 
