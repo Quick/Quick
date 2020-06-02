@@ -139,14 +139,22 @@ static QuickSpec *currentSpec = nil;
                               inFile:(NSString *)filePath
                               atLine:(NSUInteger)lineNumber
                             expected:(BOOL)expected {
+    if (self != [QuickSpec current]) {
+        [[QuickSpec current] recordFailureWithDescription:description
+                                                   inFile:filePath
+                                                   atLine:lineNumber
+                                                 expected:expected];
+        return;
+    }
+
     if (self.example.isSharedExample) {
         filePath = self.example.callsite.file;
         lineNumber = self.example.callsite.line;
     }
-    [currentSpec.testRun recordFailureWithDescription:description
-                                               inFile:filePath
-                                               atLine:lineNumber
-                                             expected:expected];
+    [super recordFailureWithDescription:description
+                                 inFile:filePath
+                                 atLine:lineNumber
+                               expected:expected];
 }
 
 @end
