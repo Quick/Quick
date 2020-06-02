@@ -123,14 +123,14 @@ open class QuickSpec: QuickSpecBase {
 
     // MARK: Delegation to `QuickSpec.current`.
 
-    override public func recordFailure(
+    override open func recordFailure(
         withDescription description: String,
         inFile filePath: String,
         atLine lineNumber: Int,
         expected: Bool
     ) {
-        guard self === Self.current else {
-            Self.current.recordFailure(
+        guard self === QuickSpec.current else {
+            QuickSpec.current.recordFailure(
                 withDescription: description,
                 inFile: filePath,
                 atLine: lineNumber,
