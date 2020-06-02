@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - 2.x-branch
     tags:
       - "*"
   pull_request:
