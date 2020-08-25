@@ -1,7 +1,10 @@
 // swift-tools-version:5.2
 
 import PackageDescription
+let cxxSettings: [CXXSetting] = [
+    .define("CLANG_ENABLE_MODULES", to: "YES"),
 
+]
 let package = Package(
     name: "Quick",
     platforms: [
@@ -35,7 +38,7 @@ let package = Package(
         ]
 #if os(macOS)
         targets.append(contentsOf: [
-            .target(name: "QuickObjCRuntime", dependencies: []),
+            .target(name: "QuickObjCRuntime", dependencies: [], cxxSettings: cxxSettings),
             .target(name: "Quick", dependencies: [ "QuickObjCRuntime" ]),
         ])
 #else
