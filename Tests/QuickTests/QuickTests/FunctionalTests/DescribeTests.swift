@@ -12,7 +12,7 @@ final class DescribeTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testDescribeThrowsIfUsedOutsideOfQuickSpec() {
-        expect { describe("this should throw an exception", {}) }.to(raiseException())
+        expect(expression: { describe("this should throw an exception", {}) }).to(raiseException())
     }
 }
 
@@ -20,9 +20,9 @@ class QuickDescribeTests: QuickSpec {
     override func spec() {
         describe("Describe") {
             it("should throw an exception if used in an it block") {
-                expect {
+                expect(expression: {
                     describe("A nested describe that should throw") { }
-                }.to(raiseException { (exception: NSException) in
+                }).to(raiseException { (exception: NSException) in
                     expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
                     expect(exception.reason).to(equal("'describe' cannot be used inside 'it', 'describe' may only be used inside 'context' or 'describe'."))
                 })
