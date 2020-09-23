@@ -22,12 +22,11 @@ class FunctionalTests_BehaviorTests_ErrorSpec: QuickSpec {
     override func spec() {
         describe("error handling when misusing ordering") {
             it("should throw an exception when including itBehavesLike in it block") {
-                expect {
+                expect(expression: {
                     itBehavesLike(FunctionalTests_BehaviorTests_Behavior2.self) { () }
-                }
-                    .to(raiseException {(exception: NSException) in
-                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                        expect(exception.reason).to(equal("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'."))
+                }).to(raiseException {(exception: NSException) in
+                    expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
+                    expect(exception.reason).to(equal("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'."))
                 })
             }
         }

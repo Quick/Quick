@@ -35,7 +35,7 @@ warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 warn("Big PR") if git.lines_of_code > @SDM_DANGER_BIG_PR_LINES
 
 # Make a note about contributors not in the organization
-unless github.api.organization_member?('Quick', github.pr_author)
+if github.pr_author != "dependabot[bot]" && !github.api.organization_member?('Quick', github.pr_author)
   # Pay extra attention if they modify the podspec
   if git.modified_files.include?("*.podspec")
     warn "External contributor has edited the Podspec file"

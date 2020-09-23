@@ -33,6 +33,7 @@ testCases: [
     testCase(AfterEachTests.allTests),
     testCase(BeforeEachTests.allTests),
     testCase(BeforeSuiteTests.allTests),
+    testCase(BehaviorTests.allTests),
     testCase(Configuration_AfterEachTests.allTests),
     testCase(Configuration_BeforeEachTests.allTests),
     // testCase(DescribeTests.allTests),

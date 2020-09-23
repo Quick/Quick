@@ -20,12 +20,12 @@ class FunctionalTests_SharedExamples_ErrorSpec: QuickSpec {
     override func spec() {
         describe("error handling when misusing ordering") {
             it("should throw an exception when including itBehavesLike in it block") {
-                expect {
+                expect(expression: {
                     itBehavesLike("a group of three shared examples")
-                    }.to(raiseException { (exception: NSException) in
-                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                        expect(exception.reason).to(equal("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'."))
-                        })
+                }).to(raiseException { (exception: NSException) in
+                    expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
+                    expect(exception.reason).to(equal("'itBehavesLike' cannot be used inside 'it', 'itBehavesLike' may only be used inside 'context' or 'describe'."))
+                })
             }
         }
     }
