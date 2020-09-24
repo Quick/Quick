@@ -2398,7 +2398,6 @@
 				PRODUCT_NAME = Quick;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2433,7 +2432,6 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
