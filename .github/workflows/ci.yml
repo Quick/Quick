@@ -18,7 +18,7 @@ jobs:
       - run: bundle exec danger
         env:
           DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: PODSPEC=1 ./script/travis-script-macos
+      - run: rake podspec:lint
 
   xcode:
     name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
@@ -34,9 +34,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - run: PLATFORM=${{ matrix.platform }} ./script/travis-script-macos
+      - run: rake test:${{ matrix.platform }}
       - if: ${{ matrix.platform == 'macos' }}
-        run: PLATFORM=${{ matrix.platform }}_static ./script/travis-script-macos
+        run: rake test:${{ matrix.platform }}_static
 
   swiftpm_darwin:
     name: SwiftPM, Darwin, Xcode ${{ matrix.xcode }}
@@ -49,4 +49,4 @@ jobs:
       DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
       - uses: actions/checkout@v2
-      - run: PLATFORM=swiftpm ./script/travis-script-macos
+      - run: rake test:swiftpm

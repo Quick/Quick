@@ -12,15 +12,15 @@ jobs:
     #     - XCODE_ACTION="build-for-testing test-without-building"
     #   osx_image: xcode10.1
     #   script:
-    #     - PLATFORM=macos ./script/travis-script-macos
-    #     - PLATFORM=macos_static ./script/travis-script-macos
-    #     - PLATFORM=ios ./script/travis-script-macos
-    #     - PLATFORM=tvos ./script/travis-script-macos
+    #     - rake test:macos
+    #     - rake test:macos_static
+    #     - rake test:ios
+    #     - rake test:tvos
     # - &swiftpm_darwin
     #   name: SwiftPM / Darwin / Swift 4.2
     #   os: osx
     #   osx_image: xcode10.1
-    #   script: PLATFORM=swiftpm ./script/travis-script-macos
+    #   script: rake test:swiftpm
     - &swiftpm_linux
       name: SwiftPM / Linux / Swift 5.2.5
       os: linux
