@@ -43,7 +43,7 @@ class DoubleFunctionTests: QuickSpec {
     }
 }
 ```
-## Make xcode mark failures at the line of the data
+## Make xcode trace failures to the line of the data example
 
 If you want you can extend the testcode to make xcode mark failing tests at the line
 where the data input/output was specified instead of the `expect`that failed. Notice
@@ -93,7 +93,7 @@ could be multi-dimensional, you can of course extend the tests to suit that.
 Here is an example where a class, `WeirdClass` should be created from a string,
 `init(String)`, and have two different derived properties, `weirdness` and `firstThree`.
 
-*Note that the line number addition is left out in this example for conciseness.*
+*Note that the tracing of line numbers is left out in this example for conciseness.*
 
 ```swift
 import Quick
@@ -126,6 +126,45 @@ class WeirdClassTests: QuickSpec {
 }
 ```
 
+## Further reducing the boilerplate
+Define a little generic helper function called `given` like this:
+
+```swift
+/**
+ Used to iterate through a set of given data. This can then be used to provide multiple examples of data.
+- Parameter input: The list of data to iterate through.
+- Parameter then: The closure to execute each item on.
+ */
+func given<Input>(_ input: Input..., then: (_: Input) -> Void) {
+    for i in input { then(i) }
+}
+```
+With that function you can write your specification like:
+```swift
+given(
+    (1, plus: 1, is: 2),
+    (1, plus: 2, is: 2),
+    (1, plus: 3, is: 4)
+) { (a, b, result) in
+    it("\(a) plus \(b) is \(result)") {
+        expect(a + b).to(equal(result))
+    }
+}
+```
+### Tracing the line on errors
+Should you want xcode to trace the line when tests fail, you can add this, like so:
+
+```swift
+given(
+    (1, plus: 1, is: 2, line: #line),
+    (1, plus: 2, is: 2, line: #line),
+    (1, plus: 3, is: 4, line: #line)
+) { (a, b, result, line: UInt) in
+    it("\(a) plus \(b) is \(result)") {
+        expect(line: line, a + b).to(equal(result))
+    }
+}
+```
 
 
 ## Pitfalls
@@ -147,5 +186,5 @@ context("for input \(input)” {
 
 ### Tests are not discovered
 
-It seems that the `forEach` block must have the tests in at least one `context` to 
+It seems that the `forEach` block must have the tests in at least one `context` to
 be discovered and later executed.
