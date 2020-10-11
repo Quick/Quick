@@ -6,6 +6,6 @@ FOUNDATION_EXPORT double QuickVersionNumber;
 //! Project version string for Quick.
 FOUNDATION_EXPORT const unsigned char QuickVersionString[];
 
-#import "QuickSpec.h"
-#import "QCKDSL.h"
-#import "QuickConfiguration.h"
+#import <Quick/QuickSpec.h>
+#import <Quick/QCKDSL.h>
+#import <Quick/QuickConfiguration.h>
