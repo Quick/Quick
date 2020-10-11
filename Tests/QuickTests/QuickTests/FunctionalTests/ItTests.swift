@@ -55,12 +55,12 @@ class FunctionalTests_ItSpec: QuickSpec {
 #if !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("an it") {
-                expect(expression: {
+                expect {
                     it("will throw an error when it is nested in another it") { }
-                }).to(raiseException { (exception: NSException) in
-                    expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                    expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'."))
-                })
+                    }.to(raiseException { (exception: NSException) in
+                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
+                        expect(exception.reason).to(equal("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'."))
+                        })
             }
 
             describe("behavior with an 'it' inside a 'beforeEach'") {
