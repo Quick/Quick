@@ -38,12 +38,12 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
 #if canImport(Darwin) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including beforeEach in it block") {
-                expect(expression: {
+                expect {
                     beforeEach { }
-                }).to(raiseException { (exception: NSException) in
-                    expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
-                    expect(exception.reason).to(equal("'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'."))
-                })
+                    }.to(raiseException { (exception: NSException) in
+                        expect(exception.name).to(equal(NSExceptionName.internalInconsistencyException))
+                        expect(exception.reason).to(equal("'beforeEach' cannot be used inside 'it', 'beforeEach' may only be used inside 'context' or 'describe'."))
+                        })
             }
         }
 #endif
