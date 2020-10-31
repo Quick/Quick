@@ -1,3 +1,5 @@
+// swiftlint:disable line_length
+
 /**
     Defines a closure to be run prior to any examples in the test suite.
     You may define an unlimited number of these closures, but there is no
@@ -172,7 +174,7 @@ public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
     - parameter file: The absolute path to the file containing the example. A sensible default is provided.
     - parameter line: The line containing the example. A sensible default is provided.
 */
-public func it(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () -> Void) {
+public func it(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.it(description, flags: flags, file: file, line: line, closure: closure)
 }
 
@@ -259,7 +261,7 @@ public func xcontext(_ description: String, flags: FilterFlags = [:], closure: (
     Use this to quickly mark an `it` closure as pending.
     This disables the example and ensures the code within the closure is never run.
 */
-public func xit(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () -> Void) {
+public func xit(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.xit(description, flags: flags, file: file, line: line, closure: closure)
 }
 
@@ -290,7 +292,7 @@ public func fcontext(_ description: String, flags: FilterFlags = [:], closure: (
     Use this to quickly focus an `it` closure, focusing the example.
     If any examples in the test suite are focused, only those examples are executed.
 */
-public func fit(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () -> Void) {
+public func fit(_ description: String, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.fit(description, flags: flags, file: file, line: line, closure: closure)
 }
 
@@ -314,3 +316,5 @@ public func fitBehavesLike(_ name: String, flags: FilterFlags = [:], file: FileS
 public func fitBehavesLike<C>(_ behavior: Behavior<C>.Type, flags: FilterFlags = [:], file: FileString = #file, line: UInt = #line, context: @escaping () -> C) {
     World.sharedWorld.fitBehavesLike(behavior, context: context, flags: flags, file: file, line: line)
 }
+
+// swiftlint:enable line_length

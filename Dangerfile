@@ -1,5 +1,5 @@
 # set the number of lines that must be changed before this classifies as a 'Big PR'
-@SDM_DANGER_BIG_PR_LINES = 50
+@SDM_DANGER_BIG_PR_LINES = 200
 
 # set the files to watch and fail if there are changes
 @SDM_DANGER_IMMUTABLE_FILES = ['LICENSE', 'CODE_OF_CONDUCT.md']
@@ -35,7 +35,7 @@ warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 warn("Big PR") if git.lines_of_code > @SDM_DANGER_BIG_PR_LINES
 
 # Make a note about contributors not in the organization
-unless github.api.organization_member?('Quick', github.pr_author)
+if github.pr_author != "dependabot[bot]" && !github.api.organization_member?('Quick', github.pr_author)
   # Pay extra attention if they modify the podspec
   if git.modified_files.include?("*.podspec")
     warn "External contributor has edited the Podspec file"
@@ -47,7 +47,3 @@ end
 if github.pr_body.length < 5
   warn "Please provide a summary in the Pull Request description"
 end
-
-swiftlint.config_file = '.swiftlint.yml'
-swiftlint.lint_files
-

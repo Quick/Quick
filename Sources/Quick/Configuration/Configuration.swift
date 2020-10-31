@@ -19,20 +19,24 @@ public typealias ExampleFilter = (_ example: Example) -> Bool
 final public class Configuration: NSObject {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
-    internal var exclusionFilters: [ExampleFilter] = [ { example in
-        if let pending = example.filterFlags[Filter.pending] {
-            return pending
-        } else {
-            return false
-        }
-    }]
-    internal var inclusionFilters: [ExampleFilter] = [ { example in
-        if let focused = example.filterFlags[Filter.focused] {
-            return focused
-        } else {
-            return false
-        }
-    }]
+    internal var exclusionFilters: [ExampleFilter] = [
+        { example in // swiftlint:disable:this opening_brace
+            if let pending = example.filterFlags[Filter.pending] {
+                return pending
+            } else {
+                return false
+            }
+        },
+    ]
+    internal var inclusionFilters: [ExampleFilter] = [
+        { example in // swiftlint:disable:this opening_brace
+            if let focused = example.filterFlags[Filter.focused] {
+                return focused
+            } else {
+                return false
+            }
+        },
+    ]
 
     /**
         Run all examples if none match the configured filters. True by default.
