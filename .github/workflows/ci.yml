@@ -5,33 +5,50 @@ on:
     branches:
       - master
     tags:
-      - '*'
+      - "*"
   pull_request:
 
 jobs:
+  cocoapods:
+    name: CocoaPods Lint & Danger
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: bundle install
+      - run: bundle exec danger
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: rake podspec:lint
+
   xcode:
-    name: Xcode ${{ matrix.xcode }}
-    runs-on: macOS-latest
+    name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
+    runs-on: macos-latest
     strategy:
       matrix:
-        xcode: [11, 11.1, 11.2]
+        xcode: [11.7, 12]
+        platform: ["macos", "ios", "tvos"]
+      fail-fast: false
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
-    - uses: actions/checkout@v1
-      with:
-        submodules: true
-    - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
-    - run: PLATFORM=macos ./script/travis-script-macos
-    - run: PLATFORM=macos_static ./script/travis-script-macos
-    - run: PLATFORM=ios ./script/travis-script-macos
-    - run: PLATFORM=tvos ./script/travis-script-macos
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - run: rake test:${{ matrix.platform }}
+      - if: ${{ matrix.platform == 'macos' }}
+        run: rake test:${{ matrix.platform }}_static
 
   swiftpm_darwin:
     name: SwiftPM, Darwin, Xcode ${{ matrix.xcode }}
-    runs-on: macOS-latest
+    runs-on: macos-latest
     strategy:
       matrix:
-        xcode: [11, 11.1, 11.2]
+        xcode: [11.7, 12]
+      fail-fast: false
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
-    - uses: actions/checkout@v1
-    - run: sudo xcode-select -s '/Applications/Xcode_${{ matrix.xcode }}.app'
-    - run: PLATFORM=swiftpm ./script/travis-script-macos
+      - uses: actions/checkout@v2
+      - run: rake test:swiftpm

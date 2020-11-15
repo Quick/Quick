@@ -15,7 +15,7 @@ presented within the app. When testing a `UIViewController`, however, you'll
 need to trigger these yourself. You can do so in one of three ways:
 
 1. Accessing `UIViewController.view`, which triggers things like `UIViewController.viewDidLoad()`.
-2. Use `UIViewController.beginAppearanceTransition()` to trigger most lifecycle events.
+2. Use `UIViewController.beginAppearanceTransition()` and `UIViewController.endAppearanceTransition()` to trigger most lifecycle events. Note - as of iOS SDK 13.0, this no longer triggers `UIViewController.viewDidAppear()`.
 3. Directly calling methods like `UIViewController.viewDidLoad()` or `UIViewController.viewWillAppear()`.
 
 ```swift
@@ -47,7 +47,7 @@ class BananaViewControllerSpec: QuickSpec {
 
     describe("the view") {
       beforeEach {
-        // Method #2: Triggers .viewDidLoad(), .viewWillAppear(), and .viewDidAppear() events.
+        // Method #2: Triggers .viewDidLoad() and .viewWillAppear() events.
         viewController.beginAppearanceTransition(true, animated: false)
         viewController.endAppearanceTransition()
       }
@@ -94,7 +94,7 @@ describe(@"-viewDidLoad", ^{
 
 describe(@"the view", ^{
   beforeEach(^{
-    // Method #2: Triggers .viewDidLoad(), .viewWillAppear(), and .viewDidAppear() events.
+    // Method #2: Triggers .viewDidLoad() and .viewWillAppear() events.
     [viewController beginAppearanceTransition:YES animated:NO];
     [viewController endAppearanceTransition];
   });
