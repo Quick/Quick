@@ -129,6 +129,8 @@ static QuickSpec *currentSpec = nil;
     return selector;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 /**
  This method is used to record failures, whether they represent example
  expectations that were not met, or exceptions raised during test setup
@@ -156,6 +158,7 @@ static QuickSpec *currentSpec = nil;
                                  atLine:lineNumber
                                expected:expected];
 }
+#pragma clang diagnostic pop
 
 @end
 
