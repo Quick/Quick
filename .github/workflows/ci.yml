@@ -58,12 +58,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        swift_version: [5.2.5, 5.3.3, 5.4-DEVELOPMENT-SNAPSHOT-2021-01-23-a]
+        swift_version: [5.2, 5.3, swift-5.4-branch, nightly]
       fail-fast: false
-    env:
-      SWIFT_VERSION: ${{ matrix.swift_version }}
+    container: norionomura/swift:${{ matrix.swift_version }}
     steps:
       - uses: actions/checkout@v2
-      - name: Install swiftenv
-        run: eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-      - run: rake test:swiftpm
+      - run: swift test -Xswiftc -suppress-warnings
