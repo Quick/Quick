@@ -58,9 +58,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        swift_version: [5.2, 5.3, swift-5.4-branch, nightly]
+        container:
+          - swift:5.2
+          - swift:5.3
+          - norionomura/swift:swift-5.4-branch # swiftlang/swift:nightly-5.4 is not available yet
+          - swiftlang/swift:nightly
       fail-fast: false
-    container: norionomura/swift:${{ matrix.swift_version }}
+    container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v2
+      - run: swift build -Xswiftc -suppress-warnings 
       - run: swift test -Xswiftc -suppress-warnings
