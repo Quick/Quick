@@ -423,7 +423,7 @@
 		DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickConfiguration.h; sourceTree = "<group>"; };
 		DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickConfiguration.m; sourceTree = "<group>"; };
 		DAEB6B8E1943873100289F44 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAEB6B921943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		DAEB6B931943873100289F44 /* Quick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Quick.h; sourceTree = "<group>"; };
 		DAEB6B991943873100289F44 /* Quick - macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAEB6B9F1943873100289F44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1688,7 +1688,7 @@
 					"$(inherited)",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INFOPLIST_FILE = Sources/Quick/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1722,7 +1722,7 @@
 					"$(inherited)",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INFOPLIST_FILE = Sources/Quick/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1848,7 +1848,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INFOPLIST_FILE = Sources/Quick/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1881,7 +1881,7 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INFOPLIST_FILE = Sources/Quick/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2371,7 +2371,7 @@
 					"$(inherited)",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INFOPLIST_FILE = Sources/Quick/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -2403,7 +2403,7 @@
 					"$(inherited)",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INFOPLIST_FILE = Sources/Quick/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
