@@ -1,4 +1,4 @@
-name: CI
+name: CI (SwiftPM)
 
 on:
   push:
@@ -9,39 +9,21 @@ on:
   pull_request:
 
 jobs:
-  cocoapods:
-    name: CocoaPods Lint & Danger
-    runs-on: macos-latest
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
-      - uses: actions/checkout@v2
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v3.3.0
         with:
-          fetch-depth: 0
-      - run: bundle install
-      - run: bundle exec danger
-        env:
-          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: rake podspec:lint
-
-  xcode:
-    name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        xcode: [11.7, 12]
-        platform: ["macos", "ios", "tvos"]
-      fail-fast: false
-    env:
-      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-      - run: rake test:${{ matrix.platform }}
-      - if: ${{ matrix.platform == 'macos' }}
-        run: rake test:${{ matrix.platform }}_static
+          paths: '[".github/workflows/ci-swiftpm.yml", "Sources/**", "Tests/**", "Package.*"]'
+          do_not_skip: '["push", "workflow_dispatch", "schedule"]'
 
   swiftpm_darwin:
     name: SwiftPM, Darwin, Xcode ${{ matrix.xcode }}
+    needs: filter
+    if: ${{ needs.filter.outputs.should_skip != 'true' }}
     runs-on: macos-latest
     strategy:
       matrix:
@@ -55,6 +37,8 @@ jobs:
 
   swiftpm_linux:
     name: SwiftPM, Linux
+    needs: filter
+    if: ${{ needs.filter.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
