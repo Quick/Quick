@@ -23,7 +23,6 @@ jobs:
   xcode:
     name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
     needs: filter
-    if: ${{ needs.filter.outputs.should_skip != 'true' }}
     runs-on: macos-latest
     strategy:
       matrix:
@@ -36,6 +35,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: rake test:${{ matrix.platform }}
-      - if: ${{ matrix.platform == 'macos' }}
-        run: rake test:${{ matrix.platform }}_static
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
+      - run: rake test:${{ matrix.platform }}_static
+        if: ${{ needs.filter.outputs.should_skip != 'true' && matrix.platform == 'macos' }}
