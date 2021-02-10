@@ -23,12 +23,14 @@ jobs:
   cocoapods:
     name: CocoaPods Lint
     needs: filter
-    if: ${{ needs.filter.outputs.should_skip != 'true' }}
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
           bundler-cache: true
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: rake podspec:lint
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}

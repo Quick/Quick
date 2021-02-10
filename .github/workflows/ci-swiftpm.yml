@@ -23,7 +23,6 @@ jobs:
   swiftpm_darwin:
     name: SwiftPM, Darwin, Xcode ${{ matrix.xcode }}
     needs: filter
-    if: ${{ needs.filter.outputs.should_skip != 'true' }}
     runs-on: macos-latest
     strategy:
       matrix:
@@ -33,12 +32,13 @@ jobs:
       DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
       - uses: actions/checkout@v2
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: rake test:swiftpm
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
 
   swiftpm_linux:
     name: SwiftPM, Linux
     needs: filter
-    if: ${{ needs.filter.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -51,5 +51,8 @@ jobs:
     container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v2
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: swift build -Xswiftc -suppress-warnings 
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: swift test -Xswiftc -suppress-warnings
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
