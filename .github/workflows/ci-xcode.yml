@@ -1,0 +1,42 @@
+name: CI (Xcode)
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+  pull_request:
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v3.3.0
+        with:
+          paths: '[".github/workflows/ci-xcode.yml", "Externals", "Quick.xc*", "Sources/**", "Tests/**", "Rakefile"]'
+          do_not_skip: '["push", "workflow_dispatch", "schedule"]'
+
+  xcode:
+    name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
+    needs: filter
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode: [11.7, 12]
+        platform: ["macos", "ios", "tvos"]
+      fail-fast: false
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
+      - run: rake test:${{ matrix.platform }}
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
+      - run: rake test:${{ matrix.platform }}_static
+        if: ${{ needs.filter.outputs.should_skip != 'true' && matrix.platform == 'macos' }}
