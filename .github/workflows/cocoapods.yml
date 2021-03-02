@@ -3,7 +3,7 @@ name: CocoaPods
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - "*"
   pull_request:

@@ -59,7 +59,7 @@ Be sure to include in your issue:
 - Be sure the unit tests for both the OS X and iOS targets of both Quick
   and Nimble pass before submitting your pull request. You can run all
   the iOS and OS X unit tests using `rake`.
-- The `master` branch will always support the stable Xcode version. Other
+- The `main` branch will always support the stable Xcode version. Other
   branches will point to their corresponding versions they support.
 - If you're making a configuration change, make sure to edit both the xcode
   project and the podspec file.
@@ -81,7 +81,7 @@ to the repository.
 Your conduct as a core member is your own responsibility, but here are
 some "ground rules":
 
-- Feel free to push whatever you want to master, and (if you have
+- Feel free to push whatever you want to main, and (if you have
   ownership permissions) to create any repositories you'd like.
 
   Ideally, however, all changes should be submitted as GitHub pull

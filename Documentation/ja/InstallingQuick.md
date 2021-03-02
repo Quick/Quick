@@ -50,12 +50,12 @@ git submodule update --init --recursive
 
 `Nimble.framework` も同様に追加してください。これで完了です！
 
-**Submodules をアップデートする:** Quick と Nimble を最新バージョンにアップデートしたい場合は Quick ディレクトリに入って master リポジトリから pull してください。
+**Submodules をアップデートする:** Quick と Nimble を最新バージョンにアップデートしたい場合は Quick ディレクトリに入って main リポジトリから pull してください。
 
 ```sh
 cd /path/to/your/project/Vendor/Quick
-git checkout master
-git pull --rebase origin master
+git checkout main
+git pull --rebase origin main
 ```
 
 あなたのプロジェクトの Git リポジトリは submodule の変更もトラッキングしているので Quick submodules の更新を commit しておきます。

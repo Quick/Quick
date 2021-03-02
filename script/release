@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-REMOTE_BRANCH=master
+REMOTE_BRANCH=main
 POD_NAME=Quick
 PODSPEC=Quick.podspec
 
