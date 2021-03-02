@@ -44,12 +44,12 @@ git submodule update --init --recursive
 
 `Nimble.framework`도 위와 같이 추가하면 끝입니다!
 
-**서브 모듈 업데이트하기:** Quick이나 Nimble 서브 모듈을 마지막 버전으로 업데이트하기 원한다면, Quick 디렉터리로 들어가서 master 레퍼지토리를 pull 하세요:
+**서브 모듈 업데이트하기:** Quick이나 Nimble 서브 모듈을 마지막 버전으로 업데이트하기 원한다면, Quick 디렉터리로 들어가서 main 레퍼지토리를 pull 하세요:
 
 ```sh
 cd /path/to/your/project/Vendor/Quick
-git checkout master
-git pull --rebase origin master
+git checkout main
+git pull --rebase origin main
 ```
 
 당신의 Git 레퍼지토리는 서브 모듈의 변화를 트래킹할 것입니다. 당신은 Quick 서브 모듈을 업데이트했다는 것을 커밋하기 원할 것입니다.
