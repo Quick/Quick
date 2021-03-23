@@ -1,0 +1,11 @@
+framework module Quick {
+  umbrella header "Quick.h"
+
+  export *
+  module * { export * }
+}
+
+module Quick.Swift {
+    header "Quick-Swift.h"
+    requires objc
+}

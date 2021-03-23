@@ -1,0 +1,136 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name Quick
+import Foundation
+@_exported import Quick
+import Swift
+import XCTest
+public typealias BeforeExampleClosure = () -> Swift.Void
+public typealias BeforeExampleWithMetadataClosure = (Quick.ExampleMetadata) -> Swift.Void
+public typealias AfterExampleClosure = Quick.BeforeExampleClosure
+public typealias AfterExampleWithMetadataClosure = Quick.BeforeExampleWithMetadataClosure
+public typealias BeforeSuiteClosure = () -> Swift.Void
+public typealias AfterSuiteClosure = Quick.BeforeSuiteClosure
+@objc @_inheritsConvenienceInitializers @objcMembers public class _ExampleMetadataBase : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers final public class ExampleMetadata : Quick._ExampleMetadataBase {
+  @objc final public let example: Quick.Example
+  @objc final public let exampleIndex: Swift.Int
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class _CallsiteBase : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+public typealias FileString = Swift.String
+@objc @_hasMissingDesignatedInitializers final public class Callsite : Quick._CallsiteBase {
+  @objc final public let file: Quick.FileString
+  @objc final public let line: Swift.UInt
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension Callsite {
+  @nonobjc public static func == (lhs: Quick.Callsite, rhs: Quick.Callsite) -> Swift.Bool
+}
+@objc @_hasMissingDesignatedInitializers final public class ExampleGroup : ObjectiveC.NSObject {
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
+  @objc final public var examples: [Quick.Example] {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
+public typealias SharedExampleContext = () -> [Swift.String : Any]
+public typealias SharedExampleClosure = (@escaping Quick.SharedExampleContext) -> Swift.Void
+public typealias QuickConfigurer = (Quick.Configuration) -> Swift.Void
+public typealias ExampleFilter = (Quick.Example) -> Swift.Bool
+@objc @_inheritsConvenienceInitializers final public class Configuration : ObjectiveC.NSObject {
+  final public var runAllWhenEverythingFiltered: Swift.Bool
+  final public func include(_ filter: @escaping Quick.ExampleFilter)
+  final public func exclude(_ filter: @escaping Quick.ExampleFilter)
+  @objc(beforeEachWithMetadata:) final public func beforeEach(_ closure: @escaping Quick.BeforeExampleWithMetadataClosure)
+  final public func beforeEach(_ closure: @escaping Quick.BeforeExampleClosure)
+  @objc(afterEachWithMetadata:) final public func afterEach(_ closure: @escaping Quick.AfterExampleWithMetadataClosure)
+  final public func afterEach(_ closure: @escaping Quick.AfterExampleClosure)
+  final public func beforeSuite(_ closure: @escaping Quick.BeforeSuiteClosure)
+  final public func afterSuite(_ closure: @escaping Quick.AfterSuiteClosure)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class _ExampleBase : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers final public class Example : Quick._ExampleBase {
+  @objc final public var isSharedExample: Swift.Bool
+  @objc final public var callsite: Quick.Callsite
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
+  @objc final public var name: Swift.String {
+    @objc get
+  }
+  @objc final public func run()
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension Example {
+  @nonobjc public static func == (lhs: Quick.Example, rhs: Quick.Example) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers open class Behavior<Context> {
+  open class var name: Swift.String {
+    get
+  }
+  open class func spec(_ aContext: @escaping () -> Context)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class QuickTestSuite : XCTest.XCTestSuite {
+  @objc public static func selectedTestSuite(forTestCaseWithName name: Swift.String) -> Quick.QuickTestSuite?
+  @objc deinit
+  @objc override dynamic public init(name: Swift.String)
+}
+public func beforeSuite(_ closure: @escaping Quick.BeforeSuiteClosure)
+public func afterSuite(_ closure: @escaping Quick.AfterSuiteClosure)
+public func sharedExamples(_ name: Swift.String, closure: @escaping () -> Swift.Void)
+public func sharedExamples(_ name: Swift.String, closure: @escaping Quick.SharedExampleClosure)
+public func describe(_ description: Swift.String, flags: Quick.FilterFlags = [:], closure: () -> Swift.Void)
+public func context(_ description: Swift.String, flags: Quick.FilterFlags = [:], closure: () -> Swift.Void)
+public func beforeEach(_ closure: @escaping Quick.BeforeExampleClosure)
+public func beforeEach(_ closure: @escaping Quick.BeforeExampleWithMetadataClosure)
+public func afterEach(_ closure: @escaping Quick.AfterExampleClosure)
+public func afterEach(_ closure: @escaping Quick.AfterExampleWithMetadataClosure)
+public func it(_ description: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, closure: @escaping () throws -> Swift.Void)
+public func itBehavesLike(_ name: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line)
+public func itBehavesLike(_ name: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, sharedExampleContext: @escaping Quick.SharedExampleContext)
+public func itBehavesLike<C>(_ behavior: Quick.Behavior<C>.Type, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, context: @escaping () -> C)
+public func pending(_ description: Swift.String, closure: () -> Swift.Void)
+public func xdescribe(_ description: Swift.String, flags: Quick.FilterFlags = [:], closure: () -> Swift.Void)
+public func xcontext(_ description: Swift.String, flags: Quick.FilterFlags = [:], closure: () -> Swift.Void)
+public func xit(_ description: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, closure: @escaping () throws -> Swift.Void)
+public func xitBehavesLike<C>(_ behavior: Quick.Behavior<C>.Type, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, context: @escaping () -> C)
+public func fdescribe(_ description: Swift.String, flags: Quick.FilterFlags = [:], closure: () -> Swift.Void)
+public func fcontext(_ description: Swift.String, flags: Quick.FilterFlags = [:], closure: () -> Swift.Void)
+public func fit(_ description: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, closure: @escaping () throws -> Swift.Void)
+public func fitBehavesLike(_ name: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line)
+public func fitBehavesLike(_ name: Swift.String, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, sharedExampleContext: @escaping Quick.SharedExampleContext)
+public func fitBehavesLike<C>(_ behavior: Quick.Behavior<C>.Type, flags: Quick.FilterFlags = [:], file: Quick.FileString = #file, line: Swift.UInt = #line, context: @escaping () -> C)
+@objc @_inheritsConvenienceInitializers @objcMembers public class _FilterBase : ObjectiveC.NSObject {
+  @objc deinit
+  @objc override dynamic public init()
+}
+public typealias FilterFlags = [Swift.String : Swift.Bool]
+@objc @_inheritsConvenienceInitializers final public class Filter : Quick._FilterBase {
+  @objc final public class var focused: Swift.String {
+    @objc get
+  }
+  @objc final public class var pending: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
