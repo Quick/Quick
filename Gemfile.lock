@@ -92,7 +92,7 @@ GEM
     i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     json (2.5.1)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
