@@ -63,7 +63,7 @@ static QuickSpec *currentSpec = nil;
     World *world = [World sharedWorld];
 
     if ([world isRootExampleGroupInitializedForSpecClass:[self class]]) {
-        // The examples fot this subclass have been already built. Skipping.
+        // The examples for this subclass have been already built. Skipping.
         return;
     }
 
