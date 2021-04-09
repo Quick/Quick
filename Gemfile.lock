@@ -111,6 +111,7 @@ GEM
     rake (13.0.3)
     rchardet (1.8.0)
     rexml (3.2.4)
+    rouge (2.0.7)
     ruby-macho (1.4.0)
     ruby2_keywords (0.0.4)
     sawyer (0.8.2)
@@ -130,6 +131,8 @@ GEM
       claide (>= 1.0.2, < 2.0)
       colored2 (~> 3.1)
       nanaimo (~> 0.3.0)
+    xcpretty (0.3.0)
+      rouge (~> 2.0.7)
 
 PLATFORMS
   ruby
@@ -138,6 +141,7 @@ DEPENDENCIES
   cocoapods (~> 1.10)
   danger
   rake
+  xcpretty
 
 BUNDLED WITH
    2.1.4
