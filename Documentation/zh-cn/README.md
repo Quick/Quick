@@ -7,6 +7,8 @@ Quick 能够帮助你验证你的 Swift 和 Objective-C 程序的行为。然而
 - **[在项目中添加测试](SettingUpYourXcodeProject.md)**：如果你遇到在项目中构建测试的问题，请阅读这份指南。
 - **[编写高效的 XCTest 测试: Arrange，Act 和 Assert](ArrangeActAssert.md)**：阅读这份指南来了解如何更高效快速地编写 `XCTestCase` 测试。
 - **[不要测试代码，而应该测试行为](BehavioralTesting.md)**：通过这份指南你能学习到哪些是好的测试，哪些是不好的测试。
+- **[使用 Nimble 断言，让测试更清晰](NimbleAssertions.md)**: 阅读这份指南，学习如何使用 Nimble 来生成更好的失败信息，帮助你更快找到用例错误的原因。
+- **[用 Quick 例子和例子群组织测试](QuickExamplesAndGroups.md)**: 阅读这份指南，学习如何用 Quick 的*例子*和*例子群*来编写更高效的测试用例。
 - **[测试 OS X 和 iOS 应用](TestingApps.md)**：了解如何为使用 AppKit 和 UIKit 框架的代码编写测试。
 - **[使用测试替身进行测试](TestUsingTestDoubles.md)**：阅读这份指南来了解什么是测试替身，以及如何使用它们。
 - **[使用 Shared Assertion 来复用测试模板代码](SharedExamples.md)**：学习如何在测试中共享测试代码。
