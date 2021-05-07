@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", from: "9.0.1"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "9.1.0"),
     ],
     targets: {
         var targets: [Target] = [
