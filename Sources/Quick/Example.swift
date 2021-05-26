@@ -90,7 +90,7 @@ final public class Example: _ExampleBase {
             #else
             let file = callsite.file
             #endif
-            #if swift(>=5.3) && !SWIFT_PACKAGE
+            #if !SWIFT_PACKAGE
             let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
             let sourceCodeContext = XCTSourceCodeContext(location: location)
             let issue = XCTIssue(

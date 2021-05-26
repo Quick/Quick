@@ -26,7 +26,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        xcode: [11.7, 12.4]
+        xcode: [12.4]
       fail-fast: false
     env:
       DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
@@ -43,7 +43,6 @@ jobs:
     strategy:
       matrix:
         container:
-          - swift:5.2
           - swift:5.3
           - swift:5.4
           - swiftlang/swift:nightly

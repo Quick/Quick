@@ -129,36 +129,33 @@ static QuickSpec *currentSpec = nil;
     return selector;
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 /**
  This method is used to record failures, whether they represent example
  expectations that were not met, or exceptions raised during test setup
  and teardown. By default, the failure will be reported as an
  XCTest failure, and the example will be highlighted in Xcode.
  */
-- (void)recordFailureWithDescription:(NSString *)description
-                              inFile:(NSString *)filePath
-                              atLine:(NSUInteger)lineNumber
-                            expected:(BOOL)expected {
+- (void)recordIssue:(XCTIssue *)issue {
     if (self != [QuickSpec current]) {
-        [[QuickSpec current] recordFailureWithDescription:description
-                                                   inFile:filePath
-                                                   atLine:lineNumber
-                                                 expected:expected];
+        [[QuickSpec current] recordIssue:issue];
         return;
     }
 
     if (self.example.isSharedExample) {
-        filePath = self.example.callsite.file;
-        lineNumber = self.example.callsite.line;
+        XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:self.example.callsite.file
+                                                                               lineNumber:self.example.callsite.line];
+        XCTSourceCodeContext *sourceCodeContext = [[XCTSourceCodeContext alloc] initWithLocation:location];
+        XCTIssue *newIssue = [[XCTIssue alloc] initWithType:issue.type
+                                         compactDescription:issue.compactDescription
+                                        detailedDescription:issue.detailedDescription
+                                          sourceCodeContext:sourceCodeContext
+                                            associatedError:issue.associatedError
+                                                attachments:issue.attachments];
+        [super recordIssue:newIssue];
+    } else {
+        [super recordIssue:issue];
     }
-    [super recordFailureWithDescription:description
-                                 inFile:filePath
-                                 atLine:lineNumber
-                               expected:expected];
 }
-#pragma clang diagnostic pop
 
 @end
 
