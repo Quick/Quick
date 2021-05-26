@@ -220,15 +220,19 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 #define fitBehavesLike qck_fitBehavesLike
 #endif
 
-#define qck_it qck_it_builder(@{}, @(__FILE__), __LINE__)
-#define qck_xit qck_it_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
-#define qck_fit qck_it_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
-#define qck_itBehavesLike qck_itBehavesLike_builder(@{}, @(__FILE__), __LINE__)
-#define qck_xitBehavesLike qck_itBehavesLike_builder(@{Filter.pending: @YES}, @(__FILE__), __LINE__)
-#define qck_fitBehavesLike qck_itBehavesLike_builder(@{Filter.focused: @YES}, @(__FILE__), __LINE__)
+#define qck_it qck_it_builder(@(__FILE__), __LINE__)
+#define qck_xit qck_xit_builder(@(__FILE__), __LINE__)
+#define qck_fit qck_fit_builder(@(__FILE__), __LINE__)
+#define qck_itBehavesLike qck_itBehavesLike_builder(@(__FILE__), __LINE__)
+#define qck_xitBehavesLike qck_xitBehavesLike_builder(@(__FILE__), __LINE__)
+#define qck_fitBehavesLike qck_fitBehavesLike_builder(@(__FILE__), __LINE__)
 
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *description, QCKDSLSharedExampleContext context);
 
-QUICK_EXPORT QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line);
-QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line);
+QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
+QCKItBlock qck_xit_builder(NSString *file, NSUInteger line);
+QCKItBlock qck_fit_builder(NSString *file, NSUInteger line);
+QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line);
+QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line);
+QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line);
