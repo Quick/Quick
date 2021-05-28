@@ -51,7 +51,7 @@ class DoubleFunctionTests: QuickSpec {
 If you want you can extend the test code to make Xcode mark failing tests at the line
 where the data input/output was specified instead of the `expect` that failed. Notice
 that the default value in the init function for TestData takes care of recording the
-line number for each data line using the `#line` literal.
+line number for each data line using the [`#line`](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID390) literal.
 
 ```swift
 import Quick
