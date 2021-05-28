@@ -17,7 +17,7 @@ The source code defining the `double`-function
 
 ```swift
 /* The function we want to test*/
-func double(_ value : Int) -> Int { 2 * value }
+func double(_ value: Int) -> Int { 2 * value }
 ```
 
 The test code defining the data driven specification:
@@ -29,10 +29,10 @@ import Nimble
 class DoubleFunctionTests: QuickSpec {
     override func spec() {
         describe("the double function") {
-            let dataSet : [(input: Int, output: Int)] = [
+            let dataSet: [(input: Int, output: Int)] = [
                 (input: 0, output: 0),
                 (input: 1, output: 2),
-                (input: 2, output: 4)
+                (input: 2, output: 4),
             ]
             dataSet.forEach { (input, output) in
                 context("for input \(input)") {
@@ -58,9 +58,9 @@ import Quick
 import Nimble
 
 class TestData<T> {
-    public let input: T
-    public let output: T
-    public let line: UInt
+    let input: T
+    let output: T
+    let line: UInt
 
     init(input: T, output: T, line: UInt = #line) {
         self.input = input
@@ -72,15 +72,15 @@ class TestData<T> {
 class QuickDataDrivenTests: QuickSpec {
     override func spec() {
         describe("the double function") {
-            let dataSet = [
-                TestData<Int>(input: 0, output: 0),
-                TestData<Int>(input: 1, output: 2),
-                TestData<Int>(input: 2, output: 4)
+            let dataSet: [TestData<Int>] = [
+                .init(input: 0, output: 0),
+                .init(input: 1, output: 2),
+                .init(input: 2, output: 4),
             ]
             dataSet.forEach { (data) in
-                context("for input \(self.input)") {
-                    it("should return \(output)", line: data.line) {
-                        expect(double(input), line: data.line).to(equal(data.output))
+                context("for input \(data.input)") {
+                    it("should return \(data.output)", line: data.line) {
+                        expect(line: data.line, double(data.input)).to(equal(data.output))
                     }
                 }
             }
@@ -106,17 +106,18 @@ import Nimble
 class WeirdClassTests: QuickSpec {
     override func spec() {
         describe("the WeirdClass") {
-            let dataSet : [(input: String, firstThree: String, weirdness: Int)] = [
+            let dataSet: [(input: String, firstThree: String, weirdness: Int)] = [
                 (input: "foobar", firstThree: "foo", weirdness: 35),
                 (input: "Hello world", firstThree: "Hel", weirdness: 524),
                 (input: "78ghkajsdf", firstThree: "78g", weirdness: 1240),
             ]
             dataSet.forEach { (input, firstThree, weirdness) in
                 context("for input \(input)") {
-                    var weird : WeirdClass!
+                    var weird: WeirdClass!
                     beforeEach {
                       weird = WeirdClass(input)
                     }
+
                     it("should have weirdness \(output)") {
                       expect(weird.weirdness).to(equal(weirdness))
                     }
@@ -151,7 +152,7 @@ With that function you can write your specification like:
 given(
     (1, plus: 1, is: 2),
     (1, plus: 2, is: 2),
-    (1, plus: 3, is: 4)
+    (1, plus: 3, is: 4),
 ) { (a, b, result) in
     it("\(a) plus \(b) is \(result)") {
         expect(a + b).to(equal(result))
@@ -167,8 +168,8 @@ Should you want Xcode to trace the line when tests fail, you can add this, like 
 given(
     (1, plus: 1, is: 2, line: #line),
     (1, plus: 2, is: 2, line: #line),
-    (1, plus: 3, is: 4, line: #line)
-) { (a, b, result, line: UInt) in
+    (1, plus: 3, is: 4, line: #line),
+) { (a, b, result, line) in
     it("\(a) plus \(b) is \(result)") {
         expect(line: line, a + b).to(equal(result))
     }
