@@ -230,9 +230,9 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *description, QCKDSLSharedExampleContext context);
 
-QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
-QCKItBlock qck_xit_builder(NSString *file, NSUInteger line);
-QCKItBlock qck_fit_builder(NSString *file, NSUInteger line);
-QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line);
-QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line);
-QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBlock qck_xit_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBlock qck_fit_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line);
