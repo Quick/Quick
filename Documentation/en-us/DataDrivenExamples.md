@@ -191,8 +191,3 @@ context("for input \(input)” {
   }
 }
 ```
-
-### Tests are not discovered
-
-It seems that the `forEach` block must have the tests in at least one `context` to
-be discovered and later executed.
