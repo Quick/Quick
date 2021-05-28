@@ -1,6 +1,6 @@
 # Iterate example specifications over a set of data
 
-Sometimes you will find yourself writing unit tests that repeats almost exactly
+Sometimes you will find yourself writing unit tests that repeat almost exactly
 the same specification code over and over again. Typically this happens when you
 have a function, class or struct you want to test for different combinations of
 input data and output data.
@@ -14,12 +14,14 @@ The following is an basic example to illustrate the concept, where we want to te
 the function `double` for a list of input/output combinations:
 
 The source code defining the `double`-function
+
 ```swift
 /* The function we want to test*/
-func double(_ value : Int) -> Int { return 2*value }
+func double(_ value : Int) -> Int { 2 * value }
 ```
 
 The test code defining the data driven specification:
+
 ```swift
 import Quick
 import Nimble
@@ -32,7 +34,7 @@ class DoubleFunctionTests: QuickSpec {
                 (input: 1, output: 2),
                 (input: 2, output: 4)
             ]
-            dataSet.forEach { (input: Int, output: Int) in
+            dataSet.forEach { (input, output) in
                 context("for input \(input)") {
                     it("should return \(output)") {
                         expect(double(input)).to(equal(output))
@@ -43,12 +45,13 @@ class DoubleFunctionTests: QuickSpec {
     }
 }
 ```
-## Make xcode trace failures to the line of the data example
 
-If you want you can extend the testcode to make xcode mark failing tests at the line
-where the data input/output was specified instead of the `expect`that failed. Notice
+## Make Xcode trace failures to the line of the data example
+
+If you want you can extend the test code to make Xcode mark failing tests at the line
+where the data input/output was specified instead of the `expect` that failed. Notice
 that the default value in the init function for TestData takes care of recording the
-line number for each data line using the `#line` macro.
+line number for each data line using the `#line` literal.
 
 ```swift
 import Quick
@@ -85,6 +88,7 @@ class QuickDataDrivenTests: QuickSpec {
     }
 }
 ```
+
 ## More dimensions and complex test data
 
 Should there be multiple aspects or combinations of input to test or results that
@@ -107,7 +111,7 @@ class WeirdClassTests: QuickSpec {
                 (input: "Hello world", firstThree: "Hel", weirdness: 524),
                 (input: "78ghkajsdf", firstThree: "78g", weirdness: 1240),
             ]
-            dataSet.forEach { (input: String, firstThree: String, weirdness: Int) in
+            dataSet.forEach { (input, firstThree, weirdness) in
                 context("for input \(input)") {
                     var weird : WeirdClass!
                     beforeEach {
@@ -127,6 +131,7 @@ class WeirdClassTests: QuickSpec {
 ```
 
 ## Further reducing the boilerplate
+
 Define a little generic helper function called `given` like this:
 
 ```swift
@@ -139,7 +144,9 @@ func given<Input>(_ input: Input..., then: (_: Input) -> Void) {
     for i in input { then(i) }
 }
 ```
+
 With that function you can write your specification like:
+
 ```swift
 given(
     (1, plus: 1, is: 2),
@@ -151,8 +158,10 @@ given(
     }
 }
 ```
+
 ### Tracing the line on errors
-Should you want xcode to trace the line when tests fail, you can add this, like so:
+
+Should you want Xcode to trace the line when tests fail, you can add this, like so:
 
 ```swift
 given(
@@ -165,7 +174,6 @@ given(
     }
 }
 ```
-
 
 ## Pitfalls
 
