@@ -10,10 +10,10 @@ the data as a set and iterate your test specification.
 
 ## Tests for a list of input and outputs
 
-The following is an basic example to illustrate the concept, where we want to test
+The following is a basic example to illustrate the concept, where we want to test
 the function `double` for a list of input/output combinations:
 
-The source code defining the `double`-function
+The source code defining the `double` function:
 
 ```swift
 /* The function we want to test*/
@@ -48,7 +48,7 @@ class DoubleFunctionTests: QuickSpec {
 
 ## Make Xcode trace failures to the line of the data example
 
-If you want you can extend the test code to make Xcode mark failing tests at the line
+If you want, you can extend the test code to make Xcode mark failing tests at the line
 where the data input/output was specified instead of the `expect` that failed. Notice
 that the default value in the init function for TestData takes care of recording the
 line number for each data line using the [`#line`](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID390) literal.
@@ -118,7 +118,7 @@ class WeirdClassTests: QuickSpec {
                       weird = WeirdClass(input)
                     }
 
-                    it("should have weirdness \(output)") {
+                    it("should have weirdness \(weirdness)") {
                       expect(weird.weirdness).to(equal(weirdness))
                     }
                     it("shoud have first three \(firstThree)") {
@@ -152,7 +152,7 @@ With that function you can write your specification like:
 given(
     (1, plus: 1, is: 2),
     (1, plus: 2, is: 2),
-    (1, plus: 3, is: 4),
+    (1, plus: 3, is: 4)
 ) { (a, b, result) in
     it("\(a) plus \(b) is \(result)") {
         expect(a + b).to(equal(result))
@@ -168,9 +168,9 @@ Should you want Xcode to trace the line when tests fail, you can add this, like 
 given(
     (1, plus: 1, is: 2, line: #line),
     (1, plus: 2, is: 2, line: #line),
-    (1, plus: 3, is: 4, line: #line),
+    (1, plus: 3, is: 4, line: #line)
 ) { (a, b, result, line) in
-    it("\(a) plus \(b) is \(result)") {
+    it("\(a) plus \(b) is \(result)", line: line) {
         expect(line: line, a + b).to(equal(result))
     }
 }
@@ -180,13 +180,13 @@ given(
 
 There are some pitfalls, that might cause you some grief.
 
-### Duplicate test names.
+### Duplicate test names
 
-Remember to use the test data to make the strings in the `context`, and `it` unique.
-For example by using the Swift string interpolation like:
+Remember to use the test data to make the strings in the `context` and `it`, unique.
+For example, by using the Swift string interpolation like:
 
 ```swift
-context("for input \(input)” {
+context("for input \(input)") {
   it("should return \(output)") {
     /* expect(...) */
   }
