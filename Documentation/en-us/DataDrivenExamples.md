@@ -152,7 +152,7 @@ With that function you can write your specification like:
 given(
     (1, plus: 1, is: 2),
     (1, plus: 2, is: 2),
-    (1, plus: 3, is: 4),
+    (1, plus: 3, is: 4)
 ) { (a, b, result) in
     it("\(a) plus \(b) is \(result)") {
         expect(a + b).to(equal(result))
@@ -168,7 +168,7 @@ Should you want Xcode to trace the line when tests fail, you can add this, like 
 given(
     (1, plus: 1, is: 2, line: #line),
     (1, plus: 2, is: 2, line: #line),
-    (1, plus: 3, is: 4, line: #line),
+    (1, plus: 3, is: 4, line: #line)
 ) { (a, b, result, line) in
     it("\(a) plus \(b) is \(result)", line: line) {
         expect(line: line, a + b).to(equal(result))
