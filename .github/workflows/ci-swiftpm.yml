@@ -23,10 +23,10 @@ jobs:
   swiftpm_darwin:
     name: SwiftPM, Darwin, Xcode ${{ matrix.xcode }}
     needs: filter
-    runs-on: macos-latest
+    runs-on: macos-11
     strategy:
       matrix:
-        xcode: [12.4]
+        xcode: [12.4, 12.5]
       fail-fast: false
     env:
       DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
