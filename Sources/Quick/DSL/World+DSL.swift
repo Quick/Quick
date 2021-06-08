@@ -83,7 +83,7 @@ extension World {
 #endif
 
     @nonobjc
-    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'.")
         }

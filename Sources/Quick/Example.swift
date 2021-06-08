@@ -30,10 +30,10 @@ final public class Example: _ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: () throws -> Void
+    private let closure: () async throws -> Void
     private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
@@ -82,7 +82,18 @@ final public class Example: _ExampleBase {
         group!.phase = .beforesFinished
 
         do {
-            try closure()
+            let group = DispatchGroup()
+            
+            if #available(iOSApplicationExtension 15.0, *) {
+                DispatchQueue.main.async(in: group) {
+                    // TODO: how to capture thrown errors?
+                    try await self.closure()
+                }
+            } else {
+                fatalError("This is just a proof of concept, not backwards compatible")
+            }
+            
+            group.wait()
         } catch {
             let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
             #if SWIFT_PACKAGE
@@ -145,5 +156,37 @@ extension Example {
     */
     @nonobjc public static func == (lhs: Example, rhs: Example) -> Bool {
         return lhs.callsite == rhs.callsite
+    }
+}
+
+// From https://www.enekoalonso.com/articles/getting-started-with-async-await-in-swift
+@available(iOSApplicationExtension 15.0, *)
+private extension DispatchQueue {
+    func async<R>(execute: @Sendable @escaping () async throws -> R) -> Task.Handle<R, Error> {
+        let handle = detach(operation: execute)
+
+        _ = {
+            self.async {
+                try await handle.get()
+            }
+        }()
+
+        return handle
+    }
+    
+    @discardableResult
+    func async<R>(in group: DispatchGroup,
+                  execute: @Sendable @escaping () async throws -> R) -> Task.Handle<R, Error> {
+        let handle = detach(operation: execute)
+
+        group.enter()
+        _ = {
+            self.async {
+                _ = try await handle.get()
+                group.leave()
+            }
+        }()
+
+        return handle
     }
 }

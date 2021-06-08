@@ -51,6 +51,28 @@ class FunctionalTests_ItSpec: QuickSpec {
             }
 
         }
+        
+        describe("async tests") {
+            it("support await") {
+                func f() async -> Int {
+                    return 1
+                }
+                
+                expect(await f()) == 1
+            }
+            
+            it("captures errors") {
+                enum E: Error {
+                    case e1
+                }
+                
+                func f() async throws -> Int {
+                    throw E.e1
+                }
+                
+                expect(try await f()).to(throwError(errorType: E.self))
+            }
+        }
 
 #if !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {

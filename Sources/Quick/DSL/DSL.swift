@@ -126,7 +126,7 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     - parameter file: The absolute path to the file containing the example. A sensible default is provided.
     - parameter line: The line containing the example. A sensible default is provided.
 */
-public func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
+public func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
     World.sharedWorld.it(description, file: file, line: line, closure: closure)
 }
 
