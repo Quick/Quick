@@ -5,13 +5,13 @@ import PackageDescription
 let package = Package(
     name: "Quick",
     platforms: [
-        .macOS(.v10_10), .iOS(.v9), .tvOS(.v9)
+        .macOS(.v10_10), .iOS(.v9), .tvOS(.v9), .watchOS("7.4")
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", from: "9.1.0"),
+        .package(url: "https://github.com/JosephDuffy/Nimble.git", .branch("master")),
     ],
     targets: {
         var targets: [Target] = [
