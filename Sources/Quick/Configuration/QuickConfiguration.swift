@@ -37,6 +37,7 @@ extension QuickConfiguration {
             guard
                 let subclass = classes[Int(index)],
                 let superclass = class_getSuperclass(subclass),
+                type(of: superclass) == QuickConfiguration.Type.self,
                 superclass is QuickConfiguration.Type
                 else { continue }
 

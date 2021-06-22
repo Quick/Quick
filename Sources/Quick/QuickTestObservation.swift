@@ -52,6 +52,7 @@ extension QuickSpec {
                 guard
                     let subclass = classes[Int(index)],
                     let superclass = class_getSuperclass(subclass),
+                    type(of: superclass) == QuickSpec.Type.self,
                     superclass is QuickSpec.Type
                     else { continue }
 
