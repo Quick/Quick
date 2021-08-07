@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Quick/Quick.git", :tag => "v#{s.version}" }
   s.source_files = "Sources/**/*.{swift,h,m}"
 
+  s.header_dir = "Quick"
+
   s.public_header_files = [
     'Sources/QuickObjectiveC/Configuration/QuickConfiguration.h',
     'Sources/QuickObjectiveC/DSL/QCKDSL.h',
