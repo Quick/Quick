@@ -26,6 +26,9 @@ let package = Package(
                     "QuickTests/Helpers/QCKSpecRunner.m",
                     "QuickTests/Helpers/QuickTestsBridgingHeader.h",
                     "QuickTests/QuickConfigurationTests.m",
+                    "QuickFocusedTests/Info.plist",
+                    "QuickTests/Info.plist",
+                    "QuickAfterSuiteTests/Info.plist",
                 ]
             ),
             .testTarget(
@@ -36,7 +39,13 @@ let package = Package(
 #if os(macOS)
         targets.append(contentsOf: [
             .target(name: "QuickObjCRuntime", dependencies: []),
-            .target(name: "Quick", dependencies: [ "QuickObjCRuntime" ]),
+            .target(
+                name: "Quick",
+                dependencies: [ "QuickObjCRuntime" ],
+                exclude: [
+                    "Info.plist",
+                ]
+            ),
         ])
 #else
         targets.append(contentsOf: [
