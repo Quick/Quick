@@ -52,7 +52,7 @@ extension QuickSpec {
                 guard
                     let subclass = classes[Int(index)],
                     let superclass = class_getSuperclass(subclass),
-                    superclass is QuickSpec.Type
+                    superclass.isSubclass(of: QuickSpec.self)
                     else { continue }
 
                 // swiftlint:disable:next force_cast
