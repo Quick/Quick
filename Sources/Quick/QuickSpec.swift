@@ -139,12 +139,20 @@ open class QuickSpec: QuickSpecBase {
             return
         }
 
-        super.recordFailure(
-            withDescription: description,
-            inFile: filePath,
-            atLine: lineNumber,
-            expected: expected
-        )
+        #if swift(>=5.3)
+                let location = XCTSourceCodeLocation(filePath: filePath, lineNumber: lineNumber)
+                let sourceCodeContext = XCTSourceCodeContext(location: location)
+                let type: XCTIssue.IssueType = expected ? .assertionFailure : .uncaughtException
+                let issue = XCTIssue(type: type,
+                                     compactDescription: description,
+                                     sourceCodeContext: sourceCodeContext)
+                super.record(issue)
+        #else
+                super.recordFailure(withDescription: description,
+                                       inFile: filePath,
+                                       atLine: lineNumber,
+                                       expected: expected)
+        #endif
     }
 }
 
