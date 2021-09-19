@@ -59,7 +59,7 @@
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         SEL identifierStringSel = NSSelectorFromString(@"_identifierString");
         id identifierString = [testIdentifier performSelector:identifierStringSel];
-#pragma clang diagnostic po
+#pragma clang diagnostic pop
         
         // Get suite for current XCTTestIdentifier
         QuickTestSuite *quickSuite = [QuickTestSuite selectedTestSuiteForTestCaseWithName:identifierString];
