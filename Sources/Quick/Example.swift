@@ -1,4 +1,5 @@
 import Foundation
+import XCTest
 
 #if canImport(Darwin)
 // swiftlint:disable type_name
@@ -90,7 +91,9 @@ final public class Example: _ExampleBase {
             #else
             let file = callsite.file
             #endif
-            #if !SWIFT_PACKAGE
+
+            // XCTIssue is unavailable (not implemented yet) on swift-corelibs-xctest (for non-Apple platforms)
+            #if canImport(Darwin)
             let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
             let sourceCodeContext = XCTSourceCodeContext(location: location)
             let issue = XCTIssue(
