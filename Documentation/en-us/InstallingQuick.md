@@ -55,12 +55,12 @@ Do the same for the `Nimble.framework`, and you're done!
 
 **Updating the Submodules:** If you ever want to update the Quick
 or Nimble submodules to latest version, enter the Quick directory
-and pull from the master repository:
+and pull from the main repository:
 
 ```sh
 cd /path/to/your/project/Vendor/Quick
-git checkout master
-git pull --rebase origin master
+git checkout main
+git pull --rebase origin main
 ```
 
 Your Git repository will track changes to submodules. You'll want to
