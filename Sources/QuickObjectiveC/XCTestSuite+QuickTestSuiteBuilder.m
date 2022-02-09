@@ -43,7 +43,8 @@
     FooSpec/testBar
  */
 + (nullable instancetype)qck_hooked_testSuiteForTestCaseWithName:(nonnull NSString *)name {
-    return [QuickTestSuite selectedTestSuiteForTestCaseWithName:name];
+    NSArray<NSString *> *components = [name componentsSeparatedByString:@"/"];
+    return [QuickTestSuite selectedTestSuiteForTestCaseWithName:[components firstObject] testName:[components count] > 1 ? [components lastObject] : nil];
 }
 
 /// Starting with Xcode 12.5 XCTest uses `testClassSuitesForTestIdentifiers:` instead of `testSuiteForTestCaseWithName:`
@@ -57,12 +58,18 @@
     for (id testIdentifier in arg1) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        SEL identifierStringSel = NSSelectorFromString(@"_identifierString");
-        id identifierString = [testIdentifier performSelector:identifierStringSel];
+        SEL componentsSel = NSSelectorFromString(@"components");
+        NSArray<NSString *> *components = [testIdentifier performSelector:componentsSel];
 #pragma clang diagnostic pop
+
+        NSString *testCaseName = [components firstObject];
+        NSString *testName = nil;
+        if ([components count] > 1) {
+            testName = [components lastObject];
+        }
         
         // Get suite for current XCTTestIdentifier
-        QuickTestSuite *quickSuite = [QuickTestSuite selectedTestSuiteForTestCaseWithName:identifierString];
+        QuickTestSuite *quickSuite = [QuickTestSuite selectedTestSuiteForTestCaseWithName:testCaseName testName:testName];
         
         // Add all tests from current XCTTestIdentifier to resulting suite
         for (XCTest *test in quickSuite.tests) {
