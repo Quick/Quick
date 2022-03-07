@@ -31,7 +31,7 @@ jobs:
     env:
       DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: rake test:swiftpm
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
@@ -50,7 +50,7 @@ jobs:
       fail-fast: false
     container: ${{ matrix.container }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: swift build -Xswiftc -suppress-warnings
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
