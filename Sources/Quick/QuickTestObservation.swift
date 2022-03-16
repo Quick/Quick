@@ -12,16 +12,24 @@ import XCTest
 @objc internal final class QuickTestObservation: NSObject, XCTestObservation {
     @objc(sharedInstance)
     static let shared = QuickTestObservation()
-
-    // Quick hooks into this event to compile example groups for each QuickSpec subclasses.
-    //
-    // If an exception occurs when compiling examples, report it to the user. Chances are they
-    // included an expectation outside of a "it", "describe", or "context" block.
-    func testBundleWillStart(_ testBundle: Bundle) {
+    
+    override init() {
+        super.init()
         QuickSpec.enumerateSubclasses { specClass in
             // This relies on `_QuickSpecInternal`.
             (specClass as AnyClass).buildExamplesIfNeeded()
         }
+    }
+
+    // Quick hooks into this event to compile example groups for each QuickSpec subclasses.
+    //
+    // If an exception occurs when compiling examples, report it to the user. Chances are theys
+    // included an expectation outside of a "it", "describe", or "context" block.
+    func testBundleWillStart(_ testBundle: Bundle) {
+//        QuickSpec.enumerateSubclasses { specClass in
+//            // This relies on `_QuickSpecInternal`.
+//            (specClass as AnyClass).buildExamplesIfNeeded()
+//        }
     }
 }
 
