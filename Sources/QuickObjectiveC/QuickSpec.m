@@ -163,5 +163,6 @@ static QuickSpec *currentSpec = nil;
 
 __attribute__((constructor))
 static void registerQuickTestObservation(void) {
-    [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:[QuickTestObservation sharedInstance]];
+    QuickTestObservation *observation = [QuickTestObservation new];
+    [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:observation];
 }
