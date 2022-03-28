@@ -28,13 +28,13 @@ import Foundation
 
 /// A dummy protocol for calling the internal `+[QuickSpec buildExamplesIfNeeded]` method
 /// which is defined in Objective-C from Swift.
-@objc private protocol _QuickSpecInternal {
+@objc protocol _QuickSpecInternal {
     static func buildExamplesIfNeeded()
 }
 
 // swiftlint:disable:next todo
 // TODO: Unify this with QuickConfiguration's equivalent
-private extension QuickSpec {
+extension QuickSpec {
     static func enumerateSubclasses(
         subclasses: [QuickSpec.Type]? = nil,
         _ block: (QuickSpec.Type) -> Void
