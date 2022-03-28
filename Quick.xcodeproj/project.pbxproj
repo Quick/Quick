@@ -119,6 +119,9 @@
 		64076D231D6D7E6B00E2B499 /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
 		64076D261D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
 		64076D271D6D80B500E2B499 /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
+		754F536D27F19F3C0078174B /* QuickTestExamplesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754F536C27F19F3C0078174B /* QuickTestExamplesLoader.swift */; };
+		754F536E27F19F3C0078174B /* QuickTestExamplesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754F536C27F19F3C0078174B /* QuickTestExamplesLoader.swift */; };
+		754F536F27F19F3C0078174B /* QuickTestExamplesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754F536C27F19F3C0078174B /* QuickTestExamplesLoader.swift */; };
 		79FE27DF22DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
 		79FE27E022DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
 		79FE27E122DC955400BA013D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
@@ -364,6 +367,7 @@
 		64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite - tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterSuiteTests.swift; sourceTree = "<group>"; };
 		64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AfterSuiteTests+ObjC.m"; sourceTree = "<group>"; };
+		754F536C27F19F3C0078174B /* QuickTestExamplesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestExamplesLoader.swift; sourceTree = "<group>"; };
 		79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSpec_SelectedTests.swift; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
@@ -781,6 +785,7 @@
 				CD3451461E4703D4000C8633 /* QuickMain.swift */,
 				CD3451471E4703D4000C8633 /* QuickSpec.swift */,
 				CD21A025247C1385002C4762 /* QuickTestObservation.swift */,
+				754F536C27F19F3C0078174B /* QuickTestExamplesLoader.swift */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
@@ -1327,6 +1332,7 @@
 				1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */,
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
 				34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
+				754F536F27F19F3C0078174B /* QuickTestExamplesLoader.swift in Sources */,
 				1F118D041BDCA536005013A2 /* Example.swift in Sources */,
 				1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */,
 				DED3036D1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift in Sources */,
@@ -1415,6 +1421,7 @@
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				34C586091C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
+				754F536E27F19F3C0078174B /* QuickTestExamplesLoader.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
 				DED3036C1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift in Sources */,
 				CE590E1C1C431FE300253D19 /* NSBundle+CurrentTestBundle.swift in Sources */,
@@ -1551,6 +1558,7 @@
 				CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
 				CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */,
+				754F536D27F19F3C0078174B /* QuickTestExamplesLoader.swift in Sources */,
 				34C586081C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DED3036B1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift in Sources */,
 				DA408BE619FF5599005DF92A /* SuiteHooks.swift in Sources */,
