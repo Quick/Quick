@@ -13,11 +13,20 @@ import XCTest
     @objc(sharedInstance)
     static let shared = QuickTestObservation()
 
+    private var didBuildAllExamples = false
+
     // Quick hooks into this event to compile example groups for each QuickSpec subclasses.
     //
     // If an exception occurs when compiling examples, report it to the user. Chances are they
     // included an expectation outside of a "it", "describe", or "context" block.
     func testBundleWillStart(_ testBundle: Bundle) {
+        buildAllExamplesIfNeeded()
+    }
+
+    @objc func buildAllExamplesIfNeeded() {
+        guard !didBuildAllExamples else { return }
+        didBuildAllExamples = true
+
         QuickSpec.enumerateSubclasses { specClass in
             // This relies on `_QuickSpecInternal`.
             (specClass as AnyClass).buildExamplesIfNeeded()
