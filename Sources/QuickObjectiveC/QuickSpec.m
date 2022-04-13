@@ -26,7 +26,7 @@ static QuickSpec *currentSpec = nil;
 + (NSArray *)testInvocations {
     // Xcode 13.3 hack, see this issue for more info: https://github.com/Quick/Quick/issues/1123
     // In case of fix in later versions next line can be removed
-    [[QuickTestObservation sharedInstance] buildAllExamplesIfNeeded];
+    [[AllExamplesBuilder sharedInstance] buildAllExamplesIfNeeded];
 
     NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
@@ -167,5 +167,6 @@ static QuickSpec *currentSpec = nil;
 
 __attribute__((constructor))
 static void registerQuickTestObservation(void) {
-    [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:[QuickTestObservation sharedInstance]];
+    QuickTestObservation *observation = [QuickTestObservation new];
+    [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:observation];
 }
