@@ -167,7 +167,7 @@ final public class QCKConfiguration: NSObject {
     }
 
     /**
-        Identical to Quick.Configuration.aroundEach, except the closure receives
+        Identical to Quick.QCKConfiguration.aroundEach, except the closure receives
         metadata about the example that the closure wraps.
     */
     public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
