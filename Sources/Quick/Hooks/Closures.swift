@@ -22,6 +22,19 @@ public typealias AfterExampleClosure = BeforeExampleClosure
 */
 public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClosure
 
+/**
+    A closure which wraps an example. The closure must call runExample() exactly once.
+*/
+public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> Void
+
+/**
+    A closure which wraps an example. The closure is given example metadata,
+    which contains information about the example that the wrapper will run.
+    The closure must call runExample() exactly once.
+*/
+public typealias AroundExampleWithMetadataClosure =
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
+
 // MARK: Suite Hooks
 
 /**

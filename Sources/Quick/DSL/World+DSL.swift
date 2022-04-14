@@ -82,6 +82,24 @@ extension World {
     }
 #endif
 
+    internal func aroundEach(_ closure: @escaping AroundExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
+        }
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+
+#if canImport(Darwin)
+    @objc(aroundEachWithMetadata:)
+    internal func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+#else
+    internal func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+#endif
+
     @nonobjc
     internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () throws -> Void) {
         if beforesCurrentlyExecuting {

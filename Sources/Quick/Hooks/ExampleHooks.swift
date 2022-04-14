@@ -2,41 +2,48 @@
     A container for closures to be executed before and after each example.
 */
 final internal class ExampleHooks {
-    internal var befores: [BeforeExampleWithMetadataClosure] = []
-    internal var afters: [AfterExampleWithMetadataClosure] = []
+    internal var wrappers: [AroundExampleWithMetadataClosure] = []
     internal var phase: HooksPhase = .nothingExecuted
 
     internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
-        befores.append(closure)
+        wrappers.append { exampleMetadata, runExample in
+            closure(exampleMetadata)
+            runExample()
+        }
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
-        befores.append { (_: ExampleMetadata) in closure() }
+        wrappers.append { _, runExample in
+            closure()
+            runExample()
+        }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
-        afters.append(closure)
+        wrappers.prepend { exampleMetadata, runExample in
+            runExample()
+            closure(exampleMetadata)
+        }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
-        afters.append { (_: ExampleMetadata) in closure() }
+        wrappers.prepend { _, runExample in
+            runExample()
+            closure()
+        }
     }
 
-    internal func executeBefores(_ exampleMetadata: ExampleMetadata) {
-        phase = .beforesExecuting
-        for before in befores {
-            before(exampleMetadata)
-        }
-
-        phase = .beforesFinished
+    internal func appendAround(_ closure: @escaping AroundExampleWithMetadataClosure) {
+        wrappers.append(closure)
     }
 
-    internal func executeAfters(_ exampleMetadata: ExampleMetadata) {
-        phase = .aftersExecuting
-        for after in afters {
-            after(exampleMetadata)
-        }
+    internal func appendAround(_ closure: @escaping AroundExampleClosure) {
+        wrappers.append { _, runExample in closure(runExample) }
+    }
+}
 
-        phase = .aftersFinished
+extension Array {
+    mutating func prepend(_ element: Element) {
+        insert(element, at: 0)
     }
 }

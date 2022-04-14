@@ -146,6 +146,35 @@ final public class QCKConfiguration: NSObject {
     }
 
     /**
+        Like Quick.DSL.aroundEach, this configures Quick to wrap each example
+        with the given closure. The closure passed to this method will wrap
+        all examples globally across the test suite. You may call this method
+        multiple times across multiple +[QuickConfigure configure:] methods in
+        order to define several closures to wrap all examples.
+
+        Note that, since Quick makes no guarantee as to the order in which
+        +[QuickConfiguration configure:] methods are evaluated, there is no
+        guarantee as to the order in which aroundEach closures are evaluated.
+        However, aroundEach does always guarantee proper nesting of operations:
+        cleanup within aroundEach closures will always happen in the reverse order
+        of setup.
+
+        - parameter closure: The closure to be executed before each example
+                        in the test suite.
+    */
+    public func aroundEach(_ closure: @escaping AroundExampleClosure) {
+        exampleHooks.appendAround(closure)
+    }
+
+    /**
+        Identical to Quick.QCKConfiguration.aroundEach, except the closure receives
+        metadata about the example that the closure wraps.
+    */
+    public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
+        exampleHooks.appendAround(closure)
+    }
+
+    /**
         Like Quick.DSL.beforeSuite, this configures Quick to execute
         the given closure prior to any and all examples that are run.
         The two methods are functionally equivalent.

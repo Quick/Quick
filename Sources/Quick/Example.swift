@@ -75,49 +75,51 @@ final public class Example: _ExampleBase {
             world.currentExampleMetadata = nil
         }
 
-        world.exampleHooks.executeBefores(exampleMetadata)
         group!.phase = .beforesExecuting
-        for before in group!.befores {
-            before(exampleMetadata)
-        }
-        group!.phase = .beforesFinished
 
-        do {
-            try closure()
-        } catch {
-            let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
-            #if SWIFT_PACKAGE
-            let file = callsite.file.description
-            #else
-            let file = callsite.file
-            #endif
+        let runExample = { [closure, name, callsite] in
+            self.group!.phase = .beforesFinished
 
-            // XCTIssue is unavailable (not implemented yet) on swift-corelibs-xctest (for non-Apple platforms)
-            #if canImport(Darwin)
-            let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
-            let sourceCodeContext = XCTSourceCodeContext(location: location)
-            let issue = XCTIssue(
-                type: .thrownError,
-                compactDescription: description,
-                sourceCodeContext: sourceCodeContext
-            )
-            QuickSpec.current.record(issue)
-            #else
-            QuickSpec.current.recordFailure(
-                withDescription: description,
-                inFile: file,
-                atLine: Int(callsite.line),
-                expected: false
-            )
-            #endif
+            do {
+                try closure()
+            } catch {
+                let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
+                #if SWIFT_PACKAGE
+                let file = callsite.file.description
+                #else
+                let file = callsite.file
+                #endif
+
+                // XCTIssue is unavailable (not implemented yet) on swift-corelibs-xctest (for non-Apple platforms)
+                #if canImport(Darwin)
+                let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
+                let sourceCodeContext = XCTSourceCodeContext(location: location)
+                let issue = XCTIssue(
+                    type: .thrownError,
+                    compactDescription: description,
+                    sourceCodeContext: sourceCodeContext
+                )
+                QuickSpec.current.record(issue)
+                #else
+                QuickSpec.current.recordFailure(
+                    withDescription: description,
+                    inFile: file,
+                    atLine: Int(callsite.line),
+                    expected: false
+                )
+                #endif
+            }
+
+            self.group!.phase = .aftersExecuting
         }
 
-        group!.phase = .aftersExecuting
-        for after in group!.afters {
-            after(exampleMetadata)
+        let allWrappers = group!.wrappers + world.exampleHooks.wrappers
+        let wrappedExample = allWrappers.reduce(runExample) { closure, wrapper in
+            return { wrapper(exampleMetadata, closure) }
         }
+        wrappedExample()
+
         group!.phase = .aftersFinished
-        world.exampleHooks.executeAfters(exampleMetadata)
 
         world.numberOfExamplesRun += 1
 
