@@ -26,7 +26,7 @@ static QuickSpec *currentSpec = nil;
 + (NSArray *)testInvocations {
     // Xcode 13.3 hack, see this issue for more info: https://github.com/Quick/Quick/issues/1123
     // In case of fix in later versions next line can be removed
-    [[AllExamplesBuilder sharedInstance] buildAllExamplesIfNeeded];
+    [[World sharedWorld] buildAllExamplesIfNeeded];
 
     NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];

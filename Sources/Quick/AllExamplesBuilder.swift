@@ -5,15 +5,11 @@ import XCTest
 
 /// A dummy protocol for calling the internal `+[QuickSpec buildExamplesIfNeeded]` method
 /// which is defined in Objective-C from Swift.
-@objc internal protocol _QuickSpecInternal {
+@objc private protocol _QuickSpecInternal {
     static func buildExamplesIfNeeded()
 }
 
-/// Singleton which can iterate over all subclasses of `QuickSpec` and ask each one to build examples
 @objc internal final class AllExamplesBuilder: NSObject {
-    @objc(sharedInstance)
-    static let shared = AllExamplesBuilder()
-
     private var didBuildAllExamples = false
 
     /// Calls `buildExamplesIfNeeded` on each `QuickSpec` subclass
@@ -30,8 +26,8 @@ import XCTest
 
 // swiftlint:disable:next todo
 // TODO: Unify this with QuickConfiguration's equivalent
-extension QuickSpec {
-    internal static func enumerateSubclasses(
+private extension QuickSpec {
+    static func enumerateSubclasses(
         subclasses: [QuickSpec.Type]? = nil,
         _ block: (QuickSpec.Type) -> Void
     ) {

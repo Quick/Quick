@@ -66,6 +66,7 @@ final internal class World: _WorldBase {
     private var specs: [String: ExampleGroup] = [:]
     private var sharedExamples: [String: SharedExampleClosure] = [:]
     private let configuration = QCKConfiguration()
+    private let allExamplesBuilder = AllExamplesBuilder()
 
     internal private(set) var isConfigurationFinalized = false
 
@@ -180,6 +181,11 @@ final internal class World: _WorldBase {
     }
 
     // MARK: Internal
+
+    /// Build all examples in this world
+    internal func buildAllExamplesIfNeeded() {
+        allExamplesBuilder.buildAllExamplesIfNeeded()
+    }
 
     internal func registerSharedExample(_ name: String, closure: @escaping SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
