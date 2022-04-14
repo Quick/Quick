@@ -4,7 +4,7 @@ import XCTest
 #if SWIFT_PACKAGE
 
 open class QuickConfiguration: NSObject {
-    open class func configure(_ configuration: Configuration) {}
+    open class func configure(_ configuration: QCKConfiguration) {}
 }
 
 #endif
