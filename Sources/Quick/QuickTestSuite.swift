@@ -44,7 +44,7 @@ public class QuickTestSuite: XCTestSuite {
      It is expected that the first call should return a valid test suite, and
      all subsequent calls should return `nil`.
 
-     - Parameter forTestCaseWithName: The name of the `XCTastCase`/`QuickSpec` subclass.
+     - Parameter name: The name of the `XCTastCase`/`QuickSpec` subclass.
      - Parameter testName: The name of the individual test to run (if specified).
      - Returns: A valid test case (if tests were added to the test suite to run), or nil (if tests were not added to the test suite to run)
      */
