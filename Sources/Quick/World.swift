@@ -66,7 +66,11 @@ final internal class World: _WorldBase {
     private var specs: [String: ExampleGroup] = [:]
     private var sharedExamples: [String: SharedExampleClosure] = [:]
     private let configuration = QCKConfiguration()
+
+    #if !SWIFT_PACKAGE
+    /// Build all examples of all `QuickSpec` subclasses at once. Needed only in ObjC QuickSpec version (which is not for SPM)
     private let allExamplesBuilder = AllExamplesBuilder()
+    #endif
 
     internal private(set) var isConfigurationFinalized = false
 
@@ -182,10 +186,12 @@ final internal class World: _WorldBase {
 
     // MARK: Internal
 
-    /// Build all examples in this world
+    #if !SWIFT_PACKAGE
+    /// Build all examples in this world instance
     internal func buildAllExamplesIfNeeded() {
         allExamplesBuilder.buildAllExamplesIfNeeded()
     }
+    #endif
 
     internal func registerSharedExample(_ name: String, closure: @escaping SharedExampleClosure) {
         raiseIfSharedExampleAlreadyRegistered(name)
