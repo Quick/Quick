@@ -9,11 +9,11 @@ import XCTest
     static func buildExamplesIfNeeded()
 }
 
-@objc internal final class AllExamplesBuilder: NSObject {
+internal final class AllExamplesBuilder {
     private var didBuildAllExamples = false
 
     /// Calls `buildExamplesIfNeeded` on each `QuickSpec` subclass
-    @objc func buildAllExamplesIfNeeded() {
+    func buildAllExamplesIfNeeded() {
         guard !didBuildAllExamples else { return }
         didBuildAllExamples = true
 
