@@ -13,6 +13,11 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
     let testCaseClass: AnyClass!
 
     /**
+     The test name to filter by, if there is one.
+     */
+    let testName: String?
+
+    /**
      For Objective-C classes, returns the class name. For Swift classes without,
      an explicit Objective-C name, returns a module-namespaced class name
      (e.g., "FooTests.FooSpec").
@@ -32,22 +37,33 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
      If no test bundle can be found, or the test case class can't be found,
      initialization fails and returns `nil`.
      */
-    init?(forTestCaseWithName name: String) {
+    init?(forTestCaseWithName name: String, testName: String?) {
         guard let testCaseClass = testCaseClassForTestCaseWithName(name) else {
             self.testCaseClass = nil
             return nil
         }
 
         self.testCaseClass = testCaseClass
+        self.testName = testNameForTestCaseName(name, testName: testName)
     }
 
     /**
      Returns a `QuickTestSuite` that runs the associated test case class.
      */
     func buildTestSuite() -> QuickTestSuite {
-        return QuickTestSuite(forTestCaseClass: testCaseClass)
-    }
+        let suite = QuickTestSuite(forTestCaseClass: testCaseClass)
 
+        if let testName = testName {
+            let filteredSuite = QuickTestSuite(name: suite.name)
+            // test names are in the format "-[ClassName testName]"
+            for test in suite.tests.filter({ $0.name == testName }) {
+                filteredSuite.addTest(test)
+            }
+            return filteredSuite
+        } else {
+            return suite
+        }
+    }
 }
 
 /**
@@ -57,18 +73,18 @@ internal class QuickSelectedTestSuiteBuilder: QuickTestSuiteBuilder {
  Returns `nil` if a bundle or test case class cannot be found.
  */
 private func testCaseClassForTestCaseWithName(_ name: String) -> AnyClass? {
-    func extractClassName(_ name: String) -> String? {
-        return name.components(separatedBy: "/").first
-    }
-
-    guard let className = extractClassName(name) else { return nil }
     guard let bundle = Bundle.currentTestBundle else { return nil }
 
-    if let testCaseClass = bundle.classNamed(className) { return testCaseClass }
+    if let testCaseClass = bundle.classNamed(name) { return testCaseClass }
 
     let moduleName = bundle.moduleName
 
-    return NSClassFromString("\(moduleName).\(className)")
+    return NSClassFromString("\(moduleName).\(name)")
+}
+
+private func testNameForTestCaseName(_ testCaseName: String, testName: String?) -> String? {
+    guard let testName = testName else { return nil }
+    return "-[\(testCaseName) \(testName)]"
 }
 
 #endif
