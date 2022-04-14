@@ -24,7 +24,7 @@
 		1F118CDF1BDCA4AB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
 		1F118CF51BDCA4BB005013A2 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F118CD51BDCA4AB005013A2 /* Quick.framework */; };
 		1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
-		1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
+		1F118CFC1BDCA536005013A2 /* QCKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* QCKConfiguration.swift */; };
 		1F118CFD1BDCA536005013A2 /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E519FCAEE8002858A7 /* World+DSL.swift */; };
 		1F118CFE1BDCA536005013A2 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
 		1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E419FCAEE8002858A7 /* QCKDSL.m */; };
@@ -189,8 +189,8 @@
 		DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
 		DA07722E1A4E5B7B0098839D /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
 		DA07722F1A4E5B7C0098839D /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
-		DA169E4819FF5DF100619816 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
-		DA169E4919FF5DF100619816 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
+		DA169E4819FF5DF100619816 /* QCKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* QCKConfiguration.swift */; };
+		DA169E4919FF5DF100619816 /* QCKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* QCKConfiguration.swift */; };
 		DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
 		DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
 		DA3124E819FCAEE8002858A7 /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -395,7 +395,7 @@
 		CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
-		DA169E4719FF5DF100619816 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		DA169E4719FF5DF100619816 /* QCKConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QCKConfiguration.swift; sourceTree = "<group>"; };
 		DA3124E219FCAEE8002858A7 /* DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		DA3124E319FCAEE8002858A7 /* QCKDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCKDSL.h; sourceTree = "<group>"; };
 		DA3124E419FCAEE8002858A7 /* QCKDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCKDSL.m; sourceTree = "<group>"; };
@@ -636,7 +636,7 @@
 		DA169E4619FF5DF100619816 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				DA169E4719FF5DF100619816 /* Configuration.swift */,
+				DA169E4719FF5DF100619816 /* QCKConfiguration.swift */,
 				CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */,
 			);
 			path = Configuration;
@@ -1333,7 +1333,7 @@
 			files = (
 				1F118D031BDCA536005013A2 /* World.swift in Sources */,
 				CE590E201C431FE400253D19 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
-				1F118CFC1BDCA536005013A2 /* Configuration.swift in Sources */,
+				1F118CFC1BDCA536005013A2 /* QCKConfiguration.swift in Sources */,
 				1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */,
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
 				34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
@@ -1436,7 +1436,7 @@
 				34F375AE19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				CE590E1D1C431FE300253D19 /* URL+FileName.swift in Sources */,
 				34F375BC19515CA700CE1B99 /* World.swift in Sources */,
-				DA169E4919FF5DF100619816 /* Configuration.swift in Sources */,
+				DA169E4919FF5DF100619816 /* QCKConfiguration.swift in Sources */,
 				7B44ADBF1C5444940007AF2E /* HooksPhase.swift in Sources */,
 				DA3124ED19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
@@ -1575,7 +1575,7 @@
 				CE57CEE01C430BD200D63004 /* URL+FileName.swift in Sources */,
 				34F375AD19515CA700CE1B99 /* ExampleGroup.swift in Sources */,
 				34F375BB19515CA700CE1B99 /* World.swift in Sources */,
-				DA169E4819FF5DF100619816 /* Configuration.swift in Sources */,
+				DA169E4819FF5DF100619816 /* QCKConfiguration.swift in Sources */,
 				7B44ADBE1C5444940007AF2E /* HooksPhase.swift in Sources */,
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,

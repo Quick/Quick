@@ -3,7 +3,7 @@ import Nimble
 import XCTest
 
 class FunctionalTests_FocusedSpec_SharedExamplesConfiguration: QuickConfiguration {
-    override class func configure(_ configuration: Configuration) {
+    override class func configure(_ configuration: QCKConfiguration) {
         sharedExamples("two passing shared examples") {
             it("has an example that passes (4)") {}
             it("has another example that passes (5)") {}

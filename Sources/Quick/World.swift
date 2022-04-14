@@ -65,7 +65,7 @@ final internal class World: _WorldBase {
 
     private var specs: [String: ExampleGroup] = [:]
     private var sharedExamples: [String: SharedExampleClosure] = [:]
-    private let configuration = Configuration()
+    private let configuration = QCKConfiguration()
 
     internal private(set) var isConfigurationFinalized = false
 
@@ -90,7 +90,7 @@ final internal class World: _WorldBase {
     // MARK: Public Interface
 
     /**
-        Exposes the World's Configuration object within the scope of the closure
+        Exposes the World's QCKConfiguration object within the scope of the closure
         so that it may be configured. This method must not be called outside of
         an overridden +[QuickConfiguration configure:] method.
 
@@ -243,7 +243,11 @@ final internal class World: _WorldBase {
         }
 
         if included.isEmpty && configuration.runAllWhenEverythingFiltered {
-            return all
+            let exceptExcluded = all.filter { example in
+                return !self.configuration.exclusionFilters.contains { $0(example) }
+            }
+
+            return exceptExcluded
         } else {
             return included
         }

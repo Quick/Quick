@@ -42,6 +42,6 @@
 
 #pragma mark - Public Interface
 
-+ (void)configure:(Configuration *)configuration { }
++ (void)configure:(QCKConfiguration *)configuration { }
 
 @end
