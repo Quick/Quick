@@ -47,6 +47,10 @@ beforeEach(^{
 });
 
 it(@"correctly grabs only the tests specified", ^{
+    if ([XCTestSuite respondsToSelector:@selector(testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:)] == NO) {
+        XCTSkip(@"Skipping. XCTestSuite does not respond to testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:");
+        return;
+    }
     NSArray *testIdentifiers = @[
         [[FakeTestIdentifier alloc] initWithComponents:@[
             @"FunctionalTests_SimulateTests_Objc",
@@ -62,6 +66,10 @@ it(@"correctly grabs only the tests specified", ^{
 });
 
 it(@"correctly grabs all tests in a test case if no specific test is specified", ^{
+    if ([XCTestSuite respondsToSelector:@selector(testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:)] == NO) {
+        XCTSkip(@"Skipping. XCTestSuite does not respond to testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:");
+        return;
+    }
     NSArray *testIdentifiers = @[
         [[FakeTestIdentifier alloc] initWithComponents:@[
             @"FunctionalTests_SimulateTests_Objc"
