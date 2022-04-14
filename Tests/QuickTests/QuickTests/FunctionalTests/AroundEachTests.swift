@@ -45,7 +45,7 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                 expect(aroundEachOrder).to(equal([
                     .before0, .around0Prefix,
                     .before1, .around1Prefix,
-                    .before2
+                    .before2,
                 ]))
             }
 
@@ -83,7 +83,7 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
 final class AroundEachTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (AroundEachTests) -> () throws -> Void)] {
         return [
-            ("testAroundEachIsExecutedInTheCorrectOrder", testAroundEachIsExecutedInTheCorrectOrder)
+            ("testAroundEachIsExecutedInTheCorrectOrder", testAroundEachIsExecutedInTheCorrectOrder),
         ]
     }
 
@@ -107,7 +107,7 @@ final class AroundEachTests: XCTestCase, XCTestCaseProvider {
             .innerAroundSuffix, .innerAfter,   // ...then inner cleanup, happily inner after...
             .around1Suffix,                    // ...then the outer cleanup, as before.
             .around0Suffix,
-            .after0, .after1, .after2
+            .after0, .after1, .after2,
         ]
         XCTAssertEqual(aroundEachOrder, expectedOrder)
 
