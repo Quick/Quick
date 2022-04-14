@@ -619,6 +619,14 @@
 			path = DSL;
 			sourceTree = "<group>";
 		};
+		75B136B22808D60500CF3818 /* RegressionTests */ = {
+			isa = PBXGroup;
+			children = (
+				75B136252808062900CF3818 /* QuickXcode13dot3Tests.swift */,
+			);
+			path = RegressionTests;
+			sourceTree = "<group>";
+		};
 		CD89D17D247A67BA00C1F086 /* QuickIssue853RegressionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,7 +727,6 @@
 				DA9876BF1A4C87200004AA17 /* FocusedTests.swift */,
 				DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */,
 				DA9876C31A4C87310004AA17 /* Supporting Files */,
-				75B136252808062900CF3818 /* QuickXcode13dot3Tests.swift */,
 			);
 			name = QuickFocusedTests;
 			path = Tests/QuickTests/QuickFocusedTests;
@@ -841,6 +848,7 @@
 				DA8F919419F31680006F6675 /* Helpers */,
 				DAEB6BCD194387D700289F44 /* Fixtures */,
 				DA8F919B19F3189D006F6675 /* FunctionalTests */,
+				75B136B22808D60500CF3818 /* RegressionTests */,
 				F8100E941A1E4469007595ED /* Frameworks */,
 				DAEB6B9E1943873100289F44 /* Supporting Files */,
 			);
