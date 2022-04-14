@@ -6,7 +6,7 @@
 
 QuickConfigurationBegin(FunctionalTests_SharedExamplesConfiguration_ObjC)
 
-+ (void)configure:(Configuration *)configuration {
++ (void)configure:(QCKConfiguration *)configuration {
     sharedExamples(@"two passing shared examples (Objective-C)", ^(QCKDSLSharedExampleContext exampleContext) {
         it(@"has an example that passes (4)", ^{});
         it(@"has another example that passes (5)", ^{});

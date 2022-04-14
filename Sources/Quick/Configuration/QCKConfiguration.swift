@@ -1,10 +1,10 @@
 import Foundation
 
 /**
-    A closure that temporarily exposes a Configuration object within
+    A closure that temporarily exposes a QCKConfiguration object within
     the scope of the closure.
 */
-public typealias QuickConfigurer = (_ configuration: Configuration) -> Void
+public typealias QuickConfigurer = (_ configuration: QCKConfiguration) -> Void
 
 /**
     A closure that, given metadata about an example, returns a boolean value
@@ -16,7 +16,7 @@ public typealias ExampleFilter = (_ example: Example) -> Bool
     A configuration encapsulates various options you can use
     to configure Quick's behavior.
 */
-final public class Configuration: NSObject {
+final public class QCKConfiguration: NSObject {
     internal let exampleHooks = ExampleHooks()
     internal let suiteHooks = SuiteHooks()
     internal var exclusionFilters: [ExampleFilter] = [
@@ -72,7 +72,7 @@ final public class Configuration: NSObject {
     }
 
     /**
-        Identical to Quick.Configuration.beforeEach, except the closure is
+        Identical to Quick.QCKConfiguration.beforeEach, except the closure is
         provided with metadata on the example that the closure is being run
         prior to.
     */
@@ -109,7 +109,7 @@ final public class Configuration: NSObject {
     }
 
     /**
-        Identical to Quick.Configuration.afterEach, except the closure
+        Identical to Quick.QCKConfiguration.afterEach, except the closure
         is provided with metadata on the example that the closure is being
         run after.
     */
