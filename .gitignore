@@ -64,3 +64,6 @@ fastlane/screenshots
 
 # Quick
 Quick.framework.zip
+
+# Jazzy docs
+*.tgz

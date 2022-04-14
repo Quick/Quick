@@ -1,0 +1,68 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Callsite.swift",
+      "line": 6,
+      "symbol": "_CallsiteBase",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Callsite.swift",
+      "line": 20,
+      "symbol": "FileString",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/Configuration.swift",
+      "line": 81,
+      "symbol": "Configuration.beforeEach(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/Configuration.swift",
+      "line": 118,
+      "symbol": "Configuration.afterEach(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Example.swift",
+      "line": 7,
+      "symbol": "_ExampleBase",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Example.swift",
+      "line": 44,
+      "symbol": "Example.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/ExampleGroup.swift",
+      "line": 26,
+      "symbol": "ExampleGroup.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/ExampleGroup.swift",
+      "line": 36,
+      "symbol": "ExampleGroup.examples",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/ExampleMetadata.swift",
+      "line": 6,
+      "symbol": "_ExampleMetadataBase",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/jsq/Developer/GitHub/Quick"
+}
