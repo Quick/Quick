@@ -243,7 +243,11 @@ final internal class World: _WorldBase {
         }
 
         if included.isEmpty && configuration.runAllWhenEverythingFiltered {
-            return all
+            let exceptExcluded = all.filter { example in
+                return !self.configuration.exclusionFilters.contains { $0(example) }
+            }
+
+            return exceptExcluded
         } else {
             return included
         }

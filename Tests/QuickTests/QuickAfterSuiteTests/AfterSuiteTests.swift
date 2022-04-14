@@ -14,6 +14,10 @@ class AfterSuiteTests: QuickSpec {
         it("is executed before afterSuite") {
             expect(afterSuiteTestsWasExecuted).to(beFalsy())
         }
+
+        xit("is not executed") {
+            expect(false).to(beFalse())
+        }
     }
 
     override class func tearDown() {
