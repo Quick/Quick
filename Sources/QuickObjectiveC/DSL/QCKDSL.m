@@ -50,23 +50,57 @@ void qck_aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
     [[World sharedWorld] aroundEachWithMetadata:closure];
 }
 
-QCKItBlock qck_it_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
+QCKItBlock qck_it_builder(NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLEmptyBlock closure) {
         [[World sharedWorld] itWithDescription:description
-                                         flags:flags
                                           file:file
                                           line:line
                                        closure:closure];
     };
 }
 
-QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSDictionary *flags, NSString *file, NSUInteger line) {
+QCKItBlock qck_xit_builder(NSString *file, NSUInteger line) {
+    return ^(NSString *description, QCKDSLEmptyBlock closure) {
+        [[World sharedWorld] xitWithDescription:description
+                                           file:file
+                                           line:line
+                                        closure:closure];
+    };
+}
+
+QCKItBlock qck_fit_builder(NSString *file, NSUInteger line) {
+    return ^(NSString *description, QCKDSLEmptyBlock closure) {
+        [[World sharedWorld] fitWithDescription:description
+                                           file:file
+                                           line:line
+                                        closure:closure];
+    };
+}
+
+QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line) {
     return ^(NSString *name, QCKDSLSharedExampleContext context) {
         [[World sharedWorld] itBehavesLikeSharedExampleNamed:name
                                         sharedExampleContext:context
-                                                       flags:flags
                                                         file:file
                                                         line:line];
+    };
+}
+
+QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line) {
+    return ^(NSString *name, QCKDSLSharedExampleContext context) {
+        [[World sharedWorld] xitBehavesLikeSharedExampleNamed:name
+                                         sharedExampleContext:context
+                                                         file:file
+                                                         line:line];
+    };
+}
+
+QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line) {
+    return ^(NSString *name, QCKDSLSharedExampleContext context) {
+        [[World sharedWorld] fitBehavesLikeSharedExampleNamed:name
+                                         sharedExampleContext:context
+                                                         file:file
+                                                         line:line];
     };
 }
 
@@ -75,7 +109,7 @@ void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] xdescribe:description flags:@{} closure:closure];
+    [[World sharedWorld] xdescribe:description closure:closure];
 }
 
 void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
@@ -83,7 +117,7 @@ void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
 }
 
 void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] fdescribe:description flags:@{} closure:closure];
+    [[World sharedWorld] fdescribe:description closure:closure];
 }
 
 void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure) {

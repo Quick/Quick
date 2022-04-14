@@ -21,9 +21,8 @@ class FunctionalTests_ItSpec: QuickSpec {
             it("has a unique name") {}
 
             it("doesn't add multiple selectors for it") {
-                let allSelectors = [String](
-                    FunctionalTests_ItSpec.allSelectors()
-                        .filter { $0.hasPrefix("when_an_example_has_a_unique_name__") })
+                let allSelectors = FunctionalTests_ItSpec.allSelectors()
+                    .filter { $0.hasPrefix("when_an_example_has_a_unique_name__") }
                     .sorted(by: <)
 
                 expect(allSelectors) == [
@@ -38,9 +37,8 @@ class FunctionalTests_ItSpec: QuickSpec {
             it("has exactly the same name") {}
 
             it("makes a unique name for each of the above") {
-                let allSelectors = [String](
-                    FunctionalTests_ItSpec.allSelectors()
-                        .filter { $0.hasPrefix("when_two_examples_have_the_exact_name__") })
+                let allSelectors = FunctionalTests_ItSpec.allSelectors()
+                    .filter { $0.hasPrefix("when_two_examples_have_the_exact_name__") }
                     .sorted(by: <)
 
                 expect(allSelectors) == [

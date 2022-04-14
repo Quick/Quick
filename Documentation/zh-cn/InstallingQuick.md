@@ -50,8 +50,8 @@ git submodule update --init --recursive
 
 ```sh
 cd /path/to/your/project/Vendor/Quick
-git checkout master
-git pull --rebase origin master
+git checkout main
+git pull --rebase origin main
 ```
 
 你的 Git 仓库会自动同步更改到子模块中。如果你想确保已经更新了 Quick 子模块，那么可以这样：

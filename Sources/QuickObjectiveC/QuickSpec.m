@@ -24,6 +24,10 @@ static QuickSpec *currentSpec = nil;
  @return An array of invocations that execute the newly defined example methods.
  */
 + (NSArray *)testInvocations {
+    // Xcode 13.3 hack, see this issue for more info: https://github.com/Quick/Quick/issues/1123
+    // In case of fix in later versions next line can be removed
+    [[QuickTestObservation sharedInstance] buildAllExamplesIfNeeded];
+
     NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
     
@@ -135,26 +139,26 @@ static QuickSpec *currentSpec = nil;
  and teardown. By default, the failure will be reported as an
  XCTest failure, and the example will be highlighted in Xcode.
  */
-- (void)recordFailureWithDescription:(NSString *)description
-                              inFile:(NSString *)filePath
-                              atLine:(NSUInteger)lineNumber
-                            expected:(BOOL)expected {
+- (void)recordIssue:(XCTIssue *)issue {
     if (self != [QuickSpec current]) {
-        [[QuickSpec current] recordFailureWithDescription:description
-                                                   inFile:filePath
-                                                   atLine:lineNumber
-                                                 expected:expected];
+        [[QuickSpec current] recordIssue:issue];
         return;
     }
 
     if (self.example.isSharedExample) {
-        filePath = self.example.callsite.file;
-        lineNumber = self.example.callsite.line;
+        XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:self.example.callsite.file
+                                                                               lineNumber:self.example.callsite.line];
+        XCTSourceCodeContext *sourceCodeContext = [[XCTSourceCodeContext alloc] initWithLocation:location];
+        XCTIssue *newIssue = [[XCTIssue alloc] initWithType:issue.type
+                                         compactDescription:issue.compactDescription
+                                        detailedDescription:issue.detailedDescription
+                                          sourceCodeContext:sourceCodeContext
+                                            associatedError:issue.associatedError
+                                                attachments:issue.attachments];
+        [super recordIssue:newIssue];
+    } else {
+        [super recordIssue:issue];
     }
-    [super recordFailureWithDescription:description
-                                 inFile:filePath
-                                 atLine:lineNumber
-                               expected:expected];
 }
 
 @end

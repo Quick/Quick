@@ -1,4 +1,5 @@
 import Foundation
+import XCTest
 
 #if canImport(Darwin)
 // swiftlint:disable type_name
@@ -61,7 +62,7 @@ final public class Example: _ExampleBase {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    public func run() {
+    public func run() { // swiftlint:disable:this function_body_length
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
@@ -88,12 +89,25 @@ final public class Example: _ExampleBase {
                 #else
                 let file = callsite.file
                 #endif
+
+                // XCTIssue is unavailable (not implemented yet) on swift-corelibs-xctest (for non-Apple platforms)
+                #if canImport(Darwin)
+                let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
+                let sourceCodeContext = XCTSourceCodeContext(location: location)
+                let issue = XCTIssue(
+                    type: .thrownError,
+                    compactDescription: description,
+                    sourceCodeContext: sourceCodeContext
+                )
+                QuickSpec.current.record(issue)
+                #else
                 QuickSpec.current.recordFailure(
                     withDescription: description,
                     inFile: file,
                     atLine: Int(callsite.line),
                     expected: false
                 )
+                #endif
             }
 
             self.group!.phase = .aftersExecuting
