@@ -15,16 +15,16 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/Configuration.swift",
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
       "line": 81,
-      "symbol": "Configuration.beforeEach(_:)",
+      "symbol": "QCKConfiguration.beforeEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/Configuration.swift",
+      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
       "line": 118,
-      "symbol": "Configuration.afterEach(_:)",
+      "symbol": "QCKConfiguration.afterEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
