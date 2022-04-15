@@ -17,7 +17,7 @@
     <a title="QuickTestSuite Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Quick 4.0.0 Docs</a> (87% documented)</p>
+        <p><a href="../index.html">Quick 4.0.0 Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/Quick/Quick"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="../search.json">
@@ -46,9 +46,6 @@
                 <a href="../Classes/Callsite.html">Callsite</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Configuration.html">Configuration</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/Example.html">Example</a>
               </li>
               <li class="nav-group-task">
@@ -56,6 +53,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ExampleMetadata.html">ExampleMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QCKConfiguration.html">QCKConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/QuickConfiguration.html">QuickConfiguration</a>
@@ -94,6 +94,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:5Quick10afterSuiteyyyycF">afterSuite(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:5Quick10aroundEachyyyAA15ExampleMetadataC_yyctcF">aroundEach(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:5Quick10aroundEachyyyyyccF">aroundEach(_:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:5Quick10beforeEachyyyAA15ExampleMetadataCcF">beforeEach(_:)</a>
@@ -176,6 +182,12 @@
                 <a href="../Typealiases.html#/s:5Quick17AfterSuiteClosurea">AfterSuiteClosure</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick20AroundExampleClosurea">AroundExampleClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick32AroundExampleWithMetadataClosurea">AroundExampleWithMetadataClosure</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:5Quick20BeforeExampleClosurea">BeforeExampleClosure</a>
               </li>
               <li class="nav-group-task">
@@ -227,9 +239,9 @@ build dynamic test suites for XCTest to execute.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)QuickTestSuite(cm)selectedTestSuiteForTestCaseWithName:"></a>
-                    <a name="//apple_ref/swift/Method/selectedTestSuite(forTestCaseWithName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)QuickTestSuite(cm)selectedTestSuiteForTestCaseWithName:">selectedTestSuite(forTestCaseWithName:<wbr>)</a>
+                    <a name="/c:@M@Quick@objc(cs)QuickTestSuite(cm)selectedTestSuiteForTestCaseWithName:testName:"></a>
+                    <a name="//apple_ref/swift/Method/selectedTestSuite(forTestCaseWithName:testName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Quick@objc(cs)QuickTestSuite(cm)selectedTestSuiteForTestCaseWithName:testName:">selectedTestSuite(forTestCaseWithName:<wbr>testName:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -237,13 +249,13 @@ build dynamic test suites for XCTest to execute.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Construct a test suite for a specific, selected subset of test cases (rather
+                        <p>Construct a test suite for a specific, selected subset of tests and test cases (rather
 than the default, which as all test cases).</p>
 
 <p>If this method is called multiple times for the same test case class, e.g..</p>
 
-<p>FooSpec/testFoo
-   FooSpec/testBar</p>
+<p>FooSpec, testBar
+   FooSpec, testBar</p>
 
 <p>It is expected that the first call should return a valid test suite, and
 all subsequent calls should return <code>nil</code>.</p>
@@ -254,9 +266,44 @@ all subsequent calls should return <code>nil</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">selectedTestSuite</span><span class="p">(</span><span class="n">forTestCaseWithName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">QuickTestSuite</span><span class="p">?</span></code></pre>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">selectedTestSuite</span><span class="p">(</span><span class="n">forTestCaseWithName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">testName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">QuickTestSuite</span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the <code>XCTastCase</code>/<code>QuickSpec</code> subclass.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>testName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the individual test to run (if specified).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A valid test case (if tests were added to the test suite to run), or nil (if tests were not added to the test suite to run)</p>
                       </div>
                     </section>
                   </div>
@@ -266,7 +313,7 @@ all subsequent calls should return <code>nil</code>.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2022 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2022-04-14)</p>
+          <p>&copy; 2022 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2022-04-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Quick"
-  s.version      = "4.0.0"
+  s.version      = "5.0.0"
   s.summary      = "The Swift (and Objective-C) testing framework."
 
   s.description  = <<-DESC
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
     'ENABLE_TESTING_SEARCH_PATHS' => 'YES',
     'OTHER_LDFLAGS' => '$(inherited) -Xlinker -no_application_extension',
   }
-  
+
   s.cocoapods_version = '>= 1.4.0'
   if s.respond_to?(:swift_versions) then
     s.swift_versions = ['5.0']
