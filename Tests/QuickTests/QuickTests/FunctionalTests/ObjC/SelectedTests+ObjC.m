@@ -24,13 +24,6 @@
 
 @end
 
-@interface XCTestSuite (Private_Headers)
-
-/// Starting with Xcode 12.5 XCTest uses `testClassSuitesForTestIdentifiers:` instead of `testSuiteForTestCaseWithName:`
-+ (instancetype)testClassSuitesForTestIdentifiers:(id)arg1 skippingTestIdentifiers:(id)arg2 randomNumberGenerator:(long long)arg3;
-
-@end
-
 QuickSpecBegin(FunctionalTests_SimulateTests_Objc)
 it(@"example1", ^{});
 it(@"example2", ^{});
@@ -47,17 +40,11 @@ beforeEach(^{
 });
 
 it(@"correctly grabs only the tests specified", ^{
-    if ([XCTestSuite respondsToSelector:@selector(testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:)] == NO) {
-        XCTSkip(@"Skipping. XCTestSuite does not respond to testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:");
+    if ([XCTestSuite respondsToSelector:@selector(testSuiteForTestCaseWithName:)] == NO) {
+        XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName:");
         return;
     }
-    NSArray *testIdentifiers = @[
-        [[FakeTestIdentifier alloc] initWithComponents:@[
-            @"FunctionalTests_SimulateTests_Objc",
-            @"example1",
-        ]]
-    ];
-    XCTestSuite *suite = [XCTestSuite testClassSuitesForTestIdentifiers:testIdentifiers skippingTestIdentifiers:nil randomNumberGenerator:0];
+    XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc/example1"];
 
     expect(suite.tests).to(haveCount(1));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
@@ -66,16 +53,11 @@ it(@"correctly grabs only the tests specified", ^{
 });
 
 it(@"correctly grabs all tests in a test case if no specific test is specified", ^{
-    if ([XCTestSuite respondsToSelector:@selector(testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:)] == NO) {
-        XCTSkip(@"Skipping. XCTestSuite does not respond to testClassSuitesForTestIdentifiers:skippingTestIdentifiers:randomNumberGenerator:");
+    if ([XCTestSuite respondsToSelector:@selector(testSuiteForTestCaseWithName:)] == NO) {
+        XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName:");
         return;
     }
-    NSArray *testIdentifiers = @[
-        [[FakeTestIdentifier alloc] initWithComponents:@[
-            @"FunctionalTests_SimulateTests_Objc"
-        ]]
-    ];
-    XCTestSuite *suite = [XCTestSuite testClassSuitesForTestIdentifiers:testIdentifiers skippingTestIdentifiers:nil randomNumberGenerator:0];
+    XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc"];
 
     expect(suite.tests).to(haveCount(3));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
