@@ -45,7 +45,6 @@ jobs:
         container:
           - swift:5.5
           - swift:5.6
-          - swiftlang/swift:nightly
       fail-fast: false
     container: ${{ matrix.container }}
     steps:
