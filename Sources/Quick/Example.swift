@@ -122,6 +122,10 @@ final public class Example: _ExampleBase {
         return aggregateFlags
     }
 
+    #if canImport(Darwin)
+    static let recordSkipSelector = NSSelectorFromString("recordSkipWithDescription:sourceCodeContext:")
+    #endif
+
     private func reportSkippedTest(_ testSkippedError: XCTSkip, name: String, callsite: Callsite) { // swiftlint:disable:this function_body_length
         #if !canImport(Darwin)
             return // This functionality is only supported by Apple's proprietary XCTest, not by swift-corelibs-xctest
@@ -139,16 +143,6 @@ final public class Example: _ExampleBase {
                      [Quick Warning]: `QuickSpec.current.testRun` was unexpectededly `nil`.
                 """ + messageSuffix)
                 return
-            }
-
-            let selector = NSSelectorFromString("recordSkipWithDescription:sourceCodeContext:")
-
-            guard testRun.responds(to: selector) else {
-                print("""
-                [Quick Warning]: The internals of Apple's XCTestCaseRun have changed, as it no longer responds to
-                    the -[XCTSkip \(NSStringFromSelector(selector))] message necessary to report skipped tests to Xcode.
-                """ + messageSuffix)
-               return
             }
 
             guard let skippedTestContextAny = testSkippedError.errorUserInfo["XCTestErrorUserInfoKeySkippedTestContext"] else {
@@ -170,6 +164,11 @@ final public class Example: _ExampleBase {
                 return
             }
 
+            if isLegacyXcode(testRun: testRun) {
+                reportSkippedTest_legacy(testRun: testRun, skippedTestContext: skippedTestContext)
+                return
+            }
+
             guard let sourceCodeContextAny = skippedTestContext.value(forKey: "sourceCodeContext") else {
                 print("""
                 [Quick Warning]: The internals of Apple's XCTestCaseRun have changed.
@@ -187,9 +186,56 @@ final public class Example: _ExampleBase {
                 return
             }
 
-            testRun.perform(selector, with: testSkippedError.message, with: sourceCodeContext)
+            guard testRun.responds(to: Self.recordSkipSelector) else {
+                print("""
+                [Quick Warning]: The internals of Apple's XCTestCaseRun have changed, as it no longer responds to
+                    the -[XCTSkip \(NSStringFromSelector(Self.recordSkipSelector))] message necessary to report skipped tests to Xcode.
+                """ + messageSuffix)
+               return
+            }
+
+            testRun.perform(Self.recordSkipSelector, with: testSkippedError.message, with: sourceCodeContext)
         #endif
     }
+
+    #if canImport(Darwin)
+    private func isLegacyXcode(testRun: XCTestRun) -> Bool {
+        !testRun.responds(to: Self.recordSkipSelector)
+    }
+
+    /// Attempt to report a test skip for old Xcode versions (namely Xcode 12.4).
+    ///
+    /// As of Xcode 12.4, the `XCTSkippedTestContext` object contained these fields:
+    /// - `filePath: NSString`
+    /// - `lineNumber: NSString`
+    ///
+    /// After Xcode 12.4, those fields were extracted into a new `sourceCodeContext: XCTSkippedTestContext` property.
+    /// - Parameters:
+    ///   - testRun: The test run that was skipped
+    ///   - skippedTestContext: an `XCTSkippedTestContext` object
+    private func reportSkippedTest_legacy(testRun: XCTestRun, skippedTestContext: NSObject) {
+        let legacyRecordSkipSelector = NSSelectorFromString("recordSkipWithDescription:inFile:atLine:")
+
+        guard let imp = testRun.method(for: legacyRecordSkipSelector),
+              let description = skippedTestContext.value(forKey: "message") as? NSString,
+              let filePath = skippedTestContext.value(forKey: "filePath") as? NSString,
+              let lineNumber = skippedTestContext.value(forKey: "lineNumber") as? UInt32 else {
+            return
+        }
+
+        typealias MethodSigniture = @convention(c) (NSObject, Selector, NSString, NSString, UInt32) -> Void
+
+        let methodImp = unsafeBitCast(imp, to: MethodSigniture.self)
+
+        methodImp(
+            /* self */ testRun,
+            /* selector */ legacyRecordSkipSelector,
+            /* recordSkipWithDescription: */ description,
+            /* inFile: */ filePath,
+            /* atLine: */ lineNumber
+        )
+    }
+    #endif
 
     private func reportFailedTest(_ error: Error, name: String, callsite: Callsite) {
         let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
