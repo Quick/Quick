@@ -152,7 +152,7 @@ final internal class World: _WorldBase {
 			let group: ExampleGroup
 
 			if let x = specClass as? ResultBuilderQuickSpec.Type {
-				group = x.createSpecPart()
+				group = x.spec().rootGroup
 			} else {
 				group = ExampleGroup(
 					description: "root example group",

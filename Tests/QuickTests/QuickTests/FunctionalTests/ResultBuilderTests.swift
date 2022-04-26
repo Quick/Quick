@@ -24,21 +24,9 @@ private enum BeforeEachType: String, CustomStringConvertible {
 
 private var beforeEachOrder = [BeforeEachType]()
 
-func build(@SpecBuilder builder: () -> SpecPart) -> ExampleGroup {
-	let rootGroup = ExampleGroup(
-		description: "root example group",
-		flags: [:],
-		isInternalRootExampleGroup: true
-	)
-
-	rootGroup.append(specPart: builder())
-
-	return rootGroup
-}
-
 class FunctionalTests_ResultBuilderBeforeEachSpec: ResultBuilderQuickSpec {
-	override class func createSpecPart() -> ExampleGroup {
-		build {
+	override class func spec() -> Spec {
+		Spec {
 			describe_builder("beforeEach ordering") {
 				print("hook evaluated")
 				beforeEachOrder.append(.outerOne)
