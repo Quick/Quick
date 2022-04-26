@@ -270,6 +270,9 @@
 		DED3037D1DF6CF140041394E /* BundleModuleNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */; };
 		DED3037E1DF6CF140041394E /* BundleModuleNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */; };
 		DED3037F1DF6CF140041394E /* BundleModuleNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */; };
+		FA16228528177B5600C4DFC1 /* ResultBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16228428177B5600C4DFC1 /* ResultBuilderTests.swift */; };
+		FA16228628177B5600C4DFC1 /* ResultBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16228428177B5600C4DFC1 /* ResultBuilderTests.swift */; };
+		FA16228728177B5600C4DFC1 /* ResultBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16228428177B5600C4DFC1 /* ResultBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -443,6 +446,7 @@
 		DED3036A1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+C99ExtendedIdentifier.swift"; sourceTree = "<group>"; };
 		DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleModuleNameTests.swift; sourceTree = "<group>"; };
 		F8100E901A1E4447007595ED /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA16228428177B5600C4DFC1 /* ResultBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultBuilderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +705,7 @@
 				CE4A57891EA5DC270063C0D4 /* BehaviorTests.swift */,
 				DA5CBB471EAFA55800297C9E /* CurrentSpecTests.swift */,
 				79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */,
+				FA16228428177B5600C4DFC1 /* ResultBuilderTests.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -1404,6 +1409,7 @@
 				DA3E168C243F8C23001F7CCA /* AroundEachTests.swift in Sources */,
 				8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */,
 				1F118D111BDCA556005013A2 /* Configuration+AfterEachTests.swift in Sources */,
+				FA16228728177B5600C4DFC1 /* ResultBuilderTests.swift in Sources */,
 				1F118D161BDCA556005013A2 /* BeforeEachTests.swift in Sources */,
 				DA5CBB4B1EAFA61D00297C9E /* CurrentSpecTests.swift in Sources */,
 				7B5358D01C3D4FC000A23FAA /* ContextTests.swift in Sources */,
@@ -1495,6 +1501,7 @@
 				DA3E1689243F8C23001F7CCA /* AroundEachTests.swift in Sources */,
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
+				FA16228628177B5600C4DFC1 /* ResultBuilderTests.swift in Sources */,
 				47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				DA5CBB4A1EAFA61C00297C9E /* CurrentSpecTests.swift in Sources */,
 				7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */,
@@ -1634,6 +1641,7 @@
 				DA3E1686243F8C23001F7CCA /* AroundEachTests.swift in Sources */,
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
+				FA16228528177B5600C4DFC1 /* ResultBuilderTests.swift in Sources */,
 				47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				DA5CBB491EAFA61A00297C9E /* CurrentSpecTests.swift in Sources */,
 				7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */,

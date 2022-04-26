@@ -149,11 +149,18 @@ final internal class World: _WorldBase {
         if let group = specs[name] {
             return group
         } else {
-            let group = ExampleGroup(
-                description: "root example group",
-                flags: [:],
-                isInternalRootExampleGroup: true
-            )
+			let group: ExampleGroup
+
+			if let x = specClass as? ResultBuilderQuickSpec.Type {
+				group = x.createSpecPart()
+			} else {
+				group = ExampleGroup(
+					description: "root example group",
+					flags: [:],
+					isInternalRootExampleGroup: true
+				)
+			}
+
             specs[name] = group
             return group
         }
@@ -171,6 +178,7 @@ final internal class World: _WorldBase {
     internal func examples(forSpecClass specClass: QuickSpec.Type) -> [Example] {
         // 1. Grab all included examples.
         let included = includedExamples
+		
         // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
         let spec = rootExampleGroup(forSpecClass: specClass).examples.filter { included.contains($0) }
         // 3. Remove all excluded examples.
