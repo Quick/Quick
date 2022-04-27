@@ -133,11 +133,19 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
     }
 }
 
+final class FunctionalTests_SkippingTestsSpec: QuickSpec {
+    override func spec() {
+        it("supports skipping tests") { throw XCTSkip("This test is intentionally skipped") }
+        it("supports not skipping tests") { }
+    }
+}
+
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
             ("testImplicitErrorHandling", testImplicitErrorHandling),
+            ("testSkippingExamplesAreCorrectlyReported", testSkippingExamplesAreCorrectlyReported),
         ]
     }
 
@@ -171,5 +179,13 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(result.failureCount, 0)
         XCTAssertEqual(result.unexpectedExceptionCount, 1)
         XCTAssertEqual(result.totalFailureCount, 1)
+    }
+
+    func testSkippingExamplesAreCorrectlyReported() {
+        let result = qck_runSpec(FunctionalTests_SkippingTestsSpec.self)!
+        XCTAssertTrue(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 2)
+        XCTAssertEqual(result.skipCount, 1)
+        XCTAssertEqual(result.totalFailureCount, 0)
     }
 }
