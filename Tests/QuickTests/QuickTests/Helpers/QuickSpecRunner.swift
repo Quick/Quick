@@ -38,11 +38,12 @@ private final class TestCaseSuite: XCTestSuite {
  exception when used in Swift to run a failing test case.
 
  @param specClass The class of the spec to be run.
+ @param gatherExamples Run `buildAllExamplesIfNeeded` on shared world or not
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
-    return qck_runSpecs([specClass])
+func qck_runSpec(_ specClass: QuickSpec.Type, gatherExamples: Bool = true) -> XCTestRun? {
+    return qck_runSpecs([specClass], gatherExamples: gatherExamples)
 }
 
 /**
@@ -50,10 +51,11 @@ func qck_runSpec(_ specClass: QuickSpec.Type) -> XCTestRun? {
  See the documentation for `qck_runSpec` for more details.
 
  @param specClasses An array of QuickSpec classes, in the order they should be run.
+ @param gatherExamples Run `buildAllExamplesIfNeeded` on shared world or not
  @return An XCTestRun instance that contains information such as the number of failures, etc.
  */
 @discardableResult
-func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
+func qck_runSpecs(_ specClasses: [QuickSpec.Type], gatherExamples: Bool = true) -> XCTestRun? {
     return World.anotherWorld { world -> XCTestRun? in
         QuickConfiguration.configureSubclassesIfNeeded(world: world)
 
@@ -61,10 +63,8 @@ func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
         defer { world.isRunningAdditionalSuites = false }
 
         #if !SWIFT_PACKAGE
-        // Gather examples first
-        QuickSpec.enumerateSubclasses(subclasses: specClasses) { specClass in
-            // This relies on `_QuickSpecInternal`.
-            (specClass as AnyClass).buildExamplesIfNeeded()
+        if gatherExamples {
+            world.buildAllExamplesIfNeeded()
         }
         #endif
 
