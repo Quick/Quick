@@ -207,7 +207,7 @@
 		D95F89C3267F50A7004B1B4D /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
 		D95F89C4267F50AB004B1B4D /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
 		D95F89C5267F50AB004B1B4D /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E519FCAEE8002858A7 /* World+DSL.swift */; };
-		D95F89C6267F50AE004B1B4D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* Configuration.swift */; };
+		D95F89C6267F50AE004B1B4D /* QCKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* QCKConfiguration.swift */; };
 		D95F89C7267F50AE004B1B4D /* QuickConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */; };
 		D95F89C8267F50B9004B1B4D /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */; };
 		D95F89C9267F50B9004B1B4D /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A519515CA700CE1B99 /* QuickSpec.m */; };
@@ -1820,7 +1820,7 @@
 				D95F89C1267F50A4004B1B4D /* ExampleGroup.swift in Sources */,
 				D95F89B2267F509C004B1B4D /* HooksPhase.swift in Sources */,
 				D95F89BA267F50A4004B1B4D /* NSBundle+CurrentTestBundle.swift in Sources */,
-				D95F89C6267F50AE004B1B4D /* Configuration.swift in Sources */,
+				D95F89C6267F50AE004B1B4D /* QCKConfiguration.swift in Sources */,
 				D95F89BD267F50A4004B1B4D /* ErrorUtility.swift in Sources */,
 				D95F89B7267F50A4004B1B4D /* String+C99ExtendedIdentifier.swift in Sources */,
 				D95F89BC267F50A4004B1B4D /* Callsite.swift in Sources */,
