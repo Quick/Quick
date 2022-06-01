@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
         "state": {
           "branch": null,
-          "revision": "f809deb30dc5c9d9b78c872e553261a61177721a",
-          "version": "2.0.0"
+          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
+          "version": "2.1.1"
         }
       },
       {
@@ -15,16 +15,16 @@
         "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
         "state": {
           "branch": null,
-          "revision": "02b7a39a99c4da27abe03cab2053a9034379639f",
-          "version": "2.0.0"
+          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
+          "version": "2.1.0"
         }
       },
       {
         "package": "Nimble",
-        "repositoryURL": "https://github.com/JosephDuffy/Nimble.git",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
-          "branch": "master",
-          "revision": "94aec4aa8adc9bb4aaf5bfa31386d14790d66714",
+          "branch": "main",
+          "revision": "44b9392dc0cdcc318d7310553f74b13bb74fce1c",
           "version": null
         }
       }
