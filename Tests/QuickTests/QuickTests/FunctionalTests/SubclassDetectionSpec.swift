@@ -1,3 +1,5 @@
+#if canImport(Darwin)
+
 @testable import Quick
 import Nimble
 
@@ -23,3 +25,5 @@ final class SubclassDetectionSpec: QuickSpec {
         }
     }
 }
+
+#endif
