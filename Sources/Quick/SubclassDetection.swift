@@ -1,3 +1,5 @@
+#if canImport(Darwin)
+
 import Foundation
 
 /// Determines if a class is a subclass of another by looping over the superclasses of the given class.
@@ -12,3 +14,5 @@ func isClass(_ klass: AnyClass, aSubclassOf targetClass: AnyClass) -> Bool {
     }
     return false
 }
+
+#endif
