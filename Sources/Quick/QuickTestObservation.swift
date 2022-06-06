@@ -47,7 +47,7 @@ extension QuickSpec {
         } else {
             // See https://developer.apple.com/forums/thread/700770.
             var classesCount: UInt32 = 0
-            let classList = objc_copyClassList(&classesCount)
+            guard let classList = objc_copyClassList(&classesCount) else { return }
             defer { free(UnsafeMutableRawPointer(classList)) }
             let classes = UnsafeBufferPointer(start: classList, count: Int(classesCount))
 
