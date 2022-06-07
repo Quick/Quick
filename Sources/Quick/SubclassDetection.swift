@@ -14,11 +14,14 @@ func isClass(_ klass: AnyClass, aSubclassOf targetClass: AnyClass) -> Bool {
     }
     return false
 }
+#endif
 
 /// Retrieves the current list of all known classes that are a subtype of the desired type.
 /// This uses `objc_copyClassList` instead of `objc_getClassList` because the get function
 /// is subject to race conditions and buffer overflow issues. The copy function handles all of that for us.
-private func allSubclasses<T: AnyObject>(ofType targetType: T.Type) -> [T.Type] {
+/// Note: On non-Apple platforms, this will return an empty array.
+func allSubclasses<T: AnyObject>(ofType targetType: T.Type) -> [T.Type] {
+    #if canImport(Darwin)
     // See https://developer.apple.com/forums/thread/700770.
     var classesCount: UInt32 = 0
     guard let classList = objc_copyClassList(&classesCount) else { return [] }
@@ -30,18 +33,9 @@ private func allSubclasses<T: AnyObject>(ofType targetType: T.Type) -> [T.Type] 
     }
 
     return classes.filter { isClass($0, aSubclassOf: targetType) }
-        .compactMap { $0 as? T.Type }
+        // swiftlint:disable:next force_cast
+        .map { $0 as! T.Type }
+    #else
+    return []
+    #endif
 }
-
-/// Detects all subclasses of the given type, and calls the given block with each of them.
-/// The classes are iterated over in the order that `objc_copyClassList` returns them.
-///
-/// - parameter givenSubclasses: A list of given subclasses. If non-nil, these will be iterated over instead of the given subclasses.
-/// - parameter block: A block that takes the given type.
-///                    This block will be executed once for each subclass of that type.
-func enumerateSubclasses<T: AnyObject>(givenSubclasses: [T.Type]? = nil, _ block: (T.Type) -> Void) {
-    (givenSubclasses ?? allSubclasses(ofType: T.self))
-        .forEach(block)
-}
-
-#endif
