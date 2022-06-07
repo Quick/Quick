@@ -27,10 +27,11 @@ import XCTest
         guard !didBuildAllExamples else { return }
         didBuildAllExamples = true
 
-        enumerateSubclasses { (specClass: QuickSpec.Type) in
-            // This relies on `_QuickSpecInternal`.
-            (specClass as AnyClass).buildExamplesIfNeeded()
-        }
+        allSubclasses(ofType: QuickSpec.self)
+            .forEach { (specClass: QuickSpec.Type) in
+                // This relies on `_QuickSpecInternal`.
+                (specClass as AnyClass).buildExamplesIfNeeded()
+            }
     }
 }
 

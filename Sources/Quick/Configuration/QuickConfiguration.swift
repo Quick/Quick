@@ -10,9 +10,7 @@ open class QuickConfiguration: NSObject {
 #endif
 
 extension QuickConfiguration {
-    #if !canImport(Darwin)
     private static var configurationSubclasses: [QuickConfiguration.Type] = []
-    #endif
 
     #if canImport(Darwin)
     @objc
@@ -35,11 +33,10 @@ extension QuickConfiguration {
 
         // Perform all configurations (ensures that shared examples have been discovered)
         world.configure { configuration in
-            #if canImport(Darwin)
-            enumerateSubclasses { (configurationClass: QuickConfiguration.Type) in
+            (allSubclasses(ofType: QuickConfiguration.self) + configurationSubclasses)
+                .forEach { (configurationClass: QuickConfiguration.Type) in
                 configurationClass.configure(configuration)
             }
-            #endif
         }
         world.finalizeConfiguration()
     }
