@@ -62,7 +62,7 @@ func qck_runSpecs(_ specClasses: [QuickSpec.Type]) -> XCTestRun? {
 
         #if !SWIFT_PACKAGE
         // Gather examples first
-        QuickSpec.enumerateSubclasses(subclasses: specClasses) { specClass in
+        specClasses.forEach { specClass in
             // This relies on `_QuickSpecInternal`.
             (specClass as AnyClass).buildExamplesIfNeeded()
         }
