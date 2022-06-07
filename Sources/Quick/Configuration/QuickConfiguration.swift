@@ -14,37 +14,6 @@ extension QuickConfiguration {
     private static var configurationSubclasses: [QuickConfiguration.Type] = []
     #endif
 
-    /// Finds all direct subclasses of QuickConfiguration and passes them to the block provided.
-    /// The classes are iterated over in the order that objc_getClassList returns them.
-    ///
-    /// - parameter block: A block that takes a QuickConfiguration.Type.
-    ///                    This block will be executed once for each subclass of QuickConfiguration.
-    private static func enumerateSubclasses(_ block: (QuickConfiguration.Type) -> Void) {
-        #if canImport(Darwin)
-        // See https://developer.apple.com/forums/thread/700770.
-        var classesCount: UInt32 = 0
-        guard let classList = objc_copyClassList(&classesCount) else { return }
-        defer { free(UnsafeMutableRawPointer(classList)) }
-        let classes = UnsafeBufferPointer(start: classList, count: Int(classesCount))
-
-        guard classesCount > 0 else {
-            return
-        }
-
-        var configurationSubclasses: [QuickConfiguration.Type] = []
-        for subclass in classes {
-            guard
-                isClass(subclass, aSubclassOf: QuickConfiguration.self)
-                else { continue }
-
-            // swiftlint:disable:next force_cast
-            configurationSubclasses.append(subclass as! QuickConfiguration.Type)
-        }
-        #endif
-
-        configurationSubclasses.forEach(block)
-    }
-
     #if canImport(Darwin)
     @objc
     static func configureSubclassesIfNeeded(world: World) {
@@ -66,9 +35,11 @@ extension QuickConfiguration {
 
         // Perform all configurations (ensures that shared examples have been discovered)
         world.configure { configuration in
-            enumerateSubclasses { configurationClass in
+            #if canImport(Darwin)
+            enumerateSubclasses { (configurationClass: QuickConfiguration.Type) in
                 configurationClass.configure(configuration)
             }
+            #endif
         }
         world.finalizeConfiguration()
     }
