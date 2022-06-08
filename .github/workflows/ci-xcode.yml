@@ -26,7 +26,7 @@ jobs:
     runs-on: macos-11
     strategy:
       matrix:
-        xcode: ["13.0", "13.2"]
+        xcode: ["13.4"]
         platform: ["macos", "ios", "tvos"]
       fail-fast: false
     env:

@@ -23,7 +23,7 @@ jobs:
   cocoapods:
     name: CocoaPods Lint
     needs: filter
-    runs-on: macos-11
+    runs-on: macos-12
     steps:
       - uses: actions/checkout@v3
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
