@@ -23,7 +23,7 @@ jobs:
   xcode:
     name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
     needs: filter
-    runs-on: macos-11
+    runs-on: macos-12
     strategy:
       matrix:
         xcode: ["13.3.1"]
