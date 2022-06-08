@@ -163,8 +163,8 @@ let package = Package(
     	.library(name: "MyPackage", targets: ["MyPackage"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick.git", from: "5.0.1"),
-        .package(url: "https://github.com/Quick/Nimble.git", from: "9.2.1"),
+        .package(url: "https://github.com/Quick/Quick.git", from: "5.0.0"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "10.0.0"),
     ]
     targets: [
     	.target(name: "MyPackage", dependencies: []),
@@ -175,28 +175,7 @@ let package = Package(
 
 #### Linux Support
 
-On Linux, you will need to also add a `LinuxMain.swift` at the root of the `Tests` subdirectory. The contents of this branches depending on the `swift-tools-version` your `Package.swift` file specifies.
-
-##### Swift Tools Version 5.4 and earlier
-
-If your `Package.swift` specifies `swift-tools-version:5.4` or earlier, then you can use `QCKMain` at the root of the function, like so:
-
-```swift
-import XCTest
-import Quick
-
-@testable import MyPackageTests
-
-QCKMain(
-    [], // list of `QuickSpec` subclasses. to pass in.
-    configuration: [], // Optional, list of QuickConfiguration subclasses to pass in. Defaults to empty array.
-    testCases: [] // Optional, list of XCTestCase subclasses to pass in. Defaults to empty array.
-)
-```
-
-##### Swift Tools Version 5.5 and later
-
-However, if your `Package.swift` specifies `swift-tools-version:5.5` (or later), then you need to wrap the `QCKMain` call in a main struct first, like so:
+On Linux, you will need to also add a `LinuxMain.swift` at the root of the `Tests` subdirectory. This needs to contain a main struct that calls out to `QCKMain`, like so:
 
 ```swift
 import XCTest
