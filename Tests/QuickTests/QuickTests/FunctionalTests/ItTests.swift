@@ -152,6 +152,39 @@ final class FunctionalTests_StoppingTestsSpec: QuickSpec {
     }
 }
 
+
+final class FunctionalTests_AsyncItSpec: QuickSpec {
+    override func spec() {
+        describe("async handling") {
+            enum ExampleError: Error {
+                case error
+            }
+
+            @Sendable func asyncFunction() async {}
+
+            @Sendable func asyncNonThrowingFunction() async throws {}
+
+            @Sendable func asyncThrowingFunction(shouldThrow: Bool) async throws {
+                if shouldThrow {
+                    throw ExampleError.error
+                }
+            }
+
+            it("supports calling async, non-throwing functions") {
+                await asyncFunction()
+            }
+
+            it("supports calling async functions marked as throws") {
+                try await asyncNonThrowingFunction()
+            }
+
+            it("supports calling async functions that actually throw") {
+                try await asyncThrowingFunction(shouldThrow: isRunningFunctionalTests)
+            }
+        }
+    }
+}
+
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
@@ -159,6 +192,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
             ("testImplicitErrorHandling", testImplicitErrorHandling),
             ("testSkippingExamplesAreCorrectlyReported", testSkippingExamplesAreCorrectlyReported),
             ("testStoppingExamplesAreCorrectlyReported", testStoppingExamplesAreCorrectlyReported),
+            ("testAsyncExamples", testAsyncExamples),
         ]
     }
 
@@ -208,6 +242,15 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(result.executionCount, 3)
         XCTAssertEqual(result.failureCount, 1)
         XCTAssertEqual(result.unexpectedExceptionCount, 0)
+        XCTAssertEqual(result.totalFailureCount, 1)
+    }
+
+    func testAsyncExamples() {
+        let result = qck_runSpec(FunctionalTests_AsyncItSpec.self)!
+        XCTAssertFalse(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 3)
+        XCTAssertEqual(result.failureCount, 0)
+        XCTAssertEqual(result.unexpectedExceptionCount, 1)
         XCTAssertEqual(result.totalFailureCount, 1)
     }
 }

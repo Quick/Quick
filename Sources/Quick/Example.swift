@@ -31,10 +31,10 @@ final public class Example: _ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: () throws -> Void
+    private let closure: @Sendable () async throws -> Void
     private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @Sendable @escaping () async throws -> Void) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
@@ -62,11 +62,18 @@ final public class Example: _ExampleBase {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    public func run() {
+    public func run(completionHandler: @escaping () -> Void) {
+        Task {
+            await run()
+            completionHandler()
+        }
+    }
+
+    private func run() async {
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
-            world.suiteHooks.executeBefores()
+            await world.suiteHooks.executeBefores()
         }
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: world.numberOfExamplesRun)
@@ -77,11 +84,11 @@ final public class Example: _ExampleBase {
 
         group!.phase = .beforesExecuting
 
-        let runExample = { [closure, name, callsite] in
+        let runExample: @Sendable () async -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {
-                try closure()
+                try await closure()
             } catch {
                 if let stopTestError = error as? StopTest {
                     self.reportStoppedTest(stopTestError)
@@ -111,7 +118,7 @@ final public class Example: _ExampleBase {
         world.numberOfExamplesRun += 1
 
         if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
-            world.suiteHooks.executeAfters()
+            await world.suiteHooks.executeAfters()
         }
     }
 

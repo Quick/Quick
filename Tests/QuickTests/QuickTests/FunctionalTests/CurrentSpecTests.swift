@@ -31,7 +31,7 @@ class CurrentSpecTests: QuickSpec {
             fulfill = { expectation.fulfill() }
             #endif
             DispatchQueue.main.async(execute: fulfill)
-            QuickSpec.current.waitForExpectations(timeout: 1)
+            await QuickSpec.current.waitForExpectations(timeout: 1)
         }
     }
 }
