@@ -101,7 +101,7 @@ extension World {
 #endif
 
     @nonobjc
-    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @Sendable @escaping () async throws -> Void) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'.")
         }
@@ -117,12 +117,12 @@ extension World {
     }
 
     @nonobjc
-    internal func fit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func fit(_ description: String, file: FileString, line: UInt, closure: @Sendable @escaping () async throws -> Void) {
         self.it(description, flags: [Filter.focused: true], file: file, line: line, closure: closure)
     }
 
     @nonobjc
-    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func xit(_ description: String, file: FileString, line: UInt, closure: @Sendable @escaping () async throws -> Void) {
         self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
@@ -184,17 +184,17 @@ extension World {
 
 #if canImport(Darwin) && !SWIFT_PACKAGE
     @objc(itWithDescription:file:line:closure:)
-    internal func objc_it(_ description: String, file: FileString, line: UInt, closure: @escaping () -> Void) {
+    internal func objc_it(_ description: String, file: FileString, line: UInt, closure: @Sendable @escaping () -> Void) {
         it(description, file: file, line: line, closure: closure)
     }
 
     @objc(fitWithDescription:file:line:closure:)
-    internal func objc_fit(_ description: String, file: FileString, line: UInt, closure: @escaping () -> Void) {
+    internal func objc_fit(_ description: String, file: FileString, line: UInt, closure: @Sendable @escaping () -> Void) {
         fit(description, file: file, line: line, closure: closure)
     }
 
     @objc(xitWithDescription:file:line:closure:)
-    internal func objc_xit(_ description: String, file: FileString, line: UInt, closure: @escaping () -> Void) {
+    internal func objc_xit(_ description: String, file: FileString, line: UInt, closure: @Sendable @escaping () -> Void) {
         xit(description, file: file, line: line, closure: closure)
     }
 

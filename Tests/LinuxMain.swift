@@ -15,6 +15,7 @@ import Quick
             FunctionalTests_BeforeSuite_BeforeSuiteSpec.self,
             FunctionalTests_BeforeSuite_Spec.self,
             FunctionalTests_ItSpec.self,
+            FunctionalTests_AsyncItSpec.self,
             FunctionalTests_PendingSpec.self,
             FunctionalTests_CrossReferencingSpecA.self,
             FunctionalTests_CrossReferencingSpecB.self,
