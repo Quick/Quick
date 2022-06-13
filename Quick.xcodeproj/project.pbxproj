@@ -131,6 +131,12 @@
 		8961ABC827B3546E008DD498 /* SelectedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */; };
 		8961ABC927B3546E008DD498 /* SelectedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */; };
 		8961ABCA27B3546E008DD498 /* SelectedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */; };
+		89D2C671284D9E18004B108C /* SubclassDetectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */; };
+		89D2C672284D9E18004B108C /* SubclassDetectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */; };
+		89D2C673284D9E18004B108C /* SubclassDetectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */; };
+		89D2C675284DA77D004B108C /* SubclassDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C674284DA77D004B108C /* SubclassDetection.swift */; };
+		89D2C676284DA77D004B108C /* SubclassDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C674284DA77D004B108C /* SubclassDetection.swift */; };
+		89D2C677284DA77D004B108C /* SubclassDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C674284DA77D004B108C /* SubclassDetection.swift */; };
 		8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
@@ -377,6 +383,10 @@
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
 		8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SelectedTests+ObjC.m"; sourceTree = "<group>"; };
+		89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetectionSpec.swift; sourceTree = "<group>"; };
+		89D2C674284DA77D004B108C /* SubclassDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetection.swift; sourceTree = "<group>"; };
+		89A7919C28139D0900D99622 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		89A7919D28139D0900D99622 /* Quick.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Quick.podspec; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
@@ -695,6 +705,7 @@
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
 				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
+				89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */,
 				7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */,
 				AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */,
 				DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */,
@@ -754,6 +765,8 @@
 		DAEB6B841943873100289F44 = {
 			isa = PBXGroup;
 			children = (
+				89A7919C28139D0900D99622 /* Package.swift */,
+				89A7919D28139D0900D99622 /* Quick.podspec */,
 				DAEB6B901943873100289F44 /* Quick */,
 				6C3983EE1D1E930D00637469 /* QuickObjectiveC */,
 				DAEB6B9D1943873100289F44 /* QuickTests */,
@@ -796,6 +809,7 @@
 				CD3451461E4703D4000C8633 /* QuickMain.swift */,
 				CD3451471E4703D4000C8633 /* QuickSpec.swift */,
 				CD21A025247C1385002C4762 /* QuickTestObservation.swift */,
+				89D2C674284DA77D004B108C /* SubclassDetection.swift */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759E19515CA700CE1B99 /* Example.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
@@ -1344,6 +1358,7 @@
 				34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				1F118D041BDCA536005013A2 /* Example.swift in Sources */,
 				1F118CFF1BDCA536005013A2 /* QCKDSL.m in Sources */,
+				89D2C677284DA77D004B108C /* SubclassDetection.swift in Sources */,
 				DED3036D1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift in Sources */,
 				CE590E211C431FE400253D19 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				1F118D071BDCA536005013A2 /* Callsite.swift in Sources */,
@@ -1397,6 +1412,7 @@
 				8961ABCA27B3546E008DD498 /* SelectedTests+ObjC.m in Sources */,
 				CD582D712264B371008F7CE6 /* QuickSpec+MethodList.swift in Sources */,
 				1F118D391BDCA6E6005013A2 /* Configuration+BeforeEach.swift in Sources */,
+				89D2C673284D9E18004B108C /* SubclassDetectionSpec.swift in Sources */,
 				1F118D181BDCA556005013A2 /* AfterEachTests.swift in Sources */,
 				CD582D772264C137008F7CE6 /* QuickSpecRunner.swift in Sources */,
 				1F118D1B1BDCA556005013A2 /* PendingTests+ObjC.m in Sources */,
@@ -1435,6 +1451,7 @@
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375BA19515CA700CE1B99 /* QuickSpec.m in Sources */,
 				DED3036C1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift in Sources */,
+				89D2C676284DA77D004B108C /* SubclassDetection.swift in Sources */,
 				CE590E1C1C431FE300253D19 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				DAE7150119FF6A62005905B8 /* QuickConfiguration.m in Sources */,
 				CE590E1E1C431FE300253D19 /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
@@ -1488,6 +1505,7 @@
 				8961ABC927B3546E008DD498 /* SelectedTests+ObjC.m in Sources */,
 				CD582D702264B371008F7CE6 /* QuickSpec+MethodList.swift in Sources */,
 				DAE714F419FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
+				89D2C672284D9E18004B108C /* SubclassDetectionSpec.swift in Sources */,
 				479C31E41A36172700DA8718 /* ItTests+ObjC.m in Sources */,
 				CD582D752264C137008F7CE6 /* QuickSpecRunner.swift in Sources */,
 				34C586031C4ABD4000D4F057 /* XCTestCaseProvider.swift in Sources */,
@@ -1574,6 +1592,7 @@
 				CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */,
 				34C586081C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DED3036B1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift in Sources */,
+				89D2C675284DA77D004B108C /* SubclassDetection.swift in Sources */,
 				DA408BE619FF5599005DF92A /* SuiteHooks.swift in Sources */,
 				34F375B919515CA700CE1B99 /* QuickSpec.m in Sources */,
 				CE57CEE11C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
@@ -1627,6 +1646,7 @@
 				8961ABC827B3546E008DD498 /* SelectedTests+ObjC.m in Sources */,
 				CD582D6F2264B371008F7CE6 /* QuickSpec+MethodList.swift in Sources */,
 				DAE714F319FF65E7005905B8 /* Configuration+BeforeEach.swift in Sources */,
+				89D2C671284D9E18004B108C /* SubclassDetectionSpec.swift in Sources */,
 				479C31E31A36171B00DA8718 /* ItTests+ObjC.m in Sources */,
 				CD582D732264C137008F7CE6 /* QuickSpecRunner.swift in Sources */,
 				34C586011C4ABD3F00D4F057 /* XCTestCaseProvider.swift in Sources */,
@@ -1726,7 +1746,6 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1762,7 +1781,6 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1784,7 +1802,6 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickTests-Swift.h";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1807,7 +1824,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickTests-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1829,7 +1845,6 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickFocusedTests-Swift.h";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1852,7 +1867,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickFocusedTests-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1873,7 +1887,6 @@
 				);
 				INFOPLIST_FILE = Sources/Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1906,7 +1919,6 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Sources/Quick/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1939,7 +1951,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1960,7 +1971,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1993,7 +2003,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2014,7 +2023,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2034,7 +2042,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2055,7 +2062,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/QuickTests/QuickAfterSuiteTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2090,7 +2096,6 @@
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickAfterSuiteTests-Swift.h";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -2113,7 +2118,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickAfterSuiteTests-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2147,7 +2151,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2168,7 +2171,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2194,7 +2196,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2215,7 +2216,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2235,7 +2235,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2256,7 +2255,6 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/QuickTests/QuickFocusedTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2326,15 +2324,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2384,14 +2385,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2413,7 +2417,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -2445,7 +2448,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -2476,7 +2478,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2497,7 +2498,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

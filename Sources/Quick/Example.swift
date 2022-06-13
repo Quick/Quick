@@ -164,11 +164,6 @@ final public class Example: _ExampleBase {
                 return
             }
 
-            if isLegacyXcode(testRun: testRun) {
-                reportSkippedTest_legacy(testRun: testRun, skippedTestContext: skippedTestContext)
-                return
-            }
-
             guard let sourceCodeContextAny = skippedTestContext.value(forKey: "sourceCodeContext") else {
                 print("""
                 [Quick Warning]: The internals of Apple's XCTestCaseRun have changed.
@@ -197,45 +192,6 @@ final public class Example: _ExampleBase {
             testRun.perform(Self.recordSkipSelector, with: testSkippedError.message, with: sourceCodeContext)
         #endif
     }
-
-    #if canImport(Darwin)
-    private func isLegacyXcode(testRun: XCTestRun) -> Bool {
-        !testRun.responds(to: Self.recordSkipSelector)
-    }
-
-    /// Attempt to report a test skip for old Xcode versions (namely Xcode 12.4).
-    ///
-    /// As of Xcode 12.4, the `XCTSkippedTestContext` object contained these fields:
-    /// - `filePath: NSString`
-    /// - `lineNumber: NSString`
-    ///
-    /// After Xcode 12.4, those fields were extracted into a new `sourceCodeContext: XCTSkippedTestContext` property.
-    /// - Parameters:
-    ///   - testRun: The test run that was skipped
-    ///   - skippedTestContext: an `XCTSkippedTestContext` object
-    private func reportSkippedTest_legacy(testRun: XCTestRun, skippedTestContext: NSObject) {
-        let legacyRecordSkipSelector = NSSelectorFromString("recordSkipWithDescription:inFile:atLine:")
-
-        guard let imp = testRun.method(for: legacyRecordSkipSelector),
-              let description = skippedTestContext.value(forKey: "message") as? NSString,
-              let filePath = skippedTestContext.value(forKey: "filePath") as? NSString,
-              let lineNumber = skippedTestContext.value(forKey: "lineNumber") as? UInt32 else {
-            return
-        }
-
-        typealias MethodSigniture = @convention(c) (NSObject, Selector, NSString, NSString, UInt32) -> Void
-
-        let methodImp = unsafeBitCast(imp, to: MethodSigniture.self)
-
-        methodImp(
-            /* self */ testRun,
-            /* selector */ legacyRecordSkipSelector,
-            /* recordSkipWithDescription: */ description,
-            /* inFile: */ filePath,
-            /* atLine: */ lineNumber
-        )
-    }
-    #endif
 
     private func reportFailedTest(_ error: Error, name: String, callsite: Callsite) {
         let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"

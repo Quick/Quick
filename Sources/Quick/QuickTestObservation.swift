@@ -27,52 +27,11 @@ import XCTest
         guard !didBuildAllExamples else { return }
         didBuildAllExamples = true
 
-        QuickSpec.enumerateSubclasses { specClass in
-            // This relies on `_QuickSpecInternal`.
-            (specClass as AnyClass).buildExamplesIfNeeded()
-        }
-    }
-}
-
-// swiftlint:disable:next todo
-// TODO: Unify this with QuickConfiguration's equivalent
-extension QuickSpec {
-    internal static func enumerateSubclasses(
-        subclasses: [QuickSpec.Type]? = nil,
-        _ block: (QuickSpec.Type) -> Void
-    ) {
-        let subjects: [QuickSpec.Type]
-        if let subclasses = subclasses {
-            subjects = subclasses
-        } else {
-            let classesCount = objc_getClassList(nil, 0)
-
-            guard classesCount > 0 else {
-                return
+        allSubclasses(ofType: QuickSpec.self)
+            .forEach { (specClass: QuickSpec.Type) in
+                // This relies on `_QuickSpecInternal`.
+                (specClass as AnyClass).buildExamplesIfNeeded()
             }
-
-            let classes = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(classesCount))
-            defer { free(classes) }
-
-            let autoreleasingClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(classes)
-            objc_getClassList(autoreleasingClasses, classesCount)
-
-            var specSubclasses: [QuickSpec.Type] = []
-            for index in 0..<classesCount {
-                guard
-                    let subclass = classes[Int(index)],
-                    let superclass = class_getSuperclass(subclass),
-                    superclass.isSubclass(of: QuickSpec.self)
-                    else { continue }
-
-                // swiftlint:disable:next force_cast
-                specSubclasses.append(subclass as! QuickSpec.Type)
-            }
-
-            subjects = specSubclasses
-        }
-
-        subjects.forEach(block)
     }
 }
 
