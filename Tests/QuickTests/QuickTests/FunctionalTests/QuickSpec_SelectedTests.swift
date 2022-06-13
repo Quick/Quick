@@ -60,7 +60,7 @@ class QuickSpec_SelectedTests: XCTestCase {
 
         let suite = XCTestSuite(forTestCaseWithName: "SimulateSelectedTests_TestCase/example1")
         expect(suite.tests).to(haveCount(1))
-        expect(suite.tests).to(allPass { $0?.name.contains("example1") == true })
+        expect(suite.tests).to(allPass { $0.name.contains("example1") == true })
     }
 }
 
