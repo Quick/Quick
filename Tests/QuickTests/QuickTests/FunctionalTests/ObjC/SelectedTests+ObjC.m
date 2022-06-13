@@ -33,7 +33,7 @@ QuickSpecEnd
 // Invoking private methods in Swift is incredibly janky
 // this functionality is tested in Objective-C.
 
-QuickSpecBegin(FunctionalTests_SelectedTests_Xcode12_5_ObjC)
+QuickSpecBegin(FunctionalTests_SelectedTests_ObjC)
 
 beforeEach(^{
     [QuickTestSuite reset];

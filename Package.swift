@@ -1,11 +1,11 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
     name: "Quick",
     platforms: [
-        .macOS(.v10_10), .iOS(.v9), .tvOS(.v9)
+        .macOS(.v10_15), .iOS(.v13), .tvOS(.v13)
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
@@ -49,7 +49,13 @@ let package = Package(
         ])
 #else
         targets.append(contentsOf: [
-            .target(name: "Quick", dependencies: []),
+            .target(
+                name: "Quick",
+                dependencies: [],
+                exclude: [
+                    "Info.plist"
+                ]
+            ),
         ])
 #endif
         return targets
