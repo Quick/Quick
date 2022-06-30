@@ -117,7 +117,7 @@ static QuickSpec *currentSpec = nil;
         [example runWithCompletionHandler:completionHandler];
     });
 
-    const char *types = [[NSString stringWithFormat:@"%s%s%s%s", @encode(void), @encode(id), @encode(SEL), @encode(void (^)(void))] UTF8String];
+    const char *types = [[NSString stringWithFormat:@"%s%s%s@?<v@?>", @encode(void), @encode(id), @encode(SEL)] UTF8String];
 
     NSString *originalName = [QCKObjCStringUtils c99ExtendedIdentifierFrom:example.name];
     NSString *selectorName = originalName;
@@ -128,7 +128,7 @@ static QuickSpec *currentSpec = nil;
     }
 
     selectorName = [NSString stringWithFormat:@"%@%s", selectorName, @encode(SEL)];
-    
+
     [selectorNames addObject:selectorName];
     
     SEL selector = NSSelectorFromString(selectorName);
