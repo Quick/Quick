@@ -8,12 +8,12 @@ class FunctionalTests_ItSpec: QuickSpec {
         beforeEach { metadata in exampleMetadata = metadata }
 
         it("") {
-            expect(exampleMetadata!.example.name).to(equal(""))
+            expect(exampleMetadata?.example.name).to(equal(""))
         }
 
         it("has a description with セレクター名に使えない文字が入っている 👊💥") {
             let name = "has a description with セレクター名に使えない文字が入っている 👊💥"
-            expect(exampleMetadata!.example.name).to(equal(name))
+            expect(exampleMetadata?.example.name).to(equal(name))
         }
 
 #if canImport(Darwin)
@@ -77,7 +77,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
                 it("should have thrown an exception with the correct error message") {
                     expect(exception).toNot(beNil())
-                    expect(exception!.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
+                    expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
                 }
             }
 
@@ -88,7 +88,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     let capture = NMBExceptionCapture(handler: ({ e in
                         exception = e
                         expect(exception).toNot(beNil())
-                        expect(exception!.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'."))
+                        expect(exception?.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'."))
                     }), finally: nil)
 
                     capture.tryBlock {
@@ -208,15 +208,15 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
 
     func testAllExamplesAreExecuted() {
         let result = qck_runSpec(FunctionalTests_ItSpec.self)
-        #if canImport(Darwin)
-        #if SWIFT_PACKAGE
+#if canImport(Darwin)
+#if SWIFT_PACKAGE
         XCTAssertEqual(result?.executionCount, 7)
-        #else
+#else
         XCTAssertEqual(result?.executionCount, 10)
-        #endif
-        #else
+#endif
+#else
         XCTAssertEqual(result?.executionCount, 2)
-        #endif
+#endif
     }
 
     func testImplicitErrorHandling() {

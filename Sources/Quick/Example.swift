@@ -62,14 +62,7 @@ final public class Example: _ExampleBase {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    public func run(completionHandler: @escaping () -> Void) {
-        Task {
-            await run()
-            completionHandler()
-        }
-    }
-
-    private func run() async {
+    public func run() async {
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
