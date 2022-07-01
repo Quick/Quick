@@ -17,7 +17,7 @@ final internal class SuiteHooks {
     internal func executeBefores() async {
         phase = .beforesExecuting
         for before in befores {
-            before()
+            await before()
         }
         phase = .beforesFinished
     }
@@ -25,7 +25,7 @@ final internal class SuiteHooks {
     internal func executeAfters() async {
         phase = .aftersExecuting
         for after in afters {
-            after()
+            await after()
         }
         phase = .aftersFinished
     }

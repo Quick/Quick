@@ -28,14 +28,14 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
             afterEach { aroundEachOrder.append(.after0) }
             aroundEach { run in
                 aroundEachOrder.append(.around0Prefix)
-                run()
+                await run()
                 aroundEachOrder.append(.around0Suffix)
             }
             beforeEach { aroundEachOrder.append(.before1) }
             afterEach { aroundEachOrder.append(.after1) }
             aroundEach { run in
                 aroundEachOrder.append(.around1Prefix)
-                run()
+                await run()
                 aroundEachOrder.append(.around1Suffix)
             }
             beforeEach { aroundEachOrder.append(.before2) }
@@ -54,7 +54,7 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                 afterEach { aroundEachOrder.append(.innerAfter) }
                 aroundEach { run in
                     aroundEachOrder.append(.innerAroundPrefix)
-                    run()
+                    await run()
                     aroundEachOrder.append(.innerAroundSuffix)
                 }
 

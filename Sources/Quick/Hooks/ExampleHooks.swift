@@ -7,29 +7,29 @@ final internal class ExampleHooks {
 
     internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         wrappers.append { exampleMetadata, runExample in
-            closure(exampleMetadata)
-            runExample()
+            await closure(exampleMetadata)
+            await runExample()
         }
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
         wrappers.append { _, runExample in
-            closure()
-            runExample()
+            await closure()
+            await runExample()
         }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
         wrappers.prepend { exampleMetadata, runExample in
-            runExample()
-            closure(exampleMetadata)
+            await runExample()
+            await closure(exampleMetadata)
         }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
         wrappers.prepend { _, runExample in
-            runExample()
-            closure()
+            await runExample()
+            await closure()
         }
     }
 
@@ -38,7 +38,37 @@ final internal class ExampleHooks {
     }
 
     internal func appendAround(_ closure: @escaping AroundExampleClosure) {
-        wrappers.append { _, runExample in closure(runExample) }
+        wrappers.append { _, runExample in await closure(runExample) }
+    }
+
+    /// Synchronous version of aroundEach, passing in metadata to the closure.
+    /// Warning: This should only be used for objective-c compatibility.
+    internal func appendAroundSync(_ closure: @escaping AroundExampleWithMetadataSyncClosure) {
+        wrappers.append { exampleMetadata, runExample in
+            closure(exampleMetadata) {
+                let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
+                Task {
+                    await runExample()
+                    expectation.fulfill()
+                }
+                QuickSpec.current.wait(for: [expectation], timeout: 1)
+            }
+        }
+    }
+
+    /// Synchronous version of aroundEach.
+    /// Warning: This should only be used for objective-c compatibility.
+    internal func appendAroundSync(_ closure: @escaping AroundExampleSyncClosure) {
+        wrappers.append { _, runExample in
+            closure {
+                let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
+                Task {
+                    await runExample()
+                    expectation.fulfill()
+                }
+                QuickSpec.current.wait(for: [expectation], timeout: 1)
+            }
+        }
     }
 }
 

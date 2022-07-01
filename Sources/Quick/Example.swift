@@ -93,11 +93,11 @@ final public class Example: _ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
-//        let allWrappers = group!.wrappers + world.exampleHooks.wrappers
-//        let wrappedExample = allWrappers.reduce(runExample) { closure, wrapper in
-//            return { wrapper(exampleMetadata, closure) }
-//        }
-        await runExample()
+        let allWrappers = group!.wrappers + world.exampleHooks.wrappers
+        let wrappedExample = allWrappers.reduce(runExample) { closure, wrapper in
+            return { await wrapper(exampleMetadata, closure) }
+        }
+        await wrappedExample()
 
         group!.phase = .aftersFinished
 
