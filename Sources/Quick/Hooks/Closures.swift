@@ -24,7 +24,6 @@ public typealias BeforeExampleWithMetadataClosure = @Sendable (_ exampleMetadata
  */
 public typealias BeforeExampleWithMetadataSyncClosure = @Sendable (_ exampleMetadata: ExampleMetadata) -> Void
 
-
 /**
     A closure executed after an example is run.
 */
