@@ -141,7 +141,7 @@ static QuickSpec *currentSpec = nil;
     NSString *selectorName = originalName;
     NSUInteger i = 2;
 
-    while ([selectorNames containsObject:selectorName]) {
+    while ([selectorNames containsObject:[selectorName stringByAppendingFormat:@"%s", @encode(SEL)]]) {
         selectorName = [NSString stringWithFormat:@"%@_%tu", originalName, i++];
     }
 

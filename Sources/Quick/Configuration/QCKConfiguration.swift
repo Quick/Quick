@@ -78,6 +78,11 @@ final public class QCKConfiguration: NSObject {
     */
 #if canImport(Darwin)
     @objc(beforeEachWithMetadata:)
+    public func objc_beforeEach(_ closure: @escaping BeforeExampleWithMetadataSyncClosure) {
+        exampleHooks.appendBefore(closure)
+    }
+
+    @nonobjc
     public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
     }
@@ -115,6 +120,11 @@ final public class QCKConfiguration: NSObject {
     */
 #if canImport(Darwin)
     @objc(afterEachWithMetadata:)
+    public func objc_afterEach(_ closure: @escaping AfterExampleWithMetadataSyncClosure) {
+        exampleHooks.appendAfter(closure)
+    }
+
+    @nonobjc
     public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
     }

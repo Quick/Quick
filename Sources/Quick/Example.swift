@@ -97,14 +97,14 @@ final public class Example: _ExampleBase {
 
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
         let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { await wrapper(exampleMetadata, closure) }
         }
 
         let allWrappers = group!.wrappers + world.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { await wrapper(exampleMetadata, closure) }
         }
-        wrappedExample()
+        await wrappedExample()
 
         group!.phase = .aftersFinished
 

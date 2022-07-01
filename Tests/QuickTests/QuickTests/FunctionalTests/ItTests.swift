@@ -3,17 +3,19 @@ import XCTest
 import Nimble
 
 class FunctionalTests_ItSpec: QuickSpec {
+    var exampleMetadata: ExampleMetadata?
+    var exception: NSException?
+
     override func spec() {
-        var exampleMetadata: ExampleMetadata?
-        beforeEach { metadata in exampleMetadata = metadata }
+        beforeEach { metadata in self.exampleMetadata = metadata }
 
         it("") {
-            expect(exampleMetadata?.example.name).to(equal(""))
+            expect(self.exampleMetadata?.example.name).to(equal(""))
         }
 
         it("has a description with セレクター名に使えない文字が入っている 👊💥") {
             let name = "has a description with セレクター名に使えない文字が入っている 👊💥"
-            expect(exampleMetadata?.example.name).to(equal(name))
+            expect(self.exampleMetadata?.example.name).to(equal(name))
         }
 
 #if canImport(Darwin)
@@ -26,8 +28,8 @@ class FunctionalTests_ItSpec: QuickSpec {
                     .sorted(by: <)
 
                 expect(allSelectors) == [
-                    "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it",
-                    "when_an_example_has_a_unique_name__has_a_unique_name",
+                    "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it:",
+                    "when_an_example_has_a_unique_name__has_a_unique_name:",
                 ]
             }
         }
@@ -42,9 +44,9 @@ class FunctionalTests_ItSpec: QuickSpec {
                     .sorted(by: <)
 
                 expect(allSelectors) == [
-                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name",
-                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name_2",
-                    "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above",
+                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name:",
+                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name_2:",
+                    "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above:",
                 ]
             }
 
@@ -62,11 +64,9 @@ class FunctionalTests_ItSpec: QuickSpec {
             }
 
             describe("behavior with an 'it' inside a 'beforeEach'") {
-                var exception: NSException?
-
                 beforeEach {
                     let capture = NMBExceptionCapture(handler: ({ e in
-                        exception = e
+                        self.exception = e
                     }), finally: nil)
 
                     capture.tryBlock {
@@ -76,19 +76,17 @@ class FunctionalTests_ItSpec: QuickSpec {
                 }
 
                 it("should have thrown an exception with the correct error message") {
-                    expect(exception).toNot(beNil())
-                    expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
+                    expect(self.exception).toNot(beNil())
+                    expect(self.exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
                 }
             }
 
             describe("behavior with an 'it' inside an 'afterEach'") {
-                var exception: NSException?
-
                 afterEach {
                     let capture = NMBExceptionCapture(handler: ({ e in
-                        exception = e
+                        let exception = e
                         expect(exception).toNot(beNil())
-                        expect(exception?.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'."))
+                        expect(exception.reason).to(equal("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'."))
                     }), finally: nil)
 
                     capture.tryBlock {
@@ -114,9 +112,9 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
                 case error
             }
 
-            func nonThrowingFunc() throws {}
+            @Sendable func nonThrowingFunc() throws {}
 
-            func throwingFunc(shouldThrow: Bool) throws {
+            @Sendable func throwingFunc(shouldThrow: Bool) throws {
                 if shouldThrow {
                     throw ExampleError.error
                 }

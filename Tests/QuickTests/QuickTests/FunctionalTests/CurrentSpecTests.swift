@@ -23,14 +23,7 @@ class CurrentSpecTests: QuickSpec {
 
         it("supports XCTest expectations") {
             let expectation = QuickSpec.current.expectation(description: "great expectation")
-            let fulfill: () -> Void
-            #if canImport(Darwin)
-            fulfill = expectation.fulfill
-            #else
-            // https://github.com/apple/swift-corelibs-xctest/blob/51afda0bc782b2d6a2f00fbdca58943faf6ccecd/Sources/XCTest/Public/Asynchronous/XCTestExpectation.swift#L233-L253
-            fulfill = { expectation.fulfill() }
-            #endif
-            DispatchQueue.main.async(execute: fulfill)
+            DispatchQueue.main.async(execute: { expectation.fulfill() })
             await QuickSpec.current.waitForExpectations(timeout: 1)
         }
     }

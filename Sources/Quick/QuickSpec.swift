@@ -84,9 +84,12 @@ open class QuickSpec: QuickSpecBase {
     }
 
     private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames : inout Set<String>) -> Selector {
-        let block: @convention(block) (QuickSpec) -> Void = { spec in
+        let block: @convention(block) (QuickSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
             spec.example = example
-            example.run()
+            Task {
+                await example.run()
+                completionHandler()
+            }
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
@@ -94,15 +97,17 @@ open class QuickSpec: QuickSpecBase {
         var selectorName = originalName
         var index: UInt = 2
 
-        while selectorNames.contains(selectorName) {
+        while selectorNames.contains(selectorName.appending(":")) {
             selectorName = String(format: "%@_%tu", originalName, index)
             index += 1
         }
 
+        selectorName += ":"
+
         selectorNames.insert(selectorName)
 
         let selector = NSSelectorFromString(selectorName)
-        class_addMethod(self, selector, implementation, "v@:")
+        class_addMethod(self, selector, implementation, "v@:@?<v@?>")
 
         return selector
     }
