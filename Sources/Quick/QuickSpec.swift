@@ -70,7 +70,7 @@ open class QuickSpec: QuickSpecBase {
     private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames : inout Set<String>) -> Selector {
         let block: @convention(block) (QuickSpec) -> Void = { spec in
             spec.example = example
-            example.run()
+            example.run(spec: spec)
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
@@ -101,7 +101,7 @@ open class QuickSpec: QuickSpecBase {
             return (example.name, { spec in
                 return {
                     spec.example = example
-                    example.run()
+                    example.run(spec: spec)
                 }
             })
         }

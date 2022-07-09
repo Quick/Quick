@@ -128,6 +128,9 @@
 		7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
 		7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
 		7B5358D01C3D4FC000A23FAA /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
+		89353C3D28789D3F001F131A /* Example+continueAfterFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89353C3C28789D3F001F131A /* Example+continueAfterFailure.swift */; };
+		89353C3E28789D3F001F131A /* Example+continueAfterFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89353C3C28789D3F001F131A /* Example+continueAfterFailure.swift */; };
+		89353C3F28789D3F001F131A /* Example+continueAfterFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89353C3C28789D3F001F131A /* Example+continueAfterFailure.swift */; };
 		8961ABC827B3546E008DD498 /* SelectedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */; };
 		8961ABC927B3546E008DD498 /* SelectedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */; };
 		8961ABCA27B3546E008DD498 /* SelectedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */; };
@@ -382,11 +385,12 @@
 		79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSpec_SelectedTests.swift; sourceTree = "<group>"; };
 		7B44ADBD1C5444940007AF2E /* HooksPhase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HooksPhase.swift; sourceTree = "<group>"; };
 		7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextTests.swift; sourceTree = "<group>"; };
+		89353C3C28789D3F001F131A /* Example+continueAfterFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Example+continueAfterFailure.swift"; sourceTree = "<group>"; };
 		8961ABC727B3546E008DD498 /* SelectedTests+ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SelectedTests+ObjC.m"; sourceTree = "<group>"; };
-		89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetectionSpec.swift; sourceTree = "<group>"; };
-		89D2C674284DA77D004B108C /* SubclassDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetection.swift; sourceTree = "<group>"; };
 		89A7919C28139D0900D99622 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		89A7919D28139D0900D99622 /* Quick.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Quick.podspec; sourceTree = "<group>"; };
+		89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetectionSpec.swift; sourceTree = "<group>"; };
+		89D2C674284DA77D004B108C /* SubclassDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetection.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
@@ -701,6 +705,7 @@
 				DA87078219F48775008C04AC /* BeforeEachTests.swift */,
 				DA05D60F19F73A3800771050 /* AfterEachTests.swift */,
 				DA3E1685243F8C23001F7CCA /* AroundEachTests.swift */,
+				89353C3C28789D3F001F131A /* Example+continueAfterFailure.swift */,
 				DAA63EA219F7637300CD0A3B /* PendingTests.swift */,
 				DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
@@ -1405,6 +1410,7 @@
 				DA3E1692243FEDC1001F7CCA /* AroundEachTests+ObjC.m in Sources */,
 				1F118D191BDCA556005013A2 /* AfterEachTests+ObjC.m in Sources */,
 				1F118D221BDCA556005013A2 /* SharedExamples+BeforeEachTests.swift in Sources */,
+				89353C3F28789D3F001F131A /* Example+continueAfterFailure.swift in Sources */,
 				AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				1F118D211BDCA556005013A2 /* SharedExamplesTests+ObjC.m in Sources */,
 				1F118D201BDCA556005013A2 /* SharedExamplesTests.swift in Sources */,
@@ -1498,6 +1504,7 @@
 				DA3E1691243FEDC0001F7CCA /* AroundEachTests+ObjC.m in Sources */,
 				CE4A578E1EA7251C0063C0D4 /* FunctionalTests_BehaviorTests_Behaviors.swift in Sources */,
 				DA8F91AF19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
+				89353C3E28789D3F001F131A /* Example+continueAfterFailure.swift in Sources */,
 				DAE714FB19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
 				AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				471590411A488F3F00FBA644 /* PendingTests+ObjC.m in Sources */,
@@ -1639,6 +1646,7 @@
 				DA3E1690243FEDBE001F7CCA /* AroundEachTests+ObjC.m in Sources */,
 				4748E8941A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
 				DA8F91AE19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
+				89353C3D28789D3F001F131A /* Example+continueAfterFailure.swift in Sources */,
 				DAE714FA19FF682A005905B8 /* Configuration+AfterEachTests.swift in Sources */,
 				AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */,
 				471590401A488F3F00FBA644 /* PendingTests+ObjC.m in Sources */,

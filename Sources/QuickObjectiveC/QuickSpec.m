@@ -112,7 +112,7 @@ static QuickSpec *currentSpec = nil;
     IMP implementation = imp_implementationWithBlock(^(QuickSpec *self){
         self.example = example;
         currentSpec = self;
-        [example run];
+        [example runWithSpec:self];
     });
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];

@@ -28,6 +28,18 @@ final public class Example: _ExampleBase {
     */
     public var callsite: Callsite
 
+    /**
+        Continues with the rest of the test flow even after a test failure. `True` by default.
+        - Note: Setting to `False` will not run the `afterEach` blocks, nor will it run code in `aroundEach` after the test has failed.
+        - Note: This uses `XCTestCase`'s `continueAfterFailure` mechanism.
+     */
+    public var continueRunningTestAfterFailure = true {
+        didSet {
+            didSetContinueRunningTestsAfterFailure?(continueRunningTestAfterFailure)
+        }
+    }
+    private var didSetContinueRunningTestsAfterFailure: ((Bool) -> Void)? = nil
+
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
@@ -62,8 +74,16 @@ final public class Example: _ExampleBase {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    public func run() {
+    public func run(spec: QuickSpec) {
         let world = World.sharedWorld
+        didSetContinueRunningTestsAfterFailure = { continueRunningTestsAfterFailure in
+            spec.continueAfterFailure = continueRunningTestsAfterFailure
+        }
+        let originalContinueAfterFailure = spec.continueAfterFailure
+        defer {
+            spec.continueAfterFailure = originalContinueAfterFailure
+            didSetContinueRunningTestsAfterFailure = nil
+        }
 
         if world.numberOfExamplesRun == 0 {
             world.suiteHooks.executeBefores()
