@@ -140,12 +140,25 @@ final class FunctionalTests_SkippingTestsSpec: QuickSpec {
     }
 }
 
+final class FunctionalTests_StoppingTestsSpec: QuickSpec {
+    override func spec() {
+        it("supports silently stopping tests") { throw QuickError.stopSilently }
+        it("supports stopping tests with expected errors") {
+            if isRunningFunctionalTests {
+                throw QuickError.stop("Test stopped due to expected error")
+            }
+        }
+        it("supports not stopping tests") { }
+    }
+}
+
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
             ("testAllExamplesAreExecuted", testAllExamplesAreExecuted),
             ("testImplicitErrorHandling", testImplicitErrorHandling),
             ("testSkippingExamplesAreCorrectlyReported", testSkippingExamplesAreCorrectlyReported),
+            ("testStoppingExamplesAreCorrectlyReported", testStoppingExamplesAreCorrectlyReported),
         ]
     }
 
@@ -187,5 +200,14 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(result.executionCount, 2)
         XCTAssertEqual(result.skipCount, 1)
         XCTAssertEqual(result.totalFailureCount, 0)
+    }
+    
+    func testStoppingExamplesAreCorrectlyReported() {
+        let result = qck_runSpec(FunctionalTests_StoppingTestsSpec.self)!
+        XCTAssertFalse(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 3)
+        XCTAssertEqual(result.failureCount, 1)
+        XCTAssertEqual(result.unexpectedExceptionCount, 0)
+        XCTAssertEqual(result.totalFailureCount, 1)
     }
 }
