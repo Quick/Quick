@@ -10,11 +10,6 @@ public class _ExampleBase: NSObject {}
 // swiftlint:enable type_name
 #endif
 
-public enum QuickError: Error {
-    case stopSilently
-    case stop(_ description: String, file: FileString = #file, line: UInt = #line)
-}
-
 /**
     Examples, defined with the `it` function, use assertions to
     demonstrate how code should behave. These are like "tests" in XCTest.
@@ -88,11 +83,8 @@ final public class Example: _ExampleBase {
             do {
                 try closure()
             } catch {
-                if case QuickError.stopSilently = error {
-                    // Do nothing.
-                } else if case QuickError.stop(let description, let file, let line) = error {
-                    let errorCallsite = Callsite(file: file, line: line)
-                    self.reportStoppedTest(description, callsite: errorCallsite)
+                if let stopTestError = error as? StopTest {
+                    self.reportStoppedTest(stopTestError)
                 } else if let testSkippedError = error as? XCTSkip {
                     self.reportSkippedTest(testSkippedError, name: name, callsite: callsite)
                 } else {
@@ -231,7 +223,11 @@ final public class Example: _ExampleBase {
         #endif
     }
     
-    private func reportStoppedTest(_ description: String, callsite: Callsite) {
+    private func reportStoppedTest(_ stopTestError: StopTest) {
+        
+        guard stopTestError.reportError else { return }
+        
+        let callsite = stopTestError.callsite
 
         #if SWIFT_PACKAGE
             let file = callsite.file.description
@@ -244,13 +240,13 @@ final public class Example: _ExampleBase {
             let sourceCodeContext = XCTSourceCodeContext(location: location)
             let issue = XCTIssue(
                 type: .assertionFailure,
-                compactDescription: description,
+                compactDescription: stopTestError.failureDescription,
                 sourceCodeContext: sourceCodeContext
             )
             QuickSpec.current.record(issue)
         #else
             QuickSpec.current.recordFailure(
-                withDescription: description,
+                withDescription: stopTestError.failureDescription,
                 inFile: file,
                 atLine: Int(callsite.line),
                 expected: true
