@@ -142,10 +142,10 @@ final class FunctionalTests_SkippingTestsSpec: QuickSpec {
 
 final class FunctionalTests_StoppingTestsSpec: QuickSpec {
     override func spec() {
-        it("supports silently stopping tests") { throw QuickError.stopSilently }
+        it("supports silently stopping tests") { throw StopTest.silently }
         it("supports stopping tests with expected errors") {
             if isRunningFunctionalTests {
-                throw QuickError.stop("Test stopped due to expected error")
+                throw StopTest("Test stopped due to expected error")
             }
         }
         it("supports not stopping tests") { }
