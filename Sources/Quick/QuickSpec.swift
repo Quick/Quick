@@ -90,12 +90,12 @@ open class QuickSpec: QuickSpecBase {
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        let originalName = example.name.c99ExtendedIdentifier
+        let originalName = example.name
         var selectorName = originalName
         var index: UInt = 2
 
         while selectorNames.contains(selectorName) {
-            selectorName = String(format: "%@_%tu", originalName, index)
+            selectorName = String(format: "%@ (%tu)", originalName, index)
             index += 1
         }
 
