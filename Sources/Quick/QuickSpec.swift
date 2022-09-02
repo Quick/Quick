@@ -106,6 +106,11 @@ open class QuickSpec: QuickSpecBase {
 
         return selector
     }
+
+    @objc var nameForLegacyLogging: String? {
+        guard let name = invocation?.selector else { return nil }
+        return NSStringFromSelector(name)
+    }
 #endif
 
 #if !canImport(Darwin)
