@@ -56,6 +56,22 @@ open class QuickSpec: QuickSpecBase {
 
         return super.defaultTestSuite
     }
+    
+    /// This method is used as a hook for injecting test methods into the
+    /// Objective-C runtime on individual test runs.
+    ///
+    /// When `xctest` runs a test on a single method, it does not call
+    /// `defaultTestSuite` on the test class but rather calls
+    /// `instancesRespondToSelector:` to build its own suite.
+    ///
+    /// In normal conditions, Quick uses the implicit call to `defaultTestSuite`
+    /// to both generate examples and inject them as methods by way of
+    /// `testInvocations`.  Under single test conditions, there's no implicit
+    /// call to `defaultTestSuite` so we make it explicitly here.
+    open override class func instancesRespond(to aSelector: Selector!) -> Bool {
+        _ = self.defaultTestSuite
+        return super.instancesRespond(to: aSelector)
+    }
 
     override open class func _qck_testMethodSelectors() -> [String] {
         let examples = World.sharedWorld.examples(forSpecClass: self)
