@@ -163,6 +163,19 @@ public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
 }
 
 /**
+     Defines a closure to be run prior to each example but after any beforeEach blocks.
+     This closure is not run for pending or otherwise disabled examples.
+     An example group may contain an unlimited number of justBeforeEach. They'll be
+     run in the order they're defined, but you shouldn't rely on that behavior.
+
+    - parameter closure: The closure to be run prior to each example and after any beforeEach blocks
+*/
+
+public func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+    World.sharedWorld.justBeforeEach(closure)
+}
+
+/**
     Defines an example. Examples use assertions to demonstrate how code should
     behave. These are like "tests" in XCTest.
 

@@ -2,8 +2,16 @@
     A container for closures to be executed before and after each example.
 */
 final internal class ExampleHooks {
+    internal var justBeforeEachStatements: [AroundExampleWithMetadataClosure] = []
     internal var wrappers: [AroundExampleWithMetadataClosure] = []
     internal var phase: HooksPhase = .nothingExecuted
+
+    internal func appendJustBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+        justBeforeEachStatements.append { _, runExample in
+            closure()
+            runExample()
+        }
+    }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         wrappers.append { exampleMetadata, runExample in
