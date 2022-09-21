@@ -30,6 +30,7 @@ public struct StopTest: Error {
     public let reportError: Bool
     public let callsite: Callsite
 
+    /// A private initializer to support creating the `silently` singleton.
     private init(_ failureDescription: String, reportError: Bool, file: FileString, line: UInt) {
         self.failureDescription = failureDescription
         self.reportError = reportError
