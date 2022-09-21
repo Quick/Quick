@@ -83,7 +83,9 @@ final public class Example: _ExampleBase {
             do {
                 try closure()
             } catch {
-                if let testSkippedError = error as? XCTSkip {
+                if let stopTestError = error as? StopTest {
+                    self.reportStoppedTest(stopTestError)
+                } else if let testSkippedError = error as? XCTSkip {
                     self.reportSkippedTest(testSkippedError, name: name, callsite: callsite)
                 } else {
                     self.reportFailedTest(error, name: name, callsite: callsite)
@@ -217,6 +219,37 @@ final public class Example: _ExampleBase {
                 inFile: file,
                 atLine: Int(callsite.line),
                 expected: false
+            )
+        #endif
+    }
+    
+    private func reportStoppedTest(_ stopTestError: StopTest) {
+        
+        guard stopTestError.reportError else { return }
+        
+        let callsite = stopTestError.callsite
+
+        #if SWIFT_PACKAGE
+            let file = callsite.file.description
+        #else
+            let file = callsite.file
+        #endif
+
+        #if !SWIFT_PACKAGE
+            let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
+            let sourceCodeContext = XCTSourceCodeContext(location: location)
+            let issue = XCTIssue(
+                type: .assertionFailure,
+                compactDescription: stopTestError.failureDescription,
+                sourceCodeContext: sourceCodeContext
+            )
+            QuickSpec.current.record(issue)
+        #else
+            QuickSpec.current.recordFailure(
+                withDescription: stopTestError.failureDescription,
+                inFile: file,
+                atLine: Int(callsite.line),
+                expected: true
             )
         #endif
     }
