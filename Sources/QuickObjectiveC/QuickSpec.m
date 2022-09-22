@@ -46,6 +46,24 @@ static QuickSpec *currentSpec = nil;
     return invocations;
 }
 
+/**
+ This method is used as a hook for injecting test methods into the
+ Objective-C runtime on individual test runs.
+ 
+ When `xctest` runs a test on a single method, it does not call
+ `defaultTestSuite` on the test class but rather calls
+ `instancesRespondToSelector:` to build its own suite.
+ 
+ In normal conditions, Quick uses the implicit call to `defaultTestSuite`
+ to both generate examples and inject them as methods by way of
+ `testInvocations`.  Under single test conditions, there's no implicit
+ call to `defaultTestSuite` so we make it explicitly here.
+ */
++ (BOOL)instancesRespondToSelector:(SEL)aSelector {
+    [self defaultTestSuite];
+    return [super instancesRespondToSelector:aSelector];
+}
+
 #pragma mark - Public Interface
 
 - (void)spec { }
