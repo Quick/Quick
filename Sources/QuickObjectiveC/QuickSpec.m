@@ -135,12 +135,12 @@ static QuickSpec *currentSpec = nil;
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];
 
-    NSString *originalName = [QCKObjCStringUtils c99ExtendedIdentifierFrom:example.name];
+    NSString *originalName = example.name;
     NSString *selectorName = originalName;
     NSUInteger i = 2;
     
     while ([selectorNames containsObject:selectorName]) {
-        selectorName = [NSString stringWithFormat:@"%@_%tu", originalName, i++];
+        selectorName = [NSString stringWithFormat:@"%@ (%tu)", originalName, i++];
     }
     
     [selectorNames addObject:selectorName];
@@ -149,6 +149,14 @@ static QuickSpec *currentSpec = nil;
     class_addMethod(self, selector, implementation, types);
 
     return selector;
+}
+
+/**
+ Changes the name in the console output to the selector/example name.
+ */
+- (NSString *)nameForLegacyLogging {
+    SEL selector = self.invocation.selector;
+    return selector ? NSStringFromSelector(selector) : nil;
 }
 
 /**

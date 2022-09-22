@@ -107,6 +107,7 @@ open class QuickSpec: QuickSpecBase {
         return selector
     }
 
+    /// Changes the name in the console output to the selector/example name.
     @objc var nameForLegacyLogging: String? {
         guard let name = invocation?.selector else { return nil }
         return NSStringFromSelector(name)
