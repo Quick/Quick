@@ -15,7 +15,7 @@ jobs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
       - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v4.0.0
+        uses: fkirc/skip-duplicate-actions@v5.1.0
         with:
           paths: '[".github/workflows/cocoapods.yml", "Quick.podspec", "Sources/**", "Gemfile*", "Rakefile"]'
           do_not_skip: '["push", "workflow_dispatch", "schedule"]'
