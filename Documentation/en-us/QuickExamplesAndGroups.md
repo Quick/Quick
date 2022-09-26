@@ -221,10 +221,6 @@ In some cases you will want to have a group of tests with a common test setup bu
 ```swift
 // Swift
 
-enum ClickError: Error {
-  case dolphinIsSleeping
-}
-
 describe("a sleeping dolphin") {
     var sleeping: Bool!
     var click: Click!
