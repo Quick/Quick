@@ -46,6 +46,13 @@ extension World {
         self.describe(description, flags: [Filter.pending: true], closure: closure)
     }
 
+    internal func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'justBeforeEach' cannot be used inside '\(currentPhase)', 'justBeforeEach' may only be used inside 'context' or 'describe'.")
+        }
+        currentExampleGroup.hooks.appendJustBeforeEach(closure)
+    }
+
     internal func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
