@@ -50,6 +50,10 @@ void qck_aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
     [[World sharedWorld] aroundEachWithMetadata:closure];
 }
 
+void qck_justBeforeEach(QCKDSLEmptyBlock closure) {
+    [[World sharedWorld] justBeforeEach:closure];
+}
+
 QCKItBlock qck_it_builder(NSString *file, NSUInteger line) {
     return ^(NSString *description, QCKDSLEmptyBlock closure) {
         [[World sharedWorld] itWithDescription:description

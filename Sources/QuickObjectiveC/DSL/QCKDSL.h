@@ -65,6 +65,7 @@ QUICK_EXPORT void qck_afterEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 QUICK_EXPORT void qck_aroundEach(QCKDSLAroundExampleBlock closure);
 QUICK_EXPORT void qck_aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure);
+QUICK_EXPORT void qck_justBeforeEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
@@ -216,6 +217,18 @@ static inline void aroundEach(QCKDSLAroundExampleBlock closure) {
  */
 static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
     qck_aroundEachWithMetadata(closure);
+}
+
+/**
+    Defines a closure to be run prior to each example but after any beforeEach blocks.
+    This closure is not run for pending or otherwise disabled examples.
+    An example group may contain an unlimited number of justBeforeEach. They'll be
+    run in the order they're defined, but you shouldn't rely on that behavior.
+
+    @param closure The closure to be run prior to each example but before any beforeEach blocks in the test suite.
+ */
+static inline void justBeforeEach(QCKDSLEmptyBlock closure) {
+    qck_justBeforeEach(closure);
 }
 
 /**

@@ -2,8 +2,7 @@ import XCTest
 @testable import Quick
 import Nimble
 
-class FunctionalTests_AssignBeforeSpec: QuickSpec {
-
+class FunctionalTests_JustBeforeEachSpec: QuickSpec {
     enum ApiResponse {
         case Success
         case Failure
