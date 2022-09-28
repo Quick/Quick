@@ -1,3 +1,5 @@
+import Foundation
+
 /**
     A container for closures to be executed before and after each example.
 */
@@ -74,7 +76,7 @@ final internal class ExampleHooks {
                     await runExample()
                     expectation.fulfill()
                 }
-                QuickSpec.current.wait(for: [expectation], timeout: 1)
+                QuickSpec.current.wait(for: [expectation], timeout: asyncTestTimeout)
             }
         }
     }
@@ -85,3 +87,7 @@ extension Array {
         insert(element, at: 0)
     }
 }
+
+// This is the same length of timeout that XCTest uses internally for awaiting their async tests.
+// See https://github.com/apple/swift-corelibs-xctest/tree/main/Sources/XCTest/Public/XCTestCase.swift#L375-L378
+private let asyncTestTimeout: TimeInterval = 60 * 60 * 24 * 30
