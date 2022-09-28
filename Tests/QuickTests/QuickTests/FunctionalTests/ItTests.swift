@@ -3,19 +3,17 @@ import XCTest
 import Nimble
 
 class FunctionalTests_ItSpec: QuickSpec {
-    var exampleMetadata: ExampleMetadata?
-    var exception: NSException?
-
     override func spec() {
-        beforeEach { metadata in self.exampleMetadata = metadata }
+        var exampleMetadata: ExampleMetadata?
+        beforeEach { metadata in exampleMetadata = metadata }
 
         it("") {
-            expect(self.exampleMetadata?.example.name).to(equal(""))
+            expect(exampleMetadata?.example.name).to(equal(""))
         }
 
         it("has a description with セレクター名に使えない文字が入っている 👊💥") {
             let name = "has a description with セレクター名に使えない文字が入っている 👊💥"
-            expect(self.exampleMetadata?.example.name).to(equal(name))
+            expect(exampleMetadata?.example.name).to(equal(name))
         }
 
 #if canImport(Darwin)
@@ -64,9 +62,11 @@ class FunctionalTests_ItSpec: QuickSpec {
             }
 
             describe("behavior with an 'it' inside a 'beforeEach'") {
+                var exception: NSException?
+
                 beforeEach {
                     let capture = NMBExceptionCapture(handler: ({ e in
-                        self.exception = e
+                        exception = e
                     }), finally: nil)
 
                     capture.tryBlock {
@@ -76,8 +76,8 @@ class FunctionalTests_ItSpec: QuickSpec {
                 }
 
                 it("should have thrown an exception with the correct error message") {
-                    expect(self.exception).toNot(beNil())
-                    expect(self.exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
+                    expect(exception).toNot(beNil())
+                    expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
                 }
             }
 
