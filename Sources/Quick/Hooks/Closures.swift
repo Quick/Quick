@@ -3,26 +3,26 @@
 /**
     A closure executed before an example is run.
 */
-public typealias BeforeExampleAsyncClosure = @Sendable () async -> Void
+public typealias BeforeExampleAsyncClosure = () async -> Void
 
 /**
     A closure executed before an example is run.
     Synchronous version for legacy and Objc support.
  */
-public typealias BeforeExampleClosure = @Sendable () -> Void
+public typealias BeforeExampleClosure = () -> Void
 
 /**
     A closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
 */
-public typealias BeforeExampleWithMetadataAsyncClosure = @Sendable (_ exampleMetadata: ExampleMetadata) async -> Void
+public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: ExampleMetadata) async -> Void
 
 /**
     A closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
     Synchronus version for legacy and Objc support.
  */
-public typealias BeforeExampleWithMetadataClosure = @Sendable (_ exampleMetadata: ExampleMetadata) -> Void
+public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
     A closure executed after an example is run.
@@ -51,13 +51,13 @@ public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClos
 /**
     A closure which wraps an example. The closure must call runExample() exactly once.
 */
-public typealias AroundExampleAsyncClosure = @Sendable (_ runExample: @Sendable @escaping () async -> Void) async -> Void
+public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -> Void) async -> Void
 
 /**
     A closure which wraps an example. The closure must call runExample() exactly once.
     Synchronous version for legacy and Objc support.
 */
-public typealias AroundExampleClosure = @Sendable (_ runExample: @Sendable @escaping () -> Void) -> Void
+public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> Void
 
 /**
     A closure which wraps an example. The closure is given example metadata,
@@ -65,7 +65,7 @@ public typealias AroundExampleClosure = @Sendable (_ runExample: @Sendable @esca
     The closure must call runExample() exactly once.
 */
 public typealias AroundExampleWithMetadataAsyncClosure =
-    @Sendable (_ exampleMetadata: ExampleMetadata, _ runExample: @Sendable @escaping () async -> Void) async -> Void
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () async -> Void) async -> Void
 
 /**
     A closure which wraps an example. The closure is given example metadata,
@@ -75,20 +75,20 @@ public typealias AroundExampleWithMetadataAsyncClosure =
     Synchronous version for legacy and Objc support.
 */
 public typealias AroundExampleWithMetadataClosure =
-@Sendable (_ exampleMetadata: ExampleMetadata, _ runExample: @Sendable @escaping () -> Void) -> Void
+(_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
 
 // MARK: Suite Hooks
 
 /**
     A closure executed before any examples are run.
 */
-public typealias BeforeSuiteAsyncClosure = @Sendable () async -> Void
+public typealias BeforeSuiteAsyncClosure = () async -> Void
 
 /**
     A closure executed before any examples are run.
     Synchronous version for Objc support.
 */
-public typealias BeforeSuiteClosure = @Sendable () -> Void
+public typealias BeforeSuiteClosure = () -> Void
 
 /**
     A closure executed after all examples have finished running.

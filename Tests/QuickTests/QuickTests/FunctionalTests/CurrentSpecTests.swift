@@ -24,7 +24,9 @@ class CurrentSpecTests: QuickSpec {
         it("supports XCTest expectations") {
             let expectation = QuickSpec.current.expectation(description: "great expectation")
             DispatchQueue.main.async(execute: { expectation.fulfill() })
-            await QuickSpec.current.waitForExpectations(timeout: 1)
+            await MainActor.run {
+                QuickSpec.current.waitForExpectations(timeout: 1)
+            }
         }
     }
 }

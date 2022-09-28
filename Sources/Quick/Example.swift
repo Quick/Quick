@@ -31,10 +31,10 @@ final public class Example: _ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: @Sendable () async throws -> Void
+    private let closure: () async throws -> Void
     private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @Sendable @escaping () async throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
@@ -77,7 +77,7 @@ final public class Example: _ExampleBase {
 
         group!.phase = .beforesExecuting
 
-        let runExample: @Sendable () async -> Void = { [closure, name, callsite] in
+        let runExample: () async -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {

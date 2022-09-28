@@ -112,9 +112,9 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
                 case error
             }
 
-            @Sendable func nonThrowingFunc() throws {}
+            func nonThrowingFunc() throws {}
 
-            @Sendable func throwingFunc(shouldThrow: Bool) throws {
+            func throwingFunc(shouldThrow: Bool) throws {
                 if shouldThrow {
                     throw ExampleError.error
                 }
@@ -158,11 +158,11 @@ final class FunctionalTests_AsyncItSpec: QuickSpec {
                 case error
             }
 
-            @Sendable func asyncFunction() async {}
+            func asyncFunction() async {}
 
-            @Sendable func asyncNonThrowingFunction() async throws {}
+            func asyncNonThrowingFunction() async throws {}
 
-            @Sendable func asyncThrowingFunction(shouldThrow: Bool) async throws {
+            func asyncThrowingFunction(shouldThrow: Bool) async throws {
                 if shouldThrow {
                     throw ExampleError.error
                 }

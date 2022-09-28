@@ -119,10 +119,10 @@ open class QuickSpec: QuickSpecBase {
 
         let examples = World.sharedWorld.examples(forSpecClass: self)
         let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
-            return (example.name, { spec in
+            return (example.name, asyncTest { spec in
                 return {
                     spec.example = example
-                    example.run()
+                    await example.run()
                 }
             })
         }
