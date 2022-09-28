@@ -215,7 +215,7 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
 
         aroundEach { runExample in
             doSomeSetup()
-            runExample()
+            await runExample()
             doSomeCleanup()
         }
 
@@ -225,7 +225,7 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
 
         aroundEach { runExample in
             autoreleasepool {
-                runExample()
+                await runExample()
             }
             checkObjectsNoLongerRetained()
         }
