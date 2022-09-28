@@ -59,9 +59,11 @@ final internal class ExampleHooks {
                 let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
                 Task {
                     await runExample()
-                    expectation.fulfill()
+                    await MainActor.run {
+                        expectation.fulfill()
+                    }
                 }
-                QuickSpec.current.wait(for: [expectation], timeout: 1)
+                QuickSpec.current.wait(for: [expectation], timeout: asyncTestTimeout)
             }
         }
     }
@@ -74,7 +76,9 @@ final internal class ExampleHooks {
                 let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
                 Task {
                     await runExample()
-                    expectation.fulfill()
+                    await MainActor.run {
+                        expectation.fulfill()
+                    }
                 }
                 QuickSpec.current.wait(for: [expectation], timeout: asyncTestTimeout)
             }
@@ -88,6 +92,7 @@ extension Array {
     }
 }
 
-// This is the same length of timeout that XCTest uses internally for awaiting their async tests.
+// Default test timeout, for when we need to wait synchronously for an async test to finish. Should only
+// be used for the sync (objc) version of aroundEach.
 // See https://github.com/apple/swift-corelibs-xctest/tree/main/Sources/XCTest/Public/XCTestCase.swift#L375-L378
-private let asyncTestTimeout: TimeInterval = 60 * 60 * 24 * 30
+private let asyncTestTimeout: TimeInterval = 60
