@@ -59,9 +59,7 @@ final internal class ExampleHooks {
                 let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
                 Task {
                     await runExample()
-                    await MainActor.run {
-                        expectation.fulfill()
-                    }
+                    expectation.fulfill()
                 }
                 QuickSpec.current.wait(for: [expectation], timeout: asyncTestTimeout)
             }
@@ -76,9 +74,7 @@ final internal class ExampleHooks {
                 let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
                 Task {
                     await runExample()
-                    await MainActor.run {
-                        expectation.fulfill()
-                    }
+                    expectation.fulfill()
                 }
                 QuickSpec.current.wait(for: [expectation], timeout: asyncTestTimeout)
             }
