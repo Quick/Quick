@@ -28,6 +28,10 @@ it(@"is a test with a unique name", ^{
     expect(allSelectors).toNot(contain(@"is_a_test_with_a_unique_name_2:"));
 });
 
+it(@"is executed on the main thread", ^{
+    expect([[NSThread currentThread] isMainThread]).to(beTrue());
+});
+
 QuickSpecEnd
 
 @interface ItTests_ObjC : XCTestCase; @end
@@ -36,7 +40,7 @@ QuickSpecEnd
 
 - (void)testAllExamplesAreExecuted {
     XCTestRun *result = qck_runSpec([FunctionalTests_ItSpec_ObjC class]);
-    XCTAssertEqual(result.executionCount, 3);
+    XCTAssertEqual(result.executionCount, 4);
 }
 
 @end

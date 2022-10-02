@@ -34,7 +34,7 @@ final public class Example: _ExampleBase {
     private let closure: () async throws -> Void
     private let flags: FilterFlags
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @MainActor @escaping () async throws -> Void) {
         self.internalDescription = description
         self.closure = closure
         self.callsite = callsite
@@ -62,6 +62,7 @@ final public class Example: _ExampleBase {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
+    @MainActor
     public func run() async {
         let world = World.sharedWorld
 

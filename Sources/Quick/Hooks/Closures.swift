@@ -1,9 +1,9 @@
 // MARK: Example Hooks
 
 /**
-    A closure executed before an example is run.
+    An async closure executed on the main actor before an example is run.
 */
-public typealias BeforeExampleAsyncClosure = () async -> Void
+public typealias BeforeExampleAsyncClosure = @MainActor () async -> Void
 
 /**
     A closure executed before an example is run.
@@ -12,10 +12,10 @@ public typealias BeforeExampleAsyncClosure = () async -> Void
 public typealias BeforeExampleClosure = () -> Void
 
 /**
-    A closure executed before an example is run. The closure is given example metadata,
+    An async closure executed on the main actor before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
 */
-public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: ExampleMetadata) async -> Void
+public typealias BeforeExampleWithMetadataAsyncClosure = @MainActor (_ exampleMetadata: ExampleMetadata) async -> Void
 
 /**
     A closure executed before an example is run. The closure is given example metadata,
@@ -25,7 +25,7 @@ public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: Exa
 public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
-    A closure executed after an example is run.
+    An async closure executed on the main actor after an example is run.
 */
 public typealias AfterExampleAsyncClosure = BeforeExampleAsyncClosure
 
@@ -36,7 +36,7 @@ public typealias AfterExampleAsyncClosure = BeforeExampleAsyncClosure
 public typealias AfterExampleClosure = BeforeExampleClosure
 
 /**
-    A closure executed after an example is run. The closure is given example metadata,
+    An closure executed on the main actor after an example is run. The closure is given example metadata,
     which contains information about the example that has just finished running.
 */
 public typealias AfterExampleWithMetadataAsyncClosure = BeforeExampleWithMetadataAsyncClosure
@@ -49,9 +49,11 @@ public typealias AfterExampleWithMetadataAsyncClosure = BeforeExampleWithMetadat
 public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClosure
 
 /**
-    A closure which wraps an example. The closure must call runExample() exactly once.
+    An async closure executed on the main actor which wraps an example. The closure must call runExample() exactly once.
+
+    Both the closure and runExample will be executed on the main actor.
 */
-public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -> Void) async -> Void
+public typealias AroundExampleAsyncClosure = @MainActor (_ runExample: @escaping @MainActor () async -> Void) async -> Void
 
 /**
     A closure which wraps an example. The closure must call runExample() exactly once.
@@ -60,12 +62,13 @@ public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -
 public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> Void
 
 /**
-    A closure which wraps an example. The closure is given example metadata,
+    An async closure executed on the main actor which wraps an example. The closure is given example metadata,
     which contains information about the example that the wrapper will run.
     The closure must call runExample() exactly once.
+    Both the closure and runExample will be executed on the main actor.
 */
 public typealias AroundExampleWithMetadataAsyncClosure =
-    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () async -> Void) async -> Void
+    @MainActor (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping @MainActor () async -> Void) async -> Void
 
 /**
     A closure which wraps an example. The closure is given example metadata,
@@ -80,9 +83,9 @@ public typealias AroundExampleWithMetadataClosure =
 // MARK: Suite Hooks
 
 /**
-    A closure executed before any examples are run.
+    An closure executed on the main actor before any examples are run.
 */
-public typealias BeforeSuiteAsyncClosure = () async -> Void
+public typealias BeforeSuiteAsyncClosure = @MainActor () async -> Void
 
 /**
     A closure executed before any examples are run.
