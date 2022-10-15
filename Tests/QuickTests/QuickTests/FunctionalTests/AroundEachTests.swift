@@ -65,6 +65,18 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                 }
             }
         }
+
+        describe("execution threads") {
+            aroundEach { run in
+                expect(Thread.isMainThread).to(beTrue())
+                await run()
+            }
+
+            it("runs on the main thread") {
+                expect(Thread.isMainThread).to(beTrue())
+            }
+        }
+
 #if canImport(Darwin) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including aroundEach in it block") {

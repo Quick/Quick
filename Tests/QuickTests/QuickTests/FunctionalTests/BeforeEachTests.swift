@@ -35,6 +35,15 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
                 beforeEach { beforeEachOrder.append(.noExamples) }
             }
         }
+
+        describe("execution time") {
+            beforeEach {
+                expect(Thread.isMainThread).to(beTrue())
+            }
+
+            it("executes beforeEach's on the main thread") {}
+        }
+
 #if canImport(Darwin) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including beforeEach in it block") {
