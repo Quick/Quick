@@ -62,7 +62,6 @@ final public class Example: _ExampleBase {
         Executes the example closure, as well as all before and after
         closures defined in the its surrounding example groups.
     */
-    @MainActor
     public func run() async {
         let world = World.sharedWorld
 
@@ -78,7 +77,7 @@ final public class Example: _ExampleBase {
 
         group!.phase = .beforesExecuting
 
-        let runExample: () async -> Void = { [closure, name, callsite] in
+        let runExample: @MainActor () async -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {

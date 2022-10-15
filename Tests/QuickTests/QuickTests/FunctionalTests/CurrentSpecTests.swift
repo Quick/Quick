@@ -17,16 +17,15 @@ class CurrentSpecTests: QuickSpec {
         }
 
         let currentSpecDuringSpecSetup = QuickSpec.current
+
         it("returns nil when no spec is executing") {
             expect(currentSpecDuringSpecSetup).to(beNil())
         }
 
         it("supports XCTest expectations") {
-//            await MainActor.run {
-                let expectation = QuickSpec.current.expectation(description: "great expectation")
-                DispatchQueue.global(qos: .default).async { expectation.fulfill() }
-                QuickSpec.current.waitForExpectations(timeout: 1)
-//            }
+            let expectation = QuickSpec.current.expectation(description: "great expectation")
+            DispatchQueue.global(qos: .default).async { expectation.fulfill() }
+            QuickSpec.current.waitForExpectations(timeout: 1)
         }
     }
 }

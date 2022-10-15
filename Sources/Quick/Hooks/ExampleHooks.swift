@@ -65,21 +65,6 @@ final internal class ExampleHooks {
             }
         }
     }
-
-    /// Synchronous version of aroundEach.
-    /// Warning: This should only be used for objective-c compatibility.
-    internal func appendAroundSync(_ closure: @escaping AroundExampleClosure) {
-        wrappers.append { _, runExample in
-            closure {
-                let expectation = QuickSpec.current.expectation(description: "Objective-C/Swift Concurrency Compatibility")
-                Task {
-                    await runExample()
-                    expectation.fulfill()
-                }
-                QuickSpec.current.wait(for: [expectation], timeout: asyncTestTimeout)
-            }
-        }
-    }
 }
 
 extension Array {
