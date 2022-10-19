@@ -153,7 +153,7 @@ To install Quick via XCode's Swift Package Manager integration, select your .xco
 Add Quick's github url as a dependency of your package, then as a dependency of your test target, like so:
 
 ```swift
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 
 import PackageDescription
 
