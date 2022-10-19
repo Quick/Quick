@@ -1,5 +1,4 @@
 import Foundation
-import XCTest
 
 #if canImport(Darwin)
 // swiftlint:disable type_name
@@ -10,11 +9,7 @@ public class _ExampleBase: NSObject {}
 // swiftlint:enable type_name
 #endif
 
-/**
-    Examples, defined with the `it` function, use assertions to
-    demonstrate how code should behave. These are like "tests" in XCTest.
-*/
-final public class Example: _ExampleBase {
+public class Example: _ExampleBase {
     /**
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
@@ -31,14 +26,14 @@ final public class Example: _ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: () async throws -> Void
     private let flags: FilterFlags
+    private let closure: () async throws -> Void
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @MainActor @escaping () async throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
         self.internalDescription = description
-        self.closure = closure
         self.callsite = callsite
         self.flags = flags
+        self.closure = closure
     }
 
     public override var description: String {
@@ -58,10 +53,7 @@ final public class Example: _ExampleBase {
         return "\(groupName), \(description)"
     }
 
-    /**
-        Executes the example closure, as well as all before and after
-        closures defined in the its surrounding example groups.
-    */
+    @MainActor
     public func run() async {
         let world = World.sharedWorld
 
@@ -77,7 +69,7 @@ final public class Example: _ExampleBase {
 
         group!.phase = .beforesExecuting
 
-        let runExample: @MainActor () async -> Void = { [closure, name, callsite] in
+        let runExample: () async -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {
@@ -130,10 +122,10 @@ final public class Example: _ExampleBase {
     }
 
     #if canImport(Darwin)
-    static let recordSkipSelector = NSSelectorFromString("recordSkipWithDescription:sourceCodeContext:")
+    static internal let recordSkipSelector = NSSelectorFromString("recordSkipWithDescription:sourceCodeContext:")
     #endif
 
-    private func reportSkippedTest(_ testSkippedError: XCTSkip, name: String, callsite: Callsite) { // swiftlint:disable:this function_body_length
+    internal func reportSkippedTest(_ testSkippedError: XCTSkip, name: String, callsite: Callsite) { // swiftlint:disable:this function_body_length
         #if !canImport(Darwin)
             return // This functionality is only supported by Apple's proprietary XCTest, not by swift-corelibs-xctest
         #else // `NSSelectorFromString` requires the Objective-C runtime, which is not available on Linux.
@@ -200,7 +192,7 @@ final public class Example: _ExampleBase {
         #endif
     }
 
-    private func reportFailedTest(_ error: Error, name: String, callsite: Callsite) {
+    internal func reportFailedTest(_ error: Error, name: String, callsite: Callsite) {
         let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
 
         #if SWIFT_PACKAGE
@@ -227,11 +219,10 @@ final public class Example: _ExampleBase {
             )
         #endif
     }
-    
-    private func reportStoppedTest(_ stopTestError: StopTest) {
-        
+
+    internal func reportStoppedTest(_ stopTestError: StopTest) {
         guard stopTestError.reportError else { return }
-        
+
         let callsite = stopTestError.callsite
 
         #if SWIFT_PACKAGE

@@ -22,7 +22,7 @@ class CurrentSpecTests: QuickSpec {
             expect(currentSpecDuringSpecSetup).to(beNil())
         }
 
-        it("supports XCTest expectations") {
+        it("supports XCTest expectations") { @MainActor in
             let expectation = QuickSpec.current.expectation(description: "great expectation")
             DispatchQueue.global(qos: .default).async { expectation.fulfill() }
             QuickSpec.current.waitForExpectations(timeout: 1)

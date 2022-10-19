@@ -170,7 +170,7 @@ extension World {
 
     // MARK: - Examples (Swift)
     @nonobjc
-    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, asyncClosure: @escaping () async throws -> Void) {
+    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'.")
         }
@@ -181,32 +181,17 @@ extension World {
             raiseError("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'.")
         }
         let callsite = Callsite(file: file, line: line)
-        let example = Example(description: description, callsite: callsite, flags: flags, closure: asyncClosure)
+        let example = Example(description: description, callsite: callsite, flags: flags, closure: closure)
         currentExampleGroup.appendExample(example)
     }
 
     @nonobjc
     internal func fit(_ description: String, file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
-        self.it(description, flags: [Filter.focused: true], file: file, line: line, asyncClosure: closure)
-    }
-
-    @nonobjc
-    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
-        self.it(description, flags: [Filter.pending: true], file: file, line: line, asyncClosure: closure)
-    }
-
-    @nonobjc
-    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () throws -> Void) {
-        it(description, flags: flags, file: file, line: line, asyncClosure: closure)
-    }
-
-    @nonobjc
-    internal func fit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
         self.it(description, flags: [Filter.focused: true], file: file, line: line, closure: closure)
     }
 
     @nonobjc
-    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
         self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 

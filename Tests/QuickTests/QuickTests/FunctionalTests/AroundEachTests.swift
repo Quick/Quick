@@ -68,12 +68,12 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
 
         describe("execution threads") {
             aroundEach { run in
-                expect(Thread.isMainThread).to(beTrue())
+                expect(Thread.isMainThread).to(beFalse())
                 await run()
             }
 
             it("runs on the main thread") {
-                expect(Thread.isMainThread).to(beTrue())
+                expect(Thread.isMainThread).to(beFalse())
             }
         }
 

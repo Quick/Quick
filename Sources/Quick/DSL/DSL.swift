@@ -24,7 +24,7 @@ public func beforeSuite(_ closure: @escaping BeforeSuiteAsyncClosure) {
     will not be executed.
 
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 
     - parameter closure: The closure to be run prior to any examples in the test suite.
 */
@@ -55,7 +55,7 @@ public func afterSuite(_ closure: @escaping AfterSuiteAsyncClosure) {
     If the test suite crashes before all examples are run, this closure
     will not be executed.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 
     - parameter closure: The closure to be run after all of the examples in the test suite.
 */
@@ -134,7 +134,7 @@ public func beforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
     An example group may contain an unlimited number of beforeEach. They'll be
     run in the order they're defined, but you shouldn't rely on that behavior.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 
     - parameter closure: The closure to be run prior to each example.
 */
@@ -154,7 +154,7 @@ public func abeforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosu
     Identical to Quick.DSL.beforeEach, except the closure is provided with
     metadata on the example that the closure is being run prior to.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 */
 public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
     World.sharedWorld.beforeEach(closure: closure)
@@ -179,7 +179,7 @@ public func afterEach(_ closure: @escaping AfterExampleAsyncClosure) {
     An example group may contain an unlimited number of afterEach. They'll be
     run in the order they're defined, but you shouldn't rely on that behavior.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 
     - parameter closure: The closure to be run after each example.
 */
@@ -199,7 +199,7 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure)
     Identical to Quick.DSL.afterEach, except the closure is provided with
     metadata on the example that the closure is being run after.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 */
 public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     World.sharedWorld.afterEach(closure: closure)
@@ -276,21 +276,6 @@ public func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
     - parameter line: The line containing the example. A sensible default is provided.
 */
 public func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
-    World.sharedWorld.it(description, file: file, line: line, asyncClosure: closure)
-}
-
-/**
-    Defines an example. Examples use assertions to demonstrate how code should
-    behave. These are like "tests" in XCTest.
-
-    Note: This is a synchronous version, for compatibility with legacy test suites.
-
-    - parameter description: An arbitrary string describing what the example is meant to specify.
-    - parameter closure: A closure that can contain assertions.
-    - parameter file: The absolute path to the file containing the example. A sensible default is provided.
-    - parameter line: The line containing the example. A sensible default is provided.
-*/
-public func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.it(description, file: file, line: line, closure: closure)
 }
 
@@ -393,7 +378,7 @@ public func xit(_ description: String, file: FileString = #file, line: UInt = #l
     Use this to quickly mark an `it` closure as pending.
     This disables the example and ensures the code within the closure is never run.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 */
 public func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.xit(description, file: file, line: line, closure: closure)
@@ -436,7 +421,7 @@ public func fit(_ description: String, file: FileString = #file, line: UInt = #l
     Use this to quickly focus an `it` closure, focusing the example.
     If any examples in the test suite are focused, only those examples are executed.
 
-    Note: This is a synchronous version, for compatibility with legacy test suites.
+    Note: This is a synchronous version.
 */
 public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.fit(description, file: file, line: line, closure: closure)

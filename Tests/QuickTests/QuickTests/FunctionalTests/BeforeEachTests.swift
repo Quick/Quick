@@ -37,11 +37,11 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
         }
 
         describe("execution time") {
-            beforeEach {
+            beforeEach { @MainActor in
                 expect(Thread.isMainThread).to(beTrue())
             }
 
-            it("executes beforeEach's on the main thread") {}
+            it("executes beforeEach's on the correct thread") {}
         }
 
 #if canImport(Darwin) && !SWIFT_PACKAGE
