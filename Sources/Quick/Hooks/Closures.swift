@@ -53,10 +53,6 @@ public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClos
 */
 public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -> Void) async -> Void
 
-/**
-    A closure which wraps an example. The closure must call `runExample`() exactly once.
-*/
-public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> Void
 
 /**
     An async closure which wraps an example. The closure is given example metadata,
@@ -65,16 +61,6 @@ public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> 
 */
 public typealias AroundExampleWithMetadataAsyncClosure =
     (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () async -> Void) async -> Void
-
-/**
-    A closure which wraps an example. The closure is given example metadata,
-    which contains information about the example that the wrapper will run.
-    The closure must call runExample() exactly once.
- 
-    Synchronous version for Objc support.
-*/
-public typealias AroundExampleWithMetadataClosure =
-(_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
 
 // MARK: Suite Hooks
 

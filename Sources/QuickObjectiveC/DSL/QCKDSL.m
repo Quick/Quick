@@ -42,16 +42,6 @@ void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     [[World sharedWorld] afterEachWithMetadata:closure];
 }
 
-void qck_aroundEach(QCKDSLAroundExampleBlock closure) {
-    [[World sharedWorld] aroundEachWithMetadata:^(ExampleMetadata * _Nonnull metadata, void (^ _Nonnull runExample)(void)) {
-        closure(runExample);
-    }];
-}
-
-void qck_aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
-    [[World sharedWorld] aroundEachWithMetadata:closure];
-}
-
 void qck_justBeforeEach(QCKDSLEmptyBlock closure) {
     [[World sharedWorld] justBeforeEach:closure];
 }

@@ -159,23 +159,6 @@ extension World {
     }
 
     // MARK: - Around Each
-#if canImport(Darwin)
-    @objc(aroundEachWithMetadata:)
-    internal func objc_aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
-            raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
-        }
-        currentExampleGroup.hooks.appendAroundSync(closure)
-    }
-#endif
-    @nonobjc
-    internal func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
-            raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
-        }
-        currentExampleGroup.hooks.appendAroundSync(closure)
-    }
-
     @nonobjc
     internal func aroundEach(_ closure: @escaping AroundExampleAsyncClosure) {
         guard currentExampleMetadata == nil else {

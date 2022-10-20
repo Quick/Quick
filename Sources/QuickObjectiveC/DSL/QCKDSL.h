@@ -174,50 +174,9 @@ static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
 }
 
-/**
-    Defines a closure to that wraps each example in the current example
-    group. This closure is not run for pending or otherwise disabled examples.
+static void aroundEach(QCKDSLAroundExampleBlock closure) __attribute__((unavailable("aroundEach is no longer supported for Objective-C tests.")));
 
-    The closure you pass to aroundEach receives a callback as its argument, which
-    it MUST call exactly one for the example to run properly:
-
-        aroundEach(^(QCKDSLEmptyBlock runExample) {
-            [self doSomeSetup];
-            runExample();
-            [self doSomeCleanup];
-        });
-
-    This callback is particularly useful for test decartions that can’t split
-    into a separate beforeEach and afterEach. For example, running each example
-    in its own autorelease pool requires aroundEach:
-
-        aroundEach(^(QCKDSLEmptyBlock runExample) {
-            @autoreleasepool {
-                runExample();
-            }
-            [self checkObjectsNoLongerRetained];
-        });
-
-    You can also use aroundEach to guarantee proper nesting of setup and cleanup
-    operations in situations where their relative order matters.
-
-    An example group may contain an unlimited number of aroundEach callbacks.
-    They will nest inside each other, with the first declared in the group
-    nested at the outermost level.
-
-    - parameter closure: The closure that wraps around each example.
-*/
-static inline void aroundEach(QCKDSLAroundExampleBlock closure) {
-    qck_aroundEach(closure);
-}
-
-/**
-    Identical to Quick.DSL.aroundEach, except the closure receives metadata
-    about the example that the closure wraps.
- */
-static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
-    qck_aroundEachWithMetadata(closure);
-}
+static void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) __attribute__((unavailable("aroundEachWithMetadata is no longer supported for Objective-C tests.")));
 
 /**
     Defines a closure to be run prior to each example but after any beforeEach blocks.
