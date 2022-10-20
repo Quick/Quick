@@ -1,4 +1,5 @@
 import Foundation
+import XCTest
 
 #if canImport(Darwin)
 // swiftlint:disable type_name
@@ -53,7 +54,6 @@ public class Example: _ExampleBase {
         return "\(groupName), \(description)"
     }
 
-    @MainActor
     public func run() async {
         let world = World.sharedWorld
 
