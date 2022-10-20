@@ -150,7 +150,6 @@ final class FunctionalTests_StoppingTestsSpec: QuickSpec {
     }
 }
 
-
 final class FunctionalTests_AsyncItSpec: QuickSpec {
     override func spec() {
         describe("async handling") {
@@ -233,7 +232,7 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(result.skipCount, 1)
         XCTAssertEqual(result.totalFailureCount, 0)
     }
-    
+
     func testStoppingExamplesAreCorrectlyReported() {
         let result = qck_runSpec(FunctionalTests_StoppingTestsSpec.self)!
         XCTAssertFalse(result.hasSucceeded)

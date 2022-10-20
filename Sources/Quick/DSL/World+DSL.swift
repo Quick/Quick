@@ -289,7 +289,7 @@ extension World {
 
     @objc(xitWithDescription:file:line:closure:)
     internal func objc_xit(_ description: String, file: FileString, line: UInt, closure: @escaping () -> Void) {
-        syncIt(description, flags: [Filter.pending: true], file: file, line: line,  closure: closure)
+        syncIt(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
     @objc(itBehavesLikeSharedExampleNamed:sharedExampleContext:file:line:)

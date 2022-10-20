@@ -53,7 +53,6 @@ public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClos
 */
 public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -> Void) async -> Void
 
-
 /**
     An async closure which wraps an example. The closure is given example metadata,
     which contains information about the example that the wrapper will run.

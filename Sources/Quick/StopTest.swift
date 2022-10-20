@@ -45,7 +45,7 @@ public struct StopTest: Error {
     public init(_ failureDescription: String, file: FileString = #file, line: UInt = #line) {
         self.init(failureDescription, reportError: true, file: file, line: line)
     }
-    
+
     /// An error that, when thrown, stops the test without logging an error.
     ///
     /// This is meant to be used alongside methods that have already logged a test failure.

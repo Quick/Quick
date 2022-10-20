@@ -15,23 +15,6 @@ public func beforeSuite(_ closure: @escaping BeforeSuiteAsyncClosure) {
     World.sharedWorld.beforeSuite(closure)
 }
 
-/**
-    Defines a closure to be run prior to any examples in the test suite.
-    You may define an unlimited number of these closures, but there is no
-    guarantee as to the order in which they're run.
-
-    If the test suite crashes before the first example is run, this closure
-    will not be executed.
-
-
-    Note: This is a synchronous version.
-
-    - parameter closure: The closure to be run prior to any examples in the test suite.
-*/
-public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
-    World.sharedWorld.beforeSuite(closure)
-}
-
 // MARK: - afterSuite
 /**
     Defines a closure to be run after all of the examples in the test suite.
@@ -46,23 +29,6 @@ public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
 public func afterSuite(_ closure: @escaping AfterSuiteAsyncClosure) {
     World.sharedWorld.afterSuite(closure)
 }
-
-/**
-    Defines a closure to be run after all of the examples in the test suite.
-    You may define an unlimited number of these closures, but there is no
-    guarantee as to the order in which they're run.
-
-    If the test suite crashes before all examples are run, this closure
-    will not be executed.
-
-    Note: This is a synchronous version.
-
-    - parameter closure: The closure to be run after all of the examples in the test suite.
-*/
-public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
-    World.sharedWorld.afterSuite(closure)
-}
-
 
 // MARK: - sharedExamples
 /**
@@ -129,34 +95,10 @@ public func beforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
 }
 
 /**
-    Defines a closure to be run prior to each example in the current example
-    group. This closure is not run for pending or otherwise disabled examples.
-    An example group may contain an unlimited number of beforeEach. They'll be
-    run in the order they're defined, but you shouldn't rely on that behavior.
-
-    Note: This is a synchronous version.
-
-    - parameter closure: The closure to be run prior to each example.
-*/
-public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
-    World.sharedWorld.beforeEach(closure)
-}
-
-/**
     Identical to Quick.DSL.beforeEach, except the closure is provided with
     metadata on the example that the closure is being run prior to.
 */
-public func abeforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
-    World.sharedWorld.beforeEach(closure: closure)
-}
-
-/**
-    Identical to Quick.DSL.beforeEach, except the closure is provided with
-    metadata on the example that the closure is being run prior to.
-
-    Note: This is a synchronous version.
-*/
-public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
     World.sharedWorld.beforeEach(closure: closure)
 }
 
@@ -174,34 +116,10 @@ public func afterEach(_ closure: @escaping AfterExampleAsyncClosure) {
 }
 
 /**
-    Defines a closure to be run after each example in the current example
-    group. This closure is not run for pending or otherwise disabled examples.
-    An example group may contain an unlimited number of afterEach. They'll be
-    run in the order they're defined, but you shouldn't rely on that behavior.
-
-    Note: This is a synchronous version.
-
-    - parameter closure: The closure to be run after each example.
-*/
-public func afterEach(_ closure: @escaping AfterExampleClosure) {
-    World.sharedWorld.afterEach(closure)
-}
-
-/**
     Identical to Quick.DSL.afterEach, except the closure is provided with
     metadata on the example that the closure is being run after.
 */
 public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
-    World.sharedWorld.afterEach(closure: closure)
-}
-
-/**
-    Identical to Quick.DSL.afterEach, except the closure is provided with
-    metadata on the example that the closure is being run after.
-
-    Note: This is a synchronous version.
-*/
-public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     World.sharedWorld.afterEach(closure: closure)
 }
 
@@ -250,7 +168,6 @@ public func aroundEach(_ closure: @escaping AroundExampleAsyncClosure) {
 public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosure) {
     World.sharedWorld.aroundEach(closure)
 }
-
 
 // MARK: - Examples
 /**
@@ -426,7 +343,6 @@ public func fit(_ description: String, file: FileString = #file, line: UInt = #l
 public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.fit(description, file: file, line: line, closure: closure)
 }
-
 
 /**
     Use this to quickly focus an `itBehavesLike` closure.

@@ -52,7 +52,7 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
         }
 
         describe("execution time") {
-            afterEach {
+            afterEach { @MainActor in
                 expect(Thread.isMainThread).to(beTrue())
             }
 

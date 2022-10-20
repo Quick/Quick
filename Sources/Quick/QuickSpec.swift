@@ -56,7 +56,7 @@ open class QuickSpec: QuickSpecBase {
 
         return super.defaultTestSuite
     }
-    
+
     /// This method is used as a hook for injecting test methods into the
     /// Objective-C runtime on individual test runs.
     ///
@@ -83,7 +83,7 @@ open class QuickSpec: QuickSpecBase {
         }
     }
 
-    private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames : inout Set<String>) -> Selector {
+    private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames: inout Set<String>) -> Selector {
         let block: @convention(block) (QuickSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
             spec.example = example
             Task {
