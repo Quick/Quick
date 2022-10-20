@@ -221,12 +221,12 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
 
     This callback is particularly useful for test decartions that can’t split
     into a separate beforeEach and afterEach. For example, running each example
-    in its own autorelease pool requires aroundEach:
+    in its own autorelease pool (provided by Task) requires aroundEach:
 
         aroundEach { runExample in
-            autoreleasepool {
+            await Task {
                 await runExample()
-            }
+            }.value
             checkObjectsNoLongerRetained()
         }
 
