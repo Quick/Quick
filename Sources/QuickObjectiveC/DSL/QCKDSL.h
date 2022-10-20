@@ -174,9 +174,9 @@ static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
 }
 
-static void aroundEach(QCKDSLAroundExampleBlock closure) __attribute__((unavailable("aroundEach is no longer supported for Objective-C tests.")));
+static inline void aroundEach(QCKDSLAroundExampleBlock closure) __attribute__((unavailable("aroundEach is no longer supported for Objective-C tests."))) {};
 
-static void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) __attribute__((unavailable("aroundEachWithMetadata is no longer supported for Objective-C tests.")));
+static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) __attribute__((unavailable("aroundEachWithMetadata is no longer supported for Objective-C tests."))) {};
 
 /**
     Defines a closure to be run prior to each example but after any beforeEach blocks.
