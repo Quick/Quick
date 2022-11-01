@@ -59,9 +59,9 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                 }
 
                 it("executes the outer and inner aroundEach closures, but not before this closure [2]") {
-                    expect(aroundEachOrder).to(contain(.innerAroundPrefix, .innerBefore))
-                    expect(aroundEachOrder).notTo(contain(.innerAroundSuffix))
-                    expect(aroundEachOrder).notTo(contain(.innerAfter))
+                    await expect(aroundEachOrder).to(contain(.innerAroundPrefix, .innerBefore))
+                    await expect(aroundEachOrder).notTo(contain(.innerAroundSuffix))
+                    await expect(aroundEachOrder).notTo(contain(.innerAfter))
                 }
             }
         }

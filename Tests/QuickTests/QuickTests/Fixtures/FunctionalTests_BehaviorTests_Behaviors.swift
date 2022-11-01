@@ -6,7 +6,7 @@ class FunctionalTests_BehaviorTests_Behavior: Behavior<String> {
     override static func spec(_ aContext: @escaping () -> String) {
         it("passed the correct parameters via the context") {
             let callsite = aContext()
-            expect(callsite).to(equal("BehaviorSpec"))
+            await expect(callsite).to(equal("BehaviorSpec"))
         }
     }
 }

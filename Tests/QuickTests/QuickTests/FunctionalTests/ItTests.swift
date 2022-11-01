@@ -13,7 +13,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
         it("has a description with セレクター名に使えない文字が入っている 👊💥") {
             let name = "has a description with セレクター名に使えない文字が入っている 👊💥"
-            expect(exampleMetadata?.example.name).to(equal(name))
+            await expect(exampleMetadata?.example.name).to(equal(name))
         }
 
 #if canImport(Darwin)
@@ -25,7 +25,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     .filter { $0.hasPrefix("when_an_example_has_a_unique_name__") }
                     .sorted(by: <)
 
-                expect(allSelectors) == [
+                await expect(allSelectors) == [
                     "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it:",
                     "when_an_example_has_a_unique_name__has_a_unique_name:",
                 ]
@@ -41,7 +41,7 @@ class FunctionalTests_ItSpec: QuickSpec {
                     .filter { $0.hasPrefix("when_two_examples_have_the_exact_name__") }
                     .sorted(by: <)
 
-                expect(allSelectors) == [
+                await expect(allSelectors) == [
                     "when_two_examples_have_the_exact_name__has_exactly_the_same_name:",
                     "when_two_examples_have_the_exact_name__has_exactly_the_same_name_2:",
                     "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above:",
@@ -76,8 +76,8 @@ class FunctionalTests_ItSpec: QuickSpec {
                 }
 
                 it("should have thrown an exception with the correct error message") {
-                    expect(exception).toNot(beNil())
-                    expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
+                    await expect(exception).toNot(beNil())
+                    await expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
                 }
             }
 
