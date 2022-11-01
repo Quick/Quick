@@ -20,18 +20,18 @@ final class SubclassDetectionSpec: QuickSpec {
             }
 
             it("returns false when a class is not at all related to the superclass") {
-                expect(isClass(D.self, aSubclassOf: A.self)).to(beFalse())
-                expect(isClass(D.self, aSubclassOf: B.self)).to(beFalse())
-                expect(isClass(D.self, aSubclassOf: C.self)).to(beFalse())
+                await expect(isClass(D.self, aSubclassOf: A.self)).to(beFalse())
+                await expect(isClass(D.self, aSubclassOf: B.self)).to(beFalse())
+                await expect(isClass(D.self, aSubclassOf: C.self)).to(beFalse())
             }
         }
 
         describe("finding all subclasses of a given type") {
             it("finds only subclasses, but not the actual class, of the desired type") {
                 let foundSubclasses: [A.Type] = allSubclasses(ofType: A.self)
-                expect(foundSubclasses).to(haveCount(2))
-                expect(foundSubclasses.first).to(be(B.self) || be(C.self))
-                expect(foundSubclasses.last).to(be(B.self) || be(C.self))
+                await expect(foundSubclasses).to(haveCount(2))
+                await expect(foundSubclasses.first).to(be(B.self) || be(C.self))
+                await expect(foundSubclasses.last).to(be(B.self) || be(C.self))
             }
         }
     }
