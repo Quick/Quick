@@ -61,7 +61,7 @@ final public class ExampleGroup: NSObject {
         return aggregateFlags
     }
 
-    internal var justBeforeEachStatements: [AroundExampleWithMetadataClosure] {
+    internal var justBeforeEachStatements: [AroundExampleWithMetadataAsyncClosure] {
         var closures = Array(hooks.justBeforeEachStatements.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.justBeforeEachStatements.reversed())
@@ -69,7 +69,7 @@ final public class ExampleGroup: NSObject {
         return closures
     }
 
-    internal var wrappers: [AroundExampleWithMetadataClosure] {
+    internal var wrappers: [AroundExampleWithMetadataAsyncClosure] {
         var closures = Array(hooks.wrappers.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.wrappers.reversed())

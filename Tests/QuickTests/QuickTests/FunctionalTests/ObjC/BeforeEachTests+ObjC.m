@@ -16,22 +16,32 @@ static NSMutableArray *beforeEachOrder;
 
 QuickSpecBegin(FunctionalTests_BeforeEachSpec_ObjC)
 
-beforeEach(^{ [beforeEachOrder addObject:@(OuterOne)]; });
-beforeEach(^{ [beforeEachOrder addObject:@(OuterTwo)]; });
+describe(@"execution order", ^{
+    beforeEach(^{ [beforeEachOrder addObject:@(OuterOne)]; });
+    beforeEach(^{ [beforeEachOrder addObject:@(OuterTwo)]; });
 
-it(@"executes the outer beforeEach closures once [1]", ^{});
-it(@"executes the outer beforeEach closures a second time [2]", ^{});
+    it(@"executes the outer beforeEach closures once [1]", ^{});
+    it(@"executes the outer beforeEach closures a second time [2]", ^{});
 
-context(@"when there are nested beforeEach", ^{
-    beforeEach(^{ [beforeEachOrder addObject:@(InnerOne)];   });
-    beforeEach(^{ [beforeEachOrder addObject:@(InnerTwo)];   });
-    beforeEach(^{ [beforeEachOrder addObject:@(InnerThree)]; });
+    context(@"when there are nested beforeEach", ^{
+        beforeEach(^{ [beforeEachOrder addObject:@(InnerOne)];   });
+        beforeEach(^{ [beforeEachOrder addObject:@(InnerTwo)];   });
+        beforeEach(^{ [beforeEachOrder addObject:@(InnerThree)]; });
 
-    it(@"executes the outer and inner beforeEach closures [3]", ^{});
+        it(@"executes the outer and inner beforeEach closures [3]", ^{});
+    });
+
+    context(@"when there are nested beforeEach without examples", ^{
+        beforeEach(^{ [beforeEachOrder addObject:@(NoExamples)]; });
+    });
 });
 
-context(@"when there are nested beforeEach without examples", ^{
-    beforeEach(^{ [beforeEachOrder addObject:@(NoExamples)]; });
+describe(@"execution time", ^{
+    beforeEach(^{
+        XCTAssertTrue(NSThread.isMainThread);
+    });
+
+    it(@"executes the beforeEach on the main thread", ^{});
 });
 
 QuickSpecEnd
