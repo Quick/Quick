@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Quick  Reference</title>
+    <title>Structures  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,7 +13,8 @@
     <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a title="Quick  Reference"></a>
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+    <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html">Quick 5.0.1 Docs</a> (82% documented)</p>
@@ -29,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="index.html">Quick Reference</a>
         <img id="carat" src="img/carat.png" alt=""/>
-        Quick  Reference
+        Structures  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -258,111 +259,65 @@
       <article class="main-content">
         <section>
           <section class="section">
-            
-            <p><img src="http://f.cl.ly/items/0r1E192C1R0b2g2Q3h2w/QuickLogo_Color.png" alt=""></p>
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
 
-<p><a href="https://github.com/Quick/Quick/actions/workflows/ci-xcode.yml"><img src="https://github.com/Quick/Quick/actions/workflows/ci-xcode.yml/badge.svg" alt="Build Status"></a>
-<a href="https://cocoapods.org/pods/Quick"><img src="https://img.shields.io/cocoapods/v/Quick.svg" alt="CocoaPods"></a>
-<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a>
-<a href="https://cocoapods.org/pods/Quick"><img src="https://img.shields.io/cocoapods/p/Quick.svg" alt="Platforms"></a></p>
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick8StopTestV"></a>
+                    <a name="//apple_ref/swift/Struct/StopTest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick8StopTestV">StopTest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops execution of test when thrown inside an <code>it</code> block, emitting a failure message.</p>
 
-<p>Quick is a behavior-driven development framework for Swift and Objective-C.
-Inspired by <a href="https://github.com/rspec/rspec">RSpec</a>, <a href="https://github.com/specta/specta">Specta</a>, and <a href="https://github.com/onsi/ginkgo">Ginkgo</a>.</p>
+<p>Unlike other errors that can be thrown during a test, <code>StopTest</code> represents an expected
+failure, with the failure description tied to the file and line it is thrown on.</p>
 
-<p><img src="https://raw.githubusercontent.com/Quick/Assets/master/Screenshots/QuickSpec%20screenshot.png" alt=""></p>
-<pre class="highlight swift"><code><span class="c1">// Swift</span>
+<p>Tests can also be stopped silently by throwing <code><a href="Structs/StopTest.html#/s:5Quick8StopTestV8silentlyACvpZ">StopTest.silently</a></code>.</p>
 
-<span class="kd">import</span> <span class="kt">Quick</span>
-<span class="kd">import</span> <span class="kt">Nimble</span>
+<p>The primary use case of <code>StopTest</code> as opposed to normal error logging is when a condition
+is critical for the remainder of the test.  It serves as an alternative to force unwrapping
+or out-of-range subscripts that could be cause the test to crash.</p>
 
-<span class="kd">class</span> <span class="kt">TableOfContentsSpec</span><span class="p">:</span> <span class="kt">QuickSpec</span> <span class="p">{</span>
-  <span class="k">override</span> <span class="kd">func</span> <span class="nf">spec</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nf">describe</span><span class="p">(</span><span class="s">"the 'Documentation' directory"</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nf">it</span><span class="p">(</span><span class="s">"has everything you need to get started"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">let</span> <span class="nv">sections</span> <span class="o">=</span> <span class="kt">Directory</span><span class="p">(</span><span class="s">"Documentation"</span><span class="p">)</span><span class="o">.</span><span class="n">sections</span>
-        <span class="nf">expect</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">.</span><span class="nf">to</span><span class="p">(</span><span class="nf">contain</span><span class="p">(</span><span class="s">"Organized Tests with Quick Examples and Example Groups"</span><span class="p">))</span>
-        <span class="nf">expect</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">.</span><span class="nf">to</span><span class="p">(</span><span class="nf">contain</span><span class="p">(</span><span class="s">"Installing Quick"</span><span class="p">))</span>
-      <span class="p">}</span>
+<p>For example,</p>
+<pre class="highlight swift"><code><span class="k">guard</span> <span class="k">let</span> <span class="nv">value</span> <span class="o">=</span> <span class="nf">getValue</span><span class="p">()</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="kt">StopTest</span><span class="p">(</span><span class="s">"Got a null value from `getValue()`)
+}
+</span></code></pre>
 
-      <span class="nf">context</span><span class="p">(</span><span class="s">"if it doesn't have what you're looking for"</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nf">it</span><span class="p">(</span><span class="s">"needs to be updated"</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">let</span> <span class="nv">you</span> <span class="o">=</span> <span class="kt">You</span><span class="p">(</span><span class="nv">awesome</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
-          <span class="n">expect</span><span class="p">{</span><span class="n">you</span><span class="o">.</span><span class="n">submittedAnIssue</span><span class="p">}</span><span class="o">.</span><span class="nf">toEventually</span><span class="p">(</span><span class="nf">beTruthy</span><span class="p">())</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<p>When used with Nimble, any expectation can stop a test by adding
+<code>.onFailure(throw: StopTest.silently)</code>.</p>
+
+<p>For example,</p>
+<pre class="highlight swift"><code><span class="k">try</span> <span class="nf">expect</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="nf">toEventually</span><span class="p">(</span><span class="nf">haveCount</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="nf">onFailure</span><span class="p">(</span><span class="nv">throw</span><span class="p">:</span> <span class="kt">StopTest</span><span class="o">.</span><span class="n">silently</span><span class="p">)</span>
 </code></pre>
-<h4 id='nimble' class='heading'>Nimble</h4>
 
-<p>Quick comes together with <a href="https://github.com/Quick/Nimble">Nimble</a> — a matcher framework for your tests. You can learn why <code>XCTAssert()</code> statements make your expectations unclear and how to fix that using Nimble assertions <a href="./Documentation/en-us/NimbleAssertions.md">here</a>.</p>
-<h2 id='swift-version' class='heading'>Swift Version</h2>
+                        <a href="Structs/StopTest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StopTest</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
 
-<p>Certain versions of Quick and Nimble only support certain versions of Swift. Depending on which version of Swift your project uses, you should use specific versions of Quick and Nimble. Use the table below to determine which versions of Quick and Nimble are compatible with your project.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Swift version</th>
-<th style="text-align: left">Quick version</th>
-<th style="text-align: left">Nimble version</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">Swift 5.2</td>
-<td style="text-align: left">v3.0.0 or later</td>
-<td style="text-align: left">v9.0.0 or later</td>
-</tr>
-<tr>
-<td style="text-align: left">Swift 4.2 / Swift 5</td>
-<td style="text-align: left">v1.3.2 or later</td>
-<td style="text-align: left">v7.3.2 or later</td>
-</tr>
-<tr>
-<td style="text-align: left">Swift 3 / Swift 4</td>
-<td style="text-align: left">v1.0.0 or later</td>
-<td style="text-align: left">v5.0.0 or later</td>
-</tr>
-<tr>
-<td style="text-align: left">Swift 2.2 / Swift 2.3</td>
-<td style="text-align: left">v0.9.3</td>
-<td style="text-align: left">v4.1.0</td>
-</tr>
-</tbody></table>
-<h2 id='documentation' class='heading'>Documentation</h2>
-
-<p>All documentation can be found in the <a href="./Documentation">Documentation folder</a>, including <a href="./Documentation/en-us/InstallingQuick.md">detailed installation instructions</a> for CocoaPods, Carthage, Git submodules, and more. For example, you can install Quick and <a href="https://github.com/Quick/Nimble">Nimble</a> using CocoaPods by adding the following to your Podfile:</p>
-<pre class="highlight ruby"><code><span class="c1"># Podfile</span>
-
-<span class="n">use_frameworks!</span>
-
-<span class="n">target</span> <span class="s2">"MyApp"</span> <span class="k">do</span>
-  <span class="c1"># Normal libraries</span>
-
-  <span class="n">abstract_target</span> <span class="s1">'Tests'</span> <span class="k">do</span>
-    <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-    <span class="n">target</span> <span class="s2">"MyAppTests"</span>
-    <span class="n">target</span> <span class="s2">"MyAppUITests"</span>
-
-    <span class="n">pod</span> <span class="s1">'Quick'</span>
-    <span class="n">pod</span> <span class="s1">'Nimble'</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre>
-<h2 id='projects-using-quick' class='heading'>Projects using Quick</h2>
-
-<p>Over ten-thousand apps use either Quick and Nimble however, as they are not included in the app binary, neither appear in “Top Used Libraries” blog posts. Therefore, it would be greatly appreciated to remind contributors that their efforts are valued by compiling a list of organizations and projects that use them. </p>
-
-<p>Does your organization or project use Quick and Nimble? If yes, <a href="https://github.com/Quick/Quick/wiki/Projects-using-Quick">please add your project to the list</a>.</p>
-<h2 id='who-uses-quick' class='heading'>Who uses Quick</h2>
-
-<p>Similar to projects using Quick, it would be nice to hear why people use Quick and Nimble. Are there features you love? Are there features that are just okay? Are there some features we have that no one uses?</p>
-
-<p>Have something positive to say about Quick (or Nimble)? If yes, <a href="https://github.com/Quick/Quick/wiki/Who-uses-Quick">provide a testimonial here</a>.</p>
-<h2 id='license' class='heading'>License</h2>
-
-<p>Apache 2.0 license. See the <a href="LICENSE"><code>LICENSE</code></a> file for details.</p>
-
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
