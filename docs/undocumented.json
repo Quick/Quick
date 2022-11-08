@@ -1,68 +1,124 @@
 {
   "warnings": [
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Callsite.swift",
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Callsite.swift",
       "line": 6,
       "symbol": "_CallsiteBase",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Callsite.swift",
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Callsite.swift",
       "line": 20,
       "symbol": "FileString",
       "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
       "line": 81,
+      "symbol": "QCKConfiguration.objc_beforeEach(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
+      "line": 86,
       "symbol": "QCKConfiguration.beforeEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
-      "line": 118,
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
+      "line": 123,
+      "symbol": "QCKConfiguration.objc_afterEach(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
+      "line": 128,
       "symbol": "QCKConfiguration.afterEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Example.swift",
-      "line": 7,
-      "symbol": "_ExampleBase",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/Example.swift",
-      "line": 44,
-      "symbol": "Example.description",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/ExampleGroup.swift",
+      "file": "/Users/you/workspace/Quick/Sources/Quick/ExampleGroup.swift",
       "line": 26,
       "symbol": "ExampleGroup.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/ExampleGroup.swift",
+      "file": "/Users/you/workspace/Quick/Sources/Quick/ExampleGroup.swift",
       "line": 36,
       "symbol": "ExampleGroup.examples",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jsq/Developer/GitHub/Quick/Sources/Quick/ExampleMetadata.swift",
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
+      "line": 7,
+      "symbol": "_ExampleBase",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
+      "line": 13,
+      "symbol": "Example",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
+      "line": 40,
+      "symbol": "Example.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
+      "line": 57,
+      "symbol": "Example.run()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
+      "line": 254,
+      "symbol": "Example",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/ExampleMetadata.swift",
       "line": 6,
       "symbol": "_ExampleMetadataBase",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/StopTest.swift",
+      "line": 29,
+      "symbol": "StopTest.failureDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/StopTest.swift",
+      "line": 30,
+      "symbol": "StopTest.reportError",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/StopTest.swift",
+      "line": 31,
+      "symbol": "StopTest.callsite",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/jsq/Developer/GitHub/Quick"
+  "source_directory": "/Users/you/workspace/Quick"
 }

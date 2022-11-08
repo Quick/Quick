@@ -214,6 +214,45 @@ of typing!
 
 To execute code *after* each example, use `afterEach`.
 
+### Sharing Setup/Teardown Code Using `justBeforeEach`
+
+In some cases you will want to have a group of tests with a common test setup but different configuration of that setup code in the individual tests. This makes the most sense when you have an API that you are mocking, and logic on top of that API that will make different decisions based on the result.
+
+```swift
+// Swift
+
+describe("a sleeping dolphin") {
+    var sleeping: Bool!
+    var click: Click!
+
+    justBeforeEach {
+        dolphin = Dolphin(sleeping: sleeping)
+        click = dolphin.click()
+    }
+
+    context("not sleeping") {
+        beforeEach {
+            sleeping = false
+        }
+
+        it("then it makes clicks that are loud") {
+            expect(click.isLoud).to(beTrue())
+        }
+    }
+
+    context("sleeping") {
+        beforeEach {
+            sleeping = true
+        }
+
+        it("then it does not make clicks that are loud") {
+            expect(click.isLoud).to(beFalse())
+        }
+    }
+}
+```
+In this example, a sleeping dolphin will not make Clicks. We wish to build our tests so that we only construct one Dolphin object, and only invoke the `.click()` method once. This requires the use of `justBeforeEach`, which invokes our constructor and method after the two `beforeEach` blocks have been invoked. Without `justBeforeEach`, we would have to trigger the API call twice in our tests, with a different argument each time. For tests that have a lot of boilerplate or setup required, this can significantly reduce lines of code and complexity.
+
 ### Specifying Conditional Behavior Using `context`
 
 Dolphins use clicks for echolocation. When they approach something
@@ -299,7 +338,7 @@ describe(@"a dolphin", ^{
 QuickSpecEnd
 ```
 
-Strictly speaking, the `context` keyword is a synonym for `describe`, 
+Strictly speaking, the `context` keyword is a synonym for `describe`,
 but thoughtful use will make your spec easier to understand.
 
 ### Test Readability: Quick and XCTest

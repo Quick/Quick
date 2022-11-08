@@ -65,6 +65,7 @@ QUICK_EXPORT void qck_afterEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_afterEachWithMetadata(QCKDSLExampleMetadataBlock closure);
 QUICK_EXPORT void qck_aroundEach(QCKDSLAroundExampleBlock closure);
 QUICK_EXPORT void qck_aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure);
+QUICK_EXPORT void qck_justBeforeEach(QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_pending(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure);
 QUICK_EXPORT void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure);
@@ -173,49 +174,20 @@ static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
 }
 
-/**
-    Defines a closure to that wraps each example in the current example
-    group. This closure is not run for pending or otherwise disabled examples.
+static inline void aroundEach(QCKDSLAroundExampleBlock closure) __attribute__((unavailable("aroundEach is no longer supported for Objective-C tests."))) {};
 
-    The closure you pass to aroundEach receives a callback as its argument, which
-    it MUST call exactly one for the example to run properly:
-
-        aroundEach(^(QCKDSLEmptyBlock runExample) {
-            [self doSomeSetup];
-            runExample();
-            [self doSomeCleanup];
-        });
-
-    This callback is particularly useful for test decartions that can’t split
-    into a separate beforeEach and afterEach. For example, running each example
-    in its own autorelease pool requires aroundEach:
-
-        aroundEach(^(QCKDSLEmptyBlock runExample) {
-            @autoreleasepool {
-                runExample();
-            }
-            [self checkObjectsNoLongerRetained];
-        });
-
-    You can also use aroundEach to guarantee proper nesting of setup and cleanup
-    operations in situations where their relative order matters.
-
-    An example group may contain an unlimited number of aroundEach callbacks.
-    They will nest inside each other, with the first declared in the group
-    nested at the outermost level.
-
-    - parameter closure: The closure that wraps around each example.
-*/
-static inline void aroundEach(QCKDSLAroundExampleBlock closure) {
-    qck_aroundEach(closure);
-}
+static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) __attribute__((unavailable("aroundEachWithMetadata is no longer supported for Objective-C tests."))) {};
 
 /**
-    Identical to Quick.DSL.aroundEach, except the closure receives metadata
-    about the example that the closure wraps.
+    Defines a closure to be run prior to each example but after any beforeEach blocks.
+    This closure is not run for pending or otherwise disabled examples.
+    An example group may contain an unlimited number of justBeforeEach. They'll be
+    run in the order they're defined, but you shouldn't rely on that behavior.
+
+    @param closure The closure to be run prior to each example but before any beforeEach blocks in the test suite.
  */
-static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
-    qck_aroundEachWithMetadata(closure);
+static inline void justBeforeEach(QCKDSLEmptyBlock closure) {
+    qck_justBeforeEach(closure);
 }
 
 /**

@@ -1,17 +1,17 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
     name: "Quick",
     platforms: [
-        .macOS(.v10_10), .iOS(.v9), .tvOS(.v9), .watchOS(.v5)
+        .macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", .branch("main")),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "11.0.0"),
     ],
     targets: {
         var targets: [Target] = [
@@ -49,7 +49,13 @@ let package = Package(
         ])
 #else
         targets.append(contentsOf: [
-            .target(name: "Quick", dependencies: []),
+            .target(
+                name: "Quick",
+                dependencies: [],
+                exclude: [
+                    "Info.plist"
+                ]
+            ),
         ])
 #endif
         return targets

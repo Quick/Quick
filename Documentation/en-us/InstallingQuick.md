@@ -141,13 +141,60 @@ This is not "the one and only way" to use Carthage to manage dependencies.
 For further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md).
 
 ## [Swift Package Manager](https://github.com/apple/swift-package-manager)
-With the advent of the [swift.org](https://swift.org) open-source project, Swift now has an official, though nascent, package manager tool. Notably, this provides the possibility of using Quick on non-Apple platforms for the first time. Initial steps have been taken to allow using Quick to test projects using the Swift Package Manager, although frequent breakage is expected at this point since the tool is still under heavy development.
 
-Until further documentation has been written, the following repository may be useful as an example of how Quick can be declared as a dependency in a `Package.swift` file for SwiftPM:
+With the advent of the [swift.org](https://swift.org) open-source project, Swift now has an official package manager tool. Notably, this provides the possibility of using Quick on non-Apple platforms for the first time. You can use Swift Package Manager either by using it's integration with Xcode, or by editing your package's `Package.swift` file.
 
-https://github.com/Quick/QuickOnLinuxExample
+### Xcode Integration
 
-### (Not Recommended) Running Quick Specs on a Physical iOS Device
+To install Quick via XCode's Swift Package Manager integration, select your .xcodeproj file, then the project tab, then the Package Dependencies tab. Click on the "plus" button at the bottom of the list, then follow the wizard to add Quick to your project. Specify `https://github.com/Quick/Quick.git` as the url, and be sure to add Quick as a dependency of your unit test target, not your app target.
+
+### Package.swift
+
+Add Quick's github url as a dependency of your package, then as a dependency of your test target, like so:
+
+```swift
+// swift-tools-version:5.5
+
+import PackageDescription
+
+let package = Package(
+    name: "MyPackage",
+    products: [
+    	.library(name: "MyPackage", targets: ["MyPackage"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/Quick/Quick.git", from: "5.0.0"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "10.0.0"),
+    ]
+    targets: [
+    	.target(name: "MyPackage", dependencies: []),
+    	.testTarget(name: "MyPackageTests", dependencies: ["Quick", "Nimble"])
+    ]
+)
+```
+
+#### Linux Support
+
+On Linux, you will need to also add a `LinuxMain.swift` at the root of the `Tests` subdirectory. This needs to contain a main struct that calls out to `QCKMain`, like so:
+
+```swift
+import XCTest
+import Quick
+
+@testable import MyPackageTests
+
+@main struct Main {
+    static func main() {
+        QCKMain(
+            [], // list of `QuickSpec` subclasses. to pass in.
+            configuration: [], // Optional, list of QuickConfiguration subclasses to pass in. Defaults to empty array.
+            testCases: [] // Optional, list of XCTestCase subclasses to pass in. Defaults to empty array.
+        )
+    }
+}
+```
+
+## (Not Recommended) Running Quick Specs on a Physical iOS Device
 
 In order to run specs written in Quick on device, you need to add `Quick.framework` and
 `Nimble.framework` as `Embedded Binaries` to the `Host Application` of the

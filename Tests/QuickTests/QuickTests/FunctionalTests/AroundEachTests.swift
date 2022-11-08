@@ -28,14 +28,14 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
             afterEach { aroundEachOrder.append(.after0) }
             aroundEach { run in
                 aroundEachOrder.append(.around0Prefix)
-                run()
+                await run()
                 aroundEachOrder.append(.around0Suffix)
             }
             beforeEach { aroundEachOrder.append(.before1) }
             afterEach { aroundEachOrder.append(.after1) }
             aroundEach { run in
                 aroundEachOrder.append(.around1Prefix)
-                run()
+                await run()
                 aroundEachOrder.append(.around1Suffix)
             }
             beforeEach { aroundEachOrder.append(.before2) }
@@ -54,17 +54,29 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                 afterEach { aroundEachOrder.append(.innerAfter) }
                 aroundEach { run in
                     aroundEachOrder.append(.innerAroundPrefix)
-                    run()
+                    await run()
                     aroundEachOrder.append(.innerAroundSuffix)
                 }
 
                 it("executes the outer and inner aroundEach closures, but not before this closure [2]") {
-                    expect(aroundEachOrder).to(contain(.innerAroundPrefix, .innerBefore))
-                    expect(aroundEachOrder).notTo(contain(.innerAroundSuffix))
-                    expect(aroundEachOrder).notTo(contain(.innerAfter))
+                    await expect(aroundEachOrder).to(contain(.innerAroundPrefix, .innerBefore))
+                    await expect(aroundEachOrder).notTo(contain(.innerAroundSuffix))
+                    await expect(aroundEachOrder).notTo(contain(.innerAfter))
                 }
             }
         }
+
+        describe("execution threads") {
+            aroundEach { run in
+                await expect(Thread.isMainThread).to(beFalse())
+                await run()
+            }
+
+            it("runs on the main thread") {
+                expect(Thread.isMainThread).to(beFalse())
+            }
+        }
+
 #if canImport(Darwin) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including aroundEach in it block") {

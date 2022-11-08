@@ -33,7 +33,7 @@ QuickSpecEnd
 // Invoking private methods in Swift is incredibly janky
 // this functionality is tested in Objective-C.
 
-QuickSpecBegin(FunctionalTests_SelectedTests_Xcode12_5_ObjC)
+QuickSpecBegin(FunctionalTests_SelectedTests_ObjC)
 
 beforeEach(^{
     [QuickTestSuite reset];
@@ -44,11 +44,11 @@ it(@"correctly grabs only the tests specified", ^{
         XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName:");
         return;
     }
-    XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc/example1"];
+    XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc/example1:"];
 
     expect(suite.tests).to(haveCount(1));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1:]"];
     }));
 });
 
@@ -61,13 +61,13 @@ it(@"correctly grabs all tests in a test case if no specific test is specified",
 
     expect(suite.tests).to(haveCount(3));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1:]"];
     }));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example2]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example2:]"];
     }));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example3]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example3:]"];
     }));
 });
 

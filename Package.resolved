@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CwlCatchException",
-        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
-        "state": {
-          "branch": null,
-          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
-          "version": "2.1.1"
-        }
-      },
-      {
-        "package": "CwlPreconditionTesting",
-        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-        "state": {
-          "branch": null,
-          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
-          "version": "2.1.0"
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": "main",
-          "revision": "44b9392dc0cdcc318d7310553f74b13bb74fce1c",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "cwlcatchexception",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattgallagher/CwlCatchException.git",
+      "state" : {
+        "revision" : "f809deb30dc5c9d9b78c872e553261a61177721a",
+        "version" : "2.0.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "cwlpreconditiontesting",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+      "state" : {
+        "revision" : "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "nimble",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Nimble.git",
+      "state" : {
+        "revision" : "96f0ee4751318a5b3c36f347522cfacfd5aa1473",
+        "version" : "11.1.0"
+      }
+    }
+  ],
+  "version" : 2
 }

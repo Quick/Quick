@@ -10,7 +10,7 @@ class BundleModuleNameSpecs: QuickSpec {
             it("should repalce invalid characters with underscores") {
                 let bundle = Bundle.currentTestBundle
                 let moduleName = bundle?.moduleName
-                expect(moduleName?.contains("Quick_")).to(beTrue())
+                await expect(moduleName?.contains("Quick_")).to(beTrue())
             }
 
             it("should be the correct module name to be able to retreive classes") {
@@ -21,7 +21,7 @@ class BundleModuleNameSpecs: QuickSpec {
 
                 let moduleName = bundle.moduleName
                 let className: AnyClass? = NSClassFromString("\(moduleName).BundleModuleNameSpecs")
-                expect(className).to(be(BundleModuleNameSpecs.self))
+                await expect(className).to(be(BundleModuleNameSpecs.self))
             }
         }
     }
