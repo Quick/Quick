@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         xcode: ["13.3.1", "14.0.1"]
-        platform: ["macos", "ios", "tvos"]
+        platform: ["macos", "ios", "tvos", "watchos"]
       fail-fast: false
     env:
       DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
@@ -40,22 +40,3 @@ jobs:
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - run: rake test:${{ matrix.platform }}_static
         if: ${{ needs.filter.outputs.should_skip != 'true' && matrix.platform == 'macos' }}
-
-  xcode_watchos:
-    name: Xcode ${{ matrix.xcode }} (${{ matrix.platform }})
-    needs: filter
-    runs-on: macos-11
-    strategy:
-      matrix:
-        xcode: ["12.5", "13.0"]
-        platform: ["watchos"]
-      fail-fast: false
-    env:
-      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-        if: ${{ needs.filter.outputs.should_skip != 'true' }}
-      - run: rake test:${{ matrix.platform }}
-        if: ${{ needs.filter.outputs.should_skip != 'true' }}
