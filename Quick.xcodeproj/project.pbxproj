@@ -198,6 +198,85 @@
 		CE590E211C431FE400253D19 /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
 		CE590E221C431FE400253D19 /* URL+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDB1C430BD200D63004 /* URL+FileName.swift */; };
 		CE590E231C431FE400253D19 /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */; };
+		D95F89A4267F4EFD004B1B4D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95F899B267F4EFD004B1B4D /* Quick.framework */; };
+		D95F89B2267F509C004B1B4D /* HooksPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44ADBD1C5444940007AF2E /* HooksPhase.swift */; };
+		D95F89B3267F509C004B1B4D /* ExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BE019FF5599005DF92A /* ExampleHooks.swift */; };
+		D95F89B4267F509C004B1B4D /* SuiteHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BE119FF5599005DF92A /* SuiteHooks.swift */; };
+		D95F89B5267F509C004B1B4D /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA408BDF19FF5599005DF92A /* Closures.swift */; };
+		D95F89B6267F50A4004B1B4D /* QuickTestObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD21A025247C1385002C4762 /* QuickTestObservation.swift */; };
+		D95F89B7267F50A4004B1B4D /* String+C99ExtendedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3036A1DF6C66B0041394E /* String+C99ExtendedIdentifier.swift */; };
+		D95F89B8267F50A4004B1B4D /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759E19515CA700CE1B99 /* Example.swift */; };
+		D95F89B9267F50A4004B1B4D /* QuickTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */; };
+		D95F89BA267F50A4004B1B4D /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED81C430BD200D63004 /* NSBundle+CurrentTestBundle.swift */; };
+		D95F89BB267F50A4004B1B4D /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A619515CA700CE1B99 /* World.swift */; };
+		D95F89BC267F50A4004B1B4D /* Callsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759C19515CA700CE1B99 /* Callsite.swift */; };
+		D95F89BD267F50A4004B1B4D /* ErrorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C586071C4AC5E500D4F057 /* ErrorUtility.swift */; };
+		D95F89BE267F50A4004B1B4D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6B30171A4DB0D500FFB148 /* Filter.swift */; };
+		D95F89BF267F50A4004B1B4D /* URL+FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDB1C430BD200D63004 /* URL+FileName.swift */; };
+		D95F89C0267F50A4004B1B4D /* QuickSelectedTestSuiteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57CED91C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift */; };
+		D95F89C1267F50A4004B1B4D /* ExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3759F19515CA700CE1B99 /* ExampleGroup.swift */; };
+		D95F89C2267F50A4004B1B4D /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
+		D95F89C3267F50A7004B1B4D /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */; };
+		D95F89C4267F50AB004B1B4D /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E219FCAEE8002858A7 /* DSL.swift */; };
+		D95F89C5267F50AB004B1B4D /* World+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E519FCAEE8002858A7 /* World+DSL.swift */; };
+		D95F89C6267F50AE004B1B4D /* QCKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA169E4719FF5DF100619816 /* QCKConfiguration.swift */; };
+		D95F89C7267F50AE004B1B4D /* QuickConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */; };
+		D95F89C8267F50B9004B1B4D /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */; };
+		D95F89C9267F50B9004B1B4D /* QuickSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F375A519515CA700CE1B99 /* QuickSpec.m */; };
+		D95F89CA267F50BC004B1B4D /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEB6B931943873100289F44 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D95F89CB267F50BC004B1B4D /* QuickSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F375A419515CA700CE1B99 /* QuickSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D95F89CC267F50C1004B1B4D /* QCKDSL.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3124E319FCAEE8002858A7 /* QCKDSL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D95F89CD267F50C5004B1B4D /* QCKDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3124E419FCAEE8002858A7 /* QCKDSL.m */; };
+		D95F89CE267F50C9004B1B4D /* QuickConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE714FC19FF6A62005905B8 /* QuickConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D95F89CF267F50CD004B1B4D /* QuickConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE714FD19FF6A62005905B8 /* QuickConfiguration.m */; };
+		D95F89D0267F50D5004B1B4D /* QuickConfigurationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8C00201A01E4B900CE58A6 /* QuickConfigurationTests.m */; };
+		D95F89D8267F50F3004B1B4D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95F899B267F4EFD004B1B4D /* Quick.framework */; };
+		D95F89E6267F515F004B1B4D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95F899B267F4EFD004B1B4D /* Quick.framework */; };
+		D95F89ED267F51F6004B1B4D /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
+		D95F89EE267F51F6004B1B4D /* QuickSpecRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD582D722264C137008F7CE6 /* QuickSpecRunner.swift */; };
+		D95F89EF267F51F6004B1B4D /* QCKSpecRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919619F31680006F6675 /* QCKSpecRunner.m */; };
+		D95F89F0267F51F6004B1B4D /* QuickSpecRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD582D722264C137008F7CE6 /* QuickSpecRunner.swift */; };
+		D95F89F1267F51FB004B1B4D /* QuickSpec+MethodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD582D6E2264B371008F7CE6 /* QuickSpec+MethodList.swift */; };
+		D95F89F2267F5200004B1B4D /* XCTestCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */; };
+		D95F89F3267F5200004B1B4D /* XCTestCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ACFB7B1C34859300942064 /* XCTestCaseProvider.swift */; };
+		D95F89F4267F5202004B1B4D /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
+		D95F89F6267F5208004B1B4D /* FunctionalTests_BehaviorTests_Behaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A578D1EA7251C0063C0D4 /* FunctionalTests_BehaviorTests_Behaviors.swift */; };
+		D95F89F7267F5208004B1B4D /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AD19F32CE2006F6675 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift */; };
+		D95F89F8267F520E004B1B4D /* BehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A57891EA5DC270063C0D4 /* BehaviorTests.swift */; };
+		D95F89F9267F520E004B1B4D /* BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA87078219F48775008C04AC /* BeforeEachTests.swift */; };
+		D95F89FA267F520E004B1B4D /* SharedExamplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */; };
+		D95F89FB267F520E004B1B4D /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
+		D95F89FC267F520E004B1B4D /* ContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5358CA1C3D4E2A00A23FAA /* ContextTests.swift */; };
+		D95F89FD267F520E004B1B4D /* CurrentSpecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5CBB471EAFA55800297C9E /* CurrentSpecTests.swift */; };
+		D95F89FE267F520E004B1B4D /* BundleModuleNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED3037C1DF6CF140041394E /* BundleModuleNameTests.swift */; };
+		D95F89FF267F520E004B1B4D /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
+		D95F8A00267F520E004B1B4D /* ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7AE6F019FC493F000AFDCE /* ItTests.swift */; };
+		D95F8A01267F520E004B1B4D /* SharedExamples+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */; };
+		D95F8A02267F520E004B1B4D /* QuickSpec_SelectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FE27DE22DC955400BA013D /* QuickSpec_SelectedTests.swift */; };
+		D95F8A03267F520E004B1B4D /* PendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA63EA219F7637300CD0A3B /* PendingTests.swift */; };
+		D95F8A04267F520E004B1B4D /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
+		D95F8A05267F520E004B1B4D /* BeforeSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F91A419F3208B006F6675 /* BeforeSuiteTests.swift */; };
+		D95F8A06267F5213004B1B4D /* PendingTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4715903F1A488F3F00FBA644 /* PendingTests+ObjC.m */; };
+		D95F8A07267F5213004B1B4D /* BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAEA341A3F45ED005A1D2F /* BeforeEachTests+ObjC.m */; };
+		D95F8A08267F5213004B1B4D /* FailureTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8F919C19F31921006F6675 /* FailureTests+ObjC.m */; };
+		D95F8A09267F5213004B1B4D /* AfterEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 470D6EC91A43409600043E50 /* AfterEachTests+ObjC.m */; };
+		D95F8A0A267F5213004B1B4D /* FailureUsingXCTAssertTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8940EF1B35B1FA00161061 /* FailureUsingXCTAssertTests+ObjC.m */; };
+		D95F8A0B267F5213004B1B4D /* BeforeSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47876F7B1A4999B0002575C7 /* BeforeSuiteTests+ObjC.m */; };
+		D95F8A0C267F5213004B1B4D /* ItTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 479C31E11A36156E00DA8718 /* ItTests+ObjC.m */; };
+		D95F8A0D267F5213004B1B4D /* SharedExamples+BeforeEachTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4748E8931A6AEBB3009EC992 /* SharedExamples+BeforeEachTests+ObjC.m */; };
+		D95F8A0E267F5213004B1B4D /* SharedExamplesTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4728253A1A5EECCE008DC74F /* SharedExamplesTests+ObjC.m */; };
+		D95F8A0F267F5218004B1B4D /* Configuration+BeforeEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714EF19FF65D3005905B8 /* Configuration+BeforeEachTests.swift */; };
+		D95F8A10267F5218004B1B4D /* Configuration+BeforeEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F219FF65E7005905B8 /* Configuration+BeforeEach.swift */; };
+		D95F8A11267F521C004B1B4D /* Configuration+AfterEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F619FF6812005905B8 /* Configuration+AfterEach.swift */; };
+		D95F8A12267F521C004B1B4D /* Configuration+AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE714F919FF682A005905B8 /* Configuration+AfterEachTests.swift */; };
+		D95F8A13267F5243004B1B4D /* FocusedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9876BF1A4C87200004AA17 /* FocusedTests.swift */; };
+		D95F8A14267F5246004B1B4D /* FocusedTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF28BC21A4DB8EC00A5D9BF /* FocusedTests+ObjC.m */; };
+		D95F8A15267F524F004B1B4D /* AfterSuiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64076D1D1D6D7D0B00E2B499 /* AfterSuiteTests.swift */; };
+		D95F8A16267F5252004B1B4D /* AfterSuiteTests+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076D241D6D80B500E2B499 /* AfterSuiteTests+ObjC.m */; };
+		D95F8A18267F53A6004B1B4D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95F8A17267F53A6004B1B4D /* Nimble.framework */; };
+		D95F8A1A267F53B3004B1B4D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95F8A19267F53B3004B1B4D /* Nimble.framework */; };
+		D95F8A1B267F53E1004B1B4D /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
+		D95F8A1D267F53F1004B1B4D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D95F8A1C267F53F1004B1B4D /* Nimble.framework */; };
 		DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02C91819A8073100093156 /* ExampleMetadata.swift */; };
 		DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05D60F19F73A3800771050 /* AfterEachTests.swift */; };
@@ -341,6 +420,27 @@
 			remoteGlobalIDString = DAEB6B8D1943873100289F44;
 			remoteInfo = "Quick-macOS";
 		};
+		D95F89A5267F4EFD004B1B4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D95F899A267F4EFD004B1B4D;
+			remoteInfo = "Quick-watchOS";
+		};
+		D95F89D3267F50F3004B1B4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D95F899A267F4EFD004B1B4D;
+			remoteInfo = "Quick-watchOS";
+		};
+		D95F89E1267F515F004B1B4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAEB6B851943873100289F44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D95F899A267F4EFD004B1B4D;
+			remoteInfo = "Quick-watchOS";
+		};
 		DA5663EF1A4C8D8500193C88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAEB6B851943873100289F44 /* Project object */;
@@ -415,6 +515,13 @@
 		CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTestSuite.swift; sourceTree = "<group>"; };
 		CE57CEDB1C430BD200D63004 /* URL+FileName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+FileName.swift"; sourceTree = "<group>"; };
 		CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestSuite+QuickTestSuiteBuilder.m"; sourceTree = "<group>"; };
+		D95F899B267F4EFD004B1B4D /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F89A3267F4EFD004B1B4D /* Quick - watchOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick - watchOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F89DD267F50F3004B1B4D /* QuickFocused - watchOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickFocused - watchOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F89EB267F515F004B1B4D /* QuickAfterSuite - watchOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "QuickAfterSuite - watchOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F8A17267F53A6004B1B4D /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F8A19267F53B3004B1B4D /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F8A1C267F53F1004B1B4D /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA02C91819A8073100093156 /* ExampleMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleMetadata.swift; sourceTree = "<group>"; };
 		DA05D60F19F73A3800771050 /* AfterEachTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachTests.swift; sourceTree = "<group>"; };
 		DA169E4719FF5DF100619816 /* QCKConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QCKConfiguration.swift; sourceTree = "<group>"; };
@@ -541,6 +648,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D95F8998267F4EFD004B1B4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89A0267F4EFD004B1B4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F8A1D267F53F1004B1B4D /* Nimble.framework in Frameworks */,
+				D95F89A4267F4EFD004B1B4D /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89D7267F50F3004B1B4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F8A1A267F53B3004B1B4D /* Nimble.framework in Frameworks */,
+				D95F89D8267F50F3004B1B4D /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89E5267F515F004B1B4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F8A18267F53A6004B1B4D /* Nimble.framework in Frameworks */,
+				D95F89E6267F515F004B1B4D /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA5663E51A4C8D8500193C88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,6 +722,9 @@
 		1F118D331BDCA645005013A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D95F8A1C267F53F1004B1B4D /* Nimble.framework */,
+				D95F8A19267F53B3004B1B4D /* Nimble.framework */,
+				D95F8A17267F53A6004B1B4D /* Nimble.framework */,
 				1F118D361BDCA65C005013A2 /* Nimble.framework */,
 				1F118D341BDCA657005013A2 /* Nimble.framework */,
 			);
@@ -814,6 +958,10 @@
 				64076D081D6D7CD600E2B499 /* QuickAfterSuite - iOSTests.xctest */,
 				64076D1A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests.xctest */,
 				CD89D17B247A673100C1F086 /* QuickIssue853RegressionTests.xctest */,
+				D95F899B267F4EFD004B1B4D /* Quick.framework */,
+				D95F89A3267F4EFD004B1B4D /* Quick - watchOSTests.xctest */,
+				D95F89DD267F50F3004B1B4D /* QuickFocused - watchOSTests.xctest */,
+				D95F89EB267F515F004B1B4D /* QuickAfterSuite - watchOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -917,6 +1065,17 @@
 				DA3124E919FCAEE8002858A7 /* QCKDSL.h in Headers */,
 				34F375B819515CA700CE1B99 /* QuickSpec.h in Headers */,
 				5A5D11A7194740E000F6D13D /* Quick.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F8996267F4EFD004B1B4D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F89CC267F50C1004B1B4D /* QCKDSL.h in Headers */,
+				D95F89CE267F50C9004B1B4D /* QuickConfiguration.h in Headers */,
+				D95F89CA267F50BC004B1B4D /* Quick.h in Headers */,
+				D95F89CB267F50BC004B1B4D /* QuickSpec.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1096,6 +1255,78 @@
 			productReference = CD89D17B247A673100C1F086 /* QuickIssue853RegressionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D95F899A267F4EFD004B1B4D /* Quick-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D95F89B0267F4EFD004B1B4D /* Build configuration list for PBXNativeTarget "Quick-watchOS" */;
+			buildPhases = (
+				D95F8996267F4EFD004B1B4D /* Headers */,
+				D95F8997267F4EFD004B1B4D /* Sources */,
+				D95F8998267F4EFD004B1B4D /* Frameworks */,
+				D95F8999267F4EFD004B1B4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Quick-watchOS";
+			productName = "Quick-watchOS";
+			productReference = D95F899B267F4EFD004B1B4D /* Quick.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D95F89A2267F4EFD004B1B4D /* Quick - watchOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D95F89B1267F4EFD004B1B4D /* Build configuration list for PBXNativeTarget "Quick - watchOSTests" */;
+			buildPhases = (
+				D95F899F267F4EFD004B1B4D /* Sources */,
+				D95F89A0267F4EFD004B1B4D /* Frameworks */,
+				D95F89A1267F4EFD004B1B4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D95F89A6267F4EFD004B1B4D /* PBXTargetDependency */,
+			);
+			name = "Quick - watchOSTests";
+			productName = "Quick-watchOSTests";
+			productReference = D95F89A3267F4EFD004B1B4D /* Quick - watchOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D95F89D1267F50F3004B1B4D /* QuickFocused - watchOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D95F89DA267F50F3004B1B4D /* Build configuration list for PBXNativeTarget "QuickFocused - watchOSTests" */;
+			buildPhases = (
+				D95F89D4267F50F3004B1B4D /* Sources */,
+				D95F89D7267F50F3004B1B4D /* Frameworks */,
+				D95F89D9267F50F3004B1B4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D95F89D2267F50F3004B1B4D /* PBXTargetDependency */,
+			);
+			name = "QuickFocused - watchOSTests";
+			productName = "Quick-watchOSTests";
+			productReference = D95F89DD267F50F3004B1B4D /* QuickFocused - watchOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D95F89DF267F515F004B1B4D /* QuickAfterSuite - watchOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D95F89E8267F515F004B1B4D /* Build configuration list for PBXNativeTarget "QuickAfterSuite - watchOSTests" */;
+			buildPhases = (
+				D95F89E2267F515F004B1B4D /* Sources */,
+				D95F89E5267F515F004B1B4D /* Frameworks */,
+				D95F89E7267F515F004B1B4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D95F89E0267F515F004B1B4D /* PBXTargetDependency */,
+			);
+			name = "QuickAfterSuite - watchOSTests";
+			productName = "Quick-watchOSTests";
+			productReference = D95F89EB267F515F004B1B4D /* QuickAfterSuite - watchOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DA5663E71A4C8D8500193C88 /* QuickFocused - macOSTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA5663F31A4C8D8500193C88 /* Build configuration list for PBXNativeTarget "QuickFocused - macOSTests" */;
@@ -1174,7 +1405,7 @@
 		DAEB6B851943873100289F44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Brian Ivan Gesiak";
 				TargetAttributes = {
@@ -1202,6 +1433,12 @@
 					732D8D691E516780008558BD = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+					};
+					D95F899A267F4EFD004B1B4D = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					D95F89A2267F4EFD004B1B4D = {
+						CreatedOnToolsVersion = 12.5;
 					};
 					DA5663E71A4C8D8500193C88 = {
 						CreatedOnToolsVersion = 6.2;
@@ -1248,6 +1485,10 @@
 				1F118CDD1BDCA4AB005013A2 /* Quick - tvOSTests */,
 				1F118CEF1BDCA4BB005013A2 /* QuickFocused - tvOSTests */,
 				64076D0A1D6D7CEA00E2B499 /* QuickAfterSuite - tvOSTests */,
+				D95F899A267F4EFD004B1B4D /* Quick-watchOS */,
+				D95F89A2267F4EFD004B1B4D /* Quick - watchOSTests */,
+				D95F89D1267F50F3004B1B4D /* QuickFocused - watchOSTests */,
+				D95F89DF267F515F004B1B4D /* QuickAfterSuite - watchOSTests */,
 				732D8D691E516780008558BD /* SwiftLint */,
 			);
 		};
@@ -1311,6 +1552,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CD89D177247A673100C1F086 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F8999267F4EFD004B1B4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89A1267F4EFD004B1B4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89D9267F50F3004B1B4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89E7267F515F004B1B4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1576,6 +1845,103 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D95F8997267F4EFD004B1B4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F89BF267F50A4004B1B4D /* URL+FileName.swift in Sources */,
+				D95F89B4267F509C004B1B4D /* SuiteHooks.swift in Sources */,
+				D95F89B8267F50A4004B1B4D /* Example.swift in Sources */,
+				D95F89B6267F50A4004B1B4D /* QuickTestObservation.swift in Sources */,
+				D95F89B5267F509C004B1B4D /* Closures.swift in Sources */,
+				D95F89C8267F50B9004B1B4D /* XCTestSuite+QuickTestSuiteBuilder.m in Sources */,
+				D95F89BB267F50A4004B1B4D /* World.swift in Sources */,
+				D95F89C7267F50AE004B1B4D /* QuickConfiguration.swift in Sources */,
+				D95F89C1267F50A4004B1B4D /* ExampleGroup.swift in Sources */,
+				D95F89B2267F509C004B1B4D /* HooksPhase.swift in Sources */,
+				D95F89BA267F50A4004B1B4D /* NSBundle+CurrentTestBundle.swift in Sources */,
+				D95F89C6267F50AE004B1B4D /* QCKConfiguration.swift in Sources */,
+				D95F89BD267F50A4004B1B4D /* ErrorUtility.swift in Sources */,
+				D95F89B7267F50A4004B1B4D /* String+C99ExtendedIdentifier.swift in Sources */,
+				D95F89BC267F50A4004B1B4D /* Callsite.swift in Sources */,
+				D95F89BE267F50A4004B1B4D /* Filter.swift in Sources */,
+				D95F89C4267F50AB004B1B4D /* DSL.swift in Sources */,
+				D95F89CD267F50C5004B1B4D /* QCKDSL.m in Sources */,
+				D95F89B9267F50A4004B1B4D /* QuickTestSuite.swift in Sources */,
+				D95F89C0267F50A4004B1B4D /* QuickSelectedTestSuiteBuilder.swift in Sources */,
+				D95F89C5267F50AB004B1B4D /* World+DSL.swift in Sources */,
+				D95F89C3267F50A7004B1B4D /* Behavior.swift in Sources */,
+				D95F89CF267F50CD004B1B4D /* QuickConfiguration.m in Sources */,
+				D95F89B3267F509C004B1B4D /* ExampleHooks.swift in Sources */,
+				D95F89C9267F50B9004B1B4D /* QuickSpec.m in Sources */,
+				D95F89C2267F50A4004B1B4D /* ExampleMetadata.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F899F267F4EFD004B1B4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F8A00267F520E004B1B4D /* ItTests.swift in Sources */,
+				D95F89ED267F51F6004B1B4D /* QCKSpecRunner.m in Sources */,
+				D95F8A0C267F5213004B1B4D /* ItTests+ObjC.m in Sources */,
+				D95F89FA267F520E004B1B4D /* SharedExamplesTests.swift in Sources */,
+				D95F8A01267F520E004B1B4D /* SharedExamples+BeforeEachTests.swift in Sources */,
+				D95F8A05267F520E004B1B4D /* BeforeSuiteTests.swift in Sources */,
+				D95F8A07267F5213004B1B4D /* BeforeEachTests+ObjC.m in Sources */,
+				D95F8A0E267F5213004B1B4D /* SharedExamplesTests+ObjC.m in Sources */,
+				D95F89F8267F520E004B1B4D /* BehaviorTests.swift in Sources */,
+				D95F8A0F267F5218004B1B4D /* Configuration+BeforeEachTests.swift in Sources */,
+				D95F89F2267F5200004B1B4D /* XCTestCaseProvider.swift in Sources */,
+				D95F89F6267F5208004B1B4D /* FunctionalTests_BehaviorTests_Behaviors.swift in Sources */,
+				D95F89FC267F520E004B1B4D /* ContextTests.swift in Sources */,
+				D95F89D0267F50D5004B1B4D /* QuickConfigurationTests.m in Sources */,
+				D95F89F9267F520E004B1B4D /* BeforeEachTests.swift in Sources */,
+				D95F8A11267F521C004B1B4D /* Configuration+AfterEach.swift in Sources */,
+				D95F89F7267F5208004B1B4D /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
+				D95F8A02267F520E004B1B4D /* QuickSpec_SelectedTests.swift in Sources */,
+				D95F8A03267F520E004B1B4D /* PendingTests.swift in Sources */,
+				D95F8A10267F5218004B1B4D /* Configuration+BeforeEach.swift in Sources */,
+				D95F89EE267F51F6004B1B4D /* QuickSpecRunner.swift in Sources */,
+				D95F8A06267F5213004B1B4D /* PendingTests+ObjC.m in Sources */,
+				D95F8A12267F521C004B1B4D /* Configuration+AfterEachTests.swift in Sources */,
+				D95F89FE267F520E004B1B4D /* BundleModuleNameTests.swift in Sources */,
+				D95F89FB267F520E004B1B4D /* DescribeTests.swift in Sources */,
+				D95F8A04267F520E004B1B4D /* CrossReferencingSpecs.swift in Sources */,
+				D95F8A08267F5213004B1B4D /* FailureTests+ObjC.m in Sources */,
+				D95F8A0B267F5213004B1B4D /* BeforeSuiteTests+ObjC.m in Sources */,
+				D95F8A0A267F5213004B1B4D /* FailureUsingXCTAssertTests+ObjC.m in Sources */,
+				D95F8A09267F5213004B1B4D /* AfterEachTests+ObjC.m in Sources */,
+				D95F89F1267F51FB004B1B4D /* QuickSpec+MethodList.swift in Sources */,
+				D95F89F4267F5202004B1B4D /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */,
+				D95F8A0D267F5213004B1B4D /* SharedExamples+BeforeEachTests+ObjC.m in Sources */,
+				D95F89FF267F520E004B1B4D /* AfterEachTests.swift in Sources */,
+				D95F89FD267F520E004B1B4D /* CurrentSpecTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89D4267F50F3004B1B4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F8A1B267F53E1004B1B4D /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */,
+				D95F8A13267F5243004B1B4D /* FocusedTests.swift in Sources */,
+				D95F89EF267F51F6004B1B4D /* QCKSpecRunner.m in Sources */,
+				D95F8A14267F5246004B1B4D /* FocusedTests+ObjC.m in Sources */,
+				D95F89F3267F5200004B1B4D /* XCTestCaseProvider.swift in Sources */,
+				D95F89F0267F51F6004B1B4D /* QuickSpecRunner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D95F89E2267F515F004B1B4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D95F8A15267F524F004B1B4D /* AfterSuiteTests.swift in Sources */,
+				D95F8A16267F5252004B1B4D /* AfterSuiteTests+ObjC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DA5663E41A4C8D8500193C88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1726,6 +2092,21 @@
 			isa = PBXTargetDependency;
 			target = DAEB6B8D1943873100289F44 /* Quick-macOS */;
 			targetProxy = CD89D14E247A673100C1F086 /* PBXContainerItemProxy */;
+		};
+		D95F89A6267F4EFD004B1B4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D95F899A267F4EFD004B1B4D /* Quick-watchOS */;
+			targetProxy = D95F89A5267F4EFD004B1B4D /* PBXContainerItemProxy */;
+		};
+		D95F89D2267F50F3004B1B4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D95F899A267F4EFD004B1B4D /* Quick-watchOS */;
+			targetProxy = D95F89D3267F50F3004B1B4D /* PBXContainerItemProxy */;
+		};
+		D95F89E0267F515F004B1B4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D95F899A267F4EFD004B1B4D /* Quick-watchOS */;
+			targetProxy = D95F89E1267F515F004B1B4D /* PBXContainerItemProxy */;
 		};
 		DA5663F01A4C8D8500193C88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2205,6 +2586,282 @@
 			};
 			name = Release;
 		};
+		D95F89AC267F4EFD004B1B4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Quick;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		D95F89AD267F4EFD004B1B4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/Quick/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Quick;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		D95F89AE267F4EFD004B1B4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickTests-Swift.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D95F89AF267F4EFD004B1B4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickTests-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		D95F89DB267F50F3004B1B4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickFocusedTests-Swift.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D95F89DC267F50F3004B1B4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickFocusedTests-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		D95F89E9267F515F004B1B4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickAfterSuiteTests-Swift.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		D95F89EA267F515F004B1B4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/QuickTests/QuickTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.quick.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/QuickTests/QuickTests/Helpers/QuickTestsBridgingHeader.h;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "QuickAfterSuiteTests-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
 		DA5663F11A4C8D8500193C88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2621,6 +3278,42 @@
 			buildConfigurations = (
 				CD89D179247A673100C1F086 /* Debug */,
 				CD89D17A247A673100C1F086 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D95F89B0267F4EFD004B1B4D /* Build configuration list for PBXNativeTarget "Quick-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D95F89AC267F4EFD004B1B4D /* Debug */,
+				D95F89AD267F4EFD004B1B4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D95F89B1267F4EFD004B1B4D /* Build configuration list for PBXNativeTarget "Quick - watchOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D95F89AE267F4EFD004B1B4D /* Debug */,
+				D95F89AF267F4EFD004B1B4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D95F89DA267F50F3004B1B4D /* Build configuration list for PBXNativeTarget "QuickFocused - watchOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D95F89DB267F50F3004B1B4D /* Debug */,
+				D95F89DC267F50F3004B1B4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D95F89E8267F515F004B1B4D /* Build configuration list for PBXNativeTarget "QuickAfterSuite - watchOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D95F89E9267F515F004B1B4D /* Debug */,
+				D95F89EA267F515F004B1B4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

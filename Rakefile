@@ -30,6 +30,12 @@ namespace "test" do
     run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
   end
 
+  desc "Run unit tests for all watchOS targets"
+  task :watchos do |t|
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-watchOS -destination 'generic/platform=watchOS' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean build | xcpretty"
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-watchOS -destination 'platform=watchOS Simulator,name=Apple Watch Series 6 - 40mm' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
+  end
+
   desc "Run unit tests for all macOS targets"
   task :macos do |t|
     run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick-macOS OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
@@ -67,7 +73,7 @@ namespace "templates" do
 end
 
 if has_xcodebuild then
-  task default: ["test:ios", "test:tvos", "test:macos"]
+  task default: ["test:ios", "test:tvos", "test:watchos", "test:macos"]
 else
   task default: ["test:swiftpm"]
 end
