@@ -61,12 +61,15 @@ extension World {
     }
 
     // MARK: - Just Before Each
-    internal func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+#if canImport(Darwin)
+    @objc(justBeforeEach:)
+    internal func objc_justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'justBeforeEach' cannot be used inside '\(currentPhase)', 'justBeforeEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendJustBeforeEach(closure)
     }
+#endif
 
     @nonobjc
     internal func justBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {

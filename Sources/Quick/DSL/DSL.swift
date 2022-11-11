@@ -179,7 +179,7 @@ public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosur
     - parameter closure: The closure to be run prior to each example and after any beforeEach blocks
 */
 
-public func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+public func justBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
     World.sharedWorld.justBeforeEach(closure)
 }
 
@@ -251,17 +251,6 @@ public func itBehavesLike<C>(_ behavior: Behavior<C>.Type, file: FileString = #f
     - parameter description: An arbitrary string describing the example or example group.
     - parameter closure: A closure that will not be evaluated.
 */
-public func pending(_ description: String, closure: () -> Void) {
-    World.sharedWorld.pending(description, closure: closure)
-}
-
-/**
-    Defines an example or example group that should not be executed. Use `pending` to temporarily disable
-    examples or groups that should not be run yet.
-
-    - parameter description: An arbitrary string describing the example or example group.
-    - parameter closure: A closure that will not be evaluated.
-*/
 public func pending(_ description: String, closure: () async throws -> Void) {
     World.sharedWorld.pending(description, closure: closure)
 }
@@ -288,16 +277,6 @@ public func xcontext(_ description: String, closure: () -> Void) {
     This disables the example and ensures the code within the closure is never run.
 */
 public func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
-    World.sharedWorld.xit(description, file: file, line: line, closure: closure)
-}
-
-/**
-    Use this to quickly mark an `it` closure as pending.
-    This disables the example and ensures the code within the closure is never run.
-
-    Note: This is a synchronous version.
-*/
-public func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.xit(description, file: file, line: line, closure: closure)
 }
 
@@ -331,16 +310,6 @@ public func fcontext(_ description: String, closure: () -> Void) {
     If any examples in the test suite are focused, only those examples are executed.
 */
 public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
-    World.sharedWorld.fit(description, file: file, line: line, closure: closure)
-}
-
-/**
-    Use this to quickly focus an `it` closure, focusing the example.
-    If any examples in the test suite are focused, only those examples are executed.
-
-    Note: This is a synchronous version.
-*/
-public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.fit(description, file: file, line: line, closure: closure)
 }
 
