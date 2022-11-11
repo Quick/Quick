@@ -35,6 +35,10 @@ class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
             fit("has a focused example that passes (3)") {}
         }
 
+        fit("focused tests can run on the main thread") { @MainActor in
+            expect(Thread.isMainThread).to(beTrue())
+        }
+
         fitBehavesLike("two passing shared examples")
         fitBehavesLike(FunctionalTests_FocusedSpec_Behavior.self) { () -> Void in }
     }
@@ -74,6 +78,6 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
             _FunctionalTests_FocusedSpec_Focused.self,
         ])
         #endif
-        XCTAssertEqual(result?.executionCount, 8)
+        XCTAssertEqual(result?.executionCount, 9)
     }
 }

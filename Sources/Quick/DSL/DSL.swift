@@ -292,16 +292,6 @@ public func xit(_ description: String, file: FileString = #file, line: UInt = #l
 }
 
 /**
-    Use this to quickly mark an `it` closure as pending.
-    This disables the example and ensures the code within the closure is never run.
-
-    Note: This is a synchronous version.
-*/
-public func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
-    World.sharedWorld.xit(description, file: file, line: line, closure: closure)
-}
-
-/**
     Use this to quickly mark an `itBehavesLike` closure as pending.
     This disables the example group defined by this behavior and ensures the code within is never run.
 */
@@ -331,16 +321,6 @@ public func fcontext(_ description: String, closure: () -> Void) {
     If any examples in the test suite are focused, only those examples are executed.
 */
 public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
-    World.sharedWorld.fit(description, file: file, line: line, closure: closure)
-}
-
-/**
-    Use this to quickly focus an `it` closure, focusing the example.
-    If any examples in the test suite are focused, only those examples are executed.
-
-    Note: This is a synchronous version.
-*/
-public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.fit(description, file: file, line: line, closure: closure)
 }
 
