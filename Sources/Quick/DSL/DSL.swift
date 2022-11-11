@@ -179,7 +179,7 @@ public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosur
     - parameter closure: The closure to be run prior to each example and after any beforeEach blocks
 */
 
-public func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+public func justBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
     World.sharedWorld.justBeforeEach(closure)
 }
 
@@ -244,17 +244,6 @@ public func itBehavesLike<C>(_ behavior: Behavior<C>.Type, file: FileString = #f
 }
 
 // MARK: - Pending
-/**
-    Defines an example or example group that should not be executed. Use `pending` to temporarily disable
-    examples or groups that should not be run yet.
-
-    - parameter description: An arbitrary string describing the example or example group.
-    - parameter closure: A closure that will not be evaluated.
-*/
-public func pending(_ description: String, closure: () -> Void) {
-    World.sharedWorld.pending(description, closure: closure)
-}
-
 /**
     Defines an example or example group that should not be executed. Use `pending` to temporarily disable
     examples or groups that should not be run yet.
