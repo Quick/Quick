@@ -85,7 +85,7 @@ QUICK_EXPORT void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
  */
 static inline void beforeSuite(QCKDSLEmptyBlock closure) {
     qck_beforeSuite(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 
 /**
@@ -100,7 +100,7 @@ static inline void beforeSuite(QCKDSLEmptyBlock closure) {
  */
 static inline void afterSuite(QCKDSLEmptyBlock closure) {
     qck_afterSuite(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Defines a group of shared examples. These examples can be re-used in several locations
@@ -114,7 +114,7 @@ static inline void afterSuite(QCKDSLEmptyBlock closure) {
  */
 static inline void sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
     qck_sharedExamples(name, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Defines an example group. Example groups are logical groupings of examples.
@@ -125,14 +125,14 @@ static inline void sharedExamples(NSString *name, QCKDSLSharedExampleBlock closu
  */
 static inline void describe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_describe(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Defines an example group. Equivalent to `describe`.
  */
 static inline void context(NSString *description, QCKDSLEmptyBlock closure) {
     qck_context(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Defines a closure to be run prior to each example in the current example
@@ -144,7 +144,7 @@ static inline void context(NSString *description, QCKDSLEmptyBlock closure) {
  */
 static inline void beforeEach(QCKDSLEmptyBlock closure) {
     qck_beforeEach(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Identical to QCKDSL.beforeEach, except the closure is provided with
@@ -152,7 +152,7 @@ static inline void beforeEach(QCKDSLEmptyBlock closure) {
  */
 static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_beforeEachWithMetadata(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Defines a closure to be run after each example in the current example
@@ -164,7 +164,7 @@ static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
  */
 static inline void afterEach(QCKDSLEmptyBlock closure) {
     qck_afterEach(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Identical to QCKDSL.afterEach, except the closure is provided with
@@ -172,7 +172,7 @@ static inline void afterEach(QCKDSLEmptyBlock closure) {
  */
 static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 static inline void aroundEach(QCKDSLAroundExampleBlock closure) __attribute__((unavailable("aroundEach is no longer supported for Objective-C tests."))) {};
 
@@ -188,7 +188,7 @@ static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closu
  */
 static inline void justBeforeEach(QCKDSLEmptyBlock closure) {
     qck_justBeforeEach(closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Defines an example or example group that should not be executed. Use `pending` to temporarily disable
@@ -199,7 +199,7 @@ static inline void justBeforeEach(QCKDSLEmptyBlock closure) {
  */
 static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
     qck_pending(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Use this to quickly mark a `describe` block as pending.
@@ -207,7 +207,7 @@ static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
  */
 static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xdescribe(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Use this to quickly mark a `context` block as pending.
@@ -215,7 +215,7 @@ static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
  */
 static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xcontext(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Use this to quickly focus a `describe` block, focusing the examples in the block.
@@ -224,14 +224,14 @@ static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
  */
 static inline void fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_fdescribe(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
     Use this to quickly focus a `context` block. Equivalent to `fdescribe`.
  */
 static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_fcontext(description, closure);
-}
+} NS_SWIFT_UNAVAILABLE("")
 
 #define it qck_it
 #define xit qck_xit
@@ -251,9 +251,9 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *description, QCKDSLSharedExampleContext context);
 
-QUICK_EXPORT QCKItBlock qck_it_builder(NSString *file, NSUInteger line);
-QUICK_EXPORT QCKItBlock qck_xit_builder(NSString *file, NSUInteger line);
-QUICK_EXPORT QCKItBlock qck_fit_builder(NSString *file, NSUInteger line);
-QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line);
-QUICK_EXPORT QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line);
-QUICK_EXPORT QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line);
+QUICK_EXPORT QCKItBlock qck_it_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+QUICK_EXPORT QCKItBlock qck_xit_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+QUICK_EXPORT QCKItBlock qck_fit_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+QUICK_EXPORT QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+QUICK_EXPORT QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");

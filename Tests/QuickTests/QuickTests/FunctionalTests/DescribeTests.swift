@@ -12,7 +12,7 @@ final class DescribeTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testDescribeThrowsIfUsedOutsideOfQuickSpec() {
-        expect { describe("this should throw an exception", {}) }.to(raiseException())
+        expect { describe("this should throw an exception", closure: {}) }.to(raiseException())
     }
 }
 
