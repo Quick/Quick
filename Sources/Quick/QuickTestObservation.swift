@@ -5,7 +5,7 @@ import XCTest
 
 /// A dummy protocol for calling the internal `+[QuickSpec buildExamplesIfNeeded]` method
 /// which is defined in Objective-C from Swift.
-@objc internal protocol _QuickSpecInternal {
+@objc internal protocol _QuickSpecInternal { // swiftlint:disable:this type_name
     static func buildExamplesIfNeeded()
 }
 

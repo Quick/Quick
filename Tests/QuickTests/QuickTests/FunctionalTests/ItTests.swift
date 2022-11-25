@@ -13,7 +13,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
         it("has a description with セレクター名に使えない文字が入っている 👊💥") {
             let name = "has a description with セレクター名に使えない文字が入っている 👊💥"
-            await expect(exampleMetadata?.example.name).to(equal(name))
+            expect(exampleMetadata?.example.name).to(equal(name))
         }
 
 #if canImport(Darwin)
@@ -84,8 +84,8 @@ class FunctionalTests_ItSpec: QuickSpec {
                 }
 
                 it("should have thrown an exception with the correct error message") {
-                    await expect(exception).toNot(beNil())
-                    await expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
+                    expect(exception).toNot(beNil())
+                    expect(exception?.reason).to(equal("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'."))
                 }
             }
 

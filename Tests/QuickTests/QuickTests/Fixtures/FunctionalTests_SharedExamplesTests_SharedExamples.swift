@@ -13,7 +13,7 @@ class FunctionalTests_SharedExamplesTests_SharedExamples: QuickConfiguration {
         sharedExamples("shared examples that take a context") { (sharedExampleContext: @escaping SharedExampleContext) in
             it("is passed the correct parameters via the context") {
                 let callsite = sharedExampleContext()["callsite"] as? String
-                await expect(callsite).to(equal("SharedExamplesSpec"))
+                expect(callsite).to(equal("SharedExamplesSpec"))
             }
         }
     }
