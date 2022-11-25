@@ -15,7 +15,7 @@ import XCTest
 ///
 /// - parameter specs: An array of QuickSpec subclasses to run
 /// - parameter configurations: An array QuickConfiguration subclasses for setting up
-//                              global suite configuration (optional)
+///                              global suite configuration (optional)
 /// - parameter testCases: An array of XCTestCase test cases, just as would be passed
 ///                        info `XCTMain` if you were using swift-corelibs-xctest directly.
 ///                        This allows for mixing Quick specs and XCTestCase tests in one run.
