@@ -149,6 +149,12 @@
 		AED9C8631CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8641CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
 		AED9C8651CC8A7BD00432F62 /* CrossReferencingSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */; };
+		B5F43E5A29301E9200468BCC /* TestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F43E5929301E9200468BCC /* TestState.swift */; };
+		B5F43E5B29301E9200468BCC /* TestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F43E5929301E9200468BCC /* TestState.swift */; };
+		B5F43E5C29301E9200468BCC /* TestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F43E5929301E9200468BCC /* TestState.swift */; };
+		B5F43E612930206600468BCC /* TestStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F43E5D29301F9100468BCC /* TestStateSpec.swift */; };
+		B5F43E622930206700468BCC /* TestStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F43E5D29301F9100468BCC /* TestStateSpec.swift */; };
+		B5F43E632930206900468BCC /* TestStateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F43E5D29301F9100468BCC /* TestStateSpec.swift */; };
 		CD1F6503226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
 		CD1F6504226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
 		CD1F6505226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */; };
@@ -397,6 +403,8 @@
 		89E8E59A290045AE003B08F0 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
+		B5F43E5929301E9200468BCC /* TestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestState.swift; sourceTree = "<group>"; };
+		B5F43E5D29301F9100468BCC /* TestStateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStateSpec.swift; sourceTree = "<group>"; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
 		CD21A025247C1385002C4762 /* QuickTestObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTestObservation.swift; sourceTree = "<group>"; };
 		CD261AC81DEC8B0000A8863C /* QuickConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickConfiguration.swift; sourceTree = "<group>"; };
@@ -730,6 +738,7 @@
 				DAB0136E19FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift */,
 				DA8F91AA19F3299E006F6675 /* SharedExamplesTests.swift */,
 				89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */,
+				B5F43E5D29301F9100468BCC /* TestStateSpec.swift */,
 			);
 			path = FunctionalTests;
 			sourceTree = "<group>";
@@ -842,6 +851,7 @@
 				34C586071C4AC5E500D4F057 /* ErrorUtility.swift */,
 				DAEB6B911943873100289F44 /* Supporting Files */,
 				CE175D4D1E8D6B4900EB5E84 /* Behavior.swift */,
+				B5F43E5929301E9200468BCC /* TestState.swift */,
 			);
 			name = Quick;
 			path = Sources/Quick;
@@ -1392,6 +1402,7 @@
 				CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1F1C431FE400253D19 /* QuickTestSuite.swift in Sources */,
 				1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */,
+				B5F43E5C29301E9200468BCC /* TestState.swift in Sources */,
 				CD21A028247C1385002C4762 /* QuickTestObservation.swift in Sources */,
 				CDE5BDFF2268CE97006E2F66 /* QuickConfiguration.swift in Sources */,
 				1F118D011BDCA536005013A2 /* ExampleHooks.swift in Sources */,
@@ -1439,6 +1450,7 @@
 				DA3E168C243F8C23001F7CCA /* AroundEachTests.swift in Sources */,
 				8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */,
 				1F118D111BDCA556005013A2 /* Configuration+AfterEachTests.swift in Sources */,
+				B5F43E612930206600468BCC /* TestStateSpec.swift in Sources */,
 				1F118D161BDCA556005013A2 /* BeforeEachTests.swift in Sources */,
 				DA5CBB4B1EAFA61D00297C9E /* CurrentSpecTests.swift in Sources */,
 				7B5358D01C3D4FC000A23FAA /* ContextTests.swift in Sources */,
@@ -1487,6 +1499,7 @@
 				CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1A1C431FE300253D19 /* QuickTestSuite.swift in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
+				B5F43E5B29301E9200468BCC /* TestState.swift in Sources */,
 				CD21A027247C1385002C4762 /* QuickTestObservation.swift in Sources */,
 				CDE5BDFE2268CE96006E2F66 /* QuickConfiguration.swift in Sources */,
 				DA6B30191A4DB0D500FFB148 /* Filter.swift in Sources */,
@@ -1534,6 +1547,7 @@
 				DA3E1689243F8C23001F7CCA /* AroundEachTests.swift in Sources */,
 				47FAEA371A3F49EB005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECC1A43442900043E50 /* AfterEachTests+ObjC.m in Sources */,
+				B5F43E622930206700468BCC /* TestStateSpec.swift in Sources */,
 				47876F7E1A49AD71002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				DA5CBB4A1EAFA61C00297C9E /* CurrentSpecTests.swift in Sources */,
 				7B5358CF1C3D4FBE00A23FAA /* ContextTests.swift in Sources */,
@@ -1630,6 +1644,7 @@
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				CE175D4E1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,
+				B5F43E5A29301E9200468BCC /* TestState.swift in Sources */,
 				CD21A026247C1385002C4762 /* QuickTestObservation.swift in Sources */,
 				CDE5BDFD2268CE95006E2F66 /* QuickConfiguration.swift in Sources */,
 				DA6B30181A4DB0D500FFB148 /* Filter.swift in Sources */,
@@ -1677,6 +1692,7 @@
 				DA3E1686243F8C23001F7CCA /* AroundEachTests.swift in Sources */,
 				47FAEA361A3F49E6005A1D2F /* BeforeEachTests+ObjC.m in Sources */,
 				470D6ECB1A43442400043E50 /* AfterEachTests+ObjC.m in Sources */,
+				B5F43E632930206900468BCC /* TestStateSpec.swift in Sources */,
 				47876F7D1A49AD63002575C7 /* BeforeSuiteTests+ObjC.m in Sources */,
 				DA5CBB491EAFA61A00297C9E /* CurrentSpecTests.swift in Sources */,
 				7B5358CE1C3D4FBC00A23FAA /* ContextTests.swift in Sources */,
