@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>QuickTestSuite Class Reference</title>
+    <title>TestState Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/QuickTestSuite" class="dashAnchor"></a>
-    <a title="QuickTestSuite Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/TestState" class="dashAnchor"></a>
+    <a title="TestState Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Quick 6.0.1 Docs</a> (81% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Quick Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        QuickTestSuite Class Reference
+        TestState Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -253,16 +253,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>QuickTestSuite</h1>
+            <h1>TestState</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">QuickTestSuite</span> <span class="p">:</span> <span class="kt">XCTestSuite</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">@propertyWrapper</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TestState</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
-            <p>A base class for a class cluster of Quick test suites, that should correctly
-build dynamic test suites for XCTest to execute.</p>
+            <p>A property wrapper that will automatically reset the contained value after each test.</p>
 
           </section>
           <section class="section task-group-section">
@@ -271,9 +271,9 @@ build dynamic test suites for XCTest to execute.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)QuickTestSuite(cm)selectedTestSuiteForTestCaseWithName:testName:"></a>
-                    <a name="//apple_ref/swift/Method/selectedTestSuite(forTestCaseWithName:testName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)QuickTestSuite(cm)selectedTestSuiteForTestCaseWithName:testName:">selectedTestSuite(forTestCaseWithName:<wbr>testName:<wbr>)</a>
+                    <a name="/s:5Quick9TestStateV12wrappedValuexSgvp"></a>
+                    <a name="//apple_ref/swift/Property/wrappedValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick9TestStateV12wrappedValuexSgvp">wrappedValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -281,24 +281,68 @@ build dynamic test suites for XCTest to execute.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Construct a test suite for a specific, selected subset of tests and test cases (rather
-than the default, which as all test cases).</p>
-
-<p>If this method is called multiple times for the same test case class, e.g..</p>
-
-<p>FooSpec, testBar
-   FooSpec, testBar</p>
-
-<p>It is expected that the first call should return a valid test suite, and
-all subsequent calls should return <code>nil</code>.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">selectedTestSuite</span><span class="p">(</span><span class="n">forTestCaseWithName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">testName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">QuickTestSuite</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">wrappedValue</span><span class="p">:</span> <span class="kt">T</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick9TestStateVACyxGycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick9TestStateVACyxGycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resets the property to nil after each test.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick9TestStateVyACyxGxyXAcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick9TestStateVyACyxGxyXAcfc">init(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the property to an initial value before each test and resets it to nil after each test.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">initialValue</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -309,33 +353,17 @@ all subsequent calls should return <code>nil</code>.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>name</em>
+                                <em>initialValue</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The name of the <code>XCTastCase</code>/<code>QuickSpec</code> subclass.</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>testName</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The name of the individual test to run (if specified).</p>
+                                  <p>An autoclosure to return the initial value to use before the test.</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A valid test case (if tests were added to the test suite to run), or nil (if tests were not added to the test suite to run)</p>
                       </div>
                     </section>
                   </div>
