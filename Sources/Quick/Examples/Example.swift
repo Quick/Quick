@@ -125,7 +125,7 @@ public class Example: _ExampleBase {
     static internal let recordSkipSelector = NSSelectorFromString("recordSkipWithDescription:sourceCodeContext:")
     #endif
 
-    internal func reportSkippedTest(_ testSkippedError: XCTSkip, name: String, callsite: Callsite) { // swiftlint:disable:this function_body_length
+    internal func reportSkippedTest(_ testSkippedError: XCTSkip, name: String, callsite: Callsite) {
         #if !canImport(Darwin)
             return // This functionality is only supported by Apple's proprietary XCTest, not by swift-corelibs-xctest
         #else // `NSSelectorFromString` requires the Objective-C runtime, which is not available on Linux.
