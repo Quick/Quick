@@ -13,7 +13,7 @@ class CurrentSpecTests: QuickSpec {
                 return result
                 #endif
             }()
-            await expect(name).to(match("returns the currently executing spec"))
+            expect(name).to(match("returns the currently executing spec"))
         }
 
         let currentSpecDuringSpecSetup = QuickSpec.current
