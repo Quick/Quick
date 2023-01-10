@@ -83,11 +83,11 @@ final public class QCKConfiguration: NSObject {
     }
 
     @nonobjc
-    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
     }
 #else
-    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
     }
 #endif
@@ -109,7 +109,7 @@ final public class QCKConfiguration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func beforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
+    public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         exampleHooks.appendBefore(closure)
     }
 
@@ -125,11 +125,11 @@ final public class QCKConfiguration: NSObject {
     }
 
     @nonobjc
-    public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
     }
 #else
-    public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
     }
 #endif
@@ -151,7 +151,7 @@ final public class QCKConfiguration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func afterEach(_ closure: @escaping AfterExampleAsyncClosure) {
+    public func afterEach(_ closure: @escaping AfterExampleClosure) {
         exampleHooks.appendAfter(closure)
     }
 
@@ -172,7 +172,7 @@ final public class QCKConfiguration: NSObject {
         - parameter closure: The closure to be executed before each example
                         in the test suite.
     */
-    public func aroundEach(_ closure: @escaping AroundExampleAsyncClosure) {
+    public func aroundEach(_ closure: @escaping AroundExampleClosure) {
         exampleHooks.appendAround(closure)
     }
 
@@ -180,7 +180,7 @@ final public class QCKConfiguration: NSObject {
         Identical to Quick.QCKConfiguration.aroundEach, except the closure receives
         metadata about the example that the closure wraps.
     */
-    public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosure) {
+    public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
         exampleHooks.appendAround(closure)
     }
 
@@ -189,7 +189,7 @@ final public class QCKConfiguration: NSObject {
         the given closure prior to any and all examples that are run.
         The two methods are functionally equivalent.
     */
-    public func beforeSuite(_ closure: @escaping BeforeSuiteAsyncClosure) {
+    public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
         suiteHooks.appendBefore(closure)
     }
 
@@ -198,7 +198,7 @@ final public class QCKConfiguration: NSObject {
         the given closure after all examples have been run.
         The two methods are functionally equivalent.
     */
-    public func afterSuite(_ closure: @escaping AfterSuiteAsyncClosure) {
+    public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
         suiteHooks.appendAfter(closure)
     }
 }

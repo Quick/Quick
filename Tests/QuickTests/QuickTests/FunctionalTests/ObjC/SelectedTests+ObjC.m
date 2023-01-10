@@ -41,33 +41,33 @@ beforeEach(^{
 
 it(@"correctly grabs only the tests specified", ^{
     if ([XCTestSuite respondsToSelector:@selector(testSuiteForTestCaseWithName:)] == NO) {
-        XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName:");
+        XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName");
         return;
     }
-    XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc/example1:"];
+    XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc/example1"];
 
     expect(suite.tests).to(haveCount(1));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1:]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1]"];
     }));
 });
 
 it(@"correctly grabs all tests in a test case if no specific test is specified", ^{
     if ([XCTestSuite respondsToSelector:@selector(testSuiteForTestCaseWithName:)] == NO) {
-        XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName:");
+        XCTSkip(@"Skipping. XCTestSuite does not respond to testSuiteForTestCaseWithName");
         return;
     }
     XCTestSuite *suite = [XCTestSuite testSuiteForTestCaseWithName:@"FunctionalTests_SimulateTests_Objc"];
 
     expect(suite.tests).to(haveCount(3));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1:]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example1]"];
     }));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example2:]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example2]"];
     }));
     expect(suite.tests).to(containElementSatisfying(^BOOL(XCTest *test) {
-        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example3:]"];
+        return [test.name isEqualToString:@"-[FunctionalTests_SimulateTests_Objc example3]"];
     }));
 });
 

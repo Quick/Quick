@@ -28,9 +28,9 @@ public class Example: _ExampleBase {
 
     private let internalDescription: String
     private let flags: FilterFlags
-    private let closure: () async throws -> Void
+    private let closure: () throws -> Void
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
         self.internalDescription = description
         self.callsite = callsite
         self.flags = flags
@@ -54,11 +54,11 @@ public class Example: _ExampleBase {
         return "\(groupName), \(description)"
     }
 
-    public func run() async {
+    public func run() {
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
-            await world.suiteHooks.executeBefores()
+            world.suiteHooks.executeBefores()
         }
 
         let exampleMetadata = ExampleMetadata(example: self, exampleIndex: world.numberOfExamplesRun)
@@ -69,11 +69,11 @@ public class Example: _ExampleBase {
 
         group!.phase = .beforesExecuting
 
-        let runExample: () async -> Void = { [closure, name, callsite] in
+        let runExample: () -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {
-                try await closure()
+                try closure()
             } catch {
                 if let stopTestError = error as? StopTest {
                     self.reportStoppedTest(stopTestError)
@@ -89,21 +89,21 @@ public class Example: _ExampleBase {
 
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
         let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { await wrapper(exampleMetadata, closure) }
+            return { wrapper(exampleMetadata, closure) }
         }
 
         let allWrappers = group!.wrappers + world.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { await wrapper(exampleMetadata, closure) }
+            return { wrapper(exampleMetadata, closure) }
         }
-        await wrappedExample()
+        wrappedExample()
 
         group!.phase = .aftersFinished
 
         world.numberOfExamplesRun += 1
 
         if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
-            await world.suiteHooks.executeAfters()
+            world.suiteHooks.executeAfters()
         }
     }
 

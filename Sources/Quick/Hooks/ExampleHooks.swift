@@ -4,51 +4,51 @@ import Foundation
     A container for closures to be executed before and after each example.
 */
 final internal class ExampleHooks {
-    internal var justBeforeEachStatements: [AroundExampleWithMetadataAsyncClosure] = []
-    internal var wrappers: [AroundExampleWithMetadataAsyncClosure] = []
+    internal var justBeforeEachStatements: [AroundExampleWithMetadataClosure] = []
+    internal var wrappers: [AroundExampleWithMetadataClosure] = []
     internal var phase: HooksPhase = .nothingExecuted
 
-    internal func appendJustBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
+    internal func appendJustBeforeEach(_ closure: @escaping BeforeExampleClosure) {
         justBeforeEachStatements.append { _, runExample in
-            await closure()
-            await runExample()
+            closure()
+            runExample()
         }
     }
 
-    internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
+    internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         wrappers.append { exampleMetadata, runExample in
-            await closure(exampleMetadata)
-            await runExample()
+            closure(exampleMetadata)
+            runExample()
         }
     }
 
-    internal func appendBefore(_ closure: @escaping BeforeExampleAsyncClosure) {
+    internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
         wrappers.append { _, runExample in
-            await closure()
-            await runExample()
+            closure()
+            runExample()
         }
     }
 
-    internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
+    internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
         wrappers.prepend { exampleMetadata, runExample in
-            await runExample()
-            await closure(exampleMetadata)
+            runExample()
+            closure(exampleMetadata)
         }
     }
 
-    internal func appendAfter(_ closure: @escaping AfterExampleAsyncClosure) {
+    internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
         wrappers.prepend { _, runExample in
-            await runExample()
-            await closure()
+            runExample()
+            closure()
         }
     }
 
-    internal func appendAround(_ closure: @escaping AroundExampleWithMetadataAsyncClosure) {
+    internal func appendAround(_ closure: @escaping AroundExampleWithMetadataClosure) {
         wrappers.append(closure)
     }
 
-    internal func appendAround(_ closure: @escaping AroundExampleAsyncClosure) {
-        wrappers.append { _, runExample in await closure(runExample) }
+    internal func appendAround(_ closure: @escaping AroundExampleClosure) {
+        wrappers.append { _, runExample in closure(runExample) }
     }
 }
 

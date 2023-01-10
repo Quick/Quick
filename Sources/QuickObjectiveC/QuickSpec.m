@@ -129,26 +129,24 @@ static QuickSpec *currentSpec = nil;
  @return The selector of the newly defined instance method.
  */
 + (SEL)addInstanceMethodForExample:(Example *)example classSelectorNames:(NSMutableSet<NSString*> *)selectorNames {
-    IMP implementation = imp_implementationWithBlock(^(QuickSpec *self, void (^completionHandler)(void)){
+    IMP implementation = imp_implementationWithBlock(^(QuickSpec *self){
         self.example = example;
         currentSpec = self;
-        [example runWithCompletionHandler:completionHandler];
+        [example run];
     });
 
-    const char *types = [[NSString stringWithFormat:@"%s%s%s@?<v@?>", @encode(void), @encode(id), @encode(SEL)] UTF8String];
+    const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];
 
     NSString *originalName = [QCKObjCStringUtils c99ExtendedIdentifierFrom:example.name];
     NSString *selectorName = originalName;
     NSUInteger i = 2;
 
-    while ([selectorNames containsObject:[selectorName stringByAppendingFormat:@"%s", @encode(SEL)]]) {
+    while ([selectorNames containsObject:selectorName]) {
         selectorName = [NSString stringWithFormat:@"%@_%tu", originalName, i++];
     }
 
-    selectorName = [NSString stringWithFormat:@"%@%s", selectorName, @encode(SEL)];
-
     [selectorNames addObject:selectorName];
-    
+
     SEL selector = NSSelectorFromString(selectorName);
     class_addMethod(self, selector, implementation, types);
 

@@ -51,14 +51,6 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
             }
         }
 
-        describe("execution time") {
-            afterEach { @MainActor in
-                expect(Thread.isMainThread).to(beTrue())
-            }
-
-            it("executes beforeEach's on the main thread") {}
-        }
-
 #if canImport(Darwin) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including afterEach in it block") {

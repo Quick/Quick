@@ -24,7 +24,7 @@ public struct TestState<T> {
     public init(_ initialValue: @escaping @autoclosure () -> T) {
         aroundEach { [container] runExample in
             container.value = initialValue()
-            await runExample()
+            runExample()
             container.value = nil
         }
     }

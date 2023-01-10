@@ -9,7 +9,7 @@ public typealias BeforeExampleAsyncClosure = () async -> Void
     A closure executed before an example is run.
     Synchronous version for Objc support.
  */
-public typealias BeforeExampleClosure = @MainActor () -> Void
+public typealias BeforeExampleClosure = () -> Void
 
 /**
     An async closure executed before an example is run. The closure is given example metadata,
@@ -22,7 +22,7 @@ public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: Exa
     which contains information about the example that is about to be run.
     Synchronus version for Objc support.
  */
-public typealias BeforeExampleWithMetadataClosure = @MainActor (_ exampleMetadata: ExampleMetadata) -> Void
+public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
     An async closure executed after an example is run.
@@ -49,6 +49,19 @@ public typealias AfterExampleWithMetadataAsyncClosure = BeforeExampleWithMetadat
 public typealias AfterExampleWithMetadataClosure = BeforeExampleWithMetadataClosure
 
 /**
+    A closure which wraps an example. The closure must call runExample() exactly once.
+*/
+public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) -> Void
+
+/**
+    A closure which wraps an example. The closure is given example metadata,
+    which contains information about the example that the wrapper will run.
+    The closure must call runExample() exactly once.
+*/
+public typealias AroundExampleWithMetadataClosure =
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
+
+/**
     An async closure which wraps an example. The closure must call runExample() exactly once.
 */
 public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -> Void) async -> Void
@@ -72,7 +85,7 @@ public typealias BeforeSuiteAsyncClosure = () async -> Void
     A closure executed before any examples are run.
     Synchronous version for Objc support.
 */
-public typealias BeforeSuiteClosure = @MainActor () -> Void
+public typealias BeforeSuiteClosure = () -> Void
 
 /**
     A closure executed after all examples have finished running.
