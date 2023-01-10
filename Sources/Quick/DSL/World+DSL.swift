@@ -23,7 +23,7 @@ extension World {
 
     // MARK: - Example groups.
     internal func describe(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'describe' cannot be used inside '\(currentPhase)', 'describe' may only be used inside 'context' or 'describe'.")
         }
         guard currentExampleGroup != nil else {
@@ -36,7 +36,7 @@ extension World {
     }
 
     internal func context(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'context' cannot be used inside '\(currentPhase)', 'context' may only be used inside 'context' or 'describe'.")
         }
         self.describe(description, flags: flags, closure: closure)
@@ -54,7 +54,7 @@ extension World {
 #if canImport(Darwin)
     @objc(justBeforeEach:)
     internal func objc_justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'justBeforeEach' cannot be used inside '\(currentPhase)', 'justBeforeEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendJustBeforeEach(closure)
@@ -63,7 +63,7 @@ extension World {
 
     @nonobjc
     internal func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'justBeforeEach' cannot be used inside '\(currentPhase)', 'justBeforeEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendJustBeforeEach(closure)
@@ -73,7 +73,7 @@ extension World {
 #if canImport(Darwin)
     @objc(beforeEachWithMetadata:)
     internal func objc_beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendBefore(closure)
@@ -81,14 +81,14 @@ extension World {
 #endif
     @nonobjc
     internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendBefore(closure)
     }
 
     internal func beforeEach(_ closure: @escaping BeforeExampleClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendBefore(closure)
@@ -98,7 +98,7 @@ extension World {
 #if canImport(Darwin)
     @objc(afterEachWithMetadata:)
     internal func objc_afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendAfter(closure)
@@ -106,14 +106,14 @@ extension World {
 #endif
     @nonobjc
     internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendAfter(closure)
     }
 
     internal func afterEach(_ closure: @escaping AfterExampleClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'.")
         }
         currentExampleGroup.hooks.appendAfter(closure)
@@ -122,7 +122,7 @@ extension World {
     // MARK: - Around Each
     @nonobjc
     internal func aroundEach(_ closure: @escaping AroundExampleClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
         }
         currentExampleGroup.hooks.appendAround(closure)
@@ -130,7 +130,7 @@ extension World {
 
     @nonobjc
     internal func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
         }
         currentExampleGroup.hooks.appendAround(closure)
@@ -145,7 +145,7 @@ extension World {
         if aftersCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'.")
         }
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'.")
         }
         let callsite = Callsite(file: file, line: line)
@@ -166,7 +166,7 @@ extension World {
     // MARK: - Shared Behavior
     @nonobjc
     internal func itBehavesLike(_ name: String, sharedExampleContext: @escaping SharedExampleContext, flags: FilterFlags = [:], file: FileString, line: UInt) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'itBehavesLike' cannot be used inside '\(currentPhase)', 'itBehavesLike' may only be used inside 'context' or 'describe'.")
         }
         let callsite = Callsite(file: file, line: line)
@@ -195,7 +195,7 @@ extension World {
     }
 
     internal func itBehavesLike<C>(_ behavior: Behavior<C>.Type, context: @escaping () -> C, flags: FilterFlags = [:], file: FileString, line: UInt) {
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'itBehavesLike' cannot be used inside '\(currentPhase)', 'itBehavesLike' may only be used inside 'context' or 'describe'.")
         }
         let callsite = Callsite(file: file, line: line)
@@ -230,7 +230,7 @@ extension World {
         if aftersCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'afterEach', 'it' may only be used inside 'context' or 'describe'.")
         }
-        guard currentExampleMetadata == nil else {
+        guard currentSpec == nil else {
             raiseError("'it' cannot be used inside 'it', 'it' may only be used inside 'context' or 'describe'.")
         }
         let callsite = Callsite(file: file, line: line)

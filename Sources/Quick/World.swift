@@ -1,4 +1,5 @@
 import Foundation
+import XCTest
 
 /**
     A closure that, when evaluated, returns a dictionary of key-value
@@ -47,6 +48,12 @@ final internal class World: _WorldBase {
     */
 
     internal var currentExampleMetadata: ExampleMetadata?
+
+    /**
+        The current running ``AsyncSpec`` or ``QuickSpec``.
+        Warning: Don't be confused by the return type. This only returns either the current AsyncSpec or QuickSpec.
+     */
+    internal var currentSpec: XCTestCase? { AsyncSpec.current ?? QuickSpec.current }
 
     internal var numberOfExamplesRun = 0
 

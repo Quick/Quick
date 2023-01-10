@@ -1,43 +1,20 @@
 import XCTest
 
-// NOTE: This file is not intended to be included in the Xcode project or CocoaPods.
-//       It is picked up by the Swift Package Manager during its build process.
-
-#if SWIFT_PACKAGE
-
-#if canImport(QuickObjCRuntime)
-import QuickObjCRuntime
-
-public typealias QuickSpecBase = _QuickSpecBase
-#else
-public typealias QuickSpecBase = XCTestCase
-#endif
-
-open class QuickSpec: QuickSpecBase {
+open class AsyncSpec: XCTestCase {
     /// Returns the currently executing spec. Use in specs that require XCTestCase
     /// methods, e.g. expectation(description:).
-    public private(set) static var current: QuickSpec!
+    public private(set) static var current: AsyncSpec?
 
-    private var example: Example? {
+    private var example: AsyncExample? {
         didSet {
-            QuickSpec.current = self
+            AsyncSpec.current = self
         }
     }
 
-    open func spec() {}
+    @AsyncSpecBuilder
+    open class func spec() -> [AsyncExample] {}
 
-#if !canImport(Darwin)
-    public required init() {
-        super.init(name: "", testClosure: { _ in })
-    }
-    public required init(name: String, testClosure: @escaping (XCTestCase) throws -> Swift.Void) {
-        super.init(name: name, testClosure: testClosure)
-    }
-#else
-    public required override init() {
-        super.init()
-    }
-
+#if canImport(Darwin)
     /// This method is used as a hook for the following two purposes
     ///
     /// 1. Performing all configurations
@@ -52,7 +29,7 @@ open class QuickSpec: QuickSpecBase {
 
         // Let's gather examples for each spec classes. This has the same effect
         // as listing spec classes in `LinuxMain.swift` on Linux.
-        gatherExamplesIfNeeded()
+        _ = testMethodSelectors()
 
         return super.defaultTestSuite
     }
@@ -73,8 +50,8 @@ open class QuickSpec: QuickSpecBase {
         return super.instancesRespond(to: aSelector)
     }
 
-    override open class func _qck_testMethodSelectors() -> [String] {
-        let examples = World.sharedWorld.examples(forSpecClass: self)
+    private class func testMethodSelectors() -> [String] {
+        let examples = self.spec()
 
         var selectorNames = Set<String>()
         return examples.map { example in
@@ -83,15 +60,18 @@ open class QuickSpec: QuickSpecBase {
         }
     }
 
-    private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames: inout Set<String>) -> Selector {
-        let block: @convention(block) (QuickSpec) -> Void = { spec in
+    private static func addInstanceMethod(for example: AsyncExample, classSelectorNames selectorNames: inout Set<String>) -> Selector {
+        let block: @convention(block) (AsyncSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
             spec.example = example
-            example.run()
-            QuickSpec.current = nil
+            Task {
+                await example.run()
+                completionHandler()
+                AsyncSpec.current = nil
+            }
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        let originalName = example.name.c99ExtendedIdentifier
+        let originalName = "test \(example.name)"
         var selectorName = originalName
         var index: UInt = 2
 
@@ -103,41 +83,25 @@ open class QuickSpec: QuickSpecBase {
         selectorNames.insert(selectorName)
 
         let selector = NSSelectorFromString(selectorName)
-        class_addMethod(self, selector, implementation, "v@:")
+        class_addMethod(self, selector, implementation, "v@:@?<v@?>")
 
         return selector
     }
-#endif
+#endif // canImport(Darwin)
 
 #if !canImport(Darwin)
-    public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
-        gatherExamplesIfNeeded()
+    public class var allTests: [(String, (AsyncSpec) -> () throws -> Void)] {
+        let examples = self.spec()
 
-        let examples = World.sharedWorld.examples(forSpecClass: self)
-        let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
-            return (example.name, { spec in
+        let result = examples.map { example -> (String, (AsyncSpec) -> () throws -> Void) in
+            return (example.name, asyncTest { spec in
                 return {
                     spec.example = example
-                    example.run()
-                    QuickSpec.current = nil
+                    await example.run()
                 }
             })
         }
         return result
     }
-#endif
-
-    internal static func gatherExamplesIfNeeded() {
-        let world = World.sharedWorld
-        let rootExampleGroup = world.rootExampleGroup(forSpecClass: self)
-        guard rootExampleGroup.examples.isEmpty else {
-            return
-        }
-
-        world.performWithCurrentExampleGroup(rootExampleGroup) {
-            self.init().spec()
-        }
-    }
+#endif // !canImport(Darwin)
 }
-
-#endif
