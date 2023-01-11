@@ -13,7 +13,7 @@ class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
     }
 }
 class FunctionalTests_PendingSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         xit("an example that will not run") {
             expect(true).to(beFalsy())
         }

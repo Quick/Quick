@@ -34,7 +34,7 @@
  and examples.
 
  @code
- override func spec() {
+ override class func spec() {
      describe("winter") {
          it("is coming") {
              // ...
@@ -45,7 +45,7 @@
 
  See DSL.swift for more information on what syntax is available.
  */
-- (void)spec;
++ (void)spec;
 
 /**
  Returns the currently executing spec. Use in specs that require XCTestCase

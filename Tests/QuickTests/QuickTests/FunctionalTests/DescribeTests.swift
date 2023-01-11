@@ -12,12 +12,12 @@ final class DescribeTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testDescribeThrowsIfUsedOutsideOfQuickSpec() {
-        expect { describe("this should throw an exception", closure: {}) }.to(raiseException())
+        expect { QuickSpec.describe("this should throw an exception", closure: {}) }.to(raiseException())
     }
 }
 
 class QuickDescribeTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("Describe") {
             it("should throw an exception if used in an it block") {
                 expect {

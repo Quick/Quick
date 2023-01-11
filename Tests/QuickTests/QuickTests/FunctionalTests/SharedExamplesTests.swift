@@ -4,20 +4,20 @@ import Quick
 import Nimble
 
 class FunctionalTests_SharedExamples_Spec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         itBehavesLike("a group of three shared examples")
     }
 }
 
 class FunctionalTests_SharedExamples_ContextSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         itBehavesLike("shared examples that take a context") { ["callsite": "SharedExamplesSpec"] }
     }
 }
 
 #if canImport(Darwin) && !SWIFT_PACKAGE
 class FunctionalTests_SharedExamples_ErrorSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("error handling when misusing ordering") {
             it("should throw an exception when including itBehavesLike in it block") {
                 expect {

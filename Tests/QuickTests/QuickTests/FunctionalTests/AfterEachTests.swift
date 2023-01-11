@@ -14,7 +14,7 @@ private enum AfterEachType {
 private var afterEachOrder = [AfterEachType]()
 
 class FunctionalTests_AfterEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("afterEach ordering") {
             afterEach { afterEachOrder.append(.outerOne) }
             afterEach { afterEachOrder.append(.outerTwo) }

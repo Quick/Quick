@@ -4,13 +4,13 @@ import Nimble
 import XCTest
 
 class FunctionalTests_BehaviorTests_Spec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         itBehavesLike(FunctionalTests_BehaviorTests_Behavior2.self) { () -> Void in }
     }
 }
 
 class FunctionalTests_BehaviorTests_ContextSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         itBehavesLike(FunctionalTests_BehaviorTests_Behavior.self) {
             "BehaviorSpec"
         }
@@ -19,7 +19,7 @@ class FunctionalTests_BehaviorTests_ContextSpec: QuickSpec {
 
 #if canImport(Darwin) && !SWIFT_PACKAGE
 class FunctionalTests_BehaviorTests_ErrorSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("error handling when misusing ordering") {
             it("should throw an exception when including itBehavesLike in it block") {
                 expect {

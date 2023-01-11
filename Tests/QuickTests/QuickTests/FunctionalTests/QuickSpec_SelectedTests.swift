@@ -13,7 +13,7 @@ class SimulateSelectedTests_TestCase: QuickSpec {
         return .init(name: "Selected tests")
     }
 
-    override func spec() {
+    override class func spec() {
         it("example1") { }
         it("example2") { }
         it("example3") { }
@@ -21,7 +21,7 @@ class SimulateSelectedTests_TestCase: QuickSpec {
 }
 
 class SimulateAllTests_TestCase: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("example1") { }
         it("example2") { }
         it("example3") { }

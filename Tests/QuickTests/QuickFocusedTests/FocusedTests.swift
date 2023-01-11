@@ -26,7 +26,7 @@ class FunctionalTests_FocusedSpec_Behavior: Behavior<Void> {
 // `specs` array).
 
 class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("has an unfocused example that fails, but is never run") { fail() }
         fit("has a focused example that passes (1)") {}
 
@@ -41,7 +41,7 @@ class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
 }
 
 class _FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("has an unfocused example that fails, but is never run") { fail() }
 
         describe("an unfocused example group that is never run") {

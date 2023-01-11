@@ -3,7 +3,7 @@ import Quick
 import Nimble
 
 class Configuration_AfterEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         beforeEach {
             FunctionalTests_Configuration_AfterEachWasExecuted = false
         }

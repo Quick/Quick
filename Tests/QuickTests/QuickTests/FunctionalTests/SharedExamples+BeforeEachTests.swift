@@ -17,7 +17,7 @@ class FunctionalTests_SharedExamples_BeforeEachTests_SharedExamples: QuickConfig
 }
 
 class FunctionalTests_SharedExamples_BeforeEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         beforeEach { specBeforeEachExecutedCount += 1 }
         it("executes the spec beforeEach once") {}
         itBehavesLike("a group of three shared examples with a beforeEach")
