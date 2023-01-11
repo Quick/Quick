@@ -11,7 +11,7 @@
 
     - parameter closure: The closure to be run prior to any examples in the test suite.
 */
-public func beforeSuite(_ closure: @escaping BeforeSuiteAsyncClosure) {
+public func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
     World.sharedWorld.beforeSuite(closure)
 }
 
@@ -26,7 +26,7 @@ public func beforeSuite(_ closure: @escaping BeforeSuiteAsyncClosure) {
 
     - parameter closure: The closure to be run after all of the examples in the test suite.
 */
-public func afterSuite(_ closure: @escaping AfterSuiteAsyncClosure) {
+public func afterSuite(_ closure: @escaping AfterSuiteClosure) {
     World.sharedWorld.afterSuite(closure)
 }
 
@@ -90,7 +90,7 @@ public func context(_ description: String, closure: () -> Void) {
 
     - parameter closure: The closure to be run prior to each example.
 */
-public func beforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
+public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
     World.sharedWorld.beforeEach(closure)
 }
 
@@ -98,7 +98,7 @@ public func beforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
     Identical to Quick.DSL.beforeEach, except the closure is provided with
     metadata on the example that the closure is being run prior to.
 */
-public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
+public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
     World.sharedWorld.beforeEach(closure: closure)
 }
 
@@ -111,7 +111,7 @@ public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataAsyncClosur
 
     - parameter closure: The closure to be run after each example.
 */
-public func afterEach(_ closure: @escaping AfterExampleAsyncClosure) {
+public func afterEach(_ closure: @escaping AfterExampleClosure) {
     World.sharedWorld.afterEach(closure)
 }
 
@@ -119,7 +119,7 @@ public func afterEach(_ closure: @escaping AfterExampleAsyncClosure) {
     Identical to Quick.DSL.afterEach, except the closure is provided with
     metadata on the example that the closure is being run after.
 */
-public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
+public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
     World.sharedWorld.afterEach(closure: closure)
 }
 
@@ -133,7 +133,7 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure)
 
         aroundEach { runExample in
             doSomeSetup()
-            await runExample()
+            runExample()
             doSomeCleanup()
         }
 
@@ -142,9 +142,9 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure)
     in its own autorelease pool (provided by Task) requires aroundEach:
 
         aroundEach { runExample in
-            await Task {
-                await runExample()
-            }.value
+            autoreleasepool {
+                runExample()
+            }
             checkObjectsNoLongerRetained()
         }
 
@@ -157,7 +157,7 @@ public func afterEach(_ closure: @escaping AfterExampleWithMetadataAsyncClosure)
 
     - parameter closure: The closure that wraps around each example.
 */
-public func aroundEach(_ closure: @escaping AroundExampleAsyncClosure) {
+public func aroundEach(_ closure: @escaping AroundExampleClosure) {
     World.sharedWorld.aroundEach(closure)
 }
 
@@ -165,7 +165,7 @@ public func aroundEach(_ closure: @escaping AroundExampleAsyncClosure) {
     Identical to Quick.DSL.aroundEach, except the closure receives metadata
     about the example that the closure wraps.
 */
-public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosure) {
+public func aroundEach(_ closure: @escaping AroundExampleWithMetadataClosure) {
     World.sharedWorld.aroundEach(closure)
 }
 
@@ -179,7 +179,7 @@ public func aroundEach(_ closure: @escaping AroundExampleWithMetadataAsyncClosur
     - parameter closure: The closure to be run prior to each example and after any beforeEach blocks
 */
 
-public func justBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
+public func justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
     World.sharedWorld.justBeforeEach(closure)
 }
 
@@ -192,7 +192,7 @@ public func justBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
     - parameter file: The absolute path to the file containing the example. A sensible default is provided.
     - parameter line: The line containing the example. A sensible default is provided.
 */
-public func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
+public func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.it(description, file: file, line: line, closure: closure)
 }
 
@@ -251,7 +251,7 @@ public func itBehavesLike<C>(_ behavior: Behavior<C>.Type, file: FileString = #f
     - parameter description: An arbitrary string describing the example or example group.
     - parameter closure: A closure that will not be evaluated.
 */
-public func pending(_ description: String, closure: () async throws -> Void) {
+public func pending(_ description: String, closure: () throws -> Void) {
     World.sharedWorld.pending(description, closure: closure)
 }
 
@@ -276,7 +276,7 @@ public func xcontext(_ description: String, closure: () -> Void) {
     Use this to quickly mark an `it` closure as pending.
     This disables the example and ensures the code within the closure is never run.
 */
-public func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
+public func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.xit(description, file: file, line: line, closure: closure)
 }
 
@@ -309,7 +309,7 @@ public func fcontext(_ description: String, closure: () -> Void) {
     Use this to quickly focus an `it` closure, focusing the example.
     If any examples in the test suite are focused, only those examples are executed.
 */
-public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
+public func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
     World.sharedWorld.fit(description, file: file, line: line, closure: closure)
 }
 
