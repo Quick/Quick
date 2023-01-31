@@ -1,37 +1,7 @@
 import Foundation
 import XCTest
 
-#if canImport(Darwin)
-// swiftlint:disable type_name
-@objcMembers
-public class _ExampleBase: NSObject {}
-#else
-public class _ExampleBase: NSObject {}
-// swiftlint:enable type_name
-#endif
-
-/**
-    The common superclass of both Example and AsyncExample. This is mostly used for determining filtering (focusing or pending) and other cases where we want to apply something to any kind of example.
- */
-public class ExampleBase: _ExampleBase {
-    internal let flags: FilterFlags
-
-    init(flags: FilterFlags) {
-        self.flags = flags
-    }
-
-    /**
-        Evaluates the filter flags set on this example and on the example groups
-        this example belongs to. Flags set on the example are trumped by flags on
-        the example group it belongs to. Flags on inner example groups are trumped
-        by flags on outer example groups.
-    */
-    internal var filterFlags: FilterFlags {
-        [:]
-    }
-}
-
-public class Example: ExampleBase {
+public class AsyncExample: ExampleBase {
     /**
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
@@ -45,12 +15,12 @@ public class Example: ExampleBase {
     */
     public var callsite: Callsite
 
-    weak internal var group: ExampleGroup?
+    weak internal var group: AsyncExampleGroup?
 
     private let internalDescription: String
-    private let closure: () throws -> Void
+    private let closure: () async throws -> Void
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
         self.internalDescription = description
         self.callsite = callsite
         self.closure = closure
@@ -74,26 +44,27 @@ public class Example: ExampleBase {
         return "\(groupName), \(description)"
     }
 
-    public func run() {
+    public func run() async {
+        let asyncWorld = AsyncWorld.sharedWorld
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
             world.suiteHooks.executeBefores()
         }
 
-        let exampleMetadata = ExampleMetadata(example: self, exampleIndex: world.numberOfExamplesRun)
-        world.currentExampleMetadata = exampleMetadata
+        let exampleMetadata = AsyncExampleMetadata(example: self, exampleIndex: asyncWorld.numberOfAsyncExamplesRun)
+        asyncWorld.currentExampleMetadata = exampleMetadata
         defer {
-            world.currentExampleMetadata = nil
+            asyncWorld.currentExampleMetadata = nil
         }
 
         group!.phase = .beforesExecuting
 
-        let runExample: () -> Void = { [closure, name, callsite] in
+        let runExample: () async -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {
-                try closure()
+                try await closure()
             } catch {
                 if let stopTestError = error as? StopTest {
                     self.reportStoppedTest(stopTestError)
@@ -107,22 +78,22 @@ public class Example: ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
-        let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
+        let allJustBeforeEachStatements = group!.justBeforeEachStatements
         let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { await wrapper(exampleMetadata, closure) }
         }
 
-        let allWrappers = group!.wrappers + world.exampleHooks.wrappers
+        let allWrappers = group!.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { await wrapper(exampleMetadata, closure) }
         }
-        wrappedExample()
+        await wrappedExample()
 
         group!.phase = .aftersFinished
 
-        world.numberOfSyncExamplesRun += 1
+        asyncWorld.numberOfAsyncExamplesRun += 1
 
-        if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
+        if !asyncWorld.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
             world.suiteHooks.executeAfters()
         }
     }
@@ -157,9 +128,9 @@ public class Example: ExampleBase {
                 For now, we'll just benignly ignore skipped tests.
             """
 
-            guard let testRun = QuickSpec.current.testRun else {
+            guard let testRun = AsyncSpec.current?.testRun else {
                 print("""
-                     [Quick Warning]: `QuickSpec.current.testRun` was unexpectededly `nil`.
+                     [Quick Warning]: `AsyncSpec.current?.testRun` was unexpectededly `nil`.
                 """ + messageSuffix)
                 return
             }
@@ -229,9 +200,9 @@ public class Example: ExampleBase {
                 compactDescription: description,
                 sourceCodeContext: sourceCodeContext
             )
-            QuickSpec.current.record(issue)
+            AsyncSpec.current?.record(issue)
         #else
-            QuickSpec.current.recordFailure(
+            AsyncSpec.current?.recordFailure(
                 withDescription: description,
                 inFile: file,
                 atLine: Int(callsite.line),
@@ -259,9 +230,9 @@ public class Example: ExampleBase {
                 compactDescription: stopTestError.failureDescription,
                 sourceCodeContext: sourceCodeContext
             )
-            QuickSpec.current.record(issue)
+            AsyncSpec.current?.record(issue)
         #else
-            QuickSpec.current.recordFailure(
+            AsyncSpec.current?.recordFailure(
                 withDescription: stopTestError.failureDescription,
                 inFile: file,
                 atLine: Int(callsite.line),
@@ -271,12 +242,12 @@ public class Example: ExampleBase {
     }
 }
 
-extension Example {
+extension AsyncExample {
     /**
         Returns a boolean indicating whether two Example objects are equal.
         If two examples are defined at the exact same callsite, they must be equal.
     */
-    @nonobjc public static func == (lhs: Example, rhs: Example) -> Bool {
+    @nonobjc public static func == (lhs: AsyncExample, rhs: AsyncExample) -> Bool {
         return lhs.callsite == rhs.callsite
     }
 }

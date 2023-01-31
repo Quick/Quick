@@ -1,25 +1,21 @@
 import Foundation
 
-internal protocol Filterable {
-    var filterFlags: FilterFlags { get }
-}
-
 /**
     Example groups are logical groupings of examples, defined with
     the `describe` and `context` functions. Example groups can share
     setup and teardown code.
 */
-final public class ExampleGroup: NSObject, Filterable {
-    weak internal var parent: ExampleGroup?
-    internal let hooks = ExampleHooks()
+final public class AsyncExampleGroup: CustomStringConvertible {
+    weak internal var parent: AsyncExampleGroup?
+    internal let hooks = AsyncExampleHooks()
 
     internal var phase: HooksPhase = .nothingExecuted
 
     private let internalDescription: String
     private let flags: FilterFlags
     private let isInternalRootExampleGroup: Bool
-    private var childGroups = [ExampleGroup]()
-    private var childExamples = [Example]()
+    private var childGroups = [AsyncExampleGroup]()
+    private var childExamples = [AsyncExample]()
 
     internal init(description: String, flags: FilterFlags, isInternalRootExampleGroup: Bool = false) {
         self.internalDescription = description
@@ -27,7 +23,7 @@ final public class ExampleGroup: NSObject, Filterable {
         self.isInternalRootExampleGroup = isInternalRootExampleGroup
     }
 
-    public override var description: String {
+    public var description: String {
         return internalDescription
     }
 
@@ -35,16 +31,9 @@ final public class ExampleGroup: NSObject, Filterable {
         Returns a list of examples that belong to this example group,
         or to any of its descendant example groups.
     */
-    #if canImport(Darwin)
-    @objc
-    public var examples: [Example] {
+    public var examples: [AsyncExample] {
         return childExamples + childGroups.flatMap { $0.examples }
     }
-    #else
-    public var examples: [Example] {
-        return childExamples + childGroups.flatMap { $0.examples }
-    }
-    #endif
 
     internal var name: String? {
         guard let parent = parent else {
@@ -65,7 +54,7 @@ final public class ExampleGroup: NSObject, Filterable {
         return aggregateFlags
     }
 
-    internal var justBeforeEachStatements: [AroundExampleWithMetadataClosure] {
+    internal var justBeforeEachStatements: [AroundExampleWithMetadataAsyncClosure] {
         var closures = Array(hooks.justBeforeEachStatements.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.justBeforeEachStatements.reversed())
@@ -73,7 +62,7 @@ final public class ExampleGroup: NSObject, Filterable {
         return closures
     }
 
-    internal var wrappers: [AroundExampleWithMetadataClosure] {
+    internal var wrappers: [AroundExampleWithMetadataAsyncClosure] {
         var closures = Array(hooks.wrappers.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.wrappers.reversed())
@@ -81,7 +70,7 @@ final public class ExampleGroup: NSObject, Filterable {
         return closures
     }
 
-    internal func walkDownExamples(_ callback: (_ example: Example) -> Void) {
+    internal func walkDownExamples(_ callback: (_ example: AsyncExample) -> Void) {
         for example in childExamples {
             callback(example)
         }
@@ -90,17 +79,17 @@ final public class ExampleGroup: NSObject, Filterable {
         }
     }
 
-    internal func appendExampleGroup(_ group: ExampleGroup) {
+    internal func appendExampleGroup(_ group: AsyncExampleGroup) {
         group.parent = self
         childGroups.append(group)
     }
 
-    internal func appendExample(_ example: Example) {
+    internal func appendExample(_ example: AsyncExample) {
         example.group = self
         childExamples.append(example)
     }
 
-    private func walkUp(_ callback: (_ group: ExampleGroup) -> Void) {
+    private func walkUp(_ callback: (_ group: AsyncExampleGroup) -> Void) {
         var group = self
         while let parent = group.parent {
             callback(parent)
@@ -108,3 +97,4 @@ final public class ExampleGroup: NSObject, Filterable {
         }
     }
 }
+

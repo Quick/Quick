@@ -5,19 +5,19 @@ import Nimble
 private var oneExampleBeforeEachExecutedCount = 0
 private var onlyPendingExamplesBeforeEachExecutedCount = 0
 
-class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
+class FunctionalTests_PendingAsyncSpec_AsyncBehavior: AsyncBehavior<Void> {
     override static func spec(_ aContext: @escaping () -> Void) {
         it("an example that will not run") {
             expect(true).to(beFalsy())
         }
     }
 }
-class FunctionalTests_PendingSpec: QuickSpec {
+class FunctionalTests_PendingAsyncSpec: AsyncSpec {
     override class func spec() {
         xit("an example that will not run") {
             expect(true).to(beFalsy())
         }
-        xitBehavesLike(FunctionalTests_PendingSpec_Behavior.self) { () -> Void in }
+        xitBehavesLike(FunctionalTests_PendingAsyncSpec_AsyncBehavior.self) { () -> Void in }
         describe("a describe block containing only one enabled example") {
             beforeEach { oneExampleBeforeEachExecutedCount += 1 }
             it("an example that will run") {}
@@ -43,8 +43,8 @@ class FunctionalTests_PendingSpec: QuickSpec {
     }
 }
 
-final class PendingTests: XCTestCase, XCTestCaseProvider {
-    static var allTests: [(String, (PendingTests) -> () throws -> Void)] {
+final class PendingAsyncTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, (PendingAsyncTests) -> () throws -> Void)] {
         return [
             ("testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail", testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail),
             ("testBeforeEachOnlyRunForEnabledExamples", testBeforeEachOnlyRunForEnabledExamples),
@@ -53,21 +53,21 @@ final class PendingTests: XCTestCase, XCTestCaseProvider {
     }
 
     func testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail() {
-        let result = qck_runSpec(FunctionalTests_PendingSpec.self)
+        let result = qck_runSpec(FunctionalTests_PendingAsyncSpec.self)
         XCTAssertTrue(result!.hasSucceeded)
     }
 
     func testBeforeEachOnlyRunForEnabledExamples() {
         oneExampleBeforeEachExecutedCount = 0
 
-        qck_runSpec(FunctionalTests_PendingSpec.self)
+        qck_runSpec(FunctionalTests_PendingAsyncSpec.self)
         XCTAssertEqual(oneExampleBeforeEachExecutedCount, 1)
     }
 
     func testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples() {
         onlyPendingExamplesBeforeEachExecutedCount = 0
 
-        qck_runSpec(FunctionalTests_PendingSpec.self)
+        qck_runSpec(FunctionalTests_PendingAsyncSpec.self)
         XCTAssertEqual(onlyPendingExamplesBeforeEachExecutedCount, 0)
     }
 }

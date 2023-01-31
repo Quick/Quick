@@ -10,7 +10,7 @@ public typealias QuickConfigurer = (_ configuration: QCKConfiguration) -> Void
     A closure that, given metadata about an example, returns a boolean value
     indicating whether that example should be run.
 */
-public typealias ExampleFilter = (_ example: Example) -> Bool
+public typealias ExampleFilter = (_ example: ExampleBase) -> Bool
 
 /**
     A configuration encapsulates various options you can use
