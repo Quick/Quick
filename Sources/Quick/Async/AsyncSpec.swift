@@ -38,6 +38,17 @@ open class AsyncSpec: XCTestCase {
         gatherExamplesIfNeeded()
     }
 
+    class func insertDarwinXCTestInstanceMethods() {
+        let world = AsyncWorld.sharedWorld
+
+        let examples = world.examples(forSpecClass: self)
+
+        var selectorNames = Set<String>()
+        for example in examples {
+            _ = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
+        }
+    }
+
     /// This method is used as a hook for injecting test methods into the
     /// Objective-C runtime on individual test runs.
     ///
@@ -83,8 +94,18 @@ open class AsyncSpec: XCTestCase {
     }
 #endif // canImport(Darwin)
 #if !canImport(Darwin)
+    public required init() {
+        super.init(name: "", testClosure: { _ in })
+    }
+
+    public required init(name: String, testClosure: @escaping (XCTestCase) throws -> Swift.Void) {
+        super.init(name: name, testClosure: testClosure)
+    }
+
     public class var allTests: [(String, (AsyncSpec) -> () throws -> Void)] {
-        let examples = self.spec()
+        gatherExamplesIfNeeded()
+
+        let examples = AsyncWorld.sharedWorld.examples(forSpecClass: self)
 
         let result = examples.map { example -> (String, (AsyncSpec) -> () throws -> Void) in
             return (example.name, asyncTest { spec in
@@ -109,11 +130,8 @@ open class AsyncSpec: XCTestCase {
             self.spec()
         }
 
-        let examples = world.examples(forSpecClass: self)
-
-        var selectorNames = Set<String>()
-        for example in examples {
-            _ = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
-        }
+        #if canImport(Darwin)
+        insertDarwinXCTestInstanceMethods()
+        #endif
     }
 }

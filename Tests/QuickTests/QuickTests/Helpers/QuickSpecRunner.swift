@@ -3,18 +3,25 @@ import XCTest
 @testable import Quick
 
 #if !canImport(Darwin)
-// Based on https://github.com/apple/swift-corelibs-xctest/blob/51afda0bc782b2d6a2f00fbdca58943faf6ccecd/Sources/XCTest/Private/XCTestCaseSuite.swift#L14-L42
-private final class TestCaseSuite: XCTestSuite {
-    let specClass: QuickSpec.Type
+protocol TestCaseProvider: XCTestCase {
+    static var allTests: [(String, (Self) -> () throws -> Void)] { get }
+}
 
-    init(specClass: QuickSpec.Type) {
+extension QuickSpec: TestCaseProvider {}
+extension AsyncSpec: TestCaseProvider {}
+
+// Based on https://github.com/apple/swift-corelibs-xctest/blob/51afda0bc782b2d6a2f00fbdca58943faf6ccecd/Sources/XCTest/Private/XCTestCaseSuite.swift#L14-L42
+private final class TestCaseSuite<T: TestCaseProvider>: XCTestSuite {
+    let specClass: T.Type
+
+    init(specClass: T.Type) {
         self.specClass = specClass
         super.init(name: String(describing: specClass))
 
         for (testName, testClosure) in specClass.allTests {
             let testCase = specClass.init(name: testName, testClosure: { testCase in
                 // swiftlint:disable:next force_cast
-                try testClosure(testCase as! QuickSpec)()
+                try testClosure(testCase as! T)()
             })
             addTest(testCase)
         }
