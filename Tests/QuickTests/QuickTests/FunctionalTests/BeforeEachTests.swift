@@ -14,7 +14,7 @@ private enum BeforeEachType {
 private var beforeEachOrder = [BeforeEachType]()
 
 class FunctionalTests_BeforeEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("beforeEach ordering") {
             beforeEach { beforeEachOrder.append(.outerOne) }

@@ -24,20 +24,9 @@ open class QuickSpec: QuickSpecBase {
         }
     }
 
-    open func spec() {}
+    open class func spec() {}
 
-#if !canImport(Darwin)
-    public required init() {
-        super.init(name: "", testClosure: { _ in })
-    }
-    public required init(name: String, testClosure: @escaping (XCTestCase) throws -> Swift.Void) {
-        super.init(name: name, testClosure: testClosure)
-    }
-#else
-    public required override init() {
-        super.init()
-    }
-
+#if canImport(Darwin)
     /// This method is used as a hook for the following two purposes
     ///
     /// 1. Performing all configurations
@@ -109,6 +98,14 @@ open class QuickSpec: QuickSpecBase {
 #endif
 
 #if !canImport(Darwin)
+    public required init() {
+        super.init(name: "", testClosure: { _ in })
+    }
+
+    public required init(name: String, testClosure: @escaping (XCTestCase) throws -> Swift.Void) {
+        super.init(name: name, testClosure: testClosure)
+    }
+
     public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
         gatherExamplesIfNeeded()
 
@@ -133,7 +130,7 @@ open class QuickSpec: QuickSpecBase {
         }
 
         world.performWithCurrentExampleGroup(rootExampleGroup) {
-            self.init().spec()
+            self.spec()
         }
     }
 

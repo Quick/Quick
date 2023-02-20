@@ -134,7 +134,7 @@ final internal class World: _WorldBase {
         top level of a -[QuickSpec spec] method--it's thanks to this group that
         users can define beforeEach and it closures at the top level, like so:
 
-            override func spec() {
+            override class func spec() {
                 // These belong to the root example group
                 beforeEach {}
                 it("is at the top level") {}

@@ -8,13 +8,13 @@ import Quick
 class SubclassOfSubclassWithStructPropertySpec: SubclassSpec {
     let date = Date()
 
-    override func spec() {
+    override class func spec() {
         it("should not crash") {}
     }
 }
 
 class SubclassSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("should not crash") {}
     }
 }

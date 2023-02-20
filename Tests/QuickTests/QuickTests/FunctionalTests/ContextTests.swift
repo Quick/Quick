@@ -4,7 +4,7 @@ import Nimble
 
 #if canImport(Darwin) && !SWIFT_PACKAGE
 class QuickContextTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("Context") {
             it("should throw an exception if used in an it block") {
                 expect {

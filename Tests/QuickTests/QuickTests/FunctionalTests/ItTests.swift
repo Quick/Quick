@@ -3,7 +3,7 @@ import XCTest
 import Nimble
 
 class FunctionalTests_ItSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         var exampleMetadata: ExampleMetadata?
         beforeEach { metadata in exampleMetadata = metadata }
 
@@ -114,7 +114,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 private var isRunningFunctionalTests = false
 
 class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("implicit error handling") {
             enum ExampleError: Error {
                 case error
@@ -140,14 +140,14 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
 }
 
 final class FunctionalTests_SkippingTestsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("supports skipping tests") { throw XCTSkip("This test is intentionally skipped") }
         it("supports not skipping tests") { }
     }
 }
 
 final class FunctionalTests_StoppingTestsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("supports silently stopping tests") { throw StopTest.silently }
         it("supports stopping tests with expected errors") {
             if isRunningFunctionalTests {

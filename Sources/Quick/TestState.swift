@@ -14,7 +14,7 @@ public struct TestState<T> {
 
     /// Resets the property to nil after each test.
     public init() {
-        afterEach { [container] in
+        QuickSpec.afterEach { [container] in
             container.value = nil
         }
     }
@@ -22,7 +22,7 @@ public struct TestState<T> {
     /// Sets the property to an initial value before each test and resets it to nil after each test.
     /// - Parameter initialValue: An autoclosure to return the initial value to use before the test.
     public init(_ initialValue: @escaping @autoclosure () -> T) {
-        aroundEach { [container] runExample in
+        QuickSpec.aroundEach { [container] runExample in
             container.value = initialValue()
             runExample()
             container.value = nil

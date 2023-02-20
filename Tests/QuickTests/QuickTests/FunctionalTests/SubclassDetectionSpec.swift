@@ -9,7 +9,7 @@ private class C: B {}
 private class D {}
 
 final class SubclassDetectionSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("detecting if a given class is a subclass of another") {
             it("detects when a class is an immediate subclass of another") {
                 expect(isClass(B.self, aSubclassOf: A.self)).to(beTrue())

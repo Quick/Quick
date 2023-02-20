@@ -2,7 +2,7 @@ import Quick
 import Nimble
 
 class FunctionalTests_TestStateSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("testState without initial value") {
             @TestState var testState: Int!
 

@@ -22,7 +22,7 @@ private enum AroundEachType {
 private var aroundEachOrder = [AroundEachType]()
 
 class FunctionalTests_AroundEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("aroundEach ordering") {
             beforeEach { aroundEachOrder.append(.before0) }
             afterEach { aroundEachOrder.append(.after0) }

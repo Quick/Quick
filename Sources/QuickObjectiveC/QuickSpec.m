@@ -66,7 +66,7 @@ static QuickSpec *currentSpec = nil;
 
 #pragma mark - Public Interface
 
-- (void)spec { }
++ (void)spec { }
 
 + (QuickSpec*) current {
     return currentSpec;
@@ -91,10 +91,8 @@ static QuickSpec *currentSpec = nil;
 
     ExampleGroup *rootExampleGroup = [world rootExampleGroupForSpecClass:[self class]];
     [world performWithCurrentExampleGroup:rootExampleGroup closure:^{
-        QuickSpec *spec = [self new];
-
         @try {
-            [spec spec];
+            [self spec];
         }
         @catch (NSException *exception) {
             [NSException raise:NSInternalInconsistencyException

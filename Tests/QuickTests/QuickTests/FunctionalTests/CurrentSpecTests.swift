@@ -3,7 +3,7 @@ import Nimble
 import Dispatch
 
 class CurrentSpecTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("returns the currently executing spec") {
             let name: String = {
                 let result = QuickSpec.current.name
