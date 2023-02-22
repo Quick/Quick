@@ -5,7 +5,6 @@ public protocol AsyncDSLUser {}
 
 extension AsyncSpec: AsyncDSLUser {}
 extension AsyncBehavior: AsyncDSLUser {}
-//extension QuickConfiguration: AsyncDSLUser {}
 
 extension AsyncDSLUser {
     // MARK: - beforeSuite

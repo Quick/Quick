@@ -27,7 +27,6 @@
 		1E44417E2988A362009AE584 /* AsyncBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44417A2988A362009AE584 /* AsyncBehavior.swift */; };
 		1E4441812988A36D009AE584 /* AsyncDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44417F2988A36D009AE584 /* AsyncDSL.swift */; };
 		1E4441822988A36D009AE584 /* AsyncWorld+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441802988A36D009AE584 /* AsyncWorld+DSL.swift */; };
-		1E4441842988A379009AE584 /* AsyncExampleMetedata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441832988A379009AE584 /* AsyncExampleMetedata.swift */; };
 		1E4441862988A3A4009AE584 /* AsyncExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441852988A3A4009AE584 /* AsyncExampleHooks.swift */; };
 		1E4441A32988A3FA009AE584 /* AfterEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441922988A3D4009AE584 /* AfterEachAsyncTests.swift */; };
 		1E4441A52988A3FA009AE584 /* ContextAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418A2988A3D4009AE584 /* ContextAsyncTests.swift */; };
@@ -72,14 +71,12 @@
 		1E4441CE2988A418009AE584 /* AsyncExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441852988A3A4009AE584 /* AsyncExampleHooks.swift */; };
 		1E4441CF2988A421009AE584 /* AsyncDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44417F2988A36D009AE584 /* AsyncDSL.swift */; };
 		1E4441D02988A421009AE584 /* AsyncWorld+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441802988A36D009AE584 /* AsyncWorld+DSL.swift */; };
-		1E4441D12988A421009AE584 /* AsyncExampleMetedata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441832988A379009AE584 /* AsyncExampleMetedata.swift */; };
 		1E4441D22988A421009AE584 /* AsyncBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44417A2988A362009AE584 /* AsyncBehavior.swift */; };
 		1E4441D32988A421009AE584 /* AsyncExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441782988A362009AE584 /* AsyncExampleGroup.swift */; };
 		1E4441D42988A421009AE584 /* AsyncWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441792988A362009AE584 /* AsyncWorld.swift */; };
 		1E4441D52988A421009AE584 /* AsyncSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441772988A362009AE584 /* AsyncSpec.swift */; };
 		1E4441D62988A422009AE584 /* AsyncDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44417F2988A36D009AE584 /* AsyncDSL.swift */; };
 		1E4441D72988A422009AE584 /* AsyncWorld+DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441802988A36D009AE584 /* AsyncWorld+DSL.swift */; };
-		1E4441D82988A422009AE584 /* AsyncExampleMetedata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441832988A379009AE584 /* AsyncExampleMetedata.swift */; };
 		1E4441D92988A422009AE584 /* AsyncBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44417A2988A362009AE584 /* AsyncBehavior.swift */; };
 		1E4441DA2988A422009AE584 /* AsyncExampleGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441782988A362009AE584 /* AsyncExampleGroup.swift */; };
 		1E4441DB2988A422009AE584 /* AsyncWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441792988A362009AE584 /* AsyncWorld.swift */; };
@@ -433,7 +430,6 @@
 		1E44417A2988A362009AE584 /* AsyncBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncBehavior.swift; sourceTree = "<group>"; };
 		1E44417F2988A36D009AE584 /* AsyncDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncDSL.swift; sourceTree = "<group>"; };
 		1E4441802988A36D009AE584 /* AsyncWorld+DSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AsyncWorld+DSL.swift"; sourceTree = "<group>"; };
-		1E4441832988A379009AE584 /* AsyncExampleMetedata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncExampleMetedata.swift; sourceTree = "<group>"; };
 		1E4441852988A3A4009AE584 /* AsyncExampleHooks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncExampleHooks.swift; sourceTree = "<group>"; };
 		1E4441892988A3D4009AE584 /* ItAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItAsyncTests.swift; sourceTree = "<group>"; };
 		1E44418A2988A3D4009AE584 /* ContextAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextAsyncTests.swift; sourceTree = "<group>"; };
@@ -753,7 +749,6 @@
 			isa = PBXGroup;
 			children = (
 				1E9FED92297A1A6900139B91 /* AsyncExample.swift */,
-				1E4441832988A379009AE584 /* AsyncExampleMetedata.swift */,
 				DA02C91819A8073100093156 /* ExampleMetadata.swift */,
 				89E8E59A290045AE003B08F0 /* Example.swift */,
 			);
@@ -1527,7 +1522,6 @@
 				CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1F1C431FE400253D19 /* QuickTestSuite.swift in Sources */,
 				1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */,
-				1E4441D82988A422009AE584 /* AsyncExampleMetedata.swift in Sources */,
 				1E4441CE2988A418009AE584 /* AsyncExampleHooks.swift in Sources */,
 				1E4441DC2988A422009AE584 /* AsyncSpec.swift in Sources */,
 				CD21A028247C1385002C4762 /* QuickTestObservation.swift in Sources */,
@@ -1645,7 +1639,6 @@
 				CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1A1C431FE300253D19 /* QuickTestSuite.swift in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
-				1E4441D12988A421009AE584 /* AsyncExampleMetedata.swift in Sources */,
 				1E4441CD2988A417009AE584 /* AsyncExampleHooks.swift in Sources */,
 				1E4441D52988A421009AE584 /* AsyncSpec.swift in Sources */,
 				CD21A027247C1385002C4762 /* QuickTestObservation.swift in Sources */,
@@ -1786,7 +1779,6 @@
 				CE57CEDE1C430BD200D63004 /* QuickSelectedTestSuiteBuilder.swift in Sources */,
 				DA3124EA19FCAEE8002858A7 /* QCKDSL.m in Sources */,
 				DA408BE219FF5599005DF92A /* Closures.swift in Sources */,
-				1E4441842988A379009AE584 /* AsyncExampleMetedata.swift in Sources */,
 				EBAF959328DB9308005C9AE4 /* StopTest.swift in Sources */,
 				CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,

@@ -15,7 +15,7 @@ public typealias BeforeExampleClosure = () -> Void
     An async closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
 */
-public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: AsyncExampleMetadata) async -> Void
+public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: ExampleMetadata) async -> Void
 
 /**
     A closure executed before an example is run. The closure is given example metadata,
@@ -72,7 +72,7 @@ public typealias AroundExampleAsyncClosure = (_ runExample: @escaping () async -
     The closure must call runExample() exactly once.
 */
 public typealias AroundExampleWithMetadataAsyncClosure =
-    (_ exampleMetadata: AsyncExampleMetadata, _ runExample: @escaping () async -> Void) async -> Void
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () async -> Void) async -> Void
 
 // MARK: Suite Hooks
 

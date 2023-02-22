@@ -14,24 +14,6 @@ public class _ExampleBase: NSObject {}
     The common superclass of both Example and AsyncExample. This is mostly used for determining filtering (focusing or pending) and other cases where we want to apply something to any kind of example.
  */
 public class ExampleBase: _ExampleBase {
-    internal let flags: FilterFlags
-
-    init(flags: FilterFlags) {
-        self.flags = flags
-    }
-
-    /**
-        Evaluates the filter flags set on this example and on the example groups
-        this example belongs to. Flags set on the example are trumped by flags on
-        the example group it belongs to. Flags on inner example groups are trumped
-        by flags on outer example groups.
-    */
-    internal var filterFlags: FilterFlags {
-        [:]
-    }
-}
-
-public class Example: ExampleBase {
     /**
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
@@ -45,6 +27,35 @@ public class Example: ExampleBase {
     */
     public var callsite: Callsite
 
+    internal let flags: FilterFlags
+
+    init(callsite: Callsite, flags: FilterFlags) {
+        self.callsite = callsite
+        self.flags = flags
+    }
+
+    /**
+        Evaluates the filter flags set on this example and on the example groups
+        this example belongs to. Flags set on the example are trumped by flags on
+        the example group it belongs to. Flags on inner example groups are trumped
+        by flags on outer example groups.
+    */
+    internal var filterFlags: FilterFlags {
+        [:]
+    }
+
+    /**
+        The example name. A name is a concatenation of the name of
+        the example group the example belongs to, followed by the
+        description of the example itself.
+
+        The example name is used to generate a test method selector
+        to be displayed in Xcode's test navigator.
+    */
+    public var name: String { "" }
+}
+
+public class Example: ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
@@ -52,9 +63,8 @@ public class Example: ExampleBase {
 
     internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
         self.internalDescription = description
-        self.callsite = callsite
         self.closure = closure
-        super.init(flags: flags)
+        super.init(callsite: callsite, flags: flags)
     }
 
     public override var description: String {
@@ -69,7 +79,7 @@ public class Example: ExampleBase {
         The example name is used to generate a test method selector
         to be displayed in Xcode's test navigator.
     */
-    public var name: String {
+    public override var name: String {
         guard let groupName = group?.name else { return description }
         return "\(groupName), \(description)"
     }
@@ -81,7 +91,7 @@ public class Example: ExampleBase {
             world.suiteHooks.executeBefores()
         }
 
-        let exampleMetadata = ExampleMetadata(example: self, exampleIndex: world.numberOfExamplesRun)
+        let exampleMetadata = SyncExampleMetadata(group: group!, example: self, exampleIndex: world.numberOfExamplesRun)
         world.currentExampleMetadata = exampleMetadata
         defer {
             world.currentExampleMetadata = nil

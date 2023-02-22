@@ -4,7 +4,7 @@ import Nimble
 
 class FunctionalTests_AsyncItSpec: AsyncSpec {
     override class func spec() {
-        var exampleMetadata: AsyncExampleMetadata?
+        var exampleMetadata: ExampleMetadata?
         beforeEach { metadata in exampleMetadata = metadata }
 
         it("") {

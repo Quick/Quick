@@ -2,19 +2,6 @@ import Foundation
 import XCTest
 
 public class AsyncExample: ExampleBase {
-    /**
-        A boolean indicating whether the example is a shared example;
-        i.e.: whether it is an example defined with `itBehavesLike`.
-    */
-    public var isSharedExample = false
-
-    /**
-        The site at which the example is defined.
-        This must be set correctly in order for Xcode to highlight
-        the correct line in red when reporting a failure.
-    */
-    public var callsite: Callsite
-
     weak internal var group: AsyncExampleGroup?
 
     private let internalDescription: String
@@ -22,9 +9,8 @@ public class AsyncExample: ExampleBase {
 
     internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
         self.internalDescription = description
-        self.callsite = callsite
         self.closure = closure
-        super.init(flags: flags)
+        super.init(callsite: callsite, flags: flags)
     }
 
     public override var description: String {
@@ -39,7 +25,7 @@ public class AsyncExample: ExampleBase {
         The example name is used to generate a test method selector
         to be displayed in Xcode's test navigator.
     */
-    public var name: String {
+    public override var name: String {
         guard let groupName = group?.name else { return description }
         return "\(groupName), \(description)"
     }
@@ -49,10 +35,12 @@ public class AsyncExample: ExampleBase {
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
-            world.suiteHooks.executeBefores()
+            await MainActor.run {
+                world.suiteHooks.executeBefores()
+            }
         }
 
-        let exampleMetadata = AsyncExampleMetadata(example: self, exampleIndex: asyncWorld.numberOfAsyncExamplesRun)
+        let exampleMetadata = AsyncExampleMetadata(group: group!, example: self, exampleIndex: asyncWorld.numberOfAsyncExamplesRun)
         asyncWorld.currentExampleMetadata = exampleMetadata
         defer {
             asyncWorld.currentExampleMetadata = nil
@@ -94,7 +82,9 @@ public class AsyncExample: ExampleBase {
         asyncWorld.numberOfAsyncExamplesRun += 1
 
         if !asyncWorld.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
-            world.suiteHooks.executeAfters()
+            await MainActor.run {
+                world.suiteHooks.executeAfters()
+            }
         }
     }
 
