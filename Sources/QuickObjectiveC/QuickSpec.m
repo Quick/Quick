@@ -131,6 +131,7 @@ static QuickSpec *currentSpec = nil;
         self.example = example;
         currentSpec = self;
         [example run];
+        currentSpec = nil;
     });
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];

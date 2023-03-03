@@ -14,11 +14,11 @@ public class _ExampleMetadataBase: NSObject {}
     including the index at which the example was executed, as
     well as the example itself.
 */
-final public class ExampleMetadata: _ExampleMetadataBase {
+public class ExampleMetadata: _ExampleMetadataBase {
     /**
         The example for which this metadata was collected.
     */
-    public let example: Example
+    public let example: ExampleBase
 
     /**
         The index at which this example was executed in the
@@ -26,8 +26,26 @@ final public class ExampleMetadata: _ExampleMetadataBase {
     */
     public let exampleIndex: Int
 
-    internal init(example: Example, exampleIndex: Int) {
+    fileprivate init(example: ExampleBase, exampleIndex: Int) {
         self.example = example
         self.exampleIndex = exampleIndex
+    }
+}
+
+final class SyncExampleMetadata: ExampleMetadata {
+    let group: ExampleGroup
+
+    init(group: ExampleGroup, example: ExampleBase, exampleIndex: Int) {
+        self.group = group
+        super.init(example: example, exampleIndex: exampleIndex)
+    }
+}
+
+final class AsyncExampleMetadata: ExampleMetadata {
+    let group: AsyncExampleGroup
+
+    init(group: AsyncExampleGroup, example: ExampleBase, exampleIndex: Int) {
+        self.group = group
+        super.init(example: example, exampleIndex: exampleIndex)
     }
 }

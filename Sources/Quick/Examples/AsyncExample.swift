@@ -1,67 +1,13 @@
 import Foundation
 import XCTest
 
-#if canImport(Darwin)
-// swiftlint:disable type_name
-@objcMembers
-public class _ExampleBase: NSObject {}
-#else
-public class _ExampleBase: NSObject {}
-// swiftlint:enable type_name
-#endif
-
-/**
-    The common superclass of both Example and AsyncExample. This is mostly used for determining filtering (focusing or pending) and other cases where we want to apply something to any kind of example.
- */
-public class ExampleBase: _ExampleBase {
-    /**
-        A boolean indicating whether the example is a shared example;
-        i.e.: whether it is an example defined with `itBehavesLike`.
-    */
-    public var isSharedExample = false
-
-    /**
-        The site at which the example is defined.
-        This must be set correctly in order for Xcode to highlight
-        the correct line in red when reporting a failure.
-    */
-    public var callsite: Callsite
-
-    internal let flags: FilterFlags
-
-    init(callsite: Callsite, flags: FilterFlags) {
-        self.callsite = callsite
-        self.flags = flags
-    }
-
-    /**
-        Evaluates the filter flags set on this example and on the example groups
-        this example belongs to. Flags set on the example are trumped by flags on
-        the example group it belongs to. Flags on inner example groups are trumped
-        by flags on outer example groups.
-    */
-    internal var filterFlags: FilterFlags {
-        [:]
-    }
-
-    /**
-        The example name. A name is a concatenation of the name of
-        the example group the example belongs to, followed by the
-        description of the example itself.
-
-        The example name is used to generate a test method selector
-        to be displayed in Xcode's test navigator.
-    */
-    public var name: String { "" }
-}
-
-public class Example: ExampleBase {
-    weak internal var group: ExampleGroup?
+public class AsyncExample: ExampleBase {
+    weak internal var group: AsyncExampleGroup?
 
     private let internalDescription: String
-    private let closure: () throws -> Void
+    private let closure: () async throws -> Void
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
         self.internalDescription = description
         self.closure = closure
         super.init(callsite: callsite, flags: flags)
@@ -84,26 +30,29 @@ public class Example: ExampleBase {
         return "\(groupName), \(description)"
     }
 
-    public func run() {
+    public func run() async {
+        let asyncWorld = AsyncWorld.sharedWorld
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
-            world.suiteHooks.executeBefores()
+            await MainActor.run {
+                world.suiteHooks.executeBefores()
+            }
         }
 
-        let exampleMetadata = SyncExampleMetadata(group: group!, example: self, exampleIndex: world.numberOfExamplesRun)
-        world.currentExampleMetadata = exampleMetadata
+        let exampleMetadata = AsyncExampleMetadata(group: group!, example: self, exampleIndex: asyncWorld.numberOfAsyncExamplesRun)
+        asyncWorld.currentExampleMetadata = exampleMetadata
         defer {
-            world.currentExampleMetadata = nil
+            asyncWorld.currentExampleMetadata = nil
         }
 
         group!.phase = .beforesExecuting
 
-        let runExample: () -> Void = { [closure, name, callsite] in
+        let runExample: () async -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {
-                try closure()
+                try await closure()
             } catch {
                 if let stopTestError = error as? StopTest {
                     self.reportStoppedTest(stopTestError)
@@ -117,23 +66,25 @@ public class Example: ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
-        let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
+        let allJustBeforeEachStatements = group!.justBeforeEachStatements
         let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { await wrapper(exampleMetadata, closure) }
         }
 
-        let allWrappers = group!.wrappers + world.exampleHooks.wrappers
+        let allWrappers = group!.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { await wrapper(exampleMetadata, closure) }
         }
-        wrappedExample()
+        await wrappedExample()
 
         group!.phase = .aftersFinished
 
-        world.numberOfSyncExamplesRun += 1
+        asyncWorld.numberOfAsyncExamplesRun += 1
 
-        if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
-            world.suiteHooks.executeAfters()
+        if !asyncWorld.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
+            await MainActor.run {
+                world.suiteHooks.executeAfters()
+            }
         }
     }
 
@@ -167,9 +118,9 @@ public class Example: ExampleBase {
                 For now, we'll just benignly ignore skipped tests.
             """
 
-            guard let testRun = QuickSpec.current.testRun else {
+            guard let testRun = AsyncSpec.current?.testRun else {
                 print("""
-                     [Quick Warning]: `QuickSpec.current.testRun` was unexpectededly `nil`.
+                     [Quick Warning]: `AsyncSpec.current?.testRun` was unexpectededly `nil`.
                 """ + messageSuffix)
                 return
             }
@@ -239,9 +190,9 @@ public class Example: ExampleBase {
                 compactDescription: description,
                 sourceCodeContext: sourceCodeContext
             )
-            QuickSpec.current.record(issue)
+            AsyncSpec.current?.record(issue)
         #else
-            QuickSpec.current.recordFailure(
+            AsyncSpec.current?.recordFailure(
                 withDescription: description,
                 inFile: file,
                 atLine: Int(callsite.line),
@@ -269,9 +220,9 @@ public class Example: ExampleBase {
                 compactDescription: stopTestError.failureDescription,
                 sourceCodeContext: sourceCodeContext
             )
-            QuickSpec.current.record(issue)
+            AsyncSpec.current?.record(issue)
         #else
-            QuickSpec.current.recordFailure(
+            AsyncSpec.current?.recordFailure(
                 withDescription: stopTestError.failureDescription,
                 inFile: file,
                 atLine: Int(callsite.line),
@@ -281,12 +232,12 @@ public class Example: ExampleBase {
     }
 }
 
-extension Example {
+extension AsyncExample {
     /**
         Returns a boolean indicating whether two Example objects are equal.
         If two examples are defined at the exact same callsite, they must be equal.
     */
-    @nonobjc public static func == (lhs: Example, rhs: Example) -> Bool {
+    @nonobjc public static func == (lhs: AsyncExample, rhs: AsyncExample) -> Bool {
         return lhs.callsite == rhs.callsite
     }
 }
