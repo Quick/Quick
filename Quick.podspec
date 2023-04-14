@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Quick"
-  s.version      = "6.1.0"
+  s.version      = "7.0.0-beta.1"
   s.summary      = "The Swift (and Objective-C) testing framework."
 
   s.description  = <<-DESC

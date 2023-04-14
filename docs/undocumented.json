@@ -1,6 +1,27 @@
 {
   "warnings": [
     {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
+      "line": 3,
+      "symbol": "AsyncSpec",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
+      "line": 6,
+      "symbol": "AsyncSpec",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
+      "line": 14,
+      "symbol": "AsyncSpec.spec()",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Callsite.swift",
       "line": 6,
       "symbol": "_CallsiteBase",
@@ -16,44 +37,72 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
-      "line": 81,
+      "line": 84,
       "symbol": "QCKConfiguration.objc_beforeEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
-      "line": 86,
+      "line": 94,
       "symbol": "QCKConfiguration.beforeEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
-      "line": 123,
+      "line": 148,
       "symbol": "QCKConfiguration.objc_afterEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Configuration/QCKConfiguration.swift",
-      "line": 128,
+      "line": 158,
       "symbol": "QCKConfiguration.afterEach(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/ExampleGroup.swift",
-      "line": 26,
+      "line": 30,
       "symbol": "ExampleGroup.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/ExampleGroup.swift",
-      "line": 36,
+      "line": 40,
       "symbol": "ExampleGroup.examples",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
+      "line": 4,
+      "symbol": "AsyncExample",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
+      "line": 16,
+      "symbol": "AsyncExample.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
+      "line": 33,
+      "symbol": "AsyncExample.run()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
+      "line": 235,
+      "symbol": "AsyncExample",
+      "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
@@ -65,28 +114,28 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 13,
+      "line": 58,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 40,
+      "line": 70,
       "symbol": "Example.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 57,
+      "line": 87,
       "symbol": "Example.run()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 254,
+      "line": 284,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -116,13 +165,6 @@
       "file": "/Users/you/workspace/Quick/Sources/Quick/StopTest.swift",
       "line": 31,
       "symbol": "StopTest.callsite",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/you/workspace/Quick/Sources/Quick/TestState.swift",
-      "line": 10,
-      "symbol": "TestState.wrappedValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }

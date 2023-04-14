@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Example Class Reference</title>
+    <title>AsyncExampleGroup Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Example" class="dashAnchor"></a>
-    <a title="Example Class Reference"></a>
+    <a name="//apple_ref/swift/Class/AsyncExampleGroup" class="dashAnchor"></a>
+    <a title="AsyncExampleGroup Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Quick 7.0.0-beta.1 Docs</a> (83% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Quick Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        Example Class Reference
+        AsyncExampleGroup Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -204,15 +204,17 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Example</h1>
+            <h1>AsyncExampleGroup</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Example</span> <span class="p">:</span> <span class="kt"><a href="../Classes/ExampleBase.html">ExampleBase</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">AsyncExampleGroup</span> <span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Example groups are logical groupings of examples, defined with
+the <code>describe</code> and <code>context</code> functions. Example groups can share
+setup and teardown code.</p>
 
           </section>
           <section class="section task-group-section">
@@ -221,9 +223,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)Example(py)description"></a>
+                    <a name="/s:s23CustomStringConvertibleP11descriptionSSvp"></a>
                     <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)Example(py)description">description</a>
+                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSvp">description</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -231,14 +233,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -248,9 +249,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)Example(py)name"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)Example(py)name">name</a>
+                    <a name="/s:5Quick17AsyncExampleGroupC8examplesSayAA0bC0CGvp"></a>
+                    <a name="//apple_ref/swift/Property/examples" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick17AsyncExampleGroupC8examplesSayAA0bC0CGvp">examples</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,75 +259,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The example name. A name is a concatenation of the name of
-the example group the example belongs to, followed by the
-description of the example itself.</p>
-
-<p>The example name is used to generate a test method selector
-to be displayed in Xcode&rsquo;s test navigator.</p>
+                        <p>Returns a list of examples that belong to this example group,
+or to any of its descendant example groups.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@Quick@objc(cs)Example(im)run"></a>
-                    <a name="//apple_ref/swift/Method/run()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)Example(im)run">run()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">run</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:5Quick7ExampleC2eeoiySbAC_ACtFZ"></a>
-                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5Quick7ExampleC2eeoiySbAC_ACtFZ">==(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns a boolean indicating whether two Example objects are equal.
-If two examples are defined at the exact same callsite, they must be equal.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@nonobjc</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Example</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Example</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">examples</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AsyncExample.html">AsyncExample</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

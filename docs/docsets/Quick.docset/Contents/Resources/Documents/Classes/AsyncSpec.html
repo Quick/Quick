@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Example Class Reference</title>
+    <title>AsyncSpec Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Example" class="dashAnchor"></a>
-    <a title="Example Class Reference"></a>
+    <a name="//apple_ref/swift/Class/AsyncSpec" class="dashAnchor"></a>
+    <a title="AsyncSpec Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Quick 7.0.0-beta.1 Docs</a> (83% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Quick Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        Example Class Reference
+        AsyncSpec Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -204,11 +204,12 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Example</h1>
+            <h1>AsyncSpec</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Example</span> <span class="p">:</span> <span class="kt"><a href="../Classes/ExampleBase.html">ExampleBase</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">AsyncSpec</span> <span class="p">:</span> <span class="kt">XCTestCase</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AsyncSpec</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AsyncDSLUser.html">AsyncDSLUser</a></span></code></pre>
 
                 </div>
               </div>
@@ -221,9 +222,37 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)Example(py)description"></a>
-                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)Example(py)description">description</a>
+                    <a name="/c:@M@Quick@objc(cs)AsyncSpec(cpy)current"></a>
+                    <a name="//apple_ref/swift/Variable/current" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Quick@objc(cs)AsyncSpec(cpy)current">current</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the currently executing spec. Use in specs that require XCTestCase
+methods, e.g. expectation(description:).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">current</span><span class="p">:</span> <span class="kt">AsyncSpec</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Quick@objc(cs)AsyncSpec(cm)spec"></a>
+                    <a name="//apple_ref/swift/Method/spec()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Quick@objc(cs)AsyncSpec(cm)spec">spec()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,7 +267,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">spec</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -248,9 +277,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)Example(py)name"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)Example(py)name">name</a>
+                    <a name="/c:@M@Quick@objc(cs)AsyncSpec(cpy)defaultTestSuite"></a>
+                    <a name="//apple_ref/swift/Variable/defaultTestSuite" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Quick@objc(cs)AsyncSpec(cpy)defaultTestSuite">defaultTestSuite</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,19 +287,24 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The example name. A name is a concatenation of the name of
-the example group the example belongs to, followed by the
-description of the example itself.</p>
+                        <p>This method is used as a hook for the following two purposes</p>
 
-<p>The example name is used to generate a test method selector
-to be displayed in Xcode&rsquo;s test navigator.</p>
+<ol>
+<li>Performing all configurations</li>
+<li>Gathering examples for each spec classes</li>
+</ol>
+
+<p>On Linux, those are done in <code>LinuxMain.swift</code> and <code>Quick.QCKMain</code>. But
+SwiftPM on macOS does not have the mechanism (test cases are automatically
+discovered powered by Objective-C runtime), so we needed the alternative
+way.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">defaultTestSuite</span><span class="p">:</span> <span class="kt">XCTestSuite</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -280,9 +314,9 @@ to be displayed in Xcode&rsquo;s test navigator.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Quick@objc(cs)Example(im)run"></a>
-                    <a name="//apple_ref/swift/Method/run()" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Quick@objc(cs)Example(im)run">run()</a>
+                    <a name="/c:@M@Quick@objc(cs)AsyncSpec(cm)instancesRespondToSelector:"></a>
+                    <a name="//apple_ref/swift/Method/instancesRespond(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Quick@objc(cs)AsyncSpec(cm)instancesRespondToSelector:">instancesRespond(to:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -290,14 +324,24 @@ to be displayed in Xcode&rsquo;s test navigator.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method is used as a hook for injecting test methods into the
+Objective-C runtime on individual test runs.</p>
+
+<p>When <code>xctest</code> runs a test on a single method, it does not call
+<code><a href="../Classes/AsyncSpec.html#/c:@M@Quick@objc(cs)AsyncSpec(cpy)defaultTestSuite">defaultTestSuite</a></code> on the test class but rather calls
+<code>instancesRespondToSelector:</code> to build its own suite.</p>
+
+<p>In normal conditions, Quick uses the implicit call to <code><a href="../Classes/AsyncSpec.html#/c:@M@Quick@objc(cs)AsyncSpec(cpy)defaultTestSuite">defaultTestSuite</a></code>
+to both generate examples and inject them as methods by way of
+<code>testInvocations</code>.  Under single test conditions, there&rsquo;s no implicit
+call to <code><a href="../Classes/AsyncSpec.html#/c:@M@Quick@objc(cs)AsyncSpec(cpy)defaultTestSuite">defaultTestSuite</a></code> so we make it explicitly here.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">run</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">override</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">instancesRespond</span><span class="p">(</span><span class="n">to</span> <span class="nv">aSelector</span><span class="p">:</span> <span class="kt">Selector</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -307,9 +351,9 @@ to be displayed in Xcode&rsquo;s test navigator.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:5Quick7ExampleC2eeoiySbAC_ACtFZ"></a>
-                    <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:5Quick7ExampleC2eeoiySbAC_ACtFZ">==(_:<wbr>_:<wbr>)</a>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -317,18 +361,43 @@ to be displayed in Xcode&rsquo;s test navigator.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a boolean indicating whether two Example objects are equal.
-If two examples are defined at the exact same callsite, they must be equal.</p>
-
+                        
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@nonobjc</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">Example</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">Example</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Method/init(name:testClosure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/">init(name:<wbr>testClosure:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/"></a>
+                    <a name="//apple_ref/swift/Variable/allTests" class="dashAnchor"></a>
+                    <a class="token" href="#/">allTests</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
                       </div>
                     </section>
                   </div>
