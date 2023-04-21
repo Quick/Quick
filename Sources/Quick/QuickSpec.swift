@@ -80,12 +80,15 @@ open class QuickSpec: QuickSpecBase {
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        let originalName = example.name.c99ExtendedIdentifier
+        // The Objc version of QuickSpec can override `testInvocations`, allowing it to
+        // omit the leading "test ". Unfortunately, there's not a similar API available
+        // to Swift. So the compromise is this.
+        let originalName = "test \(example.name)"
         var selectorName = originalName
         var index: UInt = 2
 
         while selectorNames.contains(selectorName) {
-            selectorName = String(format: "%@_%tu", originalName, index)
+            selectorName = String(format: "%@ (%tu)", originalName, index)
             index += 1
         }
 
@@ -96,7 +99,7 @@ open class QuickSpec: QuickSpecBase {
 
         return selector
     }
-#endif
+#endif // canImport(Darwin)
 
 #if !canImport(Darwin)
     public required init() {

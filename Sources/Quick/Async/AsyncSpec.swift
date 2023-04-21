@@ -76,6 +76,9 @@ open class AsyncSpec: XCTestCase {
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
+        // The Objc version of QuickSpec can override `testInvocations`, allowing it to
+        // omit the leading "test ". Unfortunately, there's not a similar API available
+        // to Swift. So the compromise is this.
         let originalName = "test \(example.name)"
         var selectorName = originalName
         var index: UInt = 2
@@ -93,6 +96,7 @@ open class AsyncSpec: XCTestCase {
         return selector
     }
 #endif // canImport(Darwin)
+
 #if !canImport(Darwin)
     public required init() {
         super.init(name: "", testClosure: { _ in })
