@@ -158,7 +158,6 @@ final class FunctionalTests_StoppingTestsAsyncSpec: AsyncSpec {
     }
 }
 
-
 final class AsyncItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (AsyncItTests) -> () throws -> Void)] {
         return [

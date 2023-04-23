@@ -18,4 +18,3 @@ class FunctionalTests_AsyncBehaviorTests_AsyncBehavior2: AsyncBehavior<Void> {
         it("passes three times") { expect(true).to(beTruthy()) }
     }
 }
-

@@ -163,4 +163,3 @@ open class QuickSpec: QuickSpecBase {
 }
 
 #endif
-

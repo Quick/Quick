@@ -158,7 +158,6 @@ final class FunctionalTests_StoppingTestsSpec: QuickSpec {
     }
 }
 
-
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
