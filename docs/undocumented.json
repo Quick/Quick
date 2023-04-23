@@ -2,13 +2,6 @@
   "warnings": [
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
-      "line": 3,
-      "symbol": "AsyncSpec",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
       "line": 6,
       "symbol": "AsyncSpec",
       "symbol_kind": "source.lang.swift.decl.extension",
@@ -16,7 +9,21 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
-      "line": 14,
+      "line": 8,
+      "symbol": "AsyncSpecBase",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
+      "line": 11,
+      "symbol": "AsyncSpec",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
+      "line": 22,
       "symbol": "AsyncSpec.spec()",
       "symbol_kind": "source.lang.swift.decl.function.method.class",
       "warning": "undocumented"
@@ -114,28 +121,28 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 58,
+      "line": 60,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 70,
+      "line": 72,
       "symbol": "Example.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 87,
+      "line": 89,
       "symbol": "Example.run()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 284,
+      "line": 286,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
