@@ -1,6 +1,14 @@
 import XCTest
 
-open class AsyncSpec: XCTestCase {
+#if canImport(QuickObjCRuntime)
+import QuickObjCRuntime
+
+public typealias AsyncSpecBase = _QuickSpecBase
+#else
+public typealias AsyncSpecBase = XCTestCase
+#endif
+
+open class AsyncSpec: AsyncSpecBase {
     /// Returns the currently executing spec. Use in specs that require XCTestCase
     /// methods, e.g. expectation(description:).
     public private(set) static var current: AsyncSpec!
@@ -38,17 +46,6 @@ open class AsyncSpec: XCTestCase {
         gatherExamplesIfNeeded()
     }
 
-    class func insertDarwinXCTestInstanceMethods() {
-        let world = AsyncWorld.sharedWorld
-
-        let examples = world.examples(forSpecClass: self)
-
-        var selectorNames = Set<String>()
-        for example in examples {
-            _ = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
-        }
-    }
-
     /// This method is used as a hook for injecting test methods into the
     /// Objective-C runtime on individual test runs.
     ///
@@ -65,6 +62,23 @@ open class AsyncSpec: XCTestCase {
         return super.instancesRespond(to: aSelector)
     }
 
+#if SWIFT_PACKAGE
+    open override class func _qck_testMethodSelectors() -> [String]! {
+        darwinXCTestMethodSelectors()
+    }
+#endif // SWIFT_PACKAGE
+
+    @objc
+    internal class func darwinXCTestMethodSelectors() -> [String]! {
+        let examples = AsyncWorld.sharedWorld.examples(forSpecClass: self)
+
+        var selectorNames = Set<String>()
+        return examples.map { example in
+            let selector = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
+            return NSStringFromSelector(selector)
+        }
+    }
+
     private static func addInstanceMethod(for example: AsyncExample, classSelectorNames selectorNames: inout Set<String>) -> Selector {
         let block: @convention(block) (AsyncSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
             spec.example = example
@@ -76,10 +90,7 @@ open class AsyncSpec: XCTestCase {
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        // The Objc version of QuickSpec can override `testInvocations`, allowing it to
-        // omit the leading "test ". Unfortunately, there's not a similar API available
-        // to Swift. So the compromise is this.
-        let originalName = "test \(example.name)"
+        let originalName = example.name
         var selectorName = originalName
         var index: UInt = 2
 
@@ -133,9 +144,5 @@ open class AsyncSpec: XCTestCase {
         world.performWithCurrentExampleGroup(rootExampleGroup) {
             self.spec()
         }
-
-        #if canImport(Darwin)
-        insertDarwinXCTestInstanceMethods()
-        #endif
     }
 }

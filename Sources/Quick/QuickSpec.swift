@@ -80,10 +80,7 @@ open class QuickSpec: QuickSpecBase {
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        // The Objc version of QuickSpec can override `testInvocations`, allowing it to
-        // omit the leading "test ". Unfortunately, there's not a similar API available
-        // to Swift. So the compromise is this.
-        let originalName = "test \(example.name)"
+        let originalName = example.name
         var selectorName = originalName
         var index: UInt = 2
 

@@ -134,14 +134,6 @@ static QuickSpec *currentSpec = nil;
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];
 
-    // Unlike the Swift version of QuickSpec (and AsyncSpec), because the Objc version
-    // of QuickSpec can override `testInvocations`, we don't need to rely on XCTest
-    // using the "all methods that start with 'test'" heuristic to determine which
-    // methods to call when running a test.
-    // Meaning that cocoapods, carthage, et. al. get a slightly cleaner test list
-    // while SPM has to prepend 'test' to all the created tests.
-    // This is only a thing on apple platforms - platforms using the open source
-    // version of XCTest don't have this issue.
     NSString *originalName = example.name;
     NSString *selectorName = originalName;
     NSUInteger i = 2;

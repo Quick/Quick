@@ -22,7 +22,7 @@ class FunctionalTests_AsyncItSpec: AsyncSpec {
 
             beforeEach {
                 allSelectors = FunctionalTests_AsyncItSpec.allSelectors()
-                    .filter { $0.hasPrefix("test when an example has a unique name, ") }
+                    .filter { $0.hasPrefix("when an example has a unique name, ") }
                     .sorted(by: <)
             }
 
@@ -30,8 +30,8 @@ class FunctionalTests_AsyncItSpec: AsyncSpec {
 
             it("doesn't add multiple selectors for it") {
                 expect(allSelectors) == [
-                    "test when an example has a unique name, doesn't add multiple selectors for it",
-                    "test when an example has a unique name, has a unique name",
+                    "when an example has a unique name, doesn't add multiple selectors for it",
+                    "when an example has a unique name, has a unique name",
                 ]
             }
         }
@@ -41,7 +41,7 @@ class FunctionalTests_AsyncItSpec: AsyncSpec {
 
             beforeEach {
                 allSelectors = FunctionalTests_AsyncItSpec.allSelectors()
-                    .filter { $0.hasPrefix("test when two examples have the exact name, ") }
+                    .filter { $0.hasPrefix("when two examples have the exact name, ") }
                     .sorted(by: <)
             }
 
@@ -50,9 +50,9 @@ class FunctionalTests_AsyncItSpec: AsyncSpec {
 
             it("makes a unique name for each of the above") {
                 expect(allSelectors) == [
-                    "test when two examples have the exact name, has exactly the same name",
-                    "test when two examples have the exact name, has exactly the same name (2)",
-                    "test when two examples have the exact name, makes a unique name for each of the above",
+                    "when two examples have the exact name, has exactly the same name",
+                    "when two examples have the exact name, has exactly the same name (2)",
+                    "when two examples have the exact name, makes a unique name for each of the above",
                 ]
             }
 

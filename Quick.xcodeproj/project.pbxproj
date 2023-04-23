@@ -209,6 +209,9 @@
 		89D2C675284DA77D004B108C /* SubclassDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C674284DA77D004B108C /* SubclassDetection.swift */; };
 		89D2C676284DA77D004B108C /* SubclassDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C674284DA77D004B108C /* SubclassDetection.swift */; };
 		89D2C677284DA77D004B108C /* SubclassDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2C674284DA77D004B108C /* SubclassDetection.swift */; };
+		89E3F80E29F5AA8A00EA7370 /* AsyncSpec+testMethodSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3F80A29F5A94400EA7370 /* AsyncSpec+testMethodSelectors.m */; };
+		89E3F80F29F5AA8B00EA7370 /* AsyncSpec+testMethodSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3F80A29F5A94400EA7370 /* AsyncSpec+testMethodSelectors.m */; };
+		89E3F81029F5AA8C00EA7370 /* AsyncSpec+testMethodSelectors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E3F80A29F5A94400EA7370 /* AsyncSpec+testMethodSelectors.m */; };
 		89E8E59B290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
 		89E8E59C290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
 		89E8E59D290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
@@ -482,6 +485,7 @@
 		89A7919D28139D0900D99622 /* Quick.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Quick.podspec; sourceTree = "<group>"; };
 		89D2C670284D9E18004B108C /* SubclassDetectionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetectionSpec.swift; sourceTree = "<group>"; };
 		89D2C674284DA77D004B108C /* SubclassDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassDetection.swift; sourceTree = "<group>"; };
+		89E3F80A29F5A94400EA7370 /* AsyncSpec+testMethodSelectors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AsyncSpec+testMethodSelectors.m"; sourceTree = "<group>"; };
 		89E8E59A290045AE003B08F0 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
@@ -722,6 +726,7 @@
 				34F375A419515CA700CE1B99 /* QuickSpec.h */,
 				34F375A519515CA700CE1B99 /* QuickSpec.m */,
 				CE57CEDC1C430BD200D63004 /* XCTestSuite+QuickTestSuiteBuilder.m */,
+				89E3F80A29F5A94400EA7370 /* AsyncSpec+testMethodSelectors.m */,
 			);
 			name = QuickObjectiveC;
 			path = Sources/QuickObjectiveC;
@@ -1521,6 +1526,7 @@
 				1F118D061BDCA536005013A2 /* ExampleGroup.swift in Sources */,
 				CE175D501E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1F1C431FE400253D19 /* QuickTestSuite.swift in Sources */,
+				89E3F81029F5AA8C00EA7370 /* AsyncSpec+testMethodSelectors.m in Sources */,
 				1F118D091BDCA536005013A2 /* QuickSpec.m in Sources */,
 				1E4441CE2988A418009AE584 /* AsyncExampleHooks.swift in Sources */,
 				1E4441DC2988A422009AE584 /* AsyncSpec.swift in Sources */,
@@ -1638,6 +1644,7 @@
 				DA408BE519FF5599005DF92A /* ExampleHooks.swift in Sources */,
 				CE175D4F1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				CE590E1A1C431FE300253D19 /* QuickTestSuite.swift in Sources */,
+				89E3F80F29F5AA8B00EA7370 /* AsyncSpec+testMethodSelectors.m in Sources */,
 				DA3124E719FCAEE8002858A7 /* DSL.swift in Sources */,
 				1E4441CD2988A417009AE584 /* AsyncExampleHooks.swift in Sources */,
 				1E4441D52988A421009AE584 /* AsyncSpec.swift in Sources */,
@@ -1805,6 +1812,7 @@
 				DA3124EC19FCAEE8002858A7 /* World+DSL.swift in Sources */,
 				1E4441822988A36D009AE584 /* AsyncWorld+DSL.swift in Sources */,
 				DA408BE419FF5599005DF92A /* ExampleHooks.swift in Sources */,
+				89E3F80E29F5AA8A00EA7370 /* AsyncSpec+testMethodSelectors.m in Sources */,
 				1E4441862988A3A4009AE584 /* AsyncExampleHooks.swift in Sources */,
 				CE175D4E1E8D6B4900EB5E84 /* Behavior.swift in Sources */,
 				DA3124E619FCAEE8002858A7 /* DSL.swift in Sources */,

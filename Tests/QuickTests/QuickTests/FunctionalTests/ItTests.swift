@@ -23,15 +23,6 @@ class FunctionalTests_ItSpec: QuickSpec {
             beforeEach {
                 allSelectors = FunctionalTests_ItSpec.allSelectors()
                     .filter { $0.contains("when an example has a unique name") }
-                    .map {
-                        // SPM-version needs to prepend "test" to all test methods created.
-                        if $0.hasPrefix("test ") {
-                            var method = $0
-                            method.removeFirst(5)
-                            return method
-                        }
-                        return $0
-                    }
                     .sorted(by: <)
             }
 
@@ -51,15 +42,6 @@ class FunctionalTests_ItSpec: QuickSpec {
             beforeEach {
                 allSelectors = FunctionalTests_ItSpec.allSelectors()
                     .filter { $0.contains("when two examples have the exact name") }
-                    .map {
-                        // SPM-version needs to prepend "test" to all test methods created.
-                        if $0.hasPrefix("test ") {
-                            var method = $0
-                            method.removeFirst(5)
-                            return method
-                        }
-                        return $0
-                    }
                     .sorted(by: <)
             }
 
