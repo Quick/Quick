@@ -22,7 +22,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             beforeEach {
                 allSelectors = FunctionalTests_ItSpec.allSelectors()
-                    .filter { $0.hasPrefix("when_an_example_has_a_unique_name__") }
+                    .filter { $0.contains("when an example has a unique name") }
                     .sorted(by: <)
             }
 
@@ -30,8 +30,8 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             it("doesn't add multiple selectors for it") {
                 expect(allSelectors) == [
-                    "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it",
-                    "when_an_example_has_a_unique_name__has_a_unique_name",
+                    "when an example has a unique name, doesn't add multiple selectors for it",
+                    "when an example has a unique name, has a unique name",
                 ]
             }
         }
@@ -41,7 +41,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             beforeEach {
                 allSelectors = FunctionalTests_ItSpec.allSelectors()
-                    .filter { $0.hasPrefix("when_two_examples_have_the_exact_name__") }
+                    .filter { $0.contains("when two examples have the exact name") }
                     .sorted(by: <)
             }
 
@@ -50,9 +50,9 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             it("makes a unique name for each of the above") {
                 expect(allSelectors) == [
-                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name",
-                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name_2",
-                    "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above",
+                    "when two examples have the exact name, has exactly the same name",
+                    "when two examples have the exact name, has exactly the same name (2)",
+                    "when two examples have the exact name, makes a unique name for each of the above",
                 ]
             }
 
@@ -157,7 +157,6 @@ final class FunctionalTests_StoppingTestsSpec: QuickSpec {
         it("supports not stopping tests") { }
     }
 }
-
 
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {

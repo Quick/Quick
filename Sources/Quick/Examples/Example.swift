@@ -11,7 +11,9 @@ public class _ExampleBase: NSObject {}
 #endif
 
 /**
-    The common superclass of both Example and AsyncExample. This is mostly used for determining filtering (focusing or pending) and other cases where we want to apply something to any kind of example.
+    The common superclass of both Example and AsyncExample. This is mostly used for
+    determining filtering (focusing or pending) and other cases where we want to apply
+    something to any kind of example.
  */
 public class ExampleBase: _ExampleBase {
     /**
