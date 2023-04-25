@@ -1,3 +1,4 @@
+#if canImport(Darwin)
 import Nimble
 import XCTest
 @testable import Quick
@@ -58,3 +59,4 @@ final class TestSelectorNameProviderTests: XCTestCase {
         expect(TestSelectorNameProvider.testSelectorName(forAsync: self.asyncExample, classSelectorNames: ["doesn_t_do_the_incorrect_behavior____but_async_:"])).to(equal("doesn_t_do_the_incorrect_behavior____but_async__2:"))
     }
 }
+#endif

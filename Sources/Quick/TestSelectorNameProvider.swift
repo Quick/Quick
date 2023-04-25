@@ -1,3 +1,4 @@
+#if canImport(Darwin)
 import Foundation
 
 @objc internal final class TestSelectorNameProvider: NSObject {
@@ -48,3 +49,4 @@ import Foundation
         return selectorName
     }
 }
+#endif
