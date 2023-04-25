@@ -80,14 +80,7 @@ open class QuickSpec: QuickSpecBase {
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        let originalName = example.name
-        var selectorName = originalName
-        var index: UInt = 2
-
-        while selectorNames.contains(selectorName) {
-            selectorName = String(format: "%@ (%tu)", originalName, index)
-            index += 1
-        }
+        let selectorName = TestSelectorNameProvider.testSelectorName(for: example, classSelectorNames: selectorNames)
 
         selectorNames.insert(selectorName)
 

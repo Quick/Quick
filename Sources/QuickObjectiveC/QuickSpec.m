@@ -134,13 +134,7 @@ static QuickSpec *currentSpec = nil;
 
     const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];
 
-    NSString *originalName = example.name;
-    NSString *selectorName = originalName;
-    NSUInteger i = 2;
-
-    while ([selectorNames containsObject:selectorName]) {
-        selectorName = [NSString stringWithFormat:@"%@ (%tu)", originalName, i++];
-    }
+    NSString *selectorName = [TestSelectorNameProvider testSelectorNameFor:example classSelectorNames:selectorNames];
 
     [selectorNames addObject:selectorName];
 
