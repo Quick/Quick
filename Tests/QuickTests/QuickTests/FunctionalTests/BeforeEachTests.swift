@@ -14,7 +14,7 @@ private enum BeforeEachType {
 private var beforeEachOrder = [BeforeEachType]()
 
 class FunctionalTests_BeforeEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("beforeEach ordering") {
             beforeEach { beforeEachOrder.append(.outerOne) }
@@ -34,14 +34,6 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
             context("when there are nested beforeEach without examples") {
                 beforeEach { beforeEachOrder.append(.noExamples) }
             }
-        }
-
-        describe("execution time") {
-            beforeEach { @MainActor in
-                expect(Thread.isMainThread).to(beTrue())
-            }
-
-            it("executes beforeEach's on the correct thread") {}
         }
 
 #if canImport(Darwin) && !SWIFT_PACKAGE

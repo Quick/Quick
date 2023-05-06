@@ -14,7 +14,7 @@ private enum AfterEachType {
 private var afterEachOrder = [AfterEachType]()
 
 class FunctionalTests_AfterEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("afterEach ordering") {
             afterEach { afterEachOrder.append(.outerOne) }
             afterEach { afterEachOrder.append(.outerTwo) }
@@ -49,14 +49,6 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
             context("when there are nested afterEach without examples") {
                 afterEach { afterEachOrder.append(.noExamples) }
             }
-        }
-
-        describe("execution time") {
-            afterEach { @MainActor in
-                expect(Thread.isMainThread).to(beTrue())
-            }
-
-            it("executes beforeEach's on the main thread") {}
         }
 
 #if canImport(Darwin) && !SWIFT_PACKAGE

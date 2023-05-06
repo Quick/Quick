@@ -3,7 +3,7 @@ import XCTest
 import Nimble
 
 class FunctionalTests_ItSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         var exampleMetadata: ExampleMetadata?
         beforeEach { metadata in exampleMetadata = metadata }
 
@@ -22,7 +22,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             beforeEach {
                 allSelectors = FunctionalTests_ItSpec.allSelectors()
-                    .filter { $0.hasPrefix("when_an_example_has_a_unique_name__") }
+                    .filter { $0.contains("when an example has a unique name") }
                     .sorted(by: <)
             }
 
@@ -30,8 +30,8 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             it("doesn't add multiple selectors for it") {
                 expect(allSelectors) == [
-                    "when_an_example_has_a_unique_name__doesn_t_add_multiple_selectors_for_it:",
-                    "when_an_example_has_a_unique_name__has_a_unique_name:",
+                    "when an example has a unique name, doesn't add multiple selectors for it",
+                    "when an example has a unique name, has a unique name",
                 ]
             }
         }
@@ -41,7 +41,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             beforeEach {
                 allSelectors = FunctionalTests_ItSpec.allSelectors()
-                    .filter { $0.hasPrefix("when_two_examples_have_the_exact_name__") }
+                    .filter { $0.contains("when two examples have the exact name") }
                     .sorted(by: <)
             }
 
@@ -50,9 +50,9 @@ class FunctionalTests_ItSpec: QuickSpec {
 
             it("makes a unique name for each of the above") {
                 expect(allSelectors) == [
-                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name:",
-                    "when_two_examples_have_the_exact_name__has_exactly_the_same_name_2:",
-                    "when_two_examples_have_the_exact_name__makes_a_unique_name_for_each_of_the_above:",
+                    "when two examples have the exact name, has exactly the same name",
+                    "when two examples have the exact name, has exactly the same name (2)",
+                    "when two examples have the exact name, makes a unique name for each of the above",
                 ]
             }
 
@@ -114,7 +114,7 @@ class FunctionalTests_ItSpec: QuickSpec {
 private var isRunningFunctionalTests = false
 
 class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("implicit error handling") {
             enum ExampleError: Error {
                 case error
@@ -140,14 +140,14 @@ class FunctionalTests_ImplicitErrorItSpec: QuickSpec {
 }
 
 final class FunctionalTests_SkippingTestsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("supports skipping tests") { throw XCTSkip("This test is intentionally skipped") }
         it("supports not skipping tests") { }
     }
 }
 
 final class FunctionalTests_StoppingTestsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("supports silently stopping tests") { throw StopTest.silently }
         it("supports stopping tests with expected errors") {
             if isRunningFunctionalTests {
@@ -158,38 +158,6 @@ final class FunctionalTests_StoppingTestsSpec: QuickSpec {
     }
 }
 
-final class FunctionalTests_AsyncItSpec: QuickSpec {
-    override func spec() {
-        describe("async handling") {
-            enum ExampleError: Error {
-                case error
-            }
-
-            func asyncFunction() async {}
-
-            func asyncNonThrowingFunction() async throws {}
-
-            func asyncThrowingFunction(shouldThrow: Bool) async throws {
-                if shouldThrow {
-                    throw ExampleError.error
-                }
-            }
-
-            it("supports calling async, non-throwing functions") {
-                await asyncFunction()
-            }
-
-            it("supports calling async functions marked as throws") {
-                try await asyncNonThrowingFunction()
-            }
-
-            it("supports calling async functions that actually throw") {
-                try await asyncThrowingFunction(shouldThrow: isRunningFunctionalTests)
-            }
-        }
-    }
-}
-
 final class ItTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (ItTests) -> () throws -> Void)] {
         return [
@@ -197,7 +165,6 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
             ("testImplicitErrorHandling", testImplicitErrorHandling),
             ("testSkippingExamplesAreCorrectlyReported", testSkippingExamplesAreCorrectlyReported),
             ("testStoppingExamplesAreCorrectlyReported", testStoppingExamplesAreCorrectlyReported),
-            ("testAsyncExamples", testAsyncExamples),
         ]
     }
 
@@ -247,15 +214,6 @@ final class ItTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(result.executionCount, 3)
         XCTAssertEqual(result.failureCount, 1)
         XCTAssertEqual(result.unexpectedExceptionCount, 0)
-        XCTAssertEqual(result.totalFailureCount, 1)
-    }
-
-    func testAsyncExamples() {
-        let result = qck_runSpec(FunctionalTests_AsyncItSpec.self)!
-        XCTAssertFalse(result.hasSucceeded)
-        XCTAssertEqual(result.executionCount, 3)
-        XCTAssertEqual(result.failureCount, 0)
-        XCTAssertEqual(result.unexpectedExceptionCount, 1)
         XCTAssertEqual(result.totalFailureCount, 1)
     }
 }

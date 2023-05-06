@@ -24,20 +24,9 @@ open class QuickSpec: QuickSpecBase {
         }
     }
 
-    open func spec() {}
+    open class func spec() {}
 
-#if !canImport(Darwin)
-    public required init() {
-        super.init(name: "", testClosure: { _ in })
-    }
-    public required init(name: String, testClosure: @escaping (XCTestCase) throws -> Swift.Void) {
-        super.init(name: name, testClosure: testClosure)
-    }
-#else
-    public required override init() {
-        super.init()
-    }
-
+#if canImport(Darwin)
     /// This method is used as a hook for the following two purposes
     ///
     /// 1. Performing all configurations
@@ -84,45 +73,42 @@ open class QuickSpec: QuickSpecBase {
     }
 
     private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames: inout Set<String>) -> Selector {
-        let block: @convention(block) (QuickSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
+        let block: @convention(block) (QuickSpec) -> Void = { spec in
             spec.example = example
-            Task {
-                await example.run()
-                completionHandler()
-            }
+            example.run()
+            QuickSpec.current = nil
         }
         let implementation = imp_implementationWithBlock(block as Any)
 
-        let originalName = example.name.c99ExtendedIdentifier
-        var selectorName = originalName
-        var index: UInt = 2
-
-        while selectorNames.contains(selectorName.appending(":")) {
-            selectorName = String(format: "%@_%tu", originalName, index)
-            index += 1
-        }
-
-        selectorName += ":"
+        let selectorName = TestSelectorNameProvider.testSelectorName(for: example, classSelectorNames: selectorNames)
 
         selectorNames.insert(selectorName)
 
         let selector = NSSelectorFromString(selectorName)
-        class_addMethod(self, selector, implementation, "v@:@?<v@?>")
+        class_addMethod(self, selector, implementation, "v@:")
 
         return selector
     }
-#endif
+#endif // canImport(Darwin)
 
 #if !canImport(Darwin)
+    public required init() {
+        super.init(name: "", testClosure: { _ in })
+    }
+
+    public required init(name: String, testClosure: @escaping (XCTestCase) throws -> Swift.Void) {
+        super.init(name: name, testClosure: testClosure)
+    }
+
     public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
         gatherExamplesIfNeeded()
 
         let examples = World.sharedWorld.examples(forSpecClass: self)
         let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
-            return (example.name, asyncTest { spec in
+            return (example.name, { spec in
                 return {
                     spec.example = example
-                    await example.run()
+                    example.run()
                 }
             })
         }
@@ -138,7 +124,7 @@ open class QuickSpec: QuickSpecBase {
         }
 
         world.performWithCurrentExampleGroup(rootExampleGroup) {
-            self.init().spec()
+            self.spec()
         }
     }
 

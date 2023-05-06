@@ -5,7 +5,7 @@ import XCTest
 import Nimble
 
 class BundleModuleNameSpecs: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("Bundle module name") {
             it("should repalce invalid characters with underscores") {
                 let bundle = Bundle.currentTestBundle

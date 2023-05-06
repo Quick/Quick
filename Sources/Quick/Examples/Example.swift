@@ -10,7 +10,12 @@ public class _ExampleBase: NSObject {}
 // swiftlint:enable type_name
 #endif
 
-public class Example: _ExampleBase {
+/**
+    The common superclass of both Example and AsyncExample. This is mostly used for
+    determining filtering (focusing or pending) and other cases where we want to apply
+    something to any kind of example.
+ */
+public class ExampleBase: _ExampleBase {
     /**
         A boolean indicating whether the example is a shared example;
         i.e.: whether it is an example defined with `itBehavesLike`.
@@ -24,17 +29,44 @@ public class Example: _ExampleBase {
     */
     public var callsite: Callsite
 
+    internal let flags: FilterFlags
+
+    init(callsite: Callsite, flags: FilterFlags) {
+        self.callsite = callsite
+        self.flags = flags
+    }
+
+    /**
+        Evaluates the filter flags set on this example and on the example groups
+        this example belongs to. Flags set on the example are trumped by flags on
+        the example group it belongs to. Flags on inner example groups are trumped
+        by flags on outer example groups.
+    */
+    internal var filterFlags: FilterFlags {
+        [:]
+    }
+
+    /**
+        The example name. A name is a concatenation of the name of
+        the example group the example belongs to, followed by the
+        description of the example itself.
+
+        The example name is used to generate a test method selector
+        to be displayed in Xcode's test navigator.
+    */
+    public var name: String { "" }
+}
+
+public class Example: ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let flags: FilterFlags
-    private let closure: () async throws -> Void
+    private let closure: () throws -> Void
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () async throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
         self.internalDescription = description
-        self.callsite = callsite
-        self.flags = flags
         self.closure = closure
+        super.init(callsite: callsite, flags: flags)
     }
 
     public override var description: String {
@@ -49,19 +81,19 @@ public class Example: _ExampleBase {
         The example name is used to generate a test method selector
         to be displayed in Xcode's test navigator.
     */
-    public var name: String {
+    public override var name: String {
         guard let groupName = group?.name else { return description }
         return "\(groupName), \(description)"
     }
 
-    public func run() async {
+    public func run() {
         let world = World.sharedWorld
 
         if world.numberOfExamplesRun == 0 {
-            await world.suiteHooks.executeBefores()
+            world.suiteHooks.executeBefores()
         }
 
-        let exampleMetadata = ExampleMetadata(example: self, exampleIndex: world.numberOfExamplesRun)
+        let exampleMetadata = SyncExampleMetadata(group: group!, example: self, exampleIndex: world.numberOfExamplesRun)
         world.currentExampleMetadata = exampleMetadata
         defer {
             world.currentExampleMetadata = nil
@@ -69,11 +101,11 @@ public class Example: _ExampleBase {
 
         group!.phase = .beforesExecuting
 
-        let runExample: () async -> Void = { [closure, name, callsite] in
+        let runExample: () -> Void = { [closure, name, callsite] in
             self.group!.phase = .beforesFinished
 
             do {
-                try await closure()
+                try closure()
             } catch {
                 if let stopTestError = error as? StopTest {
                     self.reportStoppedTest(stopTestError)
@@ -89,21 +121,21 @@ public class Example: _ExampleBase {
 
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
         let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { await wrapper(exampleMetadata, closure) }
+            return { wrapper(exampleMetadata, closure) }
         }
 
         let allWrappers = group!.wrappers + world.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { await wrapper(exampleMetadata, closure) }
+            return { wrapper(exampleMetadata, closure) }
         }
-        await wrappedExample()
+        wrappedExample()
 
         group!.phase = .aftersFinished
 
-        world.numberOfExamplesRun += 1
+        world.numberOfSyncExamplesRun += 1
 
         if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
-            await world.suiteHooks.executeAfters()
+            world.suiteHooks.executeAfters()
         }
     }
 
@@ -113,7 +145,7 @@ public class Example: _ExampleBase {
         the example group it belongs to. Flags on inner example groups are trumped
         by flags on outer example groups.
     */
-    internal var filterFlags: FilterFlags {
+    internal override var filterFlags: FilterFlags {
         var aggregateFlags = flags
         for (key, value) in group!.filterFlags {
             aggregateFlags[key] = value

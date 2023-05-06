@@ -8,11 +8,11 @@ class FunctionalTests_JustBeforeEachSpec: QuickSpec {
         case Failure
     }
 
-    func apiCall(someArgument: Bool) -> ApiResponse {
+    class func apiCall(someArgument: Bool) -> ApiResponse {
         return someArgument ? ApiResponse.Success : ApiResponse.Failure
     }
 
-    override func spec() {
+    override class func spec() {
         describe("justBeforeEach") {
             var someArgument: Bool!
             var apiResponse: ApiResponse!

@@ -2,7 +2,7 @@
 import Foundation
 import Quick
 
-extension QuickSpec {
+extension NSObject {
     @objc static func allSelectors() -> Set<String> {
         var allSelectors = Set<String>()
 

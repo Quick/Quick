@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AsyncBehavior Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/AsyncBehavior" class="dashAnchor"></a>
+    <a title="AsyncBehavior Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Quick 7.0.0-beta.3 Docs</a> (83% documented)</p>
+        <p class="header-right"><a href="https://github.com/Quick/Quick"><img src="../img/gh.png" alt="GitHub"/>View on GitHub</a></p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Quick Reference</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        AsyncBehavior Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AsyncBehavior.html">AsyncBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AsyncExample.html">AsyncExample</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AsyncExampleGroup.html">AsyncExampleGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AsyncSpec.html">AsyncSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Behavior.html">Behavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Callsite.html">Callsite</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Example.html">Example</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExampleBase.html">ExampleBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExampleGroup.html">ExampleGroup</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExampleMetadata.html">ExampleMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QCKConfiguration.html">QCKConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuickConfiguration.html">QuickConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/QuickTestSuite.html">QuickTestSuite</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/_CallsiteBase">_CallsiteBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:@M@Quick@objc(cs)_CallsiteBase">_CallsiteBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/_ExampleBase">_ExampleBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:@M@Quick@objc(cs)_ExampleBase">_ExampleBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/_ExampleMetadataBase">_ExampleMetadataBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:@M@Quick@objc(cs)_ExampleMetadataBase">_ExampleMetadataBase</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/c:objc(cs)QuickConfiguration">QuickConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/c:objc(cs)QuickSpec">QuickSpec</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AsyncDSLUser.html">AsyncDSLUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SyncDSLUser.html">SyncDSLUser</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/StopTest.html">StopTest</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick24AfterExampleAsyncClosurea">AfterExampleAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick19AfterExampleClosurea">AfterExampleClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick36AfterExampleWithMetadataAsyncClosurea">AfterExampleWithMetadataAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick31AfterExampleWithMetadataClosurea">AfterExampleWithMetadataClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick22AfterSuiteAsyncClosurea">AfterSuiteAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick17AfterSuiteClosurea">AfterSuiteClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick25AroundExampleAsyncClosurea">AroundExampleAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick20AroundExampleClosurea">AroundExampleClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick37AroundExampleWithMetadataAsyncClosurea">AroundExampleWithMetadataAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick32AroundExampleWithMetadataClosurea">AroundExampleWithMetadataClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/AsyncSpecBase">AsyncSpecBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick13AsyncSpecBasea">AsyncSpecBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick25BeforeExampleAsyncClosurea">BeforeExampleAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick20BeforeExampleClosurea">BeforeExampleClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick37BeforeExampleWithMetadataAsyncClosurea">BeforeExampleWithMetadataAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick32BeforeExampleWithMetadataClosurea">BeforeExampleWithMetadataClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick23BeforeSuiteAsyncClosurea">BeforeSuiteAsyncClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick18BeforeSuiteClosurea">BeforeSuiteClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick13ExampleFiltera">ExampleFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/FileString">FileString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick10FileStringa">FileString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick0A10Configurera">QuickConfigurer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick20SharedExampleClosurea">SharedExampleClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Quick20SharedExampleContexta">SharedExampleContext</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AsyncBehavior</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">AsyncBehavior</span><span class="o">&lt;</span><span class="kt">Context</span><span class="o">&gt;</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AsyncBehavior</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AsyncDSLUser.html">AsyncDSLUser</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code><a href="../Classes/Behavior.html">Behavior</a></code> encapsulates a set of examples that can be re-used in several locations using the <code>itBehavesLike</code>
+function with a context instance of the generic type.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick13AsyncBehaviorC4nameSSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick13AsyncBehaviorC4nameSSvpZ">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this variable if you want to provide custom name for this example group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick13AsyncBehaviorC4specyyxycFZ"></a>
+                    <a name="//apple_ref/swift/Method/spec(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick13AsyncBehaviorC4specyyxycFZ">spec(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this method in your behavior to define a set of reusable examples.</p>
+
+<p>This behaves just like an example group defines using <code>describe</code> or <code>context</code>&ndash;it may contain any number of <code>beforeEach</code>
+and <code>afterEach</code> closures, as well as any number of examples (defined using <code>it</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">spec</span><span class="p">(</span><span class="n">_</span> <span class="nv">aContext</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Context</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>aContext</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure that, when evaluated, returns a <code>Context</code> instance that provide the information on the subject.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2023 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2023-04-27)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

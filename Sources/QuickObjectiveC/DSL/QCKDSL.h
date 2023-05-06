@@ -35,7 +35,7 @@
 #define QuickSpecBegin(name) \
     @interface name : QuickSpec; @end \
     @implementation name \
-    - (void)spec { \
+    + (void)spec { \
 
 
 /**

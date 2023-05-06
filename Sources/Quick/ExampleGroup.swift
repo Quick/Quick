@@ -1,11 +1,15 @@
 import Foundation
 
+internal protocol Filterable {
+    var filterFlags: FilterFlags { get }
+}
+
 /**
     Example groups are logical groupings of examples, defined with
     the `describe` and `context` functions. Example groups can share
     setup and teardown code.
 */
-final public class ExampleGroup: NSObject {
+final public class ExampleGroup: NSObject, Filterable {
     weak internal var parent: ExampleGroup?
     internal let hooks = ExampleHooks()
 
@@ -61,7 +65,7 @@ final public class ExampleGroup: NSObject {
         return aggregateFlags
     }
 
-    internal var justBeforeEachStatements: [AroundExampleWithMetadataAsyncClosure] {
+    internal var justBeforeEachStatements: [AroundExampleWithMetadataClosure] {
         var closures = Array(hooks.justBeforeEachStatements.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.justBeforeEachStatements.reversed())
@@ -69,7 +73,7 @@ final public class ExampleGroup: NSObject {
         return closures
     }
 
-    internal var wrappers: [AroundExampleWithMetadataAsyncClosure] {
+    internal var wrappers: [AroundExampleWithMetadataClosure] {
         var closures = Array(hooks.wrappers.reversed())
         walkUp { group in
             closures.append(contentsOf: group.hooks.wrappers.reversed())

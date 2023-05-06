@@ -2,8 +2,8 @@ import XCTest
 import Quick
 import Nimble
 
-var oneExampleBeforeEachExecutedCount = 0
-var onlyPendingExamplesBeforeEachExecutedCount = 0
+private var oneExampleBeforeEachExecutedCount = 0
+private var onlyPendingExamplesBeforeEachExecutedCount = 0
 
 class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
     override static func spec(_ aContext: @escaping () -> Void) {
@@ -13,7 +13,7 @@ class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
     }
 }
 class FunctionalTests_PendingSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         xit("an example that will not run") {
             expect(true).to(beFalsy())
         }

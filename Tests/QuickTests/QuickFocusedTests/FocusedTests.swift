@@ -26,7 +26,7 @@ class FunctionalTests_FocusedSpec_Behavior: Behavior<Void> {
 // `specs` array).
 
 class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("has an unfocused example that fails, but is never run") { fail() }
         fit("has a focused example that passes (1)") {}
 
@@ -35,17 +35,13 @@ class _FunctionalTests_FocusedSpec_Focused: QuickSpec {
             fit("has a focused example that passes (3)") {}
         }
 
-        fit("focused tests can run on the main thread") { @MainActor in
-            expect(Thread.isMainThread).to(beTrue())
-        }
-
         fitBehavesLike("two passing shared examples")
         fitBehavesLike(FunctionalTests_FocusedSpec_Behavior.self) { () -> Void in }
     }
 }
 
 class _FunctionalTests_FocusedSpec_Unfocused: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("has an unfocused example that fails, but is never run") { fail() }
 
         describe("an unfocused example group that is never run") {
@@ -78,6 +74,6 @@ final class FocusedTests: XCTestCase, XCTestCaseProvider {
             _FunctionalTests_FocusedSpec_Focused.self,
         ])
         #endif
-        XCTAssertEqual(result?.executionCount, 9)
+        XCTAssertEqual(result?.executionCount, 8)
     }
 }

@@ -5,7 +5,7 @@ import Nimble
 var beforeSuiteWasExecuted = false
 
 class FunctionalTests_BeforeSuite_BeforeSuiteSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         beforeSuite {
             beforeSuiteWasExecuted = true
         }
@@ -13,7 +13,7 @@ class FunctionalTests_BeforeSuite_BeforeSuiteSpec: QuickSpec {
 }
 
 class FunctionalTests_BeforeSuite_Spec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         it("is executed after beforeSuite") {
             expect(beforeSuiteWasExecuted).to(beTruthy())
         }

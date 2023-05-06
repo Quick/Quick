@@ -66,7 +66,7 @@ static QuickSpec *currentSpec = nil;
 
 #pragma mark - Public Interface
 
-- (void)spec { }
++ (void)spec { }
 
 + (QuickSpec*) current {
     return currentSpec;
@@ -91,10 +91,8 @@ static QuickSpec *currentSpec = nil;
 
     ExampleGroup *rootExampleGroup = [world rootExampleGroupForSpecClass:[self class]];
     [world performWithCurrentExampleGroup:rootExampleGroup closure:^{
-        QuickSpec *spec = [self new];
-
         @try {
-            [spec spec];
+            [self spec];
         }
         @catch (NSException *exception) {
             [NSException raise:NSInternalInconsistencyException
@@ -109,8 +107,6 @@ static QuickSpec *currentSpec = nil;
         }
     }];
 }
-
-- (void)example_thing:(void (^)(void))completionHandler {}
 
 /**
  QuickSpec uses this method to dynamically define a new instance method for the
@@ -129,26 +125,19 @@ static QuickSpec *currentSpec = nil;
  @return The selector of the newly defined instance method.
  */
 + (SEL)addInstanceMethodForExample:(Example *)example classSelectorNames:(NSMutableSet<NSString*> *)selectorNames {
-    IMP implementation = imp_implementationWithBlock(^(QuickSpec *self, void (^completionHandler)(void)){
+    IMP implementation = imp_implementationWithBlock(^(QuickSpec *self){
         self.example = example;
         currentSpec = self;
-        [example runWithCompletionHandler:completionHandler];
+        [example run];
+        currentSpec = nil;
     });
 
-    const char *types = [[NSString stringWithFormat:@"%s%s%s@?<v@?>", @encode(void), @encode(id), @encode(SEL)] UTF8String];
+    const char *types = [[NSString stringWithFormat:@"%s%s%s", @encode(void), @encode(id), @encode(SEL)] UTF8String];
 
-    NSString *originalName = [QCKObjCStringUtils c99ExtendedIdentifierFrom:example.name];
-    NSString *selectorName = originalName;
-    NSUInteger i = 2;
-
-    while ([selectorNames containsObject:[selectorName stringByAppendingFormat:@"%s", @encode(SEL)]]) {
-        selectorName = [NSString stringWithFormat:@"%@_%tu", originalName, i++];
-    }
-
-    selectorName = [NSString stringWithFormat:@"%@%s", selectorName, @encode(SEL)];
+    NSString *selectorName = [TestSelectorNameProvider testSelectorNameFor:example classSelectorNames:selectorNames];
 
     [selectorNames addObject:selectorName];
-    
+
     SEL selector = NSSelectorFromString(selectorName);
     class_addMethod(self, selector, implementation, types);
 

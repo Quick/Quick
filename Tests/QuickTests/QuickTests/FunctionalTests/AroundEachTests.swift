@@ -22,20 +22,20 @@ private enum AroundEachType {
 private var aroundEachOrder = [AroundEachType]()
 
 class FunctionalTests_AroundEachSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("aroundEach ordering") {
             beforeEach { aroundEachOrder.append(.before0) }
             afterEach { aroundEachOrder.append(.after0) }
             aroundEach { run in
                 aroundEachOrder.append(.around0Prefix)
-                await run()
+                run()
                 aroundEachOrder.append(.around0Suffix)
             }
             beforeEach { aroundEachOrder.append(.before1) }
             afterEach { aroundEachOrder.append(.after1) }
             aroundEach { run in
                 aroundEachOrder.append(.around1Prefix)
-                await run()
+                run()
                 aroundEachOrder.append(.around1Suffix)
             }
             beforeEach { aroundEachOrder.append(.before2) }
@@ -54,7 +54,7 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                 afterEach { aroundEachOrder.append(.innerAfter) }
                 aroundEach { run in
                     aroundEachOrder.append(.innerAroundPrefix)
-                    await run()
+                    run()
                     aroundEachOrder.append(.innerAroundSuffix)
                 }
 
@@ -63,17 +63,6 @@ class FunctionalTests_AroundEachSpec: QuickSpec {
                     expect(aroundEachOrder).notTo(contain(.innerAroundSuffix))
                     expect(aroundEachOrder).notTo(contain(.innerAfter))
                 }
-            }
-        }
-
-        describe("execution threads") {
-            aroundEach { run in
-                expect(Thread.isMainThread).to(beFalse())
-                await run()
-            }
-
-            it("runs on the main thread") {
-                expect(Thread.isMainThread).to(beFalse())
             }
         }
 

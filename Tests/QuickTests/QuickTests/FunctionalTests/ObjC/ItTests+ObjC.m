@@ -24,8 +24,8 @@ it(@"has a description with セレクター名に使えない文字が入って�
 it(@"is a test with a unique name", ^{
     NSSet<NSString*> *allSelectors = [FunctionalTests_ItSpec_ObjC allSelectors];
     
-    expect(allSelectors).to(contain(@"is_a_test_with_a_unique_name:"));
-    expect(allSelectors).toNot(contain(@"is_a_test_with_a_unique_name_2:"));
+    expect(allSelectors).to(contain(@"is a test with a unique name"));
+    expect(allSelectors).toNot(contain(@"is a test with a unique name (2)"));
 });
 
 it(@"is executed on the main thread", ^{

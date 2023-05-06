@@ -45,10 +45,12 @@ final internal class World: _WorldBase {
         This is useful for using the Quick test metadata (like its name) at
         runtime.
     */
+    internal var currentExampleMetadata: SyncExampleMetadata?
 
-    internal var currentExampleMetadata: ExampleMetadata?
-
-    internal var numberOfExamplesRun = 0
+    internal var numberOfSyncExamplesRun = 0
+    internal var numberOfExamplesRun: Int {
+        numberOfSyncExamplesRun + AsyncWorld.sharedWorld.numberOfAsyncExamplesRun
+    }
 
     /**
         A flag that indicates whether additional test suites are being run
@@ -69,7 +71,7 @@ final internal class World: _WorldBase {
 
     internal private(set) var isConfigurationFinalized = false
 
-    internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
+    internal var exampleHooks: ExampleHooks { return configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
 
     // MARK: Singleton Constructor
@@ -134,7 +136,7 @@ final internal class World: _WorldBase {
         top level of a -[QuickSpec spec] method--it's thanks to this group that
         users can define beforeEach and it closures at the top level, like so:
 
-            override func spec() {
+            override class func spec() {
                 // These belong to the root example group
                 beforeEach {}
                 it("is at the top level") {}
@@ -201,7 +203,7 @@ final internal class World: _WorldBase {
         let suiteBeforesExecuting = suiteHooks.phase == .beforesExecuting
         let exampleBeforesExecuting = exampleHooks.phase == .beforesExecuting
         var groupBeforesExecuting = false
-        if let runningExampleGroup = currentExampleMetadata?.example.group {
+        if let runningExampleGroup = currentExampleMetadata?.group {
             groupBeforesExecuting = runningExampleGroup.phase == .beforesExecuting
         }
 
@@ -212,7 +214,7 @@ final internal class World: _WorldBase {
         let suiteAftersExecuting = suiteHooks.phase == .aftersExecuting
         let exampleAftersExecuting = exampleHooks.phase == .aftersExecuting
         var groupAftersExecuting = false
-        if let runningExampleGroup = currentExampleMetadata?.example.group {
+        if let runningExampleGroup = currentExampleMetadata?.group {
             groupAftersExecuting = runningExampleGroup.phase == .aftersExecuting
         }
 
