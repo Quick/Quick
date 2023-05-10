@@ -26,7 +26,7 @@ import Nimble
 import BananaApp
 
 class BananaViewControllerSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     var viewController: BananaViewController!
     beforeEach {
       viewController = BananaViewController()

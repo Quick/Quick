@@ -109,7 +109,7 @@ class MockDataProvider: NSObject, DataProviderProtocol {
 下面的代码验证了当 `ViewController` 加载时，会运行 `dataProvider.fetch()` 。
 
 ```swift
-override func spec() {
+override class func spec() {
     describe("view controller") {
         it("fetch data with data provider") {
             let mockProvier = MockDataProvider()

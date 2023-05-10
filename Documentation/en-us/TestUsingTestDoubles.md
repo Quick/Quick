@@ -109,7 +109,7 @@ The `fetchCalled` property is set to `true` when `fetch()` is called, so that th
 The following test verifies that when `ViewController` is loaded, the view controller calls `dataProvider.fetch()`.
 
 ```swift
-override func spec() {
+override class func spec() {
     describe("view controller") {
         it("fetch data with data provider") {
             let mockProvider = MockDataProvider()

@@ -116,7 +116,7 @@ class MockDataProvider: NSObject, DataProviderProtocol {
 
 ```swift
 // Swift
-override func spec() {
+override class func spec() {
     describe("view controller") {
         it("fetch data with data provider") {
             let mockProvier = MockDataProvider()

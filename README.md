@@ -17,7 +17,7 @@ import Quick
 import Nimble
 
 class TableOfContentsSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     describe("the 'Documentation' directory") {
       it("has everything you need to get started") {
         let sections = Directory("Documentation").sections

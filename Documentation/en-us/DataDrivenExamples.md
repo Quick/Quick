@@ -27,7 +27,7 @@ import Quick
 import Nimble
 
 class DoubleFunctionTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("the double function") {
             let dataSet: [(input: Int, output: Int)] = [
                 (input: 0, output: 0),
@@ -70,7 +70,7 @@ class TestData<T> {
 }
 
 class QuickDataDrivenTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("the double function") {
             let dataSet: [TestData<Int>] = [
                 .init(input: 0, output: 0),
@@ -104,7 +104,7 @@ import Quick
 import Nimble
 
 class WeirdClassTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("the WeirdClass") {
             let dataSet: [(input: String, firstThree: String, weirdness: Int)] = [
                 (input: "foobar", firstThree: "foo", weirdness: 35),

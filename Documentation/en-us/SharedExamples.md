@@ -50,7 +50,7 @@ class SomethingEdible: Behavior<Edible> {
 }
 
 class MackerelSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     var mackerel: Mackerel!
     beforeEach {
       mackerel = Mackerel()
@@ -61,7 +61,7 @@ class MackerelSpec: QuickSpec {
 }
 
 class CodSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     var cod: Cod!
     beforeEach {
       cod = Cod()
@@ -99,7 +99,7 @@ class EdibleSharedExamplesConfiguration: QuickConfiguration {
 }
 
 class MackerelSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     var mackerel: Mackerel!
     beforeEach {
       mackerel = Mackerel()
@@ -110,7 +110,7 @@ class MackerelSpec: QuickSpec {
 }
 
 class CodSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     var cod: Cod!
     beforeEach {
       cod = Cod()
