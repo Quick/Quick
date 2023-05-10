@@ -24,7 +24,7 @@ import Nimble
 import Sea
 
 class DolphinSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     it("is friendly") {
       expect(Dolphin().isFriendly).to(beTruthy())
     }
@@ -73,7 +73,7 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     describe("a dolphin") {
       describe("its click") {
         it("is loud") {
@@ -137,7 +137,7 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     describe("a dolphin") {
       var dolphin: Dolphin!
       beforeEach {
@@ -215,7 +215,7 @@ import Quick
 import Nimble
 
 class DolphinSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     describe("a dolphin") {
       var dolphin: Dolphin!
       beforeEach { dolphin = Dolphin() }
@@ -389,7 +389,7 @@ fcontext(@"when the dolphin is near something interesting", ^{
 import Quick
 
 class DolphinSpec: QuickSpec {
-  override func spec() {
+  override class func spec() {
     beforeSuite {
       OceanDatabase.createDatabase(name: "test.db")
       OceanDatabase.connectToDatabase(name: "test.db")

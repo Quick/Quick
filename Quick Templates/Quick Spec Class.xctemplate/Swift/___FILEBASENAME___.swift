@@ -10,7 +10,7 @@ import Quick
 import Nimble
 
 class ___FILEBASENAMEASIDENTIFIER___: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
     }
 }
