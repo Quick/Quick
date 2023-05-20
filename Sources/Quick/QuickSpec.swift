@@ -16,6 +16,8 @@ public typealias QuickSpecBase = XCTestCase
 open class QuickSpec: QuickSpecBase {
     /// Returns the currently executing spec. Use in specs that require XCTestCase
     /// methods, e.g. expectation(description:).
+    ///
+    /// If you're using `beforeSuite`/`afterSuite`, you should consider the ``currentSpec()`` helper.
     public private(set) static var current: QuickSpec!
 
     private var example: Example? {
@@ -109,6 +111,7 @@ open class QuickSpec: QuickSpecBase {
                 return {
                     spec.example = example
                     example.run()
+                    QuickSpec.current = nil
                 }
             })
         }

@@ -30,7 +30,6 @@
 		1E4441862988A3A4009AE584 /* AsyncExampleHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441852988A3A4009AE584 /* AsyncExampleHooks.swift */; };
 		1E4441A32988A3FA009AE584 /* AfterEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441922988A3D4009AE584 /* AfterEachAsyncTests.swift */; };
 		1E4441A52988A3FA009AE584 /* ContextAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418A2988A3D4009AE584 /* ContextAsyncTests.swift */; };
-		1E4441A62988A3FA009AE584 /* CurrentAsyncSpecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418F2988A3D4009AE584 /* CurrentAsyncSpecTests.swift */; };
 		1E4441A72988A3FA009AE584 /* AsyncBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418B2988A3D4009AE584 /* AsyncBehaviorTests.swift */; };
 		1E4441A82988A3FA009AE584 /* BeforeEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441912988A3D4009AE584 /* BeforeEachAsyncTests.swift */; };
 		1E4441A92988A3FA009AE584 /* DescribeAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441942988A3D4009AE584 /* DescribeAsyncTests.swift */; };
@@ -41,7 +40,6 @@
 		1E4441AE2988A3FA009AE584 /* CrossReferencingAsyncSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418C2988A3D4009AE584 /* CrossReferencingAsyncSpecs.swift */; };
 		1E4441AF2988A3FB009AE584 /* AfterEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441922988A3D4009AE584 /* AfterEachAsyncTests.swift */; };
 		1E4441B12988A3FB009AE584 /* ContextAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418A2988A3D4009AE584 /* ContextAsyncTests.swift */; };
-		1E4441B22988A3FB009AE584 /* CurrentAsyncSpecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418F2988A3D4009AE584 /* CurrentAsyncSpecTests.swift */; };
 		1E4441B32988A3FB009AE584 /* AsyncBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418B2988A3D4009AE584 /* AsyncBehaviorTests.swift */; };
 		1E4441B42988A3FB009AE584 /* BeforeEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441912988A3D4009AE584 /* BeforeEachAsyncTests.swift */; };
 		1E4441B52988A3FB009AE584 /* DescribeAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441942988A3D4009AE584 /* DescribeAsyncTests.swift */; };
@@ -52,7 +50,6 @@
 		1E4441BA2988A3FB009AE584 /* CrossReferencingAsyncSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418C2988A3D4009AE584 /* CrossReferencingAsyncSpecs.swift */; };
 		1E4441BB2988A3FC009AE584 /* AfterEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441922988A3D4009AE584 /* AfterEachAsyncTests.swift */; };
 		1E4441BD2988A3FC009AE584 /* ContextAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418A2988A3D4009AE584 /* ContextAsyncTests.swift */; };
-		1E4441BE2988A3FC009AE584 /* CurrentAsyncSpecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418F2988A3D4009AE584 /* CurrentAsyncSpecTests.swift */; };
 		1E4441BF2988A3FC009AE584 /* AsyncBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44418B2988A3D4009AE584 /* AsyncBehaviorTests.swift */; };
 		1E4441C02988A3FC009AE584 /* BeforeEachAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441912988A3D4009AE584 /* BeforeEachAsyncTests.swift */; };
 		1E4441C12988A3FC009AE584 /* DescribeAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4441942988A3D4009AE584 /* DescribeAsyncTests.swift */; };
@@ -221,6 +218,9 @@
 		89E8E59B290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
 		89E8E59C290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
 		89E8E59D290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
+		89EEF5C62A18693300988224 /* CurrentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EEF5C52A18693300988224 /* CurrentSpec.swift */; };
+		89EEF5C72A18693300988224 /* CurrentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EEF5C52A18693300988224 /* CurrentSpec.swift */; };
+		89EEF5C82A18693300988224 /* CurrentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EEF5C52A18693300988224 /* CurrentSpec.swift */; };
 		8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
@@ -446,7 +446,6 @@
 		1E44418C2988A3D4009AE584 /* CrossReferencingAsyncSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingAsyncSpecs.swift; sourceTree = "<group>"; };
 		1E44418D2988A3D4009AE584 /* PendingAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAsyncTests.swift; sourceTree = "<group>"; };
 		1E44418E2988A3D4009AE584 /* AroundEachAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AroundEachAsyncTests.swift; sourceTree = "<group>"; };
-		1E44418F2988A3D4009AE584 /* CurrentAsyncSpecTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentAsyncSpecTests.swift; sourceTree = "<group>"; };
 		1E4441902988A3D4009AE584 /* JustBeforeEachAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JustBeforeEachAsyncTests.swift; sourceTree = "<group>"; };
 		1E4441912988A3D4009AE584 /* BeforeEachAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeEachAsyncTests.swift; sourceTree = "<group>"; };
 		1E4441922988A3D4009AE584 /* AfterEachAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterEachAsyncTests.swift; sourceTree = "<group>"; };
@@ -495,6 +494,7 @@
 		89E3F81129F76EC100EA7370 /* TestSelectorNameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectorNameProvider.swift; sourceTree = "<group>"; };
 		89E3F81529F7738B00EA7370 /* TestSelectorNameProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectorNameProviderTests.swift; sourceTree = "<group>"; };
 		89E8E59A290045AE003B08F0 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		89EEF5C52A18693300988224 /* CurrentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSpec.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
@@ -697,7 +697,6 @@
 				1E4441912988A3D4009AE584 /* BeforeEachAsyncTests.swift */,
 				1E44418A2988A3D4009AE584 /* ContextAsyncTests.swift */,
 				1E44418C2988A3D4009AE584 /* CrossReferencingAsyncSpecs.swift */,
-				1E44418F2988A3D4009AE584 /* CurrentAsyncSpecTests.swift */,
 				1E4441942988A3D4009AE584 /* DescribeAsyncTests.swift */,
 				1E4441892988A3D4009AE584 /* ItAsyncTests.swift */,
 				1E4441902988A3D4009AE584 /* JustBeforeEachAsyncTests.swift */,
@@ -969,6 +968,7 @@
 				89D2C674284DA77D004B108C /* SubclassDetection.swift */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
+				89EEF5C52A18693300988224 /* CurrentSpec.swift */,
 				DA6B30171A4DB0D500FFB148 /* Filter.swift */,
 				EBAF959228DB9308005C9AE4 /* StopTest.swift */,
 				CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */,
@@ -1513,6 +1513,7 @@
 				1F118CFC1BDCA536005013A2 /* QCKConfiguration.swift in Sources */,
 				1E4441D72988A422009AE584 /* AsyncWorld+DSL.swift in Sources */,
 				EBAF959528DB9308005C9AE4 /* StopTest.swift in Sources */,
+				89EEF5C82A18693300988224 /* CurrentSpec.swift in Sources */,
 				1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */,
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
 				34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
@@ -1561,7 +1562,6 @@
 				CE4A57931EA725420063C0D4 /* BehaviorTests.swift in Sources */,
 				1F118D141BDCA556005013A2 /* FailureTests+ObjC.m in Sources */,
 				CE4A57911EA7252E0063C0D4 /* FunctionalTests_BehaviorTests_Behaviors.swift in Sources */,
-				1E4441BE2988A3FC009AE584 /* CurrentAsyncSpecTests.swift in Sources */,
 				1E4441C42988A3FC009AE584 /* JustBeforeEachAsyncTests.swift in Sources */,
 				DED3037F1DF6CF140041394E /* BundleModuleNameTests.swift in Sources */,
 				1F118D0F1BDCA54B005013A2 /* FunctionalTests_SharedExamplesTests_SharedExamples.swift in Sources */,
@@ -1633,6 +1633,7 @@
 				DA408BE319FF5599005DF92A /* Closures.swift in Sources */,
 				1E4441D02988A421009AE584 /* AsyncWorld+DSL.swift in Sources */,
 				EBAF959428DB9308005C9AE4 /* StopTest.swift in Sources */,
+				89EEF5C72A18693300988224 /* CurrentSpec.swift in Sources */,
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				34C586091C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
@@ -1681,7 +1682,6 @@
 				DAE714F119FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				DED3037E1DF6CF140041394E /* BundleModuleNameTests.swift in Sources */,
 				DA05D61119F73A3800771050 /* AfterEachTests.swift in Sources */,
-				1E4441B22988A3FB009AE584 /* CurrentAsyncSpecTests.swift in Sources */,
 				1E4441B82988A3FB009AE584 /* JustBeforeEachAsyncTests.swift in Sources */,
 				DAB0137019FC4315006AFBEE /* SharedExamples+BeforeEachTests.swift in Sources */,
 				DA8F91A619F3208B006F6675 /* BeforeSuiteTests.swift in Sources */,
@@ -1803,6 +1803,7 @@
 				EBAF959328DB9308005C9AE4 /* StopTest.swift in Sources */,
 				CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
+				89EEF5C62A18693300988224 /* CurrentSpec.swift in Sources */,
 				CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */,
 				34C586081C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				1E44417D2988A362009AE584 /* AsyncWorld.swift in Sources */,
@@ -1851,7 +1852,6 @@
 				CE4A57941EA725440063C0D4 /* BehaviorTests.swift in Sources */,
 				DAE714F019FF65D3005905B8 /* Configuration+BeforeEachTests.swift in Sources */,
 				CE4A57921EA725300063C0D4 /* FunctionalTests_BehaviorTests_Behaviors.swift in Sources */,
-				1E4441A62988A3FA009AE584 /* CurrentAsyncSpecTests.swift in Sources */,
 				1E4441AC2988A3FA009AE584 /* JustBeforeEachAsyncTests.swift in Sources */,
 				DED3037D1DF6CF140041394E /* BundleModuleNameTests.swift in Sources */,
 				DA05D61019F73A3800771050 /* AfterEachTests.swift in Sources */,
