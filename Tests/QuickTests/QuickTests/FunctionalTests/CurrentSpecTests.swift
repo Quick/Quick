@@ -77,7 +77,7 @@ class AsyncSpecCurrentTests: AsyncSpec {
     }
 }
 
-class XcodeCurrentSpecTests: XCTestCase {
+class XCTestCurrentSpecTests: XCTestCase {
     func testCurrentSpecReturnsNil() {
         expect(currentSpec()).to(beNil())
     }
@@ -88,5 +88,13 @@ class XcodeCurrentSpecTests: XCTestCase {
 
     func testAsyncSpecCurrentReturnsNil() {
         expect(AsyncSpec.current).to(beNil())
+    }
+
+    static var allTests: [(String, (XCTestCurrentSpecTests) -> () throws -> Void)] {
+        return [
+            ("testCurrentSpecReturnsNil", testCurrentSpecReturnsNil),
+            ("testQuickSpecCurrentReturnsNil", testQuickSpecCurrentReturnsNil),
+            ("testAsyncSpecCurrentReturnsNil", testAsyncSpecCurrentReturnsNil),
+        ]
     }
 }

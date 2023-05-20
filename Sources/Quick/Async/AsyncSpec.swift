@@ -122,6 +122,7 @@ open class AsyncSpec: AsyncSpecBase {
                 return {
                     spec.example = example
                     await example.run()
+                    AsyncSpec.current = nil
                 }
             })
         }
