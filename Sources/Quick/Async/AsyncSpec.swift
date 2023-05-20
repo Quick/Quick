@@ -11,6 +11,8 @@ public typealias AsyncSpecBase = XCTestCase
 open class AsyncSpec: AsyncSpecBase {
     /// Returns the currently executing spec. Use in specs that require XCTestCase
     /// methods, e.g. expectation(description:).
+    ///
+    /// If you're using `beforeSuite`/`afterSuite`, you should consider the ``currentSpec()`` helper.
     public private(set) static var current: AsyncSpec!
 
     private var example: AsyncExample? {

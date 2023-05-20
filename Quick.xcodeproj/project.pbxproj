@@ -221,6 +221,9 @@
 		89E8E59B290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
 		89E8E59C290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
 		89E8E59D290045AE003B08F0 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E8E59A290045AE003B08F0 /* Example.swift */; };
+		89EEF5C62A18693300988224 /* CurrentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EEF5C52A18693300988224 /* CurrentSpec.swift */; };
+		89EEF5C72A18693300988224 /* CurrentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EEF5C52A18693300988224 /* CurrentSpec.swift */; };
+		89EEF5C82A18693300988224 /* CurrentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EEF5C52A18693300988224 /* CurrentSpec.swift */; };
 		8D010A571C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A581C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
 		8D010A591C11726F00633E2B /* DescribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D010A561C11726F00633E2B /* DescribeTests.swift */; };
@@ -495,6 +498,7 @@
 		89E3F81129F76EC100EA7370 /* TestSelectorNameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectorNameProvider.swift; sourceTree = "<group>"; };
 		89E3F81529F7738B00EA7370 /* TestSelectorNameProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectorNameProviderTests.swift; sourceTree = "<group>"; };
 		89E8E59A290045AE003B08F0 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		89EEF5C52A18693300988224 /* CurrentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSpec.swift; sourceTree = "<group>"; };
 		8D010A561C11726F00633E2B /* DescribeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescribeTests.swift; sourceTree = "<group>"; };
 		AED9C8621CC8A7BD00432F62 /* CrossReferencingSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossReferencingSpecs.swift; sourceTree = "<group>"; };
 		CD1F6502226398F600EBE9D8 /* XCTestObservationCenter+QCKSuspendObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestObservationCenter+QCKSuspendObservation.swift"; sourceTree = "<group>"; };
@@ -969,6 +973,7 @@
 				89D2C674284DA77D004B108C /* SubclassDetection.swift */,
 				34F375A619515CA700CE1B99 /* World.swift */,
 				34F3759C19515CA700CE1B99 /* Callsite.swift */,
+				89EEF5C52A18693300988224 /* CurrentSpec.swift */,
 				DA6B30171A4DB0D500FFB148 /* Filter.swift */,
 				EBAF959228DB9308005C9AE4 /* StopTest.swift */,
 				CE57CEDA1C430BD200D63004 /* QuickTestSuite.swift */,
@@ -1513,6 +1518,7 @@
 				1F118CFC1BDCA536005013A2 /* QCKConfiguration.swift in Sources */,
 				1E4441D72988A422009AE584 /* AsyncWorld+DSL.swift in Sources */,
 				EBAF959528DB9308005C9AE4 /* StopTest.swift in Sources */,
+				89EEF5C82A18693300988224 /* CurrentSpec.swift in Sources */,
 				1F118D021BDCA536005013A2 /* SuiteHooks.swift in Sources */,
 				1F118CFB1BDCA536005013A2 /* QuickConfiguration.m in Sources */,
 				34C5860A1C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
@@ -1633,6 +1639,7 @@
 				DA408BE319FF5599005DF92A /* Closures.swift in Sources */,
 				1E4441D02988A421009AE584 /* AsyncWorld+DSL.swift in Sources */,
 				EBAF959428DB9308005C9AE4 /* StopTest.swift in Sources */,
+				89EEF5C72A18693300988224 /* CurrentSpec.swift in Sources */,
 				DA02C91A19A8073100093156 /* ExampleMetadata.swift in Sources */,
 				34C586091C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				DA408BE719FF5599005DF92A /* SuiteHooks.swift in Sources */,
@@ -1803,6 +1810,7 @@
 				EBAF959328DB9308005C9AE4 /* StopTest.swift in Sources */,
 				CE57CEDD1C430BD200D63004 /* NSBundle+CurrentTestBundle.swift in Sources */,
 				DA02C91919A8073100093156 /* ExampleMetadata.swift in Sources */,
+				89EEF5C62A18693300988224 /* CurrentSpec.swift in Sources */,
 				CE57CEDF1C430BD200D63004 /* QuickTestSuite.swift in Sources */,
 				34C586081C4AC5E500D4F057 /* ErrorUtility.swift in Sources */,
 				1E44417D2988A362009AE584 /* AsyncWorld.swift in Sources */,
