@@ -35,7 +35,11 @@ guarantee about the order in which those configurations are executed.
 ## Adding Global `beforeEach` and `afterEach` Closures
 
 Using `QuickConfiguration.beforeEach` and `QuickConfiguration.afterEach`, you
-can specify closures to be run before or after *every* example in a test suite:
+can specify closures to be run before or after *every* example in a test suite.
+These closures are even executed before or after examples in `AsyncSpec`, where
+they will be executed on the main actor.
+
+For example:
 
 ```swift
 // Swift
