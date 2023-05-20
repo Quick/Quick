@@ -23,7 +23,7 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Async/AsyncSpec.swift",
-      "line": 22,
+      "line": 24,
       "symbol": "AsyncSpec.spec()",
       "symbol_kind": "source.lang.swift.decl.function.method.class",
       "warning": "undocumented"
