@@ -15,7 +15,7 @@ class FunctionalTests_PendingAsyncSpec_AsyncBehavior: AsyncBehavior<Void> {
 class FunctionalTests_PendingAsyncSpec: AsyncSpec {
     override class func spec() {
         xit("an example that will not run") {
-            expect(true).to(beFalsy())
+            await expect(true).toEventually(beFalsy())
         }
         xitBehavesLike(FunctionalTests_PendingAsyncSpec_AsyncBehavior.self) { () -> Void in }
         describe("a describe block containing only one enabled example") {
