@@ -223,7 +223,7 @@ extension AsyncDSLUser {
      Use this to quickly mark an `it` closure as pending.
      This disables the example and ensures the code within the closure is never run.
      */
-    public static func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
+    public static func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
         AsyncWorld.sharedWorld.xit(description, file: file, line: line, closure: closure)
     }
 

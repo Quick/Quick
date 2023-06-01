@@ -110,7 +110,7 @@ extension AsyncWorld {
     }
 
     @nonobjc
-    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
         self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
