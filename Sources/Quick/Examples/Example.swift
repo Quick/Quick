@@ -227,13 +227,8 @@ public class Example: ExampleBase {
     internal func reportFailedTest(_ error: Error, name: String, callsite: Callsite) {
         let description = "Test \(name) threw unexpected error: \(error.localizedDescription)"
 
-        #if SWIFT_PACKAGE
-            let file = callsite.file.description
-        #else
+        #if canImport(Darwin)
             let file = callsite.file
-        #endif
-
-        #if !SWIFT_PACKAGE
             let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
             let sourceCodeContext = XCTSourceCodeContext(location: location)
             let issue = XCTIssue(
@@ -243,6 +238,7 @@ public class Example: ExampleBase {
             )
             QuickSpec.current.record(issue)
         #else
+            let file = callsite.file.description
             QuickSpec.current.recordFailure(
                 withDescription: description,
                 inFile: file,
@@ -257,13 +253,8 @@ public class Example: ExampleBase {
 
         let callsite = stopTestError.callsite
 
-        #if SWIFT_PACKAGE
-            let file = callsite.file.description
-        #else
+        #if canImport(Darwin)
             let file = callsite.file
-        #endif
-
-        #if !SWIFT_PACKAGE
             let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
             let sourceCodeContext = XCTSourceCodeContext(location: location)
             let issue = XCTIssue(
@@ -273,6 +264,7 @@ public class Example: ExampleBase {
             )
             QuickSpec.current.record(issue)
         #else
+            let file = callsite.file.description
             QuickSpec.current.recordFailure(
                 withDescription: stopTestError.failureDescription,
                 inFile: file,
