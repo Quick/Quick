@@ -44,8 +44,8 @@ final internal class AsyncWorld: _WorldBase {
 
     internal private(set) var isConfigurationFinalized = false
 
-    private var exampleHooks: ExampleHooks { return World.sharedWorld.exampleHooks }
-    private var suiteHooks: SuiteHooks { return World.sharedWorld.suiteHooks }
+    internal var exampleHooks: AsyncExampleHooks { return World.sharedWorld.asyncExampleHooks }
+    internal var suiteHooks: SuiteHooks { return World.sharedWorld.suiteHooks }
 
     // MARK: Singleton Constructor
 

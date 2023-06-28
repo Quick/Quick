@@ -66,12 +66,12 @@ public class AsyncExample: ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
-        let allJustBeforeEachStatements = group!.justBeforeEachStatements
+        let allJustBeforeEachStatements = group!.justBeforeEachStatements + asyncWorld.exampleHooks.justBeforeEachStatements
         let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
             return { await wrapper(exampleMetadata, closure) }
         }
 
-        let allWrappers = group!.wrappers
+        let allWrappers = group!.wrappers + asyncWorld.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
             return { await wrapper(exampleMetadata, closure) }
         }
