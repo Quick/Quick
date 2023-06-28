@@ -2,7 +2,7 @@ import XCTest
 import Quick
 import Nimble
 
-class Configuration_AfterEachSpec: QuickSpec {
+class Configuration_AfterEachAsyncSpec: AsyncSpec {
     override class func spec() {
         beforeEach {
             FunctionalTests_Configuration_AfterEachWasExecuted = false
@@ -13,8 +13,8 @@ class Configuration_AfterEachSpec: QuickSpec {
     }
 }
 
-final class Configuration_AfterEachTests: XCTestCase, XCTestCaseProvider {
-    static var allTests: [(String, (Configuration_AfterEachTests) -> () throws -> Void)] {
+final class Configuration_AfterEachAsyncTests: XCTestCase, XCTestCaseProvider {
+    static var allTests: [(String, (Configuration_AfterEachAsyncTests) -> () throws -> Void)] {
         return [
             ("testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted", testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted),
         ]
@@ -23,7 +23,7 @@ final class Configuration_AfterEachTests: XCTestCase, XCTestCaseProvider {
     func testExampleIsRunAfterTheConfigurationBeforeEachIsExecuted() {
         FunctionalTests_Configuration_AfterEachWasExecuted = false
 
-        qck_runSpec(Configuration_AfterEachSpec.self)
+        qck_runSpec(Configuration_AfterEachAsyncSpec.self)
         XCTAssert(FunctionalTests_Configuration_AfterEachWasExecuted)
 
         FunctionalTests_Configuration_AfterEachWasExecuted = false
