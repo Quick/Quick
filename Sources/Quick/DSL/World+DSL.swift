@@ -7,11 +7,27 @@ import Foundation
 */
 extension World {
     // MARK: - Before Suite
+#if canImport(Darwin)
+    @objc(beforeSuite:)
+    internal func objc_beforeSuite(_ closure: @escaping BeforeSuiteNonThrowingClosure) {
+        suiteHooks.appendBefore(closure)
+    }
+#endif
+
+    @nonobjc
     internal func beforeSuite(_ closure: @escaping BeforeSuiteClosure) {
         suiteHooks.appendBefore(closure)
     }
 
     // MARK: - After Suite
+#if canImport(Darwin)
+    @objc(afterSuite:)
+    internal func objc_afterSuite(_ closure: @escaping AfterSuiteNonThrowingClosure) {
+        suiteHooks.appendAfter(closure)
+    }
+#endif
+
+    @nonobjc
     internal func afterSuite(_ closure: @escaping AfterSuiteClosure) {
         suiteHooks.appendAfter(closure)
     }
@@ -78,7 +94,16 @@ extension World {
         }
         currentExampleGroup.hooks.appendBefore(closure)
     }
+
+    @objc(beforeEach:)
+    internal func objc_beforeEach(closure: @escaping BeforeExampleNonThrowingClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
+        }
+        currentExampleGroup.hooks.appendBefore(closure)
+    }
 #endif
+
     @nonobjc
     internal func beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
         guard currentExampleMetadata == nil else {
@@ -87,6 +112,7 @@ extension World {
         currentExampleGroup.hooks.appendBefore(closure)
     }
 
+    @nonobjc
     internal func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
@@ -103,7 +129,16 @@ extension World {
         }
         currentExampleGroup.hooks.appendAfter(closure)
     }
+
+    @objc(afterEach:)
+    internal func objc_afterEach(_ closure: @escaping AfterExampleNonThrowingClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'.")
+        }
+        currentExampleGroup.hooks.appendAfter(closure)
+    }
 #endif
+
     @nonobjc
     internal func afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
         guard currentExampleMetadata == nil else {
@@ -112,6 +147,7 @@ extension World {
         currentExampleGroup.hooks.appendAfter(closure)
     }
 
+    @nonobjc
     internal func afterEach(_ closure: @escaping AfterExampleClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'.")
@@ -120,6 +156,24 @@ extension World {
     }
 
     // MARK: - Around Each
+    #if canImport(Darwin)
+    @objc(aroundEach:)
+    internal func objc_aroundEach(_ closure: @escaping AroundExampleNonThrowingClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
+        }
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+
+    @objc(aroundEachWithMetadata:)
+    internal func objc_aroundEach(_ closure: @escaping AroundExampleWithMetadataNonThrowingClosure) {
+        guard currentExampleMetadata == nil else {
+            raiseError("'aroundEach' cannot be used inside '\(currentPhase)', 'aroundEach' may only be used inside 'context' or 'describe'. ")
+        }
+        currentExampleGroup.hooks.appendAround(closure)
+    }
+    #endif
+
     @nonobjc
     internal func aroundEach(_ closure: @escaping AroundExampleClosure) {
         guard currentExampleMetadata == nil else {

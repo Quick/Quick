@@ -74,14 +74,14 @@ QUICK_EXPORT void qck_fcontext(NSString *description, QCKDSLEmptyBlock closure);
 
 #ifndef QUICK_DISABLE_SHORT_SYNTAX
 /**
-    Defines a closure to be run prior to any examples in the test suite.
-    You may define an unlimited number of these closures, but there is no
-    guarantee as to the order in which they're run.
+ Defines a closure to be run prior to any examples in the test suite.
+ You may define an unlimited number of these closures, but there is no
+ guarantee as to the order in which they're run.
  
-    If the test suite crashes before the first example is run, this closure
-    will not be executed.
+ If the test suite crashes before the first example is run, this closure
+ will not be executed.
  
-    @param closure The closure to be run prior to any examples in the test suite.
+ @param closure The closure to be run prior to any examples in the test suite.
  */
 static inline void beforeSuite(QCKDSLEmptyBlock closure) {
     qck_beforeSuite(closure);
@@ -89,145 +89,171 @@ static inline void beforeSuite(QCKDSLEmptyBlock closure) {
 
 
 /**
-    Defines a closure to be run after all of the examples in the test suite.
-    You may define an unlimited number of these closures, but there is no
-    guarantee as to the order in which they're run.
+ Defines a closure to be run after all of the examples in the test suite.
+ You may define an unlimited number of these closures, but there is no
+ guarantee as to the order in which they're run.
      
-    If the test suite crashes before all examples are run, this closure
-    will not be executed.
+ If the test suite crashes before all examples are run, this closure
+ will not be executed.
  
-    @param closure The closure to be run after all of the examples in the test suite.
+ @param closure The closure to be run after all of the examples in the test suite.
  */
 static inline void afterSuite(QCKDSLEmptyBlock closure) {
     qck_afterSuite(closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines a group of shared examples. These examples can be re-used in several locations
-    by using the `itBehavesLike` function.
- 
-    @param name The name of the shared example group. This must be unique across all shared example
-                groups defined in a test suite.
-    @param closure A closure containing the examples. This behaves just like an example group defined
-                   using `describe` or `context`--the closure may contain any number of `beforeEach`
-                   and `afterEach` closures, as well as any number of examples (defined using `it`).
+ Defines a group of shared examples. These examples can be re-used in several locations
+ by using the ``itBehavesLike`` function.
+
+ @param name The name of the shared example group. This must be unique across all shared example
+             groups defined in a test suite.
+ @param closure A closure containing the examples. This behaves just like an example group defined
+                using `describe` or `context`--the closure may contain any number of `beforeEach`
+                and `afterEach` closures, as well as any number of examples (defined using `it`).
  */
 static inline void sharedExamples(NSString *name, QCKDSLSharedExampleBlock closure) {
     qck_sharedExamples(name, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines an example group. Example groups are logical groupings of examples.
-    Example groups can share setup and teardown code.
+ Defines an example group. Example groups are logical groupings of examples.
+ Example groups can share setup and teardown code.
  
-    @param description An arbitrary string describing the example group.
-    @param closure A closure that can contain other examples.
+ @param description An arbitrary string describing the example group.
+ @param closure A closure that can contain other examples.
  */
 static inline void describe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_describe(description, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines an example group. Equivalent to `describe`.
+ Defines an example group. Equivalent to ``describe(description, closure)``.
  */
 static inline void context(NSString *description, QCKDSLEmptyBlock closure) {
     qck_context(description, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines a closure to be run prior to each example in the current example
-    group. This closure is not run for pending or otherwise disabled examples.
-    An example group may contain an unlimited number of beforeEach. They'll be
-    run in the order they're defined, but you shouldn't rely on that behavior.
+ Defines a closure to be run prior to each example in the current example
+ group. This closure is not run for pending or otherwise disabled examples.
+ An example group may contain an unlimited number of beforeEach. They'll be
+ run in the order they're defined, but you shouldn't rely on that behavior.
  
-    @param closure The closure to be run prior to each example.
+ @param closure The closure to be run prior to each example.
  */
 static inline void beforeEach(QCKDSLEmptyBlock closure) {
     qck_beforeEach(closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Identical to QCKDSL.beforeEach, except the closure is provided with
-    metadata on the example that the closure is being run prior to.
+ Identical to ``beforeEach(closure)``, except the closure is provided with
+ metadata on the example that the closure is being run prior to.
  */
 static inline void beforeEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_beforeEachWithMetadata(closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines a closure to be run after each example in the current example
-    group. This closure is not run for pending or otherwise disabled examples.
-    An example group may contain an unlimited number of afterEach. They'll be
-    run in the order they're defined, but you shouldn't rely on that behavior.
- 
-    @param closure The closure to be run after each example.
+ Defines a closure to be run after each example in the current example
+ group. This closure is not run for pending or otherwise disabled examples.
+ An example group may contain an unlimited number of afterEach. They'll be
+ run in the order they're defined, but you shouldn't rely on that behavior.
+
+ @param closure The closure to be run after each example.
  */
 static inline void afterEach(QCKDSLEmptyBlock closure) {
     qck_afterEach(closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Identical to QCKDSL.afterEach, except the closure is provided with
-    metadata on the example that the closure is being run after.
+ Identical to ``afterEach(closure)``, except the closure is provided with
+ metadata on the example that the closure is being run after.
  */
 static inline void afterEachWithMetadata(QCKDSLExampleMetadataBlock closure) {
     qck_afterEachWithMetadata(closure);
 } NS_SWIFT_UNAVAILABLE("")
 
-static inline void aroundEach(QCKDSLAroundExampleBlock closure) __attribute__((unavailable("aroundEach is no longer supported for Objective-C tests."))) {};
+/**
+ Defines a closure to be run around each example in the currente example group.
+ You must call the passed-in `runClosure` argument at least once in order to
+ run the example. This closure is not run for pending or otherwise disabled example.
+ An example group may contain an unlimited number of `aroundEach`. They'll be
+ run in the order they're defined, but you shouldn't rely on that behavior.
 
-static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) __attribute__((unavailable("aroundEachWithMetadata is no longer supported for Objective-C tests."))) {};
+ @param closure The closure to run around each example. This closure itself takes
+    in a closure: the before-mentioned `runClosure` argument. The `runClosure` argument
+    must be called at once and only once.
+ */
+static inline void aroundEach(QCKDSLAroundExampleBlock closure) {
+    qck_aroundEach(closure);
+} NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines a closure to be run prior to each example but after any beforeEach blocks.
-    This closure is not run for pending or otherwise disabled examples.
-    An example group may contain an unlimited number of justBeforeEach. They'll be
-    run in the order they're defined, but you shouldn't rely on that behavior.
+ Identical to ``aroundEach(closure)``, except the closure is provided with
+ metadata on the example that the closure is being run around.
 
-    @param closure The closure to be run prior to each example but before any beforeEach blocks in the test suite.
+ @param closure The closure to run around each example. This closure itself takes
+    in an ``ExampleMetadata-swift.class`` object and a closure.
+    The ``ExampleMetadata-swift.class`` provides information about the example being run around.
+    The closure is the example to run, and must be called at once and only once.
+ */
+static inline void aroundEachWithMetadata(QCKDSLAroundExampleMetadataBlock closure) {
+    qck_aroundEachWithMetadata(closure);
+} NS_SWIFT_UNAVAILABLE("")
+
+/**
+ Defines a closure to be run prior to each example but after any beforeEach blocks.
+ This closure is not run for pending or otherwise disabled examples.
+ An example group may contain an unlimited number of justBeforeEach. They'll be
+ run in the order they're defined, but you shouldn't rely on that behavior.
+
+ @param closure The closure to be run prior to each example but before any beforeEach blocks in the test suite.
  */
 static inline void justBeforeEach(QCKDSLEmptyBlock closure) {
     qck_justBeforeEach(closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Defines an example or example group that should not be executed. Use `pending` to temporarily disable
-    examples or groups that should not be run yet.
+ Defines an example or example group that should not be executed. Use
+ ``pending(description, closure)`` to temporarily disable
+ examples or groups that should not be run yet.
  
-    @param description An arbitrary string describing the example or example group.
-    @param closure A closure that will not be evaluated.
+ @param description An arbitrary string describing the example or example group.
+ @param closure A closure that will not be evaluated.
  */
 static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
     qck_pending(description, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Use this to quickly mark a `describe` block as pending.
-    This disables all examples within the block.
+ Use this to quickly mark a ``describe(description, closure)`` block as pending.
+ This disables all examples within the block.
  */
 static inline void xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xdescribe(description, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Use this to quickly mark a `context` block as pending.
-    This disables all examples within the block.
+ Use this to quickly mark a ``context(description, closure)`` block as pending.
+ This disables all examples within the block.
  */
 static inline void xcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_xcontext(description, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Use this to quickly focus a `describe` block, focusing the examples in the block.
-    If any examples in the test suite are focused, only those examples are executed.
-    This trumps any explicitly focused or unfocused examples within the block--they are all treated as focused.
+ Use this to quickly focus a ``describe(description, closure)`` block, focusing the examples in the block.
+ If any examples in the test suite are focused, only those examples are executed.
+ This trumps any explicitly focused or unfocused examples within the block--they are all treated as focused.
  */
 static inline void fdescribe(NSString *description, QCKDSLEmptyBlock closure) {
     qck_fdescribe(description, closure);
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
-    Use this to quickly focus a `context` block. Equivalent to `fdescribe`.
+ Use this to quickly focus a ``context(description, closure)`` block.
+ Equivalent to ``fdescribe(description, closure)``.
  */
 static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
     qck_fcontext(description, closure);

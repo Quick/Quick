@@ -28,6 +28,8 @@ private var throwingBeforeEachOrder = [ThrowingBeforeEachType]()
 
 private struct BeforeEachError: Error {}
 
+private var isRunningFunctionalTests = false
+
 class FunctionalTests_BeforeEachSpec: QuickSpec {
     override class func spec() {
         describe("beforeEach ordering") {
@@ -55,8 +57,9 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
 
             beforeEach {
                 throwingBeforeEachOrder.append(.outerTwo)
-                XCTExpectFailure("Throws a BeforeEachError")
-                throw BeforeEachError()
+                if isRunningFunctionalTests {
+                    throw BeforeEachError()
+                }
             }
 
             beforeEach {
@@ -66,7 +69,9 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
             afterEach { throwingBeforeEachOrder.append(.afterEach) }
 
             it("does not run tests") {
-                fail("tests should not be run here")
+                if isRunningFunctionalTests {
+                    fail("tests should not be run here")
+                }
             }
 
             context("when nested") {
@@ -79,7 +84,9 @@ class FunctionalTests_BeforeEachSpec: QuickSpec {
                 }
 
                 it("still does not run tests") {
-                    fail("tests should not be run.")
+                    if isRunningFunctionalTests {
+                        fail("tests should not be run.")
+                    }
                 }
             }
         }
@@ -105,6 +112,14 @@ final class BeforeEachTests: XCTestCase, XCTestCaseProvider {
             ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
             ("testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs", testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs),
         ]
+    }
+
+    override func setUp() {
+        isRunningFunctionalTests = true
+    }
+
+    override func tearDown() {
+        isRunningFunctionalTests = false
     }
 
     func testBeforeEachIsExecutedInTheCorrectOrder() {

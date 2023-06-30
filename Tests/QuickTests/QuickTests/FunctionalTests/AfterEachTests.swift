@@ -26,6 +26,8 @@ private var throwingAfterEachOrder = [ThrowingAfterEachType]()
 
 private struct AfterEachError: Error {}
 
+private var isRunningFunctionalTests = false
+
 class FunctionalTests_AfterEachSpec: QuickSpec {
     override class func spec() {
         describe("afterEach ordering") {
@@ -65,8 +67,6 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
         }
 
         describe("throwing errors") {
-            beforeEach { XCTExpectFailure("Throws an AfterEachError") }
-
             afterEach { throwingAfterEachOrder.append(.outerOne) }
 
             context("when nested") {
@@ -76,7 +76,9 @@ class FunctionalTests_AfterEachSpec: QuickSpec {
 
                 afterEach {
                     throwingAfterEachOrder.append(.innerTwo)
-                    throw AfterEachError()
+                    if isRunningFunctionalTests {
+                        throw AfterEachError()
+                    }
                 }
 
                 afterEach {
@@ -113,11 +115,13 @@ final class AfterEachTests: XCTestCase, XCTestCaseProvider {
     override func setUp() {
         afterEachOrder = []
         throwingAfterEachOrder = []
+        isRunningFunctionalTests = true
     }
 
     override func tearDown() {
         afterEachOrder = []
         throwingAfterEachOrder = []
+        isRunningFunctionalTests = false
     }
 
     func testAfterEachIsExecutedInTheCorrectOrder() {
