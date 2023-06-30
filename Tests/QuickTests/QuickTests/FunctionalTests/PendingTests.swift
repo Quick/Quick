@@ -14,10 +14,18 @@ class FunctionalTests_PendingSpec_Behavior: Behavior<Void> {
 }
 class FunctionalTests_PendingSpec: QuickSpec {
     override class func spec() {
+        sharedExamples("shared pending behavior") { aContext in
+            it("will not run") {
+                fail()
+            }
+        }
+
         xit("an example that will not run") {
             expect(true).to(beFalsy())
         }
         xitBehavesLike(FunctionalTests_PendingSpec_Behavior.self) { () -> Void in }
+        xitBehavesLike("shared pending behavior")
+        xitBehavesLike("shared pending behavior", sharedExampleContext: { [:] })
         describe("a describe block containing only one enabled example") {
             beforeEach { oneExampleBeforeEachExecutedCount += 1 }
             it("an example that will run") {}

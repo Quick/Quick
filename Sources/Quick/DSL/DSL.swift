@@ -297,6 +297,22 @@ extension SyncDSLUser {
         World.sharedWorld.xitBehavesLike(behavior, context: context, file: file, line: line)
     }
 
+    /**
+     Use this to quickly mark an `itBehavesLike` closure as pending.
+     This disables the example group defined by this behavior and ensures the code within is never run.
+     */
+    public static func xitBehavesLike(_ name: String, file: FileString = #file, line: UInt = #line) {
+        xitBehavesLike(name, file: file, line: line, sharedExampleContext: { return [:] })
+    }
+
+    /**
+     Use this to quickly mark an `itBehavesLike` closure as pending.
+     This disables the example group defined by this behavior and ensures the code within is never run.
+     */
+    public static func xitBehavesLike(_ name: String, file: FileString = #file, line: UInt = #line, sharedExampleContext: @escaping SharedExampleContext) {
+        World.sharedWorld.xitBehavesLike(name, sharedExampleContext: sharedExampleContext, file: file, line: line)
+    }
+
     // MARK: - Focused
     /**
      Use this to quickly focus a `describe` closure, focusing the examples in the closure.
