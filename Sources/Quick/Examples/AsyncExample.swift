@@ -66,16 +66,35 @@ public class AsyncExample: ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
+        var cancelTests = false
+
+        let handleThrowingClosure: (@escaping () async throws -> Void) -> () async -> Void = { [name, callsite] (closure: @escaping () async throws -> Void) in
+            {
+                if cancelTests { return }
+                do {
+                    try await closure()
+                } catch {
+                    self.reportFailedTest(error, name: name, callsite: callsite)
+                    cancelTests = true
+                }
+            }
+        }
+
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + asyncWorld.exampleHooks.justBeforeEachStatements
-        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { await wrapper(exampleMetadata, closure) }
+        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample as () async throws -> Void) { closure, wrapper in
+            return { try await wrapper(exampleMetadata, handleThrowingClosure(closure)) }
         }
 
         let allWrappers = group!.wrappers + asyncWorld.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { await wrapper(exampleMetadata, closure) }
+            return { try await wrapper(exampleMetadata, handleThrowingClosure(closure)) }
         }
-        await wrappedExample()
+        do {
+            try await wrappedExample()
+        } catch {
+            self.reportFailedTest(error, name: name, callsite: callsite)
+        }
+
 
         group!.phase = .aftersFinished
 
