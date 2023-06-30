@@ -13,6 +13,22 @@ private enum BeforeEachType {
 
 private var beforeEachOrder = [BeforeEachType]()
 
+private enum ThrowingBeforeEachType: String, CustomStringConvertible {
+    case outerOne
+    case outerTwo
+    case outerThree
+    case justBeforeEach
+    case inner
+    case afterEach
+    case afterEachInner
+
+    var description: String { rawValue }
+}
+
+private var throwingBeforeEachOrder = [ThrowingBeforeEachType]()
+
+private struct BeforeEachError: Error {}
+
 class FunctionalTests_BeforeEachAsyncSpec: AsyncSpec {
     override class func spec() {
 
@@ -36,6 +52,41 @@ class FunctionalTests_BeforeEachAsyncSpec: AsyncSpec {
             }
         }
 
+        describe("throwing errors") {
+            justBeforeEach { throwingBeforeEachOrder.append(.justBeforeEach) }
+            beforeEach { throwingBeforeEachOrder.append(.outerOne) }
+
+            beforeEach {
+                throwingBeforeEachOrder.append(.outerTwo)
+                XCTExpectFailure("Throws a BeforeEachError")
+                throw BeforeEachError()
+            }
+
+            beforeEach {
+                throwingBeforeEachOrder.append(.outerThree)
+            }
+
+            afterEach { throwingBeforeEachOrder.append(.afterEach) }
+
+            it("does not run tests") {
+                fail("tests should not be run here")
+            }
+
+            context("when nested") {
+                beforeEach {
+                    throwingBeforeEachOrder.append(.inner)
+                }
+
+                afterEach {
+                    throwingBeforeEachOrder.append(.afterEachInner)
+                }
+
+                it("still does not run tests") {
+                    fail("tests should not be run.")
+                }
+            }
+        }
+
 #if canImport(Darwin) && !SWIFT_PACKAGE
         describe("error handling when misusing ordering") {
             it("should throw an exception when including beforeEach in it block") {
@@ -55,6 +106,7 @@ final class BeforeEachAsyncTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (BeforeEachAsyncTests) -> () throws -> Void)] {
         return [
             ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
+            ("testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs", testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs),
         ]
     }
 
@@ -72,5 +124,31 @@ final class BeforeEachAsyncTests: XCTestCase, XCTestCaseProvider {
             .outerOne, .outerTwo, .innerOne, .innerTwo, .innerThree,
         ]
         XCTAssertEqual(beforeEachOrder, expectedOrder)
+    }
+
+    func testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs() {
+        throwingBeforeEachOrder = []
+
+        qck_runSpec(FunctionalTests_BeforeEachAsyncSpec.self)
+
+        let expectedOrder: [ThrowingBeforeEachType] = [
+            // It runs the first beforeEach, which doesn't throw.
+            .outerOne,
+            // It runs the second beforeEach, which throws after recording that it ran
+            .outerTwo,
+            // It doesn't run the third beforeEach.
+            // It doesn't run the test.
+            // It does run the teardowns.
+            .afterEach,
+            // and then repeat because there are two tests.
+            .outerOne,
+            .outerTwo,
+            .afterEach
+        ]
+
+        XCTAssertEqual(
+            throwingBeforeEachOrder,
+            expectedOrder
+        )
     }
 }

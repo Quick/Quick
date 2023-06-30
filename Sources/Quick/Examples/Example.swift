@@ -119,16 +119,34 @@ public class Example: ExampleBase {
             self.group!.phase = .aftersExecuting
         }
 
+        var cancelTests = false
+
+        let handleThrowingClosure: (@escaping () throws -> Void) -> () -> Void = { [name, callsite] (closure: @escaping () throws -> Void) in
+            {
+                if cancelTests { return }
+                do {
+                    try closure()
+                } catch {
+                    self.reportFailedTest(error, name: name, callsite: callsite)
+                    cancelTests = true
+                }
+            }
+        }
+
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
-        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample as () throws -> Void) { closure, wrapper in
+            return { try wrapper(exampleMetadata, handleThrowingClosure(closure)) }
         }
 
         let allWrappers = group!.wrappers + world.exampleHooks.wrappers
         let wrappedExample = allWrappers.reduce(justBeforeEachExample) { closure, wrapper in
-            return { wrapper(exampleMetadata, closure) }
+            return { try wrapper(exampleMetadata, handleThrowingClosure(closure)) }
         }
-        wrappedExample()
+        do {
+            try wrappedExample()
+        } catch {
+            self.reportFailedTest(error, name: name, callsite: callsite)
+        }
 
         group!.phase = .aftersFinished
 

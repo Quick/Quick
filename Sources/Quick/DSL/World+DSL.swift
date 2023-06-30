@@ -53,7 +53,7 @@ extension World {
     // MARK: - Just Before Each
 #if canImport(Darwin)
     @objc(justBeforeEach:)
-    internal func objc_justBeforeEach(_ closure: @escaping BeforeExampleClosure) {
+    internal func objc_justBeforeEach(_ closure: @escaping BeforeExampleNonThrowingClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'justBeforeEach' cannot be used inside '\(currentPhase)', 'justBeforeEach' may only be used inside 'context' or 'describe'.")
         }
@@ -72,7 +72,7 @@ extension World {
     // MARK: - Before Each
 #if canImport(Darwin)
     @objc(beforeEachWithMetadata:)
-    internal func objc_beforeEach(closure: @escaping BeforeExampleWithMetadataClosure) {
+    internal func objc_beforeEach(closure: @escaping BeforeExampleWithMetadataNonThrowingClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'beforeEach' cannot be used inside '\(currentPhase)', 'beforeEach' may only be used inside 'context' or 'describe'.")
         }
@@ -97,7 +97,7 @@ extension World {
     // MARK: - After Each
 #if canImport(Darwin)
     @objc(afterEachWithMetadata:)
-    internal func objc_afterEach(closure: @escaping AfterExampleWithMetadataClosure) {
+    internal func objc_afterEach(closure: @escaping AfterExampleWithMetadataNonThrowingClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'afterEach' cannot be used inside '\(currentPhase)', 'afterEach' may only be used inside 'context' or 'describe'.")
         }

@@ -10,21 +10,21 @@ final internal class AsyncExampleHooks {
 
     internal func appendJustBeforeEach(_ closure: @escaping BeforeExampleAsyncClosure) {
         justBeforeEachStatements.append { _, runExample in
-            await closure()
+            try await closure()
             await runExample()
         }
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataAsyncClosure) {
         wrappers.append { exampleMetadata, runExample in
-            await closure(exampleMetadata)
+            try await closure(exampleMetadata)
             await runExample()
         }
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleAsyncClosure) {
         wrappers.append { _, runExample in
-            await closure()
+            try await closure()
             await runExample()
         }
     }
@@ -32,14 +32,14 @@ final internal class AsyncExampleHooks {
     internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataAsyncClosure) {
         wrappers.prepend { exampleMetadata, runExample in
             await runExample()
-            await closure(exampleMetadata)
+            try await closure(exampleMetadata)
         }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleAsyncClosure) {
         wrappers.prepend { _, runExample in
             await runExample()
-            await closure()
+            try await closure()
         }
     }
 
@@ -48,6 +48,6 @@ final internal class AsyncExampleHooks {
     }
 
     internal func appendAround(_ closure: @escaping AroundExampleAsyncClosure) {
-        wrappers.append { _, runExample in await closure(runExample) }
+        wrappers.append { _, runExample in try await closure(runExample) }
     }
 }

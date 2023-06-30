@@ -253,6 +253,65 @@ describe("a sleeping dolphin") {
 ```
 In this example, a sleeping dolphin will not make Clicks. We wish to build our tests so that we only construct one Dolphin object, and only invoke the `.click()` method once. This requires the use of `justBeforeEach`, which invokes our constructor and method after the two `beforeEach` blocks have been invoked. Without `justBeforeEach`, we would have to trigger the API call twice in our tests, with a different argument each time. For tests that have a lot of boilerplate or setup required, this can significantly reduce lines of code and complexity.
 
+### Throwing from a `beforeEach`, or `justBeforeEach`, or `afterEach`.
+
+Sometimes, in your setup and teardown code, you want to cancel executing the
+remainder of the test if the setup/teardown runs into an error. You can do that
+in Swift by throwing any error. This will fail the test, and prevent any
+setup/teardown nested in the test tree from running. Similar to if you throw
+an error during an XCTestCase's `setupWithError()` method.
+
+Because of Quick's tree-structure for Tests, this prevents setup/teardown
+defined in nested example groups from running. Setup and teardown blocks from
+parent example groups will be run.
+
+For example, with the following test:
+
+```swift
+// Swift
+
+import Quick
+import Nimble
+
+class DolphinSpec: QuickSpec {
+  override class func spec() {
+    describe("a dolphin") {
+      var dolphin: Dolphin!
+      beforeEach {
+        dolphin = Dolphin()
+        throw DolphinError()
+      }
+
+      afterEach {
+        dolphin.rest()
+      }
+
+      describe("its click") {
+        var click: Click!
+        beforeEach {
+          click = dolphin.click()
+        }
+
+        it("is loud") {
+          expect(click.isLoud).to(beTruthy())
+        }
+
+        it("has a high frequency") {
+          expect(click.hasHighFrequency).to(beTruthy())
+        }
+      }
+    }
+  }
+}
+```
+
+None of the setup or tests in the "its click" example group are run. Once the
+`DolphinError()` is thrown, the test it's running in will be marked as failing.
+Additionally, the `dolphin.rest()` function in the afterEach is still called.
+
+It's important to note that, when a `beforeEach` throws, none of the
+`justBeforeEach` blocks in the test will run.
+
 ### Specifying Conditional Behavior Using `context`
 
 Dolphins use clicks for echolocation. When they approach something

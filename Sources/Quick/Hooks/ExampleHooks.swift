@@ -10,21 +10,21 @@ final internal class ExampleHooks {
 
     internal func appendJustBeforeEach(_ closure: @escaping BeforeExampleClosure) {
         justBeforeEachStatements.append { _, runExample in
-            closure()
+            try closure()
             runExample()
         }
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         wrappers.append { exampleMetadata, runExample in
-            closure(exampleMetadata)
+            try closure(exampleMetadata)
             runExample()
         }
     }
 
     internal func appendBefore(_ closure: @escaping BeforeExampleClosure) {
         wrappers.append { _, runExample in
-            closure()
+            try closure()
             runExample()
         }
     }
@@ -32,14 +32,14 @@ final internal class ExampleHooks {
     internal func appendAfter(_ closure: @escaping AfterExampleWithMetadataClosure) {
         wrappers.prepend { exampleMetadata, runExample in
             runExample()
-            closure(exampleMetadata)
+            try closure(exampleMetadata)
         }
     }
 
     internal func appendAfter(_ closure: @escaping AfterExampleClosure) {
         wrappers.prepend { _, runExample in
             runExample()
-            closure()
+            try closure()
         }
     }
 
@@ -48,7 +48,7 @@ final internal class ExampleHooks {
     }
 
     internal func appendAround(_ closure: @escaping AroundExampleClosure) {
-        wrappers.append { _, runExample in closure(runExample) }
+        wrappers.append { _, runExample in try closure(runExample) }
     }
 }
 

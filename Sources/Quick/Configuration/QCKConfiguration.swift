@@ -81,7 +81,7 @@ final public class QCKConfiguration: NSObject {
     */
 #if canImport(Darwin)
     @objc(beforeEachWithMetadata:)
-    public func objc_beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
+    public func objc_beforeEach(_ closure: @escaping BeforeExampleWithMetadataNonThrowingClosure) {
         exampleHooks.appendBefore(closure)
         asyncExampleHooks.appendBefore { exampleMetadata in
             await MainActor.run {
@@ -94,8 +94,8 @@ final public class QCKConfiguration: NSObject {
     public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
         asyncExampleHooks.appendBefore { exampleMetadata in
-            await MainActor.run {
-                closure(exampleMetadata)
+            try await MainActor.run {
+                try closure(exampleMetadata)
             }
         }
     }
@@ -103,8 +103,8 @@ final public class QCKConfiguration: NSObject {
     public func beforeEach(_ closure: @escaping BeforeExampleWithMetadataClosure) {
         exampleHooks.appendBefore(closure)
         asyncExampleHooks.appendBefore { exampleMetadata in
-            await MainActor.run {
-                closure(exampleMetadata)
+            try await MainActor.run {
+                try closure(exampleMetadata)
             }
         }
     }
@@ -132,7 +132,7 @@ final public class QCKConfiguration: NSObject {
     public func beforeEach(_ closure: @escaping BeforeExampleClosure) {
         exampleHooks.appendBefore(closure)
         asyncExampleHooks.appendBefore { @MainActor in
-            closure()
+            try closure()
         }
     }
 
@@ -145,7 +145,7 @@ final public class QCKConfiguration: NSObject {
     */
 #if canImport(Darwin)
     @objc(afterEachWithMetadata:)
-    public func objc_afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
+    public func objc_afterEach(_ closure: @escaping AfterExampleWithMetadataNonThrowingClosure) {
         exampleHooks.appendAfter(closure)
         asyncExampleHooks.appendAfter { exampleMetadata in
             await MainActor.run {
@@ -158,8 +158,8 @@ final public class QCKConfiguration: NSObject {
     public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
         asyncExampleHooks.appendAfter { exampleMetadata in
-            await MainActor.run {
-                closure(exampleMetadata)
+            try await MainActor.run {
+                try closure(exampleMetadata)
             }
         }
     }
@@ -167,8 +167,8 @@ final public class QCKConfiguration: NSObject {
     public func afterEach(_ closure: @escaping AfterExampleWithMetadataClosure) {
         exampleHooks.appendAfter(closure)
         asyncExampleHooks.appendAfter { exampleMetadata in
-            await MainActor.run {
-                closure(exampleMetadata)
+            try await MainActor.run {
+                try closure(exampleMetadata)
             }
         }
     }
@@ -196,7 +196,7 @@ final public class QCKConfiguration: NSObject {
     public func afterEach(_ closure: @escaping AfterExampleClosure) {
         exampleHooks.appendAfter(closure)
         asyncExampleHooks.appendAfter { @MainActor in
-            closure()
+            try closure()
         }
     }
 
