@@ -1,5 +1,10 @@
 import Foundation
 
+private enum ExampleUnit {
+    case example(AsyncExample)
+    case group(AsyncExampleGroup)
+}
+
 /**
     Example groups are logical groupings of examples, defined with
     the `describe` and `context` functions. Example groups can share
@@ -14,8 +19,7 @@ final public class AsyncExampleGroup: CustomStringConvertible {
     private let internalDescription: String
     private let flags: FilterFlags
     private let isInternalRootExampleGroup: Bool
-    private var childGroups = [AsyncExampleGroup]()
-    private var childExamples = [AsyncExample]()
+    private var childUnits = [ExampleUnit]()
 
     internal init(description: String, flags: FilterFlags, isInternalRootExampleGroup: Bool = false) {
         self.internalDescription = description
@@ -32,7 +36,14 @@ final public class AsyncExampleGroup: CustomStringConvertible {
         or to any of its descendant example groups.
     */
     public var examples: [AsyncExample] {
-        return childExamples + childGroups.flatMap { $0.examples }
+        childUnits.flatMap { unit in
+            switch unit {
+            case .example(let example):
+                return [example]
+            case .group(let exampleGroup):
+                return exampleGroup.examples
+            }
+        }
     }
 
     internal var name: String? {
@@ -71,22 +82,24 @@ final public class AsyncExampleGroup: CustomStringConvertible {
     }
 
     internal func walkDownExamples(_ callback: (_ example: AsyncExample) -> Void) {
-        for example in childExamples {
-            callback(example)
-        }
-        for group in childGroups {
-            group.walkDownExamples(callback)
+        for unit in childUnits {
+            switch unit {
+            case .example(let example):
+                callback(example)
+            case .group(let exampleGroup):
+                exampleGroup.walkDownExamples(callback)
+            }
         }
     }
 
     internal func appendExampleGroup(_ group: AsyncExampleGroup) {
         group.parent = self
-        childGroups.append(group)
+        childUnits.append(.group(group))
     }
 
     internal func appendExample(_ example: AsyncExample) {
         example.group = self
-        childExamples.append(example)
+        childUnits.append(.example(example))
     }
 
     private func walkUp(_ callback: (_ group: AsyncExampleGroup) -> Void) {
