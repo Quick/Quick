@@ -1,10 +1,15 @@
 # Test Ordering
 
+**We highly recommend enabling "Randomize Execution Order" in your xctestplan.**  
+That said, this document exists to specify the ordering of the list of tests
+that Quick supplies to XCTest.
+
 By default, Quick will suggest that XCTest runs tests in a `QuickSpec` or
 `AsyncSpec` in the order they are defined in. This can be easily overriden by
 specifying the "Randomize Execution Order" option in your testplan.
 Additionally, we have found that doing any kind of filtering, such as selecting
-a test gem, will also override this suggestion.
+a test gem, will also override this suggestion. Typically, this will cause
+XCTest to run the tests in lexicographical order.
 
 However, if you run all tests at once (via `xcodebuild test`, product -> Test,
 or `swift test`), then XCTest should run tests in the order as specified. For
@@ -34,9 +39,9 @@ Using the `.defined` switch on the `order` parameter of a `describe` or
 `context` block will ensure Quick runs the tests within this block in the
 order they are defined.
 
-That said, despite this attempt to suggest ordering, we strongly suggest that
-you enable XCTest's "Randomize Execution Order". Good, robust unit testing
-suites avoid imposing ordering on tests as much as possible.
+That said, despite this attempt to suggest ordering, we still strongly suggest that
+you enable XCTest's "Randomize Execution Order". No test should have to depend
+on another test running before it in order to pass.
 
 ## Nested `describe` and `context` blocks
 
@@ -71,6 +76,8 @@ the `describe` block defined at `1`. Note that when this `context` gets "its
 ## Why specify an order if random ordering is recommended?
 
 This is done primarily to maintain expectations with how XCTest tests are run.
-This ordering of tests is how most people expect Quick tests to run, and by
-using the "Randomize Execution Order" option of test plans, we are also
-maintaining compatibility with XCTest-based tests you may have.
+Additionally, this ordering of tests is the order most people expect Quick tests
+to run in.
+Additionally, there are some cases where it's necessary, if not recommended,
+for tests to run in a specific order. In that case, it's better to define an
+order than to always randomize it.
