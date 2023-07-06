@@ -16,7 +16,7 @@
     <a title="Quick  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Quick 7.0.1 Docs</a> (83% documented)</p>
+        <p><a href="index.html">Quick 7.1.0 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/Quick/Quick"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="search.json">
@@ -145,10 +145,16 @@
                 <a href="Typealiases.html#/s:5Quick19AfterExampleClosurea">AfterExampleClosure</a>
               </li>
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick30AfterExampleNonThrowingClosurea">AfterExampleNonThrowingClosure</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick36AfterExampleWithMetadataAsyncClosurea">AfterExampleWithMetadataAsyncClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick31AfterExampleWithMetadataClosurea">AfterExampleWithMetadataClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick42AfterExampleWithMetadataNonThrowingClosurea">AfterExampleWithMetadataNonThrowingClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick22AfterSuiteAsyncClosurea">AfterSuiteAsyncClosure</a>
@@ -157,16 +163,25 @@
                 <a href="Typealiases.html#/s:5Quick17AfterSuiteClosurea">AfterSuiteClosure</a>
               </li>
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick28AfterSuiteNonThrowingClosurea">AfterSuiteNonThrowingClosure</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick25AroundExampleAsyncClosurea">AroundExampleAsyncClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick20AroundExampleClosurea">AroundExampleClosure</a>
               </li>
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick31AroundExampleNonThrowingClosurea">AroundExampleNonThrowingClosure</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick37AroundExampleWithMetadataAsyncClosurea">AroundExampleWithMetadataAsyncClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick32AroundExampleWithMetadataClosurea">AroundExampleWithMetadataClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick43AroundExampleWithMetadataNonThrowingClosurea">AroundExampleWithMetadataNonThrowingClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/AsyncSpecBase">AsyncSpecBase</a>
@@ -181,16 +196,25 @@
                 <a href="Typealiases.html#/s:5Quick20BeforeExampleClosurea">BeforeExampleClosure</a>
               </li>
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick31BeforeExampleNonThrowingClosurea">BeforeExampleNonThrowingClosure</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick37BeforeExampleWithMetadataAsyncClosurea">BeforeExampleWithMetadataAsyncClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick32BeforeExampleWithMetadataClosurea">BeforeExampleWithMetadataClosure</a>
               </li>
               <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick43BeforeExampleWithMetadataNonThrowingClosurea">BeforeExampleWithMetadataNonThrowingClosure</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick23BeforeSuiteAsyncClosurea">BeforeSuiteAsyncClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick18BeforeSuiteClosurea">BeforeSuiteClosure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:5Quick29BeforeSuiteNonThrowingClosurea">BeforeSuiteNonThrowingClosure</a>
               </li>
               <li class="nav-group-task">
                 <a href="Typealiases.html#/s:5Quick13ExampleFiltera">ExampleFilter</a>
@@ -290,7 +314,7 @@ Inspired by <a href="https://github.com/rspec/rspec">RSpec</a>, <a href="https:/
 </tbody></table>
 <h2 id='documentation' class='heading'>Documentation</h2>
 
-<p>All documentation can be found in the <a href="./Documentation">Documentation folder</a>, including <a href="./Documentation/en-us/InstallingQuick.md">detailed installation instructions</a> for CocoaPods, Carthage, Git submodules, and more. For example, you can install Quick and <a href="https://github.com/Quick/Nimble">Nimble</a> using CocoaPods by adding the following to your Podfile:</p>
+<p>All documentation can be found in the <a href="./Documentation">Documentation folder</a>, including <a href="./Documentation/en-us/InstallingQuick.md">detailed installation instructions</a> for CocoaPods, Carthage, Git submodules, Swift Package Manager, and more. For example, you can install Quick and <a href="https://github.com/Quick/Nimble">Nimble</a> using CocoaPods by adding the following to your <code>Podfile</code>:</p>
 <pre class="highlight ruby"><code><span class="c1"># Podfile</span>
 
 <span class="n">use_frameworks!</span>
@@ -298,15 +322,20 @@ Inspired by <a href="https://github.com/rspec/rspec">RSpec</a>, <a href="https:/
 <span class="n">target</span> <span class="s2">"MyApp"</span> <span class="k">do</span>
   <span class="c1"># Normal libraries</span>
 
-  <span class="n">abstract_target</span> <span class="s1">'Tests'</span> <span class="k">do</span>
+  <span class="n">target</span> <span class="s1">'MyApp_Tests'</span> <span class="k">do</span>
     <span class="n">inherit!</span> <span class="ss">:search_paths</span>
-    <span class="n">target</span> <span class="s2">"MyAppTests"</span>
-    <span class="n">target</span> <span class="s2">"MyAppUITests"</span>
 
     <span class="n">pod</span> <span class="s1">'Quick'</span>
     <span class="n">pod</span> <span class="s1">'Nimble'</span>
   <span class="k">end</span>
 <span class="k">end</span>
+</code></pre>
+
+<p>You can also install Quick and Nimble using Swift Package Manager by adding the following to the dependencies section your <code>Package.swift</code>:</p>
+<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/Quick/Quick.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"7.0.0"</span><span class="p">),</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/Quick/Nimble.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"12.0.0"</span><span class="p">),</span>
+<span class="p">],</span>
 </code></pre>
 <h2 id='projects-using-quick' class='heading'>Projects using Quick</h2>
 
@@ -325,7 +354,7 @@ Inspired by <a href="https://github.com/rspec/rspec">RSpec</a>, <a href="https:/
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2023-06-09)</p>
+          <p>&copy; 2023 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2023-07-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>

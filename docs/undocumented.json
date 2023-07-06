@@ -72,14 +72,14 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/ExampleGroup.swift",
-      "line": 30,
+      "line": 34,
       "symbol": "ExampleGroup.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/ExampleGroup.swift",
-      "line": 40,
+      "line": 44,
       "symbol": "ExampleGroup.examples",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -107,7 +107,7 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
-      "line": 227,
+      "line": 246,
       "symbol": "AsyncExample",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -142,7 +142,7 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 278,
+      "line": 296,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
