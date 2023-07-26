@@ -27,6 +27,24 @@ public struct TestState<T> {
         }
     }
 
+    public init(wrappedValue: @escaping @autoclosure () -> T?) {
+        if AsyncWorld.sharedWorld.currentExampleGroup != nil {
+            AsyncWorld.sharedWorld.aroundEach { [container] runExample in
+                container.value = wrappedValue()
+                await runExample()
+                container.value = nil
+            }
+        }
+
+        if World.sharedWorld.currentExampleGroup != nil {
+            World.sharedWorld.aroundEach { [container] runExample in
+                container.value = wrappedValue()
+                runExample()
+                container.value = nil
+            }
+        }
+    }
+
     /// Sets the property to an initial value before each test and resets it to nil after each test.
     /// - Parameter initialValue: An autoclosure to return the initial value to use before the test.
     public init(_ initialValue: @escaping @autoclosure () -> T) {
