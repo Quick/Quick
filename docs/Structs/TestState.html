@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>QuickConfiguration Class Reference</title>
+    <title>TestState Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/QuickConfiguration" class="dashAnchor"></a>
-    <a title="QuickConfiguration Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/TestState" class="dashAnchor"></a>
+    <a title="TestState Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Quick 7.2.0 Docs</a> (84% documented)</p>
@@ -30,7 +30,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Quick Reference</a>
         <img id="carat" src="../img/carat.png" alt=""/>
-        QuickConfiguration Class Reference
+        TestState Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -245,10 +245,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>QuickConfiguration</h1>
-            <p>Subclass QuickConfiguration and override the <code>configure(_:)</code> class
-method in order to configure how Quick behaves when running specs, or to define
-shared examples that are used across spec files.</p>
+            <h1>TestState</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">@propertyWrapper</span>
+<span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TestState</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>A property wrapper that will automatically reset the contained value after each test.</p>
 
           </section>
           <section class="section task-group-section">
@@ -257,9 +263,9 @@ shared examples that are used across spec files.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
-                    <a name="//apple_ref/swift/Method/configure(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/">configure(_:<wbr>)</a>
+                    <a name="/s:5Quick9TestStateV12wrappedValuexSgvp"></a>
+                    <a name="//apple_ref/swift/Property/wrappedValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick9TestStateV12wrappedValuexSgvp">wrappedValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -267,18 +273,89 @@ shared examples that are used across spec files.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method is executed on each subclass of this class before Quick runs
-any examples. You may override this method on as many subclasses as you like, but
-there is no guarantee as to the order in which these methods are executed.</p>
+                        <p>Undocumented</p>
 
-<p>You can override this method in order to:</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">wrappedValue</span><span class="p">:</span> <span class="kt">T</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
-<ol>
-<li><p>Configure how Quick behaves, by modifying properties on the Configuration object.
-Setting the same properties in several methods has undefined behavior.</p></li>
-<li><p>Define shared examples using <code>sharedExamples</code>.</p></li>
-</ol>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick9TestStateVACyxGycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick9TestStateVACyxGycfc">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resets the property to nil after each test.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Quick9TestStateVyACyxGxyXAcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Quick9TestStateVyACyxGxyXAcfc">init(_:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the property to an initial value before each test and resets it to nil after each test.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">initialValue</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>initialValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An autoclosure to return the initial value to use before the test.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
