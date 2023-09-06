@@ -16,7 +16,7 @@ public struct TestState<T> {
     public init() {
         if AsyncWorld.sharedWorld.currentExampleGroup != nil {
             AsyncWorld.sharedWorld.beforeEach { [container] in
-                TestStateConfiguration.afterEach.append {
+                AsyncSpec.current.addTeardownBlock {
                     container.value = nil
                 }
             }
@@ -24,7 +24,7 @@ public struct TestState<T> {
 
         if World.sharedWorld.currentExampleGroup != nil {
             World.sharedWorld.beforeEach { [container] in
-                TestStateConfiguration.afterEach.append {
+                QuickSpec.current.addTeardownBlock {
                     container.value = nil
                 }
             }
@@ -35,7 +35,7 @@ public struct TestState<T> {
         if AsyncWorld.sharedWorld.currentExampleGroup != nil {
             AsyncWorld.sharedWorld.beforeEach { [container] in
                 container.value = wrappedValue()
-                TestStateConfiguration.afterEach.append {
+                AsyncSpec.current.addTeardownBlock {
                     container.value = nil
                 }
             }
@@ -44,7 +44,7 @@ public struct TestState<T> {
         if World.sharedWorld.currentExampleGroup != nil {
             World.sharedWorld.beforeEach { [container] in
                 container.value = wrappedValue()
-                TestStateConfiguration.afterEach.append {
+                QuickSpec.current.addTeardownBlock {
                     container.value = nil
                 }
             }
@@ -55,16 +55,5 @@ public struct TestState<T> {
     /// - Parameter initialValue: An autoclosure to return the initial value to use before the test.
     public init(_ initialValue: @escaping @autoclosure () -> T) {
         self.init(wrappedValue: initialValue())
-    }
-}
-
-private final class TestStateConfiguration: QuickConfiguration {
-    static var afterEach: [() -> Void] = []
-
-    override class func configure(_ configuration: QCKConfiguration) {
-        configuration.afterEach {
-            afterEach.forEach { $0() }
-            afterEach = []
-        }
     }
 }
