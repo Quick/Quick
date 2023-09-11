@@ -15,32 +15,38 @@ public struct TestState<T> {
     /// Resets the property to nil after each test.
     public init() {
         if AsyncWorld.sharedWorld.currentExampleGroup != nil {
-            AsyncWorld.sharedWorld.afterEach { [container] in
-                container.value = nil
+            AsyncWorld.sharedWorld.beforeEach { [container] in
+                AsyncSpec.current.addTeardownBlock {
+                    container.value = nil
+                }
             }
         }
 
         if World.sharedWorld.currentExampleGroup != nil {
-            World.sharedWorld.afterEach { [container] in
-                container.value = nil
+            World.sharedWorld.beforeEach { [container] in
+                QuickSpec.current.addTeardownBlock {
+                    container.value = nil
+                }
             }
         }
     }
 
     public init(wrappedValue: @escaping @autoclosure () -> T?) {
         if AsyncWorld.sharedWorld.currentExampleGroup != nil {
-            AsyncWorld.sharedWorld.aroundEach { [container] runExample in
+            AsyncWorld.sharedWorld.beforeEach { [container] in
                 container.value = wrappedValue()
-                await runExample()
-                container.value = nil
+                AsyncSpec.current.addTeardownBlock {
+                    container.value = nil
+                }
             }
         }
 
         if World.sharedWorld.currentExampleGroup != nil {
-            World.sharedWorld.aroundEach { [container] runExample in
+            World.sharedWorld.beforeEach { [container] in
                 container.value = wrappedValue()
-                runExample()
-                container.value = nil
+                QuickSpec.current.addTeardownBlock {
+                    container.value = nil
+                }
             }
         }
     }
@@ -48,20 +54,6 @@ public struct TestState<T> {
     /// Sets the property to an initial value before each test and resets it to nil after each test.
     /// - Parameter initialValue: An autoclosure to return the initial value to use before the test.
     public init(_ initialValue: @escaping @autoclosure () -> T) {
-        if AsyncWorld.sharedWorld.currentExampleGroup != nil {
-            AsyncWorld.sharedWorld.aroundEach { [container] runExample in
-                container.value = initialValue()
-                await runExample()
-                container.value = nil
-            }
-        }
-
-        if World.sharedWorld.currentExampleGroup != nil {
-            World.sharedWorld.aroundEach { [container] runExample in
-                container.value = initialValue()
-                runExample()
-                container.value = nil
-            }
-        }
+        self.init(wrappedValue: initialValue())
     }
 }
