@@ -4,20 +4,18 @@ POD_NAME=Quick
 PODSPEC=Quick.podspec
 
 POD=${COCOAPODS:-"bundle exec pod"}
+CARTHAGE=${CARTHAGE:-"carthage"}
+GH=${GH:-"gh"}
 
 function help {
-    echo "Usage: release VERSION RELEASE_NOTES [-f]"
+    echo "Usage: release VERSION [-f]"
     echo
     echo "VERSION should be the version to release, should not include the 'v' prefix"
-    echo "RELEASE_NOTES should be a file that lists all the release notes for this version"
-    echo "              if file does not exist, creates a git-style commit with a diff as a comment"
     echo
     echo "FLAGS"
     echo "  -f  Forces override of tag"
     echo
-    echo "  Example: ./release 1.0.0-rc.2 ./release-notes.txt"
-    echo
-    echo "HINT: use 'git diff <PREVIOUS_TAG>...HEAD' to build the release notes"
+    echo "  Example: ./release 1.0.0-rc.2"
     echo
     exit 2
 }
@@ -28,22 +26,34 @@ function die {
     exit 1
 }
 
-if [ $# -lt 2 ]; then
+if [ $# -lt 1 ]; then
     help
 fi
 
 VERSION=$1
-RELEASE_NOTES=$2
-FORCE_TAG=$3
+FORCE_TAG=$2
 
 VERSION_TAG="v$VERSION"
 
 echo "-> Verifying Local Directory for Release"
 
 if [ -z "`which $POD`" ]; then
-    die "Cocoapods is required to produce a release. Aborting."
+    die "Cocoapods is required to produce a release. Install with rubygems using 'gem install cocoapods'. Aborting."
 fi
 echo " > Cocoapods is installed"
+
+if [ -z "`which $CARTHAGE`" ]; then
+    die "Carthage is required to produce a release. Install with brew using 'brew install carthage'. Aborting."
+fi
+echo " > Carthage is installed"
+
+if [ -z "`which $GH`" ]; then
+    die "gh (github CLI) is required to produce a release. Install with brew using 'brew install gh'. Aborting."
+fi
+
+echo " > Verifying you are authenticated with the github CLI"
+$GH auth status > /dev/null || die "You are not authenticated with the github CLI. Please authenticate using '$GH auth login'."
+echo " > Logged in with github CLI"
 
 echo " > Is this a reasonable tag?"
 
@@ -68,27 +78,6 @@ if [ $? -eq 0 ]; then
 else
     echo " > Yes, tag is unique"
 fi
-
-if [ ! -f "$RELEASE_NOTES" ]; then
-    echo " > Failed to find $RELEASE_NOTES. Prompting editor"
-    RELEASE_NOTES=.release-changes
-    LATEST_TAG=`git for-each-ref refs/tags --sort=-refname --format="%(refname:short)" | grep -E "^v\d+\.\d+\.\d+(-\w+(\.\d)?)?\$" | ruby -e 'puts STDIN.read.split("\n").sort { |a,b| Gem::Version.new(a.gsub(/^v/, "")) <=> Gem::Version.new(b.gsub(/^v/, "")) }.last'`
-    echo " > Latest tag ${LATEST_TAG}"
-    echo "${POD_NAME} v$VERSION" > $RELEASE_NOTES
-    echo "================" >> $RELEASE_NOTES
-    echo >> $RELEASE_NOTES
-    echo "# Changelog from ${LATEST_TAG}..HEAD" >> $RELEASE_NOTES
-    git log ${LATEST_TAG}..HEAD | sed -e 's/^/# /' >> $RELEASE_NOTES
-    $EDITOR $RELEASE_NOTES
-    diff -q $RELEASE_NOTES ${RELEASE_NOTES}.backup > /dev/null 2>&1
-    STATUS=$?
-    rm ${RELEASE_NOTES}.backup
-    if [ $STATUS -eq 0 ]; then
-        rm $RELEASE_NOTES
-        die "No changes in release notes file. Aborting."
-    fi
-fi
-echo " > Release notes: $RELEASE_NOTES"
 
 if [ ! -f "$PODSPEC" ]; then
     die "Cannot find podspec: $PODSPEC. Aborting."
@@ -115,10 +104,9 @@ git config --get user.signingkey > /dev/null || {
 }
 echo " > Found PGP key for git"
 
-# Verify cocoapods trunk ownership
+# Veify cocoapods trunk ownership
 pod trunk me | grep -q "$POD_NAME" || die "You do not have access to pod repository $POD_NAME. Aborting."
 echo " > Verified ownership to $POD_NAME pod"
-
 
 echo "--- Releasing version $VERSION (tag: $VERSION_TAG)..."
 
@@ -144,39 +132,63 @@ else
     }
 
     git add ${PODSPEC} || { restore_podspec; die "Failed to add ${PODSPEC} to INDEX"; }
-    git commit -m "Bumping version to $VERSION" || { restore_podspec; die "Failed to push updated version: $VERSION"; }
+
+    echo "--- Updating Docs ---"
+    ./script/build_docs.zsh
+    git add docs || { git co docs; die "Failed to add docs to INDEX"; }
+
+    git commit -m "[$VERSION_TAG] Update docs and podspec" || { restore_podspec; die "Failed to push updated version: $VERSION"; }
 fi
+
+RELEASE_NOTES="Version ${VERSION}. Open https://github.com/Quick/Quick/releases/tag/$VERSION_TAG for full release notes."
 
 if [ -z "$FORCE_TAG" ]; then
     echo "-> Tagging version"
-    git tag -s "$VERSION_TAG" -F "$RELEASE_NOTES" || die "Failed to tag version"
+    git tag -s "$VERSION_TAG" -m "$RELEASE_NOTES" || die "Failed to tag version"
     echo "-> Pushing tag to origin"
     git push origin "$VERSION_TAG" || die "Failed to push tag '$VERSION_TAG' to origin"
 else
     echo "-> Tagging version (force)"
-    git tag -f -s "$VERSION_TAG" -F "$RELEASE_NOTES" || die "Failed to tag version"
+    git tag -s -f "$VERSION_TAG" -m "$RELEASE_NOTES" || die "Failed to tag version"
     echo "-> Pushing tag to origin (force)"
     git push origin "$VERSION_TAG" -f || die "Failed to push tag '$VERSION_TAG' to origin"
 fi
 
 if [ $SET_PODSPEC_VERSION -ne 0 ]; then
-    rm $RELEASE_NOTES
     git push origin "$REMOTE_BRANCH" || die "Failed to push to origin"
     echo " > Pushed version to origin"
 fi
 
 echo
-echo "Pushing to pod trunk..."
+echo "-> Pushing to pod trunk..."
 
 $POD trunk push "$PODSPEC"
+
+echo "Creating a carthage archive to include in the release"
+$CARTHAGE build --archive --use-xcframeworks
+zip -r Quick.xcframework.zip Carthage/Build/Quick.xcframework
+
+
+# Check version tag to determine whether to mark the release as a prerelease version or not.
+echo $VERSION_TAG | grep -q -E "^v\d+\.\d+\.\d+\$"
+if [ $? -eq 0 ]; then
+    PRERELEASE_FLAGS=""
+else
+    PRERELEASE_FLAGS="-p"
+fi
+
+echo "-> Creating a github release using auto-generated notes."
+
+$GH release create -R Quick/Quick $VERSION_TAG Quick.framework.zip Quick.xcframework.zip --generate-notes $PRERELEASE_FLAGS
 
 echo
 echo "================ Finalizing the Release ================"
 echo
-echo " - Opening GitHub to mark this as a release..."
-echo "   - Paste the contents of $RELEASE_NOTES into the release notes. Tweak for Github styling."
+echo " - Opening GitHub to allow for any edits to the release notes."
+echo "   - You should add a Highlights section at the top to call out any notable changes or fixes."
+echo "   - In particular, any breaking changes should be listed under Highlights."
 echo " - Announce!"
 
-open "https://github.com/Quick/Quick/releases/new?tag=$VERSION_TAG"
+open "https://github.com/Quick/Quick/releases/tag/$VERSION_TAG"
 
 rm ${PODSPEC}.backup
