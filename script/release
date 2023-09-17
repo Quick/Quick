@@ -15,7 +15,7 @@ function help {
     echo "FLAGS"
     echo "  -f  Forces override of tag"
     echo
-    echo "  Example: ./release 1.0.0-rc.2 ./release-notes.txt"
+    echo "  Example: ./release 1.0.0-rc.2"
     echo
     exit 2
 }
@@ -26,7 +26,7 @@ function die {
     exit 1
 }
 
-if [ $# -lt 2 ]; then
+if [ $# -lt 1 ]; then
     help
 fi
 
@@ -160,24 +160,26 @@ if [ $SET_PODSPEC_VERSION -ne 0 ]; then
 fi
 
 echo
-echo "Pushing to pod trunk..."
+echo "-> Pushing to pod trunk..."
 
 $POD trunk push "$PODSPEC"
 
 echo "Creating a carthage archive to include in the release"
 $CARTHAGE build --archive --use-xcframeworks
+zip -r Quick.xcframework.zip Carthage/Build/Quick.xcframework
+
 
 # Check version tag to determine whether to mark the release as a prerelease version or not.
 echo $VERSION_TAG | grep -q -E "^v\d+\.\d+\.\d+\$"
 if [ $? -eq 0 ]; then
     PRERELEASE_FLAGS=""
 else
-    PRERELEASE_FLAGS="-p "
+    PRERELEASE_FLAGS="-p"
 fi
 
-echo "Creating a github release using auto-generated notes."
+echo "-> Creating a github release using auto-generated notes."
 
-$GH release create -R Quick/Quick $VERSION_TAG Quick.framework.zip --generate-notes $PRERELEASE_FLAGS
+$GH release create -R Quick/Quick $VERSION_TAG Quick.framework.zip Quick.xcframework.zip --generate-notes $PRERELEASE_FLAGS
 
 echo
 echo "================ Finalizing the Release ================"
