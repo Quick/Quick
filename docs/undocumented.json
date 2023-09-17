@@ -181,6 +181,13 @@
       "symbol": "TestState.wrappedValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/TestState.swift",
+      "line": 34,
+      "symbol": "TestState.init(wrappedValue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/you/workspace/Quick"
