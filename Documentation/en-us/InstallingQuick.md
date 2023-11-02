@@ -45,8 +45,8 @@ workspace for a project that is tested using Quick and Nimble:
 ![](http://f.cl.ly/items/2b2R0e1h09003u2f0Z3U/Screen%20Shot%202015-02-27%20at%202.19.37%20PM.png)
 
 **Step Three:** Link the `Quick.framework` during your test target's
-`Link Binary with Libraries` build phase. You should see two
-`Quick.frameworks`; one is for macOS, and the other is for iOS.
+`Link Binary with Libraries` build phase. You should see only one
+`Quick.framework`, this supports all platforms Quick supports.
 
 ![](http://cl.ly/image/2L0G0H1a173C/Screen%20Shot%202014-06-08%20at%204.27.48%20AM.png)
 

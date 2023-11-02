@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F118CD41BDCA4AB005013A2"
+               BlueprintIdentifier = "DAEB6B8D1943873100289F44"
                BuildableName = "Quick.framework"
-               BlueprintName = "Quick-tvOS"
+               BlueprintName = "Quick"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F118CD41BDCA4AB005013A2"
+            BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick-tvOS"
+            BlueprintName = "Quick"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F118CDD1BDCA4AB005013A2"
-               BuildableName = "Quick - tvOSTests.xctest"
-               BlueprintName = "Quick - tvOSTests"
+               BlueprintIdentifier = "DAEB6B981943873100289F44"
+               BuildableName = "Quick - Tests.xctest"
+               BlueprintName = "Quick - Tests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -65,9 +65,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1F118CEF1BDCA4BB005013A2"
-               BuildableName = "QuickFocused - tvOSTests.xctest"
-               BlueprintName = "QuickFocused - tvOSTests"
+               BlueprintIdentifier = "DA5663E71A4C8D8500193C88"
+               BuildableName = "QuickFocused - Tests.xctest"
+               BlueprintName = "QuickFocused - Tests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -76,9 +76,19 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "64076D0A1D6D7CEA00E2B499"
-               BuildableName = "QuickAfterSuite - tvOSTests.xctest"
-               BlueprintName = "QuickAfterSuite - tvOSTests"
+               BlueprintIdentifier = "64076CE51D6D7C2000E2B499"
+               BuildableName = "QuickAfterSuite - Tests.xctest"
+               BlueprintName = "QuickAfterSuite - Tests"
+               ReferencedContainer = "container:Quick.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CD89D14C247A673100C1F086"
+               BuildableName = "QuickIssue853RegressionTests.xctest"
+               BlueprintName = "QuickIssue853RegressionTests"
                ReferencedContainer = "container:Quick.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -97,9 +107,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F118CD41BDCA4AB005013A2"
+            BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick-tvOS"
+            BlueprintName = "Quick"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -113,9 +123,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1F118CD41BDCA4AB005013A2"
+            BlueprintIdentifier = "DAEB6B8D1943873100289F44"
             BuildableName = "Quick.framework"
-            BlueprintName = "Quick-tvOS"
+            BlueprintName = "Quick"
             ReferencedContainer = "container:Quick.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
