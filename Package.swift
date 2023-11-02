@@ -1,17 +1,18 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 
 import PackageDescription
 
 let package = Package(
     name: "Quick",
     platforms: [
-        .macOS(.v10_15), .iOS(.v13), .tvOS(.v13)
+        .macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .visionOS(.v1)
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Nimble.git", from: "12.0.0"),
+        // TODO: Revert to official Nimble release once it supports visionOS
+        .package(url: "https://github.com/bitmovin-engineering/Nimble.git", branch: "bitmovin/feature/visionos-support"),
     ],
     targets: {
         var targets: [Target] = [
