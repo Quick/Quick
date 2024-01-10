@@ -17,6 +17,13 @@ namespace "podspec" do
   end
 end
 
+namespace "carthage" do
+  desc "Build Carthage artifacts"
+  task :build do
+    run "carthage build --no-skip-current --use-xcframeworks --verbose"
+  end
+end
+
 namespace "test" do
   desc "Run unit tests for all iOS targets"
   task :ios do |t|
