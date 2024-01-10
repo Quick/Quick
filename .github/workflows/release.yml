@@ -1,0 +1,27 @@
+name: "Release Artifacts"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  carthage_archive:
+    name: Darwin, Xcode 14.0
+    runs-on: macos-12
+    strategy:
+      matrix:
+        xcode: ["14.0.1"]
+    env:
+      DEVELOPER_DIR: "/Applications/Xcode_${{ matrix.xcode }}.app"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Archive Quick
+        run: |
+          rake carthage:build
+          zip -r Quick.xcframework.zip Carthage/Build/Quick.xcframework
+      - name: Upload Quick.xcframework.zip
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            Quick.xcframework.zip

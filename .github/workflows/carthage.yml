@@ -1,0 +1,36 @@
+name: Carthage
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+  pull_request:
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v5.3.1
+        with:
+          paths: '[".github/workflows/carthage.yml", "Sources/**", "Rakefile"]'
+          do_not_skip: '["push", "workflow_dispatch", "schedule"]'
+
+  carthage:
+    name: Carthage Build
+    needs: filter
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v4
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
+      - run: rake carthage:build
+        if: ${{ needs.filter.outputs.should_skip != 'true' }}
