@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+Quick is a library that is only used for testing and should never be included
+in the binary submitted to App Store Connect.
+Your app will be rejected if you do include Quick in the submitted binary
+because Quick uses private APIs to better integrate with Xcode.
+
+Despite not being shipped to Apple, Quick does not and will never collect any
+kind of analytics or tracking.
+-->
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTracking</key>
+	<false/>
+</dict>
+</plist>
