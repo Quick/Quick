@@ -44,6 +44,9 @@ let package = Package(
                 dependencies: [ "QuickObjCRuntime" ],
                 exclude: [
                     "Info.plist",
+                ],
+                resources: [
+                    .copy("PrivacyInfo.xcprivacy")
                 ]
             ),
         ])
@@ -54,6 +57,9 @@ let package = Package(
                 dependencies: [],
                 exclude: [
                     "Info.plist"
+                ],
+                resources: [
+                    .copy("PrivacyInfo.xcprivacy")
                 ]
             ),
         ])

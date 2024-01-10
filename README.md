@@ -91,6 +91,12 @@ Similar to projects using Quick, it would be nice to hear why people use Quick a
 
 Have something positive to say about Quick (or Nimble)? If yes, [provide a testimonial here](https://github.com/Quick/Quick/wiki/Who-uses-Quick).
 
+## Privacy Statement
+
+Quick is a library that is only used for testing and should never be included in the binary submitted to App Store Connect.
+Your app will be rejected if you do include Quick in the submitted binary because Quick uses private APIs to better integrate with Xcode.
+
+Despite not being shipped to Apple, Quick does not and will never collect any kind of analytics or tracking.
 
 ## License
 
