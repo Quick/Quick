@@ -83,11 +83,11 @@ open class AsyncSpec: AsyncSpecBase {
 
     private static func addInstanceMethod(for example: AsyncExample, classSelectorNames selectorNames: inout Set<String>) -> Selector {
         let block: @convention(block) (AsyncSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
-            spec.example = example
             Task {
+                spec.example = example
                 await example.run()
-                completionHandler()
                 AsyncSpec.current = nil
+                completionHandler()
             }
         }
         let implementation = imp_implementationWithBlock(block as Any)
