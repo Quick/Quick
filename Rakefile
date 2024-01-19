@@ -48,7 +48,7 @@ namespace "test" do
   end
 
   desc "Run unit tests for all visionOS targets"
-  task :visionOS do |t|
+  task :visionos do |t|
     run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick -destination 'generic/platform=visionOS' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean build | xcpretty"
     run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick -destination 'platform=visionOS Simulator,name=Apple Vision Pro' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
   end
