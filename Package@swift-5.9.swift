@@ -11,8 +11,7 @@ let package = Package(
         .library(name: "Quick", targets: ["Quick"]),
     ],
     dependencies: [
-        // TODO: Revert to official Nimble release once it supports visionOS
-        .package(url: "https://github.com/bitmovin-engineering/Nimble.git", branch: "bitmovin/feature/visionos-support"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "13.2.0"),
     ],
     targets: {
         var targets: [Target] = [
