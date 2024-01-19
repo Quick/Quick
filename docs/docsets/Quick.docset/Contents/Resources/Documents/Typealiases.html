@@ -17,7 +17,7 @@
     <a title="Type Aliases  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Quick 7.3.0 Docs</a> (83% documented)</p>
+        <p><a href="index.html">Quick 7.3.1 Docs</a> (83% documented)</p>
         <p class="header-right"><a href="https://github.com/Quick/Quick"><img src="img/gh.png" alt="GitHub"/>View on GitHub</a></p>
         <div class="header-right">
           <form role="search" action="search.json">
@@ -434,7 +434,7 @@ indicating whether that example should be run.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeExampleAsyncClosure</span> <span class="o">=</span> <span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeExampleAsyncClosure</span> <span class="o">=</span> <span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -520,7 +520,7 @@ which contains information about the example that is about to be run.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeExampleWithMetadataAsyncClosure</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">exampleMetadata</span><span class="p">:</span> <span class="kt"><a href="Classes/ExampleMetadata.html">ExampleMetadata</a></span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeExampleWithMetadataAsyncClosure</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">exampleMetadata</span><span class="p">:</span> <span class="kt"><a href="Classes/ExampleMetadata.html">ExampleMetadata</a></span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -887,7 +887,7 @@ The closure must call runExample() exactly once.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">AroundExampleAsyncClosure</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">runExample</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">AroundExampleAsyncClosure</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">runExample</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -920,7 +920,7 @@ The closure must call runExample() exactly once.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">AroundExampleWithMetadataAsyncClosure</span> <span class="o">=</span>
-    <span class="p">(</span><span class="n">_</span> <span class="nv">exampleMetadata</span><span class="p">:</span> <span class="kt"><a href="Classes/ExampleMetadata.html">ExampleMetadata</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">runExample</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+    <span class="p">(</span><span class="n">_</span> <span class="nv">exampleMetadata</span><span class="p">:</span> <span class="kt"><a href="Classes/ExampleMetadata.html">ExampleMetadata</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">runExample</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -963,7 +963,7 @@ The closure must call runExample() exactly once.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeSuiteAsyncClosure</span> <span class="o">=</span> <span class="p">()</span> <span class="n">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeSuiteAsyncClosure</span> <span class="o">=</span> <span class="p">()</span> <span class="k">async</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -1166,8 +1166,8 @@ closure may contain any number of example and example groups.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2023 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2023-09-16)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+          <p>&copy; 2024 <a class="link" href="https://github.com/Quick/Quick" target="_blank" rel="external noopener">Quick Contributors</a>. All rights reserved. (Last updated: 2024-01-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
         </section>
       </article>
     </div>
