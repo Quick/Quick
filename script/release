@@ -45,6 +45,12 @@ if [ -z "`which $GH`" ]; then
     die "gh (github CLI) is required to produce a release. Install with brew using 'brew install gh'. Aborting."
 fi
 
+if [ "$POD" =~ ^bundle.* ]; then
+    echo " > Running bundle install to verify that you have up-to-date depedencies"
+    bundle install
+    echo " > Ruby dependencies are up to date."
+fi
+
 echo " > Verifying you are authenticated with the github CLI"
 $GH auth status > /dev/null || die "You are not authenticated with the github CLI. Please authenticate using '$GH auth login'."
 echo " > Logged in with github CLI"
@@ -99,7 +105,7 @@ git config --get user.signingkey > /dev/null || {
 echo " > Found PGP key for git"
 
 # Veify cocoapods trunk ownership
-pod trunk me | grep -q "$POD_NAME" || die "You do not have access to pod repository $POD_NAME. Aborting."
+$POD trunk me | grep -q "$POD_NAME" || die "You do not have access to pod repository $POD_NAME. Aborting."
 echo " > Verified ownership to $POD_NAME pod"
 
 echo "--- Releasing version $VERSION (tag: $VERSION_TAG)..."
