@@ -13,7 +13,7 @@ end
 namespace "podspec" do
   desc "Run lint for podspec"
   task :lint do
-    run "bundle exec pod lib lint"
+    run "bundle exec pod lib lint --platforms=ios,tvos,macos"
   end
 end
 
@@ -45,6 +45,12 @@ namespace "test" do
   desc "Run unit tests for all macOS targets using static linking"
   task :macos_static do |t|
     run "set -o pipefail && MACH_O_TYPE=staticlib xcodebuild -workspace Quick.xcworkspace -scheme Quick OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
+  end
+
+  desc "Run unit tests for all visionOS targets"
+  task :visionos do |t|
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick -destination 'generic/platform=visionOS' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean build | xcpretty"
+    run "set -o pipefail && xcodebuild -workspace Quick.xcworkspace -scheme Quick -destination 'platform=visionOS Simulator,name=Apple Vision Pro' OTHER_SWIFT_FLAGS='$(inherited) -suppress-warnings' clean #{xcode_action} | xcpretty"
   end
 
   desc "Run unit tests for the current platform built by the Swift Package Manager"
