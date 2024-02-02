@@ -24,7 +24,7 @@ class MyClassTests: XCTestCase {
 }
 ```
 
-> Xcode Test Navigator의 Quick과의 통합에는 몇 가지 제약 사항이 있습니다. (open [issue](https://github.com/Quick/Quick/issues/219)). Quick 테스트는 실행될 때까지 내이게이터에 표시되지 않을 것이며, 반복 실행은 예측할 수 없는 방향으로 목록을 재설정하는 경향이 있으며, 테스트는 소스 코드 옆에 표시되지 않습니다.
+> Xcode Test Navigator의 Quick과의 통합에는 몇 가지 제약 사항이 있습니다. (open [issue](https://github.com/Quick/Quick/issues/219)). Quick 테스트는 실행될 때까지 내비게이터에 표시되지 않을 것이며, 반복 실행은 예측할 수 없는 방향으로 목록을 재설정하는 경향이 있으며, 테스트는 소스 코드 옆에 표시되지 않습니다.
 > 레이더를 Apple에 제출하고, Apple 엔지니어에게 이 기능 요구를 홍보하기 위해 [rdar://26152293](http://openradar.appspot.com/radar?id=4974047628623872)을 언급하세요.
 
 > 일부 개발자는 Swift 소스 파일을 test target으로 추가할 것을 권장합니다.
