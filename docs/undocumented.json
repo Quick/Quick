@@ -107,7 +107,7 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
-      "line": 246,
+      "line": 250,
       "symbol": "AsyncExample",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -142,7 +142,7 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 296,
+      "line": 300,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
