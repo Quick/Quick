@@ -107,13 +107,7 @@ public class Example: ExampleBase {
             do {
                 try closure()
             } catch {
-                if let stopTestError = error as? StopTest {
-                    self.reportStoppedTest(stopTestError)
-                } else if let testSkippedError = error as? XCTSkip {
-                    self.reportSkippedTest(testSkippedError, name: name, callsite: callsite)
-                } else {
-                    self.reportFailedTest(error, name: name, callsite: callsite)
-                }
+                self.handleErrorInTest(error, name: name, callsite: callsite)
             }
 
             self.group!.phase = .aftersExecuting
@@ -127,7 +121,7 @@ public class Example: ExampleBase {
                 do {
                     try closure()
                 } catch {
-                    self.reportFailedTest(error, name: name, callsite: callsite)
+                    self.handleErrorInTest(error, name: name, callsite: callsite)
                     cancelTests = true
                 }
             }
@@ -145,7 +139,7 @@ public class Example: ExampleBase {
         do {
             try wrappedExample()
         } catch {
-            self.reportFailedTest(error, name: name, callsite: callsite)
+            self.handleErrorInTest(error, name: name, callsite: callsite)
         }
 
         group!.phase = .aftersFinished
@@ -174,6 +168,16 @@ public class Example: ExampleBase {
     #if canImport(Darwin)
     static internal let recordSkipSelector = NSSelectorFromString("recordSkipWithDescription:sourceCodeContext:")
     #endif
+
+    internal func handleErrorInTest(_ error: Error, name: String, callsite: Callsite) {
+        if let stopTestError = error as? StopTest {
+            self.reportStoppedTest(stopTestError)
+        } else if let testSkippedError = error as? XCTSkip {
+            self.reportSkippedTest(testSkippedError, name: name, callsite: callsite)
+        } else {
+            self.reportFailedTest(error, name: name, callsite: callsite)
+        }
+    }
 
     internal func reportSkippedTest(_ testSkippedError: XCTSkip, name: String, callsite: Callsite) {
         #if !canImport(Darwin)
