@@ -15,6 +15,7 @@ private var afterEachOrder = [AfterEachType]()
 
 private enum ThrowingAfterEachType: String, CustomStringConvertible {
     case outerOne
+    case outerTwo
     case innerOne
     case innerTwo
     case innerThree
@@ -104,11 +105,75 @@ class FunctionalTests_AfterEachAsyncSpec: AsyncSpec {
     }
 }
 
+private var skippingAfterEachOrder = [ThrowingAfterEachType]()
+
+class FunctionalTests_AfterEachSkippingAsyncSpec: QuickSpec {
+    override class func spec() {
+        describe("skipping tests") {
+            afterEach {
+                if isRunningFunctionalTests {
+                    throw XCTSkip("this test is intentionally skipped")
+                }
+            }
+
+            afterEach {
+                skippingAfterEachOrder.append(.outerTwo)
+            }
+
+            it("skips this test's afterEach") {
+                skippingAfterEachOrder.append(.outerOne)
+            }
+        }
+    }
+}
+
+private var stoppingAfterEachOrder = [ThrowingAfterEachType]()
+
+class FunctionalTests_AfterEachStoppingAsyncSpec: QuickSpec {
+    override class func spec() {
+        describe("stopping tests") {
+            context("silently stopping") {
+                afterEach {
+                    if isRunningFunctionalTests {
+                        throw StopTest.silently
+                    }
+                }
+
+                afterEach {
+                    stoppingAfterEachOrder.append(.outerTwo)
+                }
+
+                it("supports silently stopping tests") {
+                    stoppingAfterEachOrder.append(.outerOne)
+                }
+            }
+
+            context("stopping tests with expected tests") {
+                afterEach {
+                    if isRunningFunctionalTests {
+                        throw StopTest("some error")
+                    }
+                }
+
+                afterEach {
+                    stoppingAfterEachOrder.append(.outerTwo)
+                }
+
+                it("supports stopping tests with an error message") {
+                    stoppingAfterEachOrder.append(.outerOne)
+                }
+            }
+        }
+    }
+}
+
 final class AfterEachAsyncTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (AfterEachAsyncTests) -> () throws -> Void)] {
         return [
             ("testAfterEachIsExecutedInTheCorrectOrder", testAfterEachIsExecutedInTheCorrectOrder),
             ("testAfterEachWhenThrowingStopsRunningAdditionalAfterEachs", testAfterEachWhenThrowingStopsRunningAdditionalAfterEachs),
+            ("testSkippingExamplesAreCorrectlyReported", testSkippingExamplesAreCorrectlyReported),
+            ("testStoppingExamplesAreCorrectlyReported", testStoppingExamplesAreCorrectlyReported),
         ]
     }
 
@@ -151,6 +216,37 @@ final class AfterEachAsyncTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(
             throwingAfterEachOrder,
             expectedOrder
+        )
+    }
+
+    func testSkippingExamplesAreCorrectlyReported() {
+        skippingAfterEachOrder = []
+
+        let result = qck_runSpec(FunctionalTests_AfterEachSkippingAsyncSpec.self)!
+        XCTAssertTrue(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 1)
+        XCTAssertEqual(result.skipCount, 1)
+        XCTAssertEqual(result.totalFailureCount, 0)
+
+        XCTAssertEqual(
+            skippingAfterEachOrder,
+            [.outerOne, .outerTwo] // it runs the test, and continues running the subsequent afterEachs
+        )
+    }
+
+    func testStoppingExamplesAreCorrectlyReported() {
+        stoppingAfterEachOrder = []
+
+        let result = qck_runSpec(FunctionalTests_AfterEachStoppingAsyncSpec.self)!
+        XCTAssertFalse(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 2)
+        XCTAssertEqual(result.failureCount, 1)
+        XCTAssertEqual(result.unexpectedExceptionCount, 0)
+        XCTAssertEqual(result.totalFailureCount, 1)
+
+        XCTAssertEqual(
+            stoppingAfterEachOrder,
+            [.outerOne, .outerTwo, .outerOne, .outerTwo] // it continues running subsequent afterEachs
         )
     }
 }

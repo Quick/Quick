@@ -109,11 +109,73 @@ class FunctionalTests_BeforeEachAsyncSpec: AsyncSpec {
     }
 }
 
+private var skippingBeforeEachOrder = [ThrowingBeforeEachType]()
+
+class FunctionalTests_BeforeEachSkippingAsyncSpec: AsyncSpec {
+    override class func spec() {
+        describe("skipping tests") {
+            beforeEach {
+                throw XCTSkip("this test is intentionally skipped")
+            }
+
+            afterEach {
+                skippingBeforeEachOrder.append(.afterEach)
+            }
+
+            it("skips this test") {
+                skippingBeforeEachOrder.append(.inner)
+            }
+        }
+    }
+}
+
+private var stoppingBeforeEachOrder = [ThrowingBeforeEachType]()
+
+class FunctionalTests_BeforeEachStoppingAsyncSpec: AsyncSpec {
+    override class func spec() {
+        describe("stopping tests") {
+            context("silently stopping") {
+                beforeEach {
+                    if isRunningFunctionalTests {
+                        throw StopTest.silently
+                    }
+                }
+
+                afterEach {
+                    stoppingBeforeEachOrder.append(.outerOne)
+                }
+
+                it("supports silently stopping tests") {
+                    stoppingBeforeEachOrder.append(.inner)
+                }
+            }
+
+            context("stopping tests with expected tests") {
+                beforeEach {
+                    if isRunningFunctionalTests {
+                        throw StopTest("some error")
+                    }
+                }
+
+                afterEach {
+                    stoppingBeforeEachOrder.append(.outerTwo)
+                }
+
+                it("supports stopping tests with an error message") {
+                    stoppingBeforeEachOrder.append(.inner)
+                }
+            }
+        }
+    }
+}
+
 final class BeforeEachAsyncTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (BeforeEachAsyncTests) -> () throws -> Void)] {
         return [
             ("testBeforeEachIsExecutedInTheCorrectOrder", testBeforeEachIsExecutedInTheCorrectOrder),
             ("testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs", testBeforeEachWhenThrowingStopsRunningTestsButDoesCallAfterEachs),
+            ("testSkippingExamplesAreCorrectlyReported", testSkippingExamplesAreCorrectlyReported),
+            ("testStoppingExamplesAreCorrectlyReported", testStoppingExamplesAreCorrectlyReported),
         ]
     }
 
@@ -164,6 +226,37 @@ final class BeforeEachAsyncTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual(
             throwingBeforeEachOrder,
             expectedOrder
+        )
+    }
+
+    func testSkippingExamplesAreCorrectlyReported() {
+        skippingBeforeEachOrder = []
+
+        let result = qck_runSpec(FunctionalTests_BeforeEachSkippingAsyncSpec.self)!
+        XCTAssertTrue(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 1)
+        XCTAssertEqual(result.skipCount, 1)
+        XCTAssertEqual(result.totalFailureCount, 0)
+
+        XCTAssertEqual(
+            skippingBeforeEachOrder,
+            [.afterEach] // it still runs the afterEachs
+        )
+    }
+
+    func testStoppingExamplesAreCorrectlyReported() {
+        stoppingBeforeEachOrder = []
+
+        let result = qck_runSpec(FunctionalTests_BeforeEachStoppingAsyncSpec.self)!
+        XCTAssertFalse(result.hasSucceeded)
+        XCTAssertEqual(result.executionCount, 2)
+        XCTAssertEqual(result.failureCount, 1)
+        XCTAssertEqual(result.unexpectedExceptionCount, 0)
+        XCTAssertEqual(result.totalFailureCount, 1)
+
+        XCTAssertEqual(
+            stoppingBeforeEachOrder,
+            [.outerOne, .outerTwo]
         )
     }
 }
