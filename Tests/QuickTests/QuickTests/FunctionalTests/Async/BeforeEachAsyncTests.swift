@@ -115,7 +115,7 @@ class FunctionalTests_BeforeEachSkippingAsyncSpec: AsyncSpec {
     override class func spec() {
         describe("skipping tests") {
             beforeEach {
-                throw XCTSkip()
+                throw XCTSkip("this test is intentionally skipped")
             }
 
             afterEach {

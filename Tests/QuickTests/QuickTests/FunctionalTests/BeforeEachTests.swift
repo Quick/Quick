@@ -112,7 +112,7 @@ class FunctionalTests_BeforeEachSkippingSpec: QuickSpec {
     override class func spec() {
         describe("skipping tests") {
             beforeEach {
-                throw XCTSkip()
+                throw XCTSkip("this test is intentionally skipped")
             }
 
             afterEach {

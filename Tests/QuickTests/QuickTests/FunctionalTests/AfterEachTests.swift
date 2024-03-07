@@ -112,7 +112,7 @@ class FunctionalTests_AfterEachSkippingSpec: QuickSpec {
         describe("skipping tests") {
             afterEach {
                 if isRunningFunctionalTests {
-                    throw XCTSkip()
+                    throw XCTSkip("this test is intentionally skipped")
                 }
             }
 
