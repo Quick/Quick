@@ -21,7 +21,7 @@ jobs:
           rake carthage:build
           zip -r Quick.xcframework.zip Carthage/Build/Quick.xcframework
       - name: Upload Quick.xcframework.zip
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             Quick.xcframework.zip
