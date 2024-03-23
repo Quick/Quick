@@ -173,12 +173,12 @@ final internal class World: _WorldBase {
     */
     internal func examples(forSpecClass specClass: QuickSpec.Type) -> [ExampleWrapper] {
         // 1. Grab all included examples.
-        let included = includedExamples
+        let included = includedExamples()
         // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
         let spec = rootExampleGroup(forSpecClass: specClass).examples.map { example in
             return ExampleWrapper(
                 example: example,
-                runFullTest: included.first(where: { $0.example == example})?.runFullTest ?? true
+                runFullTest: included.first(where: { $0.example == example})?.runFullTest ?? false
             )
         }
         // 3. Remove all excluded examples.
@@ -200,7 +200,7 @@ final internal class World: _WorldBase {
     }
 
     internal var includedExampleCount: Int {
-        return includedExamples.count
+        return includedExamples().count
     }
 
     internal lazy var cachedIncludedExampleCount: Int = self.includedExampleCount
@@ -236,7 +236,7 @@ final internal class World: _WorldBase {
         currentExampleGroup = previousExampleGroup
     }
 
-    private var allExamples: [Example] {
+    private func allExamples() -> [Example] {
         var all: [Example] = []
         for (_, group) in specs {
             group.walkDownExamples { all.append($0) }
@@ -244,15 +244,19 @@ final internal class World: _WorldBase {
         return all
     }
 
-    private var includedExamples: [ExampleWrapper] {
-        let all = allExamples
-        let hasFocusedExamples = all.contains { example in
+    internal func hasFocusedExamples() -> Bool {
+        return allExamples().contains { example in
             return self.configuration.inclusionFilters.contains { $0(example) }
         }
+    }
+
+    private func includedExamples() -> [ExampleWrapper] {
+        let all = allExamples()
+        let hasFocusedExamples = self.hasFocusedExamples() || AsyncWorld.sharedWorld.hasFocusedExamples()
 
         if !hasFocusedExamples && configuration.runAllWhenEverythingFiltered {
             return all.map { example in
-                ExampleWrapper(
+                return ExampleWrapper(
                     example: example,
                     runFullTest: !self.configuration.exclusionFilters.contains { $0(example) }
                 )

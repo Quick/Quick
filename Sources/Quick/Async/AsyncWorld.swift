@@ -146,7 +146,7 @@ final internal class AsyncWorld: _WorldBase {
     */
     internal func examples(forSpecClass specClass: AsyncSpec.Type) -> [(example: AsyncExample, runFullTest: Bool)] {
         // 1. Grab all included examples.
-        let included = includedExamples
+        let included = includedExamples()
         // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
         let spec = rootExampleGroup(forSpecClass: specClass).examples.map { example in
             return (
@@ -166,7 +166,7 @@ final internal class AsyncWorld: _WorldBase {
     // MARK: Internal
 
     internal var includedExampleCount: Int {
-        return includedExamples.count
+        return includedExamples().count
     }
 
     internal lazy var cachedIncludedExampleCount: Int = self.includedExampleCount
@@ -202,7 +202,7 @@ final internal class AsyncWorld: _WorldBase {
         currentExampleGroup = previousExampleGroup
     }
 
-    private var allExamples: [AsyncExample] {
+    private func allExamples() -> [AsyncExample] {
         var all: [AsyncExample] = []
         for (_, group) in specs {
             group.walkDownExamples { all.append($0) }
@@ -210,11 +210,15 @@ final internal class AsyncWorld: _WorldBase {
         return all
     }
 
-    private var includedExamples: [(example: AsyncExample, runFullTest: Bool)] {
-        let all = allExamples
-        let hasFocusedExamples = all.contains { example in
+    internal func hasFocusedExamples() -> Bool {
+        return allExamples().contains { example in
             return self.configuration.inclusionFilters.contains { $0(example) }
         }
+    }
+
+    private func includedExamples() -> [(example: AsyncExample, runFullTest: Bool)] {
+        let all = allExamples()
+        let hasFocusedExamples = self.hasFocusedExamples() || World.sharedWorld.hasFocusedExamples()
 
         if !hasFocusedExamples && configuration.runAllWhenEverythingFiltered {
             return all.map { example in
