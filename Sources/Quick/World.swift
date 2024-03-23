@@ -171,7 +171,6 @@ final internal class World: _WorldBase {
         - parameter specClass: The QuickSpec subclass for which examples are to be returned.
         - returns: A list of examples to be run as test invocations, along with whether to run the full test, or just mark it as skipped.
     */
-    @objc
     internal func examples(forSpecClass specClass: QuickSpec.Type) -> [ExampleWrapper] {
         // 1. Grab all included examples.
         let included = includedExamples

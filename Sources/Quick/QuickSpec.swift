@@ -110,7 +110,7 @@ open class QuickSpec: QuickSpecBase {
         gatherExamplesIfNeeded()
 
         let exampleWrappers = World.sharedWorld.examples(forSpecClass: self)
-        let result = examples.map { wrapper -> (String, (QuickSpec) -> () throws -> Void) in
+        let result = exampleWrappers.map { wrapper -> (String, (QuickSpec) -> () throws -> Void) in
             return (wrapper.example.name, { spec in
                 let example = wrapper.example
                 return {
