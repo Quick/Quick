@@ -151,6 +151,22 @@ public class Example: ExampleBase {
         }
     }
 
+    public func runSkippedTest() {
+        let world = World.sharedWorld
+
+        if world.numberOfExamplesRun == 0 {
+            world.suiteHooks.executeBefores()
+        }
+
+        reportSkippedTest(XCTSkip("Test was filtered out."), name: name, callsite: callsite)
+
+        world.numberOfSyncExamplesRun += 1
+
+        if !world.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
+            world.suiteHooks.executeAfters()
+        }
+    }
+
     /**
         Evaluates the filter flags set on this example and on the example groups
         this example belongs to. Flags set on the example are trumped by flags on

@@ -260,8 +260,8 @@ extension SyncDSLUser {
      - parameter description: An arbitrary string describing the example or example group.
      - parameter closure: A closure that will not be evaluated.
      */
-    public static func pending(_ description: String, closure: () throws -> Void) {
-        World.sharedWorld.pending(description, closure: closure)
+    public static func pending(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
+        World.sharedWorld.pending(description, file: file, line: line, closure: closure)
     }
 
     // MARK: - Defocused

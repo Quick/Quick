@@ -325,12 +325,13 @@ extension World {
 
     // MARK: - Pending
     @nonobjc
-    internal func pending(_ description: String, closure: () async throws -> Void) {
-        print("Pending: \(description)")
+    internal func pending(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+        self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
-    internal func pending(_ description: String, closure: () -> Void) {
-        print("Pending: \(description)")
+    @objc(pendingWithDescription:file:line:closure:)
+    internal func objc_pending(_ description: String, file: FileString, line: UInt, closure: @escaping () -> Void) {
+        self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
     private var currentPhase: String {

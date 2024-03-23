@@ -60,6 +60,6 @@ final class FocusedAsyncTests: XCTestCase, XCTestCaseProvider {
             _FunctionalTests_FocusedSpec_Focused.self,
         ])
         #endif
-        XCTAssertEqual(result?.executionCount, 8)
+        XCTAssertEqual((result?.executionCount ?? 0) - (result?.skipCount ?? 0), 8)
     }
 }

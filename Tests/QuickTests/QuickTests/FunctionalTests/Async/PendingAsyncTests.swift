@@ -17,6 +17,9 @@ class FunctionalTests_PendingAsyncSpec: AsyncSpec {
         xit("an example that will not run") {
             await expect(true).toEventually(beFalsy())
         }
+        pending("it doesn't run code inside a pending at all") {
+            fatalError("this should not be run")
+        }
         xitBehavesLike(FunctionalTests_PendingAsyncSpec_AsyncBehavior.self) { () -> Void in }
         describe("a describe block containing only one enabled example") {
             beforeEach { oneExampleBeforeEachExecutedCount += 1 }
@@ -47,6 +50,7 @@ final class PendingAsyncTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (PendingAsyncTests) -> () throws -> Void)] {
         return [
             ("testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail", testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail),
+            ("testPendingExamplesAllAreMarkedAsSkipped", testPendingExamplesAllAreMarkedAsSkipped),
             ("testBeforeEachOnlyRunForEnabledExamples", testBeforeEachOnlyRunForEnabledExamples),
             ("testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples", testBeforeEachDoesNotRunForContextsWithOnlyPendingExamples),
         ]
@@ -55,6 +59,11 @@ final class PendingAsyncTests: XCTestCase, XCTestCaseProvider {
     func testAnOtherwiseFailingExampleWhenMarkedPendingDoesNotCauseTheSuiteToFail() {
         let result = qck_runSpec(FunctionalTests_PendingAsyncSpec.self)
         XCTAssertTrue(result!.hasSucceeded)
+    }
+
+    func testPendingExamplesAllAreMarkedAsSkipped() {
+        let result = qck_runSpec(FunctionalTests_PendingAsyncSpec.self)
+        XCTAssertEqual(result?.skipCount, 7)
     }
 
     func testBeforeEachOnlyRunForEnabledExamples() {

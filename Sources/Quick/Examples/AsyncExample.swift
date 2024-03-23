@@ -101,6 +101,27 @@ public class AsyncExample: ExampleBase {
         }
     }
 
+    public func runSkippedTest() async {
+        let asyncWorld = AsyncWorld.sharedWorld
+        let world = World.sharedWorld
+
+        if world.numberOfExamplesRun == 0 {
+            await MainActor.run {
+                world.suiteHooks.executeBefores()
+            }
+        }
+
+        reportSkippedTest(XCTSkip("Test was filtered out."), name: name, callsite: callsite)
+
+        asyncWorld.numberOfAsyncExamplesRun += 1
+
+        if !asyncWorld.isRunningAdditionalSuites && world.numberOfExamplesRun >= world.cachedIncludedExampleCount {
+            await MainActor.run {
+                world.suiteHooks.executeAfters()
+            }
+        }
+    }
+
     /**
         Evaluates the filter flags set on this example and on the example groups
         this example belongs to. Flags set on the example are trumped by flags on
