@@ -107,7 +107,14 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
-      "line": 250,
+      "line": 104,
+      "symbol": "AsyncExample.runSkippedTest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/AsyncExample.swift",
+      "line": 271,
       "symbol": "AsyncExample",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -142,7 +149,14 @@
     },
     {
       "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
-      "line": 300,
+      "line": 154,
+      "symbol": "Example.runSkippedTest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/you/workspace/Quick/Sources/Quick/Examples/Example.swift",
+      "line": 316,
       "symbol": "Example",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
