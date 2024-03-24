@@ -108,16 +108,10 @@ QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line
     };
 }
 
-void qck_pending(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] pending:description closure:closure];
-}
-
-void qck_xdescribe(NSString *description, QCKDSLEmptyBlock closure) {
-    [[World sharedWorld] xdescribe:description closure:closure];
-}
-
-void qck_xcontext(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_xdescribe(description, closure);
+QCKItBlock qck_pending_builder(NSString *file, NSUInteger line) {
+    return ^(NSString *description, QCKDSLEmptyBlock closure) {
+        [[World sharedWorld] pendingWithDescription:description file:file line:line closure:closure];
+    };
 }
 
 void qck_fdescribe(NSString *description, QCKDSLEmptyBlock closure) {

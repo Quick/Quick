@@ -169,16 +169,21 @@ final internal class World: _WorldBase {
         not excluded by exclusion filters.
 
         - parameter specClass: The QuickSpec subclass for which examples are to be returned.
-        - returns: A list of examples to be run as test invocations.
+        - returns: A list of examples to be run as test invocations, along with whether to run the full test, or just mark it as skipped.
     */
-    internal func examples(forSpecClass specClass: QuickSpec.Type) -> [Example] {
+    internal func examples(forSpecClass specClass: QuickSpec.Type) -> [ExampleWrapper] {
         // 1. Grab all included examples.
-        let included = includedExamples
+        let included = includedExamples()
         // 2. Grab the intersection of (a) examples for this spec, and (b) included examples.
-        let spec = rootExampleGroup(forSpecClass: specClass).examples.filter { included.contains($0) }
+        let spec = rootExampleGroup(forSpecClass: specClass).examples.map { example in
+            return ExampleWrapper(
+                example: example,
+                runFullTest: included.first(where: { $0.example == example})?.runFullTest ?? false
+            )
+        }
         // 3. Remove all excluded examples.
-        return spec.filter { example in
-            !self.configuration.exclusionFilters.contains { $0(example) }
+        return spec.map { test -> ExampleWrapper in
+            ExampleWrapper(example: test.example, runFullTest: test.runFullTest && !self.configuration.exclusionFilters.contains { $0(test.example) })
         }
     }
 
@@ -195,7 +200,7 @@ final internal class World: _WorldBase {
     }
 
     internal var includedExampleCount: Int {
-        return includedExamples.count
+        return includedExamples().count
     }
 
     internal lazy var cachedIncludedExampleCount: Int = self.includedExampleCount
@@ -231,7 +236,7 @@ final internal class World: _WorldBase {
         currentExampleGroup = previousExampleGroup
     }
 
-    private var allExamples: [Example] {
+    private func allExamples() -> [Example] {
         var all: [Example] = []
         for (_, group) in specs {
             group.walkDownExamples { all.append($0) }
@@ -239,20 +244,32 @@ final internal class World: _WorldBase {
         return all
     }
 
-    private var includedExamples: [Example] {
-        let all = allExamples
-        let included = all.filter { example in
+    internal func hasFocusedExamples() -> Bool {
+        return allExamples().contains { example in
             return self.configuration.inclusionFilters.contains { $0(example) }
         }
+    }
 
-        if included.isEmpty && configuration.runAllWhenEverythingFiltered {
-            let exceptExcluded = all.filter { example in
-                return !self.configuration.exclusionFilters.contains { $0(example) }
+    private func includedExamples() -> [ExampleWrapper] {
+        let all = allExamples()
+        let hasFocusedExamples = self.hasFocusedExamples() || AsyncWorld.sharedWorld.hasFocusedExamples()
+
+        if !hasFocusedExamples && configuration.runAllWhenEverythingFiltered {
+            return all.map { example in
+                return ExampleWrapper(
+                    example: example,
+                    runFullTest: !self.configuration.exclusionFilters.contains { $0(example) }
+                )
             }
-
-            return exceptExcluded
         } else {
-            return included
+            return all.map { example in
+                return ExampleWrapper(
+                    example: example,
+                    runFullTest: self.configuration.inclusionFilters.contains {
+                        $0(example)
+                    }
+                )
+            }
         }
     }
 
@@ -266,5 +283,25 @@ final internal class World: _WorldBase {
         if sharedExamples[name] == nil {
             raiseError("No shared example named '\(name)' has been registered. Registered shared examples: '\(Array(sharedExamples.keys))'")
         }
+    }
+}
+
+#if canImport(Darwin)
+// swiftlint:disable type_name
+@objcMembers
+internal class _ExampleWrapperBase: NSObject {}
+#else
+internal class _ExampleWrapperBase: NSObject {}
+// swiftlint:enable type_name
+#endif
+
+final internal class ExampleWrapper: _ExampleWrapperBase {
+    private(set) var example: Example
+    private(set) var runFullTest: Bool
+
+    init(example: Example, runFullTest: Bool) {
+        self.example = example
+        self.runFullTest = runFullTest
+        super.init()
     }
 }

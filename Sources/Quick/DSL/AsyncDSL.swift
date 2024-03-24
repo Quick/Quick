@@ -198,8 +198,8 @@ extension AsyncDSLUser {
      - parameter description: An arbitrary string describing the example or example group.
      - parameter closure: A closure that will not be evaluated.
      */
-    public static func pending(_ description: String, closure: () async throws -> Void) {
-        AsyncWorld.sharedWorld.pending(description, closure: closure)
+    public static func pending(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () async throws -> Void) {
+        AsyncWorld.sharedWorld.pending(description, file: file, line: line, closure: closure)
     }
 
     // MARK: - Defocused

@@ -50,7 +50,7 @@ QuickSpecEnd
         [FunctionalTests_FocusedSpec_Focused_ObjC class],
         [FunctionalTests_FocusedSpec_Unfocused_ObjC class]
     ]);
-    XCTAssertEqual(result.executionCount, 5);
+    XCTAssertEqual(result.executionCount - result.skipCount, 5);
 }
 
 @end

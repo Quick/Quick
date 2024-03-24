@@ -215,18 +215,6 @@ static inline void justBeforeEach(QCKDSLEmptyBlock closure) {
 } NS_SWIFT_UNAVAILABLE("")
 
 /**
- Defines an example or example group that should not be executed. Use
- ``pending(description, closure)`` to temporarily disable
- examples or groups that should not be run yet.
- 
- @param description An arbitrary string describing the example or example group.
- @param closure A closure that will not be evaluated.
- */
-static inline void pending(NSString *description, QCKDSLEmptyBlock closure) {
-    qck_pending(description, closure);
-} NS_SWIFT_UNAVAILABLE("")
-
-/**
  Use this to quickly mark a ``describe(description, closure)`` block as pending.
  This disables all examples within the block.
  */
@@ -265,6 +253,7 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 #define itBehavesLike qck_itBehavesLike
 #define xitBehavesLike qck_xitBehavesLike
 #define fitBehavesLike qck_fitBehavesLike
+#define pending qck_pending
 #endif
 
 #define qck_it qck_it_builder(@(__FILE__), __LINE__)
@@ -273,6 +262,7 @@ static inline void fcontext(NSString *description, QCKDSLEmptyBlock closure) {
 #define qck_itBehavesLike qck_itBehavesLike_builder(@(__FILE__), __LINE__)
 #define qck_xitBehavesLike qck_xitBehavesLike_builder(@(__FILE__), __LINE__)
 #define qck_fitBehavesLike qck_fitBehavesLike_builder(@(__FILE__), __LINE__)
+#define qck_pending qck_pending_builder(@(__FILE__), __LINE__)
 
 typedef void (^QCKItBlock)(NSString *description, QCKDSLEmptyBlock closure);
 typedef void (^QCKItBehavesLikeBlock)(NSString *description, QCKDSLSharedExampleContext context);
@@ -283,3 +273,4 @@ QUICK_EXPORT QCKItBlock qck_fit_builder(NSString *file, NSUInteger line) NS_SWIF
 QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
 QUICK_EXPORT QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
 QUICK_EXPORT QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+QUICK_EXPORT QCKItBlock qck_pending_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");

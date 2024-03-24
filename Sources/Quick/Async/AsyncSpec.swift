@@ -75,17 +75,21 @@ open class AsyncSpec: AsyncSpecBase {
         let examples = AsyncWorld.sharedWorld.examples(forSpecClass: self)
 
         var selectorNames = Set<String>()
-        return examples.map { example in
-            let selector = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
+        return examples.map { test in
+            let selector = addInstanceMethod(for: test.example, runFullTest: test.runFullTest, classSelectorNames: &selectorNames)
             return NSStringFromSelector(selector)
         }
     }
 
-    private static func addInstanceMethod(for example: AsyncExample, classSelectorNames selectorNames: inout Set<String>) -> Selector {
+    private static func addInstanceMethod(for example: AsyncExample, runFullTest: Bool, classSelectorNames selectorNames: inout Set<String>) -> Selector {
         let block: @convention(block) (AsyncSpec, @escaping () -> Void) -> Void = { spec, completionHandler in
             Task {
                 spec.example = example
-                await example.run()
+                if runFullTest {
+                    await example.run()
+                } else {
+                    await example.runSkippedTest()
+                }
                 AsyncSpec.current = nil
                 completionHandler()
             }
@@ -115,13 +119,17 @@ open class AsyncSpec: AsyncSpecBase {
     public class var allTests: [(String, (AsyncSpec) -> () throws -> Void)] {
         gatherExamplesIfNeeded()
 
-        let examples = AsyncWorld.sharedWorld.examples(forSpecClass: self)
+        let tests = AsyncWorld.sharedWorld.examples(forSpecClass: self)
 
-        let result = examples.map { example -> (String, (AsyncSpec) -> () throws -> Void) in
+        let result = tests.map { (example, runFullTest) -> (String, (AsyncSpec) -> () throws -> Void) in
             return (example.name, asyncTest { spec in
                 return {
                     spec.example = example
-                    await example.run()
+                    if runFullTest {
+                        await example.run()
+                    } else {
+                        await example.runSkippedTest()
+                    }
                     AsyncSpec.current = nil
                 }
             })

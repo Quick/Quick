@@ -68,16 +68,20 @@ open class QuickSpec: QuickSpecBase {
         let examples = World.sharedWorld.examples(forSpecClass: self)
 
         var selectorNames = Set<String>()
-        return examples.map { example in
-            let selector = addInstanceMethod(for: example, classSelectorNames: &selectorNames)
+        return examples.map { (test: ExampleWrapper) in
+            let selector = addInstanceMethod(for: test.example, runFullTest: test.runFullTest, classSelectorNames: &selectorNames)
             return NSStringFromSelector(selector)
         }
     }
 
-    private static func addInstanceMethod(for example: Example, classSelectorNames selectorNames: inout Set<String>) -> Selector {
+    private static func addInstanceMethod(for example: Example, runFullTest: Bool, classSelectorNames selectorNames: inout Set<String>) -> Selector {
         let block: @convention(block) (QuickSpec) -> Void = { spec in
             spec.example = example
-            example.run()
+            if runFullTest {
+                example.run()
+            } else {
+                example.runSkippedTest()
+            }
             QuickSpec.current = nil
         }
         let implementation = imp_implementationWithBlock(block as Any)
@@ -105,12 +109,17 @@ open class QuickSpec: QuickSpecBase {
     public class var allTests: [(String, (QuickSpec) -> () throws -> Void)] {
         gatherExamplesIfNeeded()
 
-        let examples = World.sharedWorld.examples(forSpecClass: self)
-        let result = examples.map { example -> (String, (QuickSpec) -> () throws -> Void) in
-            return (example.name, { spec in
+        let exampleWrappers = World.sharedWorld.examples(forSpecClass: self)
+        let result = exampleWrappers.map { wrapper -> (String, (QuickSpec) -> () throws -> Void) in
+            return (wrapper.example.name, { spec in
+                let example = wrapper.example
                 return {
                     spec.example = example
-                    example.run()
+                    if wrapper.runFullTest {
+                        example.run()
+                    } else {
+                        example.runSkippedTest()
+                    }
                     QuickSpec.current = nil
                 }
             })

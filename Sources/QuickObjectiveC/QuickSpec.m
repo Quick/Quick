@@ -28,13 +28,13 @@ static QuickSpec *currentSpec = nil;
     // In case of fix in later versions next line can be removed
     [[QuickTestObservation sharedInstance] buildAllExamplesIfNeeded];
 
-    NSArray *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
+    NSArray<ExampleWrapper *> *examples = [[World sharedWorld] examplesForSpecClass:[self class]];
     NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[examples count]];
     
     NSMutableSet<NSString*> *selectorNames = [NSMutableSet set];
     
-    for (Example *example in examples) {
-        SEL selector = [self addInstanceMethodForExample:example classSelectorNames:selectorNames];
+    for (ExampleWrapper *exampleWrapper in examples) {
+        SEL selector = [self addInstanceMethodForExample:exampleWrapper.example runFullTest:exampleWrapper.runFullTest classSelectorNames:selectorNames];
 
         NSMethodSignature *signature = [self instanceMethodSignatureForSelector:selector];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
@@ -124,11 +124,15 @@ static QuickSpec *currentSpec = nil;
 
  @return The selector of the newly defined instance method.
  */
-+ (SEL)addInstanceMethodForExample:(Example *)example classSelectorNames:(NSMutableSet<NSString*> *)selectorNames {
++ (SEL)addInstanceMethodForExample:(Example *)example runFullTest:(BOOL)runFullTest classSelectorNames:(NSMutableSet<NSString*> *)selectorNames {
     IMP implementation = imp_implementationWithBlock(^(QuickSpec *self){
         self.example = example;
         currentSpec = self;
-        [example run];
+        if (runFullTest) {
+            [example run];
+        } else {
+            [example runSkippedTest];
+        }
         currentSpec = nil;
     });
 

@@ -6,6 +6,7 @@ import Foundation
 */
 extension AsyncWorld {
     // MARK: - Example groups.
+    @nonobjc
     internal func describe(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
         guard currentExampleMetadata == nil else {
             raiseError("'describe' cannot be used inside '\(currentPhase)', 'describe' may only be used inside 'context' or 'describe'.")
@@ -19,6 +20,7 @@ extension AsyncWorld {
         performWithCurrentExampleGroup(group, closure: closure)
     }
 
+    @nonobjc
     internal func context(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
         guard currentExampleMetadata == nil else {
             raiseError("'context' cannot be used inside '\(currentPhase)', 'context' may only be used inside 'context' or 'describe'.")
@@ -26,10 +28,12 @@ extension AsyncWorld {
         self.describe(description, flags: flags, closure: closure)
     }
 
+    @nonobjc
     internal func fdescribe(_ description: String, closure: () -> Void) {
         self.describe(description, flags: [Filter.focused: true], closure: closure)
     }
 
+    @nonobjc
     internal func xdescribe(_ description: String, closure: () -> Void) {
         self.describe(description, flags: [Filter.pending: true], closure: closure)
     }
@@ -143,8 +147,8 @@ extension AsyncWorld {
 
     // MARK: - Pending
     @nonobjc
-    internal func pending(_ description: String, closure: () async throws -> Void) {
-        print("Pending: \(description)")
+    internal func pending(_ description: String, file: FileString, line: UInt, closure: @escaping () async throws -> Void) {
+        self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
     private var currentPhase: String {
