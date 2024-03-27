@@ -49,6 +49,8 @@ extension SyncDSLUser {
      - parameter closure: A closure containing the examples. This behaves just like an example group defined
      using `describe` or `context`--the closure may contain any number of `beforeEach`
      and `afterEach` closures, as well as any number of examples (defined using `it`).
+
+     - Remark: `sharedExamples` is untyped. Please use ``Behavior`` instead, as it offers type-safety.
      */
     public static func sharedExamples(_ name: String, closure: @escaping () -> Void) {
         World.sharedWorld.sharedExamples(name) { _ in closure() }
@@ -64,7 +66,9 @@ extension SyncDSLUser {
      using `describe` or `context`--the closure may contain any number of `beforeEach`
      and `afterEach` closures, as well as any number of examples (defined using `it`).
 
-     The closure takes a SharedExampleContext as an argument. This context is a function
+     - Remark: `sharedExamples` and the context passed in to it are untyped. Please use ``Behavior`` instead, as it offers type-safety.
+
+     The closure takes a ``SharedExampleContext`` as an argument. This context is a function
      that can be executed to retrieve parameters passed in via an `itBehavesLike` function.
      */
     public static func sharedExamples(_ name: String, closure: @escaping SharedExampleClosure) {

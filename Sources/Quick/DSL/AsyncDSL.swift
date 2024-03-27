@@ -190,6 +190,24 @@ extension AsyncDSLUser {
         AsyncWorld.sharedWorld.itBehavesLike(behavior, context: context, file: file, line: line)
     }
 
+    /**
+     In the Synchronous DSL, `sharedExamples` offers an untyped way to define
+     a group of shared examples that can be re-used in several locations using `itBehavesLike`.
+
+     In Quick 7, we decided to remove support for `sharedExamples` in the Asynchronous DSL. Please use the typed `Behavior` DSL in place of `sharedExamples`
+     */
+    @available(*, unavailable, message: "sharedExamples is unavailable in Quick's Async DSL. Please migrate to the Behvavior DSL, which offers type-safety for the injected configuration.")
+    public static func sharedExamples(_ name: String, closure: @escaping () -> Void) {}
+
+    /**
+     In the Synchronous DSL, `sharedExamples` offers an untyped way to define
+     a group of shared examples that can be re-used in several locations using `itBehavesLike`.
+
+     In Quick 7, we decided to remove support for `sharedExamples` in the Asynchronous DSL. Please use the typed `Behavior` DSL in place of `sharedExamples`
+     */
+    @available(*, unavailable, message: "sharedExamples is unavailable in Quick's Async DSL. Please migrate to the Behvavior DSL, which offers type-safety for the injected configuration.")
+    public static func sharedExamples(_ name: String, closure: @escaping SharedExampleClosure) {}
+
     // MARK: - Pending
     /**
      Defines an example or example group that should not be executed. Use `pending` to temporarily disable
