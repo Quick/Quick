@@ -9,12 +9,35 @@ let package = Package(
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
+        .executable(name: "QuickLint", targets: ["QuickLint"]),
+//        .plugin(name: "QuickBuildToolPlugin", targets: ["QuickBuildToolPlugin"]),
+//        .plugin(name: "QuickCommandPlugin", targets: ["QuickCommandPlugin"]),
     ],
     dependencies: [
         .package(url: "https://github.com/Quick/Nimble.git", from: "13.2.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser.git", from: "1.3.1"),
+        .package(url: "https://github.com/apple/swift-algorithms.git", from: "1.2.0"),
+        .package(url: "https://github.com/Quick/swift-fakes.git", from: "0.0.1"),
     ],
     targets: {
         var targets: [Target] = [
+//            .plugin(
+//                name: "QuickBuildToolPlugin",
+//                capability: .buildTool(),
+//                dependencies: []
+//            ),
+//            .plugin(
+//                name: "QuickCommandPlugin",
+//                capability: .command(intent: .custom(verb: "defocus", description: "Remove focus from Quick examples"), permissions: [.writeToPackageDirectory(reason: "Remove focus from Quick examples")]),
+//                dependencies: []
+//            ),
+            .executableTarget(
+                name: "QuickLint",
+                dependencies: [
+                    .product(name: "ArgumentParser", package: "swift-argument-parser"),
+                    .product(name: "Algorithms", package: "swift-algorithms"),
+                ]
+            ),
             .testTarget(
                 name: "QuickTests",
                 dependencies: [ "Quick", "Nimble" ],
@@ -35,6 +58,15 @@ let package = Package(
                 name: "QuickIssue853RegressionTests",
                 dependencies: [ "Quick" ]
             ),
+            .testTarget(
+                name: "QuickLintTests",
+                dependencies: [
+                    "QuickLint",
+                    "Quick",
+                    "Nimble",
+                    .product(name: "Fakes", package: "swift-fakes"),
+                ]
+            )
         ]
 #if os(macOS)
         targets.append(contentsOf: [
