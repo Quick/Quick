@@ -21,26 +21,55 @@ final class DefocusCommandSpec: AsyncSpec {
             try FileManager.default.removeItem(at: backupFixtures)
         }
 
-        it("finds and defocuses focused specs") {
-            var subject = DefocusCommand()
-            subject.paths = [backupFixtures.path]
+        context("when given a directory to look at") {
+            it("finds and defocuses focused specs") {
+                var subject = DefocusCommand()
+                subject.paths = [backupFixtures.path]
 
-            try await subject.run()
+                try await subject.run()
 
-            expect {
-                try String(
-                    contentsOf: backupFixtures
-                        .appendingPathComponent("SampleSpec.swift")
-                )
-            }.to(equal(expectedSampleSpec))
+                expect {
+                    try String(
+                        contentsOf: backupFixtures
+                            .appendingPathComponent("SampleSpec.swift")
+                    )
+                }.to(equal(expectedSampleSpec))
 
-            expect {
-                try String(
-                    contentsOf: backupFixtures
-                        .appendingPathComponent("Nesting")
-                        .appendingPathComponent("Nesting.swift")
-                )
-            }.to(equal(expectedNestingSpec))
+                expect {
+                    try String(
+                        contentsOf: backupFixtures
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift")
+                    )
+                }.to(equal(expectedNestingSpec))
+            }
+        }
+
+        context("when given the precise paths to the files") {
+            it("finds and defocuses focused specs") {
+                let sampleSpec = backupFixtures
+                    .appendingPathComponent("SampleSpec.swift")
+                let nesting = backupFixtures
+                    .appendingPathComponent("Nesting")
+                    .appendingPathComponent("Nesting.swift")
+
+                var subject = DefocusCommand()
+                subject.paths = [sampleSpec.path, nesting.path]
+
+                try await subject.run()
+
+                expect {
+                    try String(
+                        contentsOf: sampleSpec
+                    )
+                }.to(equal(expectedSampleSpec))
+
+                expect {
+                    try String(
+                        contentsOf: nesting
+                    )
+                }.to(equal(expectedNestingSpec))
+            }
         }
     }
 }

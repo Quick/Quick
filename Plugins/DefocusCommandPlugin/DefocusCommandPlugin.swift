@@ -39,18 +39,3 @@ struct DefocusCommandPlugin: CommandPlugin {
         }
     }
 }
-
-#if canImport(XcodeProjectPlugin)
-import XcodeProjectPlugin
-
-extension DefocusCommandPlugin: XcodeCommandPlugin {
-    /// This entry point is called when operating on an Xcode project.
-    func performCommand(context: XcodePluginContext, arguments: [String]) throws {
-        try run(
-            tool: context.tool(named: "QuickLint"),
-            workingDirectory: URL(fileURLWithPath: context.pluginWorkDirectory.string),
-            arguments: []
-        )
-    }
-}
-#endif

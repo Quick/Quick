@@ -2,7 +2,7 @@ import Foundation
 import PackagePlugin
 
 @main
-struct LintBuildToolPlugin: BuildToolPlugin {
+struct LintError: BuildToolPlugin {
     func createBuildCommands(context: PluginContext, target: any Target) async throws -> [Command] {
         try makeCommand(
             executable: context.tool(named: "QuickLint"),
@@ -31,7 +31,7 @@ struct LintBuildToolPlugin: BuildToolPlugin {
             return [Command.buildCommand(
                 displayName: "QuickLint",
                 executable: executable.path,
-                arguments: ["lint"] + files.map { $0.string },
+                arguments: ["lint", "--error"] + files.map { $0.string },
                 inputFiles: files
             )]
         }
@@ -41,7 +41,7 @@ struct LintBuildToolPlugin: BuildToolPlugin {
 
 import XcodeProjectPlugin
 
-extension LintBuildToolPlugin: XcodeBuildToolPlugin {
+extension LintError: XcodeBuildToolPlugin {
     func createBuildCommands(
             context: XcodePluginContext,
             target: XcodeTarget

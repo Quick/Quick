@@ -11,27 +11,60 @@ final class LintCommandSpec: AsyncSpec {
             .deletingLastPathComponent()
             .appendingPathComponent("LintFixtures")
 
-        it("finds and lints focused specs") {
-            var subject = LintCommand()
-            subject.paths = [rootURL.path]
-            subject.error = false
+        context("when given a directory to search") {
+            it("identifies any focused specs") {
+                var subject = LintCommand()
+                subject.paths = [rootURL.path]
+                subject.error = false
 
-            let writer = FakeWriter()
+                let writer = FakeWriter()
 
-            subject.dependencies.writer = writer
+                subject.dependencies.writer = writer
 
-            try await subject.run()
+                try await subject.run()
 
-            expect(writer.stderrSpy).to(beCalled([
-                "\(rootURL.path)/Nesting/Nesting.swift:6:9: warning: Focused Spec Detected.",
-                "\(rootURL.path)/Nesting/Nesting.swift:7:13: warning: Focused Spec Detected.",
-                "\(rootURL.path)/Nesting/Nesting.swift:10:9: warning: Focused Spec Detected.",
-                "\(rootURL.path)/Nesting/Nesting.swift:10:62: warning: Focused Spec Detected.",
-                "\(rootURL.path)/SampleSpec.swift:6:9: warning: Focused Spec Detected.",
-                "\(rootURL.path)/SampleSpec.swift:11:9: warning: Focused Spec Detected.",
-                "\(rootURL.path)/SampleSpec.swift:16:9: warning: Focused Spec Detected.",
-                "\(rootURL.path)/SampleSpec.swift:21:9: warning: Focused Spec Detected."
-            ]))
+                expect(writer.stderrSpy).to(beCalled([
+                    "\(rootURL.path)/Nesting/Nesting.swift:6:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/Nesting/Nesting.swift:7:13: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/Nesting/Nesting.swift:10:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/Nesting/Nesting.swift:10:62: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:6:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:11:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:16:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:21:9: warning: Focused Spec Detected."
+                ]))
+            }
+        }
+
+        context("when given the precise paths to the specs") {
+            it("identifies any focused specs") {
+                let sampleSpec = rootURL
+                    .appendingPathComponent("SampleSpec.swift")
+                let nesting = rootURL
+                    .appendingPathComponent("Nesting")
+                    .appendingPathComponent("Nesting.swift")
+
+                var subject = LintCommand()
+                subject.paths = [sampleSpec.path, nesting.path]
+                subject.error = false
+
+                let writer = FakeWriter()
+
+                subject.dependencies.writer = writer
+
+                try await subject.run()
+
+                expect(writer.stderrSpy).to(beCalled([
+                    "\(rootURL.path)/Nesting/Nesting.swift:6:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/Nesting/Nesting.swift:7:13: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/Nesting/Nesting.swift:10:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/Nesting/Nesting.swift:10:62: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:6:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:11:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:16:9: warning: Focused Spec Detected.",
+                    "\(rootURL.path)/SampleSpec.swift:21:9: warning: Focused Spec Detected."
+                ]))
+            }
         }
     }
 }

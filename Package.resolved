@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlCatchException.git",
       "state" : {
-        "revision" : "3b123999de19bf04905bc1dfdb76f817b0f2cc00",
-        "version" : "2.1.2"
+        "revision" : "3ef6999c73b6938cc0da422f2c912d0158abb0a0",
+        "version" : "2.2.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
       "state" : {
-        "revision" : "dc9af4781f2afdd1e68e90f80b8603be73ea7abc",
-        "version" : "2.2.0"
+        "revision" : "2ef56b2caf25f55fa7eef8784c30d5a767550f54",
+        "version" : "2.2.1"
       }
     },
     {
