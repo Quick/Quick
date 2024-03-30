@@ -28,11 +28,11 @@ struct LintBuildToolPlugin: BuildToolPlugin {
         pluginWorkDirectory path: Path) throws -> [Command] {
             guard files.isEmpty == false else { return [] }
 
-            return [Command.prebuildCommand(
+            return [Command.buildCommand(
                 displayName: "QuickLint",
                 executable: executable.path,
                 arguments: ["lint"] + files.map { $0.string },
-                outputFilesDirectory: path.appending("Output")
+                inputFiles: files
             )]
         }
 }
