@@ -20,7 +20,7 @@ final class FocusLintSpec: AsyncSpec {
                 URL(fileURLWithPath: "/nonexistent"),
             ]
             var errorOnIssues = false
-            @TestState var result: Result<Void, Error>?
+            @TestState var result: Result<Int, Error>?
 
             beforeEach {
                 errorOnIssues = false
@@ -29,7 +29,7 @@ final class FocusLintSpec: AsyncSpec {
 
             justBeforeEach {
                 result = await Result {
-                    try await subject.lint(
+                    return try await subject.lint(
                         urls: urls,
                         errorOnIssues: errorOnIssues
                     )
@@ -51,6 +51,10 @@ final class FocusLintSpec: AsyncSpec {
 
                 it("doesn't output anything") {
                     expect(writer.stderrSpy).toNot(beCalled())
+                }
+
+                it("returns 0") {
+                    expect { try result?.get() }.to(equal(0))
                 }
             }
 
@@ -104,8 +108,8 @@ final class FocusLintSpec: AsyncSpec {
                         ))
                     }
 
-                    it("doesn't throw an error") {
-                        expect { try result?.get() }.to(beVoid())
+                    it("returns the amount of issues found") {
+                        expect { try result?.get() }.to(equal(2))
                     }
                 }
 
@@ -124,8 +128,8 @@ final class FocusLintSpec: AsyncSpec {
                         ))
                     }
 
-                    it("doesn't throw an error") {
-                        expect { try result?.get() }.to(beVoid())
+                    it("returns 0") {
+                        expect { try result?.get() }.to(equal(2))
                     }
                 }
             }

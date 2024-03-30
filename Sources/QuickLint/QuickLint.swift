@@ -31,10 +31,12 @@ struct LintCommand: AsyncParsableCommand {
             }
         }
 
-        try await dependencies.linter.lint(
+        if try await dependencies.linter.lint(
             urls: urls,
             errorOnIssues: error
-        )
+        ) != 0 && error {
+            throw ExitCode(1)
+        }
     }
 }
 
