@@ -74,7 +74,7 @@ struct FoundationFileDetector: FileDetector {
         return try await withThrowingTaskGroup(of: [URL].self) { taskGroup in
             for url in urls {
                 taskGroup.addTask {
-                    try await deepEnumerateDirectory(at: url)
+                    try await directoryManager.contentsOf(directory: url)
                 }
             }
 
@@ -84,20 +84,6 @@ struct FoundationFileDetector: FileDetector {
             }
             return foundUrls.uniqued { $0.absoluteString }
         }
-    }
-
-    private func deepEnumerateDirectory(at url: URL) async throws -> [URL] {
-        var urls = try await directoryManager.contentsOf(directory: url)
-        for subUrl in urls {
-            if subUrl.hasDirectoryPath {
-                urls.append(
-                    contentsOf: try await directoryManager.contentsOf(
-                        directory: subUrl
-                    )
-                )
-            }
-        }
-        return urls
     }
 
     // returns the line number if the contents of the url match the regex.

@@ -9,6 +9,10 @@ let package = Package(
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
+        .executable(name: "QuickLint", targets: ["QuickLint"]),
+        .plugin(name: "QuickDefocusCommandPlugin", targets: ["DefocusCommandPlugin"]),
+        .plugin(name: "QuickLintBuildToolPlugin", targets: ["LintBuildToolPlugin"]),
+        .plugin(name: "QuickLintCommandPlugin", targets: ["LintCommandPlugin"]),
     ],
     dependencies: [
         .package(url: "https://github.com/Quick/Nimble.git", from: "13.2.0"),
@@ -18,6 +22,21 @@ let package = Package(
     ],
     targets: {
         var targets: [Target] = [
+            .plugin(
+                name: "DefocusCommandPlugin",
+                capability: .command(intent: .custom(verb: "defocus", description: "Remove focus from Quick examples"), permissions: [.writeToPackageDirectory(reason: "Remove focus from Quick examples")]),
+                dependencies: ["QuickLint"]
+            ),
+            .plugin(
+                name: "LintBuildToolPlugin",
+                capability: .buildTool(),
+                dependencies: ["QuickLint"]
+            ),
+            .plugin(
+                name: "LintCommandPlugin",
+                capability: .command(intent: .custom(verb: "quicklint", description: "Verify no focused tests in Quick tests"), permissions: []),
+                dependencies: ["QuickLint"]
+            ),
             .executableTarget(
                 name: "QuickLint",
                 dependencies: [
