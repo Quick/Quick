@@ -47,7 +47,7 @@ extension LintBuildToolPlugin: XcodeBuildToolPlugin {
             target: XcodeTarget
         ) throws -> [Command] {
             try makeCommand(
-                executable: context.tool(named: "Quicklint"),
+                executable: context.tool(named: "QuickLint"),
                 files: lintableFiles(target: target),
                 pluginWorkDirectory: context.pluginWorkDirectory
             )
