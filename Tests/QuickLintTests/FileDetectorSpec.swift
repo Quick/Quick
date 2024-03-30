@@ -13,8 +13,11 @@ final class FileDetectorSpec: AsyncSpec {
         describe("files(matching:at:fileExtension:)") {
             it("identifies files matching the regex & file extension in the given directory structure") {
                 let currentDirectory = URL(fileURLWithPath: #filePath)
-                let specDirectory = currentDirectory.deletingLastPathComponent().deletingLastPathComponent()
-                let lintFixturesDirectory = specDirectory.appending(path: "LintFixtures")
+                let specDirectory = currentDirectory
+                    .deletingLastPathComponent()
+                    .deletingLastPathComponent()
+                let lintFixturesDirectory = specDirectory
+                    .appendingPathComponent("LintFixtures")
 
                 await expect {
                     try await subject.files(
@@ -24,32 +27,41 @@ final class FileDetectorSpec: AsyncSpec {
                     ).sorted()
                 }.to(equal([
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "SampleSpec.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("SampleSpec.swift"),
                         line: 6,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "SampleSpec.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("SampleSpec.swift"),
                         line: 16,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "SampleSpec.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("SampleSpec.swift"),
                         line: 21,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift"),
                         line: 7,
                         character: 13
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift"),
                         line: 10,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift"),
                         line: 10,
                         character: 62
                     ),
@@ -59,10 +71,13 @@ final class FileDetectorSpec: AsyncSpec {
             it("identifies files matching the regex & file extension when given the exact files to search") {
                 let currentDirectory = URL(fileURLWithPath: #filePath)
                 let specDirectory = currentDirectory.deletingLastPathComponent().deletingLastPathComponent()
-                let lintFixturesDirectory = specDirectory.appending(path: "LintFixtures")
+                let lintFixturesDirectory = specDirectory.appendingPathComponent("LintFixtures")
                 let files: [URL] = [
-                    lintFixturesDirectory.appending(path: "SampleSpec.swift"),
-                    lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift")
+                    lintFixturesDirectory
+                        .appendingPathComponent("SampleSpec.swift"),
+                    lintFixturesDirectory
+                        .appendingPathComponent("Nesting")
+                        .appendingPathComponent("Nesting.swift")
                 ]
 
                 await expect {
@@ -73,32 +88,41 @@ final class FileDetectorSpec: AsyncSpec {
                     ).sorted()
                 }.to(equal([
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "SampleSpec.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("SampleSpec.swift"),
                         line: 6,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "SampleSpec.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("SampleSpec.swift"),
                         line: 16,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "SampleSpec.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("SampleSpec.swift"),
                         line: 21,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift"),
                         line: 7,
                         character: 13
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift"),
                         line: 10,
                         character: 9
                     ),
                     RegexMatch(
-                        url: lintFixturesDirectory.appending(path: "Nesting").appending(path: "Nesting.swift"),
+                        url: lintFixturesDirectory
+                            .appendingPathComponent("Nesting")
+                            .appendingPathComponent("Nesting.swift"),
                         line: 10,
                         character: 62
                     ),
