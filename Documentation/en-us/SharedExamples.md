@@ -35,10 +35,10 @@ like `SomethingEdible`:
 
 ```swift
 class SomethingEdible: Behavior<Edible> {
-  override class func spec(_ context: @escaping () -> Edible) {
+  override class func spec(_ aContext: @escaping () -> Edible) {
     var edible: Edible!
     beforeEach {
-      edible = context()
+      edible = aContext()
     }
 
     it("makes dolphins happy") {
