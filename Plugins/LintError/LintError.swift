@@ -29,10 +29,11 @@ struct LintError: BuildToolPlugin {
             guard files.isEmpty == false else { return [] }
 
             return [Command.buildCommand(
-                displayName: "QuickLint",
+                displayName: "quicklint",
                 executable: executable.path,
                 arguments: ["lint", "--error"] + files.map { $0.string },
-                inputFiles: files
+                inputFiles: files,
+                outputFiles: files
             )]
         }
 }

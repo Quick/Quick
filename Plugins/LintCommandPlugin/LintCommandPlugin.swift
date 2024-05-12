@@ -39,3 +39,19 @@ struct LintCommandPlugin: CommandPlugin {
         }
     }
 }
+
+#if canImport(XcodeProjectPlugin)
+
+import XcodeProjectPlugin
+
+extension LintCommandPlugin: XcodeCommandPlugin {
+    func performCommand(context: XcodePluginContext, arguments: [String]) throws {
+        try run(
+            tool: try context.tool(named: "QuickLint"),
+            workingDirectory: URL(fileURLWithPath: context.pluginWorkDirectory.string),
+            arguments: arguments
+        )
+    }
+}
+
+#endif

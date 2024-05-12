@@ -9,7 +9,7 @@ let package = Package(
     ],
     products: [
         .library(name: "Quick", targets: ["Quick"]),
-        .executable(name: "QuickLint", targets: ["QuickLint"]),
+        .executable(name: "quicklint", targets: ["QuickLint"]),
         .plugin(name: "DefocusCommandPlugin", targets: ["DefocusCommandPlugin"]),
         .plugin(name: "LintError", targets: ["LintError"]),
         .plugin(name: "LintWarning", targets: ["LintWarning"]),
