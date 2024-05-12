@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.exclude_files = [
     'Sources/Quick/QuickSpec.swift',
     'Sources/Quick/QuickMain.swift',
+    'Sources/QuickLint/**',
   ]
 
   s.framework = "XCTest"
