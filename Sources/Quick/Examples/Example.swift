@@ -61,9 +61,9 @@ public class Example: ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: () throws -> Void
+    private let closure: @MainActor () throws -> Void
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping @MainActor () throws -> Void) {
         self.internalDescription = description
         self.closure = closure
         super.init(callsite: callsite, flags: flags)
@@ -86,6 +86,7 @@ public class Example: ExampleBase {
         return "\(groupName), \(description)"
     }
 
+    @MainActor
     public func run() {
         let world = World.sharedWorld
 
@@ -151,6 +152,7 @@ public class Example: ExampleBase {
         }
     }
 
+    @MainActor
     public func runSkippedTest() {
         let world = World.sharedWorld
 
