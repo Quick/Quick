@@ -61,9 +61,9 @@ public class Example: ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: @MainActor () throws -> Void
+    private let closure: ExampleClosure
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping @MainActor () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping ExampleClosure) {
         self.internalDescription = description
         self.closure = closure
         super.init(callsite: callsite, flags: flags)
