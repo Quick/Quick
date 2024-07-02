@@ -2,6 +2,8 @@
 
 @class ExampleMetadata;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Provides a hook for Quick to be configured before any examples are run.
  Within this scope, override the +[QuickConfiguration configure:] method
@@ -45,7 +47,7 @@
     } \
     @end \
 
-typedef NSDictionary *(^QCKDSLSharedExampleContext)(void);
+typedef NSDictionary *_Nonnull(^QCKDSLSharedExampleContext)(void);
 typedef void (^QCKDSLSharedExampleBlock)(QCKDSLSharedExampleContext);
 typedef void (^QCKDSLEmptyBlock)(void);
 typedef void (^QCKDSLExampleMetadataBlock)(ExampleMetadata *exampleMetadata);
@@ -274,3 +276,6 @@ QUICK_EXPORT QCKItBehavesLikeBlock qck_itBehavesLike_builder(NSString *file, NSU
 QUICK_EXPORT QCKItBehavesLikeBlock qck_xitBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
 QUICK_EXPORT QCKItBehavesLikeBlock qck_fitBehavesLike_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
 QUICK_EXPORT QCKItBlock qck_pending_builder(NSString *file, NSUInteger line) NS_SWIFT_UNAVAILABLE("");
+
+NS_ASSUME_NONNULL_END
+

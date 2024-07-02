@@ -2,6 +2,8 @@
 
 @class QCKConfiguration;
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Subclass QuickConfiguration and override the +[QuickConfiguration configure:]
  method in order to configure how Quick behaves when running specs, or to define
@@ -28,3 +30,5 @@
 + (void)configure:(QCKConfiguration *)configuration;
 
 @end
+
+NS_ASSUME_NONNULL_END
