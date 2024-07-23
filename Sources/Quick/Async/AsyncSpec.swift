@@ -65,13 +65,13 @@ open class AsyncSpec: AsyncSpecBase {
     }
 
 #if SWIFT_PACKAGE
-    open override class func _qck_testMethodSelectors() -> [String]! {
+    open override class func _qck_testMethodSelectors() -> [String] {
         darwinXCTestMethodSelectors()
     }
 #endif // SWIFT_PACKAGE
 
     @objc
-    internal class func darwinXCTestMethodSelectors() -> [String]! {
+    internal class func darwinXCTestMethodSelectors() -> [String] {
         let examples = AsyncWorld.sharedWorld.examples(forSpecClass: self)
 
         var selectorNames = Set<String>()
