@@ -205,7 +205,7 @@ extension SyncDSLUser {
      - parameter file: The absolute path to the file containing the example. A sensible default is provided.
      - parameter line: The line containing the example. A sensible default is provided.
      */
-    public static func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping ExampleClosure) {
+    public static func it(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
         World.sharedWorld.it(description, file: file, line: line, closure: closure)
     }
 
@@ -289,7 +289,7 @@ extension SyncDSLUser {
      Use this to quickly mark an `it` closure as pending.
      This disables the example and ensures the code within the closure is never run.
      */
-    public static func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping ExampleClosure) {
+    public static func xit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
         World.sharedWorld.xit(description, file: file, line: line, closure: closure)
     }
 
@@ -338,7 +338,7 @@ extension SyncDSLUser {
      Use this to quickly focus an `it` closure, focusing the example.
      If any examples in the test suite are focused, only those examples are executed.
      */
-    public static func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping ExampleClosure) {
+    public static func fit(_ description: String, file: FileString = #file, line: UInt = #line, closure: @escaping () throws -> Void) {
         World.sharedWorld.fit(description, file: file, line: line, closure: closure)
     }
 

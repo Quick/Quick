@@ -192,7 +192,7 @@ extension World {
 
     // MARK: - Examples (Swift)
     @nonobjc
-    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping ExampleClosure) {
+    internal func it(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () throws -> Void) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'.")
         }
@@ -208,12 +208,12 @@ extension World {
     }
 
     @nonobjc
-    internal func fit(_ description: String, file: FileString, line: UInt, closure: @escaping ExampleClosure) {
+    internal func fit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
         self.it(description, flags: [Filter.focused: true], file: file, line: line, closure: closure)
     }
 
     @nonobjc
-    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping ExampleClosure) {
+    internal func xit(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
         self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
