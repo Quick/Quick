@@ -277,7 +277,7 @@ extension World {
     // MARK: Examples & Shared behavior (objc)
 #if canImport(Darwin) && !SWIFT_PACKAGE
     @nonobjc
-    internal func syncIt(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func syncIt(_ description: String, flags: FilterFlags = [:], file: FileString, line: UInt, closure: @escaping ExampleClosure) {
         if beforesCurrentlyExecuting {
             raiseError("'it' cannot be used inside 'beforeEach', 'it' may only be used inside 'context' or 'describe'.")
         }
@@ -330,7 +330,7 @@ extension World {
 
     // MARK: - Pending
     @nonobjc
-    internal func pending(_ description: String, file: FileString, line: UInt, closure: @escaping () throws -> Void) {
+    internal func pending(_ description: String, file: FileString, line: UInt, closure: @escaping ExampleClosure) {
         self.it(description, flags: [Filter.pending: true], file: file, line: line, closure: closure)
     }
 
