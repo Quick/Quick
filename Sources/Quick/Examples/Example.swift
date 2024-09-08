@@ -61,9 +61,9 @@ public class Example: ExampleBase {
     weak internal var group: ExampleGroup?
 
     private let internalDescription: String
-    private let closure: () throws -> Void
+    private let closure: ExampleClosure
 
-    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping () throws -> Void) {
+    internal init(description: String, callsite: Callsite, flags: FilterFlags, closure: @escaping ExampleClosure) {
         self.internalDescription = description
         self.closure = closure
         super.init(callsite: callsite, flags: flags)
@@ -115,7 +115,7 @@ public class Example: ExampleBase {
 
         var cancelTests = false
 
-        let handleThrowingClosure: (@escaping () throws -> Void) -> () -> Void = { [name, callsite] (closure: @escaping () throws -> Void) in
+        let handleThrowingClosure: (@escaping ExampleClosure) -> () -> Void = { [name, callsite] (closure: @escaping ExampleClosure) in
             {
                 if cancelTests { return }
                 do {
@@ -128,7 +128,7 @@ public class Example: ExampleBase {
         }
 
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
-        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample as () throws -> Void) { closure, wrapper in
+        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample as ExampleClosure) { closure, wrapper in
             return { try wrapper(exampleMetadata, handleThrowingClosure(closure)) }
         }
 

@@ -36,6 +36,11 @@ public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleM
 public typealias BeforeExampleWithMetadataNonThrowingClosure = (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
+    A closure for running an example
+ */
+public typealias ExampleClosure = () throws -> Void
+
+/**
     An async throwing closure executed after an example is run.
 */
 public typealias AfterExampleAsyncClosure = BeforeExampleAsyncClosure
