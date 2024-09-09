@@ -38,7 +38,7 @@ extension World {
     }
 
     // MARK: - Example groups.
-    internal func describe(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
+    internal func describe(_ description: String, flags: FilterFlags = [:], closure: ExampleGroupClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'describe' cannot be used inside '\(currentPhase)', 'describe' may only be used inside 'context' or 'describe'.")
         }
@@ -51,18 +51,18 @@ extension World {
         performWithCurrentExampleGroup(group, closure: closure)
     }
 
-    internal func context(_ description: String, flags: FilterFlags = [:], closure: () -> Void) {
+    internal func context(_ description: String, flags: FilterFlags = [:], closure: ExampleGroupClosure) {
         guard currentExampleMetadata == nil else {
             raiseError("'context' cannot be used inside '\(currentPhase)', 'context' may only be used inside 'context' or 'describe'.")
         }
         self.describe(description, flags: flags, closure: closure)
     }
 
-    internal func fdescribe(_ description: String, closure: () -> Void) {
+    internal func fdescribe(_ description: String, closure: ExampleGroupClosure) {
         self.describe(description, flags: [Filter.focused: true], closure: closure)
     }
 
-    internal func xdescribe(_ description: String, closure: () -> Void) {
+    internal func xdescribe(_ description: String, closure: ExampleGroupClosure) {
         self.describe(description, flags: [Filter.pending: true], closure: closure)
     }
 

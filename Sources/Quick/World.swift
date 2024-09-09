@@ -227,11 +227,13 @@ final internal class World: _WorldBase {
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
-    internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
+    internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: ExampleGroupClosure) {
         let previousExampleGroup = currentExampleGroup
         currentExampleGroup = group
 
-        closure()
+        MainActor.assumeIsolated {
+            closure()
+        }
 
         currentExampleGroup = previousExampleGroup
     }
