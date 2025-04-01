@@ -14,7 +14,6 @@ final internal class SuiteHooks {
         afters.append(closure)
     }
 
-    @MainActor
     internal func executeBefores() {
         phase = .beforesExecuting
         for before in befores {
@@ -27,7 +26,6 @@ final internal class SuiteHooks {
         phase = .beforesFinished
     }
 
-    @MainActor
     internal func executeAfters() {
         phase = .aftersExecuting
         for after in afters {

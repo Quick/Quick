@@ -86,7 +86,6 @@ public class Example: ExampleBase {
         return "\(groupName), \(description)"
     }
 
-    @MainActor
     public func run() {
         let world = World.sharedWorld
 
@@ -116,7 +115,7 @@ public class Example: ExampleBase {
 
         var cancelTests = false
 
-        let handleThrowingClosure: (@escaping () throws -> Void) -> () -> Void = { [name, callsite] (closure: @escaping () throws -> Void) in
+        let handleThrowingClosure: (@escaping ExampleClosure) -> () -> Void = { [name, callsite] (closure: @escaping ExampleClosure) in
             {
                 if cancelTests { return }
                 do {
@@ -129,7 +128,7 @@ public class Example: ExampleBase {
         }
 
         let allJustBeforeEachStatements = group!.justBeforeEachStatements + world.exampleHooks.justBeforeEachStatements
-        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample as () throws -> Void) { closure, wrapper in
+        let justBeforeEachExample = allJustBeforeEachStatements.reduce(runExample as ExampleClosure) { closure, wrapper in
             return { try wrapper(exampleMetadata, handleThrowingClosure(closure)) }
         }
 
@@ -152,7 +151,6 @@ public class Example: ExampleBase {
         }
     }
 
-    @MainActor
     public func runSkippedTest() {
         let world = World.sharedWorld
 

@@ -75,7 +75,7 @@ open class QuickSpec: QuickSpecBase {
     }
 
     private static func addInstanceMethod(for example: Example, runFullTest: Bool, classSelectorNames selectorNames: inout Set<String>) -> Selector {
-        let block: @convention(block) @MainActor (QuickSpec) -> Void = { spec in
+        let block: @convention(block) (QuickSpec) -> Void = { spec in
             spec.example = example
             if runFullTest {
                 example.run()
@@ -113,7 +113,7 @@ open class QuickSpec: QuickSpecBase {
         let result = exampleWrappers.map { wrapper -> (String, (QuickSpec) -> () throws -> Void) in
             return (wrapper.example.name, { spec in
                 let example = wrapper.example
-                return { @MainActor in
+                return {
                     spec.example = example
                     if wrapper.runFullTest {
                         example.run()
