@@ -11,7 +11,6 @@ Quick をテストに組み込むには３つの方法があります。
 
 1. [Git Submodules](#git-submodules)
 2. [CocoaPods](#cocoapods)
-3. [Carthage](#carthage)
 
 下記のインストール手順の中からどれか選択してインストールを進めてください。
 インストール完了後、テストターゲット内のファイルで Quick を使用(`import Quick`)できるようになります。
@@ -118,32 +117,6 @@ target 'MyTests' do
   pod 'Nimble', '~>1.0.0'
 end
 ```
-
-## [Carthage](https://github.com/Carthage/Carthage)
-
-テストターゲットは "Embedded Binaries" section がないので framework はターゲットの "Link Binary With Libraries" に追加する必要があります。 build phase の "Copy Files" も同様にターゲットの framework destination を指定して下さい。
-
- > Carthage は dynamic frameworks をビルドするので code signing identity に有効なものを設定しておく必要があります。
-
-1.  Quick を [`Cartfile.private`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate) に追加してください。
-
-    ```
-    github "Quick/Quick"
-    github "Quick/Nimble"
-    ```
-
-2. `carthage update` を実行してください。
-3. `Carthage/Build/[platform]/` ディレクトリから Quick と Nimble をテストターゲットの "Link Binary With Libraries" に追加してください。
-    ![](http://i.imgur.com/pBkDDk5.png)
-
-4. テストターゲットの build phase で "New Copy Files Phase" を選択してください。
-    ![](http://i.imgur.com/jZATIjQ.png)
-
-5. "Destination" を "Frameworks" に設定して、２つの framework を追加してください。
-    ![](http://i.imgur.com/rpnyWGH.png)
-
-Carthage の dependency の管理方法はこの方法だけではありません。
-詳細な情報はこちらを参照してください [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md) 。
 
 ### (非推奨) 実機で Quick のテストを走らせる
 

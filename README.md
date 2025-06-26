@@ -2,7 +2,6 @@
 
 [![Build Status](https://github.com/Quick/Quick/actions/workflows/ci-xcode.yml/badge.svg)](https://github.com/Quick/Quick/actions/workflows/ci-xcode.yml)
 [![CocoaPods](https://img.shields.io/cocoapods/v/Quick.svg)](https://cocoapods.org/pods/Quick)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platforms](https://img.shields.io/cocoapods/p/Quick.svg)](https://cocoapods.org/pods/Quick)
 
 Quick is a behavior-driven development framework for Swift and Objective-C.
@@ -51,7 +50,7 @@ Certain versions of Quick and Nimble only support certain versions of Swift. Dep
 
 ## Documentation
 
-All documentation can be found in the [Documentation folder](./Documentation), including [detailed installation instructions](./Documentation/en-us/InstallingQuick.md) for CocoaPods, Carthage, Git submodules, Swift Package Manager, and more. For example, you can install Quick and [Nimble](https://github.com/Quick/Nimble) using CocoaPods by adding the following to your `Podfile`:
+All documentation can be found in the [Documentation folder](./Documentation), including [detailed installation instructions](./Documentation/en-us/InstallingQuick.md) for CocoaPods, Git submodules, Swift Package Manager, and more. For example, you can install Quick and [Nimble](https://github.com/Quick/Nimble) using CocoaPods by adding the following to your `Podfile`:
 
 ```rb
 # Podfile

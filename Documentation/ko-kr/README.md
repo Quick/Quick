@@ -25,7 +25,7 @@ Quick은 당신의 Swift와 Objective-C가 잘 동작하는지 확인할 수 있
 - **[Objective-C에서 Quick 사용하기](QuickInObjectiveC.md)**:
   Objective-C에서 Quick을 사용하는 데 문제가 있으면 이 내용을 읽어 보십시오.
 - **[Quick 설치하기](InstallingQuick.md)**:
-  Git 서브 모듈, CocoaPods, Carthage, 또는 Swift Package Manager를 사용하여 프로젝트에 Quick을 추가하는 법을 읽어 보십시오.
+  Git 서브 모듈, CocoaPods, 또는 Swift Package Manager를 사용하여 프로젝트에 Quick을 추가하는 법을 읽어 보십시오.
 - **[Quick 파일 템플릿 설치하기](InstallingFileTemplates.md)**:
   Quick specs를 더 빨리 작성하게 해주는 파일 템플릿을 설치하는 방법을 배우려면 이 글을 읽어 보십시오.
 - **[더 많은 리소스](MoreResources.md)**:
