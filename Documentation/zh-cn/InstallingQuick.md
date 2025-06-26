@@ -11,8 +11,7 @@ Quick 提供了定义例子和例子群的语法。 Nimble 提供了如 `expect(
 
 1. [Git Submodules](#git-submodules)
 2. [CocoaPods](#cocoapods)
-3. [Carthage](#carthage)
-4. [Swift Package Manager (experimental)](#swift-package-manager)
+3. [Swift Package Manager (experimental)](#swift-package-manager)
 
 你可以选择其中一种方法，并按照下面的步骤进行。完成之后，就可以通过 `import Quick` 使你的测试支持 Quick 。
 
@@ -115,31 +114,6 @@ target 'MyTests' do
   pod 'Nimble', '~>1.0.0'
 end
 ```
-
-## [Carthage](https://github.com/Carthage/Carthage)
-
-在一个项目中，测试所在的目标(target)并没有 "Embedded Binaries" 这部分内容, 因此必须把框架添加到目标的 "Link Binary With Libraries" 里，并且在 build phase 选项页中新建一条 "Copy Files" 把它们复制到目标的框架列表中。
-
- > 因为 Carthage 生成的是动态的框架，所以你需要有一个合法的身份标识。
-
-1. 在 [`Cartfile.private`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate) 中添加 Quick ，如下：
-
-    ```
-    github "Quick/Quick"
-    github "Quick/Nimble"
-    ```
-
-2. 运行 `carthage update`。
-3. 从 `Carthage/Build/[platform]/` 目录下, 找到 Quick 框架和 Nimble 框架，把它们添加到测试目标的 "Link Binary With Libraries" 列表中：
-    ![](http://i.imgur.com/pBkDDk5.png)
-
-4. 在你的测试目标下新建一条 "Copy Files" ：
-    ![](http://i.imgur.com/jZATIjQ.png)
-
-5. 将 "Destination" 设为 "Frameworks"，然后添加这两个框架：
-    ![](http://i.imgur.com/rpnyWGH.png)
-
-注意，这并不是使用 Carthage 来管理依赖的唯一方法。更多的方法请参考 [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md)。
 
 ## [Swift Package Manager](https://github.com/apple/swift-package-manager)
 随着 [swift.org](https://swift.org) 上一个开源项目的出现，  Swift 现在有了一个官方的包管理器。 尽管它刚问世不久，但是它首次使在非苹果平台上使用 Quick 成为了可能。经过初期的开发，现在已经可以利用 Swift Package Manager 为测试项目添加 Quick 支持了。但是由于这个包管理器正在开发中，在使用的过程中可能会出现一些问题。

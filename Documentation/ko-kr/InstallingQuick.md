@@ -8,8 +8,7 @@ Quick은 예제들과 예제 그룹을 정의하는 구문을 제공합니다. N
 
 1. [Git 서브 모듈](#Git-서브-모듈)
 2. [CocoaPods](#cocoapods)
-3. [Carthage](#carthage)
-4. [Swift 패키지 매니저 (실험적 기능)](#swift-package-manager)
+3. [Swift 패키지 매니저 (실험적 기능)](#swift-package-manager)
 
 하나를 선택하고, 아래 지침을 따르세요. 이를 완료한다면, 당신의 test target의 파일에서 `import Quick`으로 Quick을 불러올 수 있어야 합니다.
 
@@ -99,32 +98,6 @@ end
 ```sh
 pod install
 ```
-
-## [Carthage](https://github.com/Carthage/Carthage)
-
-Test target에 "Embedded Binaries" 섹션이 없으므로, 타깃의 프레임워크를 복사하기 위해서는 Build Phase의 "Link Binary With Libraries" 와 "Copy Files" 에 추가해야 합니다. 
-
- > Carthage는 동적 프레임워크를 빌드하기 때문에, 유효한 ID 코드 서명 설정이 필요합니다. 
-
-1. [`Cartfile.private`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate) 에 Quick을 추가하세요:
-
-    ```
-    github "Quick/Quick"
-    github "Quick/Nimble"
-    ```
-
-2. `carthage update`를 실행합니다.
-3.  `Carthage/Build/[platform]/` 디렉터리에서, Quick과 Nimble을 test target의 Build Phase에 있는 "Link Binary With Libraries" 에 추가하세요:
-    ![](http://i.imgur.com/pBkDDk5.png)
-
-4. 테스트 타겟에 "Copy Files" 유형의 새 빌드 단계를 만들어 주세요:
-    ![](http://i.imgur.com/jZATIjQ.png)
-
-5. "Destination"을 "Frameworks"로 설정하고, 두 framework를 모두 추가해주세요:
-    ![](http://i.imgur.com/rpnyWGH.png)
-
-Carthage를 사용하여 의존성을 관리하는 것은 "유일한 방법" 이 아닙니다.
-더 자세한 내용은 [Carthage 문서](https://github.com/Carthage/Carthage/blob/master/README.md)를 참조하십시오.
 
 ## [Swift 패키지 매니저](https://github.com/apple/swift-package-manager)
 [swift.org](https://swift.org) 오픈 소스 프로젝트의 출현과 함께, Swift는 이제 초기지만, 공식적인 패키지 매니저 툴을 제공합니다. 특히, 처음으로 Quick을 비 Apple 플랫폼에서 사용할 수 있다는 가능성을 제공합니다. Swift 패키지 매니저를 사용하여 Quick 테스트 프로젝트를 사용할 수 있도록 초기 단계가 진행되었지만, 툴이 여전히 많이 개발되어 있지 않아 빈번히 파손될 것으로 예상됩니다. 

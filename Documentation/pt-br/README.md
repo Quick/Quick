@@ -30,7 +30,7 @@ Cada guia cobre um tópico em particular. Se você é completamente novo a teste
 - **[Usando Quick com Objective-C](QuickInObjectiveC.md)**:
   Leia isto se você esta com problemas para usar Quick em Objective-C.
 - **[Instalando Quick](InstallingQuick.md)**:
-  Leia isto para instruções de como adicionar Quick no seu projeto, usando Git submodules, CocoaPods, Carthage, ou Swift Package Manager.
+  Leia isto para instruções de como adicionar Quick no seu projeto, usando Git submodules, CocoaPods, ou Swift Package Manager.
 - **[Instalando Arquivos Templates Quick](InstallingFileTemplates.md)**:
 Leia isto para aprender como instalar arquivos templates que deixam escrever Quick specs mais rápidos.
 - **[Mais Recursos](MoreResources.md)**:

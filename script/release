@@ -182,7 +182,6 @@ echo
 echo " - Opening GitHub to allow for any edits to the release notes."
 echo "   - You should add a Highlights section at the top to call out any notable changes or fixes."
 echo "   - In particular, any breaking changes should be listed under Highlights."
-echo "   - Carthage archive frameworks will be automatically uploaded after the release is published."
 echo " - Announce!"
 
 open "https://github.com/Quick/Quick/releases/tag/$VERSION_TAG"

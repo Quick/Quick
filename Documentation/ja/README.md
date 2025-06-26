@@ -41,7 +41,7 @@ Quickでテストを書くと、SwiftとObjective-Cで書かれたプログラ�
   これを読んでください。
 - **[Quickのインストール方法](InstallingQuick.md)**:
   あなたのプロジェクトにQuickを導入する方法を説明します。Git submodules、
-  CocoaPods、Carthage、全部サポートしています！
+  CocoaPods、全部サポートしています！
 - **[Quickファイル・テンプレートのインストール方法](InstallingFileTemplates.md)**:
   Quickテストをすばやく作成するためのファイル・テンプレートをインストールする方法を説明します。
 - **[その他の参考資料](MoreResources.md)**:

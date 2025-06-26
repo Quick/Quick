@@ -10,8 +10,7 @@ There are three recommended ways of linking Quick to your tests:
 
 1. [Git Submodules](#git-submodules)
 2. [CocoaPods](#cocoapods)
-3. [Carthage](#carthage)
-4. [Swift Package Manager](#swift-package-manager)
+3. [Swift Package Manager](#swift-package-manager)
 
 Choose one and follow the instructions below. Once you've completed them,
 you should be able to `import Quick` from within files in your test target.
@@ -111,34 +110,6 @@ Finally, download and link Quick and Nimble to your tests:
 ```sh
 pod install
 ```
-
-## [Carthage](https://github.com/Carthage/Carthage)
-
-As test targets do not have the "Embedded Binaries" section, the frameworks must
-be added to the target's "Link Binary With Libraries" as well as a "Copy Files" build phase
-to copy them to the target's Frameworks destination.
-
- > As Carthage builds dynamic frameworks, you will need a valid code signing identity set up.
-
-1. Add Quick to your [`Cartfile.private`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfileprivate):
-
-    ```
-    github "Quick/Quick"
-    github "Quick/Nimble"
-    ```
-
-2. Run `carthage update`.
-3. From your `Carthage/Build/[platform]/` directory, add both Quick and Nimble to your test target's "Link Binary With Libraries" build phase:
-    ![](http://i.imgur.com/pBkDDk5.png)
-
-4. For your test target, create a new build phase of type "Copy Files":
-    ![](http://i.imgur.com/jZATIjQ.png)
-
-5. Set the "Destination" to "Frameworks", then add both frameworks:
-    ![](http://i.imgur.com/rpnyWGH.png)
-
-This is not "the one and only way" to use Carthage to manage dependencies.
-For further reference check out the [Carthage documentation](https://github.com/Carthage/Carthage/blob/master/README.md).
 
 ## [Swift Package Manager](https://github.com/apple/swift-package-manager)
 
