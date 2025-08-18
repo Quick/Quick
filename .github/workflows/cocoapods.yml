@@ -25,7 +25,7 @@ jobs:
     needs: filter
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: ${{ needs.filter.outputs.should_skip != 'true' }}
       - uses: ruby/setup-ruby@v1
         with:
