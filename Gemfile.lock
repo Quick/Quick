@@ -131,7 +131,7 @@ GEM
     public_suffix (4.0.7)
     rake (13.3.0)
     rchardet (1.8.0)
-    rexml (3.3.9)
+    rexml (3.4.2)
     rouge (3.28.0)
     ruby-macho (2.5.1)
     sawyer (0.9.2)
