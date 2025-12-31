@@ -1,4 +1,5 @@
 import Foundation
+import XCTest
 
 #if canImport(Darwin)
 // swiftlint:disable type_name
@@ -90,7 +91,6 @@ final public class Example: _ExampleBase {
             #else
             let file = callsite.file
             #endif
-            #if swift(>=5.3) && !SWIFT_PACKAGE
             let location = XCTSourceCodeLocation(filePath: file, lineNumber: Int(callsite.line))
             let sourceCodeContext = XCTSourceCodeContext(location: location)
             let issue = XCTIssue(
@@ -99,14 +99,6 @@ final public class Example: _ExampleBase {
                 sourceCodeContext: sourceCodeContext
             )
             QuickSpec.current.record(issue)
-            #else
-            QuickSpec.current.recordFailure(
-                withDescription: description,
-                inFile: file,
-                atLine: Int(callsite.line),
-                expected: false
-            )
-            #endif
         }
 
         group!.phase = .aftersExecuting
