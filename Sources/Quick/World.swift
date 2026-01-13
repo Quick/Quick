@@ -1,17 +1,5 @@
 import Foundation
 
-/**
-    A closure that, when evaluated, returns a dictionary of key-value
-    pairs that can be accessed from within a group of shared examples.
-*/
-public typealias SharedExampleContext = () -> [String: Any]
-
-/**
-    A closure that is used to define a group of shared examples. This
-    closure may contain any number of example and example groups.
-*/
-public typealias SharedExampleClosure = (@escaping SharedExampleContext) -> Void
-
 #if canImport(Darwin)
 // swiftlint:disable type_name
 @objcMembers
@@ -227,11 +215,13 @@ final internal class World: _WorldBase {
         return suiteAftersExecuting || exampleAftersExecuting || groupAftersExecuting
     }
 
-    internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: () -> Void) {
+    internal func performWithCurrentExampleGroup(_ group: ExampleGroup, closure: ExampleGroupClosure) {
         let previousExampleGroup = currentExampleGroup
         currentExampleGroup = group
 
-        closure()
+        MainActor.assumeIsolated {
+            closure()
+        }
 
         currentExampleGroup = previousExampleGroup
     }
