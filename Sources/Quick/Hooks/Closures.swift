@@ -36,11 +36,6 @@ public typealias BeforeExampleWithMetadataClosure = @MainActor (_ exampleMetadat
 public typealias BeforeExampleWithMetadataNonThrowingClosure = @MainActor (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
-    A closure for running an example.
- */
-public typealias ExampleClosure = @MainActor () throws -> Void
-
-/**
     An async throwing closure executed after an example is run.
 */
 public typealias AfterExampleAsyncClosure = BeforeExampleAsyncClosure

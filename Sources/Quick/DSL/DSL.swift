@@ -52,7 +52,7 @@ extension SyncDSLUser {
 
      - Remark: `sharedExamples` is untyped. Please use ``Behavior`` instead, as it offers type-safety.
      */
-    public static func sharedExamples(_ name: String, closure: @escaping () -> Void) {
+    public static func sharedExamples(_ name: String, closure: @escaping ExampleGroupClosure) {
         World.sharedWorld.sharedExamples(name) { _ in closure() }
     }
 
@@ -83,14 +83,14 @@ extension SyncDSLUser {
      - parameter description: An arbitrary string describing the example group.
      - parameter closure: A closure that can contain other examples.
      */
-    public static func describe(_ description: String, closure: () -> Void) {
+    public static func describe(_ description: String, closure: ExampleGroupClosure) {
         World.sharedWorld.describe(description, closure: closure)
     }
 
     /**
      Defines an example group. Equivalent to `describe`.
      */
-    public static func context(_ description: String, closure: () -> Void) {
+    public static func context(_ description: String, closure: ExampleGroupClosure) {
         World.sharedWorld.context(description, closure: closure)
     }
 
@@ -273,7 +273,7 @@ extension SyncDSLUser {
      Use this to quickly mark a `describe` closure as pending.
      This disables all examples within the closure.
      */
-    public static func xdescribe(_ description: String, closure: () -> Void) {
+    public static func xdescribe(_ description: String, closure: ExampleGroupClosure) {
         World.sharedWorld.xdescribe(description, closure: closure)
     }
 
@@ -281,7 +281,7 @@ extension SyncDSLUser {
      Use this to quickly mark a `context` closure as pending.
      This disables all examples within the closure.
      */
-    public static func xcontext(_ description: String, closure: () -> Void) {
+    public static func xcontext(_ description: String, closure: ExampleGroupClosure) {
         xdescribe(description, closure: closure)
     }
 
@@ -323,14 +323,14 @@ extension SyncDSLUser {
      If any examples in the test suite are focused, only those examples are executed.
      This trumps any explicitly focused or unfocused examples within the closure--they are all treated as focused.
      */
-    public static func fdescribe(_ description: String, closure: () -> Void) {
+    public static func fdescribe(_ description: String, closure: ExampleGroupClosure) {
         World.sharedWorld.fdescribe(description, closure: closure)
     }
 
     /**
      Use this to quickly focus a `context` closure. Equivalent to `fdescribe`.
      */
-    public static func fcontext(_ description: String, closure: () -> Void) {
+    public static func fcontext(_ description: String, closure: ExampleGroupClosure) {
         fdescribe(description, closure: closure)
     }
 

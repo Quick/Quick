@@ -26,6 +26,7 @@ open class QuickSpec: QuickSpecBase {
         }
     }
 
+    @MainActor
     open class func spec() {}
 
 #if canImport(Darwin)
