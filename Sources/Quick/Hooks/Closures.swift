@@ -8,13 +8,13 @@ public typealias BeforeExampleAsyncClosure = () async throws -> Void
 /**
     A throwing closure executed before an example is run.
  */
-public typealias BeforeExampleClosure = @MainActor () throws -> Void
+public typealias BeforeExampleClosure = () throws -> Void
 
 /**
     A closure executed before an example is run.
     This is only used by ObjC.
  */
-public typealias BeforeExampleNonThrowingClosure = @MainActor () -> Void
+public typealias BeforeExampleNonThrowingClosure = () -> Void
 
 /**
     An async throwing closure executed before an example is run. The closure is given example metadata,
@@ -26,19 +26,19 @@ public typealias BeforeExampleWithMetadataAsyncClosure = (_ exampleMetadata: Exa
     A throwing closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
  */
-public typealias BeforeExampleWithMetadataClosure = @MainActor (_ exampleMetadata: ExampleMetadata) throws -> Void
+public typealias BeforeExampleWithMetadataClosure = (_ exampleMetadata: ExampleMetadata) throws -> Void
 
 /**
     A closure executed before an example is run. The closure is given example metadata,
     which contains information about the example that is about to be run.
     This is only used by ObjC
  */
-public typealias BeforeExampleWithMetadataNonThrowingClosure = @MainActor (_ exampleMetadata: ExampleMetadata) -> Void
+public typealias BeforeExampleWithMetadataNonThrowingClosure = (_ exampleMetadata: ExampleMetadata) -> Void
 
 /**
-    A closure for running an example.
+    A closure for running an example
  */
-public typealias ExampleClosure = @MainActor () throws -> Void
+public typealias ExampleClosure = () throws -> Void
 
 /**
     An async throwing closure executed after an example is run.
@@ -77,12 +77,12 @@ public typealias AfterExampleWithMetadataNonThrowingClosure = BeforeExampleWithM
 /**
     A throwing closure which wraps an example. The closure must call runExample() exactly once.
 */
-public typealias AroundExampleClosure = @MainActor (_ runExample: @escaping () -> Void) throws -> Void
+public typealias AroundExampleClosure = (_ runExample: @escaping () -> Void) throws -> Void
 
 /**
     A closure which wraps an example. The closure must call runExample() exactly once.
 */
-public typealias AroundExampleNonThrowingClosure = @MainActor (_ runExample: @escaping () -> Void) -> Void
+public typealias AroundExampleNonThrowingClosure = (_ runExample: @escaping () -> Void) -> Void
 
 /**
     A throwing closure which wraps an example. The closure is given example metadata,
@@ -90,7 +90,7 @@ public typealias AroundExampleNonThrowingClosure = @MainActor (_ runExample: @es
     The closure must call runExample() exactly once.
 */
 public typealias AroundExampleWithMetadataClosure =
-@MainActor (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) throws -> Void
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) throws -> Void
 
 /**
     A throwing closure which wraps an example. The closure is given example metadata,
@@ -98,7 +98,7 @@ public typealias AroundExampleWithMetadataClosure =
     The closure must call runExample() exactly once.
 */
 public typealias AroundExampleWithMetadataNonThrowingClosure =
-@MainActor (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
+    (_ exampleMetadata: ExampleMetadata, _ runExample: @escaping () -> Void) -> Void
 
 /**
     An async throwing closure which wraps an example. The closure must call runExample() exactly once.
@@ -123,12 +123,12 @@ public typealias BeforeSuiteAsyncClosure = () async throws -> Void
 /**
     A throwing closure executed before any examples are run.
 */
-public typealias BeforeSuiteClosure = @MainActor () throws -> Void
+public typealias BeforeSuiteClosure = () throws -> Void
 
 /**
     A closure executed before any examples are run.
 */
-public typealias BeforeSuiteNonThrowingClosure = @MainActor () -> Void
+public typealias BeforeSuiteNonThrowingClosure = () -> Void
 
 /**
     An async throwing closure executed after all examples have finished running.
