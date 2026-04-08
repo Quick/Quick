@@ -26,6 +26,7 @@ open class QuickSpec: QuickSpecBase {
         }
     }
 
+    @MainActor
     open class func spec() {}
 
 #if canImport(Darwin)
@@ -38,6 +39,7 @@ open class QuickSpec: QuickSpecBase {
     /// SwiftPM on macOS does not have the mechanism (test cases are automatically
     /// discovered powered by Objective-C runtime), so we needed the alternative
     /// way.
+    @MainActor
     override open class var defaultTestSuite: XCTestSuite {
         QuickConfiguration.configureSubclassesIfNeeded(world: World.sharedWorld)
 
@@ -59,6 +61,7 @@ open class QuickSpec: QuickSpecBase {
     /// to both generate examples and inject them as methods by way of
     /// `testInvocations`.  Under single test conditions, there's no implicit
     /// call to `defaultTestSuite` so we make it explicitly here.
+    @MainActor
     open override class func instancesRespond(to aSelector: Selector!) -> Bool {
         _ = self.defaultTestSuite
         return super.instancesRespond(to: aSelector)
@@ -128,6 +131,7 @@ open class QuickSpec: QuickSpecBase {
     }
 #endif
 
+    @MainActor
     internal static func gatherExamplesIfNeeded() {
         let world = World.sharedWorld
         let rootExampleGroup = world.rootExampleGroup(forSpecClass: self)
