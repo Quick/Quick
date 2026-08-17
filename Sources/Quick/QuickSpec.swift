@@ -41,9 +41,11 @@ open class QuickSpec: QuickSpecBase {
     override open class var defaultTestSuite: XCTestSuite {
         QuickConfiguration.configureSubclassesIfNeeded(world: World.sharedWorld)
 
-        // Let's gather examples for each spec classes. This has the same effect
-        // as listing spec classes in `LinuxMain.swift` on Linux.
-        gatherExamplesIfNeeded()
+        if World.sharedWorld.isRunningAdditionalSuites {
+            gatherExamplesIfNeeded()
+        } else {
+            gatherAllExamplesIfNeeded()
+        }
 
         return super.defaultTestSuite
     }
