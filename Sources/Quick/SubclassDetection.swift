@@ -39,3 +39,12 @@ func allSubclasses<T: AnyObject>(ofType targetType: T.Type) -> [T.Type] {
     return []
     #endif
 }
+
+#if SWIFT_PACKAGE && canImport(Darwin)
+/// Builds every spec before XCTest creates invocations so suite-wide focus
+/// filters do not depend on the order in which test classes are discovered.
+func gatherAllExamplesIfNeeded() {
+    allSubclasses(ofType: QuickSpec.self).forEach { $0.gatherExamplesIfNeeded() }
+    allSubclasses(ofType: AsyncSpec.self).forEach { $0.gatherExamplesIfNeeded() }
+}
+#endif

@@ -36,9 +36,15 @@ open class AsyncSpec: AsyncSpecBase {
     override open class var defaultTestSuite: XCTestSuite {
         QuickConfiguration.configureSubclassesIfNeeded(world: World.sharedWorld)
 
-        // Let's gather examples for each spec classes. This has the same effect
-        // as listing spec classes in `LinuxMain.swift` on Linux.
+        #if SWIFT_PACKAGE
+        if AsyncWorld.sharedWorld.isRunningAdditionalSuites {
+            gatherExamplesIfNeeded()
+        } else {
+            gatherAllExamplesIfNeeded()
+        }
+        #else
         gatherExamplesIfNeeded()
+        #endif
 
         return super.defaultTestSuite
     }

@@ -41,6 +41,7 @@ class _FunctionalTests_FocusedAsyncSpec_Unfocused: AsyncSpec {
     }
 }
 
+#if !SWIFT_PACKAGE
 final class FocusedAsyncTests: XCTestCase, XCTestCaseProvider {
     static var allTests: [(String, (FocusedAsyncTests) -> () throws -> Void)] {
         return [
@@ -63,3 +64,4 @@ final class FocusedAsyncTests: XCTestCase, XCTestCaseProvider {
         XCTAssertEqual((result?.executionCount ?? 0) - (result?.skipCount ?? 0), 8)
     }
 }
+#endif

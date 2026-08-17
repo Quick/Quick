@@ -55,15 +55,23 @@ let package = Package(
                 dependencies: [ "Quick", "Nimble" ],
                 exclude: [
                     "QuickAfterSuiteTests/AfterSuiteTests+ObjC.m",
-                    "QuickFocusedTests/FocusedTests+ObjC.m",
+                    "QuickFocusedTests",
                     "QuickTests/FunctionalTests/ObjC",
                     "QuickTests/Helpers/QCKSpecRunner.h",
                     "QuickTests/Helpers/QCKSpecRunner.m",
                     "QuickTests/Helpers/QuickTestsBridgingHeader.h",
                     "QuickTests/QuickConfigurationTests.m",
-                    "QuickFocusedTests/Info.plist",
                     "QuickTests/Info.plist",
                     "QuickAfterSuiteTests/Info.plist",
+                ]
+            ),
+            .testTarget(
+                name: "QuickFocusedTests",
+                dependencies: [ "Quick", "Nimble" ],
+                path: "Tests/QuickTests/QuickFocusedTests",
+                exclude: [
+                    "FocusedTests+ObjC.m",
+                    "Info.plist",
                 ]
             ),
             .testTarget(
@@ -83,6 +91,10 @@ let package = Package(
 #if os(macOS)
         targets.append(contentsOf: [
             .target(name: "QuickObjCRuntime", dependencies: []),
+            .testTarget(
+                name: "QuickIssue1324RegressionTests",
+                dependencies: [ "Quick" ]
+            ),
             .target(
                 name: "Quick",
                 dependencies: [ "QuickObjCRuntime" ],
